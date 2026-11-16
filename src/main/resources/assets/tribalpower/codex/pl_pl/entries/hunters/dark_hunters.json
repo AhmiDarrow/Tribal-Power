@@ -1,0 +1,74 @@
+{
+  "name": "Łowcy w ciemności",
+  "icon": "tribalpower:lurker_claw",
+  "order": 290,
+  "spoiler": true,
+  "items": [
+    "tribalpower:deep_lurker_spawn_egg",
+    "tribalpower:pale_stalker_spawn_egg",
+    "tribalpower:gloom_crawler_spawn_egg",
+    "tribalpower:veil_drifter_spawn_egg",
+    "tribalpower:lurker_claw",
+    "tribalpower:pale_fang",
+    "tribalpower:gloom_silk",
+    "tribalpower:veil_tatter"
+  ],
+  "next": "colossus_warden",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Poniżej i powyżej",
+      "text": [
+        "Trzech łowców włada jaskiniami Marszu i powstają tam w ciemności za dnia tak samo jak nocą. Czwarty nocą dryfuje nad wysokimi ziemiami.",
+        "Żaden z nich nie stworzy więzi. Każdy upuszcza **od 1 do 2** swojego odczynnika, więcej z Grabieżą."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:deep_lurker",
+      "title": "Czyhacz głębin",
+      "text": [
+        "Gwiazdonosy kret wielkości niedźwiedzia, najtwardszy z jaskiniowych łowców, pod każdą ziemią Marszu, jeden lub dwa naraz. Ma **32 zdrowia** i **3 pancerza** i gryzie za **5**.",
+        "Upuszcza **Szpon czyhacza**, odczynnik Ogar, który miele się na barwnik Jasnoniebieski.",
+        "Przy polowaniu upuszcza też do 2 kości i do 1 Skóra Marszu."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_stalker",
+      "title": "Blady tropiciel",
+      "text": [
+        "Wychudły, bezoki jaskiniowy ghul, wysoki, blady i szybki, z jaskiń pod Stepem, Wyżyną, Grzbietem połysku, Śnieżnymi polami i Kryształowymi polami, po jednym lub dwóch naraz. **24 zdrowia** i **1 pancerza**. Cios zadaje **4** i osłabia cię przez 4 sekundy.",
+        "Upuszcza **Blady kieł**, odczynnik Osłabienia.",
+        "Upolowany upuszcza też od 1 do 2 kości."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:gloom_crawler",
+      "title": "Mroczny pełzacz",
+      "text": [
+        "Jaskiniowa stonoga, niska i ciemna, z jaskiń pod każdą krainą oprócz Płycizn, po jednym lub dwóch naraz. **22 zdrowia** i **2 pancerza**. Ugryzienie zadaje **4**, spowalnia cię przez 3 sekundy i może zostawić cię [Wystrzępiony](afflictions).",
+        "Upuszcza **Mroczny jedwab**, odczynnik Splotu.",
+        "Upolowana upuszcza też od 1 do 2 nici i do 1 oka pająka."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:veil_drifter",
+      "title": "Błąkacz zasłony",
+      "text": [
+        "Dryfujący, poszarpany całun na skrzydłach niczym u nietoperza, który nocą wznosi się nad Wyżyną, Grzbietem połysku, Śnieżnymi polami i Kryształowymi polami, po jednym lub dwóch naraz. **18 zdrowia** i **1 pancerza**.",
+        "Z odległości do 12 bloków rzuca podmuch o sile **3**, który odrzuca cię w tył. Osłona przerywa rzucanie. Upuszcza **Strzęp zasłony**, odczynnik Podmuchu.",
+        "Upolowany upuszcza też do 1 błony fantoma i do 1 nici."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i wypas",
+      "text": [
+        "Oprócz swojego odczynnika każdy upolowany zostawia więcej, a z Grabieżą jeszcze więcej."
+      ]
+    }
+  ]
+}

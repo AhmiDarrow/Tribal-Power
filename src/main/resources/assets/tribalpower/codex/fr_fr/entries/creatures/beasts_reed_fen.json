@@ -1,0 +1,74 @@
+{
+  "name": "Bêtes de la tourbière des roseaux",
+  "icon": "tribalpower:marsh_foot",
+  "order": 250,
+  "spoiler": true,
+  "items": [
+    "tribalpower:marsh_hopper_spawn_egg",
+    "tribalpower:fen_strider_spawn_egg",
+    "tribalpower:bog_floater_spawn_egg",
+    "tribalpower:reed_coil_spawn_egg",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:reed_whorl"
+  ],
+  "next": "beasts_crystal_fields",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Propres à la tourbière des roseaux",
+      "text": [
+        "Parmi les roseaux et les chenaux de boue vivent une grenouille, un héron et un poisson-globe qui flotte dans l'air, et la nuit un cobra s'éveille dans l'herbe.",
+        "Tu peux brosser chaque bête douce d'ici une fois par minute pour son réactif, et elle s'attire et se reproduit avec sa propre nourriture, nommée plus bas sous **Chasse et élevage**. Tu peux la lier comme n'importe quel animal doux (voir [familiers](familiars)), et bien qu'aucune n'ait de don propre, une liée peut tout de même prendre une voix à un totem et renforcer ta magie (voir [s'accorder à un totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:marsh_hopper",
+      "title": "Sauteur des marais",
+      "text": [
+        "Une petite grenouille de fagne, prompte à sauter, en groupes de deux à quatre. **12 de santé**, sans armure.",
+        "Lâche **1 à 3 Patte de marais**, davantage avec Butin.",
+        "Chassée, elle lâche aussi jusqu'à 1 Gibier cru, jusqu'à 1 Peau de lapin et jusqu'à 1 Boule de slime. Reproduis-la avec **Riz de tourbière**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:fen_strider",
+      "title": "Échassier de fagne",
+      "text": [
+        "Un grand héron qui patauge sur des pattes d'échasses, en bandes de deux à quatre. **22 de santé** et **1 d'armure**.",
+        "Lâche **1 à 3 Sabot de fagne**.",
+        "Chassé, il lâche aussi de 1 à 3 Gibier cru, jusqu'à 2 Cuir de la Marche et jusqu'à 1 Os. Reproduis-le avec **Riz de tourbière**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bog_floater",
+      "title": "Flotteur de tourbière",
+      "text": [
+        "Un poisson-globe vert, gonflé en boule et piquant, qui dérive au-dessus de la fagne, d'un à trois. **12 de santé**, sans armure. Quelques-uns dérivent avec le [Gardien colosse](colossus_warden).",
+        "Lâche **1 à 3 Vessie de tourbière**.",
+        "Chassé, il lâche aussi jusqu'à 1 Boule de slime et jusqu'à 1 Ficelle. Reproduis-le avec **Riz de tourbière**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:reed_coil",
+      "title": "Spirale de roseau",
+      "text": [
+        "Un cobra des marais, lové, capuchon déployé, qui se dresse la nuit sur le sol ouvert de la fagne, un ou deux à la fois. Il est très lent, mais il a **30 de santé** et **6 d'armure**, frappe pour **5** et te repousse à chaque coup.",
+        "Lâche **1 à 2 Volute de roseau**, un réactif de Poussée.",
+        "Chassé, il lâche aussi jusqu'à 1 Cuir de la Marche et jusqu'à 1 Os."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chasse et élevage",
+      "text": [
+        "Outre son réactif, chacune en lâche plus quand tu la chasses, et encore plus avec Butin. La viande tombe rôtie si l'animal est mort en brûlant. Pour reproduire les sauvages, **accroupis-toi** pendant que tu donnes leur nourriture à deux adultes ; nourri normalement, un sauvage s'attache à toi à la place."
+      ]
+    }
+  ]
+}

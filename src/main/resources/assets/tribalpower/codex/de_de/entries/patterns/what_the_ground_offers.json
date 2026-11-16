@@ -1,0 +1,65 @@
+{
+  "name": "Was der Boden bietet",
+  "icon": "minecraft:raw_iron",
+  "order": 80,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Was die Grube heraufruft",
+      "text": [
+        "Die Grube ruft genau das herauf, was ein Abbau mit Behutsamkeit brächte: den **Rohgegenstand** für ein Metall, den **Erzblock** für einen Edelstein. Jeder Zyklus verbraucht sein Substrat und gibt ein Ergebnis.",
+        "Stein ist erneuerbar: Ein [Steinbecken](stone_font) macht ihn. Marschstein wird aus Marschbruchstein geschmolzen, den du im Marsch abbaust."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die vier Bänder",
+      "text": [
+        "- **Gewöhnlich**: Kohle, Kupfer und Eisen. **10 Sekunden** bei **56 Puls pro Sekunde**, auf **zwei Stein**.",
+        "- **Tief**: Gold, Redstone und Lapislazuli. **15 Sekunden** bei **64**, auf **zwei Marschstein**. Quarz ist nicht in diesem Band.",
+        "- **Heiß**: Quarz und Golderz des Nether. **20 Sekunden** bei **72**, auf zwei Marschstein, mit **Feuer**.",
+        "- **Selten**: Diamant, Smaragd und jedes Metall oder jeder Edelstein, den der Gries-Scan in deinem Rucksack gefunden hat. **40 Sekunden** bei **48**, auf **vier Marschstein und eine Geistscherbe**, mit **Geist**. Etwa jeder vierte seltene Zyklus gibt das Doppelte."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Welches Band es hört",
+      "text": [
+        "Tief, Heiß und Selten brauchen [Tiefes Lauschen](listening_pit) und den passenden Rang. Ohne Probe hört eine Grube unter **y 0** ein Band tiefer, und Geist nimmt sie noch einmal tiefer.",
+        "Wenn Rang oder Form nicht so weit reichen, nimmt die Grube das tiefste Band, das sie erreichen darf, statt abzubrechen.",
+        "Unter y 0, oder über Tiefenschiefer, kommen Edelsteine als Tiefenschiefererze herauf."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Proben",
+      "text": [
+        "Eine Probe ist ein Filter, nie eine Zutat. Setze eine, indem du das Geflecht mit einem Rohmetall, Gries oder einem Edelstein rechtsklickst.",
+        "Ein Material, das die Probe nennt, wiegt **sechsmal** so viel wie alles andere im Band. Eine Probe verlangt auch das tiefste Band, das ihn enthält und das die Grube erreichen darf: Gold meint das heiße Band, wenn Feuer brennt, sonst das tiefe Band.",
+        "Eine Probe, die kein erreichbares Band enthält, wird ignoriert, und der Kodex sagt es."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stimmen an der Grube",
+      "text": [
+        "Erde ist nötig. Jede andere Stimme tauscht eines gegen ein anderes; keine ist ein schlichter Multiplikator.",
+        "- **Wasser** wäscht: eine zusätzliche Ausgabe jeden **dritten** Zyklus, für **250 mB** aus dem Tank des Geflechts. Fülle ihn mit einem Eimer; er fasst 4,000 mB.",
+        "- **Luft** verkürzt den Zyklus auf etwa **0.65** seiner Zeit und verlangt etwa **1.55-mal** den Puls pro Sekunde. Puls pro Gegenstand ändert sich nicht.",
+        "- **Feuer** öffnet das heiße Band bei 72 Puls pro Sekunde. Die Grube hört nur dort hin, wenn eine Quarz- oder Goldprobe es verlangt, und Gold kommt dann als Nether-Golderz herauf.",
+        "- **Geist** hört ein Band tiefer und öffnet das seltene.",
+        "- Der **Webstuhl** halbiert das Substrat, aufgerundet."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was es kostet",
+      "text": [
+        "Ein Eisenzyklus ist **560 Puls** auf zwei Stein.",
+        "Abbauen kostet weiter weniger Puls pro Barren. Das Geschenk der Grube ist, dass sie nie ausgeht."
+      ]
+    }
+  ]
+}

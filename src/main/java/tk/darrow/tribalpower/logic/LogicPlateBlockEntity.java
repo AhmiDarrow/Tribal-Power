@@ -105,7 +105,7 @@ public class LogicPlateBlockEntity extends BlockEntity implements Diagnosable, O
                     "inverse_pressed", "echo_carries", "echo_silent", "memory_set", "memory_clear",
                     "strike", "strike_wait", "chance_yes", "chance_no"
                     -> Component.translatable("message.tribalpower.logic." + reason);
-            default -> Component.literal(reason);
+            default -> Component.translatableWithFallback("message.tribalpower.logic." + reason, reason);
         };
     }
 

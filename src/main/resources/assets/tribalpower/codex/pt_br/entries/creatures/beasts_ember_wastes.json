@@ -1,0 +1,74 @@
+{
+  "name": "Feras dos Ermos de brasa",
+  "icon": "tribalpower:cinder_plate",
+  "order": 240,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cinderhide_spawn_egg",
+    "tribalpower:ashmoth_spawn_egg",
+    "tribalpower:slaglump_spawn_egg",
+    "tribalpower:emberjaw_spawn_egg",
+    "tribalpower:cinder_plate",
+    "tribalpower:ash_wing",
+    "tribalpower:slag_curd",
+    "tribalpower:ember_fang"
+  ],
+  "next": "beasts_reed_fen",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Os da cinza",
+      "text": [
+        "Dois dos animais dos Ermos vivem à beira da lava, um voa pela cinza e um caça o basalto à noite.",
+        "Toda fera mansa daqui pode ser escovada uma vez por minuto para obter seu reagente, e é tentada e reproduzida com a própria comida, indicada abaixo em **Caça e pastoreio**. Pode ser vinculada como qualquer animal manso (ver [familiares](familiars)) e, embora nenhuma tenha um dom próprio, uma vinculada ainda pode tomar uma voz em um totem e fortalecer a sua magia (ver [sintonizar em um totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinderhide",
+      "title": "Couro-de-cisco",
+      "text": [
+        "Uma tartaruga vulcânica, com fogo entre as placas do casco, que vive à beira da lava e na pedra quente ao redor, uma ou duas por vez. **30 de vida** e **7 de armadura**, lenta, e **imune ao fogo**.",
+        "Solta **de 1 a 3 Placa de cisco**, um reagente de brasa.",
+        "Caçado, também solta de 1 a 2 Caça crua e até 1 Couro da Marcha. Crie com **Raiz de brasa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ashmoth",
+      "title": "Mariposa-de-cinza",
+      "text": [
+        "Uma mariposa-gavião cinza da cinza, asas largas dobradas sobre asas posteriores salmão e o corpo listrado de salmão rumo à cauda, de uma a três. **10 de vida**, sem armadura.",
+        "Solta **de 1 a 3 Asa de cinza**, que se moem em corante preto.",
+        "Caçado, também solta até 1 linha e até 1 pólvora. Crie com **Raiz de brasa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slaglump",
+      "title": "Torrão de escória",
+      "text": [
+        "Uma salamandra de lava longa e baixa, de cabeça chata como uma pá, preta com manchas laranja, que se espoja junto à lava, uma ou duas por vez. **26 de vida** e **5 de armadura**, e **imune ao fogo**.",
+        "Solta **de 1 a 3 Coalhada de escória**, um reagente de brasa.",
+        "Caçado, também solta até 1 creme de magma e até 2 pepitas de ferro. Crie com **Raiz de brasa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:emberjaw",
+      "title": "Queixo-de-brasa",
+      "text": [
+        "Um raptor de fogo listrado, que corre baixo com a cauda para trás e é quase só queixo, e surge no basalto à noite, um ou dois por vez. Tem **32 de vida** e **3 de armadura** e acerta por **6**, empurrando você para trás a cada golpe. Apesar de toda a cor, ele **não** é à prova de fogo.",
+        "Solta **de 1 a 2 Presa de brasa**, um reagente de empurrão.",
+        "Caçado, também solta até 2 ossos e até 2 carvão vegetal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Além do reagente, cada um larga mais quando é caçado, e mais ainda com Pilhagem. A carne cai assada se o animal morreu queimando. Para reproduzir os selvagens, **agache** enquanto você dá a comida deles a dois adultos; alimentado normalmente, um selvagem se afeiçoa a você."
+      ]
+    }
+  ]
+}

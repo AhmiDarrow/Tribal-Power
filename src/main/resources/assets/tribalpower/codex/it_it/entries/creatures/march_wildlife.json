@@ -1,0 +1,96 @@
+{
+  "name": "Fauna della Marcia",
+  "icon": "tribalpower:raw_glimmerfin",
+  "order": 190,
+  "items": [
+    "tribalpower:glimmerfin_spawn_egg",
+    "tribalpower:drift_bell_spawn_egg",
+    "tribalpower:veil_ray_spawn_egg",
+    "tribalpower:silt_eel_spawn_egg",
+    "tribalpower:loom_swift_spawn_egg",
+    "tribalpower:raw_glimmerfin",
+    "tribalpower:cooked_glimmerfin",
+    "tribalpower:raw_silt_eel",
+    "tribalpower:smoked_silt_eel",
+    "tribalpower:drift_jelly",
+    "tribalpower:glimmerfin_bucket"
+  ],
+  "next": "beasts_steppe",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Nell'acqua",
+      "text": [
+        "Gli stagni, le pozze e i laghetti della Marcia sono pieni di vita.",
+        "Tutti restano nell'acqua aperta sotto il cielo, mai nell'acqua chiusa nella roccia sotto."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmerfin",
+      "title": "Pinnabaleno",
+      "text": [
+        "Piccolo pesce neon con pinne accese, che nuota in banchi nell'acqua di ogni terra. Prendine uno con un secchio d'acqua, oppure cuocilo."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:drift_bell",
+      "title": "Campana alla deriva",
+      "text": [
+        "Una medusa lenta e luminosa a forma di campana, nell'acqua di ogni terra tranne gli Altipiani e le Distese di brace. Innocua. La sua **Gelatina alla deriva** ti lascia respirare sott'acqua e vedere al buio per un po'."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:veil_ray",
+      "title": "Razza del velo",
+      "text": [
+        "Una manta larga e timida della Steppa, degli Altipiani, della Torbiera delle canne e delle Secche; scivola via da chiunque si avvicini. Lascia Cuoio della Marcia e Pinnabaleno."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:silt_eel",
+      "title": "Anguilla di limo",
+      "text": [
+        "Un'anguilla di torbiera color oliva, delle pozze e dei canali della Torbiera delle canne, delle Secche e dell'acqua dove le Distese di brace scendono al mare. Nuota con il Pinnabaleno e morde chiunque guadi la sua acqua. Cuocila in Anguilla di limo affumicata per un buon pasto."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:loom_swift",
+      "title": "Rondone del Telaio",
+      "text": [
+        "I **Rondone del Telaio** volteggiano sulla terra aperta in stormi radi di **da 3 a 6**, solo di giorno e con tempo secco, e mai sopra le Distese di brace; non più di **12** si raccolgono intorno a te. Lasciano una piuma o due e, ogni tanto, un po' di Selvaggina cruda."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nell'aria",
+      "text": [
+        "Più vicino al suolo l'aria è piena di insetti: **lucciole** sulla torbiera e sulla steppa di notte, **dardi di canna** che sfiorano l'acqua di giorno, **alivetro** che svolazzano sui fiori dei Campi di cristallo, e **moscerini di cenere** che salgono dalle Distese di brace. Sono solo luce e movimento; non si possono prendere, e non costano nulla al tuo mondo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le mandrie tornano",
+      "text": [
+        "Caccia o addomestica un tratto della Marcia fino a lasciarlo spoglio, e non resterà spoglio. Circa **una volta al minuto**, in un punto quieto **da 32 a 96 blocchi** da te e mai entro **24 blocchi** da chiunque, qualche animale di quella terra può tornare: gli stessi brucatori con cui la sua terra è iniziata, compresi quelli che altre mod aggiungono lì. Chi vive nelle caverne e nella lava torna al proprio suolo.",
+        "Smettono di arrivare quando circa **sei** animali vivono entro 32 blocchi dal punto. Contano anche gli animali addomesticati e chiusi in un recinto, così la terra si riempie all'incirca come all'inizio e non oltre, e le mandrie selvatiche non affollano mai le tue fattorie né un campo affollato.",
+        "Pesci, meduse e rondoni vanno e vengono da soli con l'acqua e il cielo. Le impostazioni del server possono cambiare il ritmo, o spegnere il ritorno."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nutrire e far riprodurre",
+      "text": [
+        "Tieni **Alga nastro** o **Erba marina** e Pinnabaleno, Campana alla deriva e Razza del velo nuotano verso di te, anche le razze timide. Nutrine due della stessa specie e ne fanno un terzo.",
+        "Una **Canna da pesca** lanciata in qualsiasi acqua della Marcia tira su Pinnabaleno crudo, e un lancio su quattro una Anguilla di limo cruda, al posto di merluzzo e salmone. Tieni un **Secchio vuoto** nell'altra mano e un Pinnabaleno sale vivo, come Secchio di pinnabaleno: il modo facile per popolare uno stagno.",
+        "Tieni **Semi di grano** o **Grano della steppa** e i Rondone del Telaio volteggiano vicini a te, abbastanza da nutrirli. Due nutriti ne fanno un terzo allo stesso modo.",
+        "I piccoli nascono già adulti e non si allontanano mai, così uno stagno popolato resta popolato. Ogni coppia riposa cinque minuti prima di riprodursi di nuovo. L'Anguilla di limo non prende cibo.",
+        "La Campana alla deriva lascia anche, di tanto in tanto, una palla di slime."
+      ]
+    }
+  ]
+}

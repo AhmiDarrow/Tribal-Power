@@ -1,0 +1,281 @@
+{
+  "name": "Conduttore di reticolo",
+  "icon": "tribalpower:lattice_conductor",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lattice_conductor",
+      "text": "Il Conduttore di reticolo tesse il reticolo del Pulso; non produce Pulso proprio. Il Pulso si muove solo lungo i conduttori: tutto entro **8 blocchi** da uno (generatori, macchine, mani dell'accampamento, relè, totem e Tumulo di Pulso) è sulla sua rete, e le macchine attingono Pulso solo dalla rete. Una lavorazione ne fa quattro."
+    },
+    {
+      "type": "text",
+      "title": "Tessere una rete",
+      "text": [
+        "I conduttori entro 8 blocchi l'uno dall'altro si collegano e tessono una rete, fin dove corre la linea. Due gruppi fuori portata l'uno dall'altro sono due reti e non condividono nulla.",
+        "Una macchina attinge prima dai generatori della sua rete, poi dai suoi [Tumulo di Pulso](pulse_cairn). Non attinge mai direttamente da un generatore, nemmeno da uno proprio accanto: niente conduttore, niente Pulso.",
+        "I totem su una rete con Pulso riempiono da essa le riserve di **250 Pulso** e poi restano piene, senza altro costo. Quella riserva tiene la voce del totem: un totem vuoto è silenzioso (vedi [Custodia](keeping)). Le macchine non spendono mai la riserva di un totem.",
+        "I totem si uniscono con **Gesso rituale** per le loro voci: clic destro su un totem, poi su un altro a **meno di 16 blocchi**. Una stazione conta la voce di un totem unito col gesso a uno vicino, purché quel compagno stia a meno di 16 blocchi dalla stazione. Il gesso porta le voci, non il Pulso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quanto porta",
+      "text": [
+        "Ogni conduttore porta una quantità fissa al secondo, secondo il [rango](machine_ranks): **Intrecciato 64**, **Sintonizzato 256**, **Vincolato 1,024** e **Manifestato 4,096** di Pulso al secondo. Un conduttore di prima dei ranghi è Intrecciato.",
+        "Il Pulso esce da un generatore attraverso un conduttore entro 8 blocchi da esso e raggiunge una macchina attraverso un conduttore entro 8 blocchi dalla macchina, e conta su entrambi. Il Pulso che esce e arriva dallo stesso conduttore conta una volta. I collegamenti tra conduttori portano liberamente, così una rete porta tanto quanto tutti i suoi conduttori insieme.",
+        "Un grande generatore vuole conduttori forti o molti intorno: uno che ne faccia migliaia al secondo, come un [Cuore di ley](ley_heart) al grado massimo, ha bisogno di un conduttore manifestato (4.096 al secondo), o di quattro vincolati, per consegnare tutto. Lo stesso vale per una macchina affamata.",
+        "Un segnale di redstone su un conduttore lo solleva dalla trama finché il segnale non finisce."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un reticolo attraverso l'accampamento",
+      "steps": [
+        {
+          "caption": "Un generatore. Nessuna macchina può attingere da esso finché il reticolo non lo raggiunge.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Un Conduttore di reticolo entro 8 blocchi da esso lo tesse nel reticolo.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Una stazione entro 8 blocchi dal conduttore attinge alla rete. Senza il conduttore morirebbe di fame, per quanto vicino sia il tamburo.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_attune"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ],
+            [
+              2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "I totem a portata riempiono le riserve dalla rete e restano pieni: così tengono le loro voci.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Leggerlo",
+      "text": [
+        "Fai clic destro su un conduttore per la sua rete: quanti conduttori, generatori e tumuli contiene, il ritmo di questo conduttore e quello di tutta la rete, e il Pulso tenuto su di esso.",
+        "Il rito [Vincolo ley](world_rites) lega per un po' due totem lontani: i conduttori a portata di un capo si tessono nella rete dell'altro.",
+        "La vista Pulso della [Lente ley](ley_lens) mostra la rete su cui ti trovi, attraverso quale conduttore, e quanto ha portato nell'ultimo secondo.",
+        "Il reticolo porta Pulso, non merci. Per spostare oggetti a distanza, usa i [relè](wireless_cargo)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quando tace",
+      "text": [
+        "Una leva o un qualsiasi segnale di redstone solleva il conduttore dalla trama.",
+        "«Nessun generatore o tumulo» significa che nulla sulla rete produce o tiene Pulso: portane uno entro 8 blocchi da uno qualsiasi dei suoi conduttori.",
+        "«Secco» significa che i generatori e i tumuli della rete sono vuoti: produci più Pulso, o spendine meno.",
+        "«Porta tutto ciò che può» significa che il conduttore ha passato tutto il suo ritmo nell'ultimo secondo: alza il grado, o aggiungi conduttori accanto al generatore e alla macchina occupati.",
+        "Accovacciati e fai clic destro con questo libro per il suo grado, quanto ha portato nell'ultimo secondo e cosa manca."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_conductor"
+    }
+  ]
+}

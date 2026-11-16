@@ -1,0 +1,220 @@
+{
+  "name": "Ahnenspeicher",
+  "icon": "tribalpower:ancestral_cache",
+  "order": 10,
+  "next": "spirit_cistern",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ancestral_cache",
+      "text": [
+        "Ein großer Speicher **mit 54 Plätzen** für die Vorräte des Lagers, mit einem Trick, den eine Truhe nicht hat: stelle seine Seiten ein, und er füttert oder leert die Tribal Power-Maschinen, die ihn berühren, ohne Trichter und ohne Relais."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Seine Seiten einstellen",
+      "text": [
+        "Öffne ihn und nutze das E/A-Feld, um jede Seite auf **Eingang**, **Ausgang**, **Beides** oder **Geschlossen** zu setzen. Wenn du schleichst und eine Seite mit leerer Hand rechtsklickst, schaltest du sie auch weiter.",
+        "Berührende Tribal Power-Maschinen geben bis zu **16 Gegenstände pro Sekunde** von einer Seite, die gibt (Ausgang oder Beides), an eine Seite, die nimmt (Eingang oder Beides). Zwei Seiten auf Beides tauschen nie, also können Stapel nicht zwischen ihnen hin- und herspringen.",
+        "Die Unterseite einer Station ist Ausgang, also fängt ein Speicher unter einer Station alles auf, was sie herstellt. Setze eine Seite auf Ausgang gegen die Eingang-Seite einer Station, und er füttert die Station."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Eine Station, die sich selbst leert",
+      "steps": [
+        {
+          "caption": "Stelle einen Ahnenspeicher dorthin, wo die Ausgabe ankommen soll.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Stelle den Echozermalmer oben darauf; die Unterseite einer Station ist Ausgang.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Gib dem Echozermalmer sein Erde-Totem und Puls, wie üblich.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Scherben fallen jetzt direkt in den Speicher, kein Trichter nötig.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tipps",
+      "text": [
+        "Trichter und Rohre beachten dieselben Seiteneinstellungen. Eine Seite auf Geschlossen weist auch sie ab.",
+        "Nachbarn nutzen Seiten; Relais sind für die Distanz. Siehe [Drahtlose Fracht](wireless_cargo).",
+        "Ein Hebel sperrt sowohl das Menü als auch die Automatisierung. Ein Komparator liest, wie voll er ist."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ancestral_cache"
+    },
+    {
+      "type": "text",
+      "title": "Der Aufräumknopf",
+      "text": [
+        "Jedes Inventar, das sich aufzuräumen lohnt, hat einen kleinen Knopf **Aufräumen** in der leeren Ecke über seinen Plätzen: dein eigener Rucksack, dieser Speicher, der [Tiefspeicher](deep_cache) (und der Tresor, den ein Wandersäckel oder ein Lager öffnet) und jede Truhe, jedes Fass, jede Shulker-Kiste oder jeder Trichter.",
+        "Ein Druck stapelt, was sich stapeln lässt, und legt den Rest der Reihe nach hin. Deine Schnellzugriffsleiste und deine Rüstung werden nie verschoben, und die Plätze einer Maschine bleiben unberührt: der Knopf erscheint nur über schlichtem Lager. Beim Aufräumen kommt nie ein Wandersäckel in den Tresor.",
+        "Schalte ihn mit **sortButtons** in der Client-Konfiguration aus, wenn er den Bildschirm eines anderen Mods überlagert."
+      ]
+    }
+  ]
+}

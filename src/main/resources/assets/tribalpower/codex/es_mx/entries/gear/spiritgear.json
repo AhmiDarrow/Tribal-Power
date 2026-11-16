@@ -1,0 +1,129 @@
+{
+  "name": "Equipo espiritual",
+  "icon": "tribalpower:spiritgear_pickaxe",
+  "order": 40,
+  "items": [
+    "tribalpower:spiritgear_axe",
+    "tribalpower:spiritgear_shovel",
+    "tribalpower:spiritgear_blade",
+    "tribalpower:spiritgear_shears",
+    "tribalpower:spiritgear_hoe"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_pickaxe",
+      "text": [
+        "Herramientas forjadas con Lingote manifestado: un pico, un hacha, una pala, una hoja, unas tijeras y una azada. Cortan como el diamante. El pico, el hacha, la pala, la hoja y la azada duran **1,561** usos, como el diamante, y las tijeras **1,024**.",
+        "Si pueden extraer Pulso de una célula, el Pulso es el precio del trabajo y el filo se conserva: un bloque, un uso o un golpe pagado no sufre desgaste alguno.",
+        "El [Arco de Pulso](song_bench) y la [Ballesta de Pulso](pulse_crossbow) también se forjan con Lingote manifestado y duran **1,024**. Cada disparo se paga con Pulso, así que disparar nunca los desgasta. Todo se repara en el [Yunque del Espíritu](spirit_anvil)."
+      ],
+      "title": "Herramientas de Equipo espiritual"
+    },
+    {
+      "type": "text",
+      "title": "Pulso para el trabajo",
+      "text": [
+        "Un bloque minado cuesta **2 Pulso**, un golpe **3**, un uso **1**, tomados de cualquier Célula de Pulso que lleves.",
+        "Sin Pulso la herramienta sigue funcionando, pero entonces se desgasta: lo que cualquier herramienta gastaría, y un punto más por el hambre, hasta alcanzar Vinculado. La barra de acción te dice que está hambrienta.",
+        "Un [familiar](familiar_boons) sintonizado con la voz de la pieza y que esté cerca reduce el gasto de la pieza en un **40%**. Cada pieza se repara con Lingote manifestado en cualquier yunque, nunca con diamantes."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Subir de rango",
+      "text": [
+        "Los rangos son donde el Equipo espiritual se vuelve algo especial, y deben costar un esfuerzo de verdad. Coloca la pieza en la estación con su tótem cerca, pon los **catalizadores** en las ranuras de catalizador y mantén el Pulso en curso:",
+        "- **Sintonizador de eco**, Fuego: rango 0 a 1. **45 segundos** a **96 Pulso por segundo**, y **4 Eco sintonizado**.",
+        "- **Vinculador de eco**, Agua: rango 1 a 2. **90 segundos** a **128**, y **4 Eco vinculado**.",
+        "- **Manifestador de eco**, Espíritu: rango 2 a 3. **180 segundos** a **192**, y **2 Núcleo resonante** y **4 Hilo de Telar**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Antes de subir de rango",
+      "text": [
+        "Cada estación toma solo el rango siguiente: Vinculador de eco rechaza el rango 0, y Manifestador de eco rechaza todo lo que esté por debajo de Vinculado. Hilo de Telar solo sale de [El No Cantado](the_unsung), así que el rango máximo espera hasta que lo hayas vencido.",
+        "Son consumos fuertes para cualquier campamento. Trae un resonador con un buen catalizador, o varios generadores, a 8 bloques.",
+        "La estación espera, sin gastar nada, hasta que sus catalizadores están dentro; se consumen cuando el rango se completa. La descripción siempre muestra lo que pide el rango siguiente."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que dan los rangos",
+      "text": [
+        "- **Sintonizado**: cada acción cuesta un Pulso menos, nunca por debajo de uno (minar 1, un golpe 2, un uso 1), mina un **20%** más rápido y golpea más fuerte.",
+        "- **Vinculado**: una acción hambrienta no se desgasta más de lo que lo haría cualquier herramienta, y mina un **45%** más rápido.",
+        "- **Manifestado**: mina un **80%** más rápido, la mitad de las acciones hambrientas no sufre desgaste alguno y las ventajas de la voz se vuelven más fuertes.",
+        "La hoja y su [familia de armas](spiritgear_weapons) son las que más ganan: **+2**, **+5** y **+10** de daño de ataque según el rango, y un poco de velocidad de ataque. Una hoja en Manifestado golpea a los **jefes 25% más fuerte** y te cura un **10%** de cada golpe, que es lo que quieres en un combate largo.",
+        "Un pico vinculado al Telar gasta **0 Pulso** al minar. Destejido de eco desmonta una herramienta dañada en un Lingote manifestado, olvidando rango y voz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Las tijeras",
+      "text": [
+        "Las **Tijeras de Equipo espiritual** recortan hojas, lana, enredaderas y telaraña, y suben de rango y toman una voz como el resto del conjunto.",
+        "- **Tierra**: un golpe se lleva toda la cara de 3x3 de follaje.",
+        "- **Aire**: recortar no cuesta Pulso ni desgaste alguno.",
+        "- **Agua**: una oveja esquilada conserva el vellón la mitad de las veces, y siempre en Manifestado.",
+        "- **Fuego**: usadas en una colmena, ahúman a las abejas hasta calmarlas, así que no hay enjambre.",
+        "- **Espíritu**: lo que esquilan se repara después, y las bestias cercanas que vale la pena esquilar brillan.",
+        "- **Telar**: los recortes llegan directo a la mano."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La azada",
+      "text": [
+        "La **Azada de Equipo espiritual** siega y siembra de un solo movimiento: úsala en un cultivo maduro y la cosecha cae, menos una semilla que vuelve directo al suelo. Un cultivo que no da semilla propia se siega y queda desnudo.",
+        "- **Tierra**: labra un 3x3 de tierra de una vez.",
+        "- **Agua**: sus surcos salen húmedos, y la tierra de cultivo a tu alrededor sigue regada mientras la sostienes.",
+        "- **Aire**: siega un 3x3.",
+        "- **Telar**: siega un 5x5 y no gasta Pulso al hacerlo.",
+        "- **Espíritu**: una cuarta parte de las cosechas cae el doble (las semillas aparte)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_pickaxe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_axe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_shovel"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_blade"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_shears"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_hoe"
+    },
+    {
+      "type": "text",
+      "title": "Una célula propia",
+      "text": [
+        "Cada pieza de Equipo espiritual y de Tejido espiritual, la [Maza de resonancia](resonance_maul), el [Báculo séxtuple](sixfold_staff), los cancioneros y los arcos de Pulso pueden llevar una **Célula de Pulso** propia. Recógela en tu inventario y **haz clic derecho con ella sobre la pieza**: entra dentro, con toda la carga.",
+        "La pieza siempre gasta primero de su propia célula. Solo cuando esa célula está vacía echa mano de las que llevas, así que un conjunto bien cargado sigue mucho después de que tus bolsillos se sequen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cambiar células",
+      "text": [
+        "Haz clic derecho con una célula más grande (una **{item:tribalpower:greater_pulse_cell}** o una **{item:tribalpower:grand_pulse_cell}**) sobre una pieza que lleve una más pequeña para mejorarla; la célula vieja vuelve a tu cursor. Una célula del mismo tamaño o menor rellena la que ya está sentada.",
+        "Haz clic derecho sobre una pieza con el **cursor vacío** para sacar su célula, con toda la carga. La descripción muestra lo que guarda cada pieza."
+      ]
+    }
+  ],
+  "next": "spiritgear_weapons"
+}

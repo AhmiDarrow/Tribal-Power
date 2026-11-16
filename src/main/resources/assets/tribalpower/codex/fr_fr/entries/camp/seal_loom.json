@@ -1,0 +1,245 @@
+{
+  "name": "Métier à sceaux",
+  "icon": "tribalpower:seal_loom",
+  "order": 40,
+  "items": [
+    "tribalpower:recipe_seal"
+  ],
+  "next": "tide_pump",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:seal_loom",
+      "text": [
+        "Un établi qui travaille seul. Apprends-lui une recette d'établi, du jeu de base ou de n'importe quel mod, sur un Sceau de recette, garde sa grille approvisionnée, et il tisse un résultat par seconde pour **6 Pulsation** chacun. Le sceau n'est jamais consommé."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lui apprendre une recette",
+      "text": [
+        "Fabrique un **Sceau de recette** avec un Sceau vierge et du papier, puis ouvre le Métier à sceaux. Le sceau va dans son propre emplacement à côté de la grille, pas au milieu du trois par trois.",
+        "Dispose la recette dans la grille exactement comme sur un établi : pour des bâtons, une planche au-dessus d'une autre.",
+        "Ferme l'écran, accroupis-toi et fais un clic droit sur le Métier à sceaux avec la **main vide**. Le sceau enregistre la recette et son infobulle la nomme.",
+        "Seul un Sceau vierge peut recevoir une recette. Pour une recette nouvelle, fais un sceau nouveau ; changer la grille ne change jamais ce qu'un vieux sceau retient."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le laisser tourner",
+      "text": [
+        "Avec le sceau en place et les bons objets dans les bons emplacements, il fabrique une fois par battement pour **6 Pulsation** depuis le treillis. Deux planches donnent quatre bâtons, et le sceau reste. Il répond au **Métier** : garde un Totem de résonance (Métier) dans les 8 blocs (voir [Mains du camp](camp_hands)), sinon il reste à l'arrêt.",
+        "Les résultats remplissent ses neuf cases de sortie et partent par la face **inférieure**, vers un entonnoir ou une [plaque relais](wireless_cargo) là. Les restes, comme les seaux et les fioles vides, sortent avec eux, donc ils ne bloquent jamais la grille ; un outil que la recette rend, comme un bol à broyer, retourne dans son propre emplacement. Quand les sorties n'ont pas de place pour une fabrication et ses restes, le Métier à sceaux attend et ne dépense rien.",
+        "Le rang raccourcit le battement ; la Pulsation par fabrication reste 6. Un levier le met en pause, et un comparateur lit à quel point il est plein."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un métier à bâtons",
+      "steps": [
+        {
+          "caption": "Place le Métier à sceaux avec un générateur et un Conducteur de treillis dans les 8 blocs.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:seal_loom[facing=south]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Pose un Sceau de recette dans son emplacement de sceau, dispose la recette, et clique accroupi avec une main vide.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:recipe_seal"
+          }
+        },
+        {
+          "caption": "Un entonnoir au-dessus garde la grille pleine ; chaque objet va dans la première case qui l'accepte.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=down]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un entonnoir en dessous tire les résultats par la face du bas.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "L'alimenter",
+      "text": [
+        "Un entonnoir, ou une plaque relais accordée au métier, dépose chaque objet dans la première case de la grille qui l'accepte. Cela convient aux recettes d'une seule case, comme les bûches en planches. Pour une recette façonnée, remplis à la main les cases qu'elle utilise avec des piles pleines : elle fabrique jusqu'à ce que l'une s'épuise. Si la grille ne correspond plus au sceau, elle attend et ne dépense rien.",
+        "Accroupis-toi et fais un clic droit sur une face en tenant un objet pour changer cette face : Les deux, Entrée, Sortie ou Fermé.",
+        "Teste un lot avant de brancher le stockage en masse."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:seal_loom"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:recipe_seal",
+      "text": "Imprime-le au métier ; un sceau retient une recette."
+    }
+  ]
+}

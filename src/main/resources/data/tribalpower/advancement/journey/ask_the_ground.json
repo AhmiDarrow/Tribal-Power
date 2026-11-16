@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:resonance_mesh"
     },
-    "title": "Ask the ground",
-    "description": "Call the first ore up through a Listening Pit. The mesh does not find the ore; the mesh gives the ore somewhere to land.",
+    "title": {
+      "translate": "advancement.tribalpower.journey.ask_the_ground.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.journey.ask_the_ground.description"
+    },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false,

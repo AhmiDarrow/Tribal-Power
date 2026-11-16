@@ -1,0 +1,321 @@
+{
+  "name": "Tecer a treliça",
+  "icon": "tribalpower:lattice_conductor",
+  "order": 40,
+  "next": "keeping_totems",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "O Pulso só viaja pelos Condutores de treliça. Seu primeiro condutor liga o tambor e a estação; conforme o acampamento se espalha, teça mais.",
+        "Condutores a até 8 blocos uns dos outros se ligam numa só rede, e tudo a até 8 de qualquer um deles entra nela: um gerador numa ponta do acampamento alimenta uma máquina na outra. Uma fabricação rende quatro.",
+        "Cada condutor leva **64 Pulso por segundo** no começo. Quando uma rede precisar levar mais, [eleve o nível](machine_ranks) dos condutores (256, 1,024 e depois 4,096 por segundo) ou acrescente mais ao lado do gerador e da máquina ocupados.",
+        "O Giz ritual une totens pelas vozes: clique com o botão direito em um com **Giz ritual** (farinha de osso, lápis-lazúli e um Fragmento de Espírito fazem quatro bastões), depois em outro a menos de 16 blocos. O giz leva vozes, nunca Pulso."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Uma treliça pequena",
+      "steps": [
+        {
+          "caption": "Um gerador numa ponta do acampamento, uma estação na outra.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:echo_attune"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Um Condutor de treliça a até 8 blocos de ambos os tece numa só rede: a estação puxa o tambor através dele.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Um totem ao alcance enche o reservatório pela rede e mantém a voz.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Condutores a até 8 uns dos outros se ligam. Cada um leva 64 Pulso por segundo, mais conforme sobe de nível; acrescente-os ao lado de geradores e máquinas ocupados.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

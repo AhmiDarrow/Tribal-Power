@@ -1,0 +1,34 @@
+{
+  "name": "S'accorder à un totem",
+  "icon": "tribalpower:resonance_totem_spirit",
+  "order": 40,
+  "next": "familiar_boons",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Lui donner une voix",
+      "text": [
+        "Amène ton familier adulte à moins de **6 blocs** d'un Totem de résonance et **accroupis-toi et utilise un Charme de lien sur le totem**. Ton familier le plus proche qui ne porte pas encore cette voix la prend. Le charme n'est pas consommé.",
+        "Le totem résonne, un fil de sa couleur court jusqu'au familier, et dès lors il miroite de cette couleur. Sa voix s'affiche quand tu le regardes, et sur ta Lentille ley.",
+        "Un [Totem de parenté](kinship_totem) ne peut pas donner de voix. Utilise un Totem de résonance."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Une voix chacun",
+      "text": [
+        "Un familier porte une seule voix à la fois. Emmène-le à un autre totem pour la changer quand tu veux.",
+        "Plusieurs familiers peuvent porter plusieurs voix ; [ce qu'une voix donne](familiar_boons) dit lesquelles comptent.",
+        "La voix est celle du familier : ses petits naissent sans."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Totem et familier",
+      "text": [
+        "Un familier accordé maintient chaque totem de sa voix, dans un rayon de **8 blocs**, en état de réponse, et réveille celui qui s'est tu ([maintien](keeping)). Laisse-en un en attente près d'un totem que tu visites peu.",
+        "Utilise un totem à main vide pour entendre quels familiers le maintiennent. Si aucun ne le fait et que ton propre familier est proche, le totem te dit comment l'accorder."
+      ]
+    }
+  ]
+}

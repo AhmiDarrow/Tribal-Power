@@ -1,0 +1,16 @@
+{
+  "name": "Tavoletta: la Marcia",
+  "icon": "tribalpower:lore_tablet",
+  "order": 210,
+  "spoiler": true,
+  "unlock": "tablet:11",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Da una Sala degli antenati sommersa, per chi camminerà la Marcia dopo:",
+        "“La Marcia è dove il filo si è sfilacciato di più e il suolo caduto è venuto a posarsi. Le sale giacciono sprofondate fino all'architrave; gli accampamenti tengono il tempo senza nessuno al tamburo; il cristallo cresce dove la tensione del Telaio ancora si raccoglie. Percorrila con una Cella di Pulso piena e la mano ferma. Qui tutto risponde ancora a un battito.”"
+      ]
+    }
+  ]
+}

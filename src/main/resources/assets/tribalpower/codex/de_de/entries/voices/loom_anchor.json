@@ -1,0 +1,367 @@
+{
+  "name": "Webstuhl-Anker",
+  "icon": "tribalpower:loom_anchor",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:loom_anchor",
+      "text": [
+        "Das Handwerk der Webstuhl-Näher, und der Endspiel-Generator. Der Webstuhl-Anker bezahlt ein volles Lager: **1 Puls pro Sekunde** für jede verschiedene Totem-Stimme innerhalb von **8 Blöcken**, bis zu sechs.",
+        "Er hält **1,000 Puls**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stimmen zählen",
+      "text": [
+        "Er zählt Stimmen, nicht Totems: sechs Totems der Erde sind eine Stimme. Stille Totems zählen trotzdem; leere Luft nicht.",
+        "Eine aktive [Leybindung](world_rites) an einem nahen Totem **verdoppelt** die Rate.",
+        "Verwandtschafts-Totems leihen das Element ihres Stammes in denselben Satz aus sechs Stimmen. Sie sind keine siebte Stimme: ein Verwandtschafts-Totem eines Griessängers neben einem Totem der Erde fügt nichts hinzu.",
+        "Ihn in Echoabstimmer, Echobinder und dann Echomanifestierer einzustufen fügt **15% Puls pro Sekunde** je Rang hinzu, nicht die 118% der Werkstatt. Der Bonus wird auf einen ganzen Puls gerundet, daher gewinnt ein Generator, der nur 2 oder 3 pro Sekunde schafft, durch seinen ersten Rang nichts."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Inmitten der Stimmen",
+      "steps": [
+        {
+          "caption": "Pflanze den Anker in die Mitte deiner Totems.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:loom_anchor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Zwei Stimmen, Erde und Feuer: 2 Puls pro Sekunde.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Füge Wasser und Luft hinzu: vier Stimmen, 4 pro Sekunde.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              -2
+            ]
+          ]
+        },
+        {
+          "caption": "Geist und Webstuhl machen den Satz voll: 6 pro Sekunde, oder 12, solange eine Leybindung in der Nähe summt.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              2,
+              0,
+              -2
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ihn prüfen",
+      "text": [
+        "Ein Klick mit leerer Hand zeigt, was er erzeugt und hält. Duck dich und rechtsklicke ihn mit diesem Buch, um die Stimmenzahl zu sehen und ob eine Leybindung ihn erreicht.",
+        "Anker sind das Handwerk der [Webstuhl-Näher](tribe_spindle): das Rezept braucht einen Resonanzkern und Webstuhlfaden, und die Webstuhl-Näher tauschen einen Anker an ihre Sippe gegen Gebundene Echos und einen Webstuhlfaden."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_anchor"
+    }
+  ]
+}

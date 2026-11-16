@@ -1,0 +1,51 @@
+{
+  "name": "Pusty strażnik",
+  "icon": "tribalpower:sentinel_sigil",
+  "order": 110,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hollow_sentinel_spawn_egg",
+    "tribalpower:sentinel_sigil"
+  ],
+  "next": "storm_moth",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:hollow_sentinel",
+      "text": [
+        "Pusta zbroja strażnika, która wciąż strzeże starych dróg, z włócznią w ręku. Jej ciosy zostawiają ci słabe ramię.",
+        "Upolowany zostawia też od 1 do 3 bryłek żelaza."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Puste strażniki chodzą po Wyżynach Marszu, Śnieżnych Polach i Migotliwym Grzbiecie, nieliczne po Polach Kryształu, a trzy trzymają wartę w każdej [Sali przodków](ancestor_hall).",
+        "Ma **44 zdrowia** i **6 pancerza**, najtwardszy z pozostałości, i uderza za **6**. Każdy cios daje ci Słabość na 4 sekundy. Światło i naładowana laska pomagają."
+      ],
+      "title": "Gdzie i jak"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Zostawia **1 do 2 Sygil strażnika**.",
+        "Sygil strażnika dostraja się pod Duchem do 2 Dostrojone echo."
+      ],
+      "title": "Co daje"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Pusty strażnik nie zwiąże się z żadnym amuletem. Służy salom, nie tobie."
+      ],
+      "title": "Nie zwiąże się"
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i hodowla",
+      "text": [
+        "Oprócz reagentu zostawia to, gdy go upolować, i więcej z Grabieżą."
+      ]
+    }
+  ]
+}

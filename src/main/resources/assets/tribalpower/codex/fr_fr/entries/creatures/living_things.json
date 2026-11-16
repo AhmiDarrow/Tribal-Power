@@ -1,0 +1,81 @@
+{
+  "name": "Êtres vivants de la Marche",
+  "icon": "minecraft:brush",
+  "order": 10,
+  "spoiler": true,
+  "next": "dawn_stag",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Deux sortes de créatures portent le vieux chant. Les **animaux paisibles** (le Cerf de l'aube, le Renard-lanterne, le Dos-mousse, et les brouteurs, les volants, les [arbres marcheurs](walking_trees) et les [fées](fays) de chaque terre) te donnent des réactifs quand tu les brosses. Les **vestiges** sont des gardiens brisés et des esprits sauvages ; ils se battent, et lâchent leur réactif en tombant.",
+        "Les réactifs nourrissent les chants, les armes ointes et les remèdes (voir [réactifs](reagents)). Les plus anciens entrent aussi dans tes ateliers d'écho et dans le Charme de lien.",
+        "La Marche a aussi une vie discrète qui ne donne guère plus que de la viande, une plume ou de la compagnie : Marcheurs de la Marche, Feux follets spirituels, et les poissons, gelées et martinets de sa [faune](march_wildlife).",
+        "Une terre chassée ou vidée se remplit de nouveau, lentement : environ une fois par minute, quelques-uns de ses animaux peuvent entrer hors de vue, jusqu'à ce qu'environ six créatures partagent la zone. Les enclos comptent aussi, donc un camp affairé n'est jamais envahi."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Tiens un **Pinceau** et utilise-le sur un adulte. Les jeunes animaux ne donnent rien. Chaque animal se repose **une minute** entre deux récoltes.",
+        "Fais-les se reproduire avec du **blé** (Cerf de l'aube), des **baies sucrées** (Renard-lanterne) et de l'**herbe aquatique** (Dos-mousse). Toute autre créature paisible mange la culture sauvage de sa terre, ou quelque chose d'aussi facile à trouver ; sa page nomme la nourriture. Pour faire se reproduire les animaux sauvages, **accroupis-toi** pendant que tu nourris deux adultes. Nourri normalement, un sauvage s'attache à toi à la place (voir [familiers](familiars)).",
+        "Lie un adulte avec un [Charme de lien](familiars) pour le garder comme compagnon : il donne le **double** de réactif, et à un totem il peut prendre une voix qui renforce ta magie (voir [s'accorder à un totem](familiar_attuning)). Toi seul peux brosser ton propre familier."
+      ],
+      "title": "Récolte douce"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Lié-cendre, Lié-racine et les Traqueurs des roseaux hantent les forêts et les marais de l'Overworld, et la Marche aussi. Comme tous les vestiges, ils se lèvent dans le noir, et jamais là où brûle une torche ou une lanterne, alors éclaire tes chemins.",
+        "Garde de l'eau près des Lié-cendre ; leurs coups t'enflamment. Les coups de Lié-racine te ralentissent quelques secondes : recule et attends que ça passe. Les Traqueurs des roseaux empoisonnent, alors apporte du lait ou garde tes distances.",
+        "Un Totem du silence, ou le rite Nuit calme, empêche un camp de faire naître une nouvelle meute pendant la nuit."
+      ],
+      "title": "Gardiens brisés"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Les Phalènes de tempête, les Diablotins d'escarbille, les Cloches de deuil, les Dériveurs du voile et les ombres volantes lancent jusqu'à **12 blocs**. Elles rassemblent d'abord une grappe brillante de grains : c'est ton avertissement.",
+        "Il leur faut une ligne dégagée jusqu'à toi. Passe derrière un abri solide et le sort est interrompu. Leurs sorts ne brûlent ni ne remplacent jamais le terrain.",
+        "Un bâton chargé aide à garder tes distances. L'onde de choc du Non-chanté est un autre combat ; accroupis-toi face à elle, comme l'explique sa propre page."
+      ],
+      "title": "Répondre à un sort"
+    },
+    {
+      "type": "text",
+      "title": "Quelle est la force d'une créature",
+      "text": [
+        "Les chiffres du bestiaire valent pour une créature de sang ordinaire. Chaque créature porte cinq fils (voir [familiers](familiars)), et chaque pas au-dessus ou au-dessous de l'habituel la rend **12%** plus forte ou plus faible, donc deux sauvages ne sont jamais tout à fait pareils.",
+        "Dans la Marche, un esprit qui se lève la nuit a **40%** de points de vie en plus et frappe **25%** plus fort. Environ **un sur douze** se lève comme **élite** au nom doré, plus souvent en Difficile : le double de points de vie, la moitié de dégâts en plus, **4** d'armure en plus, plus vif sur ses pieds, et **trois fois** l'expérience. Les esprits qui se lèvent le jour ne sont jamais des élites."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Velours de l'aube, Duvet de lanterne, Écaille de dos-mousse, Aile de tempête et Soie d'écho se lient en **2 Espritissu** chacun sous l'Eau, dans un Lieur d'écho.",
+        "- Tout autre réactif de vestige s'accorde en **2 Écho accordé** sous l'Esprit, dans un Accordeur d'écho.",
+        "Chaque réactif, ceux-ci comme ceux des bêtes, entre aussi dans les chants, les armes ointes et les remèdes : voir [réactifs](reagents).",
+        "Les Lieurs de racines préfèrent l'Écaille de dos-mousse et les Gardiens de la colonie préfèrent le Duvet de lanterne, donc ce que tu brosses achète aussi ta réputation. Ouvre les recettes dans ce livre, ou dans JEI si tu l'as, pour suivre n'importe quel réactif jusqu'à ton atelier."
+      ],
+      "title": "Rendre le chant"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Après le crépuscule, le ciel de l'Overworld se déplie en lents rideaux de vert et de violet. Il est le plus vif à minuit, et la pluie ou le tonnerre le cachent. La Marche porte un ciel plus froid, à elle.",
+        "C'est le ciel qui essaie de se souvenir d'un horaire. Il ne donne aucune Pulsation à lui seul, bien qu'un Collecteur de ley sous lui le fasse.",
+        "Les paramètres du client peuvent en baisser le détail ou l'éteindre, ce qui est pratique avec les packs de shaders."
+      ],
+      "title": "Le voile la nuit"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Accroupis-toi et utilise ce Codex spirituel sur tout ce qui s'est tu, pour lire ce qu'il fait.",
+        "Chaque créature a une page dans le bestiaire, seule ou avec ses parents : où elle vit, comment elle combat, ce qu'elle donne et si elle créera un lien. Les bêtes de chaque terre commencent par la [Steppe](beasts_steppe).",
+        "Les créatures douces sont dans ce chapitre. Les Vestiges et les autres chasseurs de la Marche ont leur propre chapitre, qui s'ouvre sur [Gibier et cuir](game_and_leather)."
+      ],
+      "title": "Notes de terrain"
+    }
+  ]
+}

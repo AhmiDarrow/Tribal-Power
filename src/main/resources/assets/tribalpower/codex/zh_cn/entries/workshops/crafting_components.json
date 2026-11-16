@@ -1,0 +1,41 @@
+{
+  "name": "灵之碎片与共鸣器",
+  "icon": "tribalpower:spirit_shard",
+  "order": 5,
+  "items": [
+    "tribalpower:copper_resonator",
+    "tribalpower:bone_chime"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_shard",
+      "text": [
+        "有两样不起眼的零件，几乎每份Tribal Power配方都会用到：**灵之碎片**和**铜共鸣器**。早点各做一组，就很少被卡住。",
+        "两者都从**骨铃**做起：一块骨头、一根线和一块紫水晶碎片能做出两个。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "它们从哪来",
+      "text": [
+        "灵之碎片是紫水晶碎片、红石粉和骨铃放在一起合成。每次合成得到**两个**。",
+        "铜共鸣器是四块铜锭围着一个骨铃。每次合成同样得到**两个**。",
+        "到达远行界后，**远行界矿石**是更便宜的碎片来源：配上土图腾，放进[回响粉碎](echo_shatter)，4秒、每秒40脉动，碎成**两个灵之碎片**。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_shard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_resonator"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bone_chime",
+      "text": "把骨铃用在安静的图腾上，也能唤醒那个图腾。"
+    }
+  ]
+}

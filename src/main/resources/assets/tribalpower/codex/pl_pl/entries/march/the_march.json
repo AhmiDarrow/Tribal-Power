@@ -1,0 +1,93 @@
+{
+  "name": "Marsz",
+  "icon": "tribalpower:gate_drum",
+  "order": 10,
+  "spoiler": true,
+  "next": "march_land",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Marsz to miejsce, gdzie nić wytarła się najcieniej i upadła ziemia spoczęła. Sale leżą zapadnięte po nadproże. Obozy trzymają rytm, a przy bębnie nie ma nikogo. Kryształ rośnie tam, gdzie napięcie Krosna wciąż się zbiera.",
+        "Tam wszystko wciąż odpowiada na rytm. To nie nawiedzenie. To świat, który nigdy nie nauczył się przestawać.",
+        "Idziesz tam po to, czego nie znajdziesz w domu: **Kryształ Marszu**, **Nić Krosna** i **Niezaśpiewane serce**. Otwierają transport astralny, głos Krosno i ostatnie Tabliczka podań."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Wejście to [Bęben wrót](gate_drum). Nie trzeba Pulsu: wybij na nim **Rytuał Wrota**, cztery bębny na **A**, **S**, **D** i **F**, i rytm otworzy drogę.",
+        "Kliknij prawym przyciskiem pustą ręką, by zacząć rytuał; traf **60%** uderzeń, a przeniesie cię na drugą stronę. Sygnał redstone blokuje bęben.",
+        "Wybicie rytuału na Bęben wrót w Marszu zawsze sprowadza cię do domu: w miejsce, z którego wyszedłeś, albo do punktu odrodzenia, jeśli tamtego już nie ma. Punkt powrotu przetrwa śmierć, więc zła wyprawa nigdy cię nie porzuci.",
+        "Później para [Wrota drogi](way_gate) to trasa dla dużego ruchu.",
+        "Gdy aktualizacja przekształca ziemię Marszu, starszy zapis raz odkłada swój Marsz przy następnym starcie, a wymiar znowu rośnie, gdy go zwiedzasz. Stary Marsz, ze wszystkim, co tam zbudowano, trafia do **tribalpower_backups** w zapisie i nigdy nie jest usuwany. **retrogenMarch** w sekcji **world** wspólnej konfiguracji to wyłącza."
+      ],
+      "title": "Tam i z powrotem"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Wejdź z naładowanymi Ogniwo Pulsu, jedzeniem, kilkoma [Maść «Duch»](remedies) i pewną ręką. Spakuj zapasowy Bęben wrót, żeby postawić go na drogę powrotną, a jeśli masz Kompas astralny, powiąż go w domu z suchą podłogą, zanim wyruszysz. Marsz jest duży i każdy biom za pierwszym razem wygląda na nowy.",
+        "Pozostałość «Duch» podnosi się tam, gdzie ciemno, nad ziemią i pod nią, więc nieś pochodnie albo latarnie i oświetl drogę z powrotem do swojego bębna."
+      ],
+      "title": "Co spakować"
+    },
+    {
+      "type": "text",
+      "title": "Dzień i noc",
+      "text": [
+        "Dzień Marszu jest do pracy, a jego noc to niebezpieczeństwo.",
+        "- **Za dnia** duchy rzadko powstają na otwartej przestrzeni, nigdy w świetle pochodni lub latarni i nigdy obok innego. Dzikie duchy złapane pod otwartym niebem nikną, gdy wschodzi słońce, chyba że już cię gonią.",
+        "- **W nocy** powstają silniejsi, z większym zdrowiem i twardszymi ciosami, a niektórzy wychodzą jako **elity** o złotym imieniu. Przychodzą co najwyżej parami i przestają powstawać, gdy cztery są blisko.",
+        "- **Jaskinie** mają własne zasady. Łowcy jaskiń powstają w każdym nieoświetlonym miejscu pod ziemią, w dzień i w nocy, a limit czterech pod ziemią nie obowiązuje, więc ciemna jaskinia może się zapełnić. Oświetlaj ją idąc.",
+        "- Elity i nocne duchy mogą zostawić cię z [Choroba Ducha](spirit_sickness)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Odespać",
+      "text": [
+        "Łóżka działają w Marszu, a przespanie całej nocy przesuwa zegar na ranek. (Marsz trzyma czas Świata zewnętrznego, więc noc Świata zewnętrznego też mija.)",
+        "Tylko duch, który **już na ciebie poluje**, nie pozwala ci spać. Taki, który przechodzi obok twoich murów, nie, więc oświetlony, obmurowany obóz to bezpieczne miejsce odpoczynku."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Step**: falująca trawa z zagajnikami i samotnymi drzewami. Pasą się Wędrowiec Marszu, Jeleń świtu, Lis-latarnia, króliki i kilka Mchogrzbiet. Polują Popiołozwiązany, Korzeniozwiązany, Ogar szczeliny, Tkacz echa i kilka Tropiciel trzcin. [Sale przodków](ancestor_hall) zapadają się tutaj.",
+        "- **Wyżyny**: kamień, mech i gaje. Kozy, Jeleń świtu, lisy, Wędrowiec Marszu i króliki. Pusty strażnik, Ćma burzy, Chochlik żagwi, Ogar szczeliny i kilka Odłamkogrzbiet. Dom [Krąg bębnów](drum_circle), więcej Sale przodków i szmaragdy (Grzbiet błysku też je ma).",
+        "- **Kryształowe pola**: tarasowe stoliwa z kalcytu i kamienia, najeżone Kryształ Marszu. Lisy, króliki, Mchogrzbiet i Wędrowiec Marszu; Tropiciel trzcin, Odłamkogrzbiet, Dzwon żałobny, Tkacz echa i kilka Pusty strażnik. Stoi tu [Kryształowa iglica](crystal_spire)."
+      ],
+      "title": "Step, Wyżyny, Kryształowe pola"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Śnieżne pola**: śnieg i zbity lód na Trawa Marszu. Lis-latarnia, króliki, Wędrowiec Marszu, kilka Mchogrzbiet i niedźwiedzie polarne. Pusty strażnik, Ćma burzy, Dzwon żałobny i Ogar szczeliny.",
+        "- **Żarowe pustkowia**: suchy kraj bazaltu, bez deszczu. Niewielu roślinożerców tu wchodzi: Wędrowiec Marszu, Lis-latarnia i Skoczek popiołu. Krążą Chochlik żagwi, Ogar szczeliny i Popiołozwiązany, i kilka Ćma burzy.",
+        "- **Trzcinowe bagno**: błotne kanały gęste od Trzcina Ducha. Mchogrzbiet, Jeleń świtu, żaby, Lis-latarnia i Wędrowiec Marszu; Błyskopłetwa, Dzwon dryfu, Węgorz mułu i Płaszczka zasłony w wodzie, i świecące kałamarnice w zalanych jaskiniach. Tropiciel trzcin, Korzeniozwiązany i Tkacz echa czają się w mokrym.",
+        "Duchowy ognik snuje się przez wszystkie ziemie Marszu."
+      ],
+      "title": "Śnieżne pola, Żarowe pustkowia, Trzcinowe bagno"
+    },
+    {
+      "type": "text",
+      "title": "Płycizny, Grzbiet błysku",
+      "text": [
+        "- **Płycizny**: niski kraj, zatopiony pod płytką wodą. Jeziora i sadzawki na złożach mułu i gliny, drzewa kroczydło na korzeniach-szczudłach, lilie, Lilia księżycowa i Wstęgowy wodorost, i gdzieniegdzie kamienny słup z kryształową czapą. Mułowy szybowiec, Blady dryfowiec i Strzałka mielizny pływają tam, a Szczudłodrzewo chodzi po brzegach; nocą w wodzie powstają Solankowy czatownik i Cień utopca, a Tropiciel trzcin, Korzeniozwiązany, Tkacz echa i Dzwon żałobny przychodzą z Trzcinowe bagno. Stoi tu Kamień pływu [strażnicy](guardians).",
+        "- **Grzbiet błysku**: najwyższy grunt, góra z Kamień księżycowy. Zobacz [Grzbiet błysku](glimmer_ridge).",
+        "Każda ziemia ma oprócz tych własne bestie i własny lud: zobacz [Bestie Step](beasts_steppe) i strony dalej."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Przeczytaj każdą Tabliczka podań w [Sale przodków](ancestor_hall). Duchowy kodeks zapisuje każdą.",
+        "- Gdy będziesz gotów, uderz w Cichy bęben cztery razy, z oddechem między uderzeniami, i stań przed [Niezaśpiewany](the_unsung).",
+        "- Przynieś do domu Kryształ Marszu, Nić Krosna i Niezaśpiewane serce. Razem otwierają [szósty głos](sixth_voice).",
+        "- Odwiedź Szwacze krosna przy [Kryształowa iglica](crystal_spire), by wymienić się na Nić Krosna."
+      ],
+      "title": "Co tam robić"
+    }
+  ]
+}

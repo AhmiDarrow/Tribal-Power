@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:relic_soil"
     },
-    "title": "A story told",
-    "description": "Finish one tribe's story and hold its relic.",
+    "title": {
+      "translate": "advancement.tribalpower.tribes.first_story.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.tribes.first_story.description"
+    },
     "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,

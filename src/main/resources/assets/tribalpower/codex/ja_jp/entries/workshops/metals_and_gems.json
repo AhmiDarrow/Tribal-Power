@@ -1,0 +1,286 @@
+{
+  "name": "金属と宝石",
+  "icon": "tribalpower:iron_grit",
+  "order": 80,
+  "items": [
+    "tribalpower:gold_grit",
+    "tribalpower:copper_grit",
+    "tribalpower:mineral_grit"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:iron_grit",
+      "text": [
+        "砂礫は火を待つ砕いた金属だ。原石の金属を破砕すると1個につき**砂礫2つ**になり、砂礫はそれぞれインゴットへ精錬される。だから鉱石ごとに金属は2倍になる。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "金属",
+      "text": [
+        "金属の原石か、シルクタッチの金属鉱石をエコー破砕に入れる。**4秒**、**毎秒40パルス**で、砂礫が二つ。",
+        "砂礫をかまど、溶鉱炉、または残り火の窯でインゴットに精錬する。",
+        "鉄、金、銅には、それぞれ自分の砂礫がある。MODの金属は、自分の素材を名乗る**鉱物砂礫**のアイテム一つを使い、データパックなしで点灯する。ネザライトは決して砕かれない。ネザーで得るものだ。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "宝石と鉱物",
+      "text": [
+        "シルクタッチの宝石鉱石は、そのまま宝石に砕ける。量は鉱石自身のドロップの**二倍**：",
+        "- 石炭、ダイヤモンド、エメラルド、クォーツは**二つ**出る。",
+        "- レッドストーンとラピスラズリは**八つ**出る。",
+        "- MODの宝石は二つ出る。",
+        "宝石そのものは、決して入力にならない。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "鉱石ライン",
+      "steps": [
+        {
+          "caption": "下の残り火の窯。火のトーテム付き。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "上のエコー破砕。土のトーテム付き。砂礫はそのまま残り火の窯に落ちる。",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "原鉱石のチェストがホッパーでエコー破砕へ送り、残り火の窯のそばの太鼓が両方の設備に動力を供給する。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=east]"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                0
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              1,
+              0
+            ],
+            [
+              -1,
+              2,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "残り火の窯の下のホッパーが、インゴットをチェストに受け止める。",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:iron_grit"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gold_grit"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_grit"
+    }
+  ]
+}

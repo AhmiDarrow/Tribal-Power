@@ -1,0 +1,74 @@
+{
+  "name": "暗处的猎人",
+  "icon": "tribalpower:lurker_claw",
+  "order": 290,
+  "spoiler": true,
+  "items": [
+    "tribalpower:deep_lurker_spawn_egg",
+    "tribalpower:pale_stalker_spawn_egg",
+    "tribalpower:gloom_crawler_spawn_egg",
+    "tribalpower:veil_drifter_spawn_egg",
+    "tribalpower:lurker_claw",
+    "tribalpower:pale_fang",
+    "tribalpower:gloom_silk",
+    "tribalpower:veil_tatter"
+  ],
+  "next": "colossus_warden",
+  "pages": [
+    {
+      "type": "text",
+      "title": "下与上",
+      "text": [
+        "三个猎人占据远行界的洞穴，在那里的黑暗中，白天出现得和夜晚一样勤。第四个夜里漂在高地之上。",
+        "它们都不会结缘。每种掉落**1到2**个自己的试剂，抢夺还会更多。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:deep_lurker",
+      "title": "深潜伏者",
+      "text": [
+        "一头熊那么大的星鼻鼹，是洞穴猎人里最难对付的，远行界每片土地之下都有，一次一两只。它有**32点生命**和**3点护甲**，啃咬造成**5**。",
+        "掉落**潜伏者之爪**，一种猎犬试剂，可研磨成淡蓝色染料。",
+        "猎杀时还会掉落最多2个骨头和最多1个远行界皮革。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_stalker",
+      "title": "苍白追猎者",
+      "text": [
+        "草原、高地、微光山脊、雪原与水晶原地下洞窟中的枯瘦无眼洞穴食尸鬼，高大、苍白、迅捷，一次一两只。**24点生命值**和**1点护甲**。打击造成**4**，并使你虚弱4秒。",
+        "掉落**苍白尖牙**，一种虚弱试剂。",
+        "被猎杀时还会掉落1到2个骨头。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:gloom_crawler",
+      "title": "晦爬虫",
+      "text": [
+        "除浅滩外，各地地下洞窟里的洞穴蜈蚣，低伏而幽暗，一次一两只。**22点生命值**和**2点护甲**。撕咬造成**4**，使你减速3秒，并可能让你[磨损](afflictions)。",
+        "掉落**晦丝**，一种织纹试剂。",
+        "被猎杀时还会掉落1到2个线，以及最多1个蜘蛛眼。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:veil_drifter",
+      "title": "帷幕漂者",
+      "text": [
+        "一具借蝙蝠般翅膀飘荡的破旧裹尸布，夜里升上高地、微光山脊、雪原和水晶原的上空，一次一两只。**18点生命值**和**1点护甲**。",
+        "最远在12格外施放**3**点的疾风，将你击退。掩体会打断施法。掉落**帷幕残片**，一种疾风试剂。",
+        "被猎杀时还会掉落最多1个幻翼膜和最多1个线。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猎与放牧",
+      "text": [
+        "除自身试剂外，被猎杀时掉落更多，有抢夺时再多一些。"
+      ]
+    }
+  ]
+}

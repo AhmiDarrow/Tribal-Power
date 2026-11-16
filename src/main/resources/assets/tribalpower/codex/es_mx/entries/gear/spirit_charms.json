@@ -1,0 +1,123 @@
+{
+  "name": "Amuletos del Espíritu",
+  "icon": "tribalpower:sky_charm",
+  "order": 60,
+  "items": [
+    "tribalpower:ember_charm",
+    "tribalpower:tide_charm",
+    "tribalpower:root_charm",
+    "tribalpower:lantern_charm",
+    "tribalpower:spindle_charm",
+    "tribalpower:ward_charm",
+    "tribalpower:hearth_charm",
+    "tribalpower:veil_charm",
+    "tribalpower:chorus_charm",
+    "tribalpower:gathering_charm"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:sky_charm",
+      "text": [
+        "Los amuletos son sellos que se llevan. Cada uno trae una voz de tótem y un don, y puedes llevar hasta **tres** en los espacios de amuleto propios de Tribal Power. No hace falta ningún otro mod."
+      ],
+      "title": "Amuletos del Espíritu"
+    },
+    {
+      "type": "text",
+      "title": "Llevar amuletos",
+      "text": [
+        "Usa un amuleto para ponértelo. Agáchate y usa cualquier amuleto para abrir los tres espacios.",
+        "Los amuletos puestos cuestan **2 de Pulso por voz cada dos segundos**, tomados de una Célula de Pulso que lleves. Cuando las células se vacían, los dones se detienen, y el vuelo con ellos, así que recarga o quítatelos.",
+        "Las voces se suman en todo lo que llevas, pero la misma voz dos veces da su don una sola vez.",
+        "Un [familiar](familiar_boons) sintonizado que esté cerca y comparta la voz de un amuleto reduce el mantenimiento de ese amuleto en **40%** y añade un don propio.",
+        "Los amuletos puestos caen al suelo cuando mueres, a menos que tu mundo conserve el inventario."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Los once amuletos",
+      "text": [
+        "- **Cielo** (Aire): vuelo creativo mientras dure el Pulso, como con cualquier amuleto que lleve Aire, salvo el Amuleto de reunión.",
+        "- **Brasa** (Fuego): resistencia al fuego, y quien te ataque prende durante 3 segundos.",
+        "- **Marea** (Agua): respiración acuática y gracia de nadador.",
+        "- **Raíz** (Tierra): resistencia.",
+        "- **Linterna** (Espíritu): visión nocturna, y toda bendición o don que ganes mientras se pague dura **la mitad más**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Los once amuletos, continuación",
+      "text": [
+        "- **Huso** (Telar): suerte, y cerca de tres de cada diez veces devuelve hasta **2 de Pulso** a una célula que lleves, cada dos segundos.",
+        "- **Guarda** (Tierra): desvía cerca de un proyectil de cada cuatro, o uno de cada dos si Espíritu también está en tus amuletos.",
+        "- **Hogar** (Fuego): te mantiene alimentado.",
+        "- **Velo** (Espíritu): te oculta mientras te agachas.",
+        "- **Reunión** (Aire): atrae el botín y la experiencia hacia ti.",
+        "- **Coro**: empieza en silencio y aprende de un brasero."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Coro y voces extra",
+      "text": [
+        "Un Coro en silencio sigue costando 2. Agáchate y úsalo sobre un Brasero ritual con **tres tótems distintos** a menos de 8 bloques y **200 de Pulso**, y ata todas las voces cercanas.",
+        "Agáchate y usa un amuleto sobre un Tótem de resonancia para añadir esa voz por **40 de Pulso**. Más voces cuestan más al llevarlas y hacen más.",
+        "Guarda y Hogar llevan Tierra y Fuego, así que también dan resistencia y resistencia al fuego. Aire también da caída lenta, salvo que Fuego esté puesto también. El vuelo viene con la voz Aire, no solo con el Amuleto del cielo: cualquier amuleto puesto que lleve Aire, el propio del Cielo o uno que hayas añadido, te deja volar mientras dure el Pulso. El Amuleto de reunión es la única excepción: su propio Aire va al tirón."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "El Amuleto de reunión",
+      "text": [
+        "Mientras está puesto y pagado, atrae objetos soltados y experiencia hacia ti desde **5 bloques**, **2 más por cada voz extra**, hasta **11**.",
+        "**Agáchate** para pausarlo y poder soltar cosas. Una pila que alguien acaba de tirar se deja quieta hasta que se pueda recoger, una pila guardada para otro jugador es suya, y los objetos que otro mod marca para no moverse se quedan donde están.",
+        "Su Aire va al tirón, así que, a diferencia del Cielo, no da vuelo ni caída lenta. Las voces que le añadas funcionan como en cualquier amuleto."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:sky_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tide_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:root_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lantern_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spindle_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ward_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hearth_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:veil_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chorus_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gathering_charm"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Laternenfuchs",
+  "icon": "tribalpower:lantern_down",
+  "order": 30,
+  "spoiler": true,
+  "items": [
+    "tribalpower:lantern_fox_spawn_egg",
+    "tribalpower:lantern_down"
+  ],
+  "next": "mossback",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:lantern_fox",
+      "text": [
+        "Ein scheuer Dämmerfuchs mit einer Laterne, die an der Schwanzspitze brennt und sichere Pfade markiert. Bürste Erwachsene für Laternendaune.",
+        "Gejagt lässt er außerdem Rohes Wildbret, 1 bis 2, und Marschleder, bis zu 1, fallen. Züchte mit **Süßbeeren**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Laternenfüchse leben in Wäldern der Oberwelt und fast überall im Marsch: vor allem in den Schneefeldern, aber auch in der Steppe, im Hochland, in den Kristallfeldern, im Schilffenn, auf dem Schimmergrat und sogar in der Glutödnis.",
+        "Ein Fuchs hat **14 Lebenspunkte** und keine Rüstung. Er flieht, wenn er verletzt wird, und meidet Monster. Züchte zwei mit **Süßbeeren**."
+      ],
+      "title": "Wo du ihn findest"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Bürste einen Erwachsenen ab, um **Laternendaune** zu erhalten, einmal pro Minute. Die Daune bindet zu 2 Geistergewebe unter Wasser, und die Koloniehüter bevorzugen sie als Opfergabe.",
+        "Ein gejagter Fuchs lässt Rohes Wildbret fallen und manchmal Marschleder, aber nie seine Daune. Abbürsten ist also der einzige Weg, sie zu bekommen."
+      ],
+      "title": "Was er gibt"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ein gebundener Fuchs ist eine Laterne, die dir folgt. Er trägt ein unsichtbares Licht, wohin er auch geht, gibt dir Nachtsicht, solange du nahe bleibst, und markiert nahe Erze mit Glitzern, das nur du siehst.",
+        "Die Einzelheiten stehen auf der Seite [Gaben des Vertrauten](familiar_gifts)."
+      ],
+      "title": "Als Vertrauter"
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Zucht",
+      "text": [
+        "Gejagt lässt es dies fallen, mehr mit Plünderung. Fleisch fällt gebraten, wenn das Tier brennend starb. Um wilde zu züchten, **schleiche**, während du zwei Erwachsene mit ihrem Futter fütterst; normal gefüttert, wird ein wildes stattdessen zutraulich."
+      ]
+    }
+  ]
+}

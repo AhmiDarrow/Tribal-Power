@@ -1,0 +1,254 @@
+{
+  "name": "Totem de parenté",
+  "icon": "tribalpower:kinship_totem",
+  "order": 30,
+  "items": [
+    "tribalpower:tribe_mark"
+  ],
+  "next": "tribe_boons",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:kinship_totem",
+      "text": [
+        "Un totem taillé dans une Marque de tribu. À côté d'un Résonateur de Pulsation, c'est une **voix supplémentaire**, comptée pour la tribu plutôt que pour son élément, donc il ajoute de la Pulsation même là où cet élément chante déjà.",
+        "Il ne se tait jamais, et il prête la voix de sa tribu à toute station proche."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gagner la Marque",
+      "text": [
+        "Monte ton rang auprès d'une tribu jusqu'à **Voix (800)**, puis parle à l'Ancien de cette tribu. L'Ancien presse une **Marque de tribu** dans ta main. Ce don n'arrive qu'une fois par tribu, mais chaque **troisième** requête que tu termines pour eux paie aussi une Marque, à partir d'Hôte (voir [Anciens, requêtes et histoires](elders_and_stories)).",
+        "La Marque porte le nom de la tribu et son dicton. La Marque que l'Ancien donne à Voix ouvre aussi la page de cette tribu dans ce livre ; les Marques payées pour des requêtes, non.",
+        "Hôte et Ami ne suffisent pas pour le don de Voix. Si tu es en dessous, échange, fais des offrandes et prends des requêtes jusqu'à atteindre Voix ; voir [Tribus et rang](standing)."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribes_kinship_totem",
+      "title": "Tailler le totem",
+      "text": [
+        "Pose la Marque de tribu, le **Totem de résonance de la voix de cette tribu** et **deux Espritissu** n'importe où dans une grille d'artisanat. La Marque est dépensée dans le totem."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quel totem va avec quelle Marque",
+      "text": [
+        "- **Terre**: Gardiens des litières, Chanteurs de gravier.",
+        "- **Eau**: Lieurs de racines.",
+        "- **Feu**: Marcheurs de lisière, Cœurs-tambours.",
+        "- **Air**: Tisserands de motifs, Gardiens de la colonie.",
+        "- **Esprit**: Graveurs de sceaux.",
+        "- **Métier**: Couseurs du métier.",
+        "Fais un clic droit sur un Totem de parenté posé pour voir sa tribu et la voix qu'il prête."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Une voix supplémentaire",
+      "steps": [
+        {
+          "caption": "Un Résonateur de Pulsation avec un totem de Terre et un de Feu chante deux voix.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un Totem de parenté des Cœurs-tambours ajoute une troisième voix, même si Feu est déjà là.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:kinship_totem[tribe=4]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Un totem des Gardiens des litières en ajoute une quatrième. Les voix se multiplient : sur un Éclat d'écho, trois font 15 de Pulsation par seconde et quatre en font 24.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:kinship_totem[tribe=0]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Un second totem de la même tribu n'ajoute rien. Le Résonateur compte les tribus, pas les blocs.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:kinship_totem[tribe=4]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sur un Résonateur de Pulsation",
+      "text": [
+        "Chaque tribu distincte avec un Totem de parenté à moins de **8 blocs** compte comme une voix de plus. Les totems de parenté ne se taisent jamais, donc ils comptent toujours ; les totems de résonance ne comptent que tant qu'ils sont Répondus.",
+        "Le Résonateur a toujours besoin d'au moins un **Totem de résonance** répondu. Les totems de parenté, seuls, ne le lancent pas.",
+        "Un tas lâche plafonne encore à **cinq voix** en tout. Construis un [Anneau de voix](voice_ring) et le plafond se lève : six éléments plus les neuf tribus font **quinze**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sur les stations et les machines de camp",
+      "text": [
+        "À 8 blocs d'un atelier, de l'Ancre de Métier ou d'une [main de camp](camp_hands) qui attend une voix, un Totem de parenté ne fait que **prêter l'élément de sa tribu**, comme si un Totem de résonance répondu de cette voix se tenait là. Ce n'est pas une septième voix.",
+        "Comme il ne se tait jamais, il compte même à côté d'un Totem de résonance silencieux de la même voix. C'est un bon moyen de garder une station ou une machine de camp en marche dans un endroit que tu visites peu.",
+        "L'arrosage d'un Soigneur du bosquet exige encore un Totem de résonance d'Eau."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dans la Fosse d'écoute",
+      "text": [
+        "Les bandes de minerai profondes, chaudes et rares d'une [Fosse d'écoute](listening_pit) exigent toutes un **Totem de parenté des Chanteurs de gravier**, ou un **Âtre de la tribu**, debout dans le motif.",
+        "L'estime chez les Chanteurs de gravier fixe encore la limite : **Parent** pour les bandes profondes et chaudes, **Voix** pour la rare."
+      ]
+    }
+  ]
+}

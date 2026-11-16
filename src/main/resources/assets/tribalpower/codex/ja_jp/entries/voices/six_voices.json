@@ -1,0 +1,267 @@
+{
+  "name": "六つの声",
+  "icon": "tribalpower:resonance_totem_earth",
+  "order": 10,
+  "items": [
+    "tribalpower:resonance_totem_fire",
+    "tribalpower:resonance_totem_water",
+    "tribalpower:resonance_totem_air",
+    "tribalpower:resonance_totem_spirit"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_totem_earth",
+      "text": [
+        "どのエコーの拠点も、入力のほかに二つ要る。パルスと、正しい声の**共鳴トーテム**が**8ブロック**以内にあること。",
+        "トーテムは師であり、発電機ではない。正しい声がなければ拠点は待ち、何も消費しない。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "高さ二ブロック",
+      "text": [
+        "共鳴トーテムは高さ**二ブロック**なので、置く場所の上に空きブロックを一つ残せ。",
+        "どちらの半分をクリックしても、上部は基部と同じように応える。どちらかを壊すと、トーテム全体が中身ごと一つのアイテムになる。",
+        "古いワールドの一ブロックのトーテムは、上のブロックが空気になると、自分で上部を伸ばし直す。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "どの声が何をするか",
+      "text": [
+        "各工房は一つの声に応え、その声のトーテムを**8ブロック**以内に待つ:",
+        "- **土**: エコー破砕、石の盤、聴音の穴。",
+        "- **火**: エコー調律と残り火の窯。生き物の試薬を調律するときは、代わりに**霊**を求める。",
+        "- **水**: エコー結束。",
+        "- **霊**: エコー顕現。",
+        "- **織機**: エコーの解き織りと遠門。最後の声だ。[第六の声](sixth_voice)を見よ。",
+        "止まった機械は、この本でスニークしながら右クリックすると、足りない声の名を告げる。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "野営の周りの声",
+      "text": [
+        "単独で働く野営の装置も、8ブロック以内に保たれた声を求める:",
+        "- **土**: 木立の世話役と道錨。",
+        "- **水**: 潮のポンプ。",
+        "- **霊**: 守護の太鼓、静寂のトーテム、召喚の揺りかご。",
+        "- **風**: 風の罠、そしてアストラル以外のすべてのリレー。",
+        "- **織機**: 印章の織機とアストラルリレー。",
+        "歌の作業台はどの声でも受ける。選んだトーテムが歌の声になる。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "正しい師",
+      "steps": [
+        {
+          "caption": "エコー破砕。中に石、そばに帯電した太鼓。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:stone"
+          }
+        },
+        {
+          "caption": "火のトーテムはエコー破砕には間違った声だ。ステーションは待ち、何も消費しない。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "土のトーテムに替えれば、作業が始まる。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "remove": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "声であり、ブロックではない",
+      "text": [
+        "ステーションはトーテムではなく声を数える。土のトーテムが二つでも声は一つだ。違う声を多く持つことはパルス共鳴器と織機の錨に関わり、周囲の**別個の**声ごとにパルスを多く生む。",
+        "血縁のトーテムは部族の属性をステーション、野営の装置、織機の錨に貸し、決して黙らない。パルス共鳴器の数え方は違う。各族は声を一つ足すだけで、第七の属性にはならない。",
+        "ステーションの近くの一つとチョークで結ばれたトーテムも、ステーションから16ブロック未満なら声を貸す。野営の装置と共鳴器はチョークの結びを聞かない。",
+        "各トーテムは格子のために**250パルス**を抱え、目覚めさせておく必要がある。[維持](keeping)を見よ。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "声ごとの発電機",
+      "text": [
+        "どの声にも自分の発電機がある。それを守る部族の技だ。",
+        "- **土**: 太鼓の心臓。",
+        "- **火**: 熾きの角笛。[太鼓の心臓](tribe_spark)のもの。",
+        "- **風**: 風のハープ。[模様織り](tribe_clock)のもの。",
+        "- **水**: 波太鼓。[根結び](tribe_sprout)のもの。",
+        "- **霊**: 目覚めの鐘。[印章彫り](tribe_sigil)のもの。",
+        "- **織機**: 織機の錨。[織機の縫い手](tribe_spindle)のもの。",
+        "六つすべてを織機の錨から**32ブロック**以内で同時に稼働させよ。近くに立つ者はみな**六つの声が歌う**を得る。",
+        "[マーチ](living_march)では、天候が一つの声の発電機を利し、別の声の発電機を妨げる。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_earth"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_fire"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_water"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_air"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_spirit"
+    }
+  ]
+}

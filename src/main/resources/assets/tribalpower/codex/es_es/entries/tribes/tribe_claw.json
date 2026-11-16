@@ -1,0 +1,65 @@
+{
+  "name": "Caminantes del borde",
+  "icon": "tribalpower:tribe_mark",
+  "order": 70,
+  "spoiler": true,
+  "unlock": "tribe:claw",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_claw",
+      "title": "Caminantes del borde",
+      "text": [
+        "“Primero las botas. Luego el puente. Luego el valor; llega por sí solo.”",
+        "Hebra de **Garra**, voz de **Fuego**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quiénes son",
+      "text": [
+        "Los Caminantes del borde recorrieron el borde de la grieta donde el hilo se deshilachaba más fino, y pusieron puntos de apoyo para todos los que vinieron después. Su oficio es **Equipo espiritual y puntos de apoyo**.",
+        "Sus campamentos están en la **taiga**, y en la Marcha hay un campamento suyo en cada banda, del norte helado hasta la sal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué quieren",
+      "text": [
+        "Su reactivo es el **Diente de la grieta**, que vale **+8** de reputación en su hogar.",
+        "También prefieren el cuero, un lingote de hierro o hierro en bruto: **+3** cada uno. Cualquier otra comida vale **+1**, y una Célula de Pulso cargada **+2 por cada 10 de Pulso**, hasta +8.",
+        "Recuerda que el hogar toma como máximo **60** de reputación al día en ofrendas; consulta [Tribus y reputación](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué intercambia el Anciano",
+      "text": [
+        "**Huésped**: 6 de cuero por 2 Fragmentos de eco; 4 lingotes de hierro por Botas de cuero.",
+        "**Amigo**: 3 de Eco sintonizado y 4 de cuero por Botas de Tejido espiritual; 8 lingotes de hierro por un Diente de la grieta; 4 de Raíz de brasa por Cecina del caminante del borde.",
+        "**Pariente**: 3 de Eco vinculado por una Hoja de Equipo espiritual; 3 de Eco vinculado por un Pico de Equipo espiritual.",
+        "Cada intercambio da **+2** de reputación."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marca, tótem y don",
+      "text": [
+        "Con **Voz**, el Anciano te da la Marca tribal de los Caminantes del borde. Fabrícala con un {item:tribalpower:resonance_totem_fire} y dos de Tejido espiritual para hacer su [Tótem de parentesco](kinship_totem).",
+        "Junto a un Resonador de Pulso es una voz más; junto a una estación presta **Fuego**.",
+        "Los Parientes de los Caminantes del borde llevan su [don](tribe_boons): ninguna caída te hace daño mientras te **agachas**.",
+        "Su plato lleva el don durante **5 minutos**, y su [reliquia](elders_and_stories) mientras la lleves.",
+        "Comprar un Diente de la grieta siendo Amigo es más seguro para conseguir su reactivo que cazar Sabuesos de la grieta.",
+        "Con **Voz** también puedes vincular un **Sabueso de la grieta** como [familiar](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "claw",
+      "title": "Tu trabajo con ellos",
+      "text": [
+        "Lo que el Anciano de los Caminantes del borde te ha pedido, y hasta dónde ha llegado su historia. Consulta [Ancianos, peticiones e historias](elders_and_stories)."
+      ]
+    }
+  ]
+}

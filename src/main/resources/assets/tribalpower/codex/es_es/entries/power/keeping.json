@@ -1,0 +1,190 @@
+{
+  "name": "Custodia",
+  "icon": "tribalpower:bone_chime",
+  "order": 40,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Los tótems necesitan atención además de energía. Un tótem que usas sigue despierto; uno que ignoras se duerme poco a poco. Esto se llama **Custodia**, y un tótem está siempre en uno de tres estados:",
+        "- **Respondido**: despierto, unos **40 minutos** de tiempo cargado desde la última vez que se usó.",
+        "- **Tenue**: apagándose, durante otros **40 minutos**. Las estaciones que coinciden tardan cerca de un **30% más**.",
+        "- **Quieto**: dormido. El trabajo nuevo puede pausarse, aunque sobre Pulso.",
+        "El reloj solo corre mientras el chunk del tótem está cargado. Un generador lleno no despierta por sí solo a un tótem quieto.",
+        "La Custodia es una de las dos cosas que necesita un tótem. La otra es Pulso en su **reserva**: un tótem con la reserva vacía está **silencioso** y no presta voz, por despierto que esté. En una red de entramado con Pulso, la reserva se llena y se queda llena; fuera del entramado, o en uno seco, se vacía en unos dos minutos (ver [Conductor de entramado](lattice_conductor)). Las dos nunca se tocan: el Pulso no despierta a un tótem quieto, y despertarlo no llena una reserva vacía."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Despertar un tótem",
+      "text": [
+        "Haz clic derecho en un tótem tenue o quieto con la mano vacía, o usa una **Campanilla de hueso** en cualquier tótem, para despertarlo y reiniciar su reloj.",
+        "Tocar un Corazón de tambor a mano despierta a cada tótem en 8 bloques. También lo hacen los tamborileros de rango Pariente de las tribus, y un Colector de ley cuyo golpe es 8 o más.",
+        "Un familiar sintonizado mantiene respondido a cada tótem de su voz en 8 bloques, y despierta a uno que se haya quedado quieto (ver [Vincular un familiar](familiars)).",
+        "El trabajo mantiene despiertos a los tótems: cada segundo que trabaja una estación que coincide, alimenta a los tótems de su voz. Eso mantiene en marcha a un tótem respondido o tenue, pero no despierta a uno que ya está quieto.",
+        "Una Placa de latido puede mantener un Corazón de tambor produciendo energía, pero los golpes de redstone no mantienen despiertos a los tótems."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Despertar un tótem quieto",
+      "steps": [
+        {
+          "caption": "Este Triturador tiene Pulso y un tótem de Tierra, pero se ha parado: su tótem se ha quedado quieto.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Usa una Campanilla de hueso en el tótem, o haz clic derecho con la mano vacía, para despertarlo.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          }
+        },
+        {
+          "caption": "La estación retoma el trabajo, y cada segundo que trabaja mantiene el tótem respondido.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Planear un campamento",
+      "text": [
+        "Los tótems en lugares frondosos siguen despiertos **el doble de tiempo**. Un tótem cuenta los bloques justo a su alrededor: cielo abierto (más de noche), lluvia, agua y plantas, hierba bajo los pies incluida. Cuando eso suma un sitio fuerte, su reloj corre a media velocidad. La mayoría de los tótems bajo techo o sobre piedra desnuda mantienen el ritmo normal.",
+        "Un [Tótem de parentesco](kinship_totem) nunca se queda quieto. En 8 bloques mantiene su voz respondida para las estaciones y las manos del campamento, incluso junto a un Tótem de resonancia de esa voz que se haya quedado quieto.",
+        "La vista de voces de la [Lente ley](ley_lens) marca los tótems con el color de su propia voz si están respondidos, con un tono más oscuro si están tenues, y en gris si están quietos o silenciosos. Y cuando una estación se detiene aunque su energía se vea bien, agáchate y haz clic derecho en ella con este libro: dice si su tótem está tenue o quieto."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bone_chime"
+    }
+  ]
+}

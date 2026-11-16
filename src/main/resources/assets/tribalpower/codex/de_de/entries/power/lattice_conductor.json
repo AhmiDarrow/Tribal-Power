@@ -1,0 +1,281 @@
+{
+  "name": "Gitterkonduktor",
+  "icon": "tribalpower:lattice_conductor",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lattice_conductor",
+      "text": "Der Gitterkonduktor webt das Puls-Gitter; er erzeugt selbst keinen Puls. Puls bewegt sich nur entlang von Konduktoren: Alles innerhalb von **8 Blöcken** um einen (Generatoren, Maschinen, Lagerhelfer, Relais, Totems und Pulskairn) liegt in seinem Netz, und Maschinen ziehen Puls nur aus dem Netz. Eine Fertigung ergibt vier."
+    },
+    {
+      "type": "text",
+      "title": "Ein Netz weben",
+      "text": [
+        "Konduktoren innerhalb von 8 Blöcken zueinander verbinden sich und weben ein Netz, so weit die Linie reicht. Zwei Gruppen außer Reichweite voneinander sind zwei Netze und teilen nichts.",
+        "Eine Maschine zieht zuerst von den Generatoren ihres Netzes, dann von ihren [Pulskairn](pulse_cairn). Sie zieht nie direkt von einem Generator, nicht einmal von einem direkt daneben: kein Konduktor, kein Puls.",
+        "Totems in einem Netz mit Puls füllen daraus ihre Puffer von **250 Puls** und bleiben dann voll, was nichts weiter kostet. Dieser Puffer hält die Stimme des Totems: Ein leeres Totem ist stumm (siehe [Wahrung](keeping)). Maschinen verbrauchen nie den Puffer eines Totems.",
+        "Totems werden mit **Ritualkreide** für ihre Stimmen verbunden: Rechtsklicke ein Totem, dann ein anderes, das **weniger als 16 Blöcke** entfernt ist. Eine Station zählt die Stimme eines Totems, das mit Kreide an eines in der Nähe gebunden ist, solange dieser Partner weniger als 16 Blöcke von der Station steht. Kreide trägt Stimmen, nicht Puls."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wie viel es trägt",
+      "text": [
+        "Jeder Konduktor trägt eine feste Menge pro Sekunde, nach [Rang](machine_ranks): **Gewebt 64**, **Abgestimmt 256**, **Gebunden 1,024** und **Manifestiert 4,096** Puls pro Sekunde. Ein Konduktor von vor den Rängen ist Gewebt.",
+        "Puls verlässt einen Generator durch einen Konduktor innerhalb von 8 Blöcken und erreicht eine Maschine durch einen Konduktor innerhalb von 8 Blöcken um die Maschine, und zählt gegen beide. Puls, der durch denselben Konduktor geht und ankommt, zählt einmal. Die Verbindungen zwischen Konduktoren tragen frei, daher trägt ein Netz so viel wie alle seine Konduktoren zusammen.",
+        "Ein großer Generator will starke oder viele Konduktoren um sich: einer, der Tausende pro Sekunde macht, etwa ein oberstes [Leyherz](ley_heart), braucht einen manifestierten Konduktor (4.096 pro Sekunde) oder vier gebundene, um alles abzugeben. Dasselbe gilt für eine hungrige Maschine.",
+        "Ein Redstone-Signal an einem Konduktor hebt ihn aus dem Gewebe, bis das Signal endet."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Ein Gitter über das Lager",
+      "steps": [
+        {
+          "caption": "Ein Generator. Keine Maschine kann daraus ziehen, bis das Gitter ihn erreicht.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Gitterkonduktor innerhalb von 8 Blöcken von ihm webt ihn ins Gitter.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Eine Station innerhalb von 8 Blöcken vom Konduktor zieht aus dem Netzwerk. Ohne den Konduktor würde sie verhungern, so nah die Trommel auch steht.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_attune"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ],
+            [
+              2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Totems in Reichweite füllen ihre Puffer aus dem Netzwerk und bleiben voll: das hält ihre Stimmen.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ablesen",
+      "text": [
+        "Rechtsklicke einen Konduktor für sein Netzwerk: wie viele Konduktoren, Generatoren und Kairne er hält, die Rate dieses Konduktors und die des ganzen Netzwerks, und den Puls darauf.",
+        "Der Ritus [Leybindung](world_rites) bindet zwei ferne Totems eine Weile: die Konduktoren in Reichweite des einen Endes weben sich ins Netzwerk des anderen.",
+        "Die Puls-Sicht der [Leylinse](ley_lens) zeigt das Netzwerk, auf dem du stehst, durch welchen Konduktor, und wie viel er in der letzten Sekunde trug.",
+        "Das Gitter trägt Puls, keine Güter. Um Gegenstände über eine Distanz zu bewegen, nutze [Relais](wireless_cargo)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wenn es still wird",
+      "text": [
+        "Ein Hebel oder irgendein Redstone-Signal hebt den Konduktor aus dem Gewebe.",
+        "„Kein Generator oder Kairn“ heißt: nichts im Netzwerk macht oder hält Puls. Bring einen innerhalb von 8 Blöcken an einen seiner Konduktoren.",
+        "„Trocken“ heißt: die Generatoren und Kairne des Netzwerks sind leer. Mach mehr Puls, oder gib weniger aus.",
+        "„Trägt alles, was es kann“ heißt: der Konduktor hat in der letzten Sekunde seine ganze Rate durchgereicht. Stuf ihn höher, oder stell Konduktoren neben den beschäftigten Generator und die Maschine.",
+        "Ducke dich und rechtsklicke ihn mit diesem Buch für seinen Rang, was er in der letzten Sekunde trug, und was fehlt."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_conductor"
+    }
+  ]
+}

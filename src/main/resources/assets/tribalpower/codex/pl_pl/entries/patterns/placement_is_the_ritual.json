@@ -1,0 +1,35 @@
+{
+  "name": "Ustawienie jest rytuałem",
+  "icon": "tribalpower:ritual_chalk",
+  "order": 10,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Zbudowane, nie wytworzone",
+      "text": [
+        "Niektóre maszyny budzą się tylko wtedy, gdy bloki wokół stoją we właściwym kształcie. Maszyna pośrodku to **kotwica**; kształt wokół niej to jej **wzór**.",
+        "Kotwice to Kamienna misa, Siatka rezonansu, Rytualne brasero, Rezonator Pulsu, Kruszarka echa i Zwornik wrót. Każda ma własną stronę w tej księdze, a kształt buduje się blok po bloku.",
+        "Każdy obrót jest dobry, więc ustaw kształt tak, jak pasuje twojemu obozowi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sprawdzanie twojej roboty",
+      "text": [
+        "Kucnij i kliknij prawym przyciskiem tą księgą Kamienną misę, Siatkę rezonansu albo Zwornik wrót. Podaje poziom, jaki osiągnął kształt, w którą stronę patrzy i pierwsze **trzy** wciąż brakujące rzeczy, a iskierki znaczą, gdzie mają być. Rytualne brasero wymienia braki bez iskierek.",
+        "Wiele wzorów ma większy drugi poziom. Zwykle proszą o [Kamienie kotwiczne](anchor_stone) spięte w narożnikach i w zamian dają maszynie więcej roboty.",
+        "Kształty spina się [Znaki rytualne](ritual_mark), rysowane Rytualną kredą."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 1,
+      "title": "Najmniejszy kształt",
+      "text": "Kamienna misa i cztery znaki kredą. To najłatwiejszy wzór do nauki i działa na bębnie granym ręką."
+    }
+  ],
+  "next": "ritual_mark"
+}

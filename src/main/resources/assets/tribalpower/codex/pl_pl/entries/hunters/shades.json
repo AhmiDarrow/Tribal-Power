@@ -1,0 +1,73 @@
+{
+  "name": "Cienie",
+  "icon": "tribalpower:barrow_shroud",
+  "order": 360,
+  "spoiler": true,
+  "items": [
+    "tribalpower:barrow_shade_spawn_egg",
+    "tribalpower:pale_wraith_spawn_egg",
+    "tribalpower:cinder_shade_spawn_egg",
+    "tribalpower:drowned_shade_spawn_egg",
+    "tribalpower:barrow_shroud",
+    "tribalpower:wraith_veil",
+    "tribalpower:shade_ember",
+    "tribalpower:drowned_weed"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Cienie",
+      "text": [
+        "Umarli Marszu chodzą tam, gdzie zginęli: pusty kaptur z dwoma światełkami w środku i szata, pod którą nic nie ma. Każdy cień ma **25 zdrowia** i nie ma pancerza, i zadaje **5**, ale każdy walczy po swojemu.",
+        "Każdy zostawia **od 1 do 2** swojego odczynnika, więcej z Grabieżą. Żaden z nich nie stworzy więzi."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:barrow_shade",
+      "title": "Cień kurhanu",
+      "text": [
+        "Ukoronowany martwy król w grobowych opaskach. Nawiedza ciemne jaskinie pod Wyżyną, dniem i nocą, pojedynczo albo po dwóch. Jego cios osłabia cię na 4 sekundy.",
+        "Zostawia **Całun kurhanu**, odczynnik Osłabienie.",
+        "Upolowany zostawia też od 1 do 2 kości i do 1 Membrana fantoma."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_wraith",
+      "title": "Blady upiór",
+      "text": [
+        "Lodowaty upiór ciągnący długie zasłony. Nocą lata nad Śnieżnymi polami, pojedynczo albo po dwóch. Z odległości do 12 bloków rzuca chłód, który spowalnia cię na 3 sekundy. Osłona przerywa rzucanie.",
+        "Zostawia **Zasłona upiora**, odczynnik Chłód.",
+        "Upolowany zostawia też do 1 Membrana fantoma i do 2 śnieżki."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinder_shade",
+      "title": "Cień żaru",
+      "text": [
+        "Tlący się upiór ze zwęglonymi dłońmi. Nocą lata nad Pustkowiami żaru, pojedynczo albo po dwóch, i jest **odporny na ogień**. Z odległości do 12 bloków rzuca bełt, który podpala cię na 2 sekundy. Osłona przerywa rzucanie.",
+        "Zostawia **Żar cienia**, odczynnik Bełt.",
+        "Upolowany zostawia też do 1 Membrana fantoma i z szansą jedna na trzy Płomienny proszek."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:drowned_shade",
+      "title": "Cień utopca",
+      "text": [
+        "Upiór obwieszony wodorostami, z latarnią. Nocą wynurza się w wodzie Mielizn, pojedynczo albo po dwóch, i płynie albo idzie za tobą: brzeg nie jest przed nim schronieniem. Jego cios osłabia cię na 4 sekundy.",
+        "Upuszcza **Wodorost utopca**, odczynnik Osłabienia.",
+        "Upolowany upuszcza też do 1 błony fantoma i do 2 odłamków pryzmarynu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i hodowla",
+      "text": [
+        "Oprócz swojego odczynnika każdy upolowany zostawia więcej, a z Grabieżą jeszcze więcej."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "name": "Posiłki Paleniska",
+  "icon": "tribalpower:long_hunt_stew",
+  "order": 24,
+  "items": [
+    "tribalpower:drift_bell_dumplings",
+    "tribalpower:delvers_pottage",
+    "tribalpower:fen_callers_chowder",
+    "tribalpower:reed_wrapped_eel",
+    "tribalpower:ember_roast_squash",
+    "tribalpower:long_hunt_stew",
+    "tribalpower:bloomsong_custard",
+    "tribalpower:fish_and_chips"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Posiłek na pracę przed tobą",
+      "text": [
+        "Sytniejsze niż [strawne na drogę](road_fare) i gotowane z dzikiego łupu Marszu: każdy posiłek dobrze nasyca i użycza jednego prostego daru na zadanie przed tobą. Żaden nie nasyca bardziej niż najlepsze [danie plemienia](tribe_dishes) i żaden nie niesie łaski.",
+        "- **Pierogi dryfującego dzwonu**: Galareta dryfu, Ziarno stepu, jajko. Dwa na garnek, 5 głodu i **Powolne opadanie przez 30 sekund**: zjedz przed spadkiem.",
+        "- **Polewka kopacza**: brązowy i czerwony grzyb, ziemniak, Ryż mokradła, miska. 7 głodu i **Pośpiech przez 90 sekund**, miska górnika.",
+        "- **Zupa wołającego z mokradła**: dowolna surowa ryba (Surowa błyskopłetwa lub Surowy węgorz mułu), Ryż mokradła, wodorosty, ziemniak, miska. 8 głodu i **Oddychanie pod wodą przez 90 sekund**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Posiłek na pracę przed tobą, ciąg dalszy",
+      "text": [
+        "- **Węgorz owinięty trzciną**: Surowy węgorz mułu, Trzcina Ducha, Liść Marszu. 7 głodu i **Widzenie w ciemności przez 120 sekund**, na ciemną wodę i głębokie jaskinie.",
+        "- **Dynia z żaru**: dynia, Korzeń żaru, Ziarno stepu. Dwie na garnek, 6 głodu i **Siła przez 30 sekund**.",
+        "- **Gulasz długiego polowania**: Pieczona dziczyzna, ziemniak, marchewka, Korzeń żaru, miska. 9 głodu, najsytniejszy prowiant obozu, i **Absorpcja przez 60 sekund**: zjedz przed ciężką nocą.",
+        "- **Krem pieśni kwiatów**: Kwiat echa, jajko, cukier, plaster miodu, miska. 6 głodu i **Regeneracja przez 15 sekund**, by goić się w drodze.",
+        "- **Ryba z frytkami**: dwie Surowa błyskopłetwa u góry kwadratu, dwa Korzeń żaru pod nimi. 8 głodu i **największe nasycenie ze wszystkich posiłków obozu**, więc trzyma cię sytym najdłużej, ale nie użycza daru.",
+        "Miski wracają, gdy jesz. Paczki mogą zmienić w konfiguracji, jak długo trwa każdy dar."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_bell_dumplings"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:delvers_pottage"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fen_callers_chowder"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:reed_wrapped_eel"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_roast_squash"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:long_hunt_stew"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bloomsong_custard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fish_and_chips"
+    }
+  ],
+  "next": "feasts"
+}

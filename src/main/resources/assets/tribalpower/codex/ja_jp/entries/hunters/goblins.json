@@ -1,0 +1,62 @@
+{
+  "name": "ゴブリン",
+  "icon": "tribalpower:goblin_ear",
+  "order": 330,
+  "spoiler": true,
+  "items": [
+    "tribalpower:fen_goblin_spawn_egg",
+    "tribalpower:tunnel_goblin_spawn_egg",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang"
+  ],
+  "next": "kobolds",
+  "pages": [
+    {
+      "type": "text",
+      "title": "ゴブリン",
+      "text": [
+        "小さく、速く、意地が悪い。ゴブリンは一度に一匹か二匹来て、まっすぐあなたへ向かう。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "二種類",
+      "text": [
+        "ゴブリンは**体力18**と**防具1**があり、速く、打撃は**4**。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:fen_goblin",
+      "title": "沼のゴブリン",
+      "text": [
+        "やせて耳の大きいゴブリンで、葦の槍を持つ。葦の沼にいる。夜、開けた地面に現れる。",
+        "狩ると、さらに金塊を最大2、骨を最大1、糸を最大1落とす。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tunnel_goblin",
+      "title": "坑道のゴブリン",
+      "text": [
+        "背を丸めたゴブリン。棘付きの棍棒を持ち、帽子にろうそくを付けている。草原の下の暗い坑道にいる。昼も夜も現れる。",
+        "狩ると、さらに石炭を最大2、鉄塊を最大2、骨を最大1落とす。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "それらが与えるもの",
+      "text": [
+        "沼のゴブリンは**1～2個のゴブリンの耳**を落とす（黄緑色の染料）。坑道のゴブリンは**1～2個のゴブリンの牙**。ドロップ増加で増える。どちらも猟犬の試薬だ。塗油すると、武器は一撃ごとにその一部を飲み返す。[試薬](reagents)を参照。",
+        "ゴブリンは決して結ばれない。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猟と放牧",
+      "text": [
+        "試薬のほか、狩るとさらに落ち、ドロップ増加でもう一段増える。"
+      ]
+    }
+  ]
+}

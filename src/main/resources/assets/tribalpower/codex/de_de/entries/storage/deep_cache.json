@@ -1,0 +1,45 @@
+{
+  "name": "Tiefspeicher",
+  "icon": "tribalpower:deep_cache",
+  "order": 20,
+  "items": [
+    "tribalpower:wayfarer_satchel"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:deep_cache",
+      "text": [
+        "Ein Tresor, überall. Jeder Tiefspeicher, den du setzt, öffnet denselben persönlichen Tresor mit **54 Plätzen**, also halten eine Truhe daheim und eine an einem fernen Außenposten dieselben Dinge. Ein Wandersäckel öffnet ihn aus deiner Tasche."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Es öffnen",
+      "text": [
+        "Sobald du den Marsch betreten hast, bist du eingestimmt, und jedes Öffnen ist kostenlos.",
+        "Bis dahin kostet jedes Öffnen **5 Puls** aus einer Pulszelle, die du trägst.",
+        "Der Tresor gehört dir, nicht dem Block. Einen Tiefspeicher abzubauen verliert nichts; setze einen anderen, und deine Sachen sind da.",
+        "Ein Hebel sperrt diesen Speicherblock. Der Tresor selbst wird von einer Pause nie geleert."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Der Wandersäckel",
+      "text": [
+        "Der Säckel öffnet denselben Tresor von überall, mit derselben Einstimmungsregel. Er ist ein Schlüssel, keine Tasche: im Gegenstand selbst liegt nichts, also lässt er sich nicht verdoppeln oder samt Inhalt verlieren. Der Tresor nimmt keinen Säckel an, also schließt du den Schlüssel nie darin ein.",
+        "Gehörst du zu einem [geteilten Lager](shared_camps), öffnet ein Tiefspeicher oder ein Säckel den gemeinsamen Tresor des Lagers. Schleiche beim Öffnen, um zu deinem persönlichen Tresor und zurück zu wechseln; er merkt sich deine Wahl. Der Lagertresor ist ein eigenes Inventar.",
+        "Die Taste **Säckeltresor** wechselt zwischen dem Lagertresor und deinem persönlichen, ohne etwas zu öffnen. Sie ist anfangs unbelegt: lege sie unter Tribal Power bei Optionen, Steuerung fest.",
+        "Jede Tresoransicht hat über den Plätzen einen Knopf **Aufräumen**, der stapelt und sortiert, was darin liegt; siehe [Ahnenspeicher](ancestral_cache)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:deep_cache"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wayfarer_satchel"
+    }
+  ]
+}

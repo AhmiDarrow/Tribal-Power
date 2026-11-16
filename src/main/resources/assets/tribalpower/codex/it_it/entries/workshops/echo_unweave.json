@@ -1,0 +1,190 @@
+{
+  "name": "Distessitura d'eco",
+  "icon": "tribalpower:echo_unweave",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_unweave",
+      "text": [
+        "La stazione di Telaio fa girare il reticolo al contrario. La Distessitura d'eco smonta un prodotto finito in più del passo precedente, e ritrasforma la Dotazione spirituale logora in metallo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa smonta",
+      "text": [
+        "- Lingotto manifestato: **2** echi vincolati.",
+        "- Eco vincolato: **2** echi sintonizzati.",
+        "- Eco sintonizzato: **2** schegge di eco.",
+        "- Nucleo risonante: **3** lingotti manifestati.",
+        "- Tessitospirito: **1** lana.",
+        "- Uno strumento di Dotazione spirituale danneggiato, un'arma danneggiata o un Sonaglio del guaritore danneggiato: **1** lingotto manifestato. Archi e balestre non vengono smontati.",
+        "Gli strumenti nuovi e integri vengono rifiutati: la Dotazione spirituale deve prima subire danni. L'armatura di Tessitospirito non viene mai smontata.",
+        "Entro 8 blocchi serve un Totem di risonanza (Telaio). Se manca il Telaio, va in pausa e non consuma nulla."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Distessere un nucleo",
+      "steps": [
+        {
+          "caption": "Posiziona la Distessitura d'eco con un Totem di risonanza (Telaio) entro 8 blocchi.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_unweave"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Tieni il Pulso a portata e lascia un po' di spazio libero in uscita.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Entra un Nucleo risonante; escono tre lingotti manifestati.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:resonant_core"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Incatenarlo",
+      "text": [
+        "Metti l'uscita del Vincolatore di eco o del Manifestatore di eco in questa stazione, per una catena inversa senza tramoggia.",
+        "Se lo vuoi più veloce, alza il grado nel Sintonizzatore di eco, poi nel Vincolatore di eco e quindi nel Manifestatore di eco. Una leva mette in pausa l'inserimento e il lavoro.",
+        "Se non parte, accovacciati e fai clic destro su di esso con questo libro, e leggi [La sesta voce](sixth_voice)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_unweave"
+    }
+  ]
+}

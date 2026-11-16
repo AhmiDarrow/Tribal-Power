@@ -1,0 +1,36 @@
+{
+  "name": "Plaques de mémoire",
+  "icon": "tribalpower:memory_plate",
+  "order": 76,
+  "items": [
+    "tribalpower:memory_plate",
+    "tribalpower:tally_plate",
+    "tribalpower:verse_plate"
+  ],
+  "next": "timing_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Mémoire, Compte, Vers",
+      "text": [
+        "Ces plaques se souviennent.",
+        "- **Mémoire** : une gauche active le règle à 15 ; une droite active l'efface. La sortie reste jusqu'à nouvel ordre. Si les deux sont actives, l'effacement l'emporte.",
+        "- **Compte** : chaque front montant à l'arrière ajoute un. Une fois le compte au seuil, il chante 15. L'usage accroupi à main vide fait défiler le seuil **1 à 8** (il part de 4). Une gauche montante remet le compte à zéro.",
+        "- **Vers** : part de **4** sans impulsion. Chaque front montant à l'arrière le passe à **8**, puis **12**, puis **15**, puis revient à 4. Un comparateur lit le même nombre.",
+        "La Plaque de vers n'est pas l'Appel de vers : pour amener la redstone à une lampe ou une machine sans fil, voir [Appel de vers et réponse](verse_link)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:memory_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tally_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_plate"
+    }
+  ]
+}

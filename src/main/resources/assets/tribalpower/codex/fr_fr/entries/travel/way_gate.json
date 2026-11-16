@@ -1,0 +1,63 @@
+{
+  "name": "Porte de voie",
+  "icon": "tribalpower:gate_keystone",
+  "order": 30,
+  "items": [
+    "tribalpower:gate_frame"
+  ],
+  "next": "far_gate",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_keystone",
+      "text": [
+        "Une entrée vers une autre entrée. Construis deux cadres de pierre, lie leurs clefs, allumes-en un, et tout ce qui entre ressort de l'autre : joueurs, animaux, monstres et objets lâchés pareillement."
+      ],
+      "title": "Porte de voie"
+    },
+    {
+      "type": "pattern",
+      "pattern": "way_gate",
+      "title": "Construire le cadre",
+      "text": "Un anneau de cinq sur cinq sans ses coins, la clef au milieu de la rangée du bas. L'intérieur, large de trois et haut de trois, reste vide."
+    },
+    {
+      "type": "text",
+      "title": "Cadres et clef",
+      "text": [
+        "Un assemblage de six Pierre de la Marche, deux de cuivre et un Éclat d'écho donne **quatre Cadres de porte**. Un anneau prend **11** cadres, et la clef elle-même en prend quatre de plus, avec un Noyau résonnant, un Éclat d'Esprit et une Cellule de Pulsation.",
+        "La clef tient la Pulsation de la porte, jusqu'à **600**. Clique droit dessus avec une Cellule de Pulsation pour en verser jusqu'à **100** à la fois. Une porte allumée se recharge aussi seule, jusqu'à 40 par seconde, depuis le treillis, par un conducteur à moins de 8 blocs.",
+        "Seuls le joueur qui a posé une clef de porte, et son camp, peuvent la charger, la lier, l'allumer ou la casser. Lier renfile les deux extrémités, donc tu ne peux pas non plus te lier à la porte de voie de quelqu'un d'autre."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lier une paire",
+      "text": [
+        "Construis la deuxième porte de voie dans le même monde.",
+        "- **Boussole :** accroupis-toi et fais un clic droit sur la première clef de porte avec une boussole de pierre de chemin non liée pour l'y lier, puis accroupis-toi et fais un clic droit sur la seconde clef de porte avec cette boussole.",
+        "- **Craie :** fais un clic droit sur une clef de porte avec de la craie rituelle, puis sur l'autre, jusqu'à **64 blocs** de distance.",
+        "- Un sigille de porte fonctionne aussi ; voir [Porte lointaine](far_gate).",
+        "La paire répond dans les deux sens. **/tribalpower gate list** nomme chaque porte de voie que tu as posée et sa partenaire."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Allumer et traverser",
+      "text": [
+        "Fais un clic droit sur la clef de porte à main vide pour l'allumer : **400 Pulsation** prises dans sa réserve. Fais un clic droit à nouveau pour la laisser s'éteindre. Un signal de redstone bref la bascule de la même façon, tandis qu'un signal maintenu la garde éteinte et refuse le voyage.",
+        "Chaque traversée prend **20 Pulsation** à la porte de voie dans laquelle tu entres. Tu arrives dans le cadre du partenaire, allumé ou non. Un délai de **une seconde** t'empêche de rebondir aussitôt. Les cavaliers et les véhicules ne peuvent pas passer.",
+        "Un comparateur lit **0** sans lien, **1 à 14** pour la Pulsation stockée, et **15** quand quelque chose traverse.",
+        "Voir [Garder la voie](keeping_the_way) pour ce qui arrive quand les choses tournent mal."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_frame"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_keystone"
+    }
+  ]
+}

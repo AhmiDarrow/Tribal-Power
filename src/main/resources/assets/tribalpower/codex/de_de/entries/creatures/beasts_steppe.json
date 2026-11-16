@@ -1,0 +1,74 @@
+{
+  "name": "Bestien der Steppe",
+  "icon": "tribalpower:tuft_wool",
+  "order": 200,
+  "spoiler": true,
+  "items": [
+    "tribalpower:tuftback_spawn_egg",
+    "tribalpower:longshank_spawn_egg",
+    "tribalpower:palewing_spawn_egg",
+    "tribalpower:burrow_gnasher_spawn_egg",
+    "tribalpower:tuft_wool",
+    "tribalpower:shank_sinew",
+    "tribalpower:pale_down",
+    "tribalpower:gnasher_tooth"
+  ],
+  "next": "beasts_highlands",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Die Eigenen der Steppe",
+      "text": [
+        "Vier Tiere gehören zur Steppe: drei, die über dem offenen Gras weiden oder fliegen, und eines, das in den Tunneln darunter jagt.",
+        "Jede sanfte Bestie hier lässt sich einmal pro Minute für ihr Reagenz bürsten und wird mit ihrem eigenen Futter angelockt und gezüchtet, genannt unten unter **Jagd und Hüten**. Man kann sie binden wie jedes sanfte Tier (siehe [Vertraute](familiars)), und obwohl keine eine eigene Gabe hat, kann eine gebundene an einem Totem trotzdem eine Stimme annehmen und deine Magie stärken (siehe [an einem Totem einstimmen](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tuftback",
+      "title": "Schopfrücken",
+      "text": [
+        "Ein zottiges Steppenbison, das in Herden von zwei bis vier weidet. Es hat **26 Gesundheit** und **5 Rüstung**, bewegt sich sehr langsam und weicht vor Monstern zurück.",
+        "Es lässt **1 bis 3 Schopfwolle** fallen, mehr mit Plünderung.",
+        "Gejagt lässt es außerdem 1 bis 2 Rohes Wildbret und bis zu 1 Marschleder fallen. Züchte mit **Steppenkorn**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:longshank",
+      "title": "Langschenkel",
+      "text": [
+        "Ein hoher Hirsch, schnell auf den Beinen, in Herden von zwei bis vier. **22 Gesundheit** und **1 Rüstung**.",
+        "Es lässt **1 bis 3 Schenkelsehne** fallen. Schenkelsehne ruft den Stampedegeist am Zertrampelten Ring: siehe [Wächter](guardians).",
+        "Gejagt lässt es außerdem 1 bis 3 Rohes Wildbret, bis zu 2 Marschleder und bis zu 1 Knochen fallen. Züchte mit **Steppenkorn**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:palewing",
+      "title": "Bleichschwinge",
+      "text": [
+        "Ein rostroter Milan, blass unter den Flügeln, mit tief gegabeltem Schwanz, der einzeln bis zu dritt über dem Gras kreist. **10 Gesundheit**, keine Rüstung.",
+        "Es lässt **1 bis 3 Bleiche Daune** fallen, die sich zu weißem Farbstoff mahlen lässt (siehe [Reagenzien](reagents)).",
+        "Gejagt lässt es außerdem 1 bis 2 Feder und bis zu 1 Rohes Wildbret fallen. Züchte mit **Steppenkorn oder Weizensamen**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:burrow_gnasher",
+      "title": "Bauknirscher",
+      "text": [
+        "Ein grabender Hirschkäfer mit großen gebogenen Zangen, der Jäger der Steppe. Er lebt in den dunklen Gängen unter dem Gras und kommt dort bei Tag oder Nacht herauf, einzeln oder zu zweit. Er hat **23 Gesundheit** und **3 Rüstung**, und sein Biss verursacht **4** und vergiftet dich 3 Sekunden lang.",
+        "Er lässt **1 bis 2 Knirschzähne** fallen, ein Giftreagenz. Auch Bauknirscher kommen herauf, um am Kampf von Stampedegeist teilzunehmen.",
+        "Gejagt lässt er außerdem bis zu 1 Knochen und bis zu 1 Spinnenauge fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Hüten",
+      "text": [
+        "Neben seinem Reagenz lässt jedes mehr fallen, wenn du es jagst, und mit Plünderung noch einmal mehr. Fleisch fällt gebraten, wenn das Tier brennend starb. Um wilde zu züchten, **schleiche**, während du zwei erwachsene Tiere mit ihrem Futter fütterst; normal gefüttert, wird dir ein wildes stattdessen zutraulich."
+      ]
+    }
+  ]
+}

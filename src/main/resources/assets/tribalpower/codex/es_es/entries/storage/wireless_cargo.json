@@ -1,0 +1,470 @@
+{
+  "name": "Carga inalámbrica",
+  "icon": "tribalpower:lattice_tuner",
+  "order": 40,
+  "items": [
+    "tribalpower:item_relay",
+    "tribalpower:fluid_relay",
+    "tribalpower:longreach_item_relay",
+    "tribalpower:longreach_fluid_relay",
+    "tribalpower:astral_item_relay",
+    "tribalpower:astral_fluid_relay"
+  ],
+  "next": "cargo_filters",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:item_relay",
+      "text": [
+        "Mueve objetos o fluido entre dos máquinas sin una línea de tuberías. Encaja una placa de relé en una cara de la máquina que envía, apúntala a la cara que recibe con un Afinador de entramado, y cada segundo la carga salta.",
+        "Los relés son para la distancia. Dos bloques de Tribal Power que se tocan pueden intercambiar por sus caras (mira [Cómo funcionan las estaciones](echo_workshops)); un cofre de vainilla sigue necesitando una tolva o una placa."
+      ],
+      "title": "Carga inalámbrica"
+    },
+    {
+      "type": "text",
+      "title": "Encajar y apuntar",
+      "text": [
+        "Haz clic derecho con una placa en una cara de una máquina o un cofre. Si llevas una placa, un clic normal la coloca, incluso en una máquina que abre una pantalla. Extrae del bloque al que está pegada.",
+        "La placa extrae por la cara en la que está y entrega en la cara que marcaste, y ambas siguen los ajustes de cara de ese bloque: la cara de la placa debe dar (**Salida** o **Ambos**) y la cara marcada debe recibir (**Entrada** o **Ambos**). Los lados de una estación empiezan como **Entrada** y solo la base como **Salida**, así que ajusta la cara primero.",
+        "Una [Pila de piedra](stone_font) ya está lista para las placas: sus caras de arriba y de abajo son **Ambos**, así que las placas de objetos y de fluido funcionan ahí en cualquier sentido.",
+        "Apúntala con el **Afinador de entramado**: haz clic derecho en la cara que debe recibir la carga y luego haz clic derecho en la placa. La placa envía todo lo que extrae a esa cara.",
+        "Mantén la placa en el entramado, a menos de 8 bloques de un Conductor de entramado, y también un tótem de resonancia de su voz, despierto o tenue, pero no en silencio: **Aire** para los relés de objetos, de fluidos y de largo alcance, el **Telar** para los astrales. Un Tótem de parentesco que preste esa voz también cuenta. Sin eso, la placa espera. Un servidor puede quitar esta regla con **automationNeedsVoices** en la configuración común."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Apuntar un relé",
+      "steps": [
+        {
+          "caption": "Dos cofres a cierta distancia.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Encaja un Relé de objetos encima del cofre que envía.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                1,
+                0
+              ],
+              "block": "tribalpower:item_relay[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Haz clic derecho en la parte de arriba del cofre lejano con un Afinador de entramado para marcarlo.",
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
+        },
+        {
+          "caption": "Luego haz clic derecho en la placa con el afinador. Ahora envía a la cara marcada.",
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -2,
+              1,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
+        },
+        {
+          "caption": "Coloca un Tótem de resonancia (Aire) a menos de 8 bloques de la placa: los relés se apoyan en la voz Aire.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=lower]"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=upper]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -2
+            ],
+            [
+              -1,
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "caption": "Pulso cerca de la placa que envía, y cruzan hasta 16 objetos por segundo.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Objetos o fluido",
+      "text": [
+        "Cada segundo un relé mueve hasta **16 objetos** o **250 mB**.",
+        "Los relés de objetos y de fluidos llevan lo que dice su nombre. Un **Sello de Agua** en la ranura **runa** hace que cualquier placa lleve fluido; un **Sello de Tierra** hace que lleve objetos.",
+        "Para el fluido, deja una Cisterna de Espíritu en cada extremo. Los relés mueven fluido; no lo guardan.",
+        "Para elegir qué cruza, o quemarlo, mira [Filtros y placas de vacío](cargo_filters)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Canales",
+      "text": [
+        "Una placa simple envía a un solo lugar. Súbele el rango y abre más **canales**: [Sintonizador de eco](machine_ranks) abre un segundo, Vinculador un tercero, Manifestador un cuarto. Cada canal tiene su propio destino y su propio filtro.",
+        "Marca una cara con el Afinador de entramado y usa el afinador en la placa. Cada clic normal llena el siguiente canal sin destino, así los canales pueden enviar a lugares distintos. Elige un canal y haz clic agachado en la placa con el afinador para reemplazar ese. **Desvincular** olvida el destino de un canal y conserva su filtro.",
+        "**Prioridad** envía la carga al primer canal, en orden numérico, que la acepta y tiene sitio: pon las menas en la lista blanca del canal 1 hacia un horno, y deja que el canal 2 lleve todo lo demás al almacén. **Turno rotativo** hace que los canales se turnen.",
+        "Los canales comparten la única transferencia de la placa por compás, así que una placa con rango mueve tanto como antes, solo que a más lugares."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tres distancias",
+      "text": [
+        "- **Relé de objetos** y **Relé de fluidos** alcanzan **32 bloques**, y cada compás que mueve algo cuesta **8 Pulso**.",
+        "- Los relés de **largo alcance** alcanzan **128 bloques**, por **16 Pulso** el compás.",
+        "- Los relés **astral** no tienen límite de distancia y cruzan entre mundos, por **32 Pulso** el compás.",
+        "Un compás que no mueve nada no cuesta nada.",
+        "Las placas con rango (véase [Rangos de máquina](machine_ranks)) pagan el **118%**, el **143%** o el **182%** de eso y mueven otro tanto más: unos **19 / 23 / 29** objetos o **294 / 357 / 455 mB**. El Pulso por objeto se mantiene casi igual."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Afinador de entramado",
+      "text": [
+        "Haz clic derecho en la cara del bloque al que quieres entregar los bienes; el afinador recuerda esa cara. Luego haz clic derecho en la placa con el afinador para apuntarla. Marca el destino, nunca la placa. Un clic derecho simple marca cualquier bloque, incluso un alijo o un cofre que se abre al hacer clic.",
+        "La marca sigue en el afinador después de apuntar, así que una marca puede apuntar varias placas; haz clic derecho en otro bloque para reemplazarla. Una marca en el bloque donde está la propia placa se rechaza.",
+        "Se aplican los límites de distancia de arriba.",
+        "Apuntar se conserva al recoger la placa, y también su filtro. Al romper una placa, su runa cae a su lado.",
+        "Una placa es tuya: solo tú y tu [campamento](shared_camps) pueden abrirla, cambiar su filtro o apuntarla con un afinador."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Controles y cuándo espera",
+      "text": [
+        "Una señal de redstone continua pausa una placa. Alimenta el bloque de destino del afinador para detener un traslado desde el extremo lejano.",
+        "Una palanca en una estación de Tribal Power, un alijo o una cisterna también detiene las placas que extraen de ahí o entregan hacia ahí.",
+        "Un comparador en una placa marca **0** sin enlace, **1** enlazada pero en espera, **15** mientras mueve carga.",
+        "Ambos extremos deben estar ya cargados. Un destino sin cargar o lleno hace esperar al relé; solo una placa de Sello de Fuego destruye algo. Los relés nunca cargan chunks por sí mismos, así que pon un Ancla de camino en el extremo lejano si debe funcionar mientras estás lejos.",
+        "Agáchate y haz clic derecho en una placa con este libro para ver su enlace, su coste y por qué espera."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_tuner"
+    }
+  ]
+}

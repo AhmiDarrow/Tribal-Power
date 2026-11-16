@@ -1,0 +1,79 @@
+{
+  "name": "Pila de piedra",
+  "icon": "tribalpower:stone_font",
+  "order": 40,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:stone_font",
+      "text": [
+        "La Pila de piedra pide a la piedra que se quede. Dale Pulso y la forma correcta a su alrededor, y se llena sola de adoquín, luego de piedra y luego de obsidiana.",
+        "El adoquín sin refuerzo es lo bastante barato para funcionar con un [Corazón de tambor](drumheart) tocado a mano, así que este es el primer patrón que construyen la mayoría de los campamentos."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 1,
+      "title": "Adoquín: la pila y cuatro marcas",
+      "text": "Traza una marca de tiza a cada lado de la pila, en el mismo suelo."
+    },
+    {
+      "type": "text",
+      "title": "Adoquín",
+      "text": [
+        "Con sus cuatro marcas y un Corazón de tambor tejido hasta ella por un conductor en un radio de **8 bloques**, la pila hace **un adoquín cada 2 segundos** a **4 Pulso por segundo**. No hace falta ninguna voz.",
+        "Sus ranuras son solo de salida: no metas adoquín con una tolva, la pila hace el suyo. Agáchate y haz clic derecho con la mano vacía para recoger lo que haya hecho, o usa una tolva o un relé. Sin nada dentro, el mismo clic agachado recorre la cara que pulsaste: Ambos, Entrada, Salida y Cerrado. Las placas funcionan igual arriba y abajo de la pila: una placa de objetos en cualquiera saca la piedra, y una placa de fluidos ajustada a uno u otro vierte agua o lava.",
+        "El adoquín de la pila sirve para construir y para martillarlo en grava y arena. El Triturador de eco hace fragmentos de eco solo a partir de piedra, no de adoquín, y la piedra es lo que hace el siguiente nivel."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 2,
+      "title": "Piedra y obsidiana: refruérzala",
+      "text": "Conserva las cuatro marcas y añade una Piedra de ancla en cada esquina de un 5x5 alrededor de la pila."
+    },
+    {
+      "type": "text",
+      "title": "Piedra",
+      "text": [
+        "Reforzada, y con la voz **Tierra** al alcance, la pila hace **piedra cada 3 segundos** a **32 Pulso por segundo**. Esa piedra es exactamente lo que el Triturador de eco convierte en fragmentos de eco.",
+        "El tótem de Tierra tiene que mantenerse despierto (ver [Mantener](keeping)): mientras está tenue, cada piedra tarda cerca de un 30% más, y cuando queda en silencio la piedra se detiene. El adoquín nunca necesita Tierra."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Obsidiana",
+      "text": [
+        "La obsidiana necesita el refuerzo y Tierra, más una de dos cosas:",
+        "- Las voces **Fuego y Agua**, ambas al alcance: obsidiana cada **12 segundos** a **48 Pulso por segundo**.",
+        "- O introduce por tubería **250 mB de agua y 250 mB de lava** por cada bloque: la misma obsidiana a solo **12 Pulso por segundo**. La pila guarda hasta 4000 mB de cada uno.",
+        "Meter fluidos en una pila sin refuerzo no hace nada. Si Fuego y Agua están los dos, la pila usa las voces y no toca sus tanques."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Profundidad y rangos",
+      "text": [
+        "Por debajo de **y 0** la pila da la pizarra profunda de cada nivel: pizarra profunda adoquinada y luego pizarra profunda. La obsidiana sigue siendo obsidiana. Un Foso de escucha no acepta pizarra profunda, así que construye la pila que alimenta un foso por encima de **y 0**.",
+        "Sube de rango la pila como cualquier otro taller: pedidos más rápidos, más Pulso por segundo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Leer la pila",
+      "text": [
+        "Un comparador junto a la pila lee cuánto lleva del bloque que está haciendo, y baja a 0 mientras espera algo.",
+        "Si la pila está inactiva, agáchate y haz clic derecho con este libro. Nombra las marcas, las anclas y las voces que faltan."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:stone_font"
+    }
+  ],
+  "next": "listening_pit"
+}

@@ -1,0 +1,59 @@
+{
+  "name": "Unzione",
+  "icon": "tribalpower:spiritgear_greatsword",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_bench",
+      "title": "Un reagente nella lama",
+      "text": [
+        "L'unzione lavora il potere di un reagente in un'arma, così ogni colpo lo porta. Si fa al [Banco del canto](song_bench), e l'arma lo tiene per sempre, finché non scegli di sostituirlo.",
+        "Un'arma tiene **un'unzione alla volta**. Ungerla di nuovo con un reagente di un'altra famiglia scambia il vecchio potere con il nuovo; un reagente della famiglia che già porta viene rifiutato, così non sprechi mai reagenti per sbaglio."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Come si fa",
+      "text": [
+        "1. Erigi un [Totem di risonanza](six_voices) di qualsiasi voce entro 8 blocchi dal banco, con un generatore carico a portata.",
+        "2. Tieni la Sacca dei reagenti nella barra di selezione rapida, con almeno **4 potenziati** reagenti del tipo che vuoi.",
+        "3. Metti l'arma nello **slot dell'arma** del banco, accanto all'uscita.",
+        "4. Fai clic su quel reagente nella lista per selezionarlo, poi premi **Ungi**. Costa i 4 reagenti e **32 Pulso**.",
+        "Il tooltip dell'arma mostra la sua unzione e il reagente da cui viene."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa si può ungere",
+      "text": [
+        "Ogni arma di Dotazione spirituale, dalla Lama alla [famiglia più nuova](spiritgear_weapons). Nient'altro accetta il lavoro del banco: non una spada vanilla, non quella di un altro mod.",
+        "Chi crea i pack può aprirlo ad altri tramite il tag oggetto **tribalpower:anointable**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le undici unzioni",
+      "text": [
+        "- **Ardente** (Brace): brucia il bersaglio e aggiunge fuoco a ogni colpo.",
+        "- **Richiamo della tempesta** (Fulmine): un quarto dei colpi inarca un fulmine su due ostili vicini.",
+        "- **Assideramento** (Freddo): rallenta e congela il bersaglio.",
+        "- **Veleno** (Veleno): avvelena il bersaglio.",
+        "- **Burrasca** (Raffica): scaglia il bersaglio indietro e in alto.",
+        "- **Radicamento** (Radice): un quinto dei colpi radica il bersaglio sul posto."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le undici unzioni, continua",
+      "text": [
+        "- **Squarcio** (Spinta): i colpi mordono più forte quanta più armatura indossa il bersaglio.",
+        "- **eco** (Trama): un quarto dei colpi colpisce una seconda volta a metà.",
+        "- **Prosciugamento** (Indebolimento): indebolisce il bersaglio.",
+        "- **Sete di sangue** (Segugio): rubavita, il 15% di ogni colpo torna come salute.",
+        "- **Riparazione** (Quiete): l'arma si ripara mentre colpisce.",
+        "Le unzioni scattano solo sui tuoi colpi in mischia, non su frecce o incantesimi. Ogni numero è nella sezione **anointing** della config comune, così un pack può regolarli."
+      ]
+    }
+  ]
+}

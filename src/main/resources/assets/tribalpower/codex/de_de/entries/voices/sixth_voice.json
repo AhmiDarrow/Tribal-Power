@@ -1,0 +1,201 @@
+{
+  "name": "Die sechste Stimme",
+  "icon": "tribalpower:resonance_totem_loom",
+  "order": 80,
+  "items": [
+    "tribalpower:loom_thread"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_totem_loom",
+      "text": [
+        "Die sechste Stimme ist der Faden selbst. Das Webstuhl-Totem ist das letzte Resonanz-Totem, und es kommt aus dem Marsch: **Webstuhlfaden** aus den Ahnenhallen, und ein Herz von Der Ungesungene."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Den Faden finden",
+      "text": [
+        "Die versunkenen Ahnenhallen in der Marschsteppe und im Hochland bewahren Webstuhlfaden in ihren zwei Truhen. Lies auf dem Weg hinaus die vier Tafeln.",
+        "Die Webstuhl-Näher tauschen Freunden auch einen Webstuhlfaden, für sechs Marschkristall.",
+        "Schnitze ein **Webstuhlsiegel**: ein Leersiegel und ein Webstuhlfaden, formlos. In einem Ritualkohlenbecken sitzend, mit der Stimme Webstuhl und Puls durch einen Konduktor innerhalb von **8 Blöcken**, fädelt es **2 Puls** in eine Pulszelle, die du trägst, alle **zwei Sekunden**, solange du innerhalb von **6 Blöcken** stehst, mit Glück. Das Kohlenbecken gibt **8 Puls** pro Schlag dafür aus."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Vor dem Totem",
+      "text": [
+        "Baue Echoentweben: Marschstein um zwei Kupferresonator, eine Geistscherbe und einen Webstuhlfaden. Es braucht die Stimme Webstuhl innerhalb von 8 Blöcken. Bis du das Totem fertigen kannst, baue es neben einem Webstuhl-Totem, das schon in einem Lager der Webstuhl-Näher, einer Ahnenhalle oder einer Kristallspitze steht.",
+        "Wecke dann Der Ungesungene an einem Trommelkreis und nimm sein **Ungesungen-Herz**."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Die sechste Stimme einsetzen",
+      "steps": [
+        {
+          "caption": "Ein Pulsresonator und Echoentweben, ein paar Blöcke auseinander.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_unweave"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Stelle das Webstuhl-Totem innerhalb von 8 Blöcken von beiden auf.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Echoentweben kann jetzt arbeiten, und der Resonator hört eine weitere eigenständige Stimme.",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:manifested_ingot"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was der Webstuhl öffnet",
+      "text": [
+        "Fertige das Webstuhl-Totem aus vier Marschkristall, zwei Webstuhlfaden und zwei Marsch-Bretter um das Ungesungen-Herz.",
+        "Mit Webstuhl in Reichweite verwandelt Echoentweben Barren zurück in Echos, Kerne in Barren, Geistergewebe in Wolle und beschädigte Werkzeuge und Waffen aus Geistergerät in einen Manifestierter Barren.",
+        "Der Sechsfachstab erhält Fessel und, wenn du dich ohne Ziel schleichst, Stich. Der Ritus Leybindung braucht das Webstuhlsiegel, und Ferntore brauchen die Stimme Webstuhl."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_loom"
+    }
+  ]
+}

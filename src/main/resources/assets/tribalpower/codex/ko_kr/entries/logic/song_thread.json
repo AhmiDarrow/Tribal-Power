@@ -1,0 +1,268 @@
+{
+  "name": "노래 실",
+  "icon": "tribalpower:song_thread",
+  "order": 40,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_thread",
+      "text": [
+        "레드스톤은 외침이다. 노래 실은 공기를 흥얼거리는 선이다. 신호는 **0에서 15**까지, 위아래를 포함한 **여섯 방향** 모두로 가며, 기댈 것이 필요 없다.",
+        "**베틀 실이 필요하다**. 그것을 주는 곳은 마치뿐이다. 옛 전당, 무덤, 관문, 횃대의 상자, 벗 등급에서 베틀 깁는 이의 거래, 그리고 노래되지 않은 자. 노래 덩굴, 노래 판, 절 호출은 모두 노래 실로 만들므로 역시 그것을 기다린다. 그때까지는 레드스톤 가루, 중계기, 비교기로 지어라."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "선을 깔기",
+      "text": [
+        "전력은 가루처럼 **블록마다 하나**씩 떨어진다. 먼 끝에서 15가 가득 필요하면 선을 짧게 두거나, 메아리 판으로 다시 채운다.",
+        "바닐라 레드스톤 가루, 레버, 노래 판, 노래 덩굴, 비교기가 모두 이것과 말한다. 노래 판 둘 사이에서는 실을 아예 건너뛰고 토템 렌치로 동기화할 수 있다 ([노래 판](song_plates) 참고).",
+        "나르는 힘은 약하다. 닿은 돌에 동력을 주지 않으므로 결코 걸리지 않는다. 실의 벽은 노래의 벽이다. 모서리에서 돌을 감는 덩굴손은 [노래 덩굴](song_vine)을 보라."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "노래 시계",
+      "steps": [
+        {
+          "caption": "북심장을 놓아라. 그것만으로는 네가 박자를 지켜야 한다.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "심장박동 판을 블록 옆면에 달고, 북을 향하게 한다. 바깥을 가리키는 면이 출력이다.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:heartbeat_plate[facing=east]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "판의 면에서 북까지 노래 실을 이어라.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_thread"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_thread"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "새 심장박동은 이미 20틱마다, 1초에 한 번 뛴다. 우클릭으로 확인하고, 느리게 할 때만 웅크려 사용한다.",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "제때의 한 박은 펄스 24를 더한다. 아무것도 쓰지 않는 동안 북은 찬다.",
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "박자 지키기",
+      "text": [
+        "북심장은 간격이 **17에서 23틱**인 박을 제시간으로 치고, 값은 **24펄스**이다. 다른 간격은 많아야 **10**이며, 8틱보다 가까운 박은 무시된다. 그러니 심장박동은 20틱에 두어라. 더 느린 설정은 박마다 10만 준다. 서로 8블록 안의 북 둘만 펄스를 얻는다.",
+        "북이 차지 않으면 판의 방향, 받침 블록, 실을 확인하고, 근처의 끊임없는 동력을 치워라. 임계값이나 기억 판을 더하기 전에 시계와 북을 먼저 돌아가게 하라.",
+        "모은 양을 신호로 쓰려면 [펄스 계기](pulse_gauge)를 더하라."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:song_thread",
+      "text": "베틀 실 주변의 레드스톤은 **여덟**이 된다."
+    }
+  ],
+  "next": "song_vine"
+}

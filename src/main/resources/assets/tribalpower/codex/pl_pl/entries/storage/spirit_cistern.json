@@ -1,0 +1,194 @@
+{
+  "name": "Cysterna Ducha",
+  "icon": "tribalpower:spirit_cistern",
+  "order": 30,
+  "next": "wireless_cargo",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_cistern",
+      "text": [
+        "Zbiornik obozu. Mieści jeden płyn, do **16,000 mB** (16 wiader), i zachowuje płyn, gdy go podnosisz, więc pełny zbiornik przeniesiesz bez utraty kropli."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Napełnianie i odczyt",
+      "text": [
+        "Kliknij ją prawym z wiadrem, by napełnić albo opróżnić. Kliknij prawym pustą ręką, by odczytać płyn i ilość.",
+        "Zwykłe rury na płyn, Pompa pływów albo Przekaźnik płynów mogą ją napełniać i opróżniać. Drugi płyn nie wejdzie, póki zbiornik nie jest pusty.",
+        "Komparator skierowany od niej pokazuje **0**, gdy jest pusta, a potem **od 1 do 15**, w miarę napełniania.",
+        "Przykucnij i kliknij stronę prawym pustą ręką, by ustawić ją: Obie, Wejście, Wyjście albo Zamknięta. Dotykające maszyny Tribal Power przenoszą do **250 mB** na sekundę ze strony dającej na biorącą."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Zbiornik, który trzyma",
+      "steps": [
+        {
+          "caption": "Postaw cysternę i wlej wiadro; kliknięcie pustą ręką powinno pokazać 1,000 z 16,000 mB.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:water_bucket"
+          }
+        },
+        {
+          "caption": "Komparator skierowany od niej pokazuje, jak bardzo jest pełna.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dźwignia na niej blokuje napełnianie i opróżnianie, także przez dalekie przekaźniki. Płyn zostaje.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:lever[face=wall,facing=north,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Zniszcz ją, a upuszczona cysterna wciąż trzyma wodę; postaw ją znowu, a nadal jest pełna.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Warto wiedzieć",
+      "text": [
+        "Przekaźniki i Pompa pływów przenoszą płyn; to nie zbiorniki. Postaw cysternę na każdym końcu.",
+        "Bęben fal też zachowuje własny zbiornik wody po zniszczeniu.",
+        "[Wezwanie wiosny](spring_calling) może oznaczyć postawioną cysternę jako źródło, by sama napełniała się wodą. Przesunięcie bloku kończy źródło; woda już w środku zostaje przy przedmiocie."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_cistern"
+    }
+  ]
+}

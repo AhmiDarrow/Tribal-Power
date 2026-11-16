@@ -1,0 +1,38 @@
+{
+  "name": "Sonaglio del guaritore",
+  "icon": "tribalpower:spiritgear_rattle",
+  "order": 30,
+  "items": [
+    "tribalpower:spiritgear_rattle"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_rattle",
+      "title": "Scuotilo",
+      "text": [
+        "Una zucca secca su un manico d'osso, e un pezzo di [Dotazione spirituale](spiritgear). **Tieni premuto Usa** e scuoti: ogni mezzo secondo cura chi stai guardando entro 6 blocchi, o te, quando non guardi nessuno.",
+        "Ogni scossa cura **3/4 di un cuore** e spende **2 di Pulso**, prima dalla cella del sonaglio e poi dalle celle che porti. Funziona su chiunque sia amichevole: giocatori, villici, animali e familiari, ma non sulle creature ostili."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gradi e voci",
+      "text": [
+        "Sale di grado alle stazioni dell'eco come il resto della Dotazione spirituale, e ogni grado cura il **50%** in più. Da **Vincolato** allevia anche la [Malattia spirituale](spirit_sickness) di un livello a ogni scossa.",
+        "Collegalo a un totem per un dono a ogni scossa:",
+        "- **Acqua**: cura la metà in più.",
+        "- **Spirito**: toglie ogni effetto dannoso.",
+        "- **Terra**: Resistenza breve.",
+        "- **Fuoco**: breve Resistenza al fuoco.",
+        "- **Aria**: Velocità breve.",
+        "- **Telaio**: Rigenerazione breve."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_rattle"
+    }
+  ],
+  "next": "spirit_sickness"
+}

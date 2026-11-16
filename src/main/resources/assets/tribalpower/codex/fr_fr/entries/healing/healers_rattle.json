@@ -1,0 +1,38 @@
+{
+  "name": "Hochet du guérisseur",
+  "icon": "tribalpower:spiritgear_rattle",
+  "order": 30,
+  "items": [
+    "tribalpower:spiritgear_rattle"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_rattle",
+      "title": "Secoue-le",
+      "text": [
+        "Une gourde séchée sur un manche d'os, et une pièce d'[Espritoutillage](spiritgear). **Maintiens Utiliser** et secoue : chaque demi-seconde, cela soigne qui tu regardes dans les 6 blocs, ou toi quand tu ne regardes personne.",
+        "Chaque secousse soigne **3/4 d'un cœur** et dépense **2 de Pulsation**, d'abord la cellule du hochet, puis les cellules que tu portes. Cela agit sur tout être amical : joueurs, villageois, animaux et familiers, mais pas sur les créatures hostiles."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rangs et voix",
+      "text": [
+        "Il prend rang aux stations d'écho comme le reste de l'Espritoutillage, et chaque rang soigne **50%** de plus. À partir de **Lié**, il allège aussi le [Mal de l'esprit](spirit_sickness) d'un niveau à chaque secousse.",
+        "Lie-le à un totem pour un don à chaque secousse :",
+        "- **Eau** : soigne moitié de plus.",
+        "- **Esprit** : lève tout effet néfaste.",
+        "- **Terre** : Résistance brève.",
+        "- **Feu** : Résistance au feu brève.",
+        "- **Air** : Vitesse brève.",
+        "- **Métier** : Régénération brève."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_rattle"
+    }
+  ],
+  "next": "spirit_sickness"
+}

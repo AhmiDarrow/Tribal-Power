@@ -1,0 +1,98 @@
+{
+  "name": "灵械武器",
+  "icon": "tribalpower:spiritgear_halberd",
+  "order": 42,
+  "items": [
+    "tribalpower:spiritgear_spear",
+    "tribalpower:spiritgear_halberd",
+    "tribalpower:spiritgear_battle_axe",
+    "tribalpower:spiritgear_warhammer",
+    "tribalpower:spiritgear_dagger",
+    "tribalpower:spiritgear_scythe",
+    "tribalpower:spiritgear_greatsword",
+    "tribalpower:spiritgear_trident"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_greatsword",
+      "title": "刃的家族",
+      "text": [
+        "[灵械刃](spiritgear)现在有了家族：矛、戟、战斧、战锤、匕首、镰刀、大剑和三叉戟。做法相同，用显化锭和骨铃，大多用一根木棍作柄，而且每一把都有**骨柄**。",
+        "底下每一把都是刃。它在回响站点分等级，把脉动花在回响打击上（付过费的一击不损耗），接受图腾的声音，在显化时打首领更疼，并且每一击都治疗你。变的是攻击距离、重量，和它自己的一招。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "数值",
+      "text": [
+        "- **矛**: 伤害7，每秒1.3次，攻击距离+1.5。冲刺突刺更强**35%**。",
+        "- **戟**: 伤害10，每秒0.9次，攻击距离+1，沉重（−4%）。横扫，并击破举起的盾。",
+        "- **战斧**: 伤害11，每秒0.8次，攻击距离—，沉重（−6%）。沉重的劈砍横扫；击破盾。",
+        "- **战锤**: 伤害12，每秒0.7次，攻击距离—，最沉重（−8%）。打击穿透护甲：目标护甲的**30%**作为额外伤害返回。击破盾。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "数值，续",
+      "text": [
+        "- **匕首**: 伤害4.5，每秒2.4次，攻击距离−0.5，轻（+5%）。从**背后**打出的一击有**1.75×**的力度。",
+        "- **镰刀**: 伤害8，每秒1.0次，攻击距离+0.5，稍重（−2%）。每一击还会把你攻击的**一半**收割到目标周围的每个敌对生物上。",
+        "- **大剑**: 伤害10，每秒0.85次，攻击距离+0.5，沉重（−6%）。最宽、最强的横扫。",
+        "- **三叉戟**: 伤害8，每秒1.1次，攻击距离+1。对站在水中或雨中的一切深咬**50%**。",
+        "这些是等级 0 的数值。等级会在上面加上刃的加成：攻击伤害 **+2**、**+5** 和 **+10**。每个数字都在通用配置的**武器**一节里。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "每一种都要交换点什么。重武器打得最狠，但挥得慢，拿在手里时会**放慢你的行走**；匕首弱，但快，还能让你走得稍快一点。",
+        "攻击距离让你更安全，但长武器每秒打出的更少；横扫和镰刀的收割在人群里出色，打单个目标就浪费了分量。",
+        "刃是全能的：没有额外距离，没有重量，没有专属招式，也没有短板。"
+      ],
+      "title": "没有武器能赢下一切"
+    },
+    {
+      "type": "text",
+      "title": "长短",
+      "text": [
+        "长武器真的很长：矛大约是手里剑的两倍，戟和大剑也差不多，斧和锤是一倍半。匕首又短又快。",
+        "攻击距离和伤害一样要紧。矛或三叉戟能把裂隙猎犬挡在一臂之外；匕首要你贴身，并且绕到背后。",
+        "它们都能带一份[涂膏](anointing)。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_spear"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_halberd"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_battle_axe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_warhammer"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_dagger"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_scythe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_greatsword"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_trident"
+    }
+  ],
+  "next": "totem_bound_gear"
+}

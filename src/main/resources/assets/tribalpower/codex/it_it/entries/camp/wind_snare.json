@@ -1,0 +1,362 @@
+{
+  "name": "Laccio del vento",
+  "icon": "tribalpower:wind_snare",
+  "order": 30,
+  "next": "seal_loom",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wind_snare",
+      "text": [
+        "Un baule che raccoglie. Il Laccio del vento tira gli oggetti caduti dal terreno intorno e li tiene in **27 scomparti**, così una fattoria, una linea di frantumazione o una fossa di creature non lascia mai disordine.",
+        "Solleva qualsiasi oggetto posato a terra, dalla Marcia, dall'Overworld o da un'altra mod. Non prende mai da bauli o da macchine."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Come cattura",
+      "text": [
+        "A ogni battito, una volta al secondo, raccoglie fino a **8 pile** che giacciono entro **8 blocchi**. L'area di presa è un cubo, quindi arriva tanto in alto e in basso quanto di lato.",
+        "Ogni pila costa **2 Pulso** dal reticolo. Niente Pulso, niente cattura; aspetta e non spende nulla. Risponde anche ad **Aria**: tieni un totem di Aria entro 8 blocchi (vedi [Mani dell'accampamento](camp_hands)), altrimenti resta fermo.",
+        "Alzargli il rango accorcia il battito. Il Pulso per pila resta 2."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un laccio sopra un deposito",
+      "steps": [
+        {
+          "caption": "Metti un Deposito ancestrale dove la cattura deve finire.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Metti il Laccio del vento sopra. La sua faccia inferiore è Uscita, così tutto ciò che cattura cade nel deposito.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:wind_snare[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dagli Pulso tramite un conduttore entro 8 blocchi: 2 per ogni pila che solleva.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              -2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Qualsiasi cosa entro 8 blocchi, anche sul lato opposto della fattoria, viene tirata dentro.",
+          "highlight": [
+            [
+              2,
+              -1,
+              2
+            ],
+            [
+              -2,
+              -1,
+              -2
+            ],
+            [
+              2,
+              -1,
+              -2
+            ],
+            [
+              -2,
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Una leva ferma insieme la cattura e le facce, per quando vuoi raccogliere qualcosa tu stesso.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,facing=east,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tirare fuori la cattura",
+      "text": [
+        "Aprilo come una cassa. Tramogge, tubi e [piastre relè](wireless_cargo) prelevano dalla faccia **inferiore**; le altre facce accettano oggetti. Accovacciati e fai clic destro su una faccia a mano vuota per scorrerla: Entrambi, Ingresso, Uscita, Chiuso.",
+        "Appoggiato su un Deposito ancestrale o su un altro magazzino di Tribal Power, la faccia inferiore spinge verso il basso fino a **16 oggetti al secondo**, senza nessuna tramoggia.",
+        "Un comparatore legge quanto è pieno: comodo per una lampada di avviso quando il laccio va svuotato."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wind_snare"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Amuleto de viento",
+  "icon": "tribalpower:wind_charm",
+  "order": 180,
+  "next": "songkeeper_drum",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wind_charm",
+      "text": [
+        "Cinco varillas de cobre y una vela de cristal en un cordel, para porches y entradas. No gasta Pulso y no tiene tarea; está ahí para verse y sonar bien."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Colgarlo",
+      "text": [
+        "Colócalo bajo casi cualquier cosa: un techo, una viga, un travesaño de valla, una cadena o un dosel de hojas. Colócalo contra el lado de un bloque y, en su lugar, cuelga de un soporte en esa pared.",
+        "Puedes atravesarlo de frente: no tiene colisión, pero rozarlo golpea una varilla.",
+        "Suena solo, de vez en cuando en un día quieto, más con la lluvia y mucho en una tormenta. Bajo un techo está más callado. Golpéalo para poner las cinco varillas en marcha.",
+        "Rompe aquello de lo que cuelga y se suelta.",
+        "La redstone no le hace nada. No es una luz de Pulso, ni una Arpa de viento."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wind_charm"
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "name": "Cisterna di Spirito",
+  "icon": "tribalpower:spirit_cistern",
+  "order": 30,
+  "next": "wireless_cargo",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_cistern",
+      "text": [
+        "Il serbatoio dell'accampamento. Tiene un solo fluido, fino a **16,000 mB** (16 secchi), e lo conserva quando lo raccogli, così puoi spostare un serbatoio pieno senza versarne una goccia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Riempirlo e leggerlo",
+      "text": [
+        "Fai clic destro con un secchio per riempirla o svuotarla. Fai clic destro a mano vuota per leggere il fluido e la quantità.",
+        "I tubi per fluidi comuni, una Pompa di marea o un Relè di fluidi possono riempirla e svuotarla. Un secondo fluido non entra finché il serbatoio non è vuoto.",
+        "Un comparatore rivolto verso l'esterno legge **0** quando è vuota, poi **1 a 15** mentre si riempie.",
+        "Accovacciati e fai clic destro su una faccia con la mano vuota per impostarla: Entrambe, Ingresso, Uscita o Chiusa. Le macchine di Tribal Power che la toccano spostano fino a **250 mB** al secondo da una faccia che dà a una che prende."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un serbatoio che tiene",
+      "steps": [
+        {
+          "caption": "Piazza la cisterna e versa un secchio; un clic a mano vuota dovrebbe leggere 1,000 di 16,000 mB.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:water_bucket"
+          }
+        },
+        {
+          "caption": "Un comparatore rivolto verso l'esterno legge quanto è piena.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Una leva su di essa blocca il riempimento e lo svuotamento, anche tramite relè lontani. Il fluido resta.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:lever[face=wall,facing=north,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Rompila e la cisterna lasciata cadere tiene ancora l'acqua; posala di nuovo ed è ancora piena.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Utile da sapere",
+      "text": [
+        "I relè e la Pompa di marea spostano il fluido; non sono serbatoi. Metti una cisterna a ogni estremità.",
+        "Un Tamburo delle onde tiene anche il proprio serbatoio d'acqua quando viene rotto.",
+        "[Chiamata di primavera](spring_calling) può segnare una cisterna posata come sorgente, così si riempie da sola d'acqua. Spostare il blocco chiude la sorgente; l'acqua già dentro resta sull'oggetto."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_cistern"
+    }
+  ]
+}

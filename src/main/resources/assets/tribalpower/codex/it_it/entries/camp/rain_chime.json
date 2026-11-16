@@ -1,0 +1,174 @@
+{
+  "name": "Campanelli della pioggia",
+  "icon": "tribalpower:rain_chime",
+  "order": 120,
+  "next": "offering_table",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rain_chime",
+      "text": [
+        "Trasforma il meteo in un segnale di redstone. Campanelli della pioggia non richiede Pulso né carburante, e non produce Pulso. Dice solo che cosa fa il cielo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Leggerlo",
+      "text": [
+        "Appoggia un comparatore contro di esso: **8** sotto la pioggia, **15** in un temporale, **0** con cielo sereno. Il meteo vale in tutto il mondo, quindi un tetto non lo zittisce.",
+        "Suona anche piano ogni **dieci secondi** mentre piove.",
+        "Un segnale di redstone nel carillon lo zittisce e porta l'uscita a 0."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un segno del meteo",
+      "steps": [
+        {
+          "caption": "Piazza il carillon dove un comparatore possa leggerlo.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:rain_chime"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un comparatore rivolto dalla parte opposta legge il meteo.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Qui accende una lampada ogni volta che piove, e una logica più fine distingue la pioggia (8) dal tuono (15).",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Idee",
+      "text": [
+        "Metti in pausa un [Collettore di ley](ley_collector) o accendi le luci dell'accampamento con il meteo. Usa la lettura del tuono come avviso prima di uscire.",
+        "Niente carburante, niente manutenzione: una volta posato, ascolta e basta."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rain_chime"
+    }
+  ]
+}

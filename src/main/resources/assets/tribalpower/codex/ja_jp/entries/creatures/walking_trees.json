@@ -1,0 +1,111 @@
+{
+  "name": "歩く木々",
+  "icon": "tribalpower:hearth_bark",
+  "order": 300,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hearth_warden_spawn_egg",
+    "tribalpower:grove_elder_spawn_egg",
+    "tribalpower:frostpine_sentinel_spawn_egg",
+    "tribalpower:snagwalker_spawn_egg",
+    "tribalpower:weeping_warden_spawn_egg",
+    "tribalpower:bellcap_elder_spawn_egg",
+    "tribalpower:stiltwood_spawn_egg",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root"
+  ],
+  "next": "fays",
+  "pages": [
+    {
+      "type": "text",
+      "title": "木立の番人",
+      "text": [
+        "マーチの木がみな止まっているわけではない。[マーチの木](march_trees)が育つそれぞれの土地で、同種のいくつかが立ち上がって歩き、出てきた木と同じ木と葉をまとっている。",
+        "おとなしい。1分に1回ブラシすると試薬が得られ、**骨粉**で誘って繁殖させる。穏やかな動物と同じく絆を結べる（[使い魔](familiars)を参照）。独自の贈り物はないが、結んだものはトーテムで声を受け、魔法を強められる（[トーテムでの調律](familiar_attuning)を参照）。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:hearth_warden",
+      "title": "炉の番人",
+      "text": [
+        "ステップの炉樫。短い根の上で幅広く重い。**炉の樹皮**を落とす。",
+        "狩ると炉樫の原木を1から3、炉樫の苗木を最大1、棒を1から3落とす。**骨粉**で繁殖させる。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:grove_elder",
+      "title": "木立の長老",
+      "text": [
+        "高地の木立に立つマーチの木。高く、杖にもたれるように曲がり、苔のひげがある。**長老の樹皮**を落とす。",
+        "狩るとマーチの原木を1から3、マーチの苗木を最大1、棒を1から3落とす。**骨粉**で繁殖させる。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:frostpine_sentinel",
+      "title": "霜松の番兵",
+      "text": [
+        "雪原の霜松。雪をかぶった針葉の円錐の下に高い幹があり、一番下の枝の下から枝の腕が伸びる。**霜松の樹皮**を落とす。",
+        "狩ると霜松の原木を1から3、霜松の苗木を最大1、棒を1から3落とす。**骨粉**で繁殖させる。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:snagwalker",
+      "title": "立ち枯れ歩き",
+      "text": [
+        "残り火の荒野に立つ炭火木の立ち枯れ。頂上が折れ、まだくすぶる焼けた枯れ木の幹。**炭火の樹皮**を落とす（黄色の染料）。",
+        "狩ると炭火木の原木を1から3、炭火木の苗木を最大1、棒を1から3落とす。**骨粉**で繁殖させる。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:weeping_warden",
+      "title": "しだれの番人",
+      "text": [
+        "葦の湿原の柳。すじのカーテンの下で背を丸める。**しだれの結び**を落とす。",
+        "狩ると柳の原木を1から3、柳の苗木を最大1、棒を1から3落とす。**骨粉**で繁殖させる。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bellcap_elder",
+      "title": "鐘傘の長老",
+      "text": [
+        "水晶の野の鐘傘。巨大な傘一つの下にあるずんぐりした茎。**鐘傘の胞子**を落とす（赤紫色の染料）。",
+        "狩ると、鐘傘の原木を1～3、鐘傘の苗木を最大1、棒を1～3落とす。**骨粉**で繁殖させる。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stiltwood",
+      "title": "高根木",
+      "text": [
+        "浅瀬のストライダー木。弓なりの支柱根の上に高く載る。**高根**を落とす。",
+        "狩ると、ストライダー木の原木を1～3、ストライダー木の苗木を最大1、棒を1～3落とす。**骨粉**で繁殖させる。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "どんなものか",
+      "text": [
+        "歩く木はどれも**体力48**と**防御力8**を持つ。動きは遅く、モンスターを避け、2～4体で歩く。それぞれ試薬を**1～3**落とし、ドロップ増加でもっと落ちる。",
+        "微光の尾根には木が育たない。だから番人もいない。歩いて穏やかでない木は[巨像の番人](colossus_warden)だけだ。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩りと追い",
+      "text": [
+        "試薬のほかに、狩るとさらに落ち、ドロップ増加でもっと落ちる。野生を繁殖させるには、大人二体に餌をやるあいだ**スニーク**する。普通に餌をやると、野生は代わりに懐く。"
+      ]
+    }
+  ]
+}

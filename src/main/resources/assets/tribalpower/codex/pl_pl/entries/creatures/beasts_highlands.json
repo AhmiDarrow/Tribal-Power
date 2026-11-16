@@ -1,0 +1,74 @@
+{
+  "name": "Bestie wyżyn",
+  "icon": "tribalpower:crag_fleece",
+  "order": 210,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cragcoat_spawn_egg",
+    "tribalpower:bouldersnout_spawn_egg",
+    "tribalpower:updrifter_spawn_egg",
+    "tribalpower:scree_lurcher_spawn_egg",
+    "tribalpower:crag_fleece",
+    "tribalpower:boulder_tusk",
+    "tribalpower:drift_bladder",
+    "tribalpower:scree_knuckle"
+  ],
+  "next": "beasts_glimmer_ridge",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Własne wyżyn",
+      "text": [
+        "Pośród kamienia, mchu i zagajników wyżyn żyją górski baran, dzik, żeglarz portugalski dryfujący na wietrze i kamienna małpa, która wychodzi nocą.",
+        "Każdą łagodną bestię tutaj można raz na minutę wyszczotkować po odczynnik i wabi się ją oraz rozmnaża jej własnym jedzeniem, podanym niżej w **Polowanie i hodowla**. Można ją związać jak każde łagodne zwierzę (zobacz [chowańce](familiars)), a choć żadna nie ma własnego daru, związana wciąż może przyjąć głos przy totemie i wzmocnić twoją magię (zobacz [dostrojenie przy totemie](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cragcoat",
+      "title": "Płaszcz urwiska",
+      "text": [
+        "Górski baran w ciężkim runie, w stadach od dwóch do czterech. **30 zdrowia** i **7 pancerza**, i powolny.",
+        "Zrzuca od 1 do 3 **Runo urwiska**, więcej przy Grabieży.",
+        "Upolowany zostawia też od 1 do 3 Surowa dziczyzna i do 2 Skóra Marszu. Rozmnażaj: **pszenica**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bouldersnout",
+      "title": "Głazoryj",
+      "text": [
+        "Dzik z kłami, o skórze jak obryw, w stadach od dwóch do czterech. **30 zdrowia** i **4 pancerza**.",
+        "Zrzuca od 1 do 3 **Kieł głazu**.",
+        "Upolowany zostawia też od 1 do 3 Surowa dziczyzna i do 2 Skóra Marszu. Rozmnażaj: **ziemniaki lub marchewki**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:updrifter",
+      "title": "Wznosidryf",
+      "text": [
+        "Podniebny żeglarz portugalski, szklisty pływak pod purpurowym grzebieniem, ciągnący parzące czułki; dryfuje nad stokami od jednego do trzech. **12 zdrowia**, bez pancerza.",
+        "Zrzuca od 1 do 3 **Pęcherz dryfu**.",
+        "Upolowany zostawia też do 2 Nić. Rozmnażaj: **Oset ley**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:scree_lurcher",
+      "title": "Chwiejpiarg",
+      "text": [
+        "Kamienna małpa, płyty skały na grzbiecie; wychodzi nocą na otwarty teren, jedna albo dwie naraz. Ma **32 zdrowia** i **3 pancerza** i uderza za **6**, a każdy cios odpycha cię w tył.",
+        "Zrzuca od 1 do 2 **Kłykieć piargu**, odczynnik pchnięcia.",
+        "Upolowany zostawia też od 1 do 2 Krzemień i do 2 Bryłka żelaza."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i hodowla",
+      "text": [
+        "Oprócz odczynnika każdy zostawia więcej, gdy jest upolowany, i jeszcze więcej przy Grabieży. Mięso wypada jako Pieczona dziczyzna, jeśli zwierzę spłonęło. Aby rozmnażać dzikie, **skradaj się**, gdy karmisz dwa dorosłe ich jedzeniem; karmione normalnie, dzikie zamiast tego oswaja się z tobą."
+      ]
+    }
+  ]
+}

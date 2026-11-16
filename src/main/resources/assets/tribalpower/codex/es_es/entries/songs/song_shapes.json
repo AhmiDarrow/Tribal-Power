@@ -1,0 +1,53 @@
+{
+  "name": "Formas de canto",
+  "icon": "tribalpower:song_sheet",
+  "order": 30,
+  "next": "pulse_crossbow",
+  "pages": [
+    {
+      "type": "text",
+      "title": "El primer reactivo decide",
+      "text": [
+        "Cada canto toma una de cinco **formas**, y el **primer** reactivo de la hoja la elige por su familia ([Reactivos](reagents)):",
+        "- **Rayo**: primero un reactivo de Brasa, Rayo o Sabueso.",
+        "- **Atadura**: primero un reactivo de Veneno, Debilidad, Frío o Tejido.",
+        "- **Paso**: primero un reactivo de Ráfaga.",
+        "- **Llamada**: primero un reactivo de Raíz o Empujón.",
+        "- **Guarda**: primero un reactivo de Quietud, la familia de toda bestia mansa.",
+        "La voz que elegiste en el banco tiñe la forma que sea."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Las cinco formas",
+      "text": [
+        "- **Rayo** golpea al hostil que miras, hasta a **10 bloques** de distancia, por **3** de daño más **1** por cada copia del primer reactivo. Fuego lo incendia, y Aire lo empuja.",
+        "- **Atadura** ralentiza a ese hostil: Lentitud I con una copia del primer reactivo, hasta IV si hay más, y un nivel más con la voz de Agua.",
+        "- **Paso** te lanza hacia adelante, hacia donde miras, más lejos por cada copia. Aire te eleva más, y Aire y Espíritu te dejan flotar al bajar. El Telar además te cose **2 a 4 bloques** hacia adelante, si hay aire libre donde caer.",
+        "- **Llamada** golpea a todo hostil a tu alrededor, a unos **3 bloques**, por **2** de daño más medio punto por cada copia, con el toque de la voz como en un Rayo.",
+        "- **Guarda** es solo para ti: la [bendición](voice_blessings) de su voz durante **45 segundos** por cada copia, y una guarda propia. Tierra da resistencia, Fuego resistencia al fuego, Agua regeneración y respiración acuática, Aire caída lenta y velocidad, Espíritu visión nocturna y el Telar absorción.",
+        "Un Rayo o una Atadura necesita un hostil a la vista. Si no hay ninguno al alcance, el canto no se canta y no cuesta nada."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que añade el resto de la hoja",
+      "text": [
+        "Los reactivos después del primero solo visten la forma. Nunca añaden un segundo hechizo.",
+        "- **Otra copia del primer reactivo** hace el canto más fuerte: golpea más, ralentiza más, lanza más lejos o bendice por más tiempo.",
+        "- **Un reactivo de otra familia** añade el toque de esa familia: fuego, lentitud, veneno, debilidad, un empujón, un brillo o un momento de regeneración para ti. Solo cuentan las **dos primeras** familias distintas. Una tercera no añade nada, y tampoco un reactivo distinto de una familia que ya está en la hoja.",
+        "- **Cada reactivo pasado el tercero** alarga el canto: su ralentización, veneno y otros toques persistentes duran **4 segundos** en una hoja de tres reactivos, y un segundo más por cada reactivo después. Un Rayo o una Atadura llega un bloque más lejos. Una Llamada se abre un poco más.",
+        "Los toques caen sobre el objetivo de un Rayo o una Atadura y sobre todo lo que golpea una Llamada. Un Paso o una Guarda no tiene objetivo, así que en ellos solo actúa el toque de Quietud, tu propia regeneración."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que cuesta un canto",
+      "text": [
+        "Cantar cuesta **8 Pulso, más 4 por cada reactivo** en la hoja: **20** con tres reactivos, **36** con siete. La dádiva de los Zurcidores del telar quita un cuarto ([Dádivas tribales](tribe_boons)).",
+        "Una Hoja de canto se gasta cuando la cantas. Un Cancionero guarda sus cantos y descansa **1,5 segundos** después de cada uno antes de cantar otra vez.",
+        "Un familiar de la voz del canto que esté cerca hace que golpee más fuerte y que una Llamada llegue más lejos ([lo que da una voz](familiar_boons))."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Ce qu'une voix donne",
+  "icon": "tribalpower:ember_charm",
+  "order": 50,
+  "pages": [
+    {
+      "type": "text",
+      "title": "À moins de 16 blocs",
+      "text": [
+        "Tout sur ces pages exige que ton familier accordé soit à **16 blocs** de toi. Chaque familier qui te suit compte, mais parmi ceux à qui tu as dit d'attendre, seul le **plus proche** compte. Une foule laissée assise à la maison ne te prête donc qu'une voix, pas toutes les leurs.",
+        "Sans familier, ta magie fonctionne comme elle l'a toujours fait."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Amulettes d'Esprit",
+      "text": [
+        "Une amulette portée qui a la voix du familier coûte **40% de Pulsation en moins** à entretenir, arrondi : les 2 de Pulsation d'une amulette à une voix deviennent 1. Voir [Amulettes d'Esprit](spirit_charms).",
+        "Chaque voix que tu partages ajoute aussi un bienfait, qui persiste quelques secondes après que tu t'éloignes :",
+        "- **Terre** : Résistance II au lieu de I.",
+        "- **Feu** : Célérité, et les assaillants brûlent deux fois plus longtemps.",
+        "- **Eau** : Pouvoir du conduit.",
+        "- **Air** : Vitesse.",
+        "- **Esprit** : les choses hostiles dans un rayon de 16 blocs brillent à travers les murs. La lueur est visible de tous alentour, pas seulement de toi.",
+        "- **Métier** : Chance II."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Espritoutillage",
+      "text": [
+        "Une pièce liée à la voix du familier dépense **40% de Pulsation en moins**, arrondi : les 3 d'un coup deviennent 2, les 2 d'un coup de minage deviennent 1 et les 3 de l'armure liée deviennent 2. Une dépense de 1 Pulsation, comme labourer ou tondre, ne peut pas descendre plus bas, donc elle est à la place **gratuite 40% du temps**.",
+        "Ses avantages de voix (bûches et pousses en plus, récoltes doublées, de l'argile à partir de terre) arrivent **moitié plus souvent**. Voir [Espritoutillage](spiritgear)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chants et rites",
+      "text": [
+        "Les vers de la voix du familier frappent **30% plus fort**, et un Appel porte **1.5 blocs** plus loin ([formes de chant](song_shapes)).",
+        "Un rite de sceau de sa voix laisse une bénédiction qui dure **moitié plus longtemps**."
+      ]
+    }
+  ]
+}

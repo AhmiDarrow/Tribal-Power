@@ -1,0 +1,58 @@
+{
+  "name": "Pod Marszem",
+  "icon": "tribalpower:march_iron_ore",
+  "order": 30,
+  "spoiler": true,
+  "items": [
+    "tribalpower:march_coal_ore",
+    "tribalpower:march_iron_ore",
+    "tribalpower:march_copper_ore",
+    "tribalpower:march_gold_ore",
+    "tribalpower:march_redstone_ore",
+    "tribalpower:march_lapis_ore",
+    "tribalpower:march_diamond_ore",
+    "tribalpower:march_emerald_ore"
+  ],
+  "next": "ancestor_hall",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_iron_ore",
+      "text": [
+        "Marsz jest pusty pod spodem. Kop w dół albo idź za wylotem jaskini, a znajdziesz ogromne jaskinie na kamiennych filarach, długie kręte tunele, głębokie kaniony otwarte ku niebu i każdą waniliową rudę w Kamieniu Marszu. Weź dużo światła. Pozostałości «Duch» pojawiają się w ciemności tam na dole, tak jak na powierzchni."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ruda węgla, żelaza, miedzi, złota, redstone, lazurytu, diamentu i szmaragdu Marszu kopie się i przetapia dokładnie jak waniliowe bliźniaki. Inna jest tylko skała wokół.",
+        "- Węgiel: dowolny kilof.",
+        "- Żelazo, miedź i lazuryt: kamienny kilof lub lepszy.",
+        "- Złoto, redstone, diament i szmaragd: żelazny kilof lub lepszy.",
+        "Dają te same surowce i klejnoty, Szczęście działa, a Jedwabny dotyk zostawia blok rudy, który możesz przetopić od razu. Powiązany Lis-latarnia oznacza je wszystkie, a także Rudę Marszu."
+      ],
+      "title": "Wydobycie ośmiu rud"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Węgiel: od **y 0** do **192**.",
+        "- Żelazo: wszędzie, najobficiej na średnich głębokościach i znów wysoko w górach.",
+        "- Miedź: od **y -16** do **112**.",
+        "- Złoto: głęboko, do **y 32**. Lazuryt: od **y -32** do **32**. Redstone: poniżej **y 16**.",
+        "- Diament: poniżej **y 16**, czasem w dużej żyle.",
+        "- Szmaragd: tylko **Wyżyny** i **Grań połysku**, od **y 48** w górę. Są tam pospolite, więc wspinaczka się opłaca."
+      ],
+      "title": "Gdzie szukać"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Tu i tam ściana jaskini otwiera się w małą kieszeń ametystu: kilka bloków ametystu w skale, z pąkami i, jeśli masz szczęście, pełnym skupiskiem rosnącym do jaskini.",
+        "Nie ma w nich pączkującego ametystu, więc nigdy nie odrastają. Weź, co jest, i idź dalej.",
+        "Odłamki ametystu dostrajają się w Odłamki Ducha w Dostrajaczu echa, więc kieszeń to dobry łup na początku Marszu."
+      ],
+      "title": "Kieszenie ametystu"
+    }
+  ]
+}

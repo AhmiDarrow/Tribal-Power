@@ -1,0 +1,321 @@
+{
+  "name": "Tkanie kraty",
+  "icon": "tribalpower:lattice_conductor",
+  "order": 40,
+  "next": "keeping_totems",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Puls biegnie tylko wzdłuż Przewodników kraty. Twój pierwszy przewodnik łączy bęben i stację; gdy obóz się rozrasta, tkaj więcej.",
+        "Przewodniki w odległości 8 bloków od siebie łączą się w jedną sieć, a wszystko w odległości 8 od któregokolwiek z nich jest na niej: generator na jednym końcu obozu zasila maszynę na drugim. Jedno wytworzenie daje cztery.",
+        "Każdy przewodnik przenosi na początek **64 Puls na sekundę**. Gdy sieć musi przenieść więcej, [podnieś rangę](machine_ranks) jej przewodników (256, 1,024, potem 4,096 na sekundę) albo dodaj więcej obok zajętego generatora i maszyny.",
+        "Rytualna kreda łączy totemy dla ich głosów: kliknij prawym jeden, trzymając **Rytualna kreda** (mączka kostna, lazuryt i Odłamek Ducha dają cztery pałeczki), potem drugi w odległości mniejszej niż 16 bloków. Kreda niesie głosy, nigdy Puls."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Mała krata",
+      "steps": [
+        {
+          "caption": "Generator na jednym końcu obozu, stacja na drugim.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:echo_attune"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Jeden Przewodnik kraty w odległości 8 bloków od obu splata je w jedną sieć: stacja czerpie z bębna przez niego.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Totem w zasięgu napełnia bufor z sieci i zachowuje głos.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Przewodniki w odległości 8 od siebie się łączą. Każdy przenosi 64 Puls na sekundę, więcej w miarę rangi; dodawaj je obok zajętych generatorów i maszyn.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

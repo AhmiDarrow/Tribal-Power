@@ -1,0 +1,259 @@
+{
+  "name": "Marco de Pulso",
+  "icon": "tribalpower:pulse_cairn",
+  "order": 70,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_cairn",
+      "text": "Um marco de pedras que guarda um compasso: o armazenamento da treliça. Cada pedra guarda **4,000 Pulso**. Numa rede de treliça, ele bebe o excedente dos geradores da rede e o empresta às máquinas da rede, até **64 por segundo** em cada sentido. Geradores em rajada o enchem; máquinas famintas puxam dele sem parar."
+    },
+    {
+      "type": "text",
+      "title": "Empilhar",
+      "text": [
+        "Marcos que se tocam face a face, em qualquer lado, acima ou abaixo, juntam-se em **uma pilha** e um só depósito: duas pedras guardam **8,000 Pulso**, três guardam **12,000**, e assim por diante. Uma pilha junta até **64 pedras**, o que é **256,000 Pulso** de pedras simples; uma pedra além disso fica sozinha.",
+        "Use qualquer pedra e você vê a pilha inteira. Coloque Pulso em qualquer ponto e ele se espalha pelas pedras; retire de qualquer pedra e a pilha inteira paga. Cada pedra soma a própria taxa à velocidade com que a pilha move Pulso para dentro e para fora."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ranques",
+      "text": [
+        "O Marco de Pulso [sobe de ranque](machine_ranks) como qualquer máquina, em Sintonizador de eco, Vinculador de eco e Manifestador de eco. Uma pedra com ranque guarda mais e move Pulso mais rápido, para dentro e para fora, nas mesmas taxas que um condutor:",
+        "- **Tecido**: 4,000 Pulso, 64 por segundo.",
+        "- **Sintonizado**: 16,000 Pulso, 256 por segundo.",
+        "- **Vinculado**: 64,000 Pulso, 1,024 por segundo.",
+        "- **Manifestado**: 256,000 Pulso, 4,096 por segundo.",
+        "Uma pilha soma suas pedras, seja qual for o posto delas. Uma pedra de antes dos postos é Tecido, e uma pedra quebrada mantém o posto, mas não o Pulso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Encher e ler",
+      "text": [
+        "Um marco entra na treliça como qualquer outra coisa, num raio de 8 blocos de um [Condutor de treliça](lattice_conductor). Ele só bebe o **excedente** de um gerador, o que fica acima da metade do estoque dele, e nunca o de outro marco, para que o Pulso de que as máquinas trabalham fique intocado. As máquinas da rede gastam primeiro os geradores e depois os marcos. O Pulso que entra e o que sai também passa pelos condutores ao alcance, então ajuste o posto deles para combinar.",
+        "Quebre uma pedra e o Pulso que ela carregava se perde: a pedra volta vazia, e o resto da pilha guarda o que contém. Gaste uma pilha antes de movê-la.",
+        "Um comparador contra qualquer pedra lê o quanto a pilha inteira está cheia. Um sinal de redstone em qualquer pedra impede a pilha de encher."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Uma pilha de pedras",
+      "steps": [
+        {
+          "caption": "Coloque um marco ao lado de um gerador que vem em rajadas, como um Sino de despertar, com um Condutor de treliça ao alcance dos dois.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:wake_bell"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Coloque mais em cima ou ao lado. Pedras que se tocam são uma pilha: três guardam 12,000 Pulso.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Qualquer forma se junta, lado a lado ou empilhada, até 64 pedras: 256,000 Pulso em uma pilha.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                1
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Um comparador contra qualquer pedra lê o quanto a pilha inteira está cheia.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Onde brilha",
+      "text": [
+        "Ponha um marco, um Sino de despertar e um Fosso de escuta ao redor de um condutor, e as rajadas do sino viram o consumo constante que o fosso quer.",
+        "As duas pontas precisam estar carregadas. Agache e clique com o botão direito num marco com este livro para ver quantas pedras a pilha dele reuniu e o que esta pedra carrega."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_cairn",
+      "text": "Seis Pedra da Marcha, dois Eco vinculado e uma Célula de Pulso."
+    }
+  ]
+}

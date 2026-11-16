@@ -1,0 +1,69 @@
+{
+  "name": "Luoghi della Marcia",
+  "icon": "tribalpower:march_stone_bricks",
+  "order": 64,
+  "spoiler": true,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Rovine e accampamenti",
+      "text": [
+        "Le tribù hanno lasciato più che sale e cerchi di tamburi. Ogni terra della Marcia ha i propri resti, quasi tutti con un baule che vale la pena aprire, e alcuni custoditi da ciò che ancora vi cammina.",
+        "Le Rovine dell'antica Porta e la Grotta di cristallo tengono i forzieri migliori dietro **Sentinella cava**, e la Tomba di cenere dietro generatori di **Legacenere** e di **Diavoletto di tizzone**. Quei forzieri possono contenere un **Nucleo risonante** o **Filo di Telaio**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Accampamenti e villaggi",
+      "text": [
+        "Ogni tribù tiene un accampamento in ogni fascia della Marcia, fatto del legno e del suolo propri di quella fascia: pino di brina e neve sul bordo gelato, abete spinoso e terriccio di aghi nelle taighe fredde, palma del tamburo sulle savane, corteccia di sole e sale nelle terre calde. I Custodi del giaciglio tengono i prati e le colline, i Cantori di ghiaia le vette e le mesa, i Legaradici i boschi profondi, i Camminatori del ciglio le taighe, i Cuoritamburo il suolo secco e ardente, i Tessitori di trame le steppe aperte, i Custodi della colonia le terre in fiore, gli Intagliatori di sigilli i boschi scuri e i Cucitori del telaio il paese strano e illuminato.",
+        "**Villaggi** stanno anch'essi in ogni fascia: una piazza con il Focolare della tribù, il fuoco, il totem, il pozzo e il Telaio, i suoi quattro Consanguineo, e il generatore proprio della voce, che ronza; vie della pietra della fascia che portano a capanne, case lunghe, un laboratorio con un Frantumatore di eco e un Banco del canto, un granaio della coltura della fascia, un santuario, una torre di vedetta, un recinto dei brucatori della fascia e un giardino di fiori. Il Focolare di un villaggio prende offerte come il Focolare di un accampamento."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pezzi del vecchio mondo",
+      "text": [
+        "Sopra le vette e il terreno alto, e sopra più di un Colosso piangente, **montagne fluttuanti del vecchio mondo** pendono nel cielo: alte rupi di roccia della Marcia, larghe alla corona e assottigliate in una punta in basso, le facce a fasce e muschiose, zolle e alberi in cima, un anello spezzato di Mattoni con un forziere dentro, rampicanti su ogni lato e una cascata che si versa dal bordo. Pendono a gruppi ad altezze diverse, collegate da rampicanti giganti, piccole rocce alla deriva intorno.",
+        "Un gruppo è tenuto a terra da **radici giganti di Legno di salice**, avvolte in Foglie e con tende di Filo di salice che scendono per tutta la via. Si possono scalare: aggrappati al piede di una radice e sali fino al cielo. Sopra un Colosso piangente le radici finiscono nella chioma, così l'albero è la scala."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La Steppa e gli altipiani",
+      "text": [
+        "- **Santuario del viandante**: un santuario coperto sul ciglio di una vecchia via, con un forziere delle offerte.",
+        "- **Pietre da pascolo**: un anello di pietre ritte intorno a una leccatoia.",
+        "- **Stazione di cambio abbandonata**: un posto di staffetta in rovina, un palo ancora in piedi.",
+        "- **Torre del tamburo caduta**: una torre spezzata; il suo grande tamburo giace nell'erba.",
+        "- **Faro di vedetta**: una torre di pietra su un poggio, il fuoco di segnale ancora acceso.",
+        "- **Cava di eco**: una cava a terrazze con Minerale della Marcia nelle pareti e una gru sull'orlo.",
+        "- **Altare della tempesta**: un altare di tufo sotto un parafulmine.",
+        "- **Ritiro degli Intagliatori di sigilli**: stanze scavate in una rupe, con un laboratorio e un solaio.",
+        "- **Rovine dell'antica Porta**: una Porta della via mezzo sepolta, sopra una sala sorvegliata e una volta sbarrata."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "I Campi di neve e le Distese di brace",
+      "text": [
+        "- **Sala lunga gelata**, **Ometto di ghiaccio**, **Rifugio del Cacciatore** e **Veglia dell'aurora** nella neve.",
+        "- **Forgia di brace**, **Guglia di tizzone** e **Anello di scorie** nella cenere, e il **Covo del resto**, dove i superstiti hanno resistito.",
+        "- **Tomba di cenere**: una tomba sepolta sotto le Distese di brace, sorvegliata, e vale il rischio."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "I Campi di cristallo e la Palude delle canne",
+      "text": [
+        "- **Osservatorio infranto**: una terrazza di mappa stellare sotto una cupola spezzata.",
+        "- **Obelisco di risonanza**: un obelisco sormontato di cristallo sopra una volta nascosta.",
+        "- **Rovina del Telaio**: un grande telaio caduto, la stoffa ancora appesa.",
+        "- **Grotta di cristallo**: una scala a chiocciola scende a una grotta geode e a una volta dietro una Porta di ferro.",
+        "- **Villaggio su palafitte**, **Santuario sommerso**, **Sbarramento di canne** e **Tumulo di palude** nella palude.",
+        "- **Pozzo dello Spirito**: un pozzo coperto cinto di fiori, il forziere delle offerte in fondo all'acqua."
+      ]
+    }
+  ]
+}

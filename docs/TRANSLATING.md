@@ -1,32 +1,62 @@
 # Translating Tribal Power
 
-Every line a player reads lives in one file: `src/main/resources/assets/tribalpower/lang/en_us.json` (about 2,500 keys). Nothing is hard-coded; `tools/verify_lang.py` fails the build if a registered block, item, entity or effect has no name, and the GameTests fail if a Codex entry points at a missing key.
+Player-facing text lives in Minecraft's language files. The game's own language setting switches it. There is no language picker in the mod.
 
-## How to add a language
+English (`en_us`) is the source of truth and the runtime fallback. A missing key shows the English line (Codex pages fall back file by file; config rows and song titles use a fallback string). A missing key does not crash and does not show a blank line. `tools/verify_locales.py` fails the build if a shipped locale drifts from English, so the files stay complete.
 
-1. Copy `en_us.json` to `<language>_<region>.json` beside it (for example `de_de.json`, `pt_br.json`). Keep every key; translate only the values. Keys you leave out fall back to English in game.
-2. `%s` and `%1$s` are placeholders and must stay, in the same order as English unless you use the numbered form.
-3. Formatting codes are not used in this file; colour and style come from code, so a value is plain text. `**bold**`, `[text](entry_id)` and `{item:namespace:id}` in Codex text (`assets/tribalpower/codex/en_us/entries/**`) are Codex markup and must keep their brackets.
-4. The Codex's own pages are per language too: copy `assets/tribalpower/codex/en_us/` to `codex/<language>_<region>/` and translate `name`, `title`, `description` and every `text` line. Entry ids, page types, links and item ids stay as they are.
+## Files
 
-## What the key families are
+| Path | What it is |
+|---|---|
+| `src/main/resources/assets/tribalpower/lang/en_us.json` | Every lang key, in English |
+| `src/main/resources/assets/tribalpower/lang/<locale>.json` | The same keys in another language |
+| `src/main/resources/assets/tribalpower/codex/en_us/` | Spirit Codex pages, in English |
+| `src/main/resources/assets/tribalpower/codex/<locale>/` | The same pages, prose translated |
+| `src/main/resources/data/tribalpower/advancement/` | Advancement titles and descriptions, as `translate` keys |
+| `tools/verify_locales.py` | Key set, JSON, placeholders, brands, Codex structure |
+
+Shipped locales: `es_es`, `es_mx`, `fr_fr`, `de_de`, `pt_br`, `it_it`, `ru_ru`, `pl_pl`, `ja_jp`, `ko_kr`, `zh_cn`.
+
+`es_mx` matches `es_es` on purpose. The Spanish is Latin-American neutral: *tú* and *ustedes*, never *vosotros*, and never *coger*.
+
+## How a player switches language
+
+Esc, Options, Language, and pick the language. Minecraft reloads language files on its own. Resource packs are not required.
+
+## How to add or edit a language
+
+1. Copy `en_us.json` to `<locale>.json` beside it. Keep every key. Translate only the values.
+2. `%s` and `%1$s` are arguments. The translation must use the same argument numbers and the same types (`s`, `d`, `i`, `f`). Order may change when the numbered form is used. Do not mix numbered and unnumbered arguments. `%%` is an escaped percent and must occur the same number of times. A bare percent that is not a conversion, such as `60%` or `+40%`, is ordinary text. Keep the percent; do not turn it into `%%`.
+3. These names stay exactly as written, wherever English has them: `Tribal Power`, `Remedy`, `Ninjacat`, `Chocobos Reborn`, and the line `Hope this helps`.
+4. Copy `codex/en_us/` to `codex/<locale>/`. Translate only `text`, `title`, `name`, `caption`, `description` and `landing`. Leave ids, icons, item ids, coordinates, page types and link targets alone. Keep `**bold**`, `[words](entry_id)` and `{item:namespace:id}` markup. The words inside the brackets may be translated; the id in the parentheses may not.
+5. Run `python tools/verify_locales.py`. Gradle runs it as `verifyLocales`, and `check` (and therefore `build`) depends on it.
+
+## Key families
 
 | Prefix | What it names |
 |---|---|
-| `block.`, `item.`, `entity.`, `effect.`, `biome.` | Registered things; `.desc` and `.hint` are their tooltips |
-| `dialogue.tribalpower.<tribe>.*` | What each tribe's Elder says; `dialogue.tribalpower.choice.*` is what you can say back |
-| `request.`, `questline.` | Requests and the seven-step stories |
-| `lore.tribalpower.tablet.*`, `lore.tribalpower.chronicle.*`, `lore.tribalpower.spirit.*` | Lore tablets, the Chronicle's sixteen fragments, wandering spirits' lines |
-| `message.` | Chat and action-bar messages |
+| `block.`, `item.`, `entity.`, `effect.`, `biome.` | Registered things. `.desc` and `.hint` are tooltips |
+| `tribalpower.configuration.` | Config screen labels. `.tooltip` is the comment under the control |
+| `advancement.tribalpower.` | Advancement title and description |
+| `songkeeper.tribalpower.` | Song titles and album names shown in the Songkeeper and in chat |
+| `dialogue.tribalpower.` | What an elder says, and `dialogue.tribalpower.choice.*` for the replies |
+| `request.`, `questline.` | Requests and the story steps |
+| `lore.tribalpower.` | Lore tablets, chronicle fragments, wandering spirits |
+| `message.` | Chat and the action bar |
 | `gui.`, `screen.`, `jei.`, `jade.`, `emi.category.` | Screens and recipe viewers |
-| `guide.tribalpower.*` | The Codex's "Next step" guidance |
+| `guide.tribalpower.*` | The Codex "next step" lines |
 | `subtitles.` | Sound subtitles |
-| `painting.`, `block.minecraft.banner.tribalpower.*` | Paintings and the tribe crests on banners (one line per dye) |
+| `key.`, `key.categories.tribalpower` | Key bindings |
+| `painting.`, `block.minecraft.banner.tribalpower.*` | Paintings and tribe crests on banners |
 
 ## Voice
 
-The mod is written the way the tribes speak: short sentences, plain words, a little dry. Elders are gruff or warm by tribe (the Pad-keepers warm, the Grit-singers dry, the Pattern-weavers exact); keep that in the target language rather than translating word for word. Tribe names are compound nouns (Pad-keepers, Grit-singers) and may be rendered as the language's natural equivalent.
+Short sentences, plain words, a little dry. Elders stay gruff or warm by tribe (the Pad-keepers warm, the Grit-singers dry, the Pattern-weavers exact). Tribe names may be the language's natural equivalent. Do not translate the mod's name.
 
-## Checking your work
+## Layout and fonts
 
-`python tools/verify_lang.py` checks `en_us.json` only. For another language, a quick check is `python -c "import json; json.load(open('src/main/resources/assets/tribalpower/lang/xx_xx.json', encoding='utf-8'))"` to prove the file parses, and then playing with the language selected; missing keys show as their key name in game.
+The mod does not ship a font. Text uses Minecraft's font, which draws Japanese, Korean and Chinese. Codex pages and item hints wrap on the font's measured width. The Songkeeper shortens a title with an ellipsis once it no longer fits. Buttons that stay a fixed width hold a symbol or a digit, not a sentence.
+
+## Checking
+
+`python tools/verify_locales.py` checks every shipped locale. `python tools/verify_locales.py --lang-only` skips the Codex trees.

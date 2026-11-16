@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:resonant_core"
     },
-    "title": "A living lattice",
-    "description": "Manifest a Resonant Core for advanced craft.",
+    "title": {
+      "translate": "advancement.tribalpower.journey.core.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.journey.core.description"
+    },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false,

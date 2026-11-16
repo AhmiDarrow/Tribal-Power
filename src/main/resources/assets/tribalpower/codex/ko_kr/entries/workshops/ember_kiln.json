@@ -1,0 +1,231 @@
+{
+  "name": "잔불 가마",
+  "icon": "tribalpower:ember_kiln",
+  "order": 30,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_kiln",
+      "text": [
+        "불의 장치는 석탄 대신 펄스로 제련한다. 화로가 제련하는 것은 잔불 가마도 제련한다. 조약돌은 돌이 되고, 자갈은 주괴가 된다. 8블록 안에 공명 토템 (불)이 필요하다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "사용법",
+      "text": [
+        "화로에 넣는 것이라면 무엇이든 넣고, 화로 결과를 꺼낸다. 연료는 타지 않는다.",
+        "제련 한 번은 **10초**이며, **초당 펄스 64**이다.",
+        "자갈은 언제나 제 주괴로 구워진다. 화로가 읽지 못하는 모드 자갈도 마찬가지다.",
+        "레버가 멈추게 하고, 출력이 가득 차도 멈춘다. 불이 없으면 멈추고 아무것도 쓰지 않는다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "조약돌에서 돌로",
+      "steps": [
+        {
+          "caption": "잔불 가마를 공명 토템 (불)에서 8블록 안에 놓는다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "펄스를 범위 안에 둔다. 옆의 발전기면 된다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "조약돌을 넣고 돌을 꺼낸다. 석탄은 타지 않는다.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:cobblestone"
+          }
+        },
+        {
+          "caption": "잔불 가마 아래의 호퍼가 결과물을 가져간다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "자동화",
+      "text": [
+        "메아리 파쇄를 잔불 가마 위에 두고, 출력을 입력으로 맞춘다. 그러면 자갈이 아래로 내려간다. 장치를 다른 장치 위에 둘 때의 기본이라 그대로 된다. [금속과 보석](metals_and_gems)에 광석 줄 전체가 있다.",
+        "주괴를 모으려면 아래에 호퍼나 저장고를 둔다.",
+        "다른 작업장과 같이 메아리 조율, 그다음 결속, 현현 순으로 등급을 올린다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_kiln"
+    }
+  ]
+}

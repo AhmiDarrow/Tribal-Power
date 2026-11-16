@@ -1,0 +1,74 @@
+{
+  "name": "Bestias de los Bajíos",
+  "icon": "tribalpower:shoal_scale",
+  "order": 270,
+  "spoiler": true,
+  "items": [
+    "tribalpower:silt_glider_spawn_egg",
+    "tribalpower:pale_drifter_spawn_egg",
+    "tribalpower:shoal_darter_spawn_egg",
+    "tribalpower:brine_lurker_spawn_egg",
+    "tribalpower:silt_fin",
+    "tribalpower:pale_streamer",
+    "tribalpower:shoal_scale",
+    "tribalpower:brine_fang"
+  ],
+  "next": "beasts_everywhere",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Los del agua",
+      "text": [
+        "Casi todo lo que pertenece a los Bajíos vive en su agua: tres nadadores mansos y una morena que caza allí de noche. Los nadadores nunca salen del agua: si uno queda en seco, se arrastra de vuelta hacia ella y se seca si no la alcanza. Madera de zancos camina por sus orillas (consulta [árboles que caminan](walking_trees)). Consulta [la Marcha](the_march) para la tierra en sí.",
+        "Puedes cepillar a cada bestia mansa de aquí una vez por minuto para obtener su reactivo, y se tienta y se cría con su propia comida, nombrada más abajo en **Caza y pastoreo**. Puedes vincularla como a cualquier animal manso (consulta [familiares](familiars)), y aunque ninguna tiene un don propio, una vinculada aún puede tomar una voz en un tótem y reforzar tu magia (consulta [sintonizar en un tótem](familiar_attuning)). Un nadador vinculado te sigue solo hasta donde llega su agua, y espera en el agua si le dices que se quede."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:silt_glider",
+      "title": "Planeador de limo",
+      "text": [
+        "Una raya que planea sobre el limo, en grupos de dos a cuatro. **14 de salud** y **1 de armadura**.",
+        "Suelta **1 a 3 Aleta de limo**, más con Saqueo.",
+        "Cazada, también suelta de 1 a 2 Aletabrillo crudo y hasta 1 Polvo de hueso. Críala con **Alga de cinta o hierba marina**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_drifter",
+      "title": "Derivante pálido",
+      "text": [
+        "Una ortiga de mar de color ámbar, con la campana rayada y largos brazos de cinta, en grupos de dos a cuatro. **12 de salud**, sin armadura.",
+        "Suelta **1 a 3 Serpentina pálida**.",
+        "Cazada, también suelta hasta 1 Gelatina a la deriva y hasta 1 Bola de slime. Críala con **Alga de cinta o hierba marina**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shoal_darter",
+      "title": "Dardo de bajío",
+      "text": [
+        "Una perca pequeña y rayada, en grupos de dos a cuatro. **14 de salud** y **1 de armadura**.",
+        "Suelta **1 a 3 Escama de bajío**.",
+        "Cazada, también suelta de 1 a 2 Aletabrillo crudo y hasta 1 Polvo de hueso. Críala con **Alga de cinta o hierba marina**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:brine_lurker",
+      "title": "Acechador de salmuera",
+      "text": [
+        "Una morena que surge en los Bajíos de noche, una o dos a la vez. Tiene **21 de salud** y **1 de armadura**, su mordida hace **4** y te envenena durante 3 segundos. Sigue a la presa hasta la orilla y vuelve al agua cuando la pierde.",
+        "Suelta **1 a 2 Colmillo de salmuera**, un reactivo de Veneno. Colmillo de salmuera llama al Tamborilero de la marea en la Piedra de la marea: consulta [guardianes](guardians).",
+        "Cazada, también suelta hasta 2 Saco de tinta y hasta 1 Aletabrillo crudo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, cada uno suelta más al cazarlo, y más aún con Saqueo. La carne cae asada si el animal murió ardiendo. Para criar a los salvajes, **agáchate** mientras alimentas a dos adultos con su comida; si los alimentas con normalidad, uno salvaje se encariña contigo en su lugar."
+      ]
+    }
+  ]
+}

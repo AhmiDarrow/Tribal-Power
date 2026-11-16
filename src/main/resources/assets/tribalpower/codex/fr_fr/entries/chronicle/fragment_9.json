@@ -1,0 +1,17 @@
+{
+  "name": "10. Tourbière",
+  "icon": "tribalpower:mural",
+  "order": 19,
+  "spoiler": true,
+  "unlock": "fragment:9",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Tourbière",
+      "text": [
+        "“La Tourbière des roseaux est l'ouvrage de cordes des Lieurs de racines, noyé. Chaque roseau est un nœud qu'ils ont fait pour retenir le sol ; l'eau est venue quand même. L'une d'entre eux a tenu au-delà de la fin. Elle tient encore.”",
+        "Trouvé sur une fresque au terrain d'un gardien."
+      ]
+    }
+  ]
+}

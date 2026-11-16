@@ -1,0 +1,25 @@
+{
+  "name": "Utrzymywać totemy w czuwaniu",
+  "icon": "tribalpower:bone_chime",
+  "order": 50,
+  "next": "where_next",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Totemy lubią towarzystwo. Używany zostaje **Odpowiedziany** przez około 40 minut czasu załadowania. Potem jest **Przygaszony** przez kolejne 40 minut, a stacje tej samej głosu pracują około 30% wolniej. Potem zapada w **Cichy**, i nowa praca może stanąć, nawet gdy Puls zostaje.",
+        "Obudzenie totemu jest łatwe: kliknij prawym przyciskiem pustą ręką albo użyj **Kościany dzwonek** na nim. Ręczne bicie w Bęben-serce w zasięgu 8 bloków też go budzi. Po przebudzeniu totem nie zasypia, dopóki w pobliżu pracuje stacja jego głosu.",
+        "Niektóre rzeczy trzymają totemy w czuwaniu za ciebie. [Chowaniec](familiar_attuning) niosący głos totemu trzyma go w czuwaniu z odległości do **8 bloków**, Bębniarz plemienia budzi każdy totem przy swoim rytmie, a [Totem pokrewieństwa](kinship_totem) nigdy nie cichnie.",
+        "Totemy na otwartej przestrzeni, przy wodzie i roślinach, czuwają dwa razy dłużej. Totem pod dachem trzyma zwykłe tempo.",
+        "Totem potrzebuje też Puls we własnym buforze. W sieci kraty z Puls napełnia się i zostaje pełny; poza kratą opróżnia się w około dwie minuty i staje się **cichy**, obudzony czy nie. Nowy totem startuje pełny, więc postaw [Przewodnik kraty](lattice_conductor) w zasięgu, zanim to nastąpi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gdzie czytać dalej",
+      "text": [
+        "Pełne zasady są na stronie [Utrzymanie](keeping). Jeśli stacja stanęła, a zasilanie jest w porządku, zwykle winny jest cichy totem, a Duchowy kodeks powie ci o tym, gdy przykucniesz i klikniesz stację prawym przyciskiem."
+      ]
+    }
+  ]
+}

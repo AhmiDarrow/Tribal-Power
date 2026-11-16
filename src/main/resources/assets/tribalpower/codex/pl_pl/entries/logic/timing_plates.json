@@ -1,0 +1,40 @@
+{
+  "name": "Płyty czasu",
+  "icon": "tribalpower:heartbeat_plate",
+  "order": 78,
+  "items": [
+    "tribalpower:heartbeat_plate",
+    "tribalpower:drift_plate",
+    "tribalpower:strike_plate",
+    "tribalpower:chance_plate"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Bicie serca, Dryf, Uderzenie, Szansa",
+      "text": [
+        "- **Bicie serca** pulsuje **15 przez jeden tick**, potem odpoczywa. Użycie w kucaniu przełącza **20, 40, 80, 160** ticków, potem z powrotem do 20; start od 20, jedna sekunda.",
+        "- **Dryf** kopiuje tył dopiero wtedy, gdy ten pozostał aktywny przez **4, 8, 16 lub 32** ticków (użycie w kucaniu przełącza; start od 4), i opada, gdy tylko tył opadnie.",
+        "- **Uderzenie** daje jeden tick wartości 15 na narastającym tyle, potem milknie: ten uderzony sygnał, którego słuchają Bęben-serca i brasera.",
+        "- **Szansa** rzuca monetą przy każdym narastającym tyle: 15 albo 0, trzymane, aż tył opadnie.",
+        "Bicie serca o długości jednej sekundy na Bęben-serce to uderzenie **24-Puls**, gdy zbocze wpada w tempo. Wolniejsze ustawienia dają tylko **10** na uderzenie."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:heartbeat_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:strike_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chance_plate"
+    }
+  ]
+}

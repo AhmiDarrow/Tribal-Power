@@ -1,0 +1,89 @@
+{
+  "name": "Kreda budowniczego",
+  "icon": "tribalpower:builders_chalk",
+  "order": 140,
+  "next": "tribal_bench",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:builders_chalk",
+      "text": [
+        "Rytualna kreda znaczy totemy i zużywa się przy tym. To ten drugi rodzaj: kij budowniczego, trzymany do mierzenia. Trzymaj ją, a postawi **hologram** kształtu w świecie — blok-duch w każdej przestrzeni, której kształt jeszcze potrzebuje — żebyś kładł prawdziwe bloki w duchy zamiast liczyć i liczyć na szczęście.",
+        "Nigdy się nie zużywa, niczego nie stawia i niczego nie niszczy. Hologram rysuje się tylko na twoim ekranie; nikt inny go nie widzi, a serwer nie wykonuje dla niego żadnej pracy."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Obsługa",
+      "text": [
+        "**Użyj** zmienia kształt. **Skradanie i prawy przycisk** powiększa go, **skradanie i lewy przycisk** pomniejsza; rozmiar zawija się na obu końcach. Przy obrzędzie stawiania to samo skradanie przesuwa poziom, a ustawiony rozmiar zostaje. Skradanie z kredą na wierzchu nigdy nie niszczy bloku, więc możesz ją wymiarować stojąc we własnych ścianach.",
+        "Kreda bez ustawionego znaku rysuje tylko, gdy jest w twojej ręce, więc układ nigdy nie wlecze się za stopami, gdy wymachujesz kilofem."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stawianie układu",
+      "text": [
+        "**Użyj jej na bloku, by postawić układ.** Hologram przestaje za tobą iść i stoi w tym miejscu — i stoi dalej, gdy kreda leży **gdziekolwiek na pasku szybkiego wyboru**, więc możesz ją schować, wziąć bloki i budować wewnątrz duchów. Użyj jej znów w tym samym miejscu, by zetrzeć znak.",
+        "Duch stoi tylko tam, gdzie blok jest jeszcze potrzebny. Wypełnij jeden, a zgaśnie, więc to, co nadal świeci, jest dokładnie tym, co zostało do zbudowania.",
+        "Ustawiony znak stoi tylko w świecie, w którym go ustawiono, i tylko gdy jesteś w promieniu **192 bloków**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rozmiar",
+      "text": [
+        "Rozmiary idą od **2** do **128**, mierzone od znaku — więc największy krąg ma **257 bloków wszerz**. Krok otwiera się w miarę wzrostu, drobny przy chacie i gruby przy kurtynie, więc cały zakres to osiemnaście przystanków, a nie sto dwadzieścia siedem.",
+        "Hologram sięga około **48 bloków**, a na kształcie dość dużym, by zalać widok, rysuje się bliżej, zamiast rzednąć. Idź wzdłuż linii, a dotrzyma ci kroku."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Kształty",
+      "text": [
+        "- **Kwadrat**, **Okrąg**, **Krzyż** i **Sześciokąt**: płaskie obrysy pod ślad zabudowy.",
+        "- **Ściany**: kwadratowy ślad postawiony na trzy warstwy, czyli pokój.",
+        "- **Kopuła**: skorupa półkuli, na dach.",
+        "- **Chata**: cztery ściany z otworem na jednej ścianie i schodkowym dachem nad nimi.",
+        "- **Długi dom**: hala dwa razy dłuższa niż szeroka, z belką kalenicową i dwoma szczytami.",
+        "- **Obóz kraty**: kwadrat, który maszyna przy znaku naprawdę sięga, i cztery miejsca, na których stanąłby Totem rezonansu, by nieść ten zasięg na zewnątrz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dlaczego kwadrat, a nie okrąg",
+      "text": [
+        "Każda maszyna mierzy zasięg w każdym kierunku osobno, więc zasięg to **sześcian**, nie kula. Blok osiem na wschód i osiem na północ od generatora jest w zasięgu; ten dziesięć bloków prosto na wschód już nie, choćby drugi wyglądał na mapie o ile bliżej.",
+        "Dlatego **Obóz kraty** rysuje kwadrat. Ustaw na **8**, a to dokładnie strefa, w której działa Bęben-serce, stacja albo Przewodnik kraty."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Obrzędy",
+      "text": [
+        "Za Obozem kraty kreda rysuje budowle z tej księgi, w kolejności, w jakiej je spotykasz: **Kamienna misa**, **Dół nasłuchu**, **Krąg obrzędu**, **Pierścień głosu**, **Szyk rozbicia**, **Wrota drogi**, **Dalekie wrota**.",
+        "Znak jest tam, gdzie stoi maszyna. Duch to blok, którego obrzęd jeszcze chce — Znaki rytualne, Kamienie kotwiczne, totemy, piedestały, kamienna podłoga pod Dołem nasłuchu, skrytka pod stacją echa, rama wrót. Otwarte wnętrze wrót zostaje ciemne, bo ta przestrzeń musi zostać pusta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Poziomy i zwrot",
+      "text": [
+        "Skradanie i prawy przycisk podnosi poziom; skradanie i lewy przycisk obniża go. Dół nasłuchu zaczyna jako **5 na 5**; następny poziom to Głęboki nasłuch, **7 na 7** z totemami na stronach świata. Kamienna misa i Krąg obrzędu też mają drugi poziom. Pierścień głosu, Szyk rozbicia i oboje wrota to jeden układ.",
+        "Obrzęd obraca się tam, gdzie patrzysz, i zostaje obrócony, gdy ustawisz znak. Spójrz wzdłuż wrót, zanim je postawisz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Poziomica laserowa",
+      "text": [
+        "Ostatnia na liście jest **poziomica laserowa**: jedna prosta, pozioma linia duchów biegnąca od znaku w stronę, w którą patrzysz, na ścianę, drogę, tunel albo długi kanał. **Skradanie i prawy przycisk** albo **skradanie i lewy przycisk** przełącza długość przez **64**, **128** i **256** bloków.",
+        "Póki za tobą podąża, obraca się wraz ze spojrzeniem. Użyj jej na bloku, by ją postawić, a zachowa zwrot, który wtedy miała. Jak każdy kształt rysuje około **48 bloków** wokół ciebie, więc idź wzdłuż linii, a reszta zapali się z przodu."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:builders_chalk"
+    }
+  ]
+}

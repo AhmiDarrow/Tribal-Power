@@ -1,0 +1,98 @@
+{
+  "name": "Geistergerät-Waffen",
+  "icon": "tribalpower:spiritgear_halberd",
+  "order": 42,
+  "items": [
+    "tribalpower:spiritgear_spear",
+    "tribalpower:spiritgear_halberd",
+    "tribalpower:spiritgear_battle_axe",
+    "tribalpower:spiritgear_warhammer",
+    "tribalpower:spiritgear_dagger",
+    "tribalpower:spiritgear_scythe",
+    "tribalpower:spiritgear_greatsword",
+    "tribalpower:spiritgear_trident"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_greatsword",
+      "title": "Die Familie der Klinge",
+      "text": [
+        "Die [Geistergerätklinge](spiritgear) hat jetzt eine Familie: Speer, Hellebarde, Streitaxt, Kriegshammer, Dolch, Sense, Zweihänder und Dreizack. Sie werden gleich gemacht, aus Manifestierten Barren und einem Knochenklang, die meisten mit einem Stock als Schaft, und jede hat einen **Knochengriff**.",
+        "Darunter ist jede eine Klinge. Sie steigt an den Echo-Stationen auf, gibt Puls für Echo-Schläge aus (ein bezahlter Schlag nutzt sich nicht ab), nimmt eine Totem-Stimme an und trifft auf Manifestiert Bosse härter und heilt dich mit jedem Schlag. Was sich ändert, sind Reichweite, Gewicht und ein eigener Zug."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Zahlen",
+      "text": [
+        "- **Speer**: 7 Schaden, 1.3 Schwünge pro Sekunde, Reichweite +1.5. Ein Sprintstoß trifft **35%** härter.",
+        "- **Hellebarde**: 10 Schaden, 0.9 Schwünge pro Sekunde, Reichweite +1, schwer (−4%). Fegt und zerbricht einen erhobenen Schild.",
+        "- **Streitaxt**: 11 Schaden, 0.8 Schwünge pro Sekunde, Reichweite —, schwer (−6%). Ein schwerer spaltender Schwung; zerbricht Schilde.",
+        "- **Kriegshammer**: 12 Schaden, 0.7 Schwünge pro Sekunde, Reichweite —, am schwersten (−8%). Schläge gehen durch Rüstung: **30%** der Rüstung des Ziels kommen als Extra-Schaden zurück. Zerbricht Schilde."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Zahlen, Fortsetzung",
+      "text": [
+        "- **Dolch**: 4.5 Schaden, 2.4 Schwünge pro Sekunde, Reichweite −0.5, leicht (+5%). Ein Schlag von **hinten** trifft **1.75×** so hart.",
+        "- **Sense**: 8 Schaden, 1.0 Schwünge pro Sekunde, Reichweite +0.5, etwas schwer (−2%). Jeder Schlag erntet außerdem die **Hälfte** deines Angriffs in jeden Feind um das Ziel.",
+        "- **Zweihänder**: 10 Schaden, 0.85 Schwünge pro Sekunde, Reichweite +0.5, schwer (−6%). Der breiteste, stärkste Schwung.",
+        "- **Dreizack**: 8 Schaden, 1.1 Schwünge pro Sekunde, Reichweite +1. Beißt **50%** tiefer in alles, was im Wasser oder im Regen steht.",
+        "Das gilt auf Rang 0. Ränge legen die Boni der Klinge obendrauf: **+2**, **+5** und **+10** Angriffsschaden. Jede Zahl steht im Abschnitt **Waffen** der gemeinsamen Konfiguration."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Jede gibt etwas her. Schwere Waffen treffen am härtesten, schwingen aber langsam und **verlangsamen dein Gehen**, solange sie in der Hand sind; der Dolch ist schwach, aber schnell, und lässt dich etwas schneller laufen.",
+        "Reichweite hält dich sicher, doch lange Waffen tun weniger pro Sekunde; Schwünge und die Ernte der Sense glänzen gegen eine Menge und verschwenden ihr Gewicht an einem einzelnen Ziel.",
+        "Die Klinge ist die Allrounderin: keine Reichweite, kein Gewicht, kein eigener Zug, und nichts, worin sie schlecht ist."
+      ],
+      "title": "Keine Waffe gewinnt alles"
+    },
+    {
+      "type": "text",
+      "title": "Lang und kurz",
+      "text": [
+        "Lange Waffen sind wirklich lang: ein Speer ist etwa doppelt so lang wie ein Schwert in der Hand, Hellebarde und Zweihänder fast ebenso, Axt und Hammer anderthalbmal. Der Dolch ist kurz und schnell.",
+        "Reichweite zählt so viel wie Schaden. Ein Speer oder Dreizack hält einen Risshund auf Armlänge; ein Dolch will dich nah und hinter ihm.",
+        "Jede davon kann eine [Salbung](anointing) tragen."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_spear"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_halberd"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_battle_axe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_warhammer"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_dagger"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_scythe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_greatsword"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_trident"
+    }
+  ],
+  "next": "totem_bound_gear"
+}

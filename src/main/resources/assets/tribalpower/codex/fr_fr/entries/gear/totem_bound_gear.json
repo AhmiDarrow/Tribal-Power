@@ -1,0 +1,85 @@
+{
+  "name": "Équipement lié au totem",
+  "icon": "tribalpower:resonance_totem_earth",
+  "order": 50,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Donner une voix à l'équipement",
+      "text": [
+        "Tout outil d'Espritoutillage ou pièce d'Espritissu peut répondre à une voix de totem. Place un Totem de résonance, porte une Cellule de Pulsation chargée et utilise la pièce accroupi sur le totem.",
+        "Lier dépense **40 Pulsation**. Le totem n'est pas consommé, la barre d'action nomme la voix, et tu peux l'écraser à tout moment de la même façon. Les clics à main vide lisent encore le totem comme d'habitude.",
+        "Les ensembles mixtes sont voulus : une capuche de Feu est une résistance au feu, pas une vision de nuit. La voix Métier a besoin d'un totem Métier (voir [La sixième voix](sixth_voice)).",
+        "Un [familier](familiar_boons) accordé à la voix de la pièce, tout près, lui fait dépenser **40%** de Pulsation en moins, et ses atouts de voix reviennent plus souvent."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les distinguer",
+      "text": [
+        "Une pièce d'Espritissu liée dépense **3 Pulsation toutes les quatre secondes**, donc une capuche, une robe et des jambières liées coûtent **9** ; une pièce non liée n'a aucun bienfait et ne dépense rien. Les bottes ne dépensent que lorsqu'un de leurs atouts sert, et cela couvre les quatre secondes suivantes. Une pièce éteinte, ou sans Pulsation à portée, ne donne aucun de ses atouts.",
+        "Une pièce liée se reconnaît d'un coup d'œil : ses ornements luisent de la couleur de sa voix, vert de Terre, orange de Feu, bleu d'Eau, menthe pâle d'Air, violet d'Esprit et cyan de Métier, dans ta main et une fois portée. Plus son rang est haut, plus elle brûle clair."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sur la pioche",
+      "text": [
+        "- **Terre** ouvre un **3 par 3** de pierre autour de chaque bloc que tu mines, au carré face à toi. Tout le 3 par 3 ne coûte que la Pulsation du premier bloc.",
+        "- **Feu** fond ce qu'il mine.",
+        "- **Eau** mine avec toucher de soie.",
+        "- **Air** donne célérité.",
+        "- **Esprit** fait luire les minerais proches toutes les quelques secondes, dans les 6 blocs (10 au rang 3).",
+        "- **Métier** mine pour **0 Pulsation**, et ne s'use pas en le faisant."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sur la hache",
+      "text": [
+        "La **hache**, sur les bûches : **Terre** abat l'**arbre entier**, du haut vers le bas, où que tu le frappes ; accroupis-toi pour ne couper qu'une bûche. Seules les bûches du type frappé comptent, et seulement avec des feuilles poussées naturellement : au moins **3**, et une pour chaque **8** bûches. Le bois qui touche des planches, du verre, des portes, des barrières ou d'autres blocs de construction est une construction, donc les constructions en bûches nues et une cabane poussée dans un arbre restent debout. La Pulsation se paie à mesure que les bûches tombent : toutes les 16 bûches coûtent la Pulsation d'un coup, et comme tout travail payé l'abattage ne s'use pas. Ainsi un abattage n'est grand que selon la Pulsation que la hache peut atteindre : un **Colosse pleureur**, des dizaines de milliers de bûches, peut prendre plus qu'une Cellule de Pulsation entière. La valeur d'un coup qui n'abat rien (du bois protégé, disons) revient. **Air** en prend toujours deux de plus, **Eau** lâche de temps en temps une pousse de chêne, **Esprit** fait luire les hostiles dans les 8 blocs, **Feu** calcine le bois, et **Métier** envoie les bûches dans ta main.",
+        "Un arbre au-delà de **512** bûches (un saule mis à part) est laissé entier, ainsi qu'un arbre qui court dans un sol non chargé. Un coup sans Pulsation ne coupe qu'une bûche."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sur la pelle",
+      "text": [
+        "La **pelle** : **Terre** creuse un **3 par 3** de terre, de sable ou de gravier, **Air** pose des chemins larges de trois, **Eau** remonte parfois de l'argile depuis la terre, **Feu** cuit le sable en verre, **Métier** soulève sable et gravier entiers, et **Esprit** fait luire coffres, tonneaux et générateurs dans les 8 blocs."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sur la lame",
+      "text": [
+        "Chaque coup payé de la lame ajoute une **frappe d'écho** : un peu de dégâts magiques, et l'ennemi luit quelques secondes. Sa voix en ajoute :",
+        "- **Terre** : repousse l'ennemi et le ralentit.",
+        "- **Feu** : l'enflamme et brûle un peu plus profond.",
+        "- **Eau** : te soigne d'un cœur (deux au rang 3).",
+        "- **Air** : le coup balaie les hostiles à côté.",
+        "- **Esprit** : une frappe d'écho plus forte.",
+        "- **Métier** : traîne l'ennemi vers toi.",
+        "Toute la [famille d'armes](spiritgear_weapons) prend les voix de la même façon."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sur l'Espritissu",
+      "text": [
+        "- **Terre** : la capuche détourne un projectile sur cinq (environ un sur trois au rang 3) ; la robe donne de la résistance ; les jambières traversent toiles d'araignée, buissons de baies et sable des âmes ; les bottes réduisent le recul et n'écrasent jamais la terre labourée.",
+        "- **Feu** : la capuche et la robe donnent une résistance au feu, et la robe enflamme les attaquants pendant 3 secondes ; les jambières donnent de la vitesse dans la lave et le Nether ; les bottes ignorent les sols brûlants.",
+        "- **Eau** : la capuche donne l'apnée ; la robe te régénère quand on te frappe (plus longtemps au rang 3) ; les jambières donnent la grâce du dauphin ; les bottes gèlent l'eau immobile sous tes pieds."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "D'autres voix d'Espritissu",
+      "text": [
+        "- **Air** : la capuche donne la vision nocturne ; la robe ignore le recul ; les jambières donnent de la vitesse (plus forte au rang 3) ; les bottes donnent la chute lente.",
+        "- **Esprit** : la capuche donne la vision nocturne et fait briller les hostiles dans les 12 blocs ; la robe donne de la résistance et fait briller les attaquants ; les jambières donnent de la vitesse et un pas plus haut ; les bottes annulent les dégâts de chute et, au rang 3, te renvoient vers le haut après une chute de 4 ou plus.",
+        "- **Métier** : la capuche donne de la chance ; la robe renfile parfois dans ta cellule la Pulsation qu'elle a dépensée ; les jambières traversent toiles d'araignée et buissons de baies ; les bottes te laissent avancer accroupi pour coudre **4 blocs** (**6** au rang 3), payé comme leurs autres atouts, puis elles se reposent 8 secondes."
+      ]
+    }
+  ]
+}

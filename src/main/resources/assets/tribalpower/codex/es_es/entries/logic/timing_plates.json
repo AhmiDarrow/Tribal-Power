@@ -1,0 +1,40 @@
+{
+  "name": "Placas de tiempo",
+  "icon": "tribalpower:heartbeat_plate",
+  "order": 78,
+  "items": [
+    "tribalpower:heartbeat_plate",
+    "tribalpower:drift_plate",
+    "tribalpower:strike_plate",
+    "tribalpower:chance_plate"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Latido, Deriva, Golpe, Azar",
+      "text": [
+        "- **Latido** pulsa **15 durante un tic**, luego descansa. El uso agachado recorre **20, 40, 80, 160** tics y vuelve a 20; empieza en 20, un segundo.",
+        "- **Deriva** copia la cara trasera solo después de que esta ha seguido activa **4, 8, 16 o 32** tics (uso agachado para recorrer; empieza en 4), y cae en cuanto la cara trasera cae.",
+        "- **Golpe** da un tic de 15 en una cara trasera que sube, luego se calla: la señal golpeada que escuchan los Corazones de tambor y los braseros.",
+        "- **Azar** lanza una moneda en cada subida de la cara trasera: 15 o 0, sostenido hasta que la cara trasera cae.",
+        "Un Latido de un segundo sobre un Corazón de tambor es un golpe de **24-Pulso** cuando el flanco cae en el tempo. Los ajustes más lentos solo rinden **10** por golpe."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:heartbeat_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:strike_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chance_plate"
+    }
+  ]
+}

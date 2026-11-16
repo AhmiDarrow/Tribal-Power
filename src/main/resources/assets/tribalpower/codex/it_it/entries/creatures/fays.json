@@ -1,0 +1,65 @@
+{
+  "name": "Fate",
+  "icon": "tribalpower:fay_dust",
+  "order": 350,
+  "spoiler": true,
+  "items": [
+    "tribalpower:glimmer_fay_spawn_egg",
+    "tribalpower:prism_fay_spawn_egg",
+    "tribalpower:marsh_fay_spawn_egg",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Fate",
+      "text": [
+        "Dove la luce è strana, le fate danzano nell'aria. Sono piccole e mansuete, e fuggono dai mostri.",
+        "Spazzolane una per il reagente, una volta al minuto, e attirala e allevala con dello **zucchero** o una **bottiglia di miele**. Si può legare come ogni animale mansueto (vedi [familiari](familiars)) e, pur senza un dono proprio, una legata può comunque prendere una voce a un totem e rafforzare la tua magia (vedi [sintonizzarsi a un totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tre tipi",
+      "text": [
+        "Una fata ha **8 di salute** e nessuna armatura, vola da una a tre e lascia **1 a 3** del suo reagente, di più con Saccheggio."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmer_fay",
+      "title": "Fata del luccichio",
+      "text": [
+        "Dorata, sopra la Cresta del luccichio. Lascia **Polvere di fata**.",
+        "Cacciata, lascia anche fino a 2 polvere di pietra luminosa. Alleva con **zucchero o una bottiglia di miele**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_fay",
+      "title": "Fata prisma",
+      "text": [
+        "Rosa, sopra i Campi di cristallo. Lascia **Petalo di fata** (tintura rosa).",
+        "Cacciata, lascia anche fino a 2 petali rosa e fino a 1 scheggia di ametista. Alleva con **zucchero o una bottiglia di miele**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:marsh_fay",
+      "title": "Fata della palude",
+      "text": [
+        "Verde, sopra la torbiera di canne. Alcune volano con il [Custode colosso](colossus_warden). Lascia **Scintilla di fata**.",
+        "Cacciata, lascia anche fino a 1 bacca luminosa e fino a 1 polvere di pietra luminosa. Alleva con **zucchero o una bottiglia di miele**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caccia e pastura",
+      "text": [
+        "Oltre al reagente, ognuno ne lascia di più se cacciato, e ancora di più con Saccheggio. Per far riprodurre i selvatici, **accovacciati** mentre nutri due adulti con il loro cibo; nutrito normalmente, un selvatico invece si affeziona a te."
+      ]
+    }
+  ]
+}

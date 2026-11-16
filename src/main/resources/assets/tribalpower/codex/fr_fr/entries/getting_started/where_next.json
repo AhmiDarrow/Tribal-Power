@@ -1,0 +1,28 @@
+{
+  "name": "Où aller ensuite",
+  "icon": "tribalpower:gate_drum",
+  "order": 5,
+  "pages": [
+    {
+      "type": "next_step",
+      "title": "Étape suivante",
+      "text": [
+        "Une chose concrète à faire, lue depuis là où tu en es sur le chemin du premier Âtre au neuvième accord. Elle change au fur et à mesure."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Une fois que ton camp fait sa propre énergie, suis ce qui t'intrigue :",
+        "- Les [Ateliers](echo_attune) changent les éclats en cristaux plus forts, en métaux et en améliorations.",
+        "- Les [Machines du camp](grove_tender) cultivent, récoltent et gardent pendant que tu es occupé.",
+        "- [Stockage et fret](ancestral_cache) garde tes biens et les déplace sans tuyaux, et [boussoles et portes](waystone_compass) te déplacent.",
+        "- [Motifs](placement_is_the_ritual) se construisent au lieu de se fabriquer : le Bassin de pierre et la Fosse d'écoute.",
+        "- Un [familier](familiar_basics) porte la voix d'un totem et rend plus forte ta magie de cette voix.",
+        "- [Les Neuf Tribus](standing) tiennent des camps à travers les terres. Nourris un Âtre pour gagner des échanges, des faveurs et, avec le temps, un Totem de parenté.",
+        "- Entre amis, un [camp partagé](shared_camps) partage un coffre, des dispositifs et des Ancres de voie.",
+        "- Le [Tambour de porte](gate_drum) ouvre la voie vers la Marche, quand tu es prêt."
+      ]
+    }
+  ]
+}

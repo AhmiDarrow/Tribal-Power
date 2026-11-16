@@ -1,0 +1,117 @@
+{
+  "name": "远行界诸地",
+  "icon": "tribalpower:rime_ice",
+  "order": 21,
+  "items": [
+    "tribalpower:rime_ice",
+    "tribalpower:frost_shale",
+    "tribalpower:scree",
+    "tribalpower:needle_loam",
+    "tribalpower:hoarmoss",
+    "tribalpower:pale_sand",
+    "tribalpower:spore_turf",
+    "tribalpower:pale_stone",
+    "tribalpower:salt_crust",
+    "tribalpower:ochre_sand",
+    "tribalpower:ochre_sandstone",
+    "tribalpower:kiln_clay_rust",
+    "tribalpower:kiln_clay_ochre",
+    "tribalpower:kiln_clay_bone",
+    "tribalpower:kiln_clay_ash",
+    "tribalpower:glass_sand",
+    "tribalpower:glowmoss",
+    "tribalpower:silence_weave",
+    "tribalpower:hush_bloom",
+    "tribalpower:salt_pillar",
+    "tribalpower:resonant_spike",
+    "tribalpower:icebloom",
+    "tribalpower:frostcap",
+    "tribalpower:grey_heather",
+    "tribalpower:hoar_thistle",
+    "tribalpower:songgrass",
+    "tribalpower:loom_bell",
+    "tribalpower:dawn_poppy",
+    "tribalpower:chime_bud",
+    "tribalpower:sunwheel",
+    "tribalpower:thornbrush",
+    "tribalpower:tangle_fern",
+    "tribalpower:spirit_cane",
+    "tribalpower:gloomcap_sprout"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "title": "远行界的六道带",
+      "text": [
+        "远行界从极寒延伸到酷热，再向下进入黑暗，六个带中有**五十九片土地**。每一带都是横贯地图的一段漫长气温推移；带内湿与干、高与低，以及高怪异度的奇异地面，各自守着自己的国度。",
+        "每片土地都有自己的地面、自己的草木和自己的灵。典籍的生物志写明每种生物住在哪里。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "严寒",
+      "text": [
+        "远行界的寒冷一端：远行界草上的雪，风肆意留下的雾凇冰，以及最亮时的夜帷。",
+        "远行界雪原、雾凇尖塔、雾凇桦针叶林、霜海岸、冰封浅湖、雾凇海、深雾凇海、白霜峰、碎片峰、霜松坡、帷幕平地。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "寒冷",
+      "text": [
+        "荆枞针叶林、荒泽、碎石坡，以及微光岭这座矿物峰。",
+        "微光岭、荆枞针叶林、古荆枞针叶林、古坟荒泽、碎石坡荒丘、风袭荆枞、白霜苔林、灰色海岸、寒冷浅滩、深寒冷浅滩、山湖乡。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "温带",
+      "text": [
+        "远行界的腹心：草原、泽、水晶之国、歌枫与炉橡之林，以及海。",
+        "远行界草原、远行界芦苇泽、远行界水晶原、远行界浅滩、歌枫林、花草甸、炉橡疏林、古炉橡疏林、帷幕木、铃果园、高草甸、日轮草原、织机河、淤泥滩、深浅滩、荧光盖沼。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "温暖",
+      "text": [
+        "鼓椰热带草原、缠木与高脚沼泽，位于高地和日峰之下。",
+        "远行界高地、鼓椰热带草原、鼓椰高原、风袭鼓椰、缠木、开阔缠木、芦丛、阔步木红树林、日峰、温暖浅滩、深温暖浅滩。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "酷热",
+      "text": [
+        "盐、窑黏土与灰：远行界的干燥一端，向下直到熔结玻璃的海床。",
+        "远行界余烬荒地、盐平地、窑台地、切蚀台地、日皮木台地、玻璃浅滩。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "地下",
+      "text": [
+        "每一带之下的东西：歌唱洞穴、发光的凹地、地脉矿脉，以及静默。",
+        "歌唱洞穴、晦盖木凹地、静默、地脉矿脉。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "新地面",
+      "text": [
+        "- 冰封的峰与尖塔中有**雾凇冰**和**霜页岩**；针叶林下有**针叶壤**和**白霜苔**；荒丘上有**碎石坡**。",
+        "- 滩上有**浅色沙子**，荧光盖沼中有**孢子草皮**，日峰上有**浅色石头**。",
+        "- 平地上有**盐壳**和**盐柱**；台地中有**赭色沙子**、**赭色砂岩**和四种色调的**窑黏土**；玻璃浅滩之下有**玻璃沙**。",
+        "- **共鸣尖刺**在歌唱洞穴里于脚下鸣响，**荧光苔藓**在晦盖木凹地里，**静默织纹**和它的**噤声花**在静默之中。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "新草木",
+      "text": [
+        "冰花、霜盖、灰色石楠、霜蓟、歌草、织机铃、黎明虞美人、铃蕾、日轮、荆丛、缠蕨、灵芦和晦盖木芽，各自长在合适的土地上。九种新树在树木页上。"
+      ]
+    }
+  ]
+}

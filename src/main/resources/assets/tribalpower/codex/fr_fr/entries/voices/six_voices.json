@@ -1,0 +1,267 @@
+{
+  "name": "Les six voix",
+  "icon": "tribalpower:resonance_totem_earth",
+  "order": 10,
+  "items": [
+    "tribalpower:resonance_totem_fire",
+    "tribalpower:resonance_totem_water",
+    "tribalpower:resonance_totem_air",
+    "tribalpower:resonance_totem_spirit"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_totem_earth",
+      "text": [
+        "Chaque station d'écho a besoin de deux choses en plus de son entrée : Pulsation, et un **Totem de résonance** de la bonne voix dans un rayon de **8 blocs**.",
+        "Le totem est un professeur, pas un générateur. Sans la bonne voix, une station attend et ne dépense rien."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Haut de deux blocs",
+      "text": [
+        "Un Totem de résonance fait **deux blocs** de haut, alors laisse un bloc libre au-dessus de l'endroit où tu en poses un.",
+        "Clique l'une ou l'autre moitié : le haut répond comme la base. Casse l'une ou l'autre moitié et le totem entier part en un seul objet, avec tout ce qu'il contient.",
+        "Un totem d'un bloc venu d'un monde plus ancien refait pousser son sommet tout seul dès que le bloc au-dessus est de l'air."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quelle voix fait quoi",
+      "text": [
+        "Chaque atelier répond à une voix et attend un totem de celle-ci dans un rayon de **8 blocs**:",
+        "- **Terre**: Broyeur d'écho, le Bassin de pierre et la Fosse d'écoute.",
+        "- **Feu**: Accordeur d'écho et le Four de braise. Accorder un réactif de créature demande l'**Esprit** à la place.",
+        "- **Eau**: Lieur d'écho.",
+        "- **Esprit**: Manifesteur d'écho.",
+        "- **Métier**: Détissage d'écho et Porte lointaine. C'est la dernière voix ; vois [La sixième voix](sixth_voice).",
+        "Une machine en pause nomme la voix qui lui manque quand tu t'accroupis et fais un clic droit dessus avec ce livre."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les voix autour du camp",
+      "text": [
+        "Les appareils du camp qui travaillent seuls veulent aussi une voix tenue dans un rayon de 8 blocs:",
+        "- **Terre**: le Soigneur du bosquet et l'Ancre de voie.",
+        "- **Eau**: la Pompe de marée.",
+        "- **Esprit**: le Tambour de garde, le Totem du silence et le Berceau d'invocation.",
+        "- **Air**: le Collet du vent, et tous les relais sauf les astraux.",
+        "- **Métier**: le Métier à sceaux et les relais astraux.",
+        "L'Établi du chant prend n'importe quelle voix : le totem que tu choisis est la voix du chant."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Le bon maître",
+      "steps": [
+        {
+          "caption": "Broyeur d'écho avec de la pierre à l'intérieur, et un tambour chargé à côté.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:stone"
+          }
+        },
+        {
+          "caption": "Un totem de Feu est la mauvaise voix pour le Broyeur d'écho. La station attend et ne dépense rien.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Remplace-le par un totem de Terre et le travail commence.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "remove": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Des voix, pas des blocs",
+      "text": [
+        "Les stations comptent les voix, pas les totems : deux totems de Terre restent une seule voix. Avoir beaucoup de voix différentes compte pour le Résonateur de Pulsation et l'Ancre de Métier, qui font plus de Pulsation pour chaque voix **distincte** autour d'eux.",
+        "Un Totem de parenté prête l'élément de sa tribu aux stations, aux appareils du camp et à l'Ancre de Métier, et il ne se tait jamais. Un Résonateur de Pulsation le compte autrement : chaque tribu ajoute une voix de plus, jamais un septième élément.",
+        "Un totem lié par la craie à un autre près de la station prête aussi sa voix, s'il se dresse à moins de 16 blocs de la station. Les appareils du camp et le Résonateur n'entendent pas les liens de craie.",
+        "Chaque totem tient aussi **250 Pulsation** pour le treillis, et il faut le garder éveillé : vois [Maintien](keeping)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Un générateur pour chaque voix",
+      "text": [
+        "Chaque voix a aussi son générateur, l'ouvrage de la tribu qui la garde :",
+        "- **Terre** : le Cœur-tambour.",
+        "- **Feu** : la Corne de braise, des [Cœurs-tambours](tribe_spark).",
+        "- **Air** : la Harpe du vent, des [Tisserands de motifs](tribe_clock).",
+        "- **Eau** : le Tambour des vagues, des [Lieurs de racines](tribe_sprout).",
+        "- **Esprit** : la Cloche d'éveil, des [Graveurs de sceaux](tribe_sigil).",
+        "- **Métier** : l'Ancre de Métier, des [Couseurs du métier](tribe_spindle).",
+        "Fais produire les six en même temps dans **32 blocs** d'une Ancre de Métier, et tous ceux qui se tiennent près d'elle obtiennent **Six voix qui chantent**.",
+        "Dans [la Marche](living_march), la météo favorise les générateurs d'une voix et gêne ceux d'une autre."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_earth"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_fire"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_water"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_air"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_spirit"
+    }
+  ]
+}

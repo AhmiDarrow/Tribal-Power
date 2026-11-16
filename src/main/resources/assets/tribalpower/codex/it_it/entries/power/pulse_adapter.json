@@ -1,0 +1,194 @@
+{
+  "name": "Energizzatore armonico",
+  "icon": "tribalpower:pulse_adapter",
+  "order": 70,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_adapter",
+      "text": [
+        "Tribal Power fa Pulso; molti altri mod girano su Forge Energy (FE). L'Energizzatore armonico è un ponte a senso unico: trasforma il Pulso del tuo reticolo in FE e lo consegna alle macchine che lo toccano. Il suo contrario, il [Convertitore a reticolo](lattice_converter), riporta il FE dall'altra parte."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Come sistemarlo",
+      "text": [
+        "Piazza l'Energizzatore armonico entro **8 blocchi** da un [Conduttore di reticolo](lattice_conductor) su una rete con Pulso, e proprio contro la macchina FE che deve alimentare. Spinge energia in qualunque ricevitore di energia, su qualunque faccia.",
+        "Converte **1 Pulso in 100 FE**, fino a **60 Pulso** ogni secondo (6,000 FE, ovvero 300 FE a tick). Gli energizzatori con un rango convertono più Pulso e quindi fanno più FE, nello stesso secondo.",
+        "Mette in buffer **48,000 FE** e li esporta verso ricevitori di energia standard. Non può ricevere FE, quindi nulla può rimandargli energia."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un ponte verso il FE",
+      "steps": [
+        {
+          "caption": "Un generatore tiene il Pulso che vuoi spendere.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Posiziona l'Energizzatore entro 8 blocchi da esso. Ogni secondo trasforma fino a 60 Pulso in 6,000 FE.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_adapter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Appoggia la tua macchina FE a un'altra faccia qualsiasi; l'Energizzatore spinge l'energia dentro da solo.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Una leva accanto ferma la conversione e l'estrazione.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quando nulla scorre",
+      "text": [
+        "La redstone ferma la conversione e l'estrazione. Un comparatore legge quanto è pieno il buffer di FE.",
+        "Se la macchina FE resta ferma, o non c'è Pulso a portata, o il ricevitore è pieno. Accovacciati e fai clic destro sull'Energizzatore con questo libro per vederne il buffer e il ritmo."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_adapter",
+      "text": "Richiede un Nucleo risonante dal Manifestatore di eco."
+    }
+  ]
+}

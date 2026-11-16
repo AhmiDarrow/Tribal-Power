@@ -1,0 +1,65 @@
+{
+  "name": "Zurcidores del telar",
+  "icon": "tribalpower:tribe_mark",
+  "order": 120,
+  "spoiler": true,
+  "unlock": "tribe:spindle",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_spindle",
+      "title": "Zurcidores del telar",
+      "text": [
+        "“El Telar nunca fue un solo hilo. Eran nueve de acuerdo.”",
+        "Hebra del **Huso**, voz del **Telar**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quiénes son",
+      "text": [
+        "Los Zurcidores del telar sostenían el Huso y cosieron las hebras de las otras tribus en una sola tela sobre el cielo. Cuando la tela se rasgó, se rasgó por su costura, y aún siguen cosiendo. Su oficio es **senderos de portal y el retejido**.",
+        "Sus campamentos están **solo en la Marcha**: en los Campos de cristal y en la extraña tierra iluminada de cada franja. Tendrás que cruzar al otro lado para encontrarlos."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que quieren",
+      "text": [
+        "Su reactivo es el **Hilo de Telar**, que vale **+8** de estima en su Hogar.",
+        "También prefieren Cristal de la Marcha, una Brújula, una Brújula de piedra de camino o una Brújula del horizonte: **+3** cada uno. Cualquier otra comida vale **+1**, y una Célula de Pulso cargada **+2 por cada 10 de Pulso**, hasta +8.",
+        "Recuerda: el Hogar toma como máximo **60** de estima al día en ofrendas; consulta [Tribus y estima](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que intercambia el Anciano",
+      "text": [
+        "**Huésped**: 4 Cristal de la Marcha por 3 Fragmento de eco; una Brújula por 8 Tablones de la Marcha.",
+        "**Amigo**: 6 Cristal de la Marcha por un Hilo de Telar; 4 Eco sintonizado por una Brújula de piedra de camino; 4 Arroz de ciénaga por Fideos de hilo del Telar.",
+        "**Pariente**: 4 Eco vinculado y un Hilo de Telar por un Ancla de Telar; 2 Hilo de Telar por un Sello de Telar.",
+        "Cada intercambio otorga **+2** de estima."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marca, tótem y don",
+      "text": [
+        "En **Voz**, el Anciano te da la Marca tribal de los Zurcidores del telar. Fabrícala con un {item:tribalpower:resonance_totem_loom} y dos Tejido espiritual para obtener su [Tótem de parentesco](kinship_totem).",
+        "Junto a un Resonador de Pulso es una voz más; junto a una estación aporta **Telar**.",
+        "Quien es Pariente de los Zurcidores del telar lleva su [don](tribe_boons): los cantos cuestan **un cuarto menos** al cantarlos.",
+        "Su plato lleva el don durante **5 minutos**, y su [reliquia](elders_and_stories) mientras la lleves.",
+        "Su intercambio de Amigo convierte el Cristal de la Marcha en Hilo de Telar, que también es su reactivo. Son la única tribu que vende un **Ancla de Telar**.",
+        "Con el rango **Voz** también puedes vincular un **Tejedor de eco** como [familiar](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "spindle",
+      "title": "Tu trabajo con ellos",
+      "text": [
+        "Lo que el Anciano de los Zurcidores del telar te ha pedido, y hasta dónde ha llegado su historia. Consulta [Ancianos, peticiones e historias](elders_and_stories)."
+      ]
+    }
+  ]
+}

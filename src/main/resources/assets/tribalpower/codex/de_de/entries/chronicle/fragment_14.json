@@ -1,0 +1,17 @@
+{
+  "name": "15. Steppe",
+  "icon": "tribalpower:mural",
+  "order": 24,
+  "spoiler": true,
+  "unlock": "fragment:14",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Steppe",
+      "text": [
+        "“Die Steppe ist das Polster, das die Polsterhüter nicht tragen konnten: zu groß, und die Herde stand darauf, als es fiel. Die Herde hat nie aufgehört zu laufen. Leise Füße könnten das Polster zurückbringen; laute schließen sich der Stampede an.”",
+        "Gefunden auf einem Wandbild am Grund eines Wächters."
+      ]
+    }
+  ]
+}

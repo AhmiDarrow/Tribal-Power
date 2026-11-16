@@ -1,0 +1,40 @@
+{
+  "name": "시간 판",
+  "icon": "tribalpower:heartbeat_plate",
+  "order": 78,
+  "items": [
+    "tribalpower:heartbeat_plate",
+    "tribalpower:drift_plate",
+    "tribalpower:strike_plate",
+    "tribalpower:chance_plate"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "심장박동, 표류, 타격, 확률",
+      "text": [
+        "- **심장박동**은 **1틱 동안 15**를 내보낸 뒤 쉰다. 웅크려 사용하면 **20, 40, 80, 160**틱을 돌고 다시 20으로 돌아간다. 시작은 20, 1초.",
+        "- **표류**는 뒷면이 **4, 8, 16 또는 32**틱 동안 살아 있어야만 뒷면을 베끼고(웅크려 사용으로 순환, 시작은 4), 뒷면이 떨어지면 바로 내려간다.",
+        "- **타격**은 올라오는 뒷면에 15를 1틱 주고, 그다음 잠잠해진다. 북심장과 화로대가 듣는 타격 신호다.",
+        "- **확률**은 뒷면이 올라올 때마다 동전을 던진다. 15 또는 0이며, 뒷면이 떨어질 때까지 유지한다.",
+        "북심장 위의 1초 심장박동은 끝이 박자에 맞으면 **24-펄스** 박자가 된다. 더 느린 설정은 한 박에 **10**만 얻는다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:heartbeat_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:strike_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chance_plate"
+    }
+  ]
+}

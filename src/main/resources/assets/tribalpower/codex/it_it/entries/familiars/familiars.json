@@ -1,0 +1,86 @@
+{
+  "name": "Legare un famiglio",
+  "icon": "tribalpower:bonding_charm",
+  "order": 20,
+  "next": "familiar_gifts",
+  "pages": [
+    {
+      "type": "image",
+      "image": "familiars_bonding",
+      "text": [
+        "Legare rende una creatura tua per sempre. Un famiglio lascia **il doppio** del reagente quando lo spazzoli, una volta al minuto, e nessun altro può spazzolarlo."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ogni creatura porta cinque fili: **Ossatura** (salute), **Falciata** (velocità), **Zanna** (danno), **Ronzio** (quanto spesso funziona il suo dono) e **Guardia** (armatura). Ogni passo su o giù vale il 12%.",
+        "**Accovacciati e guarda una qualsiasi creatura della Marcia** per vederne i fili, i Marchi, la generazione e la **stirpe**, i cinque fili sommati. I tuoi compagni mostrano i loro ogni volta che li guardi.",
+        "I fili selvatici escono da 0 a 3, così due volpi della stessa radura non sono cloni. Solo l'allevamento arriva a 4, e l'**Eccelso** a 5. Scegli quello che vuoi tenere: legare non ritira mai nulla."
+      ],
+      "title": "Leggilo prima"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ci sono due modi per legare una creatura adulta. Le giovani non si possono legare.",
+        "- **Nutrilo**, come faresti per conquistare un lupo. Gli animali mansueti prendono il loro cibo solito e si legano circa una volta su tre; i resti prendono il proprio reagente e si legano una volta su cinque. Ogni tentativo consuma il cibo.",
+        "- **Usa un Amuleto di legame** su di esso: tre tentativi su cinque per gli animali mansueti, due su cinque per i resti. L'amuleto si consuma quando il legame attecchisce. Un tentativo fallito lo conserva con un animale mansueto, ma lo consuma su un resto.",
+        "Un resto risponde in entrambi i modi solo quando la sua tribù ti chiama **Voce** ([chi può essere legato](familiar_basics)). I cuori vogliono dire che ha funzionato; il fumo, che no."
+      ],
+      "title": "Legame"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Fallo presto con **quattro spaghi** intorno a una **Scheggia di Spirito** e **un reagente di creatura**. Quando hai Tessitospirito, **due Tessitospirito** possono sostituire lo spago.",
+        "Il reagente può essere uno qualunque di nove: Velluto dell'alba, Piumino di lanterna, Scaglia di dorsomuschio, Carapace prismatico, Dente di fenditura, Nodo di tizzone, Ala di tempesta, Frammento di campana o Seta di eco. Passa il pennello su un Cervo dell'alba, una Volpe lanterna o un Dorsomuschio per ottenerne uno, una volta al minuto, oppure prendine uno da un resto caduto; i reagenti delle altre bestie non vanno bene. Qualunque sia entrato, l'amuleto lega qualsiasi creatura che risponda.",
+        "Lo stesso amuleto dà in seguito una voce al tuo famiglio: vedi [sintonizzare a un totem](familiar_attuning)."
+      ],
+      "title": "L'Amuleto di legame"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bonding_charm",
+      "text": "Uno qualunque dei nove reagenti di creatura riempie lo scomparto in alto al centro."
+    },
+    {
+      "type": "text",
+      "text": [
+        "Un famiglio ti segue quando sei a **10 blocchi** e si teletrasporta da te oltre **12**. Ignora i tuoi colpi.",
+        "Usalo mentre sei accovacciato per farlo aspettare, e di nuovo per richiamarlo. Tieni qualcosa mentre lo fai a un Dorsomuschio, perché una mano vuota apre la sua bisaccia.",
+        "**Un combattente** (un Dorsoscheggia o un Segugio della fenditura) e **due aiutanti** possono seguire insieme. Quelli seduti e qualunque cosa tu stia cavalcando non contano. Gli extra si siedono e ti dicono perché. Un famiglio in attesa che viene ferito si alza e segue, se c'è posto nella tua compagnia.",
+        "Ciò che uccide il tuo famiglio non ti dà alcun grado nella tribù e non conta per le cacce di una tribù. L'uccisione deve essere tua."
+      ],
+      "title": "Fare compagnia"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Fai riprodurre due compagni legati della stessa specie nutrendo entrambi con il loro cibo mentre stanno vicini. Anche gli animali selvatici si riproducono, se ti accovacci mentre li nutri, e i piccoli nascono selvatici. Come per i lupi, i piccoli di due compagni che possiedi **nascono nella tua compagnia**, e più cibo li aiuta a crescere.",
+        "Ogni piccolo prende metà di ogni filo da ciascun genitore, a volte spinto un po' su o giù. Le coppie che possiedi insieme migliorano un po' più spesso.",
+        "**Riproduci forte con forte.** Quando entrambi i genitori sono a 3 o meglio in un filo, il piccolo ha una probabilità su quattro di salire di un gradino sopra entrambi, ed è l'unico modo per arrivare a 4 e all'Eccelso 5. Una linea allevata con cura finisce molto più forte di qualunque cosa selvatica.",
+        "Attento alle copie: riprodurre la stessa Ossatura e la stessa Zanna per tre generazioni di fila sotto un solo proprietario **Sfilaccia** la linea e ne abbassa il Ronzio."
+      ],
+      "title": "Riprodurre fili migliori"
+    },
+    {
+      "type": "text",
+      "text": [
+        "I marchi sono vezzi con un nome. Alcuni compaiono con una copia; gli altri richiedono una copia da entrambi i genitori.",
+        "- Una copia: **Filo quieto** (segue da 8 blocchi, si ferma a 2), **Pelle di pietra** (+1 armatura, un po' più lento), **Deriva** (più rapido, 2 di salute in meno, si innervosisce dopo un minuto di attesa), **Fauci morbide** (non morde villici né golem), **Vena luminosa** (volpe), **Puntello** (Dorsoscheggia).",
+        "- Due copie: **Acuto** (il dono funziona più in fretta), **Ronzio notturno** (più rapido di notte), **Marchio di Consanguineo** (nato dalla coppia di un solo proprietario, un po' più di armatura), e i marchi di specie **Balzo**, **Tasca profonda**, **Pista**, **Tempo**, **Clic preciso**, **Immoto** e **Raccolta**.",
+        "Alcune creature selvatiche nate nella Marcia sono **Scintillate**: luccicano e portano una copia forte del filo verso cui pende la loro specie."
+      ],
+      "title": "Marchi"
+    },
+    {
+      "type": "text",
+      "title": "Curare un famiglio",
+      "text": [
+        "Nutri un famiglio ferito con il suo cibo preferito per curarlo. Un [unguento](remedies) usato su di lui, incenso che brucia e il [Sonaglio del guaritore](healers_rattle) lo curano anch'essi.",
+        "Se uno cade, lascia un **Resto dello Spirito**. Un [Cerchio di guarigione](healing_circle) lo richiama, voce compresa."
+      ]
+    }
+  ]
+}

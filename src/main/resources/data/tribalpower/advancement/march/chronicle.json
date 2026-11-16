@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:mural"
     },
-    "title": "The Chronicle whole",
-    "description": "Read all sixteen fragments of the Loom's history.",
+    "title": {
+      "translate": "advancement.tribalpower.march.chronicle.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.march.chronicle.description"
+    },
     "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,

@@ -1,0 +1,184 @@
+{
+  "name": "Campana de despertar",
+  "icon": "tribalpower:wake_bell",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wake_bell",
+      "text": [
+        "El oficio de los Talladores de sellos: una campana que llora a los muertos. Toda criatura que muere cerca paga Pulso a su reserva, así que una granja de criaturas se vuelve una planta de energía."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cómo paga",
+      "text": [
+        "Una muerte dentro de **16 bloques** paga **20 Pulso** por un hostil y **5** por una criatura pasiva. Las muertes de los jugadores no pagan nada.",
+        "Las muertes llenan una reserva de **2,000**, que la campana suelta como máximo **8 por segundo** sin rango. El rango añade **15% de Pulso por segundo** por rango, redondeado a un Pulso entero. Una granja grande llena la reserva y luego queda quieta; lo que pasa del borde se pierde.",
+        "Solo la campana **más cercana** oye una muerte, así que apilar campanas no sirve de nada. Una campana pausada con redstone no oye nada en absoluto."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Una campana junto a la granja",
+      "steps": [
+        {
+          "caption": "Cuelga la campana a 16 bloques o menos de donde mueren las cosas.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wake_bell"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Cada muerte llena su reserva; la campana la suelta hasta a 8 de Pulso por segundo.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un Túmulo de Pulso a su lado traga esas ráfagas tan pronto como llegan.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Las máquinas a 8 bloques o menos del túmulo sacan una línea constante, por desiguales que sean las muertes.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Consejos",
+      "text": [
+        "Sirven tanto una granja oscura como el terreno de matanza de un Tambor de amparo. Los jugadores nunca son el objetivo de un Tambor de amparo, y la campana igual oye cada muerte que causa.",
+        "Un Foso de escucha quiere una extracción constante, así que empareja la campana con un Túmulo de Pulso.",
+        "Las campanas son el oficio de los [Talladores de sellos](tribe_sigil): la receta necesita un Fragmento de campana y un Sello de Espíritu, y los Talladores de sellos cambian una campana con su Pariente."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wake_bell"
+    }
+  ]
+}

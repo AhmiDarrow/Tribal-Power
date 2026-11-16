@@ -1,0 +1,30 @@
+{
+  "name": "Marreta de ressonância",
+  "icon": "tribalpower:resonance_maul",
+  "order": 20,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_maul",
+      "text": [
+        "Uma picareta pesada, de nível de diamante, que limpa um plano de **3 por 3** em um golpe, pago em Pulso. Túneis e pedreiras avançam três vezes mais rápido."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ao golpear",
+      "text": [
+        "Segure-a na mão principal e agache para usar uma face de bloco. A marreta quebra o plano de 3 por 3 ao redor desse bloco, no plano da face que você acerta.",
+        "Cada bloco custa **8 Pulso**, primeiro da célula assentada na própria marreta e depois das células que você carrega, e o Pulso poupa o fio: o 3 por 3 não desgasta. Se o Pulso acabar no meio do golpe, os blocos restantes ficam. Depois de um golpe que quebra algo, a marreta descansa **um segundo**.",
+        "Ela só pega o que uma picareta pegaria, e só o que seu nível de diamante pode minerar. A terra protegida é respeitada.",
+        "Golpeada sem agachar, é uma picareta comum e se desgasta como tal.",
+        "Uma picareta de Terra ligada a um totem abre um 3 por 3 do mesmo modo; veja [Equipamento ligado a um totem](totem_bound_gear)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_maul"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "name": "Sustentar é o trabalho",
+  "icon": "tribalpower:lore_tablet",
+  "order": 60,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Remendar não é um milagre privado. Consiga a relíquia de cada tribo, leve as nove todas a um círculo do Tear e realize o [O nono acordo](ninth_agreement). Os fios concordam outra vez.",
+        "Leia cada tábua. Golpeie o Tambor silencioso quando estiver pronto. Ofereça nos lares. Peça com educação, menor do que o velho mundo pedia.",
+        "O mundo não volta de estalo. Ele aprende a segurar."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lore_tablet",
+      "title": "As tábuas",
+      "text": [
+        "As tribos deixaram doze tábuas de pedra. Procure-as nas paredes dos acampamentos dos Entalhadores de selos (florestas escuras e as Terras Altas da Marcha) e, na Marcha, em [Salões dos ancestrais](ancestor_hall) submersos, Círculos de tambores, Pináculos de cristal, acampamentos dos Costureiros do tear e Templos profundos. Clique com o botão direito em uma para lê-la.",
+        "Cada tábua que você lê fica registrada aqui, no capítulo de Relatos, e as palavras dela se abrem como uma página própria."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "lore_tablet_page",
+      "text": [
+        "O capítulo conta quantas das doze você já leu. Tábuas que você ainda não encontrou ficam escondidas."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tábuas suas",
+      "text": [
+        "Oito Pedra da Marcha ao redor de um Fragmento de eco fazem **duas** Tábua de relatos para pendurar em um salão seu. Uma tábua fabricada traz o primeiro fragmento, o Lar dos Guardiões do leito; no modo criativo, use-a agachado para percorrer as doze.",
+        "Uma tábua tem de ficar pendurada na lateral de um bloco sólido.",
+        "Uma tábua que você encontrou esquece as palavras quando é quebrada e volta como o Lar dos Guardiões do leito, então leia onde ela está pendurada."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lore_tablet"
+    }
+  ]
+}

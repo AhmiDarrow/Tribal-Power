@@ -1,0 +1,16 @@
+{
+  "name": "Tablette : Maille des Chanteurs de gravier",
+  "icon": "tribalpower:lore_tablet",
+  "order": 110,
+  "spoiler": true,
+  "unlock": "tablet:1",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Gardée dans un camp des Graveurs de sceaux, dans les mots des Chanteurs de gravier :",
+        "“La maille ne trouve pas le minerai. La maille donne au minerai un endroit où se poser. Chante bas sur la pierre brute et elle se desserre ; chante plus bas et elle se brise en écho. Nos mailles pendent encore dans les salles, bourdonnant vers rien. Apporte-leur du minerai et elles bourdonneront pour toi.”"
+      ]
+    }
+  ]
+}

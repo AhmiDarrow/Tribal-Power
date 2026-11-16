@@ -1,0 +1,62 @@
+{
+  "name": "Trasgos",
+  "icon": "tribalpower:goblin_ear",
+  "order": 330,
+  "spoiler": true,
+  "items": [
+    "tribalpower:fen_goblin_spawn_egg",
+    "tribalpower:tunnel_goblin_spawn_egg",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang"
+  ],
+  "next": "kobolds",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Trasgos",
+      "text": [
+        "Pequeños, rápidos y rencorosos, los trasgos vienen de uno o dos a la vez y van directos hacia ti."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dos clases",
+      "text": [
+        "Un trasgo tiene **18 de salud** y **1 de armadura**, es rápido y golpea por **4**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:fen_goblin",
+      "title": "Trasgo del marjal",
+      "text": [
+        "Un trasgo flaco y orejudo, con una lanza de junco, que se encuentra en la Ciénaga de Juncos. Aparece de noche en terreno abierto.",
+        "Si se caza, también suelta hasta 2 pepitas de oro, hasta 1 hueso y hasta 1 cuerda."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tunnel_goblin",
+      "title": "Trasgo del túnel",
+      "text": [
+        "Un trasgo encorvado, con una maza de púas y una vela pegada a la gorra, que se encuentra en los túneles oscuros bajo la estepa, donde aparece de día o de noche.",
+        "Si se caza, también suelta hasta 2 carbón, hasta 2 pepitas de hierro y hasta 1 hueso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que dan",
+      "text": [
+        "Un Trasgo del marjal suelta **de 1 a 2 Oreja de trasgo** (tinte verde lima), un Trasgo del túnel **de 1 a 2 Colmillo de trasgo**, más con Saqueo. Ambos son reactivos de Sabueso: ungidos, hacen que un arma beba de vuelta parte de cada golpe. Mira [reactivos](reagents).",
+        "Los trasgos nunca se vinculan."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, cada uno suelta más si se caza, y aún más con Saqueo."
+      ]
+    }
+  ]
+}

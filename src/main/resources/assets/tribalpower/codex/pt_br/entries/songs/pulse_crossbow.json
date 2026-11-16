@@ -1,0 +1,36 @@
+{
+  "name": "Besta de Pulso",
+  "icon": "tribalpower:pulse_crossbow",
+  "order": 40,
+  "items": [
+    "tribalpower:pulse_crossbow"
+  ],
+  "next": "anointing",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_crossbow",
+      "title": "A irmã mais pesada do arco",
+      "text": [
+        "A Besta de Pulso dispara os mesmos Virote sônico que o [Arco de Pulso](song_bench), e carrega Flecha de verso do mesmo modo.",
+        "**Segure usar** para carregá-la. Carregar demora um pouco mais que uma puxada completa do arco e gasta **10 Pulso** adiantado; se você levar uma Flecha de verso, carrega essa também, por mais 6 Pulso. **Use de novo** para disparar.",
+        "Uma Célula de Pulso encaixada na besta paga primeiro, depois as células que você carrega.",
+        "É forjada como o outro Equipamento espiritual: dois **Barra manifestada** e um **Carrilhão de osso** para o arco, linha, um gancho de armadilha e um graveto. Dura 1,024, e como o Pulso paga cada tiro, atirar nunca a desgasta; a [Bigorna do Espírito](spirit_anvil) a repara com Barra manifestada, um quarto cada."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- A **besta** acerta cerca de **um terço mais forte**: **10** de perto contra os **7** do arco, um pouco menos no fim de um voo longo. Voa mais rápido e quase perfeitamente reto, e segura o tiro pelo tempo que você quiser, então você pode andar com ela carregada e disparar no momento em que algo aparece.",
+        "- O **arco** é mais rápido: você pode soltar de novo mais cedo, e soltar uma puxada parcial quando está com pressa, embora uma puxada parcial acerte só a sua parte.",
+        "Uma Flecha de verso adiciona até **3** a mais numa puxada completa do arco, um pouco mais da besta, e carrega o canto dela. Os Virote sônico não caem, mas somem depois de cerca de 60 blocos.",
+        "Leve a besta para o tiro que importa, o arco para uma luta em corrida."
+      ],
+      "title": "Arco ou besta?"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_crossbow"
+    }
+  ]
+}

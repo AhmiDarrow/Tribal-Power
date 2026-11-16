@@ -1,0 +1,30 @@
+{
+  "name": "Masse de résonance",
+  "icon": "tribalpower:resonance_maul",
+  "order": 20,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_maul",
+      "text": [
+        "Une lourde pioche de niveau diamant qui dégage un plan de **3 par 3** en un coup, payé en Pulsation. Tunnels et carrières vont trois fois plus vite."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "En la maniant",
+      "text": [
+        "Tiens-la en main principale et accroupis-toi pour utiliser une face de bloc. La masse casse le plan de 3 par 3 autour de ce bloc, dans le plan de la face que tu frappes.",
+        "Chaque bloc coûte **8 Pulsation**, d'abord depuis la cellule logée de la masse, puis depuis les cellules que tu portes, et la Pulsation épargne le tranchant : le 3 par 3 n'use rien. Si la Pulsation s'épuise en plein coup, les blocs restants restent. Après un coup qui casse quelque chose, la masse se repose **une seconde**.",
+        "Elle ne prend que ce qu'une pioche pourrait prendre, et seulement ce que son niveau diamant peut récolter. Le terrain protégé est respecté.",
+        "Maniée sans t'accroupir, c'est une pioche ordinaire, et elle s'use comme telle.",
+        "Une pioche de Terre liée à un totem ouvre un 3 par 3 de la même façon ; voir [Équipement lié à un totem](totem_bound_gear)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_maul"
+    }
+  ]
+}

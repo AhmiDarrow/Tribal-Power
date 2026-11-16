@@ -1,0 +1,8 @@
+{
+  "name": "编年史",
+  "icon": "tribalpower:mural",
+  "order": 125,
+  "description": "织机的历史，一次一块刻在远行界里。找到它们，故事便会在这里自己拼合。",
+  "spoiler": false,
+  "progress": "chronicle"
+}

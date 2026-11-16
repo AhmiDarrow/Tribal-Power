@@ -1,0 +1,31 @@
+{
+  "name": "Capanna del sudore",
+  "icon": "tribalpower:sweat_stones",
+  "order": 60,
+  "items": [
+    "tribalpower:sweat_stones"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:sweat_stones",
+      "title": "Pietre calde",
+      "text": [
+        "Le **Pietre del sudore** fumano e brillano quando stanno sopra al calore: un falò acceso, fuoco, fuoco delle anime, un blocco di magma, lava o una Ciotola di brace sotto. Togli il calore e si raffreddano.",
+        "Mettine alcune in una piccola capanna con un letto e hai una capanna del sudore."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Una notte nella capanna",
+      "text": [
+        "Dormi tutta la notte in un letto con **Pietre del sudore calde entro 5 blocchi**, non più di **2 blocchi** sopra o sotto il letto, e **un tetto sopra di te** (qualsiasi cosa solida, da due a cinque blocchi sopra il letto).",
+        "Ti svegli **guarito del tutto**, senza alcun effetto dannoso, con **10 minuti** di [Benedizione dello Spirito](spirit_sickness) e un po' di Rigenerazione. Funziona solo se dormi davvero fino al mattino."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:sweat_stones"
+    }
+  ]
+}

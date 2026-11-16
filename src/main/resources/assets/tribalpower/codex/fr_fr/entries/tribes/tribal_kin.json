@@ -1,0 +1,71 @@
+{
+  "name": "Parent tribal",
+  "icon": "tribalpower:tribal_kin_elder_spawn_egg",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:tribal_kin_drummer_spawn_egg",
+    "tribalpower:tribal_kin_hunter_spawn_egg",
+    "tribalpower:tribal_kin_weaver_spawn_egg"
+  ],
+  "next": "kinship_totem",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:tribal_kin",
+      "text": [
+        "Chaque camp garde quatre Parents : un **Ancien**, un **Tambour**, un **Chasseur** et un **Tisserand**. Ils errent dans un rayon de **16 blocs** autour de leur camp et ne disparaissent jamais ; le jour de festival de leur tribu, ils restent dans un rayon de **5 blocs** de l'Âtre. Clic droit sur un Tambour, un Chasseur ou un Tisserand pour voir leur tâche et ton rang. L'Ancien, lui, te parle."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_elder",
+      "title": "L'Ancien",
+      "text": [
+        "L'Ancien échange une fois que tu es **Hôte**. Chaque tribu a sept offres : deux par rang, d'Hôte à Parent, plus le plat propre de la tribu au rang Ami. Chaque échange donne **+2** de réputation. L'Ancien remet aussi les [requêtes et le récit](elders_and_stories) de la tribu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Échanger avec l'Ancien",
+      "text": [
+        "Un Ancien n'a rien pour un Étranger. Apporte d'abord une offrande à l'Âtre.",
+        "Le stock est limité. Une offre se prend **12 fois** par jour, **8** si elle demande deux objets différents, et **6** si elle vend un réactif de créature. L'Ancien réassortit une fois par jour Minecraft, et fermer l'écran ne le remplit pas.",
+        "Quand tu atteins **Voix**, reparle à l'Ancien. Il te presse dans la main la **Marque de tribu** de la tribu, une fois par tribu. Garde-la : elle devient un [Totem de parenté](kinship_totem)."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_drummer",
+      "title": "Le Tambour",
+      "text": [
+        "Toutes les **5 à 6 secondes**, le Tambour frappe un temps qui envoie **2 Pulsation** dans chaque Cœur-tambour, Collecteur de ley et Résonateur de Pulsation dans un rayon de **8 blocs**. Les Harpes du vent, les Tambours des vagues et les Cornes de braise n'en prennent rien. Le temps garde aussi les totems proches éveillés."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_hunter",
+      "title": "Le Chasseur",
+      "text": [
+        "Le Chasseur surveille le bord du camp et frappe les monstres hostiles dans un rayon de **12 blocs**. Blesse toutefois un Parent, et le Chasseur vient te chercher pendant une **minute**."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_weaver",
+      "title": "Le Tisserand",
+      "text": [
+        "Toutes les **40 à 90 secondes**, le Tisserand marche jusqu'au Métier le plus proche, à **12 blocs** du camp (ou un Établi du chant, s'il n'y a pas de Métier), et y travaille pendant **six secondes**. Cette pose est le travail. Il ne fabrique rien pour toi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Vivre auprès d'eux",
+      "text": [
+        "Les Parents sont neutres et patients. Ils resteront près de tes machines, battront le tambour pour tes générateurs et garderont tes nuits aussi longtemps que tu le voudras.",
+        "Ne les frappe jamais. Un coup d'épée de travers coûte **25** de réputation et retourne tout le camp contre toi. Voir [Tribus et réputation](standing) pour tout le reste qui met une tribu en colère.",
+        "Les quatre œufs d'apparition sont pour les bâtisseurs en créatif qui veulent monter leur propre camp."
+      ]
+    }
+  ]
+}

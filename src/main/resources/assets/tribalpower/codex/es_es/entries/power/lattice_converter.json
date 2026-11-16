@@ -1,0 +1,45 @@
+{
+  "name": "Convertidor de entramado",
+  "icon": "tribalpower:lattice_converter",
+  "order": 75,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lattice_converter",
+      "text": [
+        "El Convertidor de entramado es el [Energizador armónico](pulse_adapter) al revés: aliméntalo con energía Forge (FE) de generadores o cables de otro mod y bate esa energía hasta volverla Pulso para tu campamento.",
+        "No es un cambio justo. El FE en bruto es ruido para un entramado, y hacen falta voces de tótem para que se sostenga."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cómo colocarlo",
+      "text": [
+        "Mete FE por cualquier cara. El convertidor reserva **48.000 FE** y nunca devuelve FE.",
+        "Cada segundo hace hasta **40 Pulso** y lo pone en su red de entramado, por un [Conductor de entramado](lattice_conductor) a **8 bloques**: primero en cada Túmulo de Pulso de la red, luego en generadores con sitio de sobra, de donde lo toman las máquinas. Fuera del entramado, o sin sitio en él, espera y no gasta FE.",
+        "Cada [rango](machine_ranks) hace más Pulso por segundo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Las voces lo abaratan",
+      "text": [
+        "Sin voces alrededor, un Pulso cuesta **220 FE**. Cada voz distinta de un Tótem de resonancia **Respondido**, en 8 bloques, quita **20 FE**, hasta **120 FE** con cinco voces. Aquí no cuenta ningún Tótem de parentesco.",
+        "Pasar de Pulso a FE y volver siempre pierde algo: el energizador convierte un Pulso en 100 FE, y el convertidor nunca toma menos de 120 FE para hacer uno."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cuando no fluye nada",
+      "text": [
+        "Una señal de redstone lo pausa, y no toma FE mientras sigue en pausa. Un comparador lee qué tan llena está su reserva de FE.",
+        "Haz clic derecho para una línea de estado. Agáchate y haz clic derecho con este libro para ver su reserva, su precio por Pulso y lo que hizo en el último segundo."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_converter",
+      "text": "Necesita un Núcleo resonante del Manifestador de eco y dos de Eco sintonizado del Sintonizador de eco."
+    }
+  ]
+}

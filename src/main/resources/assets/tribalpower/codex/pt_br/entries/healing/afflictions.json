@@ -1,0 +1,25 @@
+{
+  "name": "Aflições",
+  "icon": "tribalpower:spirit_remnant",
+  "order": 45,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Além do [Mal espiritual](spirit_sickness), mais três coisas podem pousar em você lá fora:",
+        "- **Silêncio Não Cantado**: os dardos de Silêncio do Não Cantado levam a sua voz com eles. Por **12 segundos**, nenhuma canção nem voz de cajado responde. Espere passar, beba leite ou lave isso.",
+        "- **Esfiapado**: um golpe de um selvagem **Tecelão de eco** ou **Rastejador sombrio** arranca algo de você: **dois corações** da sua vida por **dois minutos**. O leite não faz nada.",
+        "- **Mal de ley**: o chão balança e as células que você carrega perdem **2 de Pulso a cada dois segundos** por nível. Vem de ficar sobre um cruzamento de ley nu enquanto os fios surgem. O leite tira isso."
+      ],
+      "title": "O que a Marcha deixa em você"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Todo [remédio](remedies) tira todas, e o [Círculo de cura](healing_circle) e uma noite na [cabana de suor](sweat_lodge) também.",
+        "O jeito antigo é o **Poço de Espírito**: encontre um na Marcha, entre na água dele e **agache**. Por **40 de Pulso** de uma célula que você carrega, o poço tira de você toda aflição, inclusive o Mal espiritual."
+      ],
+      "title": "Lavagem limpa"
+    }
+  ]
+}

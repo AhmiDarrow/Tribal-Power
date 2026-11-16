@@ -1,0 +1,64 @@
+{
+  "name": "Rites du monde",
+  "icon": "tribalpower:rite_rain_calling",
+  "order": 100,
+  "items": [
+    "tribalpower:rite_sky_clearing",
+    "tribalpower:rite_dawn_calling"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_rain_calling",
+      "text": [
+        "Les rites de tablette dépassent le camp et changent le monde lui-même. Grave une tablette, pose le sceau correspondant dans un Brasero rituel à l'intérieur de son cercle, et dépense la Pulsation."
+      ],
+      "title": "Rites du climat"
+    },
+    {
+      "type": "text",
+      "title": "Graver et lancer",
+      "text": [
+        "Chaque tablette, c'est deux pierres (ou roche noire ou pierre des abîmes), son réactif et le sceau correspondant, sans forme. Le sceau est rendu.",
+        "Pose ce sceau dans le brasero (sa bénédiction continue), trace le [Cercle de rite](rite_circle) et rassemble tout le coût à **8 blocs** du brasero : un Cœur-tambour bien fourni, un résonateur avec un bon catalyseur, ou plusieurs générateurs ensemble. Une cellule dans ta poche ne compte pas. Une Jauge de Pulsation ou le Codex spirituel montre le total.",
+        "Accroupis-toi et utilise la tablette sur le brasero. Si le treillis détient moins que le coût, rien n'est dépensé ; sinon la tablette est consommée et la Pulsation est tirée."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les trois rites du climat",
+      "text": [
+        "- **Appel de la pluie** (Eau, **400** Pulsation, un Croc de roseau) : vingt minutes de pluie, et des Collecteurs de ley plus forts tant que ça dure. Commence ici.",
+        "- **Dégagement du ciel** (Air, **400**, une Aile de tempête) : quarante minutes de ciel clair.",
+        "- **Appel de l'aube** (Feu, **800**, un Cœur de braise) : presse la nuit jusqu'au lever du soleil, sauf si la règle de jeu tribalpower:allowDawnRite est coupée.",
+        "Quatre totems correspondants sur les points cardinaux du cercle retirent un quart du coût et doublent le temps. Un signal de redstone maintenu sur le brasero refuse le rite.",
+        "Ensuite, essaie les [rites du terrain](land_rites)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_rain_calling"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_sky_clearing"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_dawn_calling"
+    },
+    {
+      "type": "text",
+      "title": "Cercle de soin",
+      "text": [
+        "Un rite d'Esprit, lancé comme les autres avec un Sceau d'Esprit en place. Il coûte **500 Pulsation** et reste ouvert **10 minutes**.",
+        "Il soigne tous ceux du cercle, joueurs et familiers liés, lève chaque mal, les bénit, et rappelle tout familier tombé dont tu as posé le [Vestige de l'Esprit](healing_circle) sur ses piédestaux. Le récit complet est dans [Soin chamanique](healing_circle)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_healing_circle"
+    }
+  ],
+  "next": "land_rites"
+}

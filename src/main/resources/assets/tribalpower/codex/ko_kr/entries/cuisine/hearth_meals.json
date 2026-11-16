@@ -1,0 +1,72 @@
+{
+  "name": "화로 식사",
+  "icon": "tribalpower:long_hunt_stew",
+  "order": 24,
+  "items": [
+    "tribalpower:drift_bell_dumplings",
+    "tribalpower:delvers_pottage",
+    "tribalpower:fen_callers_chowder",
+    "tribalpower:reed_wrapped_eel",
+    "tribalpower:ember_roast_squash",
+    "tribalpower:long_hunt_stew",
+    "tribalpower:bloomsong_custard",
+    "tribalpower:fish_and_chips"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "앞일을 위한 식사",
+      "text": [
+        "[길 양식](road_fare)보다 더 배부르고, 마치의 야생 수확으로 익힌다. 식사마다 배를 잘 채우고, 앞의 일에 수수한 선물 하나를 빌려 준다. 가장 좋은 [부족 요리](tribe_dishes)보다 더 채우는 것은 없고, 은총도 없다.",
+        "- **표류 종 만두**: 떠도는 젤리, 초원 곡식, 달걀. 냄비에 둘, 허기 5, **느린 낙하 30초**. 떨어지기 전에 먹어라.",
+        "- **굴착자 수프**: 갈색 버섯과 빨간색 버섯, 감자, 습지 쌀, 그릇. 허기 7, **성급함 90초**. 광부의 한 그릇.",
+        "- **습지 부르는 이의 수프**: 날생선 아무거나 (날 반짝지느러미 또는 날 실트 장어), 습지 쌀, 켈프, 감자, 그릇. 허기 8, **수중 호흡 90초**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "앞일을 위한 식사, 이어서",
+      "text": [
+        "- **갈대 말이 장어**: 날 실트 장어, 정령 갈대, 마치 잎. 허기 7, **야간 투시 120초**. 어두운 물과 깊은 동굴용.",
+        "- **잿불구이 호박**: 호박, 잿불 뿌리, 초원 곡식. 냄비에 둘, 허기 6, **힘 30초**.",
+        "- **긴 사냥 스튜**: 구운 사냥고기, 감자, 당근, 잿불 뿌리, 그릇. 허기 9, 야영 양식 중 가장 배부르고, **피해 흡수 60초**. 힘든 밤 전에 먹어라.",
+        "- **꽃노래 커스터드**: 메아리 꽃, 달걀, 설탕, 벌집 조각, 그릇. 허기 6, **재생 15초**. 움직이며 아물게.",
+        "- **생선과 감자튀김**: 사각형 위쪽에 날 반짝지느러미 둘, 그 아래 잿불 뿌리 둘. 허기 8, **야영 식사 가운데 가장 높은 포화**. 그래서 가장 오래 배를 채우지만, 선물은 빌려 주지 않는다.",
+        "먹으면 그릇은 돌아온다. 팩은 설정에서 각 선물이 얼마나 가는지 바꿀 수 있다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_bell_dumplings"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:delvers_pottage"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fen_callers_chowder"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:reed_wrapped_eel"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_roast_squash"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:long_hunt_stew"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bloomsong_custard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fish_and_chips"
+    }
+  ],
+  "next": "feasts"
+}

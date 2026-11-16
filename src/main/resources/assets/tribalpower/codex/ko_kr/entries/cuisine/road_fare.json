@@ -1,0 +1,65 @@
+{
+  "name": "길양식",
+  "icon": "tribalpower:drovers_flatbread",
+  "order": 22,
+  "items": [
+    "tribalpower:drovers_flatbread",
+    "tribalpower:glimmer_crisps",
+    "tribalpower:hunters_skewer",
+    "tribalpower:steppe_pemmican",
+    "tribalpower:frostberry_preserve",
+    "tribalpower:thistle_tea",
+    "tribalpower:highland_crumble"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "길 위의 음식",
+      "text": [
+        "모든 식사가 부족의 [은총](tribe_dishes)을 지니는 것은 아니다. 야영 음식은 걷는 이가 챙기는 것이다. 싸고, [화로 냄비](hearth_pot)에서 빠르며, 각각 한 가지 일을 위해 만든다. 대부분은 마치의 작물과 아무 농장에서나 자라는 것을 섞는다.",
+        "- **몰이꾼 납작빵**: 초원 곡식 ×2, 밀. 냄비당 두 개, 각각 허기 5, 64개까지 겹친다. 배를 채우는 가장 싼 방법.",
+        "- **미광 바삭과자**: 미광 콩 ×2, 말린 켈프. 냄비당 세 개, 허기 3, 그리고 **순간에 먹히므로** 타격 사이에 한입 집어먹을 수 있다.",
+        "- **사냥꾼 꼬치**: 아무 날고기, 잿불 뿌리, 비트. 냄비당 두 개, 허기 6과 **신속 20초**, 사냥감을 따라잡으려고."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "길 위의 음식, 이어서",
+      "text": [
+        "- **초원 보존육**: 아무 익힌 고기, 서리 열매, 달콤한 열매. 냄비당 세 개, 허기는 4뿐이지만 크기에 비해 포화도가 가장 좋아, 긴 길에서 가장 오래 배를 채운다.",
+        "- **서리 열매 절임**: 서리 열매 ×2, 설탕, 유리병에. 허기 4와 **화염 저항 30초**, 잿불 황무지를 건너기 위해. 병은 돌아온다.",
+        "- **엉겅퀴 차**: 레이 엉겅퀴, 마치 잎, 벌집 조각, 유리병에. 음식은 적지만 배가 불러도 마실 수 있고, **독, 허기, 멀미를 치료한다**. 나쁜 식사에 대한 야영의 답이다.",
+        "- **고지 부순과자**: 사과, 초원 곡식, 달콤한 열매, 설탕. 허기 6과 **도약 강화 45초**, 능선을 위해."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drovers_flatbread"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:glimmer_crisps"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hunters_skewer"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:steppe_pemmican"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:frostberry_preserve"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:thistle_tea"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:highland_crumble"
+    }
+  ],
+  "next": "hearth_meals"
+}

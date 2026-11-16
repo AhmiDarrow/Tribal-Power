@@ -1,0 +1,49 @@
+{
+  "name": "Banco tribale",
+  "icon": "tribalpower:oak_tribal_bench",
+  "order": 150,
+  "items": [
+    "tribalpower:oak_tribal_bench",
+    "tribalpower:spruce_tribal_bench",
+    "tribalpower:birch_tribal_bench",
+    "tribalpower:jungle_tribal_bench",
+    "tribalpower:acacia_tribal_bench",
+    "tribalpower:dark_oak_tribal_bench",
+    "tribalpower:mangrove_tribal_bench",
+    "tribalpower:cherry_tribal_bench",
+    "tribalpower:bamboo_tribal_bench",
+    "tribalpower:crimson_tribal_bench",
+    "tribalpower:warped_tribal_bench",
+    "tribalpower:march_tribal_bench",
+    "tribalpower:hearthoak_tribal_bench",
+    "tribalpower:frostpine_tribal_bench",
+    "tribalpower:cinder_tribal_bench",
+    "tribalpower:willow_tribal_bench",
+    "tribalpower:bellcap_tribal_bench",
+    "tribalpower:strider_tribal_bench"
+  ],
+  "next": "vine_lift",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:oak_tribal_bench",
+      "title": "Un tavolo che ricorda",
+      "text": [
+        "Il Banco tribale è un banco da lavoro largo due blocchi, con una mensola lungo il retro, e c'è in ogni legno così da accordarsi con l'accampamento in cui sta.",
+        "La differenza che conta: **la griglia appartiene al banco**. Chiudilo a metà di una ricetta e tutto resta dove lo hai lasciato, invece di ricadere nel tuo zaino.",
+        "La mensola sul retro tiene **quattro** cose, come una Mensola a muro: clicca la mensola tenendo qualcosa per posarlo, e a mani vuote per riprenderlo. Clicca il piano per aprire la griglia, con il libro delle ricette verde accanto."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Con JEI",
+      "text": [
+        "Se usi JEI, il banco è una stazione di fabbricazione completa: apri una ricetta di fabbricazione e premi **+** (o i tasti di spostamento ricetta di JEI) per tirare gli ingredienti dal tuo inventario nella griglia. Cliccare la freccia nel banco mostra ogni ricetta di fabbricazione."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:oak_tribal_bench"
+    }
+  ]
+}

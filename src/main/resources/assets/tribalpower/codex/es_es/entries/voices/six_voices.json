@@ -1,0 +1,267 @@
+{
+  "name": "Las seis voces",
+  "icon": "tribalpower:resonance_totem_earth",
+  "order": 10,
+  "items": [
+    "tribalpower:resonance_totem_fire",
+    "tribalpower:resonance_totem_water",
+    "tribalpower:resonance_totem_air",
+    "tribalpower:resonance_totem_spirit"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_totem_earth",
+      "text": [
+        "Toda estación de eco necesita dos cosas además de su entrada: Pulso, y un **Tótem de resonancia** de la voz correcta en un radio de **8 bloques**.",
+        "El tótem es un maestro, no un generador. Sin la voz correcta, una estación espera y no gasta nada."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dos bloques de alto",
+      "text": [
+        "Un Tótem de resonancia mide **dos bloques** de alto, así que deja un bloque libre arriba de donde lo pongas.",
+        "Haz clic en cualquiera de las dos mitades: la de arriba responde igual que la base. Rompe cualquiera de las dos y el tótem entero sale como un solo objeto, con todo lo que guarda.",
+        "Un tótem de un bloque de un mundo viejo vuelve a crecer su parte de arriba solo, en cuanto el bloque de encima es aire."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué hace cada voz",
+      "text": [
+        "Cada taller responde a una voz y espera un tótem de ella en un radio de **8 bloques**:",
+        "- **Tierra**: Triturador de eco, la Pila de piedra y el Foso de escucha.",
+        "- **Fuego**: Sintonizador de eco y el Horno de brasa. Sintonizar un reactivo de criatura pide **Espíritu** en su lugar.",
+        "- **Agua**: Vinculador de eco.",
+        "- **Espíritu**: Manifestador de eco.",
+        "- **Telar**: Destejido de eco y Portal lejano. Es la última voz; mira [La sexta voz](sixth_voice).",
+        "Una máquina en pausa nombra la voz que le falta cuando te agachas y haces clic derecho sobre ella con este libro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Voces alrededor del campamento",
+      "text": [
+        "Los aparatos del campamento que trabajan solos también quieren una voz mantenida en un radio de 8 bloques:",
+        "- **Tierra**: el Cuidador de la arboleda y el Ancla de camino.",
+        "- **Agua**: la Bomba de marea.",
+        "- **Espíritu**: el Tambor de amparo, el Tótem del silencio y la Cuna de invocación.",
+        "- **Aire**: el Lazo de viento, y todos los relés menos los astrales.",
+        "- **Telar**: el Telar de sellos y los relés astrales.",
+        "El Banco del canto acepta cualquier voz: el tótem que elijas es la voz de la canción."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "El maestro correcto",
+      "steps": [
+        {
+          "caption": "Triturador de eco con piedra dentro, y un tambor cargado al lado.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:stone"
+          }
+        },
+        {
+          "caption": "Un tótem de Fuego es la voz equivocada para el Triturador de eco. La estación espera y no gasta nada.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Cámbialo por un tótem de Tierra y el trabajo empieza.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "remove": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Voces, no bloques",
+      "text": [
+        "Las estaciones cuentan voces, no tótems: dos tótems de Tierra siguen siendo una sola voz. Tener muchas voces diferentes importa al Resonador de Pulso y al Ancla de Telar, que hacen más Pulso por cada voz **distinta** a su alrededor.",
+        "Un Tótem de parentesco presta el elemento de su tribu a las estaciones, los dispositivos del campamento y el Ancla de Telar, y nunca se calla. Un Resonador de Pulso lo cuenta de otro modo: cada tribu añade una voz de más, nunca un séptimo elemento.",
+        "Un tótem enlazado con tiza a uno cerca de la estación también presta su voz, si está a menos de 16 bloques de la estación. Los dispositivos del campamento y el Resonador no oyen los enlaces de tiza.",
+        "Cada tótem también guarda **250 Pulso** para el entramado, y hay que mantenerlo despierto: mira [Mantenimiento](keeping)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Un generador para cada voz",
+      "text": [
+        "Cada voz tiene también un generador propio, el oficio de la tribu que la guarda:",
+        "- **Tierra**: el Corazón de tambor.",
+        "- **Fuego**: el Cuerno de brasa, de los [Corazones de tambor](tribe_spark).",
+        "- **Aire**: el Arpa de viento, de los [Tejedores de patrones](tribe_clock).",
+        "- **Agua**: el Tambor de olas, de los [Vinculadores de raíces](tribe_sprout).",
+        "- **Espíritu**: la Campana de despertar, de los [Talladores de sellos](tribe_sigil).",
+        "- **Telar**: el Ancla de Telar, de los [Zurcidores del telar](tribe_spindle).",
+        "Consigue que los seis produzcan a la vez dentro de **32 bloques** de un Ancla de Telar, y todos los que estén cerca obtienen **Seis voces cantando**.",
+        "En [la Marcha](living_march), el clima favorece los generadores de una voz y dificulta los de otra."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_earth"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_fire"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_water"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_air"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_spirit"
+    }
+  ]
+}

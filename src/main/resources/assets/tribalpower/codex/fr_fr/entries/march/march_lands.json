@@ -1,0 +1,117 @@
+{
+  "name": "Terres de la Marche",
+  "icon": "tribalpower:rime_ice",
+  "order": 21,
+  "items": [
+    "tribalpower:rime_ice",
+    "tribalpower:frost_shale",
+    "tribalpower:scree",
+    "tribalpower:needle_loam",
+    "tribalpower:hoarmoss",
+    "tribalpower:pale_sand",
+    "tribalpower:spore_turf",
+    "tribalpower:pale_stone",
+    "tribalpower:salt_crust",
+    "tribalpower:ochre_sand",
+    "tribalpower:ochre_sandstone",
+    "tribalpower:kiln_clay_rust",
+    "tribalpower:kiln_clay_ochre",
+    "tribalpower:kiln_clay_bone",
+    "tribalpower:kiln_clay_ash",
+    "tribalpower:glass_sand",
+    "tribalpower:glowmoss",
+    "tribalpower:silence_weave",
+    "tribalpower:hush_bloom",
+    "tribalpower:salt_pillar",
+    "tribalpower:resonant_spike",
+    "tribalpower:icebloom",
+    "tribalpower:frostcap",
+    "tribalpower:grey_heather",
+    "tribalpower:hoar_thistle",
+    "tribalpower:songgrass",
+    "tribalpower:loom_bell",
+    "tribalpower:dawn_poppy",
+    "tribalpower:chime_bud",
+    "tribalpower:sunwheel",
+    "tribalpower:thornbrush",
+    "tribalpower:tangle_fern",
+    "tribalpower:spirit_cane",
+    "tribalpower:gloomcap_sprout"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "title": "Six bandes de la Marche",
+      "text": [
+        "La Marche va du gelé au torride et descend dans le noir, **cinquante-neuf terres** en six bandes. Chaque bande est une longue dérive de température à travers la carte ; en son sein, l'humide et le sec, le haut et le bas, et le sol étrange de haute étrangeté gardent chacun leur propre pays.",
+        "Chaque terre a son propre sol, sa propre végétation et ses propres esprits. Le bestiaire du Codex dit où vit chaque créature."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gelé",
+      "text": [
+        "Le bout froid de la Marche : neige sur l'Herbe de la Marche, Glace de givre là où le vent en a fait à sa guise, et le voile de nuit à son plus éclatant.",
+        "Champs de neige de la Marche, Flèches de givre, Taïga de bouleau de givre, Rivage de givre, Étang gelé, Mer de givre, Mer de givre profonde, Pics de givre blanc, Pics d'éclats, Pentes de pin de givre, Plaines du voile."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Froid",
+      "text": [
+        "Taïgas de sapin d'épines, landes, éboulis et le pic minéral de la Crête de lueur.",
+        "Crête de lueur, Taïga de sapin d'épines, Taïga ancienne de sapin d'épines, Lande du tumulus, Hauteurs d'éboulis, Sapin d'épines venteux, Bosquet de mousse de givre, Rivage gris, Hauts-fonds froids, Hauts-fonds froids profonds, Pays des lacs de montagne."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tempéré",
+      "text": [
+        "Le cœur de la Marche : steppe, fagne, pays de cristal, bois d'érable du chant et de chêne de l'âtre, et la mer.",
+        "Steppe de la Marche, Fagne de roseaux de la Marche, Champs de cristal de la Marche, Hauts-fonds de la Marche, Bois d'érable du chant, Prairie en fleurs, Bocage de chêne de l'âtre, Bocage ancien de chêne de l'âtre, Bois du voile, Verger-carillon, Haute prairie, Steppe de roue solaire, Fleuve du Métier, Grève de limon, Hauts-fonds profonds, Bourbier aux chapeaux luisants."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chaud",
+      "text": [
+        "Savanes de palmier-tambour, le Bois emmêlé et les marais sur échasses, sous les Hautes terres et les Pics du soleil.",
+        "Hautes terres de la Marche, Savane de palmier-tambour, Plateau de palmier-tambour, Palmier-tambour venteux, Bois emmêlé, Bois emmêlé ouvert, Fourré de cannes, Mangrove d'arpenteur, Pics du soleil, Hauts-fonds chauds, Hauts-fonds chauds profonds."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Torride",
+      "text": [
+        "Sel, argile de four et cendre : le bout sec de la Marche, jusqu'à un fond de mer de verre fondu.",
+        "Landes de braise de la Marche, Plaines de sel, Mesa du four, Mesa taillée, Mesa d'écorce-soleil, Hauts-fonds de verre."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Souterrain",
+      "text": [
+        "Ce qui est sous chaque bande : les grottes chantantes, les creux lumineux, les veines de ley et le Silence.",
+        "Grottes chantantes, Creux de chapeau-pénombre, Le Silence, Veines de ley."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nouveau sol",
+      "text": [
+        "- **Glace de givre** et **Schiste de gel** dans les pics et flèches gelés ; **Terreau d'aiguilles** et **Mousse de givre** sous les taïgas ; **Éboulis** sur les hauteurs.",
+        "- **Sable pâle** sur les grèves, **Gazon de spores** dans le Bourbier aux chapeaux luisants, **Pierre pâle** sur les Pics du soleil.",
+        "- **Croûte de sel** et **Piliers de sel** sur les plaines ; **Sable ocre**, **Grès ocre** et quatre tons d'**Argile de four** dans les mesas ; **Sable de verre** sous les Hauts-fonds de verre.",
+        "- **Pointes résonnantes** qui tintent sous le pied dans les Grottes chantantes, **Mousse lumineuse** dans les Creux de chapeau-pénombre, et **Tissage du silence** avec ses **Fleurs feutrées** dans le Silence."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nouvelle végétation",
+      "text": [
+        "Fleur de glace, Chapeau de givre, Bruyère grise, Chardon givré, Herbe du chant, Cloche du Métier, Coquelicot de l'aube, Bourgeon-carillon, Roue solaire, Broussaille d'épines, Fougère emmêlée, Canne d'Esprit et Pousses de chapeau-pénombre, chacun dans la terre qui lui convient. Les neuf nouveaux arbres sont sur la page des arbres."
+      ]
+    }
+  ]
+}

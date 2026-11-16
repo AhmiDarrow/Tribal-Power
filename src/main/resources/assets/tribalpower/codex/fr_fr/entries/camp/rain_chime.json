@@ -1,0 +1,174 @@
+{
+  "name": "Carillon de pluie",
+  "icon": "tribalpower:rain_chime",
+  "order": 120,
+  "next": "offering_table",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rain_chime",
+      "text": [
+        "Transforme le temps en signal de redstone. Le Carillon de pluie n'a besoin d'aucune Pulsation ni de carburant, et il ne produit pas de Pulsation non plus. Il te dit seulement ce que fait le ciel."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le lire",
+      "text": [
+        "Pose un comparateur contre lui : **8** sous la pluie, **15** sous l'orage, **0** par ciel clair. Le temps vaut pour tout le monde, donc un toit ne le rend pas muet.",
+        "Il tinte aussi doucement toutes les **dix secondes** tant qu'il pleut.",
+        "Un signal de redstone vers le carillon le rend muet et met sa sortie à 0."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un indice du temps",
+      "steps": [
+        {
+          "caption": "Place le carillon là où un comparateur peut le lire.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:rain_chime"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un comparateur tourné à l'opposé de lui lit le temps.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ici, il allume une lampe dès qu'il pleut, et une logique plus fine distingue la pluie (8) du tonnerre (15).",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Idées",
+      "text": [
+        "Mets en pause un [Collecteur de ley](ley_collector) ou allume les lumières du camp avec le temps. Sers-toi de la lecture de l'orage comme avertissement avant de partir.",
+        "Ni carburant ni entretien : une fois posé, il ne fait qu'écouter."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rain_chime"
+    }
+  ]
+}

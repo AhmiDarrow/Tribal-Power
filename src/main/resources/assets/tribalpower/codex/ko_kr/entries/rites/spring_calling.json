@@ -1,0 +1,391 @@
+{
+  "name": "봄의 부름",
+  "icon": "tribalpower:rite_spring_calling",
+  "order": 90,
+  "spoiler": false,
+  "items": [],
+  "next": "world_rites",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_spring_calling",
+      "text": [
+        "가장 작은 서판 의식이며, 야영지 물이 나오는 곳이다. 봄의 부름은 화로대 옆의 정령 저수조를 샘으로 바꾼다. **10분 동안 초당 100 mB**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "샘을 부르기",
+      "text": [
+        "[의식의 원](rite_circle)을 그린다. 화로대에 **물 인장**을 앉히고, 그에 닿게 **정령 저수조**를 놓는다.",
+        "웅크려 서판을 화로대에 사용한다. 8블록 안의 격자에서 **300 펄스**를 끌어오고, 저수조가 차기 시작한다. 옆에 서 있을 필요는 없다.",
+        "원이 없거나, 저수조가 없거나, 펄스가 너무 적다. 의식은 문제를 말하고, 아무것도 소모되지 않는다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "화로대 옆의 샘",
+      "steps": [
+        {
+          "caption": "원을 그린다. 화로대, 대각선에 단 넷, 그 사이에 분필.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ritual_brazier"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "화로대에 물 인장을 앉힌다.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:water_seal"
+          }
+        },
+        {
+          "caption": "정령 저수조를 화로대에 바짝 붙여 놓는다.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "웅크리고 서판을 화로대에 사용한다. 저수조는 십 분 동안 저절로 찬다.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:rite_spring_calling"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "흐름 유지",
+      "text": [
+        "샘이 마르면 서판을 하나 더 새긴다. 원의 네 방위에 물 토템이 넷 있으면 비용은 4분의 1 줄고, 시간은 두 배다.",
+        "저수조를 옮기면 샘은 끝난다. 이미 든 물은 아이템에 남는다.",
+        "마치 쪽의 용암은 손으로 나르는 일이다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_spring_calling",
+      "text": "조약돌 두 개(또는 흑암이나 심층암 조약돌), 정령 갈대와 물 인장. 인장은 돌아온다."
+    }
+  ]
+}

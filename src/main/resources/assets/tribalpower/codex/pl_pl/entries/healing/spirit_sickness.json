@@ -1,0 +1,34 @@
+{
+  "name": "Choroba Ducha",
+  "icon": "tribalpower:spirit_remnant",
+  "order": 40,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Niektóre duchy w [Marsz](the_march) zostawiają więcej niż ranę. Każde uderzenie **elity** i każde uderzenie dowolnego ducha **w nocy** ma szansę jeden do czterech, by zostawić ci **Choroba Ducha**.",
+        "Nakłada się do **poziomu III**. Każdy poziom zabiera **jedno serce** z twojego maksymalnego zdrowia i trochę cię spowalnia, i trwa **5 minut**, odnawiane każdym nowym ciosem. Czujesz, jak osiada: gra mówi, kiedy chwyta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zdjęcie",
+      "text": [
+        "Mleko nic nie daje. Działają tylko stare sposoby:",
+        "- dowolne [remedium](remedies), nalewka, maść lub kadzidło;",
+        "- [Grzechotka uzdrowiciela](healers_rattle) z Bound, poziom na każde potrząśnięcie;",
+        "- [Krąg leczenia](healing_circle);",
+        "- noc w [szałas potu](sweat_lodge);",
+        "- obmycie w **Studnia Ducha** w Marsz: skradaj się w jego wodzie, za **40 Puls** z ogniwa, które nosisz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Błogosławieństwo Ducha",
+      "text": [
+        "Krąg i szałas zostawiają ci też **Błogosławieństwo Ducha**: **2 dodatkowe serca** i, póki trwa, choroba wcale nie może chwycić. Wejdź w Marsz pobłogosławiony, a nocne duchy mogą cię tylko zranić, nie przyprawić o chorobę."
+      ]
+    }
+  ],
+  "next": "afflictions"
+}

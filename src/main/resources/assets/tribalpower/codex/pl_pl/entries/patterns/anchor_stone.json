@@ -1,0 +1,34 @@
+{
+  "name": "Kamień kotwiczny",
+  "icon": "tribalpower:anchor_stone",
+  "order": 30,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:anchor_stone",
+      "text": [
+        "Kamienie kotwiczne podpierają rogi wzoru. Nic poza tym: bez Pulsu, bez ekwipunku, bez utrzymania.",
+        "Niektóre kształty, jak Dół nasłuchu i Dalekie wrota, potrzebują ich od początku; inne, jak Kamienna misa, używają ich, by sięgnąć drugiego poziomu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stawianie ich",
+      "text": [
+        "Postaw je tam, gdzie Kodeks pokazuje duchy w rogach, i zostaw. To nie są generatory i niczego od ciebie nie potrzebują.",
+        "Zniszcz jeden, a kształt spada o poziom, póki go nie odłożysz, albo staje całkiem, jeśli bez nich nie ma poziomu.",
+        "- **Kamienna misa**: cztery, w rogach 5x5, na kamień i obsydian.",
+        "- **Dół nasłuchu**: cztery na dół 5x5, osiem na Głęboki nasłuch.",
+        "- **Dalekie wrota**: cztery, w rogach jego obrysu."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:anchor_stone",
+      "text": "Cztery Kamień Marszu i Odłamek echa dają **cztery**."
+    }
+  ],
+  "next": "stone_font"
+}

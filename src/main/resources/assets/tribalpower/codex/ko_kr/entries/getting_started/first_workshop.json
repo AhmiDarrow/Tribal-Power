@@ -1,0 +1,214 @@
+{
+  "name": "첫 공방",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "next": "self_powered",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Tribal Power의 공방은 **메아리 작업대**라 부른다. 각각 가까이 세 가지가 필요하다. 다룰 것, 격자를 통해 닿는 펄스, 그리고 목소리를 주는 알맞은 **공명 토템**이다.",
+        "처음 원할 작업대는 [메아리 파쇄](echo_shatter)다. 뼈 방울과 구리 공명기를 돌 일곱 개로 두른다. 뼈 방울을 구리 주괴 네 개로 두르면 구리 공명기가 **둘** 나온다. 돌을 **메아리 조각**으로 부순다. 북을 치지 않고 펄스를 만들게 하는 작은 수정이다.",
+        "펄스는 [격자 전도체](lattice_conductor)를 따라서만 간다. 8블록 안에 전도체가 없는 작업대는 가득 찬 북 바로 옆이라도 굶는다. 구리 공명기 네 개로 레드스톤 가루를 두르면 전도체가 **넷** 나온다. 북과 작업대 사이에 하나를 놓는다.",
+        "메아리 파쇄에는 목소리 **땅**이 필요하다. 원목, 흙, 뼈 방울, 구리 공명기로 {item:tribalpower:resonance_totem_earth}를 만들어 작업대 가까이에 세운다. 토템은 동력원이 아니다. 작업대의 스승으로 보아라. 그것이 없으면 작업대는 기다리며 아무것도 쓰지 않는다.",
+        "토템은 **두 블록 높이**다. 자리 위에 빈 블록을 하나 남겨 둔다. 어느 반쪽이든 클릭하면 되고, 어느 쪽이든 부수면 토템 전체가 걷힌다. 옛 세계의 토템은 위 블록이 비면 윗부분을 다시 키운다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "메아리 파쇄의 구석",
+      "steps": [
+        {
+          "caption": "메아리 파쇄를 북심장 옆에 놓는다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "양쪽 모두에서 8블록 안에 격자 전도체를 놓는다. 펄스는 전도체를 따라서만 간다. 하나가 없으면 북이 아무리 가까워도 작업대는 굶는다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "8블록 안에 공명 토템 (땅)을 더한다. 바로 옆이 가장 단순하다.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "메아리 파쇄를 열고 돌을 넣는다. 조약돌은 자갈만 나오니 먼저 제련한다.",
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "minecraft:stone"
+          },
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "북을 채운 채로 둔다. 몇 초면 메아리 조각이 나온다.",
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "시작하지 않을 때",
+      "text": [
+        "이 책을 들고 작업대를 웅크려 우클릭한다. 펄스, 전도체, 토템, 출력 공간 중 무엇이 부족한지 알려 준다.",
+        "메아리 파쇄는 손으로 치는 북이 만드는 것보다 펄스를 빨리 쓴다. 먼저 비축을 치고, 일은 북이 떠받치게 둔다.",
+        "레버나 꾸준한 레드스톤 신호는 작업대를 멈춘다. 기다리는 동안 아무것도 잃지 않는다."
+      ]
+    }
+  ]
+}

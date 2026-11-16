@@ -1,0 +1,49 @@
+{
+  "name": "Stammeswerkbank",
+  "icon": "tribalpower:oak_tribal_bench",
+  "order": 150,
+  "items": [
+    "tribalpower:oak_tribal_bench",
+    "tribalpower:spruce_tribal_bench",
+    "tribalpower:birch_tribal_bench",
+    "tribalpower:jungle_tribal_bench",
+    "tribalpower:acacia_tribal_bench",
+    "tribalpower:dark_oak_tribal_bench",
+    "tribalpower:mangrove_tribal_bench",
+    "tribalpower:cherry_tribal_bench",
+    "tribalpower:bamboo_tribal_bench",
+    "tribalpower:crimson_tribal_bench",
+    "tribalpower:warped_tribal_bench",
+    "tribalpower:march_tribal_bench",
+    "tribalpower:hearthoak_tribal_bench",
+    "tribalpower:frostpine_tribal_bench",
+    "tribalpower:cinder_tribal_bench",
+    "tribalpower:willow_tribal_bench",
+    "tribalpower:bellcap_tribal_bench",
+    "tribalpower:strider_tribal_bench"
+  ],
+  "next": "vine_lift",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:oak_tribal_bench",
+      "title": "Ein Tisch, der sich merkt",
+      "text": [
+        "Die Stammeswerkbank ist eine Werkbank, zwei Blöcke breit, mit einem Regal entlang der Rückseite, und es gibt sie in jedem Holz, damit sie zum Lager passt, in dem sie steht.",
+        "Der Unterschied, auf den es ankommt: **das Raster gehört zur Werkbank**. Schließe sie mitten in einem Rezept, und alles bleibt, wo du es gelassen hast, statt in deinen Rucksack zurückzufallen.",
+        "Das Regal an der Rückseite hält **vier** Dinge, wie ein Wandregal: klicke das Regal mit etwas in der Hand an, um es abzustellen, und mit leerer Hand, um es zurückzunehmen. Klicke die Tischplatte an, um das Raster zu öffnen, mit dem grünen Rezeptbuch daneben."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Mit JEI",
+      "text": [
+        "Wenn du JEI nutzt, ist die Werkbank eine volle Fertigungsstation: öffne ein Fertigungsrezept und drücke **+** (oder JEIs Tasten zum Verschieben des Rezepts), um die Zutaten aus deinem Inventar ins Raster zu ziehen. Ein Klick auf den Pfeil in der Werkbank zeigt jedes Fertigungsrezept."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:oak_tribal_bench"
+    }
+  ]
+}

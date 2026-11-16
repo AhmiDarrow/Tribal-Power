@@ -1,0 +1,410 @@
+{
+  "name": "Światła Pulsu",
+  "icon": "tribalpower:shard_lamp",
+  "order": 110,
+  "items": [
+    "tribalpower:glow_reed",
+    "tribalpower:echo_sconce",
+    "tribalpower:ember_bowl"
+  ],
+  "next": "rain_chime",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:shard_lamp",
+      "text": [
+        "Lampy obozu, które idą z kraty. Każda ciągnie cienką strużkę Puls co sekundę z kraty, przez przewodnik w zasięgu **8 bloków**, i gaśnie w chwili, gdy nie może zapłacić. Nie trzymają zapasu."
+      ],
+      "title": "Światła Pulsu"
+    },
+    {
+      "type": "text",
+      "title": "Cztery lampy",
+      "text": [
+        "- **Świecąca trzcina**: światło 10, **1 Puls** na sekundę.",
+        "- **Lampa odłamka**: światło 12, **1 Puls** na sekundę.",
+        "- **Kinkiet echa**: światło 11, **1 Puls** na sekundę. Wisi na niemal każdym bloku obok (murek, słupek płotu, kłoda) i spada, gdy ten znika.",
+        "- **Misa żaru**: światło 14, **2 Puls** na sekundę.",
+        "Kliknij prawym przyciskiem jeden, aby zobaczyć, czy się świeci i ile kosztuje. Dźwignia albo sygnał redstone przygasa go od razu, a komparator pokazuje 15, gdy świeci, i 0, gdy jest ciemno.",
+        "Latarnia Ducha nadal świeci zupełnie bez Pulsu."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Oświetlanie ścieżki",
+      "steps": [
+        {
+          "caption": "Na początek generator i Przewodnik kraty; każda lampa w zasięgu 8 bloków od przewodnika może z niego czerpać.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              -2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Świecąca trzcina i Lampa odłamka zapalają się, gdy tylko mogą zapłacić.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "tribalpower:glow_reed[lit=true]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:shard_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -2
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Kinkiet echa potrzebuje czegoś obok, na czym może wisieć.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "minecraft:stone_bricks"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                2
+              ],
+              "block": "minecraft:stone_bricks"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                1
+              ],
+              "block": "tribalpower:echo_sconce[facing=north,lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Misa żaru jest najjaśniejsza, przy 2 Puls na sekundę.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ember_bowl[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Dźwignia obok lampy przygasa ją; gdy generator wysycha, wszystkie gasną.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -2
+              ],
+              "block": "minecraft:lever[face=floor,facing=east,powered=true]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "tribalpower:glow_reed[lit=false]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              -2
+            ],
+            [
+              0,
+              0,
+              -2
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:glow_reed"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:shard_lamp"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_sconce"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_bowl"
+    }
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "name": "Guarda",
+  "icon": "tribalpower:bone_chime",
+  "order": 40,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Os totens precisam de atenção, não só de energia. Um totem que você usa fica acordado; um que você ignora vai adormecendo. Isso se chama **Guarda**, e um totem está sempre em um de três estados:",
+        "- **Respondido**: acordado, por cerca de **40 minutos** de tempo carregado depois do último uso.",
+        "- **Esmaecido**: esmaecendo, por mais **40 minutos**. Estações compatíveis levam cerca de **30% a mais**.",
+        "- **Quieto**: adormecido. Trabalho novo pode pausar, mesmo com Pulso de sobra.",
+        "O relógio só anda enquanto o chunk do totem está carregado. Um gerador cheio não acorda sozinho um totem quieto.",
+        "A Guarda é uma das duas coisas de que um totem precisa. A outra é Pulso na sua **reserva**: um totem cuja reserva está vazia fica **silencioso** e não empresta voz nenhuma, por mais acordado que esteja. Numa rede de treliça com Pulso, a reserva enche e permanece cheia; fora da treliça, ou numa treliça seca, ela esvazia em cerca de dois minutos (veja [Condutor de treliça](lattice_conductor)). As duas nunca se tocam: Pulso não acorda um totem quieto, e acordar não enche uma reserva vazia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Acordar um totem",
+      "text": [
+        "Clique com o botão direito num totem esmaecido ou quieto com a mão vazia, ou use um **Carrilhão de osso** em qualquer totem, para acordá-lo e reiniciar o relógio.",
+        "Tocar um Coração de tambor à mão acorda todo totem em 8 blocos. O mesmo fazem os tamborileiros de posto Parente das tribos, e um Coletor de ley cuja batida é 8 ou mais.",
+        "Um familiar sintonizado mantém respondido todo totem da sua voz em 8 blocos, e acorda um que tenha ficado quieto (veja [Vincular um familiar](familiars)).",
+        "O trabalho mantém os totens acordados: a cada segundo que uma estação compatível trabalha, ela alimenta os totens da sua voz. Isso mantém um totem respondido ou esmaecido, mas não acorda um que já ficou quieto.",
+        "Uma Placa de batimento pode manter um Coração de tambor produzindo energia, mas batidas de redstone não mantêm os totens acordados."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Acordar um totem quieto",
+      "steps": [
+        {
+          "caption": "Este Triturador tem Pulso e um totem de Terra, mas parou: o totem dele ficou quieto.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Use um Carrilhão de osso no totem, ou clique com o botão direito com a mão vazia, para acordá-lo.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          }
+        },
+        {
+          "caption": "A estação retoma o trabalho, e cada segundo em que trabalha mantém o totem respondido.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Planejar um acampamento",
+      "text": [
+        "Totens em lugares viçosos ficam acordados **o dobro do tempo**. Um totem conta os blocos bem ao redor: céu aberto (mais à noite), chuva, água e plantas, grama sob os pés inclusa. Quando isso soma um ponto forte, o relógio anda à meia velocidade. A maioria dos totens sob teto ou sobre pedra nua mantém o ritmo normal.",
+        "Um [Totem de parentesco](kinship_totem) nunca fica quieto. Em 8 blocos ele mantém a voz respondida para estações e mãos do acampamento, mesmo ao lado de um Totem de ressonância dessa voz que tenha ficado quieto.",
+        "A visão de vozes da [Lente ley](ley_lens) marca totens na cor da própria voz quando respondidos, num tom mais escuro quando esmaecidos, e em cinza quando quietos ou silenciosos. E quando uma estação para embora a energia pareça boa, agache e clique com o botão direito nela com este livro: ele diz se o totem está esmaecido ou quieto."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bone_chime"
+    }
+  ]
+}

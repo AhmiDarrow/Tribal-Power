@@ -1,0 +1,265 @@
+{
+  "name": "Płyty bramek",
+  "icon": "tribalpower:chorus_plate",
+  "order": 72,
+  "items": [
+    "tribalpower:chorus_plate",
+    "tribalpower:gathering_plate",
+    "tribalpower:discord_plate",
+    "tribalpower:hush_plate"
+  ],
+  "next": "signal_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Chór, Zbiórka, Niezgoda, Cisza",
+      "text": [
+        "Cztery sposoby, w jakie dwa głosy mogą się zgodzić:",
+        "- **Chór** (AND) śpiewa tylko wtedy, gdy lewa i prawa są obie aktywne.",
+        "- **Zbiórka** (OR) śpiewa, gdy aktywna jest któraś strona.",
+        "- **Niezgoda** (XOR) śpiewa, gdy strony się nie zgadzają.",
+        "- **Cisza** (NAND) śpiewa, chyba że obie strony są aktywne.",
+        "Odpowiedź to **15 albo 0** od frontu. Połóż Nić pieśni na tej ściance, by nieść ją dalej, albo zsynchronizuj inną płytę, by to usłyszała.",
+        "Która strona jest lewa, a która prawa, jest na stronie [płyty pieśni](song_plates)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Dwa przełączniki, jedna stacja",
+      "steps": [
+        {
+          "caption": "Kruszarka echa, którą chcemy wstrzymywać z jednego z dwóch miejsc.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:stone"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Zamontuj na bloku Płyta zbiórki, skierowaną na stację. Ta ścianka jest jej wyjściem.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:gathering_plate[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ustaw dźwignię po jej lewej i drugą po prawej: to jej dwa wejścia.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Którakolwiek dźwignia włączona, a płyta śpiewa 15 do stacji, która staje w pauzie i trzyma wszystko, co ma.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Wymień na Płyta chóru, a poczeka na obie dźwignie, zanim zaśpiewa.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:chorus_plate[facing=north]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chorus_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gathering_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:discord_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hush_plate"
+    }
+  ]
+}

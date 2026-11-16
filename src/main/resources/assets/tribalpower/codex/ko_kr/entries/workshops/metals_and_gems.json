@@ -1,0 +1,286 @@
+{
+  "name": "금속과 보석",
+  "icon": "tribalpower:iron_grit",
+  "order": 80,
+  "items": [
+    "tribalpower:gold_grit",
+    "tribalpower:copper_grit",
+    "tribalpower:mineral_grit"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:iron_grit",
+      "text": [
+        "자갈은 불을 기다리는 부순 금속이다. 원석 금속을 파쇄하면 조각마다 **자갈 두 개**가 되고, 자갈은 각각 주괴로 제련된다. 그래서 광석마다 금속이 두 배가 된다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "금속",
+      "text": [
+        "금속 원석이나 섬세한 손길로 캔 금속 광석을 메아리 파쇄에 넣는다. **4초**, **초당 40펄스**, 자갈이 둘.",
+        "자갈을 화로, 용광로 또는 잔불 가마에서 주괴로 제련한다.",
+        "철, 금, 구리는 저마다 자갈이 있다. 모드 금속은 자기 재료 이름을 붙인 **광물 자갈** 아이템 하나를 쓰며, 데이터 팩 없이 켜진다. 네더라이트는 절대 부서지지 않는다. 네더에서 얻어야 한다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "보석과 광물",
+      "text": [
+        "섬세한 손길로 캔 보석 광석은 곧바로 보석으로 부서진다. 양은 광석이 원래 주는 드롭의 **두 배**:",
+        "- 석탄, 다이아몬드, 에메랄드, 석영은 **둘**이 나온다.",
+        "- 레드스톤과 청금석은 **여덟**이 나온다.",
+        "- 모드 보석은 둘이 나온다.",
+        "보석 자체는 절대 입력이 되지 않는다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "광석 라인",
+      "steps": [
+        {
+          "caption": "아래의 잔불 가마, 불의 토템과 함께.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "위의 메아리 파쇄, 땅의 토템과 함께. 자갈은 잔불 가마로 곧장 떨어진다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "원광석 상자가 호퍼로 메아리 파쇄에 광석을 보내고, 잔불 가마 옆의 북이 두 설비에 동력을 공급한다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=east]"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                0
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              1,
+              0
+            ],
+            [
+              -1,
+              2,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "잔불 가마 아래의 호퍼가 주괴를 상자에 받는다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:iron_grit"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gold_grit"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_grit"
+    }
+  ]
+}

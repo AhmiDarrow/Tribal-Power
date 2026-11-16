@@ -1,0 +1,467 @@
+{
+  "name": "Colector de ley",
+  "icon": "tribalpower:ley_collector",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_collector",
+      "text": [
+        "Un generador que bebe las líneas ley del planeta. Ponlo donde pase una línea, entre cielo abierto, agua, plantas y vida, y añade Pulso cada **dos segundos** sin que estés ahí.",
+        "Guarda **2.000 Pulso**, que se pierde si lo rompes."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "A qué escucha",
+      "text": [
+        "Cada dos segundos el colector añade **3 Pulso por cada punto** de su **latido**. Un latido empieza en **1**, y la tierra en **8 bloques** añade más:",
+        "- Cielo abierto: **+1** de día, **+3** de noche.",
+        "- Lluvia **+2**, y una tormenta **+1** más.",
+        "- Agua: hasta **+4**.",
+        "- Plantas: hasta **+4**. Cada cuatro bloques de césped, hoja, flor, cultivo o musgo cuentan como uno. El agua y las plantas solo cuentan desde 2 bloques por debajo del colector hasta 2 por encima.",
+        "- Tótems de resonancia: hasta **+3**, uno por cada voz distinta.",
+        "- Un Hogar de la tribu **+1**. Animales: hasta **+2**, uno por pareja.",
+        "- En la Marcha **+2**; bajo luna llena **+1**.",
+        "Esos dones son la parte de la tierra, y la parte de la tierra tiene un tope de **6**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Líneas ley",
+      "text": [
+        "El resto del compás son las líneas ley que pasan junto al colector: hasta **+2** por cada línea, los 2 completos justo sobre el hilo y menos cuanto más lejos, hasta nada a **7.5 bloques**, tanto arriba o abajo como a un lado. Las líneas son una red por el mundo; solo los lugares más raros juntan **seis**, y un colector nunca cuenta más que eso. El compás entero tiene un tope de **16**, que paga **48 Pulso** cada dos segundos.",
+        "Un Tótem de resonancia atrae a través de sí el hilo de su propio color y deja en paz los demás colores. Coloca los seis tótems alrededor de un colector de modo que cada hilo lo cruce de camino a su tótem. Eso es una convergencia: seis colores, y aun así no más de seis líneas en el compás.",
+        "Durante una oleada de ley, un colector cuyos hilos lleven la voz que surge rinde el doble; consulta [La Marcha viva](living_march).",
+        "Un [Corazón de ley](ley_heart) alza seis líneas propias, hacia fuera por sus tótems; un colector puesto sobre una de ellas lo siente."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un buen sitio",
+      "steps": [
+        {
+          "caption": "Coloca el colector en terreno abierto, donde vea el cielo.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ley_collector"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Las plantas a su alrededor suman a cada compás: cuatro bloques vivos valen un punto, hasta cuatro.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "minecraft:oak_leaves"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:oak_leaves"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:poppy"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:dandelion"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:fern"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:short_grass"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Los tótems de voces distintas suman un punto cada uno, hasta tres.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              -1
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Un techo le cuesta el cielo, la lluvia y la tormenta. Se debilita, no muere: las plantas y las voces siguen contando.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Afinarlo",
+      "text": [
+        "Usa agachado una Lente ley sobre el colector para que imprima el desglose exacto, factor por factor. El número que imprime es el compás, no Pulso por segundo. La vista de ley dibuja las líneas que pasan cerca de ti, para que puedas pararte sobre una antes de construir.",
+        "Cuando el compás es **8 o más** (la mitad de 16), cada recolección también despierta cada tótem en un radio de 8 bloques y lo mantiene respondiendo. Aquí solo importa el compás; lo lleno que esté el colector no. Consulta [Conservar](keeping).",
+        "Una señal de redstone lo pausa. Cada [rango](machine_ranks) añade **15%** a cada recolección.",
+        "Si parece débil, agáchate y haz clic derecho sobre él con este libro."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_collector"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "灵之脉动",
+  "icon": "tribalpower:pulse_cell",
+  "order": 10,
+  "description": "脉动是每台 Tribal Power 机器运转所用的能量。这里说明它从何而来、如何储存、如何输送。"
+}

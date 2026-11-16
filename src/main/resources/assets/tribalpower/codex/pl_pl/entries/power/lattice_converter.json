@@ -1,0 +1,45 @@
+{
+  "name": "Przetwornik kraty",
+  "icon": "tribalpower:lattice_converter",
+  "order": 75,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lattice_converter",
+      "text": [
+        "Przetwornik kraty to [Energetyzator harmoniczny](pulse_adapter) odwrócony: podaj mu energię Forge (FE) z generatorów lub kabli innego moda, a wybije tę energię w Puls dla twojego obozu.",
+        "To nie jest uczciwa wymiana. Surowe FE to hałas dla kraty, i trzeba głosów totemów, żeby się trzymało."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ustawianie",
+      "text": [
+        "Wpuść FE w dowolną ścianę. Przetwornik buforuje **48 000 FE** i nigdy nie oddaje FE z powrotem.",
+        "Co sekundę robi do **40 Pulsu** i kładzie to w sieć kraty przez [Przewodnik kraty](lattice_conductor) w zasięgu **8 bloków**: najpierw w każdy Kopiec Pulsu sieci, potem w generatory z wolnym miejscem, skąd biorą maszyny. Poza kratą albo bez miejsca czeka i nie zużywa FE.",
+        "Każda [ranga](machine_ranks) daje więcej Pulsu na sekundę."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Głosy czynią to tańszym",
+      "text": [
+        "Bez głosów w pobliżu jeden Puls kosztuje **220 FE**. Każdy osobny głos od Totem rezonansu ze stanem **Odpowiedziany** w zasięgu 8 bloków odejmuje **20 FE**, aż do **120 FE** przy pięciu głosach. Totem pokrewieństwa się tu nie liczy.",
+        "Z Pulsu na FE i z powrotem zawsze coś ginie: energetyzator zamienia jeden Puls w 100 FE, a przetwornik nigdy nie bierze mniej niż 120 FE, by zrobić jeden."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gdy nic nie płynie",
+      "text": [
+        "Sygnał redstone wstrzymuje go i w pauzie nie pobiera FE. Komparator odczytuje, jak pełny jest jego bufor FE.",
+        "Kliknij prawym przyciskiem, by dostać linię stanu. Kucnij i kliknij prawym przyciskiem z tą księgą, by zobaczyć bufor, cenę za Puls i co zrobił w ostatniej sekundzie."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_converter",
+      "text": "Potrzebuje Rdzeń rezonansu z Manifestator echa i dwa Dostrojone echo z Dostrajacz echa."
+    }
+  ]
+}

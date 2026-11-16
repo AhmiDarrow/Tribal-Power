@@ -1,0 +1,71 @@
+{
+  "name": "Stammes-Sippe",
+  "icon": "tribalpower:tribal_kin_elder_spawn_egg",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:tribal_kin_drummer_spawn_egg",
+    "tribalpower:tribal_kin_hunter_spawn_egg",
+    "tribalpower:tribal_kin_weaver_spawn_egg"
+  ],
+  "next": "kinship_totem",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:tribal_kin",
+      "text": [
+        "Jedes Lager hält vier Sippe: ein **Ältester**, ein **Trommler**, ein **Jäger** und ein **Weber**. Sie streifen im Umkreis von **16 Blöcken** um ihr Lager und verschwinden nie; am Festtag ihres Stammes bleiben sie im Umkreis von **5 Blöcken** vom Herd. Rechtsklick auf einen Trommler, einen Jäger oder einen Weber zeigt ihre Aufgabe und deinen Rang. Der Älteste redet stattdessen mit dir."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_elder",
+      "title": "Der Älteste",
+      "text": [
+        "Der Älteste handelt, sobald du **Gast** bist. Jeder Stamm hat sieben Angebote: zwei je Rang von Gast bis Sippe, dazu das eigene Gericht des Stammes bei Freund. Jeder Handel bringt **+2** Ansehen. Der Älteste gibt auch die [Aufträge und die Geschichte](elders_and_stories) des Stammes aus."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Handel mit dem Ältesten",
+      "text": [
+        "Ein Ältester hat für den Rang Fremder nichts. Bring zuerst eine Opfergabe zum Herd.",
+        "Der Vorrat ist begrenzt. Ein Angebot lässt sich **12-mal** am Tag nehmen, **8**, wenn es zwei verschiedene Gegenstände verlangt, und **6**, wenn es ein Kreaturreagenz verkauft. Der Älteste füllt einmal je Minecraft-Tag auf, und das Schließen des Bildschirms füllt nichts nach.",
+        "Wenn du **Stimme** erreichst, sprich noch einmal mit dem Ältesten. Er drückt dir die **Stammesmarke** des Stammes in die Hand, einmal je Stamm. Bewahre sie auf: daraus wird ein [Verwandtschafts-Totem](kinship_totem)."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_drummer",
+      "title": "Der Trommler",
+      "text": [
+        "Alle **5 bis 6 Sekunden** schlägt der Trommler einen Takt, der **2 Puls** in jedes Trommelherz, jeden Leysammler und jeden Pulsresonator im Umkreis von **8 Blöcken** speist. Windharfen, Wellentrommeln und Gluthörner nehmen nichts davon. Der Takt hält auch nahe Totems wach."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_hunter",
+      "title": "Der Jäger",
+      "text": [
+        "Der Jäger wacht über den Rand des Lagers und schlägt feindliche Monster im Umkreis von **12 Blöcken**. Verletze aber eine Sippe, und der Jäger kommt eine **Minute** lang auf dich zu."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_weaver",
+      "title": "Der Weber",
+      "text": [
+        "Alle **40 bis 90 Sekunden** geht der Weber zum nächsten Webstuhl innerhalb von **12 Blöcken** vom Lager (oder zu einer Liedbank, wenn kein Webstuhl da ist) und arbeitet **sechs Sekunden** daran. Diese Pose ist die Arbeit. Er fertigt nichts für dich."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Neben ihnen leben",
+      "text": [
+        "Die Sippe ist neutral und geduldig. Sie stehen neben deinen Maschinen, trommeln für deine Generatoren und bewachen deine Nächte, solange du willst.",
+        "Schlag sie nie. Ein verirrter Schwertschwung kostet **25** Ansehen und bringt das ganze Lager gegen dich auf. Siehe [Stämme und Ansehen](standing) für alles andere, das einen Stamm erzürnt.",
+        "Die vier Spawn-Eier sind für Bauende im Kreativmodus, die sich ein eigenes Lager setzen wollen."
+      ]
+    }
+  ]
+}

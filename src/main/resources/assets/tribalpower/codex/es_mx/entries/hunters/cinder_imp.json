@@ -1,0 +1,52 @@
+{
+  "name": "Diablillo de pavesa",
+  "icon": "tribalpower:cinder_knot",
+  "order": 130,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cinder_imp_spawn_egg",
+    "tribalpower:cinder_knot"
+  ],
+  "next": "mourning_bell",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinder_imp",
+      "text": [
+        "Un diablillo de fuego ágil. Junta chispas antes de un proyectil ardiente.",
+        "Al cazarlo, también suelta Polvo de blaze con una probabilidad de uno entre tres."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Los ejemplares de Diablillo de pavesa revolotean por las Tierras altas de la Marcha y la Cresta del destello, y son más comunes en los Yermos de brasa.",
+        "Tiene **18 de salud** y **1 de armadura**, y es inmune al fuego. Desde hasta 12 bloques lanza un proyectil de **4 de daño** que te prende durante 2 segundos. El proyectil nunca enciende el terreno. La cobertura interrumpe el conjuro."
+      ],
+      "title": "Dónde y cómo"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Suelta **de 1 a 2 Nudo de pavesa**.",
+        "Un Nudo de pavesa se sintoniza en 2 Eco sintonizado bajo Espíritu."
+      ],
+      "title": "Lo que da"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Alcanza **Voz** con los **Corazones de tambor** y luego usa un Amuleto de vínculo con un adulto: dos de cada cinco intentos, y el amuleto se gasta si falla. O aliméntalo con su propio reactivo: uno de cada cinco, y el reactivo se gasta de todos modos.",
+        "Un diablillo vinculado devuelve **4 Pulso** cada vez que tocas un Corazón de tambor a mano. Consulta [regalos del familiar](familiar_gifts)."
+      ],
+      "title": "Como familiar"
+    },
+    {
+      "type": "text",
+      "title": "Caza y arreo",
+      "text": [
+        "Además de su reactivo, suelta esto al cazarlo, y más con Botín."
+      ]
+    }
+  ]
+}

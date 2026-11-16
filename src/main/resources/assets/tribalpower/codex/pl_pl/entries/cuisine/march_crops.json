@@ -1,0 +1,35 @@
+{
+  "name": "Uprawy Marszu",
+  "icon": "tribalpower:emberroot",
+  "order": 0,
+  "items": [
+    "tribalpower:emberroot",
+    "tribalpower:fen_rice",
+    "tribalpower:frostberry",
+    "tribalpower:glimmer_bean",
+    "tribalpower:steppe_grain"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Pięć upraw rośnie dziko tam, każda we własnym kraju. Znajdź płat, zbierz go, a to, co zebrałeś, jest nasionem: posadź je na polu uprawnym jak ziemniaka. Przyjmie się też na zwykłej ziemi, na Gleba Marszu albo na piasku, i tak rosną dzikie płaty.",
+        "- **Korzeń żaru** na Pustkowiach żaru: gorąca czerwona bulwa.",
+        "- **Ryż mokradła** na Trzcinowym mokradle.",
+        "- **Mroźna jagoda** na Śnieżnych polach.",
+        "- **Fasola błysku** na Grani błysku, gdzie zapuszcza korzenie w kamieniu księżycowym i agacie mszystym, oraz na Kryształowych polach.",
+        "- **Ziarno stepu** na stepie."
+      ],
+      "title": "Co rodzi Marsz"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Rosną w czterech etapach. Wszystkie można jeść na surowo, choć sytości dają mało. [Motyka duchowego sprzętu](spiritgear) zbiera je i sadzi na nowo jednym ruchem, pszczoły je zapylają, a [dar Kiełek](tribe_boons) je przyspiesza.",
+        "Mroźna jagoda i Fasola błysku liczą się też jako zioła do [Kocioł «Duch»](spirit_kettle)."
+      ],
+      "title": "Ich uprawa"
+    }
+  ],
+  "next": "hearth_pot"
+}

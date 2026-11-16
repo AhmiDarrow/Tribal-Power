@@ -1,0 +1,129 @@
+{
+  "name": "Equipamento espiritual",
+  "icon": "tribalpower:spiritgear_pickaxe",
+  "order": 40,
+  "items": [
+    "tribalpower:spiritgear_axe",
+    "tribalpower:spiritgear_shovel",
+    "tribalpower:spiritgear_blade",
+    "tribalpower:spiritgear_shears",
+    "tribalpower:spiritgear_hoe"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_pickaxe",
+      "text": [
+        "Ferramentas forjadas com Barra manifestada: uma picareta, um machado, uma pá, uma lâmina, uma tesoura e uma enxada. Elas cortam como diamante. A picareta, o machado, a pá, a lâmina e a enxada duram **1,561** usos, como o diamante, e a tesoura **1,024**.",
+        "Se puderem extrair Pulso de uma célula, o Pulso é o preço do trabalho e o fio é poupado: um bloco, um uso ou um golpe pago não sofre desgaste nenhum.",
+        "O [Arco de Pulso](song_bench) e a [Besta de Pulso](pulse_crossbow) também são forjados com Barra manifestada e duram **1,024**. Cada tiro é pago em Pulso, então atirar nunca os desgasta. Tudo isso se repara na [Bigorna do Espírito](spirit_anvil)."
+      ],
+      "title": "Ferramentas de Equipamento espiritual"
+    },
+    {
+      "type": "text",
+      "title": "Pulso para o trabalho",
+      "text": [
+        "Um bloco minerado custa **2 Pulso**, um acerto **3**, um uso **1**, tirados de qualquer Célula de Pulso que você carregue.",
+        "Sem Pulso, a ferramenta ainda funciona, mas então se desgasta: o que qualquer ferramenta gastaria, e um ponto a mais por passar fome, até chegar a Vinculado. A barra de ação avisa que ela está faminta.",
+        "Um [familiar](familiar_boons) sintonizado com a voz da peça, por perto, reduz em **40%** o que ela gasta. Cada peça se repara com Barra manifestada em qualquer bigorna, nunca com diamantes."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Subir de grau",
+      "text": [
+        "Os graus são onde o Equipamento espiritual vira algo especial, e devem custar esforço de verdade. Coloque a peça na estação com o totem por perto, ponha os **catalisadores** nas fendas de catalisador e mantenha o Pulso fluindo:",
+        "- **Sintonizador de eco**, Fogo: grau 0 a 1. **45 segundos** a **96 Pulso por segundo**, e **4 Eco sintonizado**.",
+        "- **Vinculador de eco**, Água: grau 1 a 2. **90 segundos** a **128**, e **4 Eco vinculado**.",
+        "- **Manifestador de eco**, Espírito: grau 2 a 3. **180 segundos** a **192**, e **2 Núcleo ressonante** e **4 Fio de Tear**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Antes de subir de grau",
+      "text": [
+        "Cada estação aceita só o grau seguinte: Vinculador de eco recusa o grau 0, e Manifestador de eco recusa qualquer coisa abaixo de Vinculado. Fio de Tear só vem de [O Não Cantado](the_unsung), então o grau máximo espera até você derrotá-lo.",
+        "São consumos pesados para qualquer acampamento. Traga um ressonador com um bom catalisador, ou vários geradores, num raio de 8 blocos.",
+        "A estação espera, sem gastar nada, até os catalisadores estarem dentro; eles são consumidos quando o grau se completa. A dica sempre mostra o que o próximo grau exige."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que os graus dão",
+      "text": [
+        "- **Sintonizado**: cada ação custa um Pulso a menos, nunca abaixo de um (minerar 1, um acerto 2, um uso 1), minera **20%** mais rápido e bate mais forte.",
+        "- **Vinculado**: uma ação faminta não desgasta mais do que a de qualquer ferramenta, e minera **45%** mais rápido.",
+        "- **Manifestado**: minera **80%** mais rápido, metade das ações famintas não sofre desgaste nenhum, e as vantagens da voz ficam mais fortes.",
+        "A lâmina e sua [família de armas](spiritgear_weapons) ganham mais: **+2**, **+5** e **+10** de dano de ataque por grau, e um pouco de velocidade de ataque. Uma lâmina em Manifestado acerta **chefes 25% mais forte** e cura você em **10%** de cada golpe, que é o que você quer numa luta longa.",
+        "Uma picareta ligada ao Tear gasta **0 Pulso** para minerar. Destrama de eco desmonta uma ferramenta danificada de volta em uma Barra manifestada, esquecendo grau e voz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "A tesoura",
+      "text": [
+        "A **Tesoura de Equipamento espiritual** poda folhas, lã, vinhas e teia de aranha, sobe de grau e toma uma voz como o resto do conjunto.",
+        "- **Terra**: um golpe leva a face 3x3 inteira da folhagem.",
+        "- **Ar**: podar não custa Pulso nem desgaste nenhum.",
+        "- **Água**: uma ovelha tosquiada fica com o velo metade das vezes, e sempre em Manifestado.",
+        "- **Fogo**: usada numa colmeia, defuma as abelhas até acalmar, então sem enxame.",
+        "- **Espírito**: o que ela tosa é reparado depois, e as bestas próximas que valem a tosquia brilham.",
+        "- **Tear**: os recortes vêm direto à mão."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "A enxada",
+      "text": [
+        "A **Enxada de Equipamento espiritual** colhe e semeia num só movimento: use-a numa plantação madura e a colheita cai, menos uma semente que volta direto ao chão. Uma plantação que não dá semente própria é colhida e fica nua.",
+        "- **Terra**: revolve um 3x3 de solo de uma vez.",
+        "- **Água**: os sulcos saem molhados, e a terra arada ao seu redor continua regada enquanto você a segura.",
+        "- **Ar**: colhe um 3x3.",
+        "- **Tear**: colhe um 5x5 e não gasta Pulso ao fazer isso.",
+        "- **Espírito**: um quarto das colheitas cai em dobro (sementes à parte)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_pickaxe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_axe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_shovel"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_blade"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_shears"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_hoe"
+    },
+    {
+      "type": "text",
+      "title": "Uma célula só sua",
+      "text": [
+        "Cada peça de Equipamento espiritual e de Tece-espírito, a [Marreta de ressonância](resonance_maul), o [Cajado sêxtuplo](sixfold_staff), os cancioneiros e os arcos de Pulso podem levar uma **Célula de Pulso** própria. Pegue a célula no inventário e **clique com o direito nela sobre a peça**: ela entra, com toda a carga.",
+        "A peça sempre gasta primeiro da própria célula. Só quando essa célula está vazia ela busca as células que você carrega, então um conjunto bem carregado segue muito depois de seus bolsos secarem."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trocar células",
+      "text": [
+        "Clique com o direito uma célula maior (uma **{item:tribalpower:greater_pulse_cell}** ou uma **{item:tribalpower:grand_pulse_cell}**) numa peça que segure uma menor para melhorá-la; a célula velha volta ao seu cursor. Uma célula do mesmo tamanho ou menor completa a que está sentada.",
+        "Clique com o direito numa peça com o **cursor vazio** para tirar a célula, com toda a carga. A dica mostra o que cada peça guarda."
+      ]
+    }
+  ],
+  "next": "spiritgear_weapons"
+}

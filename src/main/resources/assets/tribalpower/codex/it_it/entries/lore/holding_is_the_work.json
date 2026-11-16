@@ -1,0 +1,46 @@
+{
+  "name": "Sostenere è il lavoro",
+  "icon": "tribalpower:lore_tablet",
+  "order": 60,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Rammendare non è un miracolo privato. Ottieni la reliquia di ogni tribù, porta tutte e nove in un cerchio del Telaio e compi il [Il nono accordo](ninth_agreement). I fili tornano ad accordarsi.",
+        "Leggi ogni tavoletta. Colpisci il Tamburo silenzioso quando sei pronto. Offri ai focolari. Chiedi con cortesia, più in piccolo di quanto chiedeva il vecchio mondo.",
+        "Il mondo non scatta all'indietro. Impara a tenere."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lore_tablet",
+      "title": "Le tavolette",
+      "text": [
+        "Le tribù lasciarono dodici tavolette di pietra. Cercale sui muri degli accampamenti degli Intagliatori di sigilli (foreste scure e gli Altopiani della Marcia) e, nella Marcia, nelle [Sale degli antenati](ancestor_hall) sommerse, nei Cerchi di tamburi, nelle Guglie di cristallo, negli accampamenti dei Cucitori del telaio e nei Templi profondi. Fai clic destro su una per leggerla.",
+        "Ogni tavoletta che leggi viene registrata qui, nel capitolo dei Racconti, e le sue parole si aprono come una pagina a sé."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "lore_tablet_page",
+      "text": [
+        "Il capitolo conta quante delle dodici hai letto. Le tavolette che non hai ancora trovato restano nascoste."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tavolette tue",
+      "text": [
+        "Otto Pietra della Marcia attorno a una Scheggia di eco fanno **due** Tavoletta dei racconti da appendere in una sala tua. Una tavoletta fabbricata porta il primo frammento, il Focolare dei Custodi del giaciglio; in modalità creativa, usala mentre ti accovacci per scorrere le dodici.",
+        "Una tavoletta deve pendere sul fianco di un blocco solido.",
+        "Una tavoletta che hai trovato dimentica le parole quando viene rotta e torna come il Focolare dei Custodi del giaciglio, quindi leggila dove è appesa."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lore_tablet"
+    }
+  ]
+}

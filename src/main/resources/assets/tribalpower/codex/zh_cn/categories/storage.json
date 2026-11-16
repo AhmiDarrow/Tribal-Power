@@ -1,0 +1,6 @@
+{
+  "name": "存储与货运",
+  "icon": "tribalpower:ancestral_cache",
+  "order": 50,
+  "description": "存放物资的储柜与蓄池，以及不用管道、把东西从一台机器送到另一台的中继器。"
+}

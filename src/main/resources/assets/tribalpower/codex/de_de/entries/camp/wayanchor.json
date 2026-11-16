@@ -1,0 +1,38 @@
+{
+  "name": "Weganker",
+  "icon": "tribalpower:wayanchor",
+  "order": 80,
+  "next": "summoning_cradle",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wayanchor",
+      "text": [
+        "Hält einen Chunk in Betrieb, während du weit weg bist. Ein Relaisende, eine Lauschgrube oder ein Tor in einem fernen Chunk hält an, wenn niemand in der Nähe ist; ein Weganker hält seinen Chunk für **16 Puls** pro Sekunde geladen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Einen betreiben",
+      "text": [
+        "Setze ihn in den Chunk, der wach bleiben muss. Er hält genau diesen einen Chunk, keinen Radius darum. Er antwortet auf **Erde**: halte ein Totem der Erde innerhalb von 8 Blöcken (siehe [Lagerhände](camp_hands)), sonst lässt er den Chunk los.",
+        "Er hält eine Reserve von **2,400 Puls** und füllt sie um bis zu **80** pro Sekunde aus dem Gitter nach. Du kannst sie auch mit einer Pulszelle auffüllen.",
+        "Redstone oder eine leere Reserve lässt den Chunk los. Den Anker abzubauen lässt ihn sofort los.",
+        "Rechtsklick, um zu sehen, ob er hält. Ein Komparator liest 15, solange er hält."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Grenzen und Nutzen",
+      "text": [
+        "Jeder Spieler kann bis zu **32** Anker in jeder Welt betreiben. Mitglieder eines [geteilten Lagers](shared_camps) teilen sich stattdessen **12** Anker untereinander, gezählt über jede Welt, also einige dich mit ihnen, welche Chunks wichtig sind.",
+        "Relais halten Chunks nie von selbst geladen. Wenn beide Enden eines Relais arbeiten müssen, während du reist, setze einen Anker ans ferne Ende.",
+        "Tore halten ihr fernes Ende ein paar Sekunden wach, wenn jemand ankommt, also braucht ein Tor nur dann einen Anker, wenn dort etwas weiterlaufen muss."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wayanchor"
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "name": "Dotazione spirituale",
+  "icon": "tribalpower:spiritgear_pickaxe",
+  "order": 40,
+  "items": [
+    "tribalpower:spiritgear_axe",
+    "tribalpower:spiritgear_shovel",
+    "tribalpower:spiritgear_blade",
+    "tribalpower:spiritgear_shears",
+    "tribalpower:spiritgear_hoe"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_pickaxe",
+      "text": [
+        "Strumenti forgiati da Lingotto manifestato: un piccone, un'ascia, una pala, una lama, delle cesoie e una zappa. Tagliano come il diamante. Il piccone, l'ascia, la pala, la lama e la zappa durano **1,561** usi, come il diamante, e le cesoie **1,024**.",
+        "Se possono attingere Pulso da una cella, il Pulso è il prezzo del lavoro e il filo è risparmiato: un blocco, un uso o un colpo pagato non si usura affatto.",
+        "L'[Arco di Pulso](song_bench) e la [Balestra di Pulso](pulse_crossbow) sono forgiati anch'essi da Lingotto manifestato e durano **1,024**. Ogni colpo si paga in Pulso, quindi sparare non li usura mai. Tutto si ripara sull'[Incudine dello Spirito](spirit_anvil)."
+      ],
+      "title": "Strumenti di Dotazione spirituale"
+    },
+    {
+      "type": "text",
+      "title": "Pulso per il lavoro",
+      "text": [
+        "Un blocco estratto costa **2 Pulso**, un colpo **3**, un uso **1**, presi da qualsiasi Cella di Pulso che porti.",
+        "Senza Pulso lo strumento funziona ancora, ma allora si usura: quanto perderebbe qualsiasi strumento, e un punto in più per la fame, finché non è Vincolato. La barra delle azioni ti dice che ha fame.",
+        "Un [famiglio](familiar_boons) sintonizzato sulla voce del pezzo, vicino, riduce del **40%** ciò che spende. Ogni pezzo si ripara con Lingotto manifestato su qualsiasi incudine, mai con diamanti."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Salire di rango",
+      "text": [
+        "I ranghi sono dove la Dotazione spirituale diventa qualcosa di speciale, e devono costare vero sforzo. Sistema il pezzo nella stazione con il suo totem vicino, metti i **catalizzatori** negli slot del catalizzatore e tieni il Pulso in flusso:",
+        "- **Sintonizzatore di eco**, Fuoco: rango 0 a 1. **45 secondi** a **96 Pulso al secondo**, e **4 Eco sintonizzato**.",
+        "- **Vincolatore di eco**, Acqua: rango 1 a 2. **90 secondi** a **128**, e **4 Eco vincolato**.",
+        "- **Manifestatore di eco**, Spirito: rango 2 a 3. **180 secondi** a **192**, e **2 Nucleo risonante** e **4 Filo di Telaio**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Prima di salire di rango",
+      "text": [
+        "Ogni stazione accetta solo il rango successivo: Vincolatore di eco rifiuta il rango 0, e Manifestatore di eco rifiuta tutto ciò che è sotto Vincolato. Filo di Telaio arriva solo da [Il Non Cantato](the_unsung), quindi il rango massimo aspetta finché non lo hai sconfitto.",
+        "Sono prelievi pesanti per qualsiasi accampamento. Porta un risonatore con un buon catalizzatore, o più generatori, entro 8 blocchi.",
+        "La stazione aspetta, senza spendere nulla, finché i catalizzatori non sono dentro; si consumano quando il rango si compie. Il suggerimento mostra sempre ciò che serve al rango successivo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa danno i ranghi",
+      "text": [
+        "- **Sintonizzato**: ogni azione costa un Pulso in meno, mai sotto uno (estrarre 1, un colpo 2, un uso 1), scava il **20%** più veloce e colpisce più forte.",
+        "- **Vincolato**: un'azione affamata non si usura più di quella di qualsiasi strumento, e scava il **45%** più veloce.",
+        "- **Manifestato**: scava l'**80%** più veloce, metà delle azioni affamate non si usura affatto, e i bonus della voce diventano più forti.",
+        "La lama e la sua [famiglia di armi](spiritgear_weapons) guadagnano di più: **+2**, **+5** e **+10** di danno d'attacco per rango, e un po' di velocità d'attacco. Una lama Manifestato colpisce i **boss 25% più forte** e ti cura del **10%** di ogni colpo, ed è ciò che vuoi in un lungo scontro.",
+        "Un piccone legato al Telaio spende **0 Pulso** per scavare. Distessitura d'eco smonta un attrezzo danneggiato in un Lingotto manifestato, dimenticando rango e voce."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le cesoie",
+      "text": [
+        "Le **Cesoie di Dotazione spirituale** potano foglie, lana, rampicanti e ragnatela, salgono di rango e prendono una voce come il resto del set.",
+        "- **Terra**: un colpo prende l'intera faccia 3x3 del fogliame.",
+        "- **Aria**: potare non costa Pulso né usura, per niente.",
+        "- **Acqua**: una pecora tosata tiene il vello metà delle volte, e sempre a Manifestato.",
+        "- **Fuoco**: usate su un alveare, affumicano le api fino a calmarle, così niente sciame.",
+        "- **Spirito**: ciò che tosano viene riparato dopo, e le bestie vicine che vale la pena tosare brillano.",
+        "- **Telaio**: i ritagli arrivano dritti in mano."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La zappa",
+      "text": [
+        "La **Zappa di Dotazione spirituale** miete e semina in un solo gesto: usala su una coltura matura e il raccolto cade, meno un seme che torna dritto nel terreno. Una coltura che non dà un seme proprio viene mietuta e lasciata nuda.",
+        "- **Terra**: rivolta un 3x3 di suolo in una volta.",
+        "- **Acqua**: i solchi escono bagnati, e la terra zappata intorno a te resta irrigata finché la tieni.",
+        "- **Aria**: miete un 3x3.",
+        "- **Telaio**: miete un 5x5 e non spende Pulso nel farlo.",
+        "- **Spirito**: un quarto dei raccolti cade doppio (semi a parte)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_pickaxe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_axe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_shovel"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_blade"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_shears"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_hoe"
+    },
+    {
+      "type": "text",
+      "title": "Una cella tutta sua",
+      "text": [
+        "Ogni pezzo di Dotazione spirituale e di Tessitospirito, la [Mazza di risonanza](resonance_maul), il [Bastone sestuplo](sixfold_staff), i canzonieri e gli archi di Pulso possono portare una **Cella di Pulso** propria. Prendi la cella nell'inventario e **fai clic destro con essa sul pezzo**: entra dentro, carica compresa.",
+        "Il pezzo spende sempre prima dalla propria cella. Solo quando quella cella è vuota attinge alle celle che porti, così un set ben carico dura a lungo dopo che le tue tasche sono a secco."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Scambiare le celle",
+      "text": [
+        "Fai clic destro con una cella più grande (una **{item:tribalpower:greater_pulse_cell}** o una **{item:tribalpower:grand_pulse_cell}**) su un pezzo che ne tiene una più piccola per migliorarlo; la cella vecchia torna sul cursore. Una cella della stessa misura o più piccola rabbocca quella già seduta.",
+        "Fai clic destro su un pezzo con il **cursore vuoto** per riprenderne la cella, carica compresa. Il suggerimento mostra cosa tiene ogni pezzo."
+      ]
+    }
+  ],
+  "next": "spiritgear_weapons"
+}

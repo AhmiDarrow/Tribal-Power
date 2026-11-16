@@ -1,0 +1,16 @@
+{
+  "name": "Tablette : Corde des Lieurs de racines",
+  "icon": "tribalpower:lore_tablet",
+  "order": 120,
+  "spoiler": true,
+  "unlock": "tablet:2",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Depuis une Salle des ancêtres engloutie, dans les mots des Lieurs de racines :",
+        "“Les racines sont la seule corde que le vide respecte. Nous avons planté les premières ancres sur les îles qui tombaient et les avons liées d'île en île, de racine en racine. La moitié a tenu. Plante une pousse dans le sol de la Marche et tu la sentiras tirer vers les autres.”"
+      ]
+    }
+  ]
+}

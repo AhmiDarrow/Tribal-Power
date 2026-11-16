@@ -1,0 +1,56 @@
+{
+  "name": "Klucz i różdżka",
+  "icon": "tribalpower:totem_wrench",
+  "order": 25,
+  "items": [
+    "tribalpower:weavers_wand"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:totem_wrench",
+      "title": "Klucz totemu",
+      "text": [
+        "Każda maszyna w obozie patrzy gdzieś i prędzej czy później w złą stronę. Użyj klucza na bloku, a obróci się w miejscu, bez niszczenia i stawiania od nowa. Kłody i filary przetaczają się na następną oś.",
+        "**Użyj skradając się ściany maszyny**, a ta ściana przechodzi przez Oba, Wejście, Wyjście i Zamknięte — to samo ustawienie, które pokazuje własna boczna podkładka maszyny, dostępne spoza ekranu.",
+        "Na [płytach pieśni](song_plates) synchronizuje zamiast obracać: użyj skradając się jednej płyty, by zatrzymać jej pieśń, potem użyj drugiej, by usłyszała pierwszą, bez przewodu pomiędzy."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co kosztuje i czego odmawia",
+      "text": [
+        "Obrót bierze **1 Puls** z dowolnego ogniwa, które nosisz. Bez Pulsu przy sobie klucz zużywa zamiast tego punkt ze swoich **512**, więc działa nawet w zły dzień.",
+        "Pochodnia ścienna, drabina albo dźwignia przechodzi na następną ścianę, która ją utrzyma, i zostaje, jeśli takiej nie ma.",
+        "Nie obróci bloku, który naprawdę jest dwoma: łóżko, drzwi, podwójna skrzynia, wysoka roślina albo **wysunięty tłok** i jego głowa. Najpierw wsuń tłok.",
+        "Szanuje chronioną ziemię i odmawia maszyn postawionych przez kogoś spoza twojego obozu, tak jak pusta ręka: płyty pieśni innego obozu wciąż czyta, ale nie synchronizuje ich ani nie trzyma ich pieśni."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:totem_wrench"
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:weavers_wand",
+      "title": "Różdżka Tkacza",
+      "text": [
+        "Kliknij ścianę bloku, a różdżka poniesie tę ścianę na zewnątrz przez każdego takiego samego sąsiada: do **32 bloków** jednym pociągnięciem, ułożoną przy stronie, którą kliknąłeś.",
+        "Bloki biorą się z twojego plecaka i paska szybkiego wyboru i kosztują **2 Puls** każdy; każde machnięcie zużywa różdżce punkt z jej **768**. Wypełnia tylko puste miejsce i nigdy nie zastępuje tego, co już jest, więc podłoga kładzie się jednym kliknięciem i nic pod spodem nie ginie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gdzie nie położy",
+      "text": [
+        "Różdżka pomija każde miejsce, gdzie blok nie mógłby ustać (pochodnia bez zaczepienia, roślina na kamieniu), i każde miejsce na chronionej ziemi, a resztę kładzie.",
+        "Nie kopiuje bloku, który mieści więcej niż jeden przedmiot albo ma ekwipunek: podwójnej płyty, drzwi lub łóżka, stosu świec lub ogórków morskich, warstwowego śniegu, skrzyni albo maszyny.",
+        "Jeśli w połowie zabraknie ci bloków albo Pulsu, machnięcie po prostu tam staje."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:weavers_wand"
+    }
+  ]
+}

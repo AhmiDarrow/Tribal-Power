@@ -1,0 +1,74 @@
+{
+  "name": "Bestie Grani połysku",
+  "icon": "tribalpower:prism_crest",
+  "order": 220,
+  "spoiler": true,
+  "items": [
+    "tribalpower:prism_grazer_spawn_egg",
+    "tribalpower:shardmoth_spawn_egg",
+    "tribalpower:glowgrub_spawn_egg",
+    "tribalpower:facet_stalker_spawn_egg",
+    "tribalpower:prism_crest",
+    "tribalpower:shard_wing",
+    "tribalpower:glow_husk",
+    "tribalpower:facet_barb"
+  ],
+  "next": "beasts_snow_fields",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Własne grani",
+      "text": [
+        "Księżycokamienne wyżyny [Grani połysku](glimmer_ridge) trzymają na otwartej przestrzeni skubacza w płytach i ćmę, a w jaskiniach poniżej świecącego robaka i kryształowego pająka.",
+        "Każdą tutejszą łagodną bestię można raz na minutę wyszczotkować po jej odczynnik; wabi się ją i rozmnaża jej własnym pokarmem, podanym niżej w **Polowanie i hodowla**. Można ją związać jak każde łagodne zwierzę (zobacz [chowańce](familiars)), a choć żadna nie ma własnego daru, związana wciąż może przyjąć głos przy totemie i wzmocnić twoją magię (zobacz [zestrojenie przy totemie](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_grazer",
+      "title": "Pryzmoskub",
+      "text": [
+        "Niski jaszczurzy skubacz z rzędem pryzmatycznych płyt wzdłuż grzbietu, w stadach od dwóch do czterech. **24 zdrowia** i **3 pancerza**.",
+        "Zrzuca od 1 do 3 **Grzebień pryzmatu**, więcej przy Grabieży.",
+        "Upolowany zostawia też od 1 do 2 Surowa dziczyzna i do 1 Skóra Marszu. Rozmnażaj: **Fasola błysku**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shardmoth",
+      "title": "Ćma odłamka",
+      "text": [
+        "Fioletowa ćma o skrzydłach z ciętego kryształu; trzepoce nad granią, od jednej do trzech. **10 zdrowia**, bez pancerza.",
+        "Zrzuca od 1 do 3 **Skrzydło odłamka**.",
+        "Upolowany zostawia też do 1 Nić i do 1 Odłamek ametystu. Rozmnażaj: **Fasola błysku**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glowgrub",
+      "title": "Świetlarwa",
+      "text": [
+        "Robak świetlik, długi i segmentowany, pod wielką ciemną głową, z płonącym końcem ogona; z ciemnych jaskiń pod granią, od jednego do trzech naraz. **18 zdrowia** i **1 pancerza**. Jest łagodny i ucieka przed potworami jak każdy skubacz.",
+        "Zrzuca od 1 do 3 **Świetlista łuska**.",
+        "Upolowany zostawia też do 2 Sproszkowany jasnogłaz. Rozmnażaj: **Kapelusz latarni** albo dowolny grzyb."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:facet_stalker",
+      "title": "Fasetowy łowca",
+      "text": [
+        "Kryształowy pająk tych samych jaskiń. Pojawia się tam w ciemności, w dzień lub w nocy, jeden albo dwa naraz. Ma **21 zdrowia** i **1 pancerza**, jest szybki, a ugryzienie zadaje **5** i zatruwa cię przez 3 sekundy.",
+        "Zrzuca od 1 do 2 **Kolec fasety**, odczynnik jadu.",
+        "Upolowany zostawia też do 1 Odłamek ametystu i do 1 Nić."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i hodowla",
+      "text": [
+        "Oprócz odczynnika każdy zostawia więcej, gdy jest upolowany, i jeszcze więcej przy Grabieży. Mięso wypada jako Pieczona dziczyzna, jeśli zwierzę spłonęło. Aby rozmnażać dzikie, **skradaj się**, gdy karmisz dwa dorosłe ich jedzeniem; karmione normalnie, dzikie zamiast tego oswaja się z tobą."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "name": "Il Non Cantato",
+  "icon": "tribalpower:unsung_heart",
+  "order": 60,
+  "spoiler": true,
+  "items": [
+    "tribalpower:the_unsung_spawn_egg"
+  ],
+  "next": "crystal_spire",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:the_unsung",
+      "text": [
+        "Un tamburo a clessidra, con una maschera di porcellana incrinata e due braccia di rune. Vuole solo riavere il ritmo."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Il Non Cantato non arriva mai da solo. Si alza solo quando qualcuno suona la battuta a quattro su un [Tamburo silenzioso](drum_circle), e nell'ultima fase torna a quel tamburo.",
+        "Ha **400 di salute** e **8 di armatura**, non può essere respinto e ignora gli effetti delle pozioni. Una barra del boss segna le sue tre fasi: Battuta, Coro e Silenzio.",
+        "Porta cibo, armatura, Celle di Pulso cariche, un Campanello d'osso e una via di casa già collaudata. Un amico lo rende molto più facile."
+      ],
+      "title": "Prima della prima battuta"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Finché è sopra i due terzi della salute, un'onda d'urto esce **ogni 3 secondi** e colpisce tutti entro **8 blocchi** per **6**, con un forte contraccolpo.",
+        "Accovacciati appena prima che atterri per puntellarti: subisci **metà dei danni** e nessun contraccolpo.",
+        "La falciata del braccio infligge **10**, quindi tieni il tamburo fra te e lui quando si avvicina."
+      ],
+      "title": "Battuta"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Sotto i due terzi inizia a chiamare **due Tessitori di eco ogni 8 secondi**, fino a **sei** alla volta, e le onde d'urto arrivano ogni **2.5 secondi**.",
+        "Elimina i tessitori prima che ti rallentino. Il loro morso ti lascia intorpidito, e hai ancora onde d'urto contro cui puntellarti.",
+        "Un tessitore che leghi nello scontro (i Cucitori del telaio devono chiamarti **Voce**) è tuo: smette di contare per il Non Cantato e resta quando lo scontro finisce."
+      ],
+      "title": "Coro"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Sotto un terzo aleggia sopra il tamburo e non può essere ferito. Ogni 2 secondi spara un dardo di tessitura lento: **5 danni**, Lentezza e Debolezza, e [Silenzio Non Cantato](afflictions) per **12 secondi**: nessuna canzone né voce di bastone risponde finché non svanisce. I dardi si spezzano sui blocchi solidi, quindi una copertura aiuta.",
+        "Vai al Tamburo silenzioso e suona di nuovo la battuta a quattro. Così lo risincronizzi: resta **stordito per 8 secondi** e subisce **danno doppio**, poi può ancora essere ferito a danno normale per altri **4 secondi**.",
+        "Silenzio torna **12 secondi** dopo ogni risincronizzazione, quindi colpisci forte e poi suona di nuovo."
+      ],
+      "title": "Silenzio"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Un **Cuore Non Cantato**, che fabbrica il totem del Telaio ([la sesta voce](sixth_voice)).",
+        "- **16 a 24 Filo di Telaio**.",
+        "- **4 Nuclei risonanti**.",
+        "- Un **Disco musicale** del Cerchio di tamburi.",
+        "- Il [Rito degli Intagliatori di sigilli](tablet_7), una Tavoletta dei racconti altrimenti tenuta solo su un altare del Tempio profondo. Appendila a un muro e leggila.",
+        "Se nessuno resta entro **48 blocchi** per **30 secondi**, si azzera: svanisce con i suoi tessitori e il tamburo è pronto da suonare di nuovo."
+      ],
+      "title": "Ciò che lascia"
+    },
+    {
+      "type": "text",
+      "title": "La prova dei Cucitori del telaio",
+      "text": [
+        "Il Non Cantato è il guardiano a cui finisce la storia dei Cucitori del telaio: fermalo con la loro storia all'ultimo passo, e la loro reliquia è tua. I suoi Tessitori di eco ora non lasciano nulla, e gli serve spazio per alzarsi: niente di solido nei cinque blocchi sopra il tamburo, né sul cinque per cinque intorno. Vedi [I guardiani](guardians)."
+      ]
+    }
+  ]
+}

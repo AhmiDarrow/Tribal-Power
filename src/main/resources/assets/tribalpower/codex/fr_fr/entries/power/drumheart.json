@@ -1,0 +1,170 @@
+{
+  "name": "Cœur-tambour",
+  "icon": "tribalpower:drumheart",
+  "order": 10,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:drumheart",
+      "text": [
+        "Le premier générateur que tu construiras, et celui auquel tu reviendras. Le Cœur-tambour stocke jusqu'à **1,000 Pulsation**, et chaque battement que tu lui donnes en ajoute."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "En jouer",
+      "text": [
+        "Fais un clic droit de la **main vide**, environ **une fois par seconde**. Un battement à temps donne **24 Pulsation**. Un hors temps donne au plus **10**, et moins s'il suit de trop près le précédent, donc un rythme régulier bat un clic rapide.",
+        "Les machines tirent du tambour par un [Conducteur de treillis](lattice_conductor) à 8 blocs de lui, jamais directement de lui. Pour porter l'énergie ailleurs, utilise une **Cellule de Pulsation** sur le tambour. Casser le tambour perd la Pulsation qu'il contient.",
+        "Jouer à la main réveille aussi chaque totem dans un rayon de 8 blocs ; voir [Garde](keeping)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "En jouer par redstone",
+      "steps": [
+        {
+          "caption": "Un Cœur-tambour, seul, a besoin que tu tiennes le rythme.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Pose une Plaque de battement à côté. Elle bat une fois par seconde.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:heartbeat_plate"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Chaque impulsion de la plaque est un battement. Le tambour se remplit maintenant tout seul pendant que tu travailles ailleurs.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le rythme, exactement",
+      "text": [
+        "Les battements de redstone espacés de **17 à 23 ticks de jeu** comptent comme à temps. Les battements espacés de moins de **8 ticks** sont ignorés. Vingt ticks font une seconde à la vitesse normale du serveur.",
+        "Un signal de redstone maintenu ne met pas le Cœur-tambour en pause ; seul le front montant d'une impulsion compte comme un battement.",
+        "Les tambours se gênent. Seuls **deux tambours dans une zone** — la même portée de 8 blocs qu'un conducteur tisse — produisent de la Pulsation ; au-delà, ils battent et sonnent encore, mais ne gagnent rien. Écarte-les davantage, et chacun paie de nouveau.",
+        "Chaque [rang](machine_ranks) ajoute **15% de Pulsation par battement**. Les générateurs ne s'accélèrent pas comme le font les stations de rang."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart"
+    }
+  ]
+}

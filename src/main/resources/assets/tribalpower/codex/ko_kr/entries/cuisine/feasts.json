@@ -1,0 +1,58 @@
+{
+  "name": "잔치",
+  "icon": "tribalpower:fire_feast",
+  "order": 30,
+  "items": [
+    "tribalpower:earth_feast",
+    "tribalpower:fire_feast",
+    "tribalpower:water_feast",
+    "tribalpower:air_feast",
+    "tribalpower:spirit_feast",
+    "tribalpower:loom_feast"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:earth_feast",
+      "title": "야영의 식탁",
+      "text": [
+        "잔치는 모두를 위한 큰 요리다. 단단한 블록 위에 두면 **여섯 인분**을 담는다. 하나를 먹을 때마다 배가 차고 그 목소리의 [축복](voice_blessings)을 **8분** 준다.",
+        "화로 냄비에서 그 목소리의 요리와 작물로 하나 익힌다. 땅 잔치는 깔개 지킴이의 으깸과 자갈 빵으로, 불 잔치는 육포와 칠리로, 그런 식이다. 각 조리법은 JEI에서 냄비 아래에 있다.",
+        "마치의 밤을 앞두고 잔치를 나누는 야영은 함께 축복을 받고 나선다. 비교기가 남은 인분을 읽는다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "식탁에서",
+      "text": [
+        "배가 고플 때만 한 인분을 집을 수 있다. 하나는 허기를 **6** 채우고 축복을 레벨 I로 준다.",
+        "온전한 잔치는 부수면 다시 집어 든다. 인분이 하나라도 없으면 부숴도 아무것도 안 나오니, 시작하기 전에 옮겨라.",
+        "부족의 화로에서 **24블록** 안에서 그 [축제](living_march) 동안 하나를 먹으면, 부족이 식탁에 너를 센다. **평판 20**, 축제마다 한 번."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:earth_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fire_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:water_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:air_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_feast"
+    }
+  ]
+}

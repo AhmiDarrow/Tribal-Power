@@ -1,0 +1,225 @@
+{
+  "name": "Pulsation de l'Esprit",
+  "icon": "tribalpower:pulse_cell",
+  "order": 5,
+  "items": [
+    "tribalpower:greater_pulse_cell",
+    "tribalpower:grand_pulse_cell"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_cell",
+      "text": [
+        "La Pulsation est l'énergie vivante qui fait tourner chaque machine de Tribal Power. Les générateurs la produisent, les machines la dépensent, et une **Cellule de Pulsation** te permet d'en porter un peu en poche pour les outils, les sorts et le voyage.",
+        "Une cellule simple contient **1,200 Pulsation**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Où vit la Pulsation",
+      "text": [
+        "La Pulsation est de l'énergie stockée. Un générateur comme le Cœur-tambour, le Collecteur de ley ou le Résonateur de Pulsation la produit et la garde dans sa propre réserve. Une machine la dépense pendant qu'elle travaille, mais elle n'atteint cette réserve que par le **treillis**.",
+        "La Pulsation ne voyage que le long du [Conducteur de treillis](lattice_conductor). Tout ce qui est à **8 blocs** d'un conducteur est sur le treillis : générateurs, machines, mains du camp, relais, totems et [Cairn de Pulsation](pulse_cairn). Les conducteurs à 8 les uns des autres se lient en un réseau, et une machine puise dans les générateurs et les cairns de son réseau. Une machine sans conducteur à portée a faim, même juste à côté d'un tambour plein.",
+        "Pour ton premier atelier, place un conducteur entre le tambour et la station. Chaque conducteur porte d'abord **64 Pulsation par seconde**, davantage à mesure qu'il [monte en rang](machine_ranks). Les machines vident d'abord les générateurs du réseau, puis les Cairns de Pulsation du réseau. Les totems ne sont pas faits pour être dépensés : chaque Totem de résonance garde **250 Pulsation** en propre, et cette réserve est ce qui maintient sa voix."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Offre et demande",
+      "text": [
+        "Une machine peut tourner un moment sur une réserve même si elle dépense plus vite que tu ne génères. Si elle n'arrête pas de démarrer et de s'arrêter, compare la Pulsation qu'il lui faut à ce que produisent tes générateurs, puis ajoute de la génération ou bâtis une réserve plus grande. Chaque chiffre de Pulsation dans ce livre vaut pour les réglages par défaut ; un pack peut les changer, et l'affichage d'une machine montre toujours son coût réel.",
+        "Les totems ne sont pas des générateurs. Un totem correspondant donne à une station sa voix, appelée **syntonisation** ; il ne produit pas d'énergie. Accroupis-toi et fais un clic droit sur une machine avec ce livre : il indique l'énergie et la syntonisation séparément."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Remplir une cellule",
+      "steps": [
+        {
+          "caption": "Un Cœur-tambour chargé garde la Pulsation que tu y as tambourinée.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Clic droit dessus avec une Cellule de Pulsation : un usage remplit la cellule autant que le tambour en contient.",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -1,
+              0,
+              0
+            ],
+            "item": "tribalpower:pulse_cell"
+          }
+        },
+        {
+          "caption": "Un Résonateur de Pulsation, un ouvrage de voix tel qu'une Harpe du vent, ou un Cairn de Pulsation remplit une cellule de la même façon, tout ce qu'elle peut prendre en un usage.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:pulse_cell"
+          }
+        },
+        {
+          "caption": "Le générateur perd ce que la cellule gagne. Un Collecteur de ley ne peut pas remplir une cellule ainsi.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:ley_collector"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le porter",
+      "text": [
+        "Une Cellule de Pulsation contient **1 200 Pulsation** ; une **Cellule de Pulsation majeure** contient **4 800** ; une **Cellule de Pulsation suprême** contient **19 200**. Emporte des cellules chargées pour les sorts, l'Espritoutillage, les charmes et le voyage : tout cela puise dans les cellules de ton inventaire.",
+        "Une cellule dans ta poche n'est **pas** sur le treillis. Les ateliers et les rites de tablette ont encore besoin de Pulsation du treillis autour d'eux.",
+        "Pour charger une Porte de voie ou une Porte lointaine, utilise une cellule sur sa clef : chaque usage y déplace jusqu'à **100 Pulsation**, et les trajets dépensent cette réserve, pas la cellule dans ta poche. Un Tambour de porte n'a besoin d'aucune Pulsation : son rite l'ouvre.",
+        "Utilise une cellule sur un camp pour verser de la Pulsation dans sa réserve de **2 400** pour les [mains du camp](camp_hands) ; un usage déplace autant que le camp a de place.",
+        "Une [Jauge de Pulsation](pulse_gauge) pointée vers une machine qui tient de la Pulsation indique à quel point elle est pleine."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_cell"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:greater_pulse_cell",
+      "text": "Une Cellule de Pulsation entre deux Noyaux résonnants et deux Lingots manifestés, le tout issu du Manifesteur d'écho."
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grand_pulse_cell",
+      "text": "Une cellule majeure entourée de quatre Noyaux résonnants et de quatre Lingots manifestés."
+    }
+  ]
+}

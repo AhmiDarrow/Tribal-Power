@@ -1,0 +1,16 @@
+{
+  "name": "Tabliczka: Ul Strażników kolonii",
+  "icon": "tribalpower:lore_tablet",
+  "order": 160,
+  "spoiler": true,
+  "unlock": "tablet:6",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Z Kręgu bębnów w Marszu, słowami Strażników kolonii:",
+        "“Nie posiadasz ula. Jesteś z nim w dobrych stosunkach. Ofiaruj miód, posadź kwiaty Marszu, a rój poprowadzi dla ciebie Puls przez plaster. Weź bez pytania, a plaster zamilknie. Jest w tej sprawie bardzo cierpliwy.”"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "name": "灰缚者",
+  "icon": "tribalpower:ember_heart",
+  "order": 70,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ashbound_spawn_egg",
+    "tribalpower:ember_heart"
+  ],
+  "next": "rootbound",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:ashbound",
+      "text": [
+        "烧焦的柳条人偶，一场破损火之仪式的残骸。它的打击会点燃你。",
+        "被猎杀时，还会掉落最多2个煤炭和最多1根骨头。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "灰缚者夜间行走于主世界的森林，在远行界则漫游草原与余烬荒原。",
+        "它有**24点生命值**和**2点护甲**，攻击为**4**。每次击中令你燃烧2秒，它自身免疫火。把水放在近处，或在能踏进水坑的地方打。"
+      ],
+      "title": "地点与方式"
+    },
+    {
+      "type": "text",
+      "text": [
+        "掉落**1至2个余烬之心**。",
+        "一枚余烬之心在灵之下调谐成2个调谐回响。"
+      ],
+      "title": "给予之物"
+    },
+    {
+      "type": "text",
+      "text": [
+        "没有任何护符能与灰缚者结缘。照亮你的路，它就会远离。"
+      ],
+      "title": "不会结缘"
+    },
+    {
+      "type": "text",
+      "title": "狩猎与驱集",
+      "text": [
+        "除了试剂，猎杀时还会掉落这个，抢夺会掉得更多。"
+      ]
+    }
+  ]
+}

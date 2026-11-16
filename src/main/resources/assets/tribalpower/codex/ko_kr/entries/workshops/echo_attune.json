@@ -1,0 +1,255 @@
+{
+  "name": "조율과 결속",
+  "icon": "tribalpower:echo_attune",
+  "order": 40,
+  "items": [
+    "tribalpower:echo_bind",
+    "tribalpower:attuned_echo",
+    "tribalpower:bound_echo"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_attune",
+      "text": [
+        "메아리 조율(불)은 메아리 조각을 **조율된 메아리**로 만든다. 짝인 메아리 결속(물)은 조율된 메아리를 **결속된 메아리**로 만든다.",
+        "이것은 격자의 중간 단계다. 더 나은 기계의 재료이고, 펄스 공명기의 수정도 더 세진다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "조율",
+      "text": [
+        "메아리 조율을 불 토템과 8블록 이내에 두고 메아리 조각을 넣어라. 각각 **3초**, **초당 40 펄스**에 조율된 메아리가 된다.",
+        "메아리 조율은 자수정 조각도 정령 조각으로 바꾼다.",
+        "촉매 칸에 발광석 가루가 있으면 메아리 조율은 [석영 유리](glimmer_ridge)도 밝힌다.",
+        "마치 생물의 전리품, 잔불 심장, 갈대 송곳니, 균열 이빨은 각각 조율된 메아리가 **둘**이 된다. 다만 불이 아니라 **정령** 목소리가 필요하다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "결속",
+      "text": [
+        "메아리 결속을 물 토템과 8블록 이내에 두고 조율된 메아리를 넣어라. 각각 **4초**, **초당 48 펄스**에 결속된 메아리가 된다.",
+        "메아리 결속은 양털을 **정령직물**로, 흙을 **점토 공 네 개**로 바꾼다. 새벽 벨벳, 랜턴 솜털, 폭풍 날개 같은 부드러운 생물 드롭은 각각 정령직물 둘이 된다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "호퍼 없는 연쇄",
+      "steps": [
+        {
+          "caption": "메아리 결속을 두고, 옆에 물 토템을 두어라.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "그 위에 메아리 조율을 두고, 가까이에 불 토템을 두어라.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "메아리 조율의 아랫면은 기본적으로 메아리 결속의 윗면으로 출력한다. 그래서 메아리가 스스로 내려간다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "위로 메아리 조각을 넣고, 메아리 결속에서 결속된 메아리를 꺼내라.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "연쇄",
+      "text": [
+        "메아리 조율을 메아리 결속 위에 두어라. 옆에 두면 맞닿은 면을 출력에서 입력으로 하라. 그러면 연쇄는 호퍼 없이 움직인다. 양쪽을 양쪽과 마주 보게 하지 마라.",
+        "주괴와 핵으로 이어가려면 메아리 결속을 메아리 현현 위에 두어라.",
+        "레버는 어느 쪽이든 멈춘다. 아무것도 움직이지 않으면 이 책으로 목소리와 펄스를 확인하라."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_attune"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_bind"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:attuned_echo"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bound_echo"
+    }
+  ]
+}

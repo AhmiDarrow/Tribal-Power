@@ -1,0 +1,46 @@
+{
+  "name": "Podtrzymywanie jest pracą",
+  "icon": "tribalpower:lore_tablet",
+  "order": 60,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Cerowanie nie jest prywatnym cudem. Zdobądź relikt każdego plemienia, zanieś wszystkie dziewięć do kręgu Krosna i odpraw [Dziewiąte porozumienie](ninth_agreement). Nici znów się zgadzają.",
+        "Przeczytaj każdą tabliczkę. Uderz w Cichy bęben, gdy będziesz gotów. Składaj dary przy paleniskach. Proś grzecznie, mniej, niż prosił stary świat.",
+        "Świat nie odbija się z powrotem. Uczy się trzymać."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lore_tablet",
+      "title": "Tabliczki",
+      "text": [
+        "Plemiona zostawiły dwanaście kamiennych tabliczek. Szukaj ich na ścianach obozów Rzeźbiarzy pieczęci (ciemne lasy i Wyżyny Marszu) i, w Marszu, w zatopionych [Salach przodków](ancestor_hall), Kręgach bębnów, Kryształowych iglicach, obozach Szwaczy krosna i Głębokich świątyniach. Kliknij prawym przyciskiem jedną, aby ją przeczytać.",
+        "Każda tabliczka, którą czytasz, jest zapisana tutaj, w rozdziale podań, a jej słowa otwierają się jako osobna strona."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "lore_tablet_page",
+      "text": [
+        "Rozdział liczy, ile z dwunastu przeczytałeś. Tabliczki, których jeszcze nie znalazłeś, pozostają ukryte."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Twoje własne tabliczki",
+      "text": [
+        "Osiem Kamień Marszu wokół Odłamek echa daje **dwie** Tabliczka podań do powieszenia we własnej sali. Wykonana tabliczka niesie pierwszy fragment, Palenisko Strażników posłania; w trybie kreatywnym użyj jej, skradając się, aby przejść przez dwanaście.",
+        "Tabliczka musi wisieć z boku pełnego bloku.",
+        "Tabliczka, którą znalazłeś, zapomina słowa, gdy zostanie zniszczona, i wraca jako Palenisko Strażników posłania, więc czytaj ją tam, gdzie wisi."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lore_tablet"
+    }
+  ]
+}

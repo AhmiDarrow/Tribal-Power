@@ -1,0 +1,16 @@
+{
+  "name": "Tablilla: Malla de los Cantores de grava",
+  "icon": "tribalpower:lore_tablet",
+  "order": 110,
+  "spoiler": true,
+  "unlock": "tablet:1",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Guardada en un campamento de los Talladores de sellos, en palabras de los Cantores de grava:",
+        "“La malla no encuentra la mena. La malla le da a la mena un sitio donde posarse. Canta bajo sobre la piedra en bruto y se afloja; canta más bajo y se rompe en eco. Nuestras mallas siguen colgadas en las salas, zumbando hacia nada. Tráeles mena y te zumbarán.”"
+      ]
+    }
+  ]
+}

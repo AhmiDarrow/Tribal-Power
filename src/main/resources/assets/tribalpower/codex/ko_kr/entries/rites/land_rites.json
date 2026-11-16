@@ -1,0 +1,50 @@
+{
+  "name": "땅의 의식",
+  "icon": "tribalpower:rite_green_blessing",
+  "order": 110,
+  "items": [
+    "tribalpower:rite_still_night",
+    "tribalpower:rite_ley_binding"
+  ],
+  "next": "voice_blessings",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_green_blessing",
+      "text": [
+        "땅의 의식은 한동안 지역을 바꾼다. 작물이 더 빨리 자라고, 적대가 줄거나, 먼 토템 사이에 빌린 연결이 생긴다.",
+        "모든 서판 의식과 같은 규칙을 따른다. 맞는 인장, 원, 그리고 8블록 안의 전도체를 통한 펄스."
+      ],
+      "title": "땅의 의식"
+    },
+    {
+      "type": "text",
+      "title": "세 가지 땅의 의식",
+      "text": [
+        "- **초록색 축복** (땅, **600** 펄스, 옹이 뿌리): 화로대 주위 **아홉 청크**를 이십 분 동안 축복한다. 그곳의 작물, 묘목, 줄기는 무작위 틱을 더 받고 초록색으로 반짝인다.",
+        "- **고요한 밤** (정령, **600**, 파수병 인장): 십오 분 동안 **64블록** 안의 적대 생성을 잠재운다. 넓은 정적 토템과 같다. 인장 새기는 이가 이 서판을 벗에게 판다.",
+        "- **레이 결속** (베틀, **1,200**, 베틀 실): 삼십 분 동안 화로대에서 가장 가까운 공명 토템을 **64블록** 안의 다른 토템에 묶는다. 웅웅거리는 동안, 한쪽 토템이 닿는 전도체는 다른 쪽 네트워크로 짜이고, 펄스가 실을 건넌다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "시전하기 전에",
+      "text": [
+        "먼저 원을 그려라. 단이 빠지면 시전은 실패하고 서판은 소모되지 않는다.",
+        "원의 방위에 맞는 토템 넷은 소모를 사분의 일 줄이고 시간을 두 배로 한다. 초록색 축복은 그때 450 펄스로 사십 분 지속된다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_green_blessing"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_still_night"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_ley_binding"
+    }
+  ]
+}

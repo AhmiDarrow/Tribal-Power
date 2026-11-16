@@ -1,0 +1,28 @@
+{
+  "name": "정령 랜턴",
+  "icon": "tribalpower:spirit_lantern",
+  "order": 100,
+  "next": "pulse_lights",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_lantern",
+      "text": [
+        "구리와 나무를 깎아 만든 랜턴. 야영지를 밝기 **15**로 비추며, 연료도 펄스도 필요 없다. 수정은 살아 있는 격자와 같은 색으로 빛난다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "쓰는 법",
+      "text": [
+        "작업장 사이 길에 두어라. 레버나 아무 레드스톤 신호나 하나를 어둡게 하고, 켜져 있는 동안 비교기는 15를 읽는다.",
+        "빛이지 수호가 아니다. 적대적 몹은 스폰에 어둠이 필요하다. 그래서 빛에 정적 토템을 더하면 조용한 야영지가 된다.",
+        "불을 격자로 돌리고 싶다면, 빛나는 갈대, 파편 등, 메아리 벽등, 잔불 그릇이 대신 펄스를 가늘게 끌어온다. [펄스 조명](pulse_lights)을 보라."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_lantern"
+    }
+  ]
+}

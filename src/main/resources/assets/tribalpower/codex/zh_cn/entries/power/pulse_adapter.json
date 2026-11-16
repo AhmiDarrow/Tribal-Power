@@ -1,0 +1,194 @@
+{
+  "name": "谐波充能器",
+  "icon": "tribalpower:pulse_adapter",
+  "order": 70,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_adapter",
+      "text": [
+        "Tribal Power产出脉动；许多别的模组靠Forge Energy (FE)运转。谐波充能器是一座单向的桥：它把网格里的脉动变成FE，交给贴着它的机器。对面的[网格转换器](lattice_converter)把FE从另一头带回来。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "架设",
+      "text": [
+        "把谐波充能器放在有脉动的网络上的[网格导体](lattice_conductor)的**8格**以内，并紧贴它要供给的FE机器。它会把能量推进任意一面上的任意能量接收器。",
+        "它把**1脉动转为100 FE**，每秒最多**60脉动**（6,000 FE，即每刻300 FE）。有等级的充能器会在同一秒里转换更多脉动，因此产出更多FE。",
+        "它缓冲**48,000 FE**，并输出给标准的能量接收器。它不能接收 FE，所以没有东西能把能量送回去。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "通向 FE 的桥",
+      "steps": [
+        {
+          "caption": "发生器里存着你想花掉的脉动。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "把充能器放在它 8 个方块以内。每秒最多把 60 脉动变成 6,000 FE。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_adapter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "把你的 FE 机器贴到任意其他面上；充能器会自己把能量推进去。",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "旁边的拉杆会停下转换和提取。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "什么也不流动时",
+      "text": [
+        "红石停止转换和提取。比较器读取 FE 缓冲有多满。",
+        "如果 FE 机器闲置，要么范围内没有脉动，要么接收器已满。蹲下并用这本书右键充能器，就能看到缓冲和速率。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_adapter",
+      "text": "需要回响显化的共鸣核心。"
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "name": "Cómo funcionan las estaciones",
+  "icon": "minecraft:hopper",
+  "order": 10,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Las estaciones de eco convierten una cosa en otra: piedra en esquirlas, esquirlas en cristales más fuertes, mena en grava, grava en metal. Toda receta necesita tres cosas a la vez: la **entrada** correcta, un **Tótem de resonancia** que coincida en un radio de 8 bloques, y **Pulso** suficiente que llegue a través de un Conductor de entramado en un radio de 8 bloques.",
+        "Abre una estación, pon el ingrediente en su ranura de entrada y toma los resultados de sus ocho ranuras de salida. Deja algo de espacio de salida libre; una estación llena se detiene.",
+        "Dos ranuras pequeñas de **catalizador** guardan lo que un trabajo gasta aparte de su entrada: los ecos, los núcleos o el Hilo de Telar que pide un rango de Equipo espiritual, o polvo de piedra luminosa cuando el Sintonizador de eco ilumina el Cristal de cuarzo. Los rangos de máquina no necesitan ninguno. Si a un trabajo le falta uno, este libro avisa **Catalizador necesario** y lo nombra.",
+        "Las recetas de este libro, o JEI si está instalado, muestran el tiempo, el Pulso y la voz de cada receta."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un primer esquema",
+      "steps": [
+        {
+          "caption": "El generador, el conductor, la estación y el tótem pueden quedar lado a lado en un mismo suelo.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Una tolva bajo la estación recoge su salida, porque la cara de abajo exporta por defecto.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Una palanca, o cualquier señal de redstone, pausa la estación. No se pierde nada mientras espera.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caras y automatización",
+      "text": [
+        "Cada cara de una estación tiene un ajuste: **Entrada**, **Salida**, **Ambos** o **Cerrado**. Por defecto, las cinco caras de arriba aceptan objetos y la de abajo los exporta. Cambia una cara con los controles laterales de la estación, o agáchate y haz clic derecho en esa cara con la mano vacía para recorrer los ajustes. Una **Llave de tótem** hace lo mismo: agáchate y úsala en una cara. Las tolvas siguen los mismos ajustes.",
+        "Las máquinas de Tribal Power que se tocan se pasan objetos, hasta **16** por segundo, y fluido, hasta **250 mB** por segundo, y más si la máquina tiene rango: pon la cara de origen en Salida y la cara que recibe en Entrada. Una cara Ambos contra una cara Ambos no mueve nada, así que los objetos nunca rebotan de un lado a otro.",
+        "Como abajo es Salida y arriba es Entrada por defecto, una estación puesta sobre otra entrega sus resultados directo hacia abajo, sin configurar nada. Para la distancia, haz clic derecho con una placa de relé en una cara de la estación. La placa tira a través de esa cara, así que ponla primero en **Salida** o **Ambos**; mira [Carga inalámbrica](wireless_cargo).",
+        "Una señal de redstone en una estación también detiene a las tolvas, los relés y las máquinas que la tocan cuando sacan de ella o la alimentan."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Si el trabajo se detiene",
+      "text": [
+        "Agáchate y haz clic derecho en la estación con este libro. Dice si espera el Pulso, si necesita su tótem, si tiene un tótem callado, si está llena o si la redstone la pausa.",
+        "Un tótem callado detiene el trabajo **nuevo**; una elaboración que ya va en curso igual termina.",
+        "Un comparador lee qué tan llena está una estación. Los paquetes de datos pueden añadir sus propias recetas tribalpower:lattice, usando etiquetas de ingredientes compartidas."
+      ]
+    }
+  ]
+}

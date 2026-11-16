@@ -1,0 +1,16 @@
+{
+  "name": "Tablette : Bottes des Marcheurs de lisière",
+  "icon": "tribalpower:lore_tablet",
+  "order": 130,
+  "spoiler": true,
+  "unlock": "tablet:3",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Conservée dans un camp des Graveurs de sceaux, selon les mots des Marcheurs de lisière :",
+        "“Les bottes d'abord. Puis le pont. Puis le courage ; il arrive tout seul. Nous avons marché le bord de la faille, là où le fil s'effilochait le plus fin, et posé des appuis pour les autres. Un appui, c'est du fer, du cuir et la promesse de ne pas regarder en bas.”"
+      ]
+    }
+  ]
+}

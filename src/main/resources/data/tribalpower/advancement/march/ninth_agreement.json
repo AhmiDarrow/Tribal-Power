@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:rite_ninth_agreement"
     },
-    "title": "The Ninth Agreement",
-    "description": "Bring all nine relics to a Loom circle and make the Loom agree again.",
+    "title": {
+      "translate": "advancement.tribalpower.march.ninth_agreement.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.march.ninth_agreement.description"
+    },
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,

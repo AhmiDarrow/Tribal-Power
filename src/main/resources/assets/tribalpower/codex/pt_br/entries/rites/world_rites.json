@@ -1,0 +1,64 @@
+{
+  "name": "Ritos do mundo",
+  "icon": "tribalpower:rite_rain_calling",
+  "order": 100,
+  "items": [
+    "tribalpower:rite_sky_clearing",
+    "tribalpower:rite_dawn_calling"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_rain_calling",
+      "text": [
+        "Os ritos de tábua vão além do acampamento e mudam o próprio mundo. Entalhe uma tábua, assente o selo correspondente num Braseiro ritual dentro do círculo dele e gaste o Pulso."
+      ],
+      "title": "Ritos do clima"
+    },
+    {
+      "type": "text",
+      "title": "Entalhar e lançar",
+      "text": [
+        "Cada tábua é dois pedregulhos (ou pedra-negra ou pedregulho de ardósia), o reagente dela e o selo correspondente, sem forma. O selo é devolvido.",
+        "Assente esse selo no braseiro (a bênção dele continua), trace o [Círculo de rito](rite_circle) e junte o custo todo a **8 blocos** do braseiro: um Coração de tambor bem abastecido, um ressonador com um bom catalisador ou vários geradores juntos. Uma célula no seu bolso não conta. Um Medidor de Pulso ou o Códice espiritual mostra o total.",
+        "Agache e use a tábua no braseiro. Se a treliça guarda menos que o custo, nada é gasto; senão a tábua é consumida e o Pulso é puxado."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Os três ritos do clima",
+      "text": [
+        "- **Chamado da chuva** (Água, **400** Pulso, uma Presa de junco): vinte minutos de chuva, e Coletores de ley mais fortes enquanto durar. Comece aqui.",
+        "- **Clareamento do céu** (Ar, **400**, uma Asa da tempestade): quarenta minutos de céu limpo.",
+        "- **Chamado da alvorada** (Fogo, **800**, um Coração de brasa): apressa a noite até o nascer do sol, a menos que a regra de jogo tribalpower:allowDawnRite esteja desligada.",
+        "Quatro totens correspondentes nos pontos cardeais do círculo tiram um quarto do custo e dobram o tempo. Um sinal de redstone mantido no braseiro recusa o rito.",
+        "Depois, tente os [ritos do terreno](land_rites)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_rain_calling"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_sky_clearing"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_dawn_calling"
+    },
+    {
+      "type": "text",
+      "title": "Círculo de cura",
+      "text": [
+        "Um rito de Espírito, lançado como os outros com um Selo de Espírito assentado. Custa **500 Pulso** e fica aberto **10 minutos**.",
+        "Ele cura todos no círculo, jogadores e familiares vinculados, remove todo mal, os abençoa e chama de volta qualquer familiar caído cujo [Remanescente do Espírito](healing_circle) você colocou nos pedestais dele. A história completa está em [Cura xamânica](healing_circle)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_healing_circle"
+    }
+  ],
+  "next": "land_rites"
+}

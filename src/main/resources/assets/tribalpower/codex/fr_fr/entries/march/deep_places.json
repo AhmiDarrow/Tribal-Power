@@ -1,0 +1,48 @@
+{
+  "name": "Lieux profonds de la Marche",
+  "icon": "tribalpower:march_stone_bricks",
+  "order": 32,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Sous le creusement",
+      "text": [
+        "Tout le reste que la Marche a enterré ne l'est qu'à peine — un tertre sous le gazon, une tombe une douzaine de blocs plus bas. Ces quatre sont plus loin à l'intérieur, enfoncés dans la pierre même, sans puits ni entrée. Tu les trouves en minant, ou en suivant une grotte qui s'ouvre là où elle ne devrait pas.",
+        "Prends une torche. Aucun n'est éclairé de bout en bout, et ce qui vit là-dessous était là en premier."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le Temple profond",
+      "text": [
+        "Une salle à piliers en Briques de pierre de la Marche, scellée dans la roche : un autel à degrés sous le milieu, avec une **Tablette de récits** posée sur sa pierre arrière, des lanternes d'Esprit de chaque côté, et un coffre dans chaque coin éloigné. Le sol est en pierre polie, et l'entrée s'est refermée il y a longtemps.",
+        "Il garde les vieilles choses — échos liés, sceaux, ouvrage accordé."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La Galerie de fouille",
+      "text": [
+        "Quelqu'un a travaillé ce filon, puis s'est arrêté. Bois étayé, toit de planches, minerai encore dans les murs, et un bout sous un éboulis qui explique sans doute l'arrêt. Un coffre d'outils et de rations près de l'entrée.",
+        "Moins profondes que le reste : tu les croises là où le minerai vaut encore la peine."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le Caveau de la Lueur",
+      "text": [
+        "Seulement sous la **Crête de la Lueur**. Une chambre taillée de Pierre de lune et de Pierre de lune polie, avec de l'Agate moussue posée au sol en anneaux, du Verre de quartz éclairé enchâssé dans la voûte au-dessus, et du Quartz de la Marche sorti de la pierre — vers le haut depuis le sol, vers le bas depuis le toit.",
+        "Qui l'a taillée faisait étalage. Le coffre tient la pierre propre à la crête, et de la pierre lumineuse pour l'éclairer."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "L'Ossuaire",
+      "text": [
+        "Une crypte : des alcôves taillées en trois assises le long des deux longs murs, de l'os déposé dedans, de la toile d'araignée sur le reste, et une lanterne d'Esprit tous les quelques pas qui brûle encore, on ne sait comment. Un coffre au fond.",
+        "La plus profonde des quatre. C'est surtout de l'os et de la pourriture, mais pas seulement."
+      ]
+    }
+  ]
+}

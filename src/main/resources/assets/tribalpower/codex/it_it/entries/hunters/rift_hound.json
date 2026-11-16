@@ -1,0 +1,52 @@
+{
+  "name": "Segugio della fenditura",
+  "icon": "tribalpower:rift_tooth",
+  "order": 150,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rift_hound_spawn_egg",
+    "tribalpower:rift_tooth"
+  ],
+  "next": "echo_weaver",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:rift_hound",
+      "text": [
+        "Un levriero snello squarciato da fenditure luminose, attratto dagli strappi nel reticolo. Chiude la distanza in fretta, ma non può attraversare i mondi da solo.",
+        "Cacciato, lascia anche fino a 2 Ossa e fino a 1 Cuoio della Marcia."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "I Segugi della fenditura cacciano nella Steppa della Marcia, sugli Altipiani, sulla Cresta del barlume, nei Campi di neve e nelle Distese di brace.",
+        "Ha **28 di salute** e **2 di armatura** e colpisce per **5**. È il più veloce dei resti, quindi non lo distanzi facilmente. Girati e combatti con le spalle al muro."
+      ],
+      "title": "Dove e come"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Lascia cadere **da 1 a 2 Dente di fenditura**.",
+        "Un Dente di fenditura si sintonizza in 2 Eco sintonizzato sotto Spirito."
+      ],
+      "title": "Cosa dà"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Raggiungi **Voce** con i **Camminatori del ciglio**, poi usa un Amuleto di legame su un adulto: due tentativi su cinque, l'amuleto si consuma se fallisce. Oppure nutrilo con il suo reagente: un tentativo su cinque, e il reagente si consuma in ogni caso.",
+        "Un segugio legato è un combattente, e il raro marchio **Traccia** ti mostra l'ultimo nemico che ti ha ferito. Vedi [doni del famiglio](familiar_gifts)."
+      ],
+      "title": "Come famiglio"
+    },
+    {
+      "type": "text",
+      "title": "Caccia e raduno",
+      "text": [
+        "Oltre al suo reagente, lascia cadere questo quando viene cacciato, di più con Saccheggio."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "7. 营地",
+  "icon": "tribalpower:carved_stone",
+  "order": 16,
+  "spoiler": true,
+  "unlock": "fragment:6",
+  "pages": [
+    {
+      "type": "text",
+      "title": "营地",
+      "text": [
+        "“九处营地在九块垫层上，各自把一根线唱进已经不在的织机。习惯，缘行者这么称呼它。希望，缚根者这么说。砂砾歌者说，那是同一件事说了两遍。”",
+        "发现于远行界废墟中的雕石上。"
+      ]
+    }
+  ]
+}

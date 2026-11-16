@@ -1,0 +1,40 @@
+{
+  "name": "Błogosławieństwa głosów",
+  "icon": "tribalpower:resonance_totem_spirit",
+  "order": 120,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_seal",
+      "title": "Głos osiada na tobie",
+      "text": [
+        "Każdy z sześciu głosów ma **błogosławieństwo**: sposób, w jaki użycza się temu, kogo darzy. Zobaczysz je jako efekt statusu w kolorze tego głosu.",
+        "Są trzy sposoby, by zdobyć jedno:",
+        "- **Zaśpiewaj osłonę.** Pieśń osłony daje błogosławieństwo swojego głosu, **45 sekund** za każdą nutę mocy w niej.",
+        "- **[Rytuał pieczęci](rite_circle) na Cokół obrzędu** błogosławi wszystkich w zasięgu 6 bloków głosem pieczęci przez **5 minut**; wzmocniony rytuał daje siedem i pół, na poziomie II. Dostrojony [chowaniec](familiar_boons) tego głosu obok ciebie wydłuża go o kolejną połowę.",
+        "- **Jedz z [uczty](feasts) głosu.** Każda porcja daje błogosławieństwo tego głosu przez 8 minut.",
+        "Noszony **Amulet latarni** utrzymuje zapalone każde błogosławieństwo lub dar **o połowę dłużej**, póki jego utrzymanie jest opłacone."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Ziemia**: kopiesz o **25%** szybciej i stoisz pewnie przeciw odrzutowi.",
+        "- **Ogień**: twoje ciosy podpalają cel na 3 sekundy; na **poziomie II** ogień nie może cię dotknąć.",
+        "- **Woda**: pływasz szybciej i leczysz **pół serca na sekundę**, gdy jesteś mokry.",
+        "- **Powietrze**: każdy upadek jest o 3 bloki krótszy, a skaczesz wyżej.",
+        "- **Duch**: wrodzy w zasięgu 16 bloków świecą przez ściany.",
+        "- **Krosno**: **jedna dziesiąta** Pulsu, który wydaje twój sprzęt, wraca do niego, nawet z najmniejszych wydatków: udział zbyt mały, by już wrócić, czeka na elemencie, aż zbierze się w cały Puls.",
+        "Poziom II podwaja liczby. Mleko zdejmuje błogosławieństwo, tak jak każdy efekt."
+      ],
+      "title": "Sześć błogosławieństw"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Rytuały to pewna droga: osadź pieczęć, nakreśl krąg kredą, i cały obóz jest błogosławiony naraz przed nocą w Marszu. Pieśni to szybka droga w trasie. Każda liczba żyje w sekcji **efekty** wspólnej konfiguracji."
+      ],
+      "title": "Gdzie je znaleźć"
+    }
+  ]
+}

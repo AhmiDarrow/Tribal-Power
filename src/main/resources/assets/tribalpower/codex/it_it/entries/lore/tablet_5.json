@@ -1,0 +1,16 @@
+{
+  "name": "Tavoletta: Canto dei Tessitori di trame",
+  "icon": "tribalpower:lore_tablet",
+  "order": 150,
+  "spoiler": true,
+  "unlock": "tablet:5",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Conservata in un accampamento degli Intagliatori di sigilli, nelle parole dei Tessitori di trame:",
+        "“Una fabbrica è un canto che ha smesso di aver bisogno del cantore. Abbiamo scritto i tempi su ruote d'orologio e polvere di falena e lasciato che il Telaio portasse la melodia. Quando venne il Taglio, i canti continuarono. Alcuni suonano ancora. Ascolta lo scatto prima del ronzio.”"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Récits",
+  "icon": "tribalpower:lore_tablet",
+  "order": 120,
+  "description": "L'histoire du monde qui fut, et les tablettes que les tribus ont laissées à ceux qui viendraient après.",
+  "spoiler": true,
+  "progress": "tablets"
+}

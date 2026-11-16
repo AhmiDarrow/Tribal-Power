@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:tribe_mark"
     },
-    "title": "Nine agreeing",
-    "description": "Earn a Tribe Mark from an Elder at Voice standing.",
+    "title": {
+      "translate": "advancement.tribalpower.tribes.mark.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.tribes.mark.description"
+    },
     "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,

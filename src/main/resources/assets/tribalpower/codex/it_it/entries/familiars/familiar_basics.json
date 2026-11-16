@@ -1,0 +1,40 @@
+{
+  "name": "Che cos'è un famiglio",
+  "icon": "tribalpower:dawn_velvet",
+  "order": 10,
+  "next": "familiars",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Un compagno per la tua magia",
+      "text": [
+        "Un **famiglio** è una creatura legata a te. Ti segue, aspetta dove glielo dici e non sparisce mai, e ogni tipo ha un dono proprio ([cosa fanno i famigli](familiar_gifts)).",
+        "Dagli una voce a un **Totem di risonanza** ed entra a far parte della tua magia: gli Amuleti di Spirito e la Dotazione spirituale di quella voce costano meno, e i suoi canti e riti si fanno più forti, finché è entro **16 blocchi** da te.",
+        "La magia funziona senza un famiglio. Un famiglio la rende più forte."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chi può essere legato",
+      "text": [
+        "- **Bestie mansuete**: il Cervo dell'alba e la Volpe lanterna delle foreste, il Dorsomuschio delle paludi e i brucatori, i saltatori e le falene di ogni bioma della Marcia. Chiunque può legarli.",
+        "- **Sei vestigia**, quando la loro tribù ti chiama **Voce** (800 di prestigio): Dorsoscheggia, Segugio della fenditura, Diavoletto di tizzone, Falena della tempesta, Campana del lutto e Tessitore di eco. La pagina dopo dice quale tribù parla per quale.",
+        "Legacenere, Radicelegato, gli Inseguitori dei canneti e le Sentinelle cave non rispondono mai, e nemmeno i boss, i goblin, i troll o gli altri ostili della Marcia. I piccoli non possono essere legati.",
+        "**Accovacciati e guarda** una creatura per vedere se può essere legata e che cosa le serve. Una Lente ley usata mentre sei accovacciato su di essa dice lo stesso."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Dorsoscheggia: i **Cantori di ghiaia**.",
+        "- Segugio della fenditura: i **Camminatori del ciglio**.",
+        "- Diavoletto di tizzone: i **Cuoritamburo**.",
+        "- Falena della tempesta: i **Tessitori di trame**.",
+        "- Campana del lutto: gli **Intagliatori di sigilli**.",
+        "- Tessitore di eco: i **Cucitori del telaio**.",
+        "Vedi [prestigio](standing) per sapere come ottenerlo."
+      ],
+      "title": "Quale tribù per quale vestigio"
+    }
+  ]
+}

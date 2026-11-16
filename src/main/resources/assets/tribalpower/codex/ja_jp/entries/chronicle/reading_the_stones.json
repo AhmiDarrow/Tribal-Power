@@ -1,0 +1,38 @@
+{
+  "name": "石を読む",
+  "icon": "tribalpower:carved_stone",
+  "order": 0,
+  "spoiler": false,
+  "items": [
+    "tribalpower:carved_stone",
+    "tribalpower:mural",
+    "tribalpower:soil_banner_pattern",
+    "tribalpower:stone_banner_pattern",
+    "tribalpower:sprout_banner_pattern",
+    "tribalpower:claw_banner_pattern",
+    "tribalpower:spark_banner_pattern",
+    "tribalpower:clock_banner_pattern",
+    "tribalpower:swarm_banner_pattern",
+    "tribalpower:sigil_banner_pattern",
+    "tribalpower:spindle_banner_pattern"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "彫石と壁画",
+      "text": [
+        "マーチは自らの歴史を石に書き残した。遺跡の壁には**彫石**が据えてある。織機の遺跡、高床の村、沈んだ祠、沼の古墳、灰の墓、納骨所、掘削の回廊、そして微光の尾根の宝物庫だ。守護者の地には、幅二ブロック、高さ二ブロックの**彫壁画**が立ち、それぞれが立つ土地を描いている。",
+        "一つを右クリックすると読める。断片はここにずっと残り、年代記がそれをあるべき場所へ置く。**十六**：織機の落下のための石が八つ、残した国々のための壁画が八つ。すべて読むと年代記は揃い、進捗**年代記が揃う**がその証になる。",
+        "石と壁画は拾って、自分のどの壁にも置ける。クリエイティブでは、石か壁画へのスニーククリックで章が変わる。どの章も、見つけるまではネタバレだ。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "絵画と紋章",
+      "text": [
+        "マーチの**絵画**が六つ、今は普通の絵に混ざって掛かる。絵画を壁に向けると、一枚出ることがある。題はそれぞれのものだ。",
+        "部族との立場が**一族**に達すると、その**紋章**を一度だけ渡される。部族の印が入った旗の模様だ。旗と任意の染料と一緒に機織り機へ入れる。自分の野営の上に掲げ、誰の一族かを示せ。"
+      ]
+    }
+  ]
+}

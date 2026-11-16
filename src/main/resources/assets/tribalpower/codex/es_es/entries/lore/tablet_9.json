@@ -1,0 +1,16 @@
+{
+  "name": "Tablilla: El Corte",
+  "icon": "tribalpower:lore_tablet",
+  "order": 190,
+  "spoiler": true,
+  "unlock": "tablet:9",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "De una Sala de los ancestros hundida, sin la firma de una sola tribu:",
+        "“Nadie golpeó el Telar. Lo tiraron desde nueve lados hasta que una hebra cedió, y entonces el resto se fue como una cuerda que se escurre de la mano. Los continentes cayeron en lo que dura un redoble. Lo que no cayó derivó hacia la Marcha y se hundió despacio. Nueve tribus, una sala, nadie a quien culpar.”"
+      ]
+    }
+  ]
+}

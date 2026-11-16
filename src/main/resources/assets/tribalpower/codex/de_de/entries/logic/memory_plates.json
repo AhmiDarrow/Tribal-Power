@@ -1,0 +1,36 @@
+{
+  "name": "Gedächtnisplatten",
+  "icon": "tribalpower:memory_plate",
+  "order": 76,
+  "items": [
+    "tribalpower:memory_plate",
+    "tribalpower:tally_plate",
+    "tribalpower:verse_plate"
+  ],
+  "next": "timing_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Gedächtnis, Zählung, Vers",
+      "text": [
+        "Diese Platten erinnern sich.",
+        "- **Gedächtnis**: ein aktives Links setzt es auf 15; ein aktives Rechts löscht es. Der Ausgang bleibt, bis etwas anderes kommt. Wenn beide aktiv sind, gewinnt Löschen.",
+        "- **Zählung**: jede steigende Flanke an der Rückseite zählt eins dazu. Erreicht die Zahl die Schwelle, singt sie 15. Ducken und Benutzen mit leerer Hand schaltet die Schwelle **1 bis 8** weiter (sie startet bei 4). Eine steigende Links setzt die Zahl zurück.",
+        "- **Vers**: startet bei **4** ohne Impuls. Jede steigende Flanke an der Rückseite setzt ihn auf **8**, dann **12**, dann **15**, dann zurück auf 4. Ein Komparator liest dieselbe Zahl.",
+        "Die Versplatte ist nicht der Versruf: um Redstone ohne Leitung zu einer Lampe oder Maschine zu bringen, siehe [Versruf und Antwort](verse_link)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:memory_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tally_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_plate"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "name": "浅水带的野兽",
+  "icon": "tribalpower:shoal_scale",
+  "order": 270,
+  "spoiler": true,
+  "items": [
+    "tribalpower:silt_glider_spawn_egg",
+    "tribalpower:pale_drifter_spawn_egg",
+    "tribalpower:shoal_darter_spawn_egg",
+    "tribalpower:brine_lurker_spawn_egg",
+    "tribalpower:silt_fin",
+    "tribalpower:pale_streamer",
+    "tribalpower:shoal_scale",
+    "tribalpower:brine_fang"
+  ],
+  "next": "beasts_everywhere",
+  "pages": [
+    {
+      "type": "text",
+      "title": "水之属",
+      "text": [
+        "属于浅水带的，大多生活在它的水里：三种温顺的游水者，以及一条夜里在那里捕猎的海鳗。游水者从不离开水：一旦搁浅，就会扑腾着回到水里，够不着便会干枯。高跷木在岸边行走（见[行走的树](walking_trees)）。陆地本身见[远行界](the_march)。",
+        "这里的每种温顺野兽，都可以每分钟用刷子刷一次，取得它的试剂，并用下方**狩猎与牧养**里写明的各自食物来引诱和繁殖。它可以像任何温顺动物一样缔结（见[使魔](familiars)）。虽然都没有自己的天赋，缔结后的一只仍能在图腾处取得一种声音，并强化你的魔法（见[在图腾处调谐](familiar_attuning)）。缔结后的游水者只会跟你走到它的水为止；你让它留下时，它就在水里等着。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:silt_glider",
+      "title": "淤泥滑翔者",
+      "text": [
+        "一条在淤泥上滑翔的鳐，二至四只成群。**14点生命值**和**1点护甲**。",
+        "掉落**1至3个淤泥鳍**，有抢夺时更多。",
+        "猎杀后还会掉落1至2个生微光鳍和最多1个骨粉。用**丝带藻或海草**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_drifter",
+      "title": "苍白漂流者",
+      "text": [
+        "一只琥珀色的海荨麻，钟体有条纹，拖着长长的丝带状腕，二至四只成群。**12点生命值**，无护甲。",
+        "掉落**1至3个苍白飘带**。",
+        "猎杀后还会掉落最多1个漂凝胶和最多1个黏液球。用**丝带藻或海草**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shoal_darter",
+      "title": "浅滩镖鱼",
+      "text": [
+        "一条带条纹的小鲈，二至四只成群。**14点生命值**和**1点护甲**。",
+        "掉落**1至3个浅滩鳞**。",
+        "猎杀后还会掉落1至2个生微光鳍和最多1个骨粉。用**丝带藻或海草**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:brine_lurker",
+      "title": "卤水潜伏者",
+      "text": [
+        "一条海鳗，夜里在浅水带出现，一次一条或两条。它有**21点生命值**和**1点护甲**，咬击造成**4**点，并使你中毒3秒。它会把猎物追到岸上，跟丢后便回到水里。",
+        "掉落**1至2个卤水尖牙**，一种毒试剂。卤水尖牙会在潮汐石处召唤潮汐鼓手：见[守护者](guardians)。",
+        "猎杀后还会掉落最多2个墨囊和最多1个生微光鳍。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猎与放牧",
+      "text": [
+        "除试剂外，猎杀时各自掉得更多，有抢夺时还要再多。若动物是烧死的，肉会以烤熟的样子掉落。要繁殖野生的个体，给两只成年的喂它们的食物时**潜行**；若正常喂食，野生的反而会对你亲近。"
+      ]
+    }
+  ]
+}

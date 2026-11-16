@@ -1,0 +1,8 @@
+{
+  "name": "Überlieferung",
+  "icon": "tribalpower:lore_tablet",
+  "order": 120,
+  "description": "Die Geschichte der Welt, die war, und die Tafeln, welche die Stämme für alle danach hinterließen.",
+  "spoiler": true,
+  "progress": "tablets"
+}

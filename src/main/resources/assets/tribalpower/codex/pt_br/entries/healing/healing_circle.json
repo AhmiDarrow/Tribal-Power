@@ -1,0 +1,40 @@
+{
+  "name": "Círculo de cura",
+  "icon": "tribalpower:rite_healing_circle",
+  "order": 50,
+  "items": [
+    "tribalpower:rite_healing_circle",
+    "tribalpower:spirit_remnant"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_healing_circle",
+      "title": "O rito do acampamento",
+      "text": [
+        "O Círculo de cura é um [rito do mundo](world_rites). Construa um [Círculo de rito](rite_circle), assente um **Selo de Espírito** no braseiro e conjure a tábua: **500 de Pulso**, e o círculo fica aberto **10 minutos** (um círculo de segundo nível, com quatro totens de Espírito nos pontos cardeais, custa **375 de Pulso** e fica aberto **20 minutos**).",
+        "Quando abre, todos dentro de **12 blocos**, jogadores e familiares vinculados, são curados em **10 corações**, perdem todo efeito nocivo e ganham **10 minutos** de [Bênção espiritual](spirit_sickness)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Enquanto permanece aberto",
+      "text": [
+        "No resto do tempo, o círculo cura quem está dentro em **um coração a cada dois segundos** e tira o Mal espiritual assim que ele pega. É um bom lugar para recuar."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chamar os caídos de volta",
+      "text": [
+        "Quando um **familiar vinculado** morre, ele não apenas some. Deixa um **Remanescente do Espírito** brilhante onde caiu, que nunca desaparece, e você recebe uma mensagem dizendo isso. (Não confunda com os remanescentes selvagens da Marcha: este é o espírito do seu companheiro, à espera.)",
+        "Ponha o remanescente em um dos **quatro pedestais** do círculo antes de conjurar. Quando o círculo abre, o familiar volta naquele pedestal: **inteiro**, ainda seu, com o nome e a treliça dele. O que carregava caiu onde ele caiu, como sempre, então recolha isso também."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_healing_circle"
+    }
+  ],
+  "next": "sweat_lodge"
+}

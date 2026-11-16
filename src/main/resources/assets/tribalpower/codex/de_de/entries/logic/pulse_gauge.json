@@ -1,0 +1,264 @@
+{
+  "name": "Pulsmesser und Pulsschwelle",
+  "icon": "tribalpower:pulse_gauge",
+  "order": 30,
+  "spoiler": false,
+  "items": [
+    "tribalpower:pulse_threshold"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_gauge",
+      "text": [
+        "Der Pulsmesser macht gespeicherten Puls zu Redstone. Richte ihn auf ein Trommelherz, einen Generator, einen Resonator oder einen Leysammler, auf irgendetwas, das Puls speichert, und er gibt **0 bis 15** ab, je nachdem wie voll dieser Speicher ist. Werkstätten ziehen Puls aus der Umgebung und halten nichts zum Ablesen.",
+        "Sein Gegenstück, die **Pulsschwelle**, antwortet mit einem schlichten Ja oder Nein: ist der Speicher mindestens so voll?",
+        "Beide werden aus Marschstein gemacht, also warten sie auf deine erste Reise in den Marsch."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pulsmesser",
+      "text": [
+        "Ducke dich und setze ihn an den Block, den du lesen willst; sein Pfeil zeigt in den Block, den du angeklickt hast. Ein normaler Klick würde stattdessen diesen Block benutzen und ein Trommelherz schlagen. Er gibt an **jeder Seite außer dem Pfeil** ab, schwach an den Seiten und stark aus der Rückseite.",
+        "Das Signal ist **0**, wenn der Speicher leer ist, und steigt dann beim Füllen von 1 auf 15. Es aktualisiert sich alle 4 Ticks, und ein Komparator, der den Pulsmesser liest, bekommt dieselbe Zahl.",
+        "Rechtsklick zeigt gespeicherten Puls, Kapazität und Signal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pulsschwelle",
+      "text": [
+        "Setze sie auf dieselbe Weise, geduckt, mit dem Pfeil in den Speicher. Rechtsklick schaltet **25, 50, 75 und 100%** durch; sie startet bei 50.",
+        "Sie gibt volle **15** ab, solange gespeicherter Puls bei diesem Anteil oder darüber liegt, und nichts darunter. Wie der Pulsmesser sendet sie nie von der Pfeilseite, damit sie den Speicher, den sie beobachtet, nicht stört. Ein Komparator liest die Einstellung als 1 bis 4."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pausieren oder schützen",
+      "text": [
+        "Ein gehaltenes Signal pausiert Maschinen. Direkt an eine Maschine gelegt, pausiert eine Pulsschwelle sie, solange der Speicher **voll genug** ist.",
+        "Meist willst du das Gegenteil: eine hungrige Station pausieren, während die Trommel **niedrig** läuft, damit dir eine Reserve bleibt. Setze eine **Umkehrplatte** auf die Leitung. Jetzt ist 'zu leer' das aktive Signal: unter der Einstellung singt die Umkehr und die Station pausiert; sobald die Trommel sich erholt, wird die Umkehr still und die Arbeit geht weiter.",
+        "Teste an einer hungrigen Station, bevor du das ganze Lager verdrahtest."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Eine Reserve behalten",
+      "steps": [
+        {
+          "caption": "Ein Trommelherz speist einen Echozermalmer drei Blöcke entfernt.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                3
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "caption": "Ducke dich und setze eine Pulsschwelle an die Trommel, Pfeil hinein; ein normaler Klick würde stattdessen die Trommel schlagen. Rechtsklick auf die Pulsschwelle wählt 25, 50, 75 oder 100%.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:pulse_threshold[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Ducke dich und setze eine Umkehrplatte auf die Rückseite der Pulsschwelle, zur Station hin; ein normaler Klick würde die Einstellung der Pulsschwelle ändern. Sie liest den Block, auf dem sie sitzt.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:inverse_plate[facing=south]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Unter der Einstellung wird die Pulsschwelle still, die Umkehr singt, und die Station wartet, bis die Trommel sich wieder füllt.",
+          "highlight": [
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_gauge"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_threshold"
+    }
+  ],
+  "next": "song_thread"
+}

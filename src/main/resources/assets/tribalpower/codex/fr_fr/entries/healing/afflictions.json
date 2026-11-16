@@ -1,0 +1,25 @@
+{
+  "name": "Maux",
+  "icon": "tribalpower:spirit_remnant",
+  "order": 45,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Au-delà du [Mal de l'esprit](spirit_sickness), trois autres choses peuvent se poser sur toi, dehors :",
+        "- **Silence non-chanté** : les carreaux de Silence du Non-chanté emportent ta voix avec eux. Pendant **12 secondes**, ni chant ni voix de bâton ne répondent. Attends que ça passe, bois du lait, ou lave-le.",
+        "- **Effiloché** : un coup d'un sauvage **Tisserand d'écho** ou **Rampeur de pénombre** t'arrache quelque chose : **deux cœurs** de ta santé pendant **deux minutes**. Le lait n'y fait rien.",
+        "- **Mal de ley** : le sol tangue et les cellules que tu portes perdent **2 de Pulsation toutes les deux secondes** par niveau. Cela vient de rester sur un croisement de ley à nu pendant que les fils déferlent. Le lait l'enlève."
+      ],
+      "title": "Ce que la Marche laisse sur toi"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Chaque [remède](remedies) les lève toutes, et le [Cercle de soin](healing_circle) et une nuit dans la [hutte de sudation](sweat_lodge) aussi.",
+        "L'ancienne voie est le **Puits d'Esprit** : trouves-en un dans la Marche, entre dans son eau et **accroupis-toi**. Pour **40 de Pulsation** tirés d'une cellule que tu portes, le puits t'ôte toute affliction, le Mal de l'esprit compris."
+      ],
+      "title": "Lavage net"
+    }
+  ]
+}

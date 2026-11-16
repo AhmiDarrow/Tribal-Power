@@ -1,0 +1,73 @@
+{
+  "name": "Ombre",
+  "icon": "tribalpower:barrow_shroud",
+  "order": 360,
+  "spoiler": true,
+  "items": [
+    "tribalpower:barrow_shade_spawn_egg",
+    "tribalpower:pale_wraith_spawn_egg",
+    "tribalpower:cinder_shade_spawn_egg",
+    "tribalpower:drowned_shade_spawn_egg",
+    "tribalpower:barrow_shroud",
+    "tribalpower:wraith_veil",
+    "tribalpower:shade_ember",
+    "tribalpower:drowned_weed"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ombre",
+      "text": [
+        "I morti della Marcia camminano dove sono morti: un cappuccio vuoto con due luci dentro e una veste senza niente sotto. Ogni ombra ha **25 di salute** e nessuna armatura, e colpisce per **5**, ma ognuna combatte a modo suo.",
+        "Ognuno lascia cadere **da 1 a 2** del suo reagente, di più con Saccheggio. Nessuno di loro si legherà."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:barrow_shade",
+      "title": "Ombra del tumulo",
+      "text": [
+        "Un re morto incoronato, in bende da tomba. Infesta le caverne buie sotto gli Altipiani, giorno e notte, uno o due alla volta. Il suo colpo ti indebolisce per 4 secondi.",
+        "Lascia cadere **Sudario del tumulo**, un reagente di Indebolire.",
+        "Cacciato, lascia anche da 1 a 2 ossa e fino a 1 Membrana di phantom."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_wraith",
+      "title": "Spettro pallido",
+      "text": [
+        "Uno spettro gelido che trascina lunghi veli. Vola di notte sopra i Campi di neve, uno o due alla volta. Da fino a 12 blocchi di distanza lancia un gelo che ti rallenta per 3 secondi. Una copertura interrompe il lancio.",
+        "Lascia cadere **Velo di spettro**, un reagente di Gelo.",
+        "Cacciato, lascia anche fino a 1 Membrana di phantom e fino a 2 palle di neve."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinder_shade",
+      "title": "Ombra di cenere",
+      "text": [
+        "Uno spettro fumigante con le mani carbonizzate. Vola di notte sopra le Distese di brace, uno o due alla volta, ed è **immune al fuoco**. Da fino a 12 blocchi di distanza lancia un dardo che ti dà fuoco per 2 secondi. Una copertura interrompe il lancio.",
+        "Lascia cadere **Brace d'ombra**, un reagente di Dardo.",
+        "Cacciato, lascia anche fino a 1 Membrana di phantom e ha una probabilità su tre di lasciare Polvere di blaze."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:drowned_shade",
+      "title": "Ombra annegata",
+      "text": [
+        "Uno spettro drappeggiato di alghe, con una lanterna. Sorge di notte nell'acqua dei Bassifondi, uno o due alla volta, e nuota o cammina dietro di te: la riva non è un rifugio. Il suo colpo ti indebolisce per 4 secondi.",
+        "Lascia **Alga annegata**, un reagente di Indebolimento.",
+        "Cacciato, lascia anche fino a 1 membrana di phantom e fino a 2 schegge di prismarina."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caccia e allevamento",
+      "text": [
+        "Oltre al suo reagente, ognuno ne lascia di più se cacciato, e ancora di più con Saccheggio."
+      ]
+    }
+  ]
+}

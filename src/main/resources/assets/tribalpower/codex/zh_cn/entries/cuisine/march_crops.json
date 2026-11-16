@@ -1,0 +1,35 @@
+{
+  "name": "远行界作物",
+  "icon": "tribalpower:emberroot",
+  "order": 0,
+  "items": [
+    "tribalpower:emberroot",
+    "tribalpower:fen_rice",
+    "tribalpower:frostberry",
+    "tribalpower:glimmer_bean",
+    "tribalpower:steppe_grain"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "五种作物在外面野生，各在自己的地方。找到一片，摘下，摘下的就是种子：像马铃薯一样种在耕地上。它也能长在普通泥土、远行界泥土或沙子上，野生的片就是这样长出来的。",
+        "- **余烬根**在余烬荒原：一种炽热的红块茎。",
+        "- **泽米**在芦苇泽。",
+        "- **霜莓**在雪原。",
+        "- **微光豆**在微光山脊，扎根于月光石和苔纹玛瑙，水晶原野里也有。",
+        "- **草原谷**在草原上。"
+      ],
+      "title": "远行界所长"
+    },
+    {
+      "type": "text",
+      "text": [
+        "它们分四个阶段生长。都可以生吃，不过不太顶饱。[灵械锄](spiritgear)一下收割并重新种下，蜜蜂为它们授粉，[萌芽恩惠](tribe_boons)催它们长。",
+        "霜莓和微光豆也算[灵釜](spirit_kettle)的药草。"
+      ],
+      "title": "种植它们"
+    }
+  ],
+  "next": "hearth_pot"
+}

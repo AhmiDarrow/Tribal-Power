@@ -1,0 +1,54 @@
+{
+  "name": "Accampamenti condivisi",
+  "icon": "tribalpower:camp_charter",
+  "order": 200,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:camp_charter",
+      "text": [
+        "Giochi con gli amici? Fonda un accampamento con loro. Un accampamento è un gruppo con un nome, un caveau condiviso, dispositivi che ogni membro può usare e il prestigio con le tribù messo in comune tra voi."
+      ],
+      "title": "Accampamenti condivisi"
+    },
+    {
+      "type": "image",
+      "image": "camps_identity",
+      "title": "Un accampamento, molte mani",
+      "text": "Tutto ciò che un membro piazza si apre per l'intero accampamento."
+    },
+    {
+      "type": "text",
+      "title": "Fondare e invitare",
+      "text": [
+        "Esegui **/tribalpower camp create <name>** (fino a 24 caratteri). Diventi il primo membro e il capo.",
+        "Per invitare qualcuno, esegui **/tribalpower camp invite <player>**, oppure fabbrica una **Carta dell'accampamento** e fai clic destro sul giocatore con essa. La carta non si consuma mai. Un clic destro nell'aria con essa mostra il tuo accampamento.",
+        "Un invito dura **cinque minuti**. L'invitato accetta con **/tribalpower camp join <name>**.",
+        "Puoi appartenere a un solo accampamento alla volta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ciò che i membri condividono",
+      "text": [
+        "- **Dispositivi.** I membri contano come proprietari dei blocchi dell'accampamento, dei dispositivi a trama, Piedistallo del rito, dei relè, Chiave della porta, delle piastre di canto e dei collegamenti di verso altrui. Chi è fuori dall'accampamento viene respinto.",
+        "- **Il caveau.** Qualsiasi Deposito profondo o Bisaccia del viandante apre il caveau condiviso da **54 scomparti** dell'accampamento. Accovacciati mentre ne apri uno per passare da quello al tuo caveau personale; ricorda la tua scelta.",
+        "- **Prestigio.** Dal giorno in cui entri, un quarto di ogni prestigio che un membro guadagna o perde con una tribù ricade anche sull'accampamento. Dove il tuo rango conta (scambi da Consanguineo, i loro doni, missioni di tribù, legare un residuo), conta il rango dell'accampamento se è più alto del tuo.",
+        "- **Ancore.** L'accampamento condivide **12** Ancora di via, contate in ogni mondo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gestire l'accampamento",
+      "text": [
+        "**/tribalpower camp info** elenca membri e ancore. Il capo può eseguire **/tribalpower camp rename <name>** e **/tribalpower camp kick <player>**. Chiunque può **/tribalpower camp leave**; se il capo esce, guida il membro più anziano.",
+        "Quando l'ultimo membro esce, l'accampamento si scioglie e il suo caveau si rovescia ai suoi piedi.",
+        "Quando le tribù ti conoscono, i loro [Totem di parentela](kinship_totem) possono prestare al tuo accampamento una qualunque delle loro voci."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:camp_charter"
+    }
+  ]
+}

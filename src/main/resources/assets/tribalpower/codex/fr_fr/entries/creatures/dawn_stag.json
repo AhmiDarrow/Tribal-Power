@@ -1,0 +1,52 @@
+{
+  "name": "Cerf de l'aube",
+  "icon": "tribalpower:dawn_velvet",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:dawn_stag_spawn_egg",
+    "tribalpower:dawn_velvet"
+  ],
+  "next": "lantern_fox",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:dawn_stag",
+      "text": [
+        "Un brouteur de l'aube, dont les bois se courbent comme une lyre et portent le vieux chant de la forêt. Brosse les adultes pour obtenir Velours de l'aube.",
+        "Chassé, il lâche aussi Gibier cru, de 1 à 3, et Cuir de la Marche, jusqu'à 2. Élève-le avec du **blé**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Des hardes de Cerf de l'aube paissent dans les forêts de l'Overworld et, dans la Marche, dans la steppe, sur les hautes terres, sur la Crête de la lueur et dans la tourbière aux roseaux. Ils apparaissent sur un sol ouvert et bien éclairé.",
+        "Un cerf a **24 de santé** et **1 d'armure**. Il est doux : il fuit s'il est blessé et se tient loin des monstres. Élèves-en deux avec du **blé**."
+      ],
+      "title": "Où le trouver"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Brosse un adulte pour obtenir **Velours de l'aube**, une fois par minute. Le velours se lie en 2 Espritissu sous Eau.",
+        "Si tu en chasses un, il lâche **1 à 3 Gibier cru** et **0 à 2 Cuir de la Marche** ; Butin ajoute jusqu'à un de plus de chaque, et un cerf qui meurt en brûlant lâche sa viande déjà cuite. Voir [Gibier et cuir](game_and_leather)."
+      ],
+      "title": "Ce qu'il donne"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Lie un adulte avec un Charme de lien et il devient une monture sans selle. Utilise-le pour monter, dirige du regard, maintiens le saut pour un petit bond et faufile-toi pour descendre.",
+        "Il ne porte que celui auquel il est lié. Un cerf au fil de Foulée puissant court plus vite, et la marque rare **Bond** saute plus haut. La suite est sur la page [dons du familier](familiar_gifts)."
+      ],
+      "title": "Comme familier"
+    },
+    {
+      "type": "text",
+      "title": "Chasse et pâturage",
+      "text": [
+        "Chassé, il lâche ceci, et plus avec Butin. La viande tombe rôtie si l'animal est mort en brûlant. Pour élever les sauvages, **faufile-toi** pendant que tu nourris deux adultes avec leur nourriture ; nourri normalement, un sauvage s'attendrit envers toi à la place."
+      ]
+    }
+  ]
+}

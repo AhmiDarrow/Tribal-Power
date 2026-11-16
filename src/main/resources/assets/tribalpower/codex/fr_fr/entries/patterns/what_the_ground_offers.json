@@ -1,0 +1,65 @@
+{
+  "name": "Ce que le sol offre",
+  "icon": "minecraft:raw_iron",
+  "order": 80,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ce que la fosse appelle",
+      "text": [
+        "La fosse appelle exactement ce que donnerait une sortie de minage au Toucher de soie : l'**objet brut** pour un métal, le **bloc de minerai** pour une gemme. Chaque cycle consomme son substrat et donne un résultat.",
+        "La pierre est renouvelable : un [Bassin de pierre](stone_font) en fait. La Pierre de la Marche se fond à partir de Pierres de la Marche, que tu mines dans la Marche."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les quatre bandes",
+      "text": [
+        "- **Commun** : charbon, cuivre et fer. **10 secondes** à **56 Pulsation par seconde**, sur **deux pierres**.",
+        "- **Profonde** : or, redstone et lapis-lazuli. **15 secondes** à **64**, sur **deux Pierre de la Marche**. Le quartz n'est pas dans cette bande.",
+        "- **Chaude** : le quartz et le minerai d'or du Nether. **20 secondes** à **72**, sur deux Pierre de la Marche, avec **Feu**.",
+        "- **Rare** : diamant, émeraude, et tout métal ou gemme que le scan de gravier a trouvé dans ton sac. **40 secondes** à **48**, sur **quatre Pierre de la Marche et un Éclat d'Esprit**, avec **Esprit**. Environ un cycle rare sur quatre donne le double."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quelle bande il entend",
+      "text": [
+        "Profonde, Chaude et Rare exigent [Écoute profonde](listening_pit) et le rang qui va avec. Sans échantillon, une fosse sous **y 0** entend une bande plus bas, et Esprit la descend encore d'une bande.",
+        "Si le rang ou la forme ne portent pas si loin, la fosse se contente de la bande la plus profonde qu'elle peut atteindre, au lieu de caler.",
+        "Sous y 0, ou sur de l'ardoise des abîmes, les gemmes sortent en minerais d'ardoise des abîmes."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Échantillons",
+      "text": [
+        "Un échantillon est un filtre, jamais un ingrédient. Pose-en un en faisant un clic droit sur le maillage avec un métal brut, du gravier ou une gemme.",
+        "Un matériau que l'échantillon nomme pèse **six fois** autant que n'importe quoi d'autre dans la bande. Un échantillon demande aussi la bande la plus profonde qui le contient et que la fosse peut atteindre : l'or veut la bande chaude quand Feu est allumé, la bande profonde sinon.",
+        "Un échantillon qu'aucune bande accessible ne contient est ignoré, et le Codex le dit."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Voix à la fosse",
+      "text": [
+        "Terre est requise. Chaque autre voix échange une chose contre une autre ; aucune n'est un simple multiplicateur.",
+        "- **Eau** lave : une sortie de plus chaque **troisième** cycle, pour **250 mB** du réservoir du maillage. Remplis-le avec un seau ; il contient 4,000 mB.",
+        "- **Air** accélère le cycle à environ **0.65** de sa durée et demande environ **1.55 fois** la Pulsation par seconde. La Pulsation par objet ne change pas.",
+        "- **Feu** ouvre la bande chaude à 72 Pulsation par seconde. La fosse n'y écoute que lorsqu'un échantillon de quartz ou d'or le demande, et l'or sort alors en Minerai d'or du Nether.",
+        "- **Esprit** entend une bande plus bas et ouvre la rare.",
+        "- Le **Métier** réduit le substrat de moitié, arrondi au supérieur."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que ça coûte",
+      "text": [
+        "Un cycle de fer fait **560 Pulsation** sur deux pierres.",
+        "Miner coûte encore moins de Pulsation par lingot. Le don de la fosse est qu'elle ne s'épuise jamais."
+      ]
+    }
+  ]
+}

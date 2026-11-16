@@ -1,0 +1,74 @@
+{
+  "name": "Bestien der Kristallfelder",
+  "icon": "tribalpower:chime_crest",
+  "order": 260,
+  "spoiler": true,
+  "items": [
+    "tribalpower:chime_grazer_spawn_egg",
+    "tribalpower:glass_flitter_spawn_egg",
+    "tribalpower:geode_grub_spawn_egg",
+    "tribalpower:shard_stalker_spawn_egg",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:shard_barb"
+  ],
+  "next": "beasts_shallows",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Die Eigenen des Kristalls",
+      "text": [
+        "Die terrassierten Tafelberge halten einen langhalsigen Graser und eine Libelle im Freien, eine Kugelassel in den Höhlen darunter und eine Kristallmantis, die nachts über den Kristall geht.",
+        "Jede sanfte Bestie hier lässt sich einmal pro Minute bürsten, um ihr Reagenz zu bekommen, und wird mit ihrem eigenen Futter gelockt und gezüchtet, genannt weiter unten unter **Jagd und Zucht**. Sie lässt sich binden wie jedes sanfte Tier (siehe [Vertraute](familiars)), und obwohl keine eine eigene Gabe hat, kann eine gebundene trotzdem an einem Totem eine Stimme annehmen und deine Magie stärken (siehe [Einstimmen an einem Totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:chime_grazer",
+      "title": "Klangweider",
+      "text": [
+        "Ein violetter, wolliger Weider mit langem Hals, zwei großen Kristallhörnern und einem Kristallkamm entlang des Rückens, in Herden von zwei bis vier. **24 Gesundheit** und **3 Rüstung**.",
+        "Er lässt **1 bis 3 Klangkamm** fallen, mehr mit Plünderung.",
+        "Gejagt lässt er außerdem 1 bis 2 Rohes Wildbret, bis zu 1 Marschleder und bis zu 1 Amethystscherbe fallen. Züchten mit **Weizen**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glass_flitter",
+      "title": "Glasflatterer",
+      "text": [
+        "Eine Libelle mit Glasflügeln, zu eins bis drei. **10 Gesundheit**, keine Rüstung.",
+        "Er lässt **1 bis 3 Glasflügel** fallen.",
+        "Gejagt lässt er außerdem bis zu 2 Federn fallen. Züchten mit **Echoblüte oder irgendeiner kleinen Blume**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:geode_grub",
+      "title": "Geodenlarve",
+      "text": [
+        "Eine schwere Rollassel aus gebändertem fliederfarbenem Stein, mit einer blassen Kopfplatte und einer Reihe Geoden am Rückgrat, aus den dunklen Höhlen unter den Mesas, jeweils ein bis drei. **26 Gesundheit** und **5 Rüstung**, sehr langsam, und sanft.",
+        "Sie lässt **1 bis 3 Geodenhülle** fallen.",
+        "Gejagt lässt sie außerdem bis zu 2 Amethystscherben fallen. Züchten mit **Laternenhut oder irgendeinem Pilz**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shard_stalker",
+      "title": "Splitterschleicher",
+      "text": [
+        "Eine Kristallmantis, die nachts zwischen dem Kristall aufsteigt, jeweils eine oder zwei. Sie hat **21 Gesundheit** und **1 Rüstung**, ist schnell, und ihr Schlag verursacht **5** und vergiftet dich 3 Sekunden lang.",
+        "Sie lässt **1 bis 2 Splitterdorn** fallen, ein Gift-Reagenz.",
+        "Gejagt lässt sie außerdem bis zu 1 Amethystscherbe und bis zu 1 Faden fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Zucht",
+      "text": [
+        "Neben seinem Reagenz lässt jedes mehr fallen, wenn man es jagt, und noch mehr mit Plünderung. Fleisch fällt gebraten, wenn das Tier brennend starb. Um wilde zu züchten, **schleiche** dich, während du zwei Erwachsene mit ihrem Futter fütterst; normal gefüttert, wird ein wildes dir stattdessen zutraulich."
+      ]
+    }
+  ]
+}

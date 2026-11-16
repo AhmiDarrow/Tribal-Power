@@ -1,0 +1,16 @@
+{
+  "name": "Tábua: Corda dos Vinculadores de raízes",
+  "icon": "tribalpower:lore_tablet",
+  "order": 120,
+  "spoiler": true,
+  "unlock": "tablet:2",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "De um Salão dos ancestrais submerso, nas palavras dos Vinculadores de raízes:",
+        "“As raízes são a única corda que o vazio respeita. Plantamos as primeiras âncoras nas ilhas que caíam e as amarramos de ilha em ilha, de raiz em raiz. Metade delas se manteve. Plante uma muda no solo da Marcha e você a sentirá puxar para as outras.”"
+      ]
+    }
+  ]
+}

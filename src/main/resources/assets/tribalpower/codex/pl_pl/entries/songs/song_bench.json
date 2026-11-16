@@ -1,0 +1,244 @@
+{
+  "name": "Stół pieśni",
+  "icon": "tribalpower:song_bench",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_bench",
+      "text": [
+        "Stół pieśni to miejsce, gdzie odczynniki stają się magią. **Wzmacnia** surowe odczynniki, zapisuje je w **pieśni**, opierza **Strzała zwrotki** i **namaszcza** broń duchowego sprzętu.",
+        "Wzmocnienie zużywa 16 Puls. Karta bierze od 3 do 7 wzmocnionych odczynników, papier i jeden znak: Rytualna kreda."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wzmacnianie",
+      "text": [
+        "Postaw stół w zasięgu 8 bloków od przedmiotu Totem rezonansu i naładowanego generatora i trzymaj Sakiewka odczynników na pasku szybkiego wyboru: stół czyta odczynniki z sakiewki.",
+        "Kliknij odczynnik na liście, by go wybrać. **Wzmocnij**, albo klik z Shiftem, zamienia jeden surowy odczynnik we wzmocniony za 16 Puls."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zapisywanie pieśni",
+      "text": [
+        "Osadź papier i Rytualna kreda, potem wybierz od 3 do 7 wzmocnionych odczynników po kolei: zaznacz jeden i naciśnij **Dodaj**, albo kliknij go dwa razy. Pierwszy odczynnik wybiera [kształt](song_shapes) pieśni; **Głos** wybiera, w którym bliskim totemie ona śpiewa.",
+        "Naciśnij **Zapisz**, by dostać **Karta pieśni**. Zaśpiewaj ją raz prosto z ręki albo opraw w Śpiewnik: osadź księgę, zostaw kartę na wyjściu i naciśnij **Zapisz**, gdy w sekwencji nic nie ma.",
+        "Gdy księga jest osadzona, **Zapisz** wkłada pieśń prosto do niej. **Podnieś** wyjmuje otwartą stronę z powrotem jako kartę, a **Weź** podaje ci surowe odczynniki z sakiewki."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ile to kosztuje",
+      "text": [
+        "Zapis zużywa te odczynniki, papier i jeden ślad kredy, plus **12 Puls** za każdy odczynnik na karcie. Stół z rangą prosi o mniej pulsu za wszystko, co robi.",
+        "Pierwszy Śpiewnik mieści 1 stronę do 3 odczynników. Oprawiony śpiewnik mieści 3 strony do 5, a Śpiewnik chóru 5 stron do 7.",
+        "Kliknij prawym przyciskiem trzymaną księgę, by śpiewać. Kucnij i kliknij prawym, by przewrócić stronę. Ogniwo Pulsu osadzone w księdze płaci pierwsze, potem ogniwa, które nosisz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Namaszczanie broni",
+      "text": [
+        "Obok wyjścia jest **miejsce na broń**. Włóż tam broń duchowego sprzętu (żadna broń z gry podstawowej ani z innego moda nie przyjmuje namaszczenia), wybierz odczynnik na liście i naciśnij **Namaść**.",
+        "Zużywa **4 wzmocnione odczynniki** tego rodzaju i **32 Puls**, a broń trzyma moc odczynnika, aż namaścisz ją czymś innym. Cała historia jest na stronie [Namaszczenie](anointing)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Jeden stół, dwa głosy",
+      "steps": [
+        {
+          "caption": "Stół pieśni z generatorem w zasięgu.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_bench"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Totem Ziemia w zasięgu może być głosem przedmiotu Karta pieśni.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dodaj totem Ogień, a stół może śpiewać jednym albo drugim głosem.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Strzały zwrotki",
+      "text": [
+        "Wybierz wzmocniony odczynnik i naciśnij **Opierz**: jeden odczynnik i 8 Puls dają **cztery** Strzała zwrotki, śpiewane głosem, który wybierzesz.",
+        "Dla mocniejszej strzały ułóż najpierw do 3 wzmocnionych odczynników przez **Dodaj**, potem naciśnij **Opierz**: cztery strzały niosą tę krótką zwrotkę, za 8 Puls na odczynnik. Każda kopia wiodącego odczynnika dodaje punkt mocy, a każdy inny odczynnik jedzie przy trafieniu.",
+        "Trzymaj Łuk Pulsu i naciągaj. Zwykły Bełt dźwiękowy zużywa do 6 Puls przy pełnym naciągu; Strzała zwrotki dodaje jeszcze 6 i niesie pieśń swojego odczynnika. Kusza «Puls» wystrzeliwuje te same strzały.",
+        "Ogniwo Pulsu osadzone w łuku płaci pierwsze, potem ogniwa, które nosisz.",
+        "Sygnał redstone wstrzymuje stół."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_bow",
+      "title": "Łuk Pulsu",
+      "text": [
+        "Wykuty jak reszta duchowego sprzętu: dwie **Manifestowana sztabka** i jeden **Kościany dzwonek**, naciągnięty trzema nićmi. Nie potrzebuje strzał; każdy naciąg rzuca Bełt dźwiękowy, który leci prosto i znika po około 60 blokach.",
+        "Pełne naciągnięcie trafia za **7**, częściowe za swój udział, więc szybkie stuknięcie to tylko stuknięcie. Strzała zwrotki dodaje punkt za każdą kopię swojego wiodącego odczynnika opierzoną na niej, do **3**.",
+        "Starcza na 1024, a ponieważ Puls płaci za każdy strzał, strzelanie nigdy go nie zużywa. Napraw go na [Kowadle Ducha](spirit_anvil) Manifestowanymi sztabkami, po ćwierć sztuki."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_bow"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:song_bench"
+    }
+  ],
+  "items": [
+    "tribalpower:bound_songbook",
+    "tribalpower:chorus_songbook",
+    "tribalpower:pulse_bow",
+    "tribalpower:reagent_pouch",
+    "tribalpower:song_sheet",
+    "tribalpower:songbook",
+    "tribalpower:verse_arrow"
+  ],
+  "next": "song_shapes"
+}

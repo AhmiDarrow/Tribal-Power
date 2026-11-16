@@ -1,0 +1,31 @@
+{
+  "name": "Enclume de l'Esprit",
+  "icon": "tribalpower:spirit_anvil",
+  "order": 45,
+  "items": [
+    "tribalpower:manifested_block"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_anvil",
+      "text": [
+        "Une enclume pour l'Espritoutillage, qui ne s'use que lorsqu'il travaille sans Pulsation. Pose à gauche un outil ou une arme usé d'Espritoutillage (l'Arc de Pulsation et l'Arbalète de Pulsation aussi) et à droite des **Lingot manifesté** : chaque lingot répare un quart de sa durabilité, pour un niveau chacun plus le coût d'enclume habituel pour le travail déjà fait, comme une enclume en fer répare un outil avec son propre métal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Toujours une enclume",
+      "text": [
+        "Elle fait tout ce que fait une enclume : renommer, ajouter des livres enchantés, combiner deux outils identiques, réparer un autre équipement avec son propre matériau.",
+        "Contrairement à une enclume en fer, elle ne s'ébrèche ni ne se casse, ni à l'usage ni dans une chute. Elle tombe quand même si rien ne la retient.",
+        "Sa face est un Bloc de métal manifesté entre deux blocs de fer : neuf Lingot manifesté fabriqués ensemble, et de nouveau neuf lingots dès que tu en as besoin.",
+        "Chaque pièce d'Espritoutillage, les outils, les armes, les cisailles, le hochet, les deux arcs et la [Masse de résonance](resonance_maul), ne se répare qu'avec des **Lingot manifesté**, ici ou sur n'importe quelle enclume, jamais avec des diamants. L'Espritissu se répare avec du tissu d'Espritissu."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_anvil"
+    }
+  ]
+}

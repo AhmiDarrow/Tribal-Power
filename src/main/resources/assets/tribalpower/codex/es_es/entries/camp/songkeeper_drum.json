@@ -1,0 +1,42 @@
+{
+  "name": "Tambor del Guardián del canto",
+  "icon": "tribalpower:songkeeper_drum",
+  "order": 190,
+  "items": [
+    "tribalpower:songkeeper_drum"
+  ],
+  "next": "shared_camps",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:songkeeper_drum",
+      "title": "Tócalo por el gusto de hacerlo",
+      "text": [
+        "El Tambor del Guardián del canto es un juego de ritmo con **26 canciones** propias: los Ritos del Portal y el Círculo de tambores, la música de cada tierra de la Marcha y los temas de sus guardianes. Con **Ninjacat Skies Core** 0.5.16 o posterior instalado, se les unen los doce temas de los guardianes Ninjacat, y con **Chocobos Reborn** también sus ocho carreras. Cada canción suena entera, y cada nota está marcada a partir de un golpe real de la grabación.",
+        "Elige una canción y una dificultad (**Fácil**, **Normal**, **Difícil** o **Experto**; Fácil usa tres tambores) y golpea **A**, **S**, **D** y **F** (o las teclas de flecha) cuando cada parche llegue a la línea. Puedes reasignar los cuatro tambores en Controles (las teclas de tambor del **rito del Portal**); A, S, D, F y las flechas también funcionan siempre."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cómo jugar",
+      "text": [
+        "Un golpe es **Perfecto**, **Genial** o **Bueno** según lo cerca que caiga. Una racha sube tu multiplicador: **x2** a los 10 seguidos, **x3** a los 20, **x4** a los 30. Un fallo rompe la racha y la canción decae.",
+        "Las notas que brillan son una frase de **Oleada de Espíritu**. Cada frase limpia llena un **cuarto** del medidor de oleada; cuando está a la mitad, pulsa **Espacio** para duplicar cada punto mientras dure: hasta **16 segundos** con el medidor lleno, **8** con la mitad.",
+        "Vigila el medidor de **Resonancia**. Los fallos lo vacían, los golpes lo llenan; si se vacía, la canción se rompe y no se guarda puntuación. Fácil nunca se rompe.",
+        "Si las notas y la música se separan en tu equipo, ajusta el **desfase de audio** en la lista de canciones. La **Velocidad** cambia lo rápido que viajan las notas, y los **sonidos de golpe** añaden un toque en cada acierto."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Puntuaciones y duelos",
+      "text": [
+        "El tambor guarda tu **mejor puntuación y estrellas** de cada canción en cada dificultad, y un tablero de los **cinco mejores** del servidor. Un combo completo da estrellas de oro.",
+        "Pon **dos Tambor del Guardián del canto, lado a lado** y serán una pareja de duelo. Desde un tambor, reta a quien esté en el otro: los dos tocan la misma canción a la vez, cada uno ve la puntuación del otro en una barra de tira y afloja, y gana la más alta. Tu historial de duelos sale arriba en la lista de canciones."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:songkeeper_drum"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "name": "Kóboldes",
+  "icon": "tribalpower:kobold_scale",
+  "order": 340,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ridge_kobold_spawn_egg",
+    "tribalpower:geode_kobold_spawn_egg",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn"
+  ],
+  "next": "shades",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Kóboldes",
+      "text": [
+        "Los kóboldes viven dondequiera que haya algo que valga la pena excavar, y no lo comparten."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dos clases",
+      "text": [
+        "Ambos surgen en la oscuridad, de día o de noche, de uno o dos a la vez. Un kóbold tiene **21 de salud** y **2 de armadura**, es rápido y golpea por **4**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ridge_kobold",
+      "title": "Kóbold de la cresta",
+      "text": [
+        "Un minero pequeño, lagarto-perro erguido, con un pico y una lámpara en el casco, que se encuentra en las cuevas oscuras bajo la Cresta del Destello.",
+        "Si se caza, también suelta hasta 2 cobre en bruto y hasta 1 carbón."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:geode_kobold",
+      "title": "Kóbold de geoda",
+      "text": [
+        "Un kóbold al que le ha crecido cristal encima, con una lanza de punta de cristal, de las cuevas oscuras bajo los Campos de cristal.",
+        "Cazado, también suelta hasta 2 fragmentos de amatista y hasta 2 lapislázuli."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que dan",
+      "text": [
+        "Un Kóbold de la cresta suelta **de 1 a 2 Escama de kóbold**, un Kóbold de geoda **de 1 a 2 Cuerno de kóbold**, más con Saqueo. Ambos son reactivos de sabueso: mira [reactivos](reagents).",
+        "Los kóboldes nunca se vinculan."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, cada uno suelta más al cazarlo, y aún más con Saqueo."
+      ]
+    }
+  ]
+}

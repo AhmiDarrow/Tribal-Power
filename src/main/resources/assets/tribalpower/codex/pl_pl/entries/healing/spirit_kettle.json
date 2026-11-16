@@ -1,0 +1,43 @@
+{
+  "name": "Kocioł «Duch»",
+  "icon": "tribalpower:spirit_kettle",
+  "order": 10,
+  "items": [
+    "tribalpower:spirit_kettle"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_kettle",
+      "title": "Kocioł nad ogniem",
+      "text": [
+        "Kocioł «Duch» to żelazny garnek zawieszony na kościanej ramie. Musi stać **nad żarem**: zapalone ognisko, ogień, ogień dusz, blok magmy, lawa albo [Misa żaru](pulse_lights) tuż pod nim.",
+        "Nie potrzebuje totemu, by działać, ale nasłuchuje: głos **najbliższego Totem rezonansu** w promieniu 8 bloków jest śpiewany w każdy war i nadaje mu kształt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Warzenie",
+      "text": [
+        "Otwórz go i wypełnij trzy miejsca po lewej:",
+        "- **Odczynnik**: jeden surowy [odczynnik](reagents), jako przedmiot (wyjmij go z sakiewki przy Stół pieśni). Jego rodzina decyduje o remedium.",
+        "- **Zioło**: Trzcina Ducha, Oset ley, Kwiat echa, Liść Marszu, Lilia księżycowa, Kapelusz latarni, Porost zasłony, Mroźna jagoda lub Fasola błysku.",
+        "- **Baza**: **szklana butelka** daje **2 nalewki**, **plaster miodu** daje **2 maści**, **węgiel drzewny** daje **4 kadzidła**.",
+        "Porcja zajmuje **10 sekund** i **24 Puls**, pobierane z generatorów i magazynów w promieniu 8 bloków przy końcu, i zużywa po jednym z każdego wejścia. Ekran mówi, czy czeka na żar, Puls czy miejsce na wyjściu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Automatyzacja",
+      "text": [
+        "Leje i rury mogą zasilać go od góry i z boków i zabierać war od dołu, więc kocioł może sam zaopatrywać obóz.",
+        "Każda liczba tutaj jest w sekcji **leczenie** wspólnej konfiguracji."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_kettle"
+    }
+  ],
+  "next": "remedies"
+}

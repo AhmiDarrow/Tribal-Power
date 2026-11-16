@@ -1,0 +1,38 @@
+{
+  "name": "Kotwica szlaku",
+  "icon": "tribalpower:wayanchor",
+  "order": 80,
+  "next": "summoning_cradle",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wayanchor",
+      "text": [
+        "Utrzymuje jeden chunk przy pracy, gdy jesteś daleko. Koniec przekaźnika, Dół nasłuchu albo Wrota w dalekim chunku stają, gdy nikogo nie ma w pobliżu; Kotwica szlaku utrzymuje swój chunk załadowany za **16 Puls** na sekundę."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jak uruchomić",
+      "text": [
+        "Postaw ją w chunku, który ma zostać obudzony. Trzyma dokładnie ten jeden chunk, nie promień wokół. Odpowiada **Ziemia**: trzymaj totem Ziemi w zasięgu 8 bloków (zobacz [Ręce obozu](camp_hands)), inaczej puszcza chunk.",
+        "Trzyma zapas **2,400 Puls** i uzupełnia go o najwyżej **80** na sekundę z kraty. Możesz też dopełnić go Ogniwem Pulsu.",
+        "Redstone albo pusty zapas puszcza chunk. Zniszczenie kotwicy puszcza go od razu.",
+        "Kliknij prawym przyciskiem, aby zobaczyć, czy trzyma. Komparator odczytuje 15, dopóki trzyma."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Limity i zastosowania",
+      "text": [
+        "Każdy gracz może uruchomić do **32** kotwic w każdym świecie. Członkowie [wspólnego obozu](shared_camps) dzielą zamiast tego **12** kotwic między sobą, liczone we wszystkich światach, więc ustal z nimi, które chunki się liczą.",
+        "Przekaźniki same nigdy nie utrzymują chunków załadowanych. Jeśli oba końce przekaźnika mają działać, gdy podróżujesz, postaw kotwicę na dalekim końcu.",
+        "Wrota trzymają daleki koniec obudzony przez kilka sekund, gdy ktoś przybywa, więc Wrota potrzebują kotwicy tylko wtedy, gdy coś tam ma dalej działać."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wayanchor"
+    }
+  ]
+}

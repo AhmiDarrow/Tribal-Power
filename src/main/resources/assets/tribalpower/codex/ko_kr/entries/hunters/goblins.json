@@ -1,0 +1,62 @@
+{
+  "name": "고블린",
+  "icon": "tribalpower:goblin_ear",
+  "order": 330,
+  "spoiler": true,
+  "items": [
+    "tribalpower:fen_goblin_spawn_egg",
+    "tribalpower:tunnel_goblin_spawn_egg",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang"
+  ],
+  "next": "kobolds",
+  "pages": [
+    {
+      "type": "text",
+      "title": "고블린",
+      "text": [
+        "작고, 빠르고, 심술궂다. 고블린은 한 번에 한두 마리씩 와서 곧장 너에게 달려든다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "두 종류",
+      "text": [
+        "고블린은 **체력 18**과 **방어력 1**이 있고, 빠르며, **4**로 친다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:fen_goblin",
+      "title": "습지 고블린",
+      "text": [
+        "마르고 귀가 큰 고블린이다. 갈대 창을 들었고, 갈대 늪에서 발견된다. 밤이면 트인 땅에 나타난다.",
+        "사냥하면 금 조각 최대 2개, 뼈 최대 1개, 실 최대 1개도 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tunnel_goblin",
+      "title": "굴 고블린",
+      "text": [
+        "등을 구부린 고블린. 가시 곤봉을 들고 모자에 양초가 붙어 있다. 초원 아래 어두운 굴에서 발견되며, 낮에도 밤에도 나타난다.",
+        "사냥하면 석탄 최대 2개, 철 조각 최대 2개, 뼈 최대 1개도 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "그들이 주는 것",
+      "text": [
+        "습지 고블린은 **고블린 귀 1~2개**를 떨어뜨린다(연두색 염료). 굴 고블린은 **고블린 송곳니 1~2개**. 약탈이면 더 늘어난다. 둘 다 사냥개 시약이다. 기름을 부으면 무기가 매 타격의 일부를 되마신다. [시약](reagents) 참조.",
+        "고블린은 결코 결속되지 않는다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "사냥과 목축",
+      "text": [
+        "시약 외에, 사냥하면 더 떨어지고 약탈이면 한 번 더 늘어난다."
+      ]
+    }
+  ]
+}

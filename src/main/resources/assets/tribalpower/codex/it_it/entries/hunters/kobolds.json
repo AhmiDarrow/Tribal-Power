@@ -1,0 +1,62 @@
+{
+  "name": "Coboldi",
+  "icon": "tribalpower:kobold_scale",
+  "order": 340,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ridge_kobold_spawn_egg",
+    "tribalpower:geode_kobold_spawn_egg",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn"
+  ],
+  "next": "shades",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Coboldi",
+      "text": [
+        "I coboldi vivono ovunque ci sia qualcosa che valga la pena scavare, e non lo condividono."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Due tipi",
+      "text": [
+        "Entrambi compaiono nel buio, di giorno o di notte, uno o due alla volta. Un coboldo ha **21 di salute** e **2 di armatura**, è rapido e colpisce per **4**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ridge_kobold",
+      "title": "Coboldo del crinale",
+      "text": [
+        "Un piccolo minatore, un cane-lucertola ritto, con piccone e lampada sull'elmo, che si trova nelle caverne oscure sotto il Crinale lucente.",
+        "Cacciato, lascia anche fino a 2 rame grezzo e fino a 1 carbone."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:geode_kobold",
+      "title": "Coboldo di geode",
+      "text": [
+        "Un coboldo ricoperto di cristallo cresciuto, con una lancia dalla punta di cristallo, nelle caverne buie sotto i Campi di cristallo.",
+        "Cacciato, lascia anche fino a 2 schegge di ametista e fino a 2 lapislazzuli."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa danno",
+      "text": [
+        "Un Coboldo del crinale lascia **da 1 a 2 Scaglia di coboldo**, un Coboldo di geode **da 1 a 2 Corno di coboldo**, di più con Saccheggio. Entrambi sono reagenti da segugio: vedi [reagenti](reagents).",
+        "I coboldi non si legano mai."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caccia e allevamento",
+      "text": [
+        "Oltre al suo reagente, ognuno lascia di più quando viene cacciato, e ancora di più con Saccheggio."
+      ]
+    }
+  ]
+}

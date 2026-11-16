@@ -1,0 +1,360 @@
+{
+  "name": "浪鼓",
+  "icon": "tribalpower:wave_drum",
+  "order": 40,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wave_drum",
+      "text": [
+        "缚根者的手艺。浪鼓用水制造脉动：旁边的池塘给一点，灌进去的水给很多。它是发电机，不是备用储罐。",
+        "它容纳 **1,000脉动**。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "两种喂法",
+      "text": [
+        "**贴着水。** 水碰到鼓的任意一面，就给出**每秒3脉动**。**8格**以内各个方向，含边缘，不论是否接管，鼓都平分这份产出并向下取整：两只鼓各做**每秒1**，四只则什么也不做。",
+        "**它自己的水。** 用桶、灵蓄池或流体中继器灌满内部储罐，它就做出**每秒10**，并喝下**每秒100 mB**。这一档不会被挤占；水本身就是代价。只有真正送出脉动时才喝。",
+        "落在鼓上的雨会使两种档位都翻倍，所以有顶的鼓没有雨加成。每级等阶增加 **每秒 15% 脉动**。加成四舍五入为整数脉动，因此每秒只做2或3的发电机从第一等阶得不到任何收益。储罐容纳 **4,000 mB**，且只能装水。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "池塘边",
+      "steps": [
+        {
+          "caption": "把浪鼓放在水边。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wave_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "水碰到鼓的任意一面，就给它每秒3脉动。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:water"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "8格内的第二只鼓会分走这份产出：现在每只每秒做1脉动。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:wave_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "自己喂自己的鼓",
+      "steps": [
+        {
+          "caption": "干鼓独自什么也不做。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wave_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "把它贴着灵蓄池放下。蓄池会自己把水灌进鼓里。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "有了自己的水，鼓每秒做10脉动，并每秒喝下100 mB。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "蓄池上的春之召唤会把它重新灌满，于是整套自己运转。",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "搬走",
+      "text": [
+        "打碎鼓后，掉落的物品会保留储罐里的水。若要水到达后再继续送，就配一台潮汐泵：中继器和潮汐泵只搬运流体，不是储存。",
+        "附近灵蓄池上的[春之召唤](spring_calling)，就是水自己补满的办法。",
+        "红石信号会暂停它，暂停的鼓不取水。干鼓永远只有贴水那一档。蹲下并用这本书右键单击它，就能看到它在哪一档、储罐里有什么。",
+        "鼓是[缚根者](tribe_sprout)的手艺：配方需要节根和水之印，缚根者用鼓向朋友换取灵之芦苇。",
+        "空手蹲下右键单击一个面，可在双向、输入、输出和关闭之间切换，和[图腾扳手](camp_kit)一样。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wave_drum"
+    }
+  ]
+}

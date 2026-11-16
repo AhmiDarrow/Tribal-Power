@@ -1,0 +1,16 @@
+{
+  "name": "Tablilla: Hilo de los Zurcidores del telar",
+  "icon": "tribalpower:lore_tablet",
+  "order": 180,
+  "spoiler": true,
+  "unlock": "tablet:8",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "De una Aguja de cristal o de un campamento de los Zurcidores del telar, en sus propias palabras:",
+        "“El Telar nunca fue un solo hilo. Eran nueve de acuerdo. Sostuvimos el Huso y cosimos las hebras de las tribus en una sola tela sobre el cielo. Cuando ocho tirones se volvieron ocho discusiones, la tela se rasgó por nuestra costura. Seguimos cosiendo. Trae cristal. Trae hilo.”"
+      ]
+    }
+  ]
+}

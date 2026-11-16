@@ -1,0 +1,184 @@
+{
+  "name": "깨어남의 종",
+  "icon": "tribalpower:wake_bell",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wake_bell",
+      "text": [
+        "인장 새기는 이의 공예. 죽은 이를 애도하는 종. 가까이에서 죽는 모든 생물이 펄스를 저장고에 내므로, 몹 농장이 발전소가 된다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "내는 방식",
+      "text": [
+        "**16블록** 안의 죽음은 적대적 생물에게 **20펄스**, 수동적 생물에게 **5**를 낸다. 플레이어의 죽음은 아무것도 내지 않는다.",
+        "죽음이 **2,000**의 저장고를 채우고, 종은 등급 없이 최대 **초당 8**만 내보낸다. 등급마다 **초당 15% 펄스**가 더해지며, 정수 펄스로 반올림된다. 큰 농장은 저장고를 채운 뒤 쉰다. 가장자리를 넘는 양은 사라진다.",
+        "죽음을 듣는 것은 **가장 가까운** 종뿐이다. 종을 겹쳐도 소용없다. 레드스톤으로 멈춘 종은 아무것도 듣지 못한다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "농장 옆의 종",
+      "steps": [
+        {
+          "caption": "무언가가 죽는 곳에서 16블록 안에 종을 건다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wake_bell"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "처치할 때마다 저장고가 찬다. 종은 초당 최대 8 펄스까지 내보낸다.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "옆의 펄스 돌무지는 그 분출을 오는 대로 삼킨다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "돌무지에서 8블록 안의 기계는, 처치가 고르지 않아도 일정한 선을 뽑는다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "팁",
+      "text": [
+        "어두운 농장도 되고, 수호의 북이 죽이는 자리도 된다. 플레이어는 결코 수호의 북의 대상이 아니며, 종은 그 북이 낸 죽음을 모두 듣는다.",
+        "듣는 구덩이는 일정한 흡수를 원한다. 종을 펄스 돌무지와 짝지어라.",
+        "종은 [인장 새기는 이](tribe_sigil)의 제작이다. 제작법에는 종 조각과 정령 인장이 필요하다. 인장 새기는 이는 일족에게 종을 바꾼다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wake_bell"
+    }
+  ]
+}

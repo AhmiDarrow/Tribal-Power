@@ -1,0 +1,462 @@
+{
+  "name": "Linguaggio della pietrarossa",
+  "icon": "minecraft:comparator",
+  "order": 10,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Tenuto e colpito",
+      "text": [
+        "Le macchine Tribal sentono la pietrarossa in due modi.",
+        "Un segnale **tenuto** mette in pausa. Tieni una linea alta e officine, conduttori, risonatori, collettori, relè, bracieri, maglie, vasche, piedistalli, chiavi della porta e ogni generatore tranne il Cuoretamburo si fermano e aspettano. I depositi e le destinazioni di viaggio si bloccano.",
+        "Una pausa non perde mai nulla: Pulso immagazzinato, oggetti e fluidi restano dov'erano.",
+        "Un segnale **colpito**, il fronte di salita quando una linea si accende, è una chiamata. Lo ascoltano solo i dispositivi che fanno una sola cosa discreta: un Cuoretamburo prende un colpo, un Braciere rituale avvia il rito posato, una Chiave della porta si accende o si spegne.",
+        "Colpisci una chiave della porta con un pulsante o una Piastra di colpo, non con una leva: una linea ancora tenuta un attimo dopo riporta giù la porta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Leggere l'accampamento",
+      "text": [
+        "Metti un comparatore contro un blocco Tribal, rivolto verso l'esterno, per leggere cosa tiene senza aprirlo: Pulso immagazzinato, quanto sono pieni l'inventario o la cisterna, il buffer di FE o l'attività dei relè. Una Vasca di pietra o una Maglia di risonanza legge invece il progresso e scende a 0 quando si ferma.",
+        "Per il Pulso come uno 0 a 15 pulito, usa un [Indicatore di Pulso](pulse_gauge). Quando un numero non basta, accovacciati e fai clic destro sul blocco con questo libro per una frase (vedi [Diagnostica del codice](codex_diagnostics)).",
+        "Orologi, leve e comparatori bastano per coreografare un intero accampamento."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cablaggio Tribal",
+      "text": [
+        "[Filo di canto](song_thread) porta da 0 a 15 debolmente, come la polvere, in tutte e sei le direzioni. Non alimenta la pietra che tocca, quindi non si aggancia mai.",
+        "[Piastre di canto](song_plates) emettono dalla faccia verso cui guardano. Le piastre unarie leggono il retro; le piastre binarie leggono sinistra e destra. Una piastra sente solo l'energia puntata verso di sé, o una piastra sincronizzata con una Chiave del totem, fino a 32 blocchi e senza filo.",
+        "[Chiamata di verso e risposta](verse_link) portano un segnale fino a 32 blocchi senza alcun filo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Clic o accovacciarsi",
+      "text": [
+        "- **Clic semplice**, con la mano vuota o no: aziona il blocco. Una stazione si apre, un Cuoretamburo batte, una Soglia fa un passo del suo assetto, una piastra, un indicatore o un totem ti dice che cosa sta facendo.",
+        "- **Posizionare un blocco** contro una macchina tribale, un tamburo o una piastra: accovacciati, oppure il clic aziona quel blocco. Le piastre di relè sono l'unica eccezione: contro di esse posizioni con un clic semplice.",
+        "- **Accovacciarsi a mano vuota**: cambia un assetto. La faccia di una stazione, un deposito, una cisterna o un accampamento passa per Ingresso, Uscita, Entrambi, Chiuso; Battito, Deriva e Conto avanzano il loro conto; una Piastra di verso avanza il suo verso; una piastra di relè rovescia la sua lista.",
+        "- **Accovacciarsi con questo libro**: il blocco si spiega (vedi [Diagnostica del codice](codex_diagnostics))."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Un rito su un orologio",
+      "text": [
+        "Un Piedistallo del rito tiene e mostra un oggetto, e un comparatore legge se è occupato. È tutto ciò che serve a un rito per funzionare da solo:",
+        "- Un relè rifornisce un piedistallo del [Cerchio del rito](rite_circle) con una tavoletta.",
+        "- Una Piastra del battito, o una leva, colpisce il braciere.",
+        "- Il rito scatta e consuma la tavoletta che corrisponde al sigillo posto.",
+        "- Il comparatore segnala il piedistallo vuoto, e il relè lo riempie di nuovo.",
+        "Aggiungi una Piastra della memoria se vuoi armare e disarmare il ciclo. L'accampamento usa solo le azioni che potresti fare a mano: nessun inventario extra nascosto."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un braciere su un orologio",
+      "steps": [
+        {
+          "caption": "Traccia il Cerchio del rito: braciere al centro, piedistalli sulle diagonali, gesso tra loro.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ritual_brazier"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Sistema il sigillo nel braciere e rifornisci un piedistallo con una tavoletta della stessa voce.",
+          "highlight": [
+            [
+              2,
+              0,
+              2
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              2
+            ],
+            "item": "tribalpower:rite_rain_calling"
+          }
+        },
+        {
+          "caption": "Monta una Piastra del battito su un blocco accanto al braciere, rivolta verso di esso. Ogni battito colpisce il braciere una volta.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:heartbeat_plate[facing=south]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Un comparatore legge il piedistallo. Quando il rito consuma la tavoletta, scende a 0: il segnale perché un relè lo rifornisca.",
+          "place": [
+            {
+              "pos": [
+                3,
+                0,
+                2
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              3,
+              0,
+              2
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "next": "codex_diagnostics"
+}

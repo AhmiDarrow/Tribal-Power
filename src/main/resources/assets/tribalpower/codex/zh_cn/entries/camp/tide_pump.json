@@ -1,0 +1,265 @@
+{
+  "name": "潮汐泵",
+  "icon": "tribalpower:tide_pump",
+  "order": 50,
+  "next": "ward_drum",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tide_pump",
+      "text": [
+        "把流体从一侧储罐送到另一侧储罐，每秒**250 mB**，并从**正下方**的方块抽取水。水从灵蓄池送进浪鼓，熔岩从一个储库送到另一个：任何流体储罐都行，无论来自这个模组还是别的。",
+        "它自带一口小井，**4000 mB**，存放从下方抽取的，以及流体中继板送来的。破坏后仍保留设置：泵送方向、每个面如何设定、它的等级，还有井，以及搬到一半的流体。",
+        "它响应**水**：在8格内保留一个水图腾（参见[营地之手](camp_hands)），否则便闲置。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "它往哪边泵",
+      "text": [
+        "泵有正面，就是带箭头的那一面。和熔炉一样，放置时这一面朝向你，也可以朝上、朝下或朝向侧面。",
+        "默认**从正面的储罐抽取**，并**推入背面的储罐**。潜行并用空手右键即可反转；普通右键可查看它上次做了什么，例如抽取或推送**250 mB**。",
+        "比较器在泵从正面抽取时读数为 **15**，向正面推入时读数为 **1**。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "从下方取水",
+      "text": [
+        "把泵放在静止的水上，每一拍它把一桶，**1000 mB**，抽进自己的井。在无限水上，也就是旁边有两个水源、下面是实心地面的水源上，水源会留下；单独的水源会像用桶取走那样被取走。",
+        "改放在储罐上方时，它每一拍从那个储罐抽取 **250 mB**，除非那个储罐已经是它的正面或背面。",
+        "井里存的先进入它推入的储罐，默认是背面那个，每一拍 **250 mB**；那里没有储罐，就在井里等着。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "流体中继板",
+      "text": [
+        "流体中继板，或者给过水之印的物品板，用普通右键装到泵的任意一面。用网格调谐器调谐后，它会把井里的水送到范围内任意一处的储罐（见[无线货物](wireless_cargo)）。",
+        "别处的板若调谐到泵的某一面，则会改为注满井，泵再像自己抽到的东西一样把水送出去。",
+        "每一面都双向敞开。对着一面潜行使用**图腾扳手**，可在双向、输入、输出、关闭之间依次切换。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "储罐到储罐",
+      "steps": [
+        {
+          "caption": "两个储罐，中间留一道缝。右边那个是满的。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "把潮汐泵放在它们中间，箭头的那一面朝向满的储罐。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:tide_pump[facing=east]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "在8格以内放一台发电机和一台网格导体：每秒移动250 mB，花费4脉动。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "流体从正面的储罐流出，进入背面的储罐。",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "蹲下并对泵右键可以反转；现在左边的储罐会排空到右边。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "提示",
+      "text": [
+        "两个储罐必须接受同一种流体，接收的储罐还要有空位。",
+        "提升等阶会缩短拍；每250 mB的脉动仍是 **4**。拉杆可以让它暂停。",
+        "井很小：在流体该留住的地方，把泵和灵蓄池或浪鼓配成一对。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tide_pump"
+    }
+  ]
+}

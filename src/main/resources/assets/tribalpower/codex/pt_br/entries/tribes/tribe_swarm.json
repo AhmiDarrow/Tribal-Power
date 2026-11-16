@@ -1,0 +1,64 @@
+{
+  "name": "Guardiões da colônia",
+  "icon": "tribalpower:tribe_mark",
+  "order": 100,
+  "spoiler": true,
+  "unlock": "tribe:swarm",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_swarm",
+      "title": "Guardiões da colônia",
+      "text": [
+        "“Você não possui uma colmeia. Está em bons termos com ela.”",
+        "Linhagem de **Enxame**, voz de **Ar**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quem eles são",
+      "text": [
+        "Os Guardiões da colônia conduziram o Pulso pelo favo e plantaram as flores da Marcha para os seus enxames. Tome sem pedir e o favo se cala. O ofício deles é **colmeias e flores da Marcha**.",
+        "Os acampamentos deles ficam em **florestas floridas**, prados e bosques de cerejeiras, e na Marcha há um acampamento deles em cada faixa, do norte congelado ao sal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que eles querem",
+      "text": [
+        "O reagente deles é a **Penugem de lanterna**, que vale **+8** de posição no Lar deles.",
+        "Eles também preferem um Frasco de mel, um Favo de mel, um Bloco de mel ou qualquer flor: **+3** cada. Qualquer outra comida vale **+1**, e uma Célula de Pulso carregada **+2 a cada 10 Pulso**, até +8.",
+        "Lembre que o Lar aceita no máximo **60** de posição por dia em oferendas; consulte [Tribos e posição](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que o Ancião troca",
+      "text": [
+        "**Hóspede**: 4 Favo de mel por 2 Fragmentos de eco; 2 Frascos de mel por 2 Cardos de ley.",
+        "**Amigo**: 8 Favo de mel por 2 Flores de eco; 2 Blocos de mel por uma Penugem de lanterna; 4 Grão da estepe por um Bolo de mel.",
+        "**Parente**: 4 Eco sintonizado por um Coletor de ley; 2 Eco vinculado por 3 Tece-espírito.",
+        "Cada troca rende **+2** de posição."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marca, totem e bênção",
+      "text": [
+        "Em **Voz**, o Ancião entrega a você a Marca da tribo dos Guardiões da colônia. Fabrique-a com um {item:tribalpower:resonance_totem_air} e dois Tece-espírito para o [Totem de parentesco](kinship_totem) deles.",
+        "Ao lado de um Ressonador de Pulso, é mais uma voz; ao lado de uma estação, empresta **Ar**.",
+        "Os Parentes dos Guardiões da colônia carregam a [bênção](tribe_boons) deles: as abelhas nunca se voltam contra você.",
+        "O prato deles carrega a bênção por **5 minutos**, e a [relíquia](elders_and_stories) deles enquanto você a carregar.",
+        "A troca de Parente deles por Tece-espírito é prática: todo Totem de parentesco precisa de dois."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "swarm",
+      "title": "Seu trabalho com eles",
+      "text": [
+        "O que o Ancião dos Guardiões da colônia pediu a você, e até onde a história deles chegou. Consulte [Anciãos, pedidos e histórias](elders_and_stories)."
+      ]
+    }
+  ]
+}

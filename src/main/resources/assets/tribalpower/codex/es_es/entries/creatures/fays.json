@@ -1,0 +1,65 @@
+{
+  "name": "Hadas",
+  "icon": "tribalpower:fay_dust",
+  "order": 350,
+  "spoiler": true,
+  "items": [
+    "tribalpower:glimmer_fay_spawn_egg",
+    "tribalpower:prism_fay_spawn_egg",
+    "tribalpower:marsh_fay_spawn_egg",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Hadas",
+      "text": [
+        "Donde la luz es extraña, las hadas bailan en el aire. Son pequeñas y mansas, y huyen de los monstruos.",
+        "Cepilla una para su reactivo, una vez por minuto, y tiéntala y críala con **azúcar** o un **frasco de miel**. Puede vincularse como cualquier animal manso (consulta [familiares](familiars)) y, aunque no tiene un don propio, una vinculada aún puede tomar una voz en un tótem y reforzar tu magia (consulta [sintonizar en un tótem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tres tipos",
+      "text": [
+        "Una hada tiene **8 de salud** y ninguna armadura, vuela en grupos de una a tres y suelta **1 a 3** de su reactivo, más con Saqueo."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmer_fay",
+      "title": "Hada del destello",
+      "text": [
+        "Dorada, sobre la Cresta del destello. Suelta **Polvo de hada**.",
+        "Si la cazas, también suelta hasta 2 de polvo de piedra luminosa. Críala con **azúcar o un frasco de miel**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_fay",
+      "title": "Hada prisma",
+      "text": [
+        "Rosa, sobre los Campos de cristal. Suelta **Pétalo de hada** (tinte rosa).",
+        "Si la cazas, también suelta hasta 2 pétalos rosas y hasta 1 fragmento de amatista. Críala con **azúcar o un frasco de miel**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:marsh_fay",
+      "title": "Hada del pantano",
+      "text": [
+        "Verde, sobre la ciénaga de juncos. Algunas vuelan con el [Guardián coloso](colossus_warden). Suelta **Chispa de hada**.",
+        "Si la cazas, también suelta hasta 1 baya luminosa y hasta 1 polvo de piedra luminosa. Críala con **azúcar o un frasco de miel**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, cada uno suelta más cuando lo cazas, y más aún con Saqueo. Para criar a los salvajes, **agáchate** mientras alimentas a dos adultos con su comida; alimentado con normalidad, un salvaje se encariña contigo."
+      ]
+    }
+  ]
+}

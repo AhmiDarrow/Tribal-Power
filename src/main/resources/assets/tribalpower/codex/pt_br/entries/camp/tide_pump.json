@@ -1,0 +1,265 @@
+{
+  "name": "Bomba de maré",
+  "icon": "tribalpower:tide_pump",
+  "order": 50,
+  "next": "ward_drum",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tide_pump",
+      "text": [
+        "Move fluido de um tanque para o tanque do outro lado, **250 mB** por segundo, e puxa água do bloco **diretamente abaixo**. Água de uma Cisterna de Espírito para um Tambor das ondas, lava de um depósito a outro: qualquer tanque de fluido serve, deste mod ou de outro.",
+        "Ela guarda um pequeno poço próprio, de **4000 mB**, para o que puxa de baixo e o que as placas de relé de fluido trazem. Quebre-a e ela mantém as configurações, o sentido em que bombeia, como cada face está definida e seu grau, junto com o poço e qualquer fluido que estivesse movendo pela metade.",
+        "Ela responde a **Água**: mantenha um totem de Água em até 8 blocos (veja [Mãos do acampamento](camp_hands)), ou ela fica parada."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Para que lado ela bombeia",
+      "text": [
+        "A bomba tem uma frente, a face com a seta. Como uma fornalha, ela é colocada com essa face voltada para você, e você pode apontá-la para cima, para baixo ou para o lado.",
+        "Por padrão ela **puxa do tanque da frente** e **empurra para o tanque de trás**. Agache-se e clique com o botão direito com a mão vazia para inverter isso; um clique direito normal mostra o que ela fez por último, como puxar ou empurrar **250 mB**.",
+        "Um comparador marca **15** enquanto a bomba puxa pela frente e **1** enquanto empurra para a frente."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Água vinda de baixo",
+      "text": [
+        "Coloque a bomba sobre água parada e, a cada batida, ela puxa um balde, **1000 mB**, para o poço. Sobre água infinita, uma fonte com duas fontes vizinhas e chão sólido embaixo, a fonte fica; uma fonte sozinha é tomada do jeito que um balde a toma.",
+        "Sobre um tanque, em vez disso, ela puxa **250 mB** por batida desse tanque, a menos que esse tanque já seja a frente ou a traseira dela.",
+        "O que o poço guarda segue primeiro para o tanque em que ela empurra, o de trás por padrão, **250 mB** por batida; sem tanque ali, espera no poço."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Placas de relé de fluidos",
+      "text": [
+        "Uma placa de relé de fluidos, ou uma placa de itens que recebeu um Selo de Água, entra em qualquer face da bomba com um clique direito simples. Afine-a com o Afinador de treliça e ela leva a água do poço até um tanque em qualquer ponto do alcance (veja [Carga sem fio](wireless_cargo)).",
+        "Uma placa em outro lugar, afinada para uma das faces da bomba, enche o poço no lugar disso, e a bomba repassa isso como tudo o que puxa.",
+        "Cada face fica aberta nos dois sentidos. Agache e use uma **Chave de totem** numa face para percorrer Ambos, Entrada, Saída e Fechado."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "De tanque a tanque",
+      "steps": [
+        {
+          "caption": "Dois tanques com um vão entre eles. O da direita está cheio.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Coloque a Bomba de maré entre eles com a face da seta voltada para o tanque cheio.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:tide_pump[facing=east]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ponha um gerador e um Condutor de treliça em até 8 blocos: a cada segundo ela move 250 mB por 4 de Pulso.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "O fluido sai do tanque da frente e entra no de trás.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Agache e clique com o botão direito na bomba para invertê-la; agora o tanque da esquerda esvazia no da direita.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dicas",
+      "text": [
+        "Os dois tanques precisam aceitar o mesmo fluido, e o tanque que recebe precisa de espaço.",
+        "Subir a classificação encurta a batida; o Pulso por 250 mB continua **4**. Uma alavanca pausa a bomba.",
+        "O poço é pequeno: junte a bomba com uma Cisterna de Espírito, ou um Tambor das ondas, onde o fluido deva ficar parado."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tide_pump"
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "name": "Dostrajanie i wiązanie",
+  "icon": "tribalpower:echo_attune",
+  "order": 40,
+  "items": [
+    "tribalpower:echo_bind",
+    "tribalpower:attuned_echo",
+    "tribalpower:bound_echo"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_attune",
+      "text": [
+        "Dostrajacz echa (Ogień) zamienia Odłamek echa w **Dostrojone echo**. Jego partner, Wiązacz echa (Woda), zamienia Dostrojone echo w **Związane echo**.",
+        "To środkowe kroki (krata): materiały na lepsze maszyny i mocniejsze kryształy do Rezonator Pulsu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dostrajanie",
+      "text": [
+        "Postaw Dostrajacz echa z totemem Ogień w zasięgu 8 bloków i podawaj mu Odłamek echa. Każdy staje się Dostrojone echo w **3 sekundy** przy **40 Puls na sekundę**.",
+        "Dostrajacz echa zamienia też odłamek ametystu w Odłamek Ducha.",
+        "Z jasnopyłem w gnieździe katalizatora Dostrajacz echa zapala też [Szkło kwarcowe](glimmer_ridge).",
+        "Trofea stworzeń Marszu, takie jak Serce żaru, Kieł trzciny albo Ząb szczeliny, dostrajają się w **dwa** Dostrojone echo każde, ale potrzebują głos **Duch**, nie Ogień."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wiązanie",
+      "text": [
+        "Postaw Wiązacz echa z totemem Woda w zasięgu 8 bloków i podawaj mu Dostrojone echo. Każdy staje się Związane echo w **4 sekundy** przy **48 Puls na sekundę**.",
+        "Wiązacz echa zamienia też wełnę w **Duchotkanina**, a ziemię w **cztery kulki gliny**. Miękkie łupy stworzeń, takie jak Aksamit świtu, Puch latarni albo Skrzydło burzy, wiążą się w dwa Duchotkanina każde."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Łańcuch bez lejów",
+      "steps": [
+        {
+          "caption": "Postaw Wiązacz echa i obok totem Woda.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Postaw Dostrajacz echa na wierzchu, a w pobliżu totem Ogień.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dolna ściana Dostrajacz echa domyślnie wyprowadza na górną ścianę Wiązacz echa, więc echa schodzą same.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Podawaj Odłamek echa od góry i zabieraj Związane echo z Wiązacz echa.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Spinanie",
+      "text": [
+        "Postaw Dostrajacz echa na Wiązacz echa albo obok, ze stykającymi się ścianami ustawionymi z Wyjście na Wejście, a łańcuch idzie bez leja. Nigdy nie kieruj Oba na Oba.",
+        "Postaw Wiązacz echa na Manifestator echa, żeby iść dalej do sztabek i rdzeni.",
+        "Dźwignia wstrzymuje każdą z tych stacji. Jeśli nic się nie rusza, sprawdź głosy i Puls tą książką."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_attune"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_bind"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:attuned_echo"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bound_echo"
+    }
+  ]
+}

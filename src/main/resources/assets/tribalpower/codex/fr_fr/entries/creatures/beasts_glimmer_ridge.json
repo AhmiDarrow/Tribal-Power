@@ -1,0 +1,74 @@
+{
+  "name": "Bêtes de la Crête de lueur",
+  "icon": "tribalpower:prism_crest",
+  "order": 220,
+  "spoiler": true,
+  "items": [
+    "tribalpower:prism_grazer_spawn_egg",
+    "tribalpower:shardmoth_spawn_egg",
+    "tribalpower:glowgrub_spawn_egg",
+    "tribalpower:facet_stalker_spawn_egg",
+    "tribalpower:prism_crest",
+    "tribalpower:shard_wing",
+    "tribalpower:glow_husk",
+    "tribalpower:facet_barb"
+  ],
+  "next": "beasts_snow_fields",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Celles de la Crête",
+      "text": [
+        "Les hauteurs de pierre de lune de la [Crête de lueur](glimmer_ridge) gardent un brouteur à plaques et un phalène à découvert, et un ver luisant et une araignée de cristal dans les grottes en dessous.",
+        "Chaque bête douce d'ici peut être brossée pour son réactif une fois par minute, et on la tente et la fait se reproduire avec sa propre nourriture, nommée sous **Chasse et élevage** plus bas. Elle peut être liée comme n'importe quel animal doux (voir [familiers](familiars)), et bien qu'aucune n'ait de don propre, une liée peut tout de même prendre une voix à un totem et renforcer ta magie (voir [s'accorder à un totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_grazer",
+      "title": "Broute-prisme",
+      "text": [
+        "Un brouteur lézard, bas sur pattes, avec une rangée de plaques de prisme le long du dos, en hardes de deux à quatre. **24 de santé** et **3 d'armure**.",
+        "Il lâche de 1 à 3 **Crête de prisme**, davantage avec Butin.",
+        "Chassé, il lâche aussi de 1 à 2 Gibier cru et jusqu'à 1 Cuir de la Marche. Reproduis avec **Haricot de lueur**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shardmoth",
+      "title": "Mite d'éclat",
+      "text": [
+        "Une mite violette, aux ailes de cristal taillé, qui volette au-dessus de la crête, d'une à trois. **10 de santé**, sans armure.",
+        "Il lâche de 1 à 3 **Aile d'éclat**.",
+        "Chassé, il lâche aussi jusqu'à 1 Ficelle et jusqu'à 1 Éclat d'améthyste. Reproduis avec **Haricot de lueur**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glowgrub",
+      "title": "Verluisant",
+      "text": [
+        "Un ver luisant, long et segmenté sous une grosse tête sombre, le bout de la queue brûlant ; des cavernes obscures sous la crête, un à trois à la fois. **18 de santé** et **1 d'armure**. Il est doux et fuit les monstres comme n'importe quel brouteur.",
+        "Il lâche de 1 à 3 **Écale luisante**.",
+        "Chassé, il lâche aussi jusqu'à 2 Poudre lumineuse. Reproduis avec **Chapeau-lanterne** ou n'importe quel champignon."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:facet_stalker",
+      "title": "Traqueur à facettes",
+      "text": [
+        "Une araignée de cristal des mêmes cavernes. Elle apparaît dans le noir, de jour comme de nuit, une ou deux à la fois. Elle a **21 de santé** et **1 d'armure**, est rapide, et sa morsure inflige **5** et t'empoisonne pendant 3 secondes.",
+        "Il lâche de 1 à 2 **Ardillon à facettes**, un réactif de Venin.",
+        "Chassé, il lâche aussi jusqu'à 1 Éclat d'améthyste et jusqu'à 1 Ficelle."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chasse et élevage",
+      "text": [
+        "Outre son réactif, chacun en lâche plus quand on le chasse, et encore plus avec Butin. La viande tombe en Gibier rôti si l'animal est mort en brûlant. Pour reproduire les sauvages, **accroupis-toi** pendant que tu nourris deux adultes de leur nourriture ; nourri normalement, un sauvage s'apprivoise à la place."
+      ]
+    }
+  ]
+}

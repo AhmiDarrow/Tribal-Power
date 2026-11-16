@@ -1,0 +1,28 @@
+{
+  "name": "Wohin als Nächstes",
+  "icon": "tribalpower:gate_drum",
+  "order": 5,
+  "pages": [
+    {
+      "type": "next_step",
+      "title": "Nächster Schritt",
+      "text": [
+        "Eine konkrete Sache zum Tun, gelesen von dort, wo du auf dem Weg vom ersten Herd zur neunten Übereinkunft stehst. Das ändert sich, während du weitergehst."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Sobald dein Lager seine eigene Energie macht, folge dem, was dich neugierig macht:",
+        "- [Werkstätten](echo_attune) machen aus Scherben stärkere Kristalle, Metalle und Aufwertungen.",
+        "- [Lagermaschinen](grove_tender) bauen an, sammeln und bewachen, während du beschäftigt bist.",
+        "- [Lager und Fracht](ancestral_cache) behält deine Waren und bewegt sie ohne Röhren, und [Kompasse und Tore](waystone_compass) bewegen dich.",
+        "- [Muster](placement_is_the_ritual) werden gebaut, nicht hergestellt: das Steinbecken und die Lauschgrube.",
+        "- Ein [Vertrauter](familiar_basics) trägt die Stimme eines Totems und macht deine Magie dieser Stimme stärker.",
+        "- [Die Neun Stämme](standing) halten Lager im ganzen Land. Füttere einen Herd, um Tausch, Gaben und mit der Zeit ein Verwandtschafts-Totem zu erhalten.",
+        "- Mit Freunden teilt ein [gemeinsames Lager](shared_camps) ein Gewölbe, Geräte und Weganker.",
+        "- Die [Tortrommel](gate_drum) öffnet den Weg zum Marsch, wenn du bereit bist."
+      ]
+    }
+  ]
+}

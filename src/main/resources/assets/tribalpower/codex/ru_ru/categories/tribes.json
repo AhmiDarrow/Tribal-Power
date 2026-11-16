@@ -1,0 +1,8 @@
+{
+  "name": "Девять племён",
+  "icon": "tribalpower:tribe_mark",
+  "order": 110,
+  "description": "Девять племён когда-то хранили Стан. Их лагеря всё ещё стоят; заслужи их положение и их знаки.",
+  "spoiler": true,
+  "progress": "tribes"
+}

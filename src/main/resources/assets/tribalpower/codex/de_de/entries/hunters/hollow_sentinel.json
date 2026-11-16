@@ -1,0 +1,51 @@
+{
+  "name": "Hohlwächter",
+  "icon": "tribalpower:sentinel_sigil",
+  "order": 110,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hollow_sentinel_spawn_egg",
+    "tribalpower:sentinel_sigil"
+  ],
+  "next": "storm_moth",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:hollow_sentinel",
+      "text": [
+        "Eine leere Rüstung eines Wächters, die noch die alten Wege bewacht, Speer in der Hand. Ihre Schläge lassen deinen Arm schwach werden.",
+        "Gejagt lässt er außerdem 1 bis 3 Eisenklumpen fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Hohlwächter gehen durch die Hochlande des Marschs, die Schneefelder und den Schimmergrat, einige durch die Kristallfelder, und drei halten in jeder [Ahnenhalle](ancestor_hall) Wache.",
+        "Er hat **44 Gesundheit** und **6 Rüstung**, der zäheste der Überreste, und trifft für **6**. Jeder Schlag gibt dir 4 Sekunden lang Schwäche. Licht und ein geladener Stab helfen."
+      ],
+      "title": "Wo und wie"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Er lässt **1 bis 2 Wächtersiegel** fallen.",
+        "Ein Wächtersiegel stimmt sich unter Geist zu 2 Abgestimmtes Echo."
+      ],
+      "title": "Was es gibt"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Kein Amulett wird einen Hohlwächter binden. Er dient den Hallen, nicht dir."
+      ],
+      "title": "Bindet sich nicht"
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Zucht",
+      "text": [
+        "Neben seinem Reagenz lässt er dies fallen, wenn man ihn jagt, mehr mit Plünderung."
+      ]
+    }
+  ]
+}

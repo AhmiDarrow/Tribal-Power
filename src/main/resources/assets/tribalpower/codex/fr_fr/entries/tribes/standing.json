@@ -1,0 +1,394 @@
+{
+  "name": "Tribus et estime",
+  "icon": "tribalpower:tribe_hearth",
+  "order": 10,
+  "spoiler": false,
+  "items": [
+    "tribalpower:tribe_banner"
+  ],
+  "next": "tribal_kin",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tribe_hearth",
+      "text": [
+        "Neuf tribus gardaient autrefois le Métier, un Brin chacune, et leurs camps gardent encore la mesure. Chaque camp est bâti autour d'un **Âtre de la tribu**.",
+        "Nourris l'âtre, et la tribu commence à te connaître. C'est ton **estime**, et cela ouvre leurs échanges, leurs secrets et, pour finir, leur Marque."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribes_standing",
+      "title": "Un camp de tribu",
+      "text": [
+        "Un camp se repère vite : un âtre qui traîne une fumée colorée, une Bannière de la tribu à côté, et quatre Parents occupés à leur journée. La couleur de la bannière nomme la tribu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Où vivent les tribus",
+      "text": [
+        "Chaque tribu campe dans la terre qui convient à son Brin :",
+        "- **Gardiens des litières** : plaines.",
+        "- **Chanteurs de gravier** : montagnes et côtes rocheuses.",
+        "- **Lieurs de racines** : forêts et jungles.",
+        "- **Marcheurs de lisière** : taïga.",
+        "- **Cœurs-tambours** : savane.",
+        "- **Tisserands de motifs** : forêts de bouleaux.",
+        "- **Gardiens de la colonie** : forêts de fleurs, prairies et bosquets de cerisiers.",
+        "- **Graveurs de sceaux** : forêts sombres.",
+        "- **Couseurs du métier** : seulement les Champs de cristal de la Marche.",
+        "Chaque tribu garde aussi un camp dans chaque bande de [la Marche](the_march), bâti avec le bois et la pierre de cette bande."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Ta première visite",
+      "steps": [
+        {
+          "caption": "Chaque camp est bâti autour de son Âtre de la tribu. C'est ici que tu te fais des amis.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:tribe_hearth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "La Bannière de la tribu à côté nomme la tribu par sa couleur. Laisse-la debout.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:tribe_banner[tribe=0,facing=south,wall=false]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Un métier à tisser tout près est l'endroit où travaille le Tisserand du camp. Les quatre Parents ne s'éloignent jamais de plus de 16 blocs.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:loom"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Fais un clic droit sur l'âtre avec quelque chose que la tribu privilégie. Le pain vaut +3 d'estime chez les Gardiens des litières.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:bread"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Fais un clic droit dessus à main vide, quand tu veux, pour voir ton estime et ton rang.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Que offrir",
+      "text": [
+        "Fais un clic droit sur l'âtre avec une offrande en main. Il prend un objet à la fois :",
+        "- Le **réactif** de la tribu : **+8** d'estime.",
+        "- Le [plat](tribe_dishes) propre à la tribu : **+6**.",
+        "- Un objet **favori** : **+3**.",
+        "- Toute autre **nourriture** : **+1**.",
+        "- Une **Cellule de Pulsation** chargée : l'âtre en boit jusqu'à **40 Pulsation** et donne **+2 pour chaque 10**, donc au plus **+8**. La cellule doit contenir au moins 10 Pulsation.",
+        "Réactifs : Gardiens des litières **Éclat d'écho**, Chanteurs de gravier **Écho accordé**, Lieurs de racines **Écaille de dos-mousse**, Marcheurs de lisière **Dent de faille**, Cœurs-tambours **Carillon d'os**, Tisserands de motifs **Aile de tempête**, Gardiens de la colonie **Duvet de lanterne**, Graveurs de sceaux **Éclat d'Esprit**, Couseurs du métier **Fil de Métier**. La page de chaque tribu liste aussi ses favoris.",
+        "Ce dont la tribu n'a pas l'usage reste dans ta main, et l'âtre le dit. Une cellule qui tient moins de **10 Pulsation** est simplement ignorée."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "À quelle vitesse ça croît",
+      "text": [
+        "L'Âtre d'une tribu accepte au plus **60 de réputation par jour** de tes offrandes. Ensuite il te dit que la tribu a pris tout ce qu'elle prendra aujourd'hui, et près de la limite un cadeau d'une valeur supérieure à ce qui reste demeure dans ta main. Dix-sept offrandes favorisées (51) ou sept réactifs (56) suffisent pour atteindre **Hôte** dès le premier jour.",
+        "Trois autres voies sont ouvertes, et aucune ne compte dans la limite de l'Âtre. Tue un monstre hostile dans un rayon de **24 blocs** d'un Âtre pour **+1**, jusqu'à **vingt par jour** pour chaque tribu. Le coup doit être le tien : un ennemi que ton familier abat ne rapporte rien. Chaque échange avec l'Ancien donne **+2**. Et une fois que tu es Hôte, les [requêtes](elders_and_stories) de l'Ancien paient **8 à 16** chacune.",
+        "Le [jour de festival](living_march) de la tribu, rejoindre le festin de l'Ancien rapporte **40** de réputation et deux bols de leur plat, un rite dans leur camp rapporte **30** de plus, et un festin mangé près de l'Âtre **20**. Chacun compte une fois par festival.",
+        "Atteindre Voix prend de nombreux jours. Les offrandes seules ne t'y mèneront jamais en un jour."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les rangs",
+      "text": [
+        "- **Étranger** (sous 50) : l'Ancien n'a encore rien pour toi.",
+        "- **Hôte** (50) : l'Ancien ouvre les deux premiers échanges.",
+        "- **Ami** (150) : deux échanges de plus, plus le plat propre de la tribu contre quatre de sa récolte de la Marche.",
+        "- **Parent** (400) : les deux derniers échanges, le [don](tribe_boons) de la tribu tant que tu gardes la réputation, et son écusson : un **Motif de bannière** pour n'importe quel Métier.",
+        "- **Voix** (800) : l'Ancien te presse une **Marque de tribu** dans la main, une fois par tribu. La Marque est la clé d'un [Totem de parenté](kinship_totem), et elle ouvre la page de cette tribu dans ce livre.",
+        "Ta réputation auprès des Chanteurs de gravier décide aussi jusqu'où une [Fosse d'écoute](listening_pit) peut écouter."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'il ne faut jamais faire",
+      "text": [
+        "- **Frapper un Parent** coûte **25** de réputation, et chaque Parent de cette tribu dans les 24 blocs se retourne contre toi. Les Chasseurs t'attaquent pendant une **minute**.",
+        "- **Briser l'Âtre** coûte **40** et lance les Chasseurs sur toi de la même façon.",
+        "- **Briser une bannière** coûte **5**.",
+        "La réputation peut retomber sous un rang que tu as gagné. Un message rouge te dit quand tu as décroché."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tenir le compte",
+      "text": [
+        "Tape **/tribalpower standing** pour voir les neuf tribus d'un coup, avec ta réputation et ton rang pour chacune.",
+        "Un comparateur à côté d'un Âtre lit le rang du dernier joueur qui s'en est servi : **0** pour un Étranger jusqu'à **15** pour une Voix. Pratique pour une porte qui ne s'ouvre qu'aux amis de la tribu.",
+        "Si tu appartiens à un [camp partagé](shared_camps), un quart de chaque réputation qu'un membre gagne ou perd après avoir rejoint tombe aussi sur le camp. Là où ton rang compte, celui du camp compte s'il est plus haut que le tien."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "name": "Reagenzien",
+  "icon": "tribalpower:reagent_pouch",
+  "order": 10,
+  "items": [
+    "tribalpower:reagent_pouch",
+    "tribalpower:dawn_velvet",
+    "tribalpower:lantern_down",
+    "tribalpower:mossback_scale",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:bounder_horn",
+    "tribalpower:grub_husk",
+    "tribalpower:tuft_wool",
+    "tribalpower:shank_sinew",
+    "tribalpower:pale_down",
+    "tribalpower:crag_fleece",
+    "tribalpower:boulder_tusk",
+    "tribalpower:drift_bladder",
+    "tribalpower:prism_crest",
+    "tribalpower:shard_wing",
+    "tribalpower:glow_husk",
+    "tribalpower:drift_pelt",
+    "tribalpower:frost_hoof",
+    "tribalpower:snow_veil",
+    "tribalpower:ash_wing",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:silt_fin",
+    "tribalpower:pale_streamer",
+    "tribalpower:shoal_scale",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark",
+    "tribalpower:ember_heart",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale",
+    "tribalpower:cinder_plate",
+    "tribalpower:slag_curd",
+    "tribalpower:slag_hide",
+    "tribalpower:knotted_root",
+    "tribalpower:heartwood_core",
+    "tribalpower:reed_fang",
+    "tribalpower:gnasher_tooth",
+    "tribalpower:facet_barb",
+    "tribalpower:rime_mandible",
+    "tribalpower:shard_barb",
+    "tribalpower:brine_fang",
+    "tribalpower:prism_carapace",
+    "tribalpower:scree_knuckle",
+    "tribalpower:ember_fang",
+    "tribalpower:reed_whorl",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:sentinel_sigil",
+    "tribalpower:pale_fang",
+    "tribalpower:barrow_shroud",
+    "tribalpower:drowned_weed",
+    "tribalpower:storm_wing",
+    "tribalpower:veil_tatter",
+    "tribalpower:cinder_knot",
+    "tribalpower:shade_ember",
+    "tribalpower:bell_fragment",
+    "tribalpower:wraith_veil",
+    "tribalpower:rift_tooth",
+    "tribalpower:lurker_claw",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn",
+    "tribalpower:echo_silk",
+    "tribalpower:gloom_silk"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Jede Kreatur des Marsches lässt etwas zurück: einen Fangzahn, eine Schuppe, ein Büschel Wolle. Das sind **Reagenzien**, und so macht Tribal Power aus der Jagd Magie.",
+        "Behalte {item:tribalpower:reagent_pouch} in deiner Schnellzugriffsleiste. Jedes schlichte Reagenz, das du aufhebst, geht direkt hinein. Der Beutel fasst bis zu **999** von jeder Sorte, roh und aufgeladen, und füllt so nie deine Taschen. Ein Reagenz mit einem **Faden** bleibt in deinen Taschen (nächste Seite).",
+        "Rechtsklicke den Beutel, um hineinzusehen und rohe Reagenzien wieder herauszunehmen, für Farbstoffe, Heilmittel und Rezepte. Die Schaltfläche **Nehmen** der Liedbank tut dasselbe.",
+        "Ein Reagenz beginnt **roh**. An einer [Liedbank](song_bench) kannst du es für 16 Puls **aufladen**. Rohe Reagenzien brauen Heilmittel und gehen in ein paar Rezepte; aufgeladene schreiben Lieder, befiedern Verspfeile und salben Waffen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fäden",
+      "text": [
+        "Manche Reagenzien tragen einen **Faden**, I, II oder III, in Gold im Tooltip genannt. Er ist, wie stark die Kreatur war, von der er stammt, gelesen, wenn das Reagenz sie verlässt, durch eine Tötung oder einen Pinsel: ihr stärkster Blutlinienfaden über 2, und eine Stufe mehr für eine goldbenannte **Elite**.",
+        "- **Faden I**: eine wilde Kreatur mit einem Faden auf 3, oder jede Elite.",
+        "- **Faden II**: eine gezüchtete Linie mit einem Faden auf 4, oder eine Elite mit einem Faden auf 3.",
+        "- **Faden III**: eine **erhabene** Linie, ein Faden auf 5. Bürste deinen eigenen erhabenen Vertrauten für zwei pro Minute.",
+        "Reagenzien verschiedener Fäden stapeln nie. Sonst wirkt ein Reagenz mit Faden wie jedes andere; ein [Leyherz](ley_heart) verbrennt es heißer, **6, 9 oder 12** wert gegen 4 bei einem schlichten."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Familien",
+      "text": [
+        "Was ein Reagenz tut, hängt von seiner **Familie** ab, und die kommt von der Kreatur, von der es stammt. Es gibt elf, und jede bedeutet dasselbe, wo immer du sie benutzt:",
+        "- in einem **Lied**, was ein Reagenz nach dem ersten hinzufügt;",
+        "- an einer **gesalbten Waffe**, was die Waffe dem antut, was sie trifft ([Salbung](anointing));",
+        "- in einem **Heilmittel**, was der Sud für den tut, der ihn nimmt ([Heilmittel](remedies)).",
+        "Die nächsten Seiten listen jede Familie, welche Reagenzien dazu gehören, und was sie in jedem der drei tut."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Zerreibe ein rohes Reagenz in einer **Schüssel** mit einem einzelnen Stück **Ritualkreide** (leg alle drei ins Fertigungsraster; ein ganzer Stapel Kreide tut es nicht) und du erhältst **2 Farbstoff**. Die Schüssel kommt zurück, und die Kreide verliert nur eine Marke.",
+        "Sechzehn Reagenzien ergeben die sechzehn Farbstoffe:",
+        "- **Weiß**: Bleiche Daune",
+        "- **Hellgrau**: Graserwolle",
+        "- **Grau**: Sturmflügel",
+        "- **Schwarz**: Ascheflügel",
+        "- **Braun**: Madenhülle",
+        "- **Rot**: Glutkörnchen",
+        "- **Orange**: Magmaschuppe",
+        "- **Gelb**: Zunderrinde"
+      ],
+      "title": "Reagenzfarbstoffe"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Hellgrün**: Goblinohr",
+        "- **Grün**: Knotige Wurzel",
+        "- **Türkis**: Schimmerstaub",
+        "- **Hellblau**: Lauererklaue",
+        "- **Blau**: Prismapanzer",
+        "- **Violett**: Laternendaune",
+        "- **Magenta**: Glockenkappenspore",
+        "- **Rosa**: Feenblatt"
+      ],
+      "title": "Reagenzfarbstoffe, Fortsetzung"
+    },
+    {
+      "type": "text",
+      "title": "Glut",
+      "text": [
+        "**Reagenzien**: Glutherz, Glutkörnchen, Magmaschuppe, Zunderplatte, Schlackequark, Schlackenhaut.",
+        "- **Lied**: setzt das Ziel in Brand.",
+        "- **Salbung**: Sengung: verbrennt das Ziel und fügt jedem Schlag Feuer hinzu.",
+        "- **Remedy**: Zunder: Stärke."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Blitz",
+      "text": [
+        "**Reagenzien**: Zunderknoten, Schattenglut.",
+        "- **Lied**: setzt das Ziel in Brand.",
+        "- **Salbung**: Sturmruf: ein Viertel der Hiebe schlägt einen Blitzbogen in zwei nahe Feinde.",
+        "- **Remedy**: Beschleunigung: Geschwindigkeit."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Kälte",
+      "text": [
+        "**Reagenzien**: Glockensplitter, Gespensterschleier.",
+        "- **Lied**: verlangsamt das Ziel.",
+        "- **Salbung**: Erfrierung: verlangsamt das Ziel und friert es ein.",
+        "- **Remedy**: Kühlung: Feuerresistenz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gift",
+      "text": [
+        "**Reagenzien**: Schilfreißzahn, Knirschzahn, Facettenstachel, Reifmandibel, Splitterdorn, Solenzahn.",
+        "- **Lied**: vergiftet das Ziel.",
+        "- **Salbung**: Gift: vergiftet das Ziel.",
+        "- **Remedy**: Gegengift: hebt Vergiftung, Verfall, Hunger und Übelkeit auf."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Bö",
+      "text": [
+        "**Reagenzien**: Sturmflügel, Schleierfetzen.",
+        "- **Lied**: stößt das Ziel zurück.",
+        "- **Salbung**: Sturmwind: schleudert das Ziel zurück und nach oben.",
+        "- **Remedy**: Federfall: Langsame Fallung."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wurzel",
+      "text": [
+        "**Reagenzien**: Knotige Wurzel, Herzholzkern.",
+        "- **Lied**: verlangsamt das Ziel.",
+        "- **Salbung**: Verwurzelung: ein Fünftel der Hiebe verwurzelt das Ziel an Ort und Stelle.",
+        "- **Remedy**: Standfestigkeit: Resistenz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stoß",
+      "text": [
+        "**Reagenzien**: Prismapanzer, Geröllknöchel, Glutzahn, Schilfwirbel, Trollhaut, Reifhaut.",
+        "- **Lied**: stößt das Ziel hart zurück.",
+        "- **Salbung**: Zerspaltung: Hiebe beißen umso stärker, je mehr Rüstung das Ziel trägt.",
+        "- **Remedy**: Bollwerk: Absorption."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gewebe",
+      "text": [
+        "**Reagenzien**: Echoseide, Düsterseide.",
+        "- **Lied**: verlangsamt das Ziel.",
+        "- **Salbung**: Echo: ein Viertel der Hiebe trifft ein zweites Mal für die Hälfte.",
+        "- **Remedy**: Klare Sicht: Nachtsicht, hebt Blindheit und Dunkelheit auf."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Schwächen",
+      "text": [
+        "**Reagenzien**: Wächtersiegel, Bleichreißzahn, Hügelgrabtuch, Ertrunkenenkraut.",
+        "- **Lied**: schwächt das Ziel.",
+        "- **Salbung**: Auszehrung: schwächt das Ziel.",
+        "- **Remedy**: Wiederherstellung: Eile, hebt Schwäche, Langsamkeit und Abbaulähmung auf."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Hund",
+      "text": [
+        "**Reagenzien**: Risszahn, Lauererklaue, Goblinohr, Goblinzahn, Koboldschuppe, Koboldhorn.",
+        "- **Lied**: lässt das Ziel leuchten.",
+        "- **Salbung**: Blutdurst: Lebensraub, 15% jedes Schlags kommt als Gesundheit zurück.",
+        "- **Remedy**: Vitalität: Gesundheitsschub."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stille",
+      "text": [
+        "**Reagenzien**: Dämmersamt, Laternendaune, Moosrückenschuppe, Aschebüschel, Graserwolle, Schimmerstaub, Flattererflügel, Springerhorn, Madenhülle, Schopfwolle, Schenkelsehne, Bleiche Daune, Klippenvlies, Brockenstoßzahn, Treibblase, Prismenkamm, Splitterflügel, Leuchthülle, Treibfell, Frosthuf, Schleier aus Schnee, Ascheflügel, Sumpffuß, Fennhuf, Moorblase, Klangkamm, Glasflügel, Geodenhülle, Schlickflosse, Fahlschleppe, Sandbankschuppe, Herdrinde, Ältestenrinde, Frostkieferrinde, Zunderrinde, Trauerknoten, Glockenkappenspore, Stelzenwurzel, Feenstaub, Feenblatt, Feenfunke.",
+        "- **Lied**: gibt dir einen Moment Regeneration.",
+        "- **Salbung**: Reparatur: die Waffe repariert sich, wenn sie trifft.",
+        "- **Remedy**: Reparatur: Regeneration."
+      ]
+    }
+  ],
+  "next": "song_bench"
+}

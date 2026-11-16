@@ -1,0 +1,38 @@
+{
+  "name": "Heiler-Rassel",
+  "icon": "tribalpower:spiritgear_rattle",
+  "order": 30,
+  "items": [
+    "tribalpower:spiritgear_rattle"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_rattle",
+      "title": "Schüttle sie",
+      "text": [
+        "Ein getrockneter Kürbis an einem Knochengriff, und ein Stück [Geistergerät](spiritgear). **Benutzen halten** und schütteln: jede halbe Sekunde heilt es, wen du ansiehst, innerhalb von 6 Blöcken, oder dich, wenn du niemanden ansiehst.",
+        "Jedes Schütteln heilt **3/4 eines Herzens** und verbraucht **2 Puls**, zuerst aus der Zelle der Rassel, dann aus den Zellen, die du trägst. Es wirkt auf jeden Freundlichen: Spieler, Dorfbewohner, Tiere und Vertraute gleichermaßen, nicht aber auf feindliche Kreaturen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ränge und Stimmen",
+      "text": [
+        "Es steigt an den Echo-Stationen auf wie das übrige Geistergerät, und jeder Rang heilt **50%** mehr. Ab **Gebunden** lindert es auch die [Geistkrankheit](spirit_sickness) um eine Stufe je Schütteln.",
+        "Verknüpfe sie mit einem Totem, und jedes Schütteln gibt eine Gabe:",
+        "- **Wasser**: heilt um die Hälfte mehr.",
+        "- **Geist**: hebt jeden schädlichen Effekt auf.",
+        "- **Erde**: kurze Resistenz.",
+        "- **Feuer**: kurze Feuerresistenz.",
+        "- **Luft**: kurze Schnelligkeit.",
+        "- **Webstuhl**: kurze Regeneration."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_rattle"
+    }
+  ],
+  "next": "spirit_sickness"
+}

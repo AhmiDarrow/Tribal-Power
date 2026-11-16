@@ -1,0 +1,73 @@
+{
+  "name": "Sombras",
+  "icon": "tribalpower:barrow_shroud",
+  "order": 360,
+  "spoiler": true,
+  "items": [
+    "tribalpower:barrow_shade_spawn_egg",
+    "tribalpower:pale_wraith_spawn_egg",
+    "tribalpower:cinder_shade_spawn_egg",
+    "tribalpower:drowned_shade_spawn_egg",
+    "tribalpower:barrow_shroud",
+    "tribalpower:wraith_veil",
+    "tribalpower:shade_ember",
+    "tribalpower:drowned_weed"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Sombras",
+      "text": [
+        "Los muertos de la Marcha caminan donde murieron: una capucha vacía con dos luces dentro y una túnica sin nada debajo. Cada sombra tiene **25 de salud** y ninguna armadura, y golpea con **5**, pero cada una pelea a su modo.",
+        "Cada uno suelta **de 1 a 2** de su reactivo, y más con Saqueo. Ninguno se vinculará."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:barrow_shade",
+      "title": "Sombra del túmulo",
+      "text": [
+        "Un rey muerto y coronado, en vendas de tumba. Ronda las cuevas oscuras bajo las Tierras Altas, de día o de noche, de uno o de dos a la vez. Su golpe te debilita durante 4 segundos.",
+        "Suelta **Mortaja del túmulo**, un reactivo de Debilitar.",
+        "Al cazarlo, también suelta de 1 a 2 huesos y hasta 1 Membrana de fantasma."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_wraith",
+      "title": "Espectro pálido",
+      "text": [
+        "Un espectro helado que arrastra velos largos. Vuela de noche sobre los Campos de Nieve, de uno o de dos a la vez. A una distancia de hasta 12 bloques lanza un escalofrío que te ralentiza durante 3 segundos. La cobertura interrumpe el lanzamiento.",
+        "Suelta **Velo de espectro**, un reactivo de Escalofrío.",
+        "Al cazarlo, también suelta hasta 1 Membrana de fantasma y hasta 2 bolas de nieve."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinder_shade",
+      "title": "Sombra de ceniza",
+      "text": [
+        "Un espectro que arde lento, con las manos carbonizadas. Vuela de noche sobre los Yermos de Brasa, de uno o de dos a la vez, y es **inmune al fuego**. A una distancia de hasta 12 bloques lanza un rayo que te prende durante 2 segundos. La cobertura interrumpe el lanzamiento.",
+        "Suelta **Brasa de sombra**, un reactivo de Rayo.",
+        "Al cazarlo, también suelta hasta 1 Membrana de fantasma y tiene una probabilidad de una entre tres de soltar Polvo de blaze."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:drowned_shade",
+      "title": "Sombra ahogada",
+      "text": [
+        "Un espectro colgado de algas, con un farol. Surge de noche en el agua de los Bajíos, de uno o de dos a la vez, y nada o camina tras de ti: la orilla no es refugio. Su golpe te debilita durante 4 segundos.",
+        "Suelta **Alga ahogada**, un reactivo de Debilitar.",
+        "Cazado, también suelta hasta 1 membrana de fantasma y hasta 2 fragmentos de prismarina."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, cada uno suelta más si lo cazas, y aún más con Saqueo."
+      ]
+    }
+  ]
+}

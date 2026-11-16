@@ -1,0 +1,214 @@
+{
+  "name": "Tu primer taller",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "next": "self_powered",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Los talleres de Tribal Power se llaman **estaciones de eco**. Cada uno necesita tres cosas juntas: algo en lo que trabajar, Pulso que le llegue por el entramado y el **Tótem de resonancia** adecuado cerca para darle su voz.",
+        "La primera estación que quieres es [Triturador de eco](echo_shatter): siete de piedra alrededor de una Campanilla de hueso y un Resonador de cobre. Cuatro lingotes de cobre alrededor de una Campanilla de hueso hacen **dos** Resonador de cobre. Rompe la piedra en un **Fragmento de eco**, el cristalito que te permitirá producir Pulso sin tocar el tambor.",
+        "El Pulso solo viaja por un [Conductor de entramado](lattice_conductor): una estación sin conductor a 8 bloques no recibe nada aunque esté justo al lado de un tambor lleno. Cuatro Resonador de cobre alrededor de un polvo de redstone hacen **cuatro** conductores; coloca uno entre el tambor y la estación.",
+        "El Triturador de eco necesita la voz **Tierra**. Fabrica un {item:tribalpower:resonance_totem_earth} con troncos, tierra, una Campanilla de hueso y un Resonador de cobre, y colócalo cerca de la estación. El tótem no es una fuente de energía. Piénsalo como el maestro de la estación: sin él, la estación espera y no gasta nada.",
+        "Un tótem mide **dos bloques de alto**, así que deja un bloque libre encima del sitio. Haz clic en cualquiera de las mitades; romper cualquiera se lleva el tótem entero. Un tótem de un mundo antiguo recupera la parte de arriba cuando el bloque de encima queda libre."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "El rincón del Triturador de eco",
+      "steps": [
+        {
+          "caption": "Coloca el Triturador de eco junto a tu Corazón de tambor.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Coloca un Conductor de entramado a 8 bloques de ambos. El Pulso solo viaja por los conductores: sin uno, la estación no recibe nada, por cerca que esté el tambor.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Añade un Tótem de resonancia (Tierra) a 8 bloques. Justo al lado es lo más simple.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Abre el Triturador de eco y mete piedra. La roca solo da grava, así que fúndela primero.",
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "minecraft:stone"
+          },
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Mantén el tambor cargado. En unos segundos sale un Fragmento de eco.",
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Si no arranca",
+      "text": [
+        "Agáchate y haz clic derecho en la estación con este libro. Dirá si le falta Pulso, un conductor, su tótem o sitio en la salida.",
+        "El Triturador de eco gasta Pulso más rápido de lo que un tambor a mano lo crea, así que toca primero una reserva y deja que el tambor sostenga el trabajo.",
+        "Una palanca o cualquier señal de redstone constante pausa una estación. No se pierde nada mientras espera."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "Garder la voie",
+  "icon": "minecraft:map",
+  "order": 50,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Les portes sont bâties pour être sûres. Une porte te dépose toujours **à l'intérieur du propre cadre de la Porte lointaine** et ne creuse, ne construit ni ne dégage jamais rien pour faire de la place.",
+        "S'il n'y a nulle part où se tenir dans le cadre lointain, le trajet refuse et la Pulsation retourne dans la clef.",
+        "L'extrémité lointaine reste chargée pendant **dix secondes** autour de ton arrivée, donc un partenaire dans un chunk non chargé répond encore. Seule une [Ancre de voie](wayanchor) la garde chargée plus longtemps."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quand une porte se brise",
+      "text": [
+        "Casse une clef et son partenaire est libéré tout de suite et s'éteint. Quiconque se tient à 16 blocs du partenaire apprend quelle porte a été perdue.",
+        "**/tribalpower gate list** montre chaque porte que tu as posée et ce à quoi elle répond. **/tribalpower gate unlink <name>** coupe l'un de tes fils à la main.",
+        "Pour relier à nouveau, utilise encore une boussole, de la craie ou un sigille, comme dans [Porte de voie](way_gate)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quand une porte ne marche pas",
+      "text": [
+        "- **\"Cette clef n'a pas de cadre autour d'elle\"** : un bloc du cadre manque ou est mal placé. Vérifie par rapport au motif.",
+        "- **Nécessite Pulsation** : charge la clef ; la lumière et le voyage viennent tous deux de sa propre réserve.",
+        "- **S'éteint tout seul** : un signal de redstone est maintenu dessus, un bloc du cadre a été cassé, ou une Porte lointaine a perdu sa voix du Métier.",
+        "- **\"Le fil ne trouve rien\"** : la porte est allumée mais pas liée.",
+        "Accroupis-toi et fais un clic droit sur une clef avec ce livre pour son état complet."
+      ]
+    }
+  ]
+}

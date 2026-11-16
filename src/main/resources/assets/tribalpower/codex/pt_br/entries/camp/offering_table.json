@@ -1,0 +1,29 @@
+{
+  "name": "Mesa de oferendas",
+  "icon": "tribalpower:offering_table",
+  "order": 130,
+  "next": "builders_chalk",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:offering_table",
+      "text": [
+        "Um armazém de acampamento de 27 espaços, com uma cara mais bonita que um baú. Coloque-a ao lado de um lar ou de um berço para manter oferendas, comida e Tece-espírito à mão. Não precisa de Pulso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ao usá-la",
+      "text": [
+        "É armazenamento, não um segundo Lar da tribo. Oferendas que elevam a posição junto a uma tribo vão no próprio lar (veja [Posição](standing)); a mesa não concede nada.",
+        "Só pode abri-la quem a colocou, o acampamento dessa pessoa, ou qualquer um se ninguém a reivindicou.",
+        "Funis, tubos e [placas de relé](wireless_cargo) podem enchê-la ou esvaziá-la por qualquer lado. Agache-se e clique com o botão direito numa face com a mão vazia para mudar essa face: Ambos, Entrada, Saída ou Fechado.",
+        "Um comparador lê o quão cheia ela está. Um sinal de redstone trava o menu e a automação."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:offering_table"
+    }
+  ]
+}

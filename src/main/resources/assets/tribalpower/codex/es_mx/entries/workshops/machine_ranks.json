@@ -1,0 +1,300 @@
+{
+  "name": "Rangos de máquinas",
+  "icon": "tribalpower:echo_attune",
+  "order": 90,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Los talleres y los generadores pueden subir de rango, igual que el Equipo espiritual: coloca la máquina en el Sintonizador de eco, luego en el Vinculador de eco y luego en el Manifestador de eco. Cada rango la hace más rápida, y paga esa velocidad en Pulso.",
+        "No puedes saltarte un paso: el Vinculador rechaza una máquina de rango 0, y el Manifestador quiere rango 2."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que cuesta el rango",
+      "text": [
+        "Cada paso gasta Pulso y tiempo, pero ningún catalizador:",
+        "- Sintonizador (Fuego): **16 segundos** a **96 Pulso por segundo**, para el rango 1.",
+        "- Vinculador (Agua): **20 segundos** a **128**, para el rango 2.",
+        "- Manifestador (Espíritu): **24 segundos** a **160**, para el rango 3."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Tres voces, tres rangos",
+      "steps": [
+        {
+          "caption": "Recoge la máquina. Como objeto, entra en el Sintonizador de eco con un Tótem de resonancia (Fuego) para el rango 1.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -2,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "Luego al Vinculador de eco, con Agua, para el rango 2.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "Luego al Manifestador de eco, con Espíritu, para el rango 3.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_manifest"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "Colócala de nuevo. El rango va en el bloque, y en el objeto cuando lo recoges.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué hace un rango",
+      "text": [
+        "- Rango 1: **85%** del tiempo, **118%** del Pulso por segundo.",
+        "- Rango 2: **70%** del tiempo, **143%** del Pulso.",
+        "- Rango 3: **55%** del tiempo, **182%** del Pulso.",
+        "Las estaciones cuentan segundos enteros, así que un trabajo corto puede no ir más rápido en el siguiente rango, pero igual paga la tasa mayor de Pulso. Los rangos rinden mejor en trabajos largos, como los núcleos, subir de rango y el Horno de brasa.",
+        "Los generadores funcionan distinto: cada rango suma **15% de Pulso por segundo**, no el 118% del taller. Las manos del campamento laten más rápido con el mismo Pulso por movimiento.",
+        "El **Banco del canto** es distinto otra vez: cada rango recorta su Pulso, a **85%**, **70%** y **55%**.",
+        "Las placas de relé mueven más y pagan más Pulso por ello, y cada rango abre un canal más: uno en el rango 0, hasta cuatro en el rango 3. Un Conductor de entramado transporta **64**, **256**, **1,024** o **4,096** Pulso por segundo según el rango, y una piedra de Túmulo de Pulso guarda **4,000**, **16,000**, **64,000** o **256,000** y mueve Pulso al ritmo del conductor. El Convertidor y el Energizador mueven más Pulso por segundo. Un Alijo o una Cisterna con rango solo entregan objetos y fluido más rápido a las máquinas que tocan."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué máquinas",
+      "text": [
+        "Cada estación de eco, el Horno de brasa y el Banco del canto; el Corazón de tambor, el Colector de ley, el Resonador de Pulso y las cinco artes de voz; el Conductor de entramado, el Túmulo de Pulso, el Energizador armónico, el Convertidor de entramado, el Alijo ancestral y la Cisterna de Espíritu; cada relé; la Pila de piedra y la Malla de resonancia; y las manos del campamento (Bomba de marea, Lazo de viento, Tambor de amparo, Telar de sellos).",
+        "La descripción muestra el rango por nombre: Tejido (0), Sintonizado (1), Vinculado (2), Manifestado (3). Si una estación no acepta la máquina, es la estación equivocada para su rango actual; agáchate y haz clic derecho en la estación con este libro."
+      ]
+    }
+  ]
+}

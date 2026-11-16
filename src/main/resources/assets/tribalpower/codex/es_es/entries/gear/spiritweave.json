@@ -1,0 +1,91 @@
+{
+  "name": "Tejido espiritual",
+  "icon": "tribalpower:spiritweave_hood",
+  "order": 30,
+  "items": [
+    "tribalpower:spiritweave",
+    "tribalpower:spiritweave_robe",
+    "tribalpower:spiritweave_leggings",
+    "tribalpower:spiritweave_boots"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritweave_hood",
+      "text": [
+        "Armadura de tela tan dura como el diamante, tejida para responder a un tótem. Vinculada a una voz, cada pieza despierta un don, que sigue con un poco de Pulso de una Célula de Pulso que llevas, y la pieza vinculada brilla con él."
+      ],
+      "title": "Armadura de Tejido espiritual"
+    },
+    {
+      "type": "text",
+      "title": "La tela",
+      "text": [
+        "La tela de Tejido espiritual sale del **Vinculador de eco** con la voz de Agua: cualquier lana se vuelve una tela, y la Seda de eco, el Terciopelo del alba, el Plumón de farol, la Escama de lomomusgo o una Ala de tormenta se vuelven dos.",
+        "Cuatro piezas toman las formas de armadura de siempre; la túnica y los pantalones también llevan un Núcleo resonante en el centro. La tela de Tejido espiritual las repara en cualquier yunque. Destejido de eco vuelve a convertir la tela en lana."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Al llevarlo",
+      "text": [
+        "Sin vincular, el Tejido espiritual es armadura simple: protege como el diamante, no da ningún don y no gasta Pulso. Su descripción lista lo que cada voz despertaría en esa pieza.",
+        "Agáchate y usa una pieza sobre un Tótem de resonancia colocado, con **40 Pulso** en una célula que lleves, para vincular su voz. Una capucha, túnica o pantalones vinculados gastan **3 Pulso cada cuatro segundos**, y eso mantiene cada beneficio de la pieza, tanto los que responden a un golpe, una caída o un lazo como los dones constantes. Las botas gastan solo cuando se usa uno de sus beneficios; cada pago cubre cuatro segundos.",
+        "Cuando tus células se secan, los dones se paran, y con ellos cada beneficio. Recarga, o quítate las piezas."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Voces y rangos",
+      "text": [
+        "Cada voz da a cada pieza un don distinto; se esperan voces mezcladas. Mira [Equipo vinculado al tótem](totem_bound_gear) para cada una.",
+        "Sube de rango cada pieza en el Sintonizador de eco, el Vinculador y el Manifestador, con los mismos costos y catalizadores que [Equipo espiritual](spiritgear). Cada rango hace la pieza más firme: más armadura y dureza, más resistencia al empuje y más salud, hasta **2 corazones** por pieza en Manifestado."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Conjuntos completos",
+      "text": [
+        "Lleva un conjunto entero de un mismo rango y funciona en conjunto:",
+        "- Un conjunto **Vinculado** completo: **10%** menos de daño recibido.",
+        "- Un conjunto **Manifestado** completo: unos **29 de armadura** y **20 de dureza**, **8 corazones extra**, **20%** menos de daño recibido y, mientras la túnica está encendida, restaura un corazón cada cuatro segundos por **4 Pulso**. Hecho para los combates más duros."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_hood"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_robe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_leggings"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_boots"
+    },
+    {
+      "type": "text",
+      "title": "Una célula propia",
+      "text": [
+        "Como el [Equipo espiritual](spiritgear), cada pieza puede llevar una **Célula de Pulso** propia: haz clic derecho con una célula sobre la pieza en tu inventario y entra, con toda la carga. La pieza gasta de esa célula antes de tocar las que llevas. Haz clic derecho en la pieza con el cursor vacío para sacar la célula.",
+        "En una capucha con gafas, cuando la célula ya salió, el siguiente clic con el cursor vacío quita las gafas y te devuelve la Lente ley de la que estaban hechas."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Apagar una pieza",
+      "text": [
+        "Cada pieza que llevas puesta tiene un interruptor de apagado. Abre la pantalla de equipo (la tecla de apóstrofo por defecto, bajo Tribal Power en Controles) y pon la pieza en Apagado: sigue protegiendo como armadura, pero cada ventaja de la pieza se detiene, también las que responden a un golpe o a una caída, y no extrae Pulso hasta que la vuelvas a encender. La descripción lo dice en rojo mientras está apagada.",
+        "Las gafas de la capucha tienen allí su propio interruptor y su propia tecla. La misma pantalla muestra qué bóveda abre tu zurrón y te deja ocultar el HUD de Pulso."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "name": "Bestie trzcinowego mokradła",
+  "icon": "tribalpower:marsh_foot",
+  "order": 250,
+  "spoiler": true,
+  "items": [
+    "tribalpower:marsh_hopper_spawn_egg",
+    "tribalpower:fen_strider_spawn_egg",
+    "tribalpower:bog_floater_spawn_egg",
+    "tribalpower:reed_coil_spawn_egg",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:reed_whorl"
+  ],
+  "next": "beasts_crystal_fields",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Własne trzcinowego mokradła",
+      "text": [
+        "Wśród trzcin i błotnych koryt żyją żaba, czapla i rozdymka, która unosi się w powietrzu, a nocą w trawie budzi się kobra.",
+        "Każdą łagodną bestię tutaj można raz na minutę wyszczotkować, by dostać jej odczynnik; wabi się ją i rozmnaża jej własnym pokarmem, podanym niżej w **Polowanie i wypas**. Można ją związać jak każde łagodne zwierzę (zobacz [chowańce](familiars)), i choć żadna nie ma własnego daru, związana wciąż może przyjąć głos przy totemie i wzmocnić twoją magię (zobacz [dostrojenie przy totemie](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:marsh_hopper",
+      "title": "Bagienny skoczek",
+      "text": [
+        "Mała żaba moczarowa, szybka w skoku, w grupach od dwóch do czterech. **12 zdrowia**, bez pancerza.",
+        "Wypada **od 1 do 3 Bagienna stopa**, więcej z Grabieżą.",
+        "Upolowana zostawia też do 1 Surowa dziczyzna, do 1 Królicza skóra i do 1 Kula szlamu. Rozmnażaj przy użyciu **Ryż mokradła**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:fen_strider",
+      "title": "Brodziec moczarów",
+      "text": [
+        "Wysoka czapla, brodząca na nogach-szczudłach, w stadach od dwóch do czterech. **22 zdrowia** i **1 pancerza**.",
+        "Wypada **od 1 do 3 Kopyto moczarów**.",
+        "Upolowana zostawia też od 1 do 3 Surowa dziczyzna, do 2 Skóra Marszu i do 1 Kość. Rozmnażaj przy użyciu **Ryż mokradła**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bog_floater",
+      "title": "Pływak torfowiska",
+      "text": [
+        "Zielona rozdymka-balon, nadęta, okrągła i kolczasta, dryfuje nad moczarami od jednej do trzech. **12 zdrowia**, bez pancerza. Kilka dryfuje wraz z [Strażnik kolos](colossus_warden).",
+        "Wypada **od 1 do 3 Pęcherz torfowiska**.",
+        "Upolowany zostawia też do 1 Kula szlamu i do 1 Nić. Rozmnażaj przy użyciu **Ryż mokradła**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:reed_coil",
+      "title": "Trzcinowy zwój",
+      "text": [
+        "Bagienna kobra, zwinięta z rozpostartym kapturem, która nocą podnosi się na otwartym gruncie moczarów, jedna albo dwie naraz. Jest bardzo powolna, ale ma **30 zdrowia** i **6 pancerza**, uderza za **5** i każdym ciosem odpycha cię do tyłu.",
+        "Wypada **od 1 do 2 Trzcinowy okółek**, odczynnik Pchnięcia.",
+        "Upolowana zostawia też do 1 Skóra Marszu i do 1 Kość."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i wypas",
+      "text": [
+        "Oprócz odczynnika każda zostawia więcej, gdy ją upolujesz, a z Grabieżą jeszcze więcej. Mięso wypada pieczone, jeśli zwierzę zginęło w płomieniach. Aby rozmnażać dzikie, **skradaj się**, gdy karmisz dwoje dorosłych ich jedzeniem; karmione zwyczajnie, dzikie zamiast tego przywiązuje się do ciebie."
+      ]
+    }
+  ]
+}

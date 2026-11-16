@@ -1,0 +1,36 @@
+{
+  "name": "Fiaschetta di Spirito",
+  "icon": "tribalpower:spirit_flask",
+  "order": 35,
+  "items": [
+    "tribalpower:greater_spirit_flask"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_flask",
+      "text": [
+        "Un serbatoio da portare. La fiaschetta tiene un fluido, **4.000 mB** (4 secchi) — la **Fiaschetta maggiore di Spirito** tiene **16.000 mB**, quanto una [Cisterna di Spirito](spirit_cistern).",
+        "Non si divide mai in una pila di secchi, e la quantità che contiene si vede come una barra sotto l'icona, nel colore del fluido."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Riempire e versare",
+      "text": [
+        "- **Usala su un serbatoio o una macchina** (una Cisterna di Spirito, un Tamburo delle onde, il serbatoio di un'altra mod) e attinge da lì; se non può attingere, versa dentro ciò che porta.",
+        "- **Usala su una sorgente di fluido nel mondo** e ne beve un secchio.",
+        "- **Usa accovacciato** e versa un secchio davanti a te.",
+        "Le altre mod la vedono come un contenitore di fluido qualunque, così tubi e macchine di riempimento possono riempirla e svuotarla mentre sta nel tuo zaino."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_flask"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:greater_spirit_flask"
+    }
+  ]
+}

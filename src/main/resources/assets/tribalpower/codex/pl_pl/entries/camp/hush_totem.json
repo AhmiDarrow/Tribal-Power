@@ -1,0 +1,38 @@
+{
+  "name": "Totem ciszy",
+  "icon": "tribalpower:hush_totem",
+  "order": 70,
+  "next": "wayanchor",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:hush_totem",
+      "text": [
+        "Spokój dla całego obozu. Póki jest karmiony, Totem ciszy zatrzymuje pojawianie się wrogich w **24 blokach**, za **8 Puls** na sekundę."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Utrzymać go cicho",
+      "text": [
+        "Postaw go na środku obozu, w zasięgu 8 bloków od Przewodnik kraty, i totem **Duch** też w zasięgu 8 bloków: bez swojego głosu stoi bezczynnie (zobacz [Ręce obozu](camp_hands)). Trzyma zapas **2 400 Puls**, by przetrwać chwilę ciszy, i uzupełnia go o najwyżej **80 Puls** na sekundę. Kliknij prawym przyciskiem z Ogniwo Pulsu w ręku, by dopełnić ręcznie.",
+        "Zatrzymuje naturalne pojawianie się i pojawianie ze spawnerów każdego wrogiego, zarówno Zwykłego świata, jak i Marszu, w tym wrogich Kołyska przywołania. Trzyma też z dala **fantomy**: żaden nie jest wysyłany za graczem stojącym w kręgu.",
+        "Nie usuwa mobów, które już tam są, nie zatrzymuje zwierząt i nigdy nie unieważnia komend ani jaj przyzywających.",
+        "Redstone ucisza go od razu. Komparator pokazuje 15, póki ucisza."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Żyć z nim",
+      "text": [
+        "Wrodzy wciąż mogą wejść z zewnątrz kręgu, więc oświetl też brzegi albo postaw Bęben ochrony przy wejściu.",
+        "Jeśli używasz Kołyska przywołania do wrogich, trzymaj ją dalej niż 24 bloki od totemu albo podepnij totem do dźwigni i przełączaj między pokojem a przywołaniem.",
+        "Latarnia Ducha i Totem ciszy razem dają cichy obóz."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hush_totem"
+    }
+  ]
+}

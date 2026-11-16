@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:lore_tablet"
     },
-    "title": "Ancestor Hall",
-    "description": "Find a sunken hall of the nine tribes in The March.",
+    "title": {
+      "translate": "advancement.tribalpower.march.ancestor_hall.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.march.ancestor_hall.description"
+    },
     "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,

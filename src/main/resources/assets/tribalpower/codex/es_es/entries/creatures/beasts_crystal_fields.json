@@ -1,0 +1,74 @@
+{
+  "name": "Bestias de los Campos de Cristal",
+  "icon": "tribalpower:chime_crest",
+  "order": 260,
+  "spoiler": true,
+  "items": [
+    "tribalpower:chime_grazer_spawn_egg",
+    "tribalpower:glass_flitter_spawn_egg",
+    "tribalpower:geode_grub_spawn_egg",
+    "tribalpower:shard_stalker_spawn_egg",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:shard_barb"
+  ],
+  "next": "beasts_shallows",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Los propios del cristal",
+      "text": [
+        "Las mesetas aterrazadas albergan un pastador de cuello largo y una libélula al aire libre, una cochinilla en las cuevas de abajo y una mantis de cristal que camina sobre el cristal de noche.",
+        "Aquí, a toda bestia mansa se la puede cepillar una vez por minuto para obtener su reactivo, y se la tienta y cría con su propia comida, indicada más abajo en **Caza y pastoreo**. Se puede vincular como a cualquier animal manso (ver [familiares](familiars)) y, aunque ninguna tiene un don propio, una vinculada aún puede tomar una voz en un tótem y fortalecer tu magia (ver [sintonizar en un tótem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:chime_grazer",
+      "title": "Pastador de campanilla",
+      "text": [
+        "Un pastador violeta, lanudo y de cuello largo, con dos grandes cuernos de cristal y una cresta de cristal a lo largo del lomo, en manadas de dos a cuatro. **24 de salud** y **3 de armadura**.",
+        "Suelta **de 1 a 3 Cresta de campanilla**, más con Saqueo.",
+        "Si se caza, también suelta de 1 a 2 Caza cruda, hasta 1 Cuero de la Marcha y hasta 1 fragmento de amatista. Cría con **trigo**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glass_flitter",
+      "title": "Revoloteador de cristal",
+      "text": [
+        "Una libélula de alas de cristal, de una a tres. **10 de salud**, sin armadura.",
+        "Suelta **de 1 a 3 Ala de cristal**.",
+        "Si se caza, también suelta hasta 2 plumas. Cría con **Flor de eco o cualquier flor pequeña**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:geode_grub",
+      "title": "Larva de geoda",
+      "text": [
+        "Una cochinilla pesada de piedra lila bandeada, con una placa pálida en la cabeza y una hilera de geodas en el lomo, de las cuevas oscuras bajo las mesetas, de una a tres a la vez. **26 de salud** y **5 de armadura**, muy lenta, y mansa.",
+        "Suelta **de 1 a 3 Cáscara de geoda**.",
+        "Si se caza, también suelta hasta 2 fragmentos de amatista. Cría con **Casquete de farol o cualquier hongo**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shard_stalker",
+      "title": "Acechador de esquirlas",
+      "text": [
+        "Una mantis de cristal que surge entre el cristal de noche, de una o dos a la vez. Tiene **21 de salud** y **1 de armadura**, es rápida, y su golpe hace **5** y te envenena durante 3 segundos.",
+        "Suelta **de 1 a 2 Púa de esquirla**, un reactivo de veneno.",
+        "Si se caza, también suelta hasta 1 fragmento de amatista y hasta 1 cuerda."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, cada uno suelta más si se caza, y aún más con Saqueo. La carne cae asada si el animal murió ardiendo. Para criar a los salvajes, **agáchate** mientras alimentas a dos adultos con su comida; si los alimentas con normalidad, uno salvaje se encariña contigo."
+      ]
+    }
+  ]
+}

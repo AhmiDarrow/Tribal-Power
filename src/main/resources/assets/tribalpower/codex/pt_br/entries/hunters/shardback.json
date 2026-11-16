@@ -1,0 +1,52 @@
+{
+  "name": "Lomoestilhaço",
+  "icon": "tribalpower:prism_carapace",
+  "order": 100,
+  "spoiler": true,
+  "items": [
+    "tribalpower:shardback_spawn_egg",
+    "tribalpower:prism_carapace"
+  ],
+  "next": "hollow_sentinel",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:shardback",
+      "text": [
+        "Um caranguejo-ermitão numa concha de geodo, blindado em pedra cantante. Mantenha distância do empurrão pesado dele.",
+        "Caçado, também solta até 2 fragmentos de ametista."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Os Lomoestilhaço percorrem os Campos de cristal da Marcha e, em menor número, a Crista do brilho e o Planalto.",
+        "Ele tem **36 de vida** e **8 de armadura** e bate por **5**. Cada golpe empurra você com força para trás, o que é perigoso nos terraços. Lute longe das beiradas."
+      ],
+      "title": "Onde e como"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Solta **de 1 a 2 Carapaça prismática**.",
+        "Uma Carapaça prismática se sintoniza em 2 Eco sintonizado sob Espírito."
+      ],
+      "title": "O que ele dá"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Alcance o prestígio **Voz** com os **Cantores de cascalho** e então use um Amuleto de vínculo em um adulto. Duas tentativas em cinco dão certo; um amuleto falho se gasta. Ou alimente-o com o próprio reagente: uma tentativa em cinco, e o reagente se gasta de qualquer jeito.",
+        "Um Lomoestilhaço vinculado é um lutador: golpeia quem machuca você e quem você golpeia. A marca rara **Escora** torna difícil empurrá-lo para trás. Veja [presentes do familiar](familiar_gifts)."
+      ],
+      "title": "Como familiar"
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Além do reagente, ele solta isto quando caçado, e mais com Pilhagem."
+      ]
+    }
+  ]
+}

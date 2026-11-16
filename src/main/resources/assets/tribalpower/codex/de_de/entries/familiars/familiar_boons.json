@@ -1,0 +1,45 @@
+{
+  "name": "Was eine Stimme gibt",
+  "icon": "tribalpower:ember_charm",
+  "order": 50,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Innerhalb von 16 Blöcken",
+      "text": [
+        "Alles auf diesen Seiten braucht deinen abgestimmten Vertrauten innerhalb von **16 Blöcken** bei dir. Jeder Vertraute, der dir folgt, zählt, aber von denen, die warten sollen, zählt nur der **nächste**. Eine daheim sitzende Schar leiht dir also eine Stimme, nicht alle ihre.",
+        "Ohne einen funktioniert deine Magie genau wie bisher."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Geistamulette",
+      "text": [
+        "Ein getragenes Amulett mit der Stimme des Vertrauten kostet zum Erhalten **40% weniger Puls**, gerundet: die 2 Puls eines Amuletts mit einer Stimme werden zu 1. Siehe [Geistamulette](spirit_charms).",
+        "Jede Stimme, die du teilst, gibt zudem einen Vorteil, der noch einige Sekunden anhält, nachdem du dich entfernst:",
+        "- **Erde**: Resistenz II statt I.",
+        "- **Feuer**: Eile, und Angreifer brennen doppelt so lange.",
+        "- **Wasser**: Meereskraft.",
+        "- **Luft**: Geschwindigkeit.",
+        "- **Geist**: Feindliches innerhalb von 16 Blöcken leuchtet durch Wände. Das Leuchten ist für alle in der Nähe deutlich, nicht nur für dich.",
+        "- **Webstuhl**: Glück II."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Geistergerät",
+      "text": [
+        "Ein Teil, der an die Stimme des Vertrauten gebunden ist, verbraucht **40% weniger Puls**, gerundet: die 3 eines Schlags werden 2, die 2 eines Abbauschlags werden 1 und die 3 verbundener Rüstung werden 2. Ein Verbrauch von 1 Puls, etwa beim Pflügen oder Scheren, kann nicht tiefer, also ist er stattdessen **in 40% der Fälle kostenlos**.",
+        "Seine Stimmvorteile (zusätzliche Stämme und Setzlinge, doppelte Ernten, Ton aus Erde) kommen **anderthalbmal so oft**. Siehe [Geistergerät](spiritgear)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lieder und Riten",
+      "text": [
+        "Verse der Stimme des Vertrauten treffen **30% härter**, und ein Ruf reicht **1.5 Blöcke** weiter ([Liedformen](song_shapes)).",
+        "Ein Siegelritus seiner Stimme hinterlässt einen Segen, der **anderthalbmal so lang** anhält."
+      ]
+    }
+  ]
+}

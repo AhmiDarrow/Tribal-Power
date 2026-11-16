@@ -1,0 +1,66 @@
+{
+  "name": "Der lebende Marsch",
+  "icon": "tribalpower:ley_lens",
+  "order": 12,
+  "spoiler": false,
+  "pages": [
+    {
+      "type": "events",
+      "title": "Gerade jetzt",
+      "text": [
+        "Was der Marsch tut, während du dies liest. Es ändert sich mit dir oder ohne dich."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wetter des Marsches",
+      "text": [
+        "Sieben der Länder des Marsches haben ein eigenes Wetter, über den Regen hinaus: **Aschefall** in der Glutöde, ein **Schimmersturm** über den Kristallfeldern, eine **Weißblindheit** auf den Schneefeldern, **Fennnebel** im Schilffenn, **Reifnebel** am Frostufer, ein **Staubsturm** über den Salzflächen und **Sporentrieb** im Glühkappenmoor.",
+        "Jedes schließt die Welt ein: du siehst weniger, und Geister steigen bei Tag darunter auf, wie sie es bei Nacht täten.",
+        "Jede Art setzt etwa einmal am Spieltag ein und dauert **8 bis 20 Minuten**. Die Kodexseite oben sagt dir, was läuft; der Himmel auch."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wetter und Generatoren",
+      "text": [
+        "Jedes Wetter begünstigt die Generatoren einer Stimme und hemmt die einer anderen, standardmäßig anderthalb so viel von der begünstigten Stimme und halb so viel von der gehemmten:",
+        "- **Aschefall** speist Gluthörner und würgt Windharfen.",
+        "- Ein **Schimmersturm** speist Weckglocken und stumpft Trommelherzen ab.",
+        "- Eine **Weißblindheit** treibt Windharfen und friert Wellentrommeln ein.",
+        "- **Fennnebel** schwellt Wellentrommeln und dämpft Gluthörner.",
+        "- **Reifnebel** am Frostufer schwellt Wellentrommeln und würgt Gluthörner.",
+        "- Ein **Staubsturm** auf den Salzflächen treibt Windharfen und trocknet Wellentrommeln aus.",
+        "- **Sporentrieb** im Glühkappenmoor speist Weckglocken und dämpft Wellentrommeln.",
+        "**Wetter gibt Warnung.** Zwei Minuten bevor ein Wetter sich setzt, sagt der Marsch es, im Chat und über der Schnellzugriffsleiste: Zeit, ein Dach, ein Lager oder ein Tor zu erreichen. Ein Schub wird genauso ausgerufen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ley-Schübe",
+      "text": [
+        "Hin und wieder laufen die Leyfäden einer Stimme **hell**: ein Schub. Durch die [Leylinse](ley_lens) lodern sie, und die Linse nennt die Stimme. Solange es anhält, liefert jeder Leysammler, dessen Fäden diese Stimme tragen, das **Doppelte**.",
+        "Die andere Seite: jede Leyzelle hat eine **Kreuzung**, den Punkt, an dem ihre Fäden sich treffen, und wer während eines Schubs auf einer bloßen steht, ohne einen Sammler in der Nähe, der ihn trinkt, bekommt **Leykrankheit**: der Boden schwankt und dein Puls läuft aus. Tritt herunter, oder setze einen Sammler darauf und mach den Schub zu deinem.",
+        "Standardmäßig läuft ein Schub **15 Minuten**, und der nächste kommt etwa anderthalb Stunden nach seinem Ende."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Feste",
+      "text": [
+        "Jeder Stamm hält einen **Festtag**, die neun wechseln sich in einem Kreis von siebenundzwanzig Tagen ab. An ihrem Tag brennen die Feuer des Lagers, der Herd wirft seine Farbe in die Luft, und die Sippe bleibt am Herd, statt zu wandern.",
+        "Der Älteste hat Festworte, und wenn du bittest, am Festmahl teilzunehmen, drückt er dir zwei vom Gericht des Stammes in die Hände, mit einem Haufen Stellung, einmal je Fest. Ein Ritus, den du an dem Tag im Lager vollziehst, verdient den Dank des Festes obendrein zum Dank des Ritus, und ein Festmahl am Herd zu essen zählt dich an ihrem Tisch.",
+        "Die Kodexseite oben nennt, wessen Tag es ist, und der Marsch sagt dir, wann der Tag wechselt."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:wandering_spirit",
+      "title": "Wandergeister",
+      "text": [
+        "Selten, draußen im Marsch, treibt ein warmes Licht nahe an dich heran: ein **Wandergeist**. Es flieht nicht. Erreiche es, und es sagt dir eine Zeile aus der Geschichte seines Landes und lässt ein kleines Geschenk da, das Reagenz, auf das sein Wächter antwortet, oder hin und wieder einen Resonanzkern, und geht.",
+        "Allein gelassen verblasst es in ein paar Minuten. Jedes Land hat drei Dinge zu sagen; höre sie alle, und du kennst den Marsch ein wenig besser."
+      ]
+    }
+  ]
+}

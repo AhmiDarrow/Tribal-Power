@@ -1,0 +1,51 @@
+{
+  "name": "Aschegebunden",
+  "icon": "tribalpower:ember_heart",
+  "order": 70,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ashbound_spawn_egg",
+    "tribalpower:ember_heart"
+  ],
+  "next": "rootbound",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:ashbound",
+      "text": [
+        "Eine verbrannte Figur aus Weidengeflecht, die Überreste eines zerbrochenen Feuerritus. Seine Schläge setzen dich in Brand.",
+        "Gejagt lässt es außerdem bis zu 2 Kohle und bis zu 1 Knochen fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Aschegebunden gehen nachts durch Wälder der Oberwelt und streifen im Marsch durch die Steppe und das Glutödland.",
+        "Es hat **24 Gesundheit** und **2 Rüstung**, und schlägt für **4**. Jeder Treffer setzt dich für 2 Sekunden in Brand, und es selbst ist immun gegen Feuer. Halt Wasser in der Nähe, oder kämpfe, wo du in eine Pfütze treten kannst."
+      ],
+      "title": "Wo und wie"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Es lässt **1 bis 2 Glutherz** fallen.",
+        "Ein Glutherz ergibt unter Geist 2 Abgestimmtes Echo."
+      ],
+      "title": "Was es gibt"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Kein Amulett bindet einen Aschegebunden. Erleuchte deine Wege, und er bleibt fern."
+      ],
+      "title": "Bindet sich nicht"
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Hüten",
+      "text": [
+        "Neben seinem Reagenz lässt er dies fallen, wenn man ihn jagt, mehr mit Plünderung."
+      ]
+    }
+  ]
+}

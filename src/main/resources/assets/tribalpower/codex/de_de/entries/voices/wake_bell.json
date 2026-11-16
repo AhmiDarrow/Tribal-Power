@@ -1,0 +1,184 @@
+{
+  "name": "Weckglocke",
+  "icon": "tribalpower:wake_bell",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wake_bell",
+      "text": [
+        "Das Handwerk der Siegelkerber: eine Glocke, die die Toten betrauert. Jede Kreatur, die in der Nähe stirbt, zahlt Puls in ihren Speicher, und so wird eine Kreaturenfarm zum Kraftwerk."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wie sie zahlt",
+      "text": [
+        "Ein Tod innerhalb von **16 Blöcken** zahlt **20 Puls** für eine feindliche Kreatur und **5** für eine passive. Spielertode zahlen nichts.",
+        "Tode füllen ein Reservoir von **2,000**, das die Glocke höchstens **8 pro Sekunde** ohne Rang abgibt. Jeder Rang fügt **15% Puls pro Sekunde** hinzu, gerundet auf einen ganzen Puls. Eine große Farm füllt das Reservoir und steht dann still; alles über den Rand ist verloren.",
+        "Nur die **nächste** Glocke hört einen Tod, also bringt Glocken stapeln nichts. Eine von Redstone pausierte Glocke hört überhaupt nichts."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Eine Glocke an der Farm",
+      "steps": [
+        {
+          "caption": "Hänge die Glocke innerhalb von 16 Blöcken davon auf, wo Dinge sterben.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wake_bell"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Jede Tötung füllt ihr Reservoir; die Glocke gibt es mit bis zu 8 Puls pro Sekunde ab.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Pulskairn daneben schluckt diese Stöße, so schnell sie kommen.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Maschinen innerhalb von 8 Blöcken um den Kairn ziehen eine stetige Linie, so ungleich die Tötungen auch sind.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tipps",
+      "text": [
+        "Eine dunkle Farm oder das Tötungsfeld einer Schutztrommel funktionieren beide. Spieler sind nie Ziel einer Schutztrommel, und die Glocke hört trotzdem jeden Tod, den sie verursacht.",
+        "Eine Lauschgrube will eine stetige Entnahme, also paare die Glocke mit einem Pulskairn.",
+        "Glocken sind das Handwerk der [Siegelkerber](tribe_sigil): das Rezept braucht einen Glockensplitter und ein Geistsiegel, und die Siegelkerber handeln eine Glocke an ihre Sippe."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wake_bell"
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "name": "Kruszarka echa",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_shatter",
+      "text": [
+        "Stacja Ziemi i pierwsza, którą zbudujesz. Kruszarka echa ma dwa zadania: rozbijać **Kamień** na Odłamki echa, kryształ, który zasila Rezonator Pulsu, oraz kruszyć bloki i rudy na coś mniejszego."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Robienie odłamków",
+      "text": [
+        "Włóż **Kamień** albo **Głęboki łupek**; Kamień Marszu też działa. Bruk nie daje odłamków, więc najpierw go przetop na kamień.",
+        "Odłamek zajmuje **2 sekundy** przy **32 Pulsu na sekundę**. Puls złożony w pobliżu, w buforze generatora albo w kopcu, przeprowadza wolny generator przez partię.",
+        "Potrzebuje totemu Ziemi w zasięgu 8 bloków i naładowanego generatora. Odłamek to mały katalizator twojego pierwszego Rezonatora Pulsu, powoli zużywany przez Puls, który tamten wytwarza."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Kruszenie",
+      "text": [
+        "- Bruk, brukowany głęboki łupek i Bruk Marszu stają się żwirem; żwir staje się piaskiem.",
+        "- Piasek staje się pyłem, gdy zainstalowany jest obsługiwany mod przesiewania, a w przeciwnym razie kulką gliny.",
+        "- Dioryt staje się kwarcem. Ruda Marszu staje się dwoma Odłamkami Ducha.",
+        "- Surowe metale i rudy metali dają **dwa żwiry** z każdej, w 4 sekundy przy 40 Pulsu na sekundę. Zobacz [Metale i klejnoty](metals_and_gems).",
+        "- Rudy klejnotów z Jedwabnym dotykiem kruszą się prosto w klejnot, dwukrotnie więcej, niż ruda oddaje sama.",
+        "Przepisy w tej księdze albo JEI pokazują dokładne wejścia i wyjścia w twoim pakiecie."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Żwir schodzi w dół",
+      "steps": [
+        {
+          "caption": "Piec żaru z jego totemem Ognia.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Postaw Kruszarkę echa na nim, z totemem Ziemi w pobliżu.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dolna ściana Kruszarki echa wypuszcza, a górna ściana Pieca żaru przyjmuje, więc żwir wpada prosto do środka.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dodaj generator, podawaj surowe żelazo od góry i bierz sztabki z Pieca żaru.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "item": "minecraft:raw_iron"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dalej",
+      "text": [
+        "Zbuduj wokół niej wzór [Szyk rozbicia](shatter_array), a zużyje o ćwierć mniej Pulsu i opróżni wyjście do Skrytki przodków pod sobą.",
+        "Rangi czynią ją szybszą; zobacz [Rangi maszyn](machine_ranks). Dźwignia ją wstrzymuje."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shatter"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shard",
+      "text": "Co Kruszarka echa robi z kamienia i głębokiego łupka."
+    }
+  ]
+}

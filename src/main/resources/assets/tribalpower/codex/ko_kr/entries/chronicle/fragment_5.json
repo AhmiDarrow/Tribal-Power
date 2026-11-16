@@ -1,0 +1,17 @@
+{
+  "name": "6. 운반",
+  "icon": "tribalpower:carved_stone",
+  "order": 15,
+  "spoiler": true,
+  "unlock": "fragment:5",
+  "pages": [
+    {
+      "type": "text",
+      "title": "운반",
+      "text": [
+        "“깔개 지킴이는 달리지 않았다. 땅을 바구니 하나씩 집어 올리고, 살린 깔개마다 화로를 놓았다. 다른 이들은 웃었고, 그다음 와서 불 옆에 앉았다.”",
+        "마치의 폐허에 있는 조각된 돌 위에서 발견되었다."
+      ]
+    }
+  ]
+}

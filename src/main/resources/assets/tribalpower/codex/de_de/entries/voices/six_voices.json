@@ -1,0 +1,267 @@
+{
+  "name": "Die sechs Stimmen",
+  "icon": "tribalpower:resonance_totem_earth",
+  "order": 10,
+  "items": [
+    "tribalpower:resonance_totem_fire",
+    "tribalpower:resonance_totem_water",
+    "tribalpower:resonance_totem_air",
+    "tribalpower:resonance_totem_spirit"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_totem_earth",
+      "text": [
+        "Jede Echo-Station braucht neben ihrem Eingang zwei Dinge: Puls und ein **Resonanz-Totem** der richtigen Stimme innerhalb von **8 Blöcken**.",
+        "Das Totem ist ein Lehrer, kein Generator. Ohne die richtige Stimme wartet eine Station und gibt nichts aus."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zwei Blöcke hoch",
+      "text": [
+        "Ein Resonanz-Totem ist **zwei Blöcke** hoch, also lass einen freien Block über der Stelle, wo du eines setzt.",
+        "Klicke auf eine der beiden Hälften: die obere antwortet genau wie der Sockel. Brich eine der beiden Hälften ab, und das ganze Totem kommt als ein Gegenstand herunter, mit allem, was es hält.",
+        "Ein ein Block hohes Totem aus einer älteren Welt lässt seine Spitze von selbst nachwachsen, sobald der Block darüber Luft ist."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Welche Stimme was tut",
+      "text": [
+        "Jede Werkstatt hört auf eine Stimme und wartet auf ein Totem davon innerhalb von **8 Blöcken**:",
+        "- **Erde**: Echozermalmer, das Steinbecken und die Lauschgrube.",
+        "- **Feuer**: Echoabstimmer und der Glutofen. Eine Kreaturen-Reagenz abzustimmen verlangt stattdessen **Geist**.",
+        "- **Wasser**: Echobinder.",
+        "- **Geist**: Echomanifestierer.",
+        "- **Webstuhl**: Echoentweben und Ferntor. Sie ist die letzte Stimme; sieh [Die sechste Stimme](sixth_voice).",
+        "Eine pausierte Maschine nennt die Stimme, die ihr fehlt, wenn du dich anschleichst und sie mit diesem Buch rechtsklickst."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stimmen rund ums Lager",
+      "text": [
+        "Lagervorrichtungen, die allein arbeiten, wollen ebenfalls eine gehaltene Stimme innerhalb von 8 Blöcken:",
+        "- **Erde**: der Hainpfleger und der Weganker.",
+        "- **Wasser**: die Gezeitenpumpe.",
+        "- **Geist**: die Schutztrommel, das Stilletotem und die Beschwörungswiege.",
+        "- **Luft**: die Windschlinge und jedes Relais außer den Astral-Relais.",
+        "- **Webstuhl**: der Siegelwebstuhl und Astral-Relais.",
+        "Die Liedbank nimmt jede Stimme: das Totem, das du wählst, ist die Stimme des Liedes."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Der richtige Lehrer",
+      "steps": [
+        {
+          "caption": "Echozermalmer mit Stein darin, und eine geladene Trommel daneben.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:stone"
+          }
+        },
+        {
+          "caption": "Ein Feuer-Totem ist die falsche Stimme für den Echozermalmer. Die Station wartet und gibt nichts aus.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Tausche es gegen ein Erde-Totem, und die Arbeit beginnt.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "remove": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stimmen, keine Blöcke",
+      "text": [
+        "Stationen zählen Stimmen, nicht Totems: zwei Erde-Totems sind immer noch eine Stimme. Viele verschiedene Stimmen zählen für den Pulsresonator und den Webstuhl-Anker, die für jede **gesonderte** Stimme um sie herum mehr Puls erzeugen.",
+        "Ein Verwandtschafts-Totem leiht das Element seines Stammes an Stationen, Lagergeräte und den Webstuhl-Anker, und es wird nie still. Ein Pulsresonator zählt es anders: jeder Stamm fügt eine Stimme hinzu, nie ein siebtes Element.",
+        "Ein Totem, das mit Kreide an eines nahe der Station gebunden ist, leiht seine Stimme ebenfalls, wenn es weniger als 16 Blöcke von der Station entfernt steht. Lagergeräte und der Resonator hören keine Kreideverbindungen.",
+        "Jedes Totem hält außerdem **250 Puls** für das Gitter, und du musst es wach halten: sieh [Wachhalten](keeping)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ein Generator für jede Stimme",
+      "text": [
+        "Jede Stimme hat auch einen eigenen Generator, das Handwerk des Stammes, der sie hütet:",
+        "- **Erde**: das Trommelherz.",
+        "- **Feuer**: das Gluthorn, von den [Trommelherzen](tribe_spark).",
+        "- **Luft**: die Windharfe, von den [Musterweber](tribe_clock).",
+        "- **Wasser**: die Wellentrommel, von den [Wurzelbinder](tribe_sprout).",
+        "- **Geist**: die Weckglocke, von den [Siegelkerber](tribe_sigil).",
+        "- **Webstuhl**: der Webstuhl-Anker, von den [Webstuhl-Näher](tribe_spindle).",
+        "Lass alle sechs zugleich innerhalb von **32 Blöcken** um einen Webstuhl-Anker produzieren, und jeder, der daneben steht, erhält **Sechs Stimmen singen**.",
+        "Im [Marsch](living_march) begünstigt das Wetter die Generatoren einer Stimme und hemmt die einer anderen."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_earth"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_fire"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_water"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_air"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_spirit"
+    }
+  ]
+}

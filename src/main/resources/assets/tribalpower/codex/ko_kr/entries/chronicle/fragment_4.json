@@ -1,0 +1,17 @@
+{
+  "name": "5. 추락",
+  "icon": "tribalpower:carved_stone",
+  "order": 14,
+  "spoiler": true,
+  "unlock": "fragment:4",
+  "pages": [
+    {
+      "type": "text",
+      "title": "추락",
+      "text": [
+        "“실 하나가 놓으면 나머지 여덟은 한 숨 버틴 뒤 찢어진다. 땅은 조각나 하늘에서 떨어졌다. 떨어지지 않은 것은 표류했다. 표류한 것이 마치다.”",
+        "마치의 폐허에 있는 조각된 돌 위에서 발견되었다."
+      ]
+    }
+  ]
+}

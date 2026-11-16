@@ -1,0 +1,17 @@
+{
+  "name": "15. Steppe",
+  "icon": "tribalpower:mural",
+  "order": 24,
+  "spoiler": true,
+  "unlock": "fragment:14",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Steppe",
+      "text": [
+        "“La Steppe est la litière que les Gardiens des litières n'ont pas pu emporter : trop grande, et le troupeau était dessus quand elle est tombée. Le troupeau n'a jamais cessé de courir. Des pieds silencieux pourraient ramener la litière ; les bruyants rejoignent la ruée.”",
+        "Trouvé sur une peinture murale, sur le terrain d'un gardien."
+      ]
+    }
+  ]
+}

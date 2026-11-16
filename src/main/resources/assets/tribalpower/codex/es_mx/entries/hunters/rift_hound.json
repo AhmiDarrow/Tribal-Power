@@ -1,0 +1,52 @@
+{
+  "name": "Sabueso de la grieta",
+  "icon": "tribalpower:rift_tooth",
+  "order": 150,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rift_hound_spawn_egg",
+    "tribalpower:rift_tooth"
+  ],
+  "next": "echo_weaver",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:rift_hound",
+      "text": [
+        "Un lebrel enjuto, desgarrado por grietas que brillan, atraído por los desgarros del entramado. Acorta la distancia enseguida, pero no puede cruzar mundos por sí solo.",
+        "Cazado, también suelta hasta 2 Huesos y hasta 1 Cuero de la Marcha."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Los Sabuesos de la grieta cazan en la Estepa de la Marcha, en las Alturas, en la Cresta del destello, en los Campos de nieve y en los Yermos de brasa.",
+        "Tiene **28 de salud** y **2 de armadura** y golpea por **5**. Es el más rápido de los remanentes, así que no lo dejarás atrás con facilidad. Date la vuelta y lucha de espaldas a un muro."
+      ],
+      "title": "Dónde y cómo"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Suelta **de 1 a 2 Diente de la grieta**.",
+        "Un Diente de la grieta se sintoniza en 2 Eco sintonizado bajo Espíritu."
+      ],
+      "title": "Qué da"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Alcanza **Voz** con los **Caminantes del borde** y luego usa un Amuleto de vínculo con un adulto: dos intentos de cada cinco, el amuleto se gasta si falla. O aliméntalo con su propio reactivo: un intento de cada cinco, y el reactivo se gasta de todos modos.",
+        "Un sabueso vinculado es un luchador, y la marca rara **Rastro** te muestra al último enemigo que te hirió. Consulta [dones del familiar](familiar_gifts)."
+      ],
+      "title": "Como familiar"
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, suelta esto al cazarlo, y más con Saqueo."
+      ]
+    }
+  ]
+}

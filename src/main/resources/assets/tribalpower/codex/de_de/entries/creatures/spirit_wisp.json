@@ -1,0 +1,29 @@
+{
+  "name": "Geisterlicht",
+  "icon": "tribalpower:spirit_wisp_spawn_egg",
+  "items": [
+    "tribalpower:spirit_wisp_spawn_egg"
+  ],
+  "order": 60,
+  "spoiler": true,
+  "next": "march_wildlife",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:spirit_wisp",
+      "text": [
+        "Geisterlichter sind die Irrlichter des Marsches: kleine treibende Lichter mit Gesichtern, die kleine Lichtfunken hinter sich herziehen. Sie schweben, statt zu gehen, und nehmen nie Fallschaden.",
+        "Du findest sie in jedem Biom des Marsches, in lockeren Gruppen über Gras, Stein und Kristall. Am dichtesten sammeln sie sich um Marschkristall."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ein Irrlicht beobachtet dich aus der Ferne, hält aber etwa vier Blöcke Abstand und flieht, wenn etwas es erschreckt.",
+        "Es hat nur **6 Leben**, greift nie an und lässt nur etwas Glowstone-Staub fallen. Sieh es als die Glühwürmchen des Marsches: ein Zeichen, dass du dort bist, wo der Faden noch summt.",
+        "Eine **Geistscherbe** in deiner Hand zieht die Irrlichter trotz ihrer Scheu heran. Füttere zwei mit je einer Scherbe, und sie erzeugen ein drittes."
+      ],
+      "title": "Ihre Gewohnheiten"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Filtry i płyty pustki",
+  "icon": "tribalpower:fire_seal",
+  "order": 45,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Filtr",
+      "text": [
+        "Otwórz płytę, by wypełnić jej **Filtr**: osiem miejsc trzyma obraz przedmiotu, nigdy sam przedmiot. Kliknij miejsce z czymś w ręce, aby je oznaczyć, pustą ręką, aby je wyczyścić, albo kliknij z Shiftem przedmioty w ekwipunku.",
+        "Przycisk obok przełącza listę. **Czarna lista** zatrzymuje oznaczone i przepuszcza resztę; pusta czarna lista, od której płyta zaczyna, wysyła wszystko. **Biała lista** wysyła tylko oznaczone.",
+        "Dla płynu oznacz wiadro albo dowolny pełny pojemnik: wiadro wody wpisuje wodę.",
+        "Przykucnij i kliknij płytę prawym przyciskiem pustą ręką, aby przełączyć listę bez otwierania jej."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Płyty pustki",
+      "text": [
+        "**Pieczęć Ognia** w miejscu **Runa** tworzy **płytę pustki**: spala to, co wyciąga ze swojej maszyny, zamiast dokądkolwiek wysyłać; przedmioty przez Przekaźnik przedmiotów, płyn przez Przekaźnik płynów. Spala tylko to, co wymienia filtr, więc pusty filtr nie spala nic. Płyta pustki spala według filtra karty 1.",
+        "Płyty zaczynają jako **Czarna lista**, więc świeża płyta pustki z oznaczonym brukiem spala wszystko poza brukiem. Przełącz ją najpierw na **Białą listę**, by spalać tylko to, co oznaczysz, albo zostaw czarną listę i oznacz, co zachować.",
+        "Płyta pustki wciąż potrzebuje Pulsu i swojego głosu. Przy każdym uderzeniu spala do **16 przedmiotów** lub **250 mB**, więcej przy randze, i płaci za to zwykły Puls płyty."
+      ]
+    }
+  ]
+}

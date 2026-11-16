@@ -1,0 +1,87 @@
+{
+  "name": "仪式火盆",
+  "icon": "tribalpower:ritual_brazier",
+  "order": 70,
+  "items": [
+    "tribalpower:blank_seal",
+    "tribalpower:earth_seal",
+    "tribalpower:fire_seal",
+    "tribalpower:water_seal",
+    "tribalpower:air_seal",
+    "tribalpower:spirit_seal",
+    "tribalpower:loom_seal"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ritual_brazier",
+      "text": [
+        "火盆盛放一枚元素印，并将其化为附近所有人的持续祝福。它也是每个石板仪式的核心。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "点燃祝福",
+      "text": [
+        "手持印右键点击火盆，将其安放。印永不消耗；空手潜行即可取回。",
+        "将该印的图腾保持在**8格**内，并让附近的网格中有脉动。只要有人站在**6格**内，火盆就消耗**每两秒8脉动**并祝福他们所有人。附近无人时，它不消耗任何东西。",
+        "持续的红石信号会暂停它；已储存的脉动不会被倒掉。脉冲信号会触发其已安放的仪式（见[仪式圆](rite_circle)）。",
+        "它也会为附近的所有人燃[香](remedies)，无需印，也无需脉动。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "诸祝福",
+      "text": [
+        "- **土**：急迫。",
+        "- **火**：抗火。",
+        "- **水**：生命恢复。",
+        "- **风**：缓降。",
+        "- **灵**：夜视。",
+        "- **织机**：幸运，并且每一拍将**2脉动**织入仍有空位的随身脉动电池。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "印",
+      "text": [
+        "每枚印起初都是空白的：纸、一枚灵之碎片和一只骨铃制成**两**枚空白印。",
+        "为土加入泥土，为火加入木炭，为水加入水桶，为风加入羽毛，为灵加入灵之碎片，为织机加入织机线。",
+        "印用于护符和仪式石板；石板配方总会归还其印。用在仪式台座上的印会消耗于一次快速[印之仪式](rite_circle)。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ritual_brazier"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:blank_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:earth_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fire_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:water_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:air_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_seal"
+    }
+  ],
+  "next": "rite_circle"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Tabliczka: Buty Chodzących po krawędzi",
+  "icon": "tribalpower:lore_tablet",
+  "order": 130,
+  "spoiler": true,
+  "unlock": "tablet:3",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Przechowywana w obozie Rzeźbiarzy pieczęci, słowami Chodzących po krawędzi:",
+        "“Najpierw buty. Potem most. Potem odwaga; przychodzi sama. Szliśmy skrajem rozpadliny, gdzie nić strzępiła się najcieniej, i stawialiśmy punkty oparcia dla reszty. Punkt oparcia to żelazo, skóra i obietnica, że nie spojrzysz w dół.”"
+      ]
+    }
+  ]
+}

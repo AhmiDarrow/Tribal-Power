@@ -1,0 +1,286 @@
+{
+  "name": "Metalli e gemme",
+  "icon": "tribalpower:iron_grit",
+  "order": 80,
+  "items": [
+    "tribalpower:gold_grit",
+    "tribalpower:copper_grit",
+    "tribalpower:mineral_grit"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:iron_grit",
+      "text": [
+        "La ghiaia è metallo frantumato in attesa del fuoco. Frantumare il metallo grezzo dà **due ghiaie** per ogni pezzo, e ogni ghiaia si fonde in un lingotto, quindi ogni minerale ti dà il doppio del metallo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Metalli",
+      "text": [
+        "Metti un oggetto di metallo grezzo, o un minerale di metallo con tocco di velluto, nel Frantumatore di eco: **4 secondi** a **40 Pulso al secondo**, per due ghiaie.",
+        "Fondi la ghiaia in un lingotto in una fornace, in una fornace fusoria o nella Fornace di brace.",
+        "Il ferro, l'oro e il rame hanno ciascuno la propria ghiaia. I metalli delle mod usano un solo oggetto **Ghiaia minerale** che nomina il proprio materiale, e si illuminano senza pacchetto dati. La netherite non viene mai frantumata; va guadagnata nel Nether."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gemme e minerali",
+      "text": [
+        "Il minerale di gemma con tocco di velluto si frantuma direttamente nella gemma, al **doppio** di ciò che il minerale stesso lascia:",
+        "- Carbone, diamante, smeraldo e quarzo danno **due**.",
+        "- Redstone e lapislazzuli danno **otto**.",
+        "- Le gemme delle mod danno due.",
+        "La gemma stessa non è mai un ingresso."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Una linea di minerale",
+      "steps": [
+        {
+          "caption": "La Fornace di brace in basso, con il suo totem di Fuoco.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Il Frantumatore di eco in alto, con un totem di Terra. La sua ghiaia cade dritta nella Fornace di brace.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Un baule di minerale grezzo alimenta il Frantumatore di eco tramite una tramoggia, e il tamburo accanto alla Fornace di brace dà energia a entrambe le stazioni.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=east]"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                0
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              1,
+              0
+            ],
+            [
+              -1,
+              2,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Una tramoggia sotto la Fornace di brace raccoglie i lingotti in un baule.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:iron_grit"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gold_grit"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_grit"
+    }
+  ]
+}

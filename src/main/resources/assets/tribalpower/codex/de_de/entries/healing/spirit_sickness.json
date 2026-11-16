@@ -1,0 +1,34 @@
+{
+  "name": "Geistkrankheit",
+  "icon": "tribalpower:spirit_remnant",
+  "order": 40,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Manche Geister in [der Marsch](the_march) hinterlassen mehr als eine Wunde. Jeder Treffer einer **Elite**, und jeder Treffer irgendeines Geistes **nachts**, hat eine Chance von eins zu vier, dir **Geistkrankheit** zu geben.",
+        "Es stapelt sich bis **Stufe III**. Jede Stufe nimmt dir **ein Herz** von deiner maximalen Gesundheit und bremst dich etwas, und es hält **5 Minuten**, erneuert von jedem neuen Treffer. Du spürst, wie es sich festsetzt: das Spiel sagt dir, wenn es greift."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Aufheben",
+      "text": [
+        "Milch bewirkt nichts. Nur die alten Wege wirken:",
+        "- irgendein [Heilmittel](remedies), eine Tinktur, eine Salbe oder Weihrauch;",
+        "- die [Heiler-Rassel](healers_rattle) von Bound, eine Stufe pro Schütteln;",
+        "- der [Heilkreis](healing_circle);",
+        "- eine Nacht in einer [Schwitzhütte](sweat_lodge);",
+        "- eine Wäsche in einem **Geistbrunnen** im Marsch: schleiche dich in sein Wasser, für **40 Puls** aus einer Zelle, die du trägst."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Geistsegen",
+      "text": [
+        "Der Kreis und die Hütte lassen dich auch mit **Geistsegen** zurück: **2 zusätzliche Herzen** und, solange er anhält, kann die Krankheit gar nicht greifen. Geh gesegnet in den Marsch, und die Nachtgeister können dich nur verletzen, nicht krank machen."
+      ]
+    }
+  ],
+  "next": "afflictions"
+}

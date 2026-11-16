@@ -1,0 +1,53 @@
+{
+  "name": "Porta lontana",
+  "icon": "tribalpower:gate_sigil",
+  "order": 40,
+  "next": "keeping_the_way",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_sigil",
+      "text": [
+        "Una porta che passa tra i mondi. La Porta lontana è un telaio più alto, puntellato con Pietre d'ancora e a cui il Telaio dà voce, collegata con un Sigillo della porta. La voce del Telaio è ciò che mette gli altri mondi dietro Il Non Cantato."
+      ],
+      "title": "Porta lontana"
+    },
+    {
+      "type": "pattern",
+      "pattern": "far_gate",
+      "title": "Costruire il telaio",
+      "text": "L'anello è di una fila più alto, attorno a un interno largo tre e alto quattro. Quattro Pietre d'ancora stanno agli angoli della sua impronta, davanti e dietro il telaio."
+    },
+    {
+      "type": "text",
+      "title": "Cosa gli serve",
+      "text": [
+        "Tredici telai della porta, una Chiave della porta e quattro [Pietre d'ancora](anchor_stone).",
+        "La voce del **Telaio** entro **8 blocchi** dalla chiave (vedi [La sesta voce](sixth_voice)). Senza di essa la porta non si accende, e una accesa si spegne.",
+        "Una chiave in un telaio di Porta lontana tiene fino a **2,000 Pulso**. Versalo con Celle di Pulso, fino a 100 per volta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sigillo della porta",
+      "text": [
+        "Crea un sigillo da un Sigillo vergine, Filo di Telaio e una Scheggia di Spirito.",
+        "Accovacciati e fai clic destro su una chiave con esso per annotare quella porta. Poi fai clic destro sull'altra chiave per legare le due, in entrambi i sensi, anche in un altro mondo.",
+        "Entrambe le estremità devono essere Porte lontane per passare tra i mondi. Un server può spegnere del tutto le Porte lontane."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Accensione e attraversamento",
+      "text": [
+        "Accendere costa **1,200 Pulso** dei **2,000** propri della porta. Ogni attraversamento costa **120** ed è seguito da un recupero di **due secondi**.",
+        "Tutto il resto funziona come una Porta della via: la mano o un segnale percosso per accendere, arrivo dentro il telaio lontano, rifiuto e rimborso quando non c'è dove stare in piedi.",
+        "Arrivare nella Marcia attraverso una Porta lontana conta come una visita, proprio come il Tamburo della porta."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_sigil"
+    }
+  ]
+}

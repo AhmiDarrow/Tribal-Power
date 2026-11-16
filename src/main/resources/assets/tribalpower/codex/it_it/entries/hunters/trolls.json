@@ -1,0 +1,74 @@
+{
+  "name": "Troll",
+  "icon": "tribalpower:troll_hide",
+  "order": 320,
+  "spoiler": true,
+  "items": [
+    "tribalpower:crag_troll_spawn_egg",
+    "tribalpower:rime_troll_spawn_egg",
+    "tribalpower:slag_troll_spawn_egg",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:slag_hide"
+  ],
+  "next": "goblins",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Troll",
+      "text": [
+        "Grandi, lenti a cadere e pronti all'ira. Tre tipi di troll tengono l'alta pietra della Marcia e il suo calore, e tutti e tre ti danno la caccia."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:crag_troll",
+      "title": "Troll della rupe",
+      "text": [
+        "Si trova negli Altipiani. Sorge di notte sul terreno aperto, uno o due alla volta.",
+        "Cacciato, lascia anche da 1 a 3 Cuoio della Marcia, da 1 a 2 ossa e fino a 2 selce."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:rime_troll",
+      "title": "Troll di brina",
+      "text": [
+        "Si trova nei Campi di neve. Sorge di notte sul terreno aperto, uno o due alla volta.",
+        "Cacciato, lascia anche da 1 a 3 Cuoio della Marcia, da 1 a 2 ossa e da 1 a 3 palle di neve."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slag_troll",
+      "title": "Troll di scorie",
+      "text": [
+        "Si trova nelle Distese di brace, presso la lava e sulla pietra calda intorno, di giorno o di notte, uno o due alla volta. È **immune al fuoco**.",
+        "Cacciato, lascia anche da 1 a 3 Cuoio della Marcia, da 1 a 2 ossa e da 1 a 3 pepite di ferro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Combatterne uno",
+      "text": [
+        "Un troll ha **69 di salute** e **6 di armatura** e colpisce per **9**. Il colpo di un Troll della rupe o di un Troll di brina ti spinge indietro; quello di un Troll di scorie ti dà fuoco per 2 secondi.",
+        "Tieni le distanze e non combattere mai uno con la lava alle spalle."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ciò che danno",
+      "text": [
+        "Ognuno lascia **1 a 2** della sua pelle, di più con Saccheggio. **Pelle di troll** e **Pelle di brina** sono reagenti di Spinta, **Pelle di scorie** un reagente di Brace: vedi [reagenti](reagents).",
+        "I troll non stringono mai un legame."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caccia e branco",
+      "text": [
+        "Oltre al reagente, ognuno ne lascia di più se cacciato, e ancora di più con Saccheggio."
+      ]
+    }
+  ]
+}

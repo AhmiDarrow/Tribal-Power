@@ -1,0 +1,473 @@
+{
+  "name": "Meble obozu",
+  "icon": "tribalpower:march_table",
+  "order": 170,
+  "items": [
+    "tribalpower:march_stool",
+    "tribalpower:spirit_urn",
+    "tribalpower:woven_mat",
+    "tribalpower:wall_shelf",
+    "tribalpower:hanging_rack",
+    "tribalpower:spirit_door"
+  ],
+  "next": "wind_charm",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_table",
+      "text": [
+        "Obóz powinien sprawiać wrażenie zamieszkanego. Większość tych części robi się z drewna Marszu, kamienia, trzciny i liści, i żadna nie prosi o Puls. To nie tylko dekoracja: kładź rzeczy na półce, na stole i na urnie, siadaj na stołku, a amulet dzwoni, gdy go stukniesz."
+      ],
+      "title": "Meble obozu"
+    },
+    {
+      "type": "text",
+      "title": "Elementy",
+      "text": [
+        "- **Stół Marszu**: po postawieniu jest zwrócony do ciebie i mieści cztery rzeczy na blacie.",
+        "- **Stołek Marszu**: po postawieniu jest zwrócony do ciebie. Użyj go z pustymi rękami, by usiąść; skradaj się albo użyj go ponownie, by wstać.",
+        "- **Urna Ducha**: kamienny garnek na półkę albo do kąta. Trzyma jedną rzecz w ustach.",
+        "- **Tkana mata**: cienki dywan na każdą podłogę, także płyty i schody.",
+        "Użyj stołu albo urny, trzymając coś, by to postawić, a z pustymi rękami, by zabrać. Co postawisz, zostaje tam, gdzie to kładziesz, spada razem z elementem, jeśli ten się zepsuje, i komparator może to odczytać. Leje i rury nie ruszają mebli — skrytki służą do przechowywania."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Półki i wieszaki",
+      "text": [
+        "- **Półka ścienna**: wisi z boku niemal dowolnego bloku (płot, murek, kłoda) i spada, gdy tamten znika. Użyj jej, trzymając coś, by postawić to na desce, a z pustymi rękami, by zabrać. Mieszczą się cztery rzeczy, jedna na miejsce, a komparator czyta, jak bardzo jest pełna.",
+        "- **Wiszący wieszak**: szyna z czterema miedzianymi hakami, wysoko na tym, do czego jest umocowana. Garnki, narzędzia i tobołki wiszą na hakach, zamiast leżeć na desce. Działa jak półka: użyj go, trzymając coś, by to powiesić, a z pustymi rękami, by zdjąć, a komparator czyta, jak bardzo jest pełny. Chodzisz pod nim.",
+        "O wiszące ozdoby zajrzyj do [Amulet wiatru](wind_charm); stuknij go, a zadzwoni."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Kąt obozu",
+      "steps": [
+        {
+          "caption": "Połóż Tkana mata na podłodze.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:woven_mat"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Stół Marszu na macie, ze stołkami po obu stronach.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_table[facing=north]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_stool[facing=east]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_stool[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              -1,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Półka ścienna potrzebuje czegoś z tyłu, żeby się zawiesić.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                1
+              ],
+              "block": "tribalpower:wall_shelf[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Urna Ducha wypełnia kąt.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_urn[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Duchowe drzwi",
+      "text": [
+        "**Duchowe drzwi** to duchowy próg twojego obozu: dwa słupy, nadproże i lampa. **Gracze, związane chowańce i każde łagodne stworzenie** przechodzą prosto przez środek, jakby nic tam nie było.",
+        "**Potwór albo wrogi duch** napotyka je jak litą ścianę. Zawieś jedne w luce palisady, a noc zostaje na zewnątrz, gdy wchodzisz i wychodzisz.",
+        "Ustaw je w stronę, w którą ma biec ścieżka. Dają miękkie światło i tak znaczą wejście po zmroku."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_table"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_stool"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:woven_mat"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wall_shelf"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hanging_rack"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_door"
+    }
+  ]
+}

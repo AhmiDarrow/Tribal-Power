@@ -1,0 +1,473 @@
+{
+  "name": "Mobília de acampamento",
+  "icon": "tribalpower:march_table",
+  "order": 170,
+  "items": [
+    "tribalpower:march_stool",
+    "tribalpower:spirit_urn",
+    "tribalpower:woven_mat",
+    "tribalpower:wall_shelf",
+    "tribalpower:hanging_rack",
+    "tribalpower:spirit_door"
+  ],
+  "next": "wind_charm",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_table",
+      "text": [
+        "Um acampamento deve parecer habitado. A maior parte destas peças é feita de madeira da Marcha, pedra, cana e folhas, e nenhuma pede Pulso. Não são só cenário: coloque coisas na prateleira, na mesa e na urna, sente-se no banquinho, e o amuleto soa quando você o bate."
+      ],
+      "title": "Mobília de acampamento"
+    },
+    {
+      "type": "text",
+      "title": "As peças",
+      "text": [
+        "- **Mesa da Marcha**: fica virada para você ao ser colocada, e segura quatro coisas em cima.",
+        "- **Banqueta da Marcha**: fica virada para você ao ser colocada. Use-a de mãos vazias para sentar; agache ou use-a de novo para levantar.",
+        "- **Urna do Espírito**: um pote de pedra para uma prateleira ou um canto. Segura uma coisa na boca.",
+        "- **Esteira tecida**: um tapete fino para qualquer chão, lajes e escadas inclusos.",
+        "Use a mesa ou a urna segurando algo para colocá-lo, e de mãos vazias para pegá-lo de volta. O que você coloca fica onde você pôs, cai com a peça se ela quebrar, e um comparador pode lê-lo. Funis e canos deixam os móveis em paz — os depósitos é que guardam as coisas."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Prateleiras e suportes",
+      "text": [
+        "- **Prateleira de parede**: pendura na lateral de quase qualquer bloco (uma cerca, um muro, um tronco) e cai se esse sumir. Use-a segurando algo para pôr isso na tábua, e de mãos vazias para pegar de volta. Cabem quatro coisas, uma por lugar, e um comparador lê o quanto está cheia.",
+        "- **Suporte pendurado**: um trilho com quatro ganchos de cobre, alto naquilo em que está fixado. Panelas, ferramentas e trouxas pendem dos ganchos em vez de ficarem numa tábua. Funciona como a prateleira: use-o segurando algo para pendurar, de mãos vazias para tirar, e um comparador lê o quanto está cheio. Você passa por baixo.",
+        "Para enfeites de pendurar, veja o [Amuleto de vento](wind_charm); bata nele e ele soa."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Um canto do acampamento",
+      "steps": [
+        {
+          "caption": "Estenda uma Esteira tecida no chão.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:woven_mat"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Uma Mesa da Marcha sobre a esteira, com banquetas de cada lado.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_table[facing=north]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_stool[facing=east]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_stool[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              -1,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Uma Prateleira de parede precisa de algo atrás para se pendurar.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                1
+              ],
+              "block": "tribalpower:wall_shelf[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Uma Urna do Espírito preenche o canto.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_urn[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "A Porta espiritual",
+      "text": [
+        "Uma **Porta espiritual** é um limiar espiritual para o seu acampamento: dois postes, uma verga e uma lâmpada. **Jogadores, familiares vinculados e toda criatura mansa** atravessam o meio como se não houvesse nada.",
+        "Um **monstro ou espírito hostil** a encontra como um muro sólido. Pendure uma no vão da sua paliçada, e a noite fica de fora enquanto você entra e sai.",
+        "Coloque-a virada para o lado em que você quer que o caminho siga. Ela solta uma luz suave e assim marca a entrada depois que escurece."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_table"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_stool"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:woven_mat"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wall_shelf"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hanging_rack"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_door"
+    }
+  ]
+}

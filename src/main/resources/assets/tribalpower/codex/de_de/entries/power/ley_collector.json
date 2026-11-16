@@ -1,0 +1,467 @@
+{
+  "name": "Leysammler",
+  "icon": "tribalpower:ley_collector",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_collector",
+      "text": [
+        "Ein Generator, der die Ley-Linien des Planeten trinkt. Stell ihn dorthin, wo eine Linie verläuft, zwischen offenem Himmel, Wasser, Pflanzen und Leben, und er gibt alle **zwei Sekunden** Puls dazu, ohne dass du dort stehst.",
+        "Er hält **2.000 Puls**, die verloren sind, wenn du ihn abbaust."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Worauf er hört",
+      "text": [
+        "Alle zwei Sekunden gibt der Sammler **3 Puls je Punkt** seines **Schlags** dazu. Ein Schlag beginnt bei **1**, und das Land innerhalb von **8 Blöcken** gibt mehr dazu:",
+        "- Offener Himmel: **+1** am Tag, **+3** in der Nacht.",
+        "- Regen **+2**, und ein Gewitter **+1** mehr.",
+        "- Wasser: bis zu **+4**.",
+        "- Pflanzen: bis zu **+4**. Je vier Gras-, Blatt-, Blumen-, Feldfrucht- oder Moosblöcke zählen als einer. Wasser und Pflanzen zählen nur von 2 Blöcken unter dem Sammler bis 2 darüber.",
+        "- Resonanz-Totems: bis zu **+3**, eines je eigener Stimme.",
+        "- Ein Herd des Stammes **+1**. Tiere: bis zu **+2**, eines je Paar.",
+        "- Im Marsch **+2**; unter einem Vollmond **+1**.",
+        "Diese Gaben sind der Anteil des Landes, und der Anteil des Landes ist auf **6** gedeckelt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Leylinien",
+      "text": [
+        "Der Rest des Takts sind die Leylinien, die am Sammler vorbeiziehen: bis zu **+2** je Linie, die vollen 2 genau auf dem Faden und weniger, je weiter sie weg ist, bis nichts mehr bei **7.5 Blöcken**, nach oben oder unten genauso wie zur Seite. Die Linien sind ein Netz über die Welt; nur die seltensten Orte bringen **sechs** zusammen, und ein Sammler zählt nie mehr als das. Der ganze Takt ist auf **16** gedeckelt, und das zahlt **48 Puls** alle zwei Sekunden.",
+        "Ein Resonanz-Totem zieht den Faden seiner eigenen Farbe durch sich und lässt die anderen Farben in Ruhe. Stelle die sechs Totems um einen Sammler, sodass jeder Faden ihn kreuzt, auf dem Weg durch sein Totem. Das ist eine Konvergenz: sechs Farben, und trotzdem nicht mehr als sechs Linien im Takt.",
+        "Während eines Leyschubs gibt ein Sammler, dessen Fäden die aufwallende Stimme tragen, das Doppelte; siehe [Der lebende Marsch](living_march).",
+        "Ein [Leyherz](ley_heart) hebt sechs eigene Linien, hinaus durch seine Totems; ein Sammler, der entlang einer davon steht, spürt es."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Ein guter Platz",
+      "steps": [
+        {
+          "caption": "Stelle den Sammler auf offenes Land, wo er den Himmel sieht.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ley_collector"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Pflanzen ringsum zählen zu jedem Takt: vier lebende Blöcke sind einen Punkt wert, bis zu vier.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "minecraft:oak_leaves"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:oak_leaves"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:poppy"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:dandelion"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:fern"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:short_grass"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Totems verschiedener Stimmen geben je einen Punkt, bis zu drei.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              -1
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Dach kostet ihn den Himmel, den Regen und den Sturm. Er wird schwächer, nicht tot: Pflanzen und Stimmen zählen weiter.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ihn stimmen",
+      "text": [
+        "Schleiche und benutze eine Leylinse am Sammler, damit sie die genaue Aufschlüsselung druckt, Faktor für Faktor. Die Zahl, die sie druckt, ist der Takt, nicht Puls pro Sekunde. Die Leysicht zeichnet die Linien, die nahe an dir vorbeiziehen, damit du auf einer stehen kannst, bevor du baust.",
+        "Wenn der Takt **8 oder mehr** ist (die Hälfte von 16), weckt jede Sammlung auch jedes Totem innerhalb von 8 Blöcken und hält es antwortend. Hier zählt nur der Takt; wie voll der Sammler ist, nicht. Siehe [Halten](keeping).",
+        "Ein Redstone-Signal hält ihn an. Jeder [Rang](machine_ranks) legt **15%** auf jede Sammlung.",
+        "Wirkt er schwach, ducke dich und klicke ihn mit diesem Buch rechts an."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_collector"
+    }
+  ]
+}

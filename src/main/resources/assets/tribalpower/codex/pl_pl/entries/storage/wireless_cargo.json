@@ -1,0 +1,470 @@
+{
+  "name": "Bezprzewodowy ładunek",
+  "icon": "tribalpower:lattice_tuner",
+  "order": 40,
+  "items": [
+    "tribalpower:item_relay",
+    "tribalpower:fluid_relay",
+    "tribalpower:longreach_item_relay",
+    "tribalpower:longreach_fluid_relay",
+    "tribalpower:astral_item_relay",
+    "tribalpower:astral_fluid_relay"
+  ],
+  "next": "cargo_filters",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:item_relay",
+      "text": [
+        "Przenoś przedmioty lub płyn między dwiema maszynami bez linii rur. Zatrzaśnij płytę przekaźnika na ściance maszyny wysyłającej, wyceluj ją w ściankę odbierającą przy użyciu Stroiciel kraty i co sekundę ładunek przeskakuje.",
+        "Przekaźniki są na dystans. Dwa bloki Tribal Power, które się stykają, mogą wymieniać przez ścianki (zobacz [Jak działają stacje](echo_workshops)); waniliowa skrzynia wciąż potrzebuje lejka albo płyty."
+      ],
+      "title": "Bezprzewodowy ładunek"
+    },
+    {
+      "type": "text",
+      "title": "Zatrzaskiwanie i celowanie",
+      "text": [
+        "Kliknij prawym płytą w ściankę maszyny albo skrzyni. Trzymając płytę, zwykłe kliknięcie ją stawia, nawet na maszynie, która otwiera ekran. Ciągnie z bloku, do którego jest przyklejona.",
+        "Płyta ciągnie przez ściankę, na której siedzi, i oddaje w oznaczoną ściankę, a obie trzymają się ustawień ścianek tego bloku: ścianka płyty musi dawać (**Wyjście** albo **Oba**), a oznaczona ścianka musi brać (**Wejście** albo **Oba**). Boki stacji zaczynają jako **Wejście**, a tylko spód jako **Wyjście**, więc ustaw ściankę najpierw.",
+        "[Kamienna misa](stone_font) jest już ustawiona pod płyty: góra i dół to **Oba**, więc płyty przedmiotów i płynów działają tam w obie strony.",
+        "Wyceluj ją przy użyciu **Stroiciel kraty**: kliknij prawym w ściankę, która ma dostać ładunek, potem prawym w płytę. Płyta wysyła wszystko, co ciągnie, na tę ściankę.",
+        "Trzymaj płytę na kracie, a Przewodnik kraty w zasięgu 8 bloków, i też totem rezonansu jej głosu, czuwający albo przygaszony, ale nie cichy: **Powietrze** dla przekaźników przedmiotów, płynów i dalekiego zasięgu, **Krosno** dla astralnych. Totem pokrewieństwa, który użycza tego głosu, też się liczy. Bez tego płyta czeka. Serwer może zdjąć tę regułę przez **automationNeedsVoices** we wspólnej konfiguracji."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Celowanie przekaźnika",
+      "steps": [
+        {
+          "caption": "Dwie skrzynie w pewnej odległości.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Zatrzaśnij Przekaźnik przedmiotów na wierzchu skrzyni wysyłającej.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                1,
+                0
+              ],
+              "block": "tribalpower:item_relay[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Kliknij prawym przy użyciu Stroiciel kraty w wierzch dalekiej skrzyni, by ją oznaczyć.",
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
+        },
+        {
+          "caption": "Potem kliknij prawym stroicielem w płytę. Teraz wysyła na oznaczoną ściankę.",
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -2,
+              1,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
+        },
+        {
+          "caption": "Postaw Totem rezonansu (Powietrze) w zasięgu 8 bloków od płyty: przekaźniki niosą na głosie Powietrze.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=lower]"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=upper]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -2
+            ],
+            [
+              -1,
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "caption": "Puls przy płycie wysyłającej, i do 16 przedmiotów na sekundę przechodzi.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Przedmioty lub płyn",
+      "text": [
+        "Co sekundę przekaźnik przenosi do **16 przedmiotów** albo **250 mB**.",
+        "Przekaźniki przedmiotów i płynów niosą to, co mówi nazwa. **Pieczęć Wody** w slocie **runa** sprawia, że każda płyta niesie płyn; **Pieczęć Ziemi** sprawia, że niesie przedmioty.",
+        "Przy płynie postaw Cysterna Ducha na każdym końcu. Przekaźniki przenoszą płyn; nie magazynują go.",
+        "By wybrać, co przechodzi, albo to spalić, zobacz [Filtry i płyty pustki](cargo_filters)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Kanały",
+      "text": [
+        "Zwykła płyta wysyła w jedno miejsce. Podnieś rangę, a otworzy dodatkowe **kanały**: [Dostrajacz echa](machine_ranks) otwiera drugi, Wiązacz trzeci, Manifestator czwarty. Każdy kanał ma własny cel i własny filtr.",
+        "Oznacz ściankę przy użyciu Stroiciel kraty i użyj stroiciela na płycie. Każde zwykłe kliknięcie wypełnia następny kanał bez celu, więc kanały mogą wysyłać w różne miejsca. Wybierz kanał i kliknij płytę w skradaniu stroicielem, by podmienić ten jeden. **Odłącz** zapomina cel kanału i zostawia jego filtr.",
+        "**Priorytet** wysyła towary do pierwszego kanału według numerów, który je bierze i ma miejsce: biała lista rud na kanale 1 do pieca, a kanał 2 niech bierze resztę do magazynu. **Po kolei** kanały zmieniają się.",
+        "Kanały dzielą jedno przeniesienie płyty na uderzenie, więc płyta z rangą przenosi tyle co wcześniej, tylko w więcej miejsc."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trzy odległości",
+      "text": [
+        "- **Przekaźnik przedmiotów** i **Przekaźnik płynów** sięgają na **32 bloki**, a każde uderzenie, które coś przenosi, kosztuje **8 Puls**.",
+        "- Przekaźniki **dalekiego zasięgu** sięgają na **128 bloków**, za **16 Puls** na uderzenie.",
+        "- **Astralny** przekaźnik nie ma limitu odległości i przechodzi między światami, za **32 Puls** na uderzenie.",
+        "Uderzenie, które nic nie przenosi, nic nie kosztuje.",
+        "Płyty z rangą (zobacz [Rangi maszyn](machine_ranks)) płacą **118%**, **143%** albo **182%** tego i przenoszą tyle samo więcej: około **19 / 23 / 29** przedmiotów lub **294 / 357 / 455 mB**. Puls na przedmiot zostaje mniej więcej równy."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stroiciel kraty",
+      "text": [
+        "Kliknij prawym ścianę bloku, do której chcesz dostarczyć towary; stroiciel zapamiętuje tę ścianę. Potem kliknij prawym płytę ze stroicielem, aby ją wycelować. Zaznacz cel, nigdy płyty. Zwykłe kliknięcie prawym zaznacza dowolny blok, nawet skrytkę lub skrzynię, która otwiera się po kliknięciu.",
+        "Znak zostaje na stroicielu po wycelowaniu, więc jeden znak może wycelować kilka płyt; kliknij prawym inny blok, aby go wymienić. Znak na bloku, na którym stoi sama płyta, jest odrzucany.",
+        "Obowiązują limity odległości podane wyżej.",
+        "Celowanie zostaje po podniesieniu płyty, i filtr też. Zniszczenie płyty upuszcza jej runę obok.",
+        "Płyta jest twoja: tylko ty i twój [obóz](shared_camps) możecie ją otworzyć, zmienić jej filtr albo wycelować ją stroicielem."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sterowanie i kiedy czeka",
+      "text": [
+        "Stały sygnał redstone wstrzymuje płytę. Zasil blok docelowy stroiciela, aby zatrzymać transfer z dalekiego końca.",
+        "Dźwignia na stacji Tribal Power, skrytce lub cysternie zatrzymuje też płyty, które stamtąd ciągną albo tam dostarczają.",
+        "Komparator na płycie pokazuje **0** bez połączenia, **1** połączona, ale czeka, **15** gdy przenosi ładunek.",
+        "Oba końce muszą już być załadowane. Niezaładowany albo pełny cel każe przekaźnikowi czekać; tylko płyta Pieczęć Ognia cokolwiek niszczy. Przekaźniki same nigdy nie ładują chunków, więc postaw Kotwicę szlaku na dalekim końcu, jeśli ma działać, gdy cię nie ma.",
+        "Kucnij i kliknij prawym płytę tą książką, aby zobaczyć połączenie, koszt i dlaczego czeka."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_tuner"
+    }
+  ]
+}

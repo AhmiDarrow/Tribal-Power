@@ -1,0 +1,243 @@
+{
+  "name": "Wie Stationen arbeiten",
+  "icon": "minecraft:hopper",
+  "order": 10,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Echostationen machen aus einem Ding ein anderes: Stein zu Scherben, Scherben zu stärkeren Kristallen, Erz zu Gries, Gries zu Metall. Jedes Rezept braucht drei Dinge zugleich: die richtige **Eingabe**, ein passendes **Resonanz-Totem** innerhalb von 8 Blöcken und genug **Puls**, der über einen Gitterkonduktor innerhalb von 8 Blöcken ankommt.",
+        "Öffne eine Station, lege die Zutat in ihren Eingabeplatz und nimm die Ergebnisse aus ihren acht Ausgabeplätzen. Lass etwas Platz für die Ausgabe frei; eine volle Station stoppt.",
+        "Zwei kleine Plätze für **Katalysator** halten, was eine Arbeit außer der Eingabe verbraucht: die Echos, die Kerne oder den Webstuhlfaden, den ein Rang von Geistergerät verlangt, oder Glowstone-Staub, wenn der Echoabstimmer Quarzglas zum Leuchten bringt. Maschinenränge brauchen keinen. Fehlt einer, meldet dieses Buch **Katalysator benötigt** und nennt ihn.",
+        "Rezepte in diesem Buch, oder JEI, falls es installiert ist, zeigen Zeit, Puls und Stimme jedes Rezepts."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Eine erste Anordnung",
+      "steps": [
+        {
+          "caption": "Generator, Konduktor, Station und Totem können alle nebeneinander auf einer Ebene stehen.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Trichter unter der Station sammelt ihre Ausgabe, weil die Unterseite standardmäßig ausgibt.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Hebel oder irgendein Redstone-Signal pausiert die Station. Nichts geht verloren, solange sie wartet.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Seiten und Automatisierung",
+      "text": [
+        "Jede Seite einer Station hat eine Einstellung: **Eingang**, **Ausgang**, **Beides** oder **Geschlossen**. Standardmäßig nehmen die fünf oberen Seiten Gegenstände an, und die untere gibt sie aus. Ändere eine Seite über die Seitenregler der Station, oder ducke dich und rechtsklicke diese Seite mit leerer Hand, um weiterzuschalten. Ein **Totemschlüssel** tut dasselbe: ducke dich und benutze ihn auf einer Seite. Trichter folgen denselben Einstellungen.",
+        "Tribal Power-Maschinen, die sich berühren, geben einander Gegenstände weiter, bis zu **16** pro Sekunde, und Flüssigkeit, bis zu **250 mB** pro Sekunde, mehr bei einer Maschine mit Rang: setze die Quellseite auf Ausgang und die empfangende Seite auf Eingang. Eine Seite Beides an einer Seite Beides bewegt nichts, damit Gegenstände nie hin- und herspringen.",
+        "Da unten standardmäßig Ausgang ist und oben Eingang, gibt eine Station auf einer anderen ihre Ergebnisse ohne Einrichtung gerade nach unten weiter. Für Distanz rechtsklicke eine Relaisplatte auf eine Seite der Station. Die Platte zieht durch diese Seite, also setze sie zuerst auf **Ausgang** oder **Beides**; siehe [Drahtlose Fracht](wireless_cargo).",
+        "Ein Redstone-Signal an einer Station stoppt auch Trichter, Relais und berührende Maschinen, die von ihr nehmen oder sie beliefern."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wenn die Arbeit stoppt",
+      "text": [
+        "Ducke dich und rechtsklicke die Station mit diesem Buch. Es sagt, ob sie auf Puls wartet, ihr Totem braucht, ein stilles Totem hat, voll ist oder von Redstone pausiert ist.",
+        "Ein stilles Totem stoppt **neue** Arbeit; eine Arbeit, die schon läuft, wird noch zu Ende gebracht.",
+        "Ein Komparator liest, wie voll eine Station ist. Datenpakete können eigene Rezepte tribalpower:lattice hinzufügen und dabei gemeinsame Zutaten-Tags nutzen."
+      ]
+    }
+  ]
+}

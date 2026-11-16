@@ -1,0 +1,28 @@
+{
+  "name": "Geistlaterne",
+  "icon": "tribalpower:spirit_lantern",
+  "order": 100,
+  "next": "pulse_lights",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_lantern",
+      "text": [
+        "Eine geschnitzte Laterne aus Kupfer und Holz, die das Lager auf Stufe **15** beleuchtet und nie Brennstoff oder Puls braucht. Der Kristall glüht in denselben Farben wie das lebendige Gitter."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Benutzung",
+      "text": [
+        "Stelle sie entlang der Wege zwischen den Werkstätten. Ein Hebel oder jedes Redstone-Signal dimmt eine, und ein Komparator liest 15, solange sie leuchtet.",
+        "Es ist ein Licht, kein Schutz: Feindliche brauchen weiter Dunkelheit, um zu erscheinen, also machen Licht und ein Stilletotem ein stilles Lager.",
+        "Wenn du deine Lichter lieber über das Gitter laufen lässt, ziehen das Leuchtschilf, die Splitterlampe, die Echowandleuchte und die Glutschale nur ein Rinnsal Puls. Siehe [Pulslichter](pulse_lights)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_lantern"
+    }
+  ]
+}

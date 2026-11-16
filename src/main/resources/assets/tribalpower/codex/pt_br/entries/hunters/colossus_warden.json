@@ -1,0 +1,46 @@
+{
+  "name": "Guardião colosso",
+  "icon": "tribalpower:heartwood_core",
+  "order": 310,
+  "spoiler": true,
+  "items": [
+    "tribalpower:colossus_warden_spawn_egg",
+    "tribalpower:heartwood_core"
+  ],
+  "next": "trolls",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:colossus_warden",
+      "title": "Guardião colosso",
+      "text": [
+        "O salgueiro crescido até o enorme, e andando. O Guardião colosso é o único chefe errante da Marcha, com sete blocos de altura, e nunca é encontrado sozinho.",
+        "Não é o Colosso chorão, o grande salgueiro que se ergue em arvoredos pelo paul: veja [árvores da Marcha](march_trees)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Encontrar um",
+      "text": [
+        "Ele surge raramente, só no **Paul dos juncos**, em terreno aberto à noite. Vem com seu arvoredo ao redor: **2 a 4 Guardião chorão**, **1 a 3 Fada do pântano** e até **2 Flutua-brejo**. São mansos e continuam mansos.",
+        "Uma barra de chefe mostra a vida dele a todos por perto. Ele não se desfaz ao amanhecer como os outros espíritus, e enquanto está perto você não consegue dormir. Se ele for embora sem morrer, o arvoredo vai com ele. Só um Guardião colosso que surge por conta própria traz um arvoredo: um que vem de um ovo gerador chega sozinho."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Enfrentá-lo",
+      "text": [
+        "Ele tem **260 de vida** e **14 de armadura**, e é lento. Cada golpe causa **12** e enraíza você: você fica mais lento por 3 segundos, então não deixe que ele te pegue duas vezes.",
+        "Como qualquer espírito que surge à noite, ele vem mais forte, e pode surgir como uma elite de nome dourado. Traga amigos, um arco e espaço para recuar. Ele não se vincula."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que ele deixa",
+      "text": [
+        "Ele sempre solta seu **Núcleo de cerne**, um reagente de Raiz que você não consegue em nenhum outro lugar, com **16 a 32 Tronco de salgueiro**, **4 a 8 Muda de salgueiro**, **6 a 12 Mecha de salgueiro**, **4 a 8 Raiz nodosa** e **8 a 16 frascos de experiência**. Pilhagem acrescenta mais.",
+        "Não há uma Muda de salgueiro gigante: plante quatro Muda de salgueiro em um quadrado para cultivar o seu próprio Colosso chorão."
+      ]
+    }
+  ]
+}

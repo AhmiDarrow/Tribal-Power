@@ -1,0 +1,74 @@
+{
+  "name": "Bêtes de la steppe",
+  "icon": "tribalpower:tuft_wool",
+  "order": 200,
+  "spoiler": true,
+  "items": [
+    "tribalpower:tuftback_spawn_egg",
+    "tribalpower:longshank_spawn_egg",
+    "tribalpower:palewing_spawn_egg",
+    "tribalpower:burrow_gnasher_spawn_egg",
+    "tribalpower:tuft_wool",
+    "tribalpower:shank_sinew",
+    "tribalpower:pale_down",
+    "tribalpower:gnasher_tooth"
+  ],
+  "next": "beasts_highlands",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ceux de la steppe",
+      "text": [
+        "Quatre animaux appartiennent à la steppe : trois qui paissent ou volent au-dessus de l'herbe ouverte, et un qui chasse dans les tunnels en dessous.",
+        "Chaque bête douce d'ici peut être brossée pour son réactif une fois par minute, et elle est attirée puis reproduite avec sa propre nourriture, nommée plus bas sous **Chasse et élevage**. On peut la lier comme n'importe quel animal doux (voir [familiers](familiars)), et même si aucune n'a de don à elle, une liée peut encore prendre une voix à un totem et renforcer ta magie (voir [s'accorder à un totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tuftback",
+      "title": "Dos huppé",
+      "text": [
+        "Un bison hirsute de la steppe qui paît en troupeaux de deux à quatre. Il a **26 de santé** et **5 d'armure**, se déplace très lentement et recule devant les monstres.",
+        "Il lâche **1 à 3 Laine huppée**, davantage avec Butin.",
+        "Chassé, il lâche aussi 1 à 2 Gibier cru et jusqu'à 1 Cuir de la Marche. Reproduis avec **Grain de steppe**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:longshank",
+      "title": "Longjarret",
+      "text": [
+        "Un grand cerf, vif sur ses pattes, en hardes de deux à quatre. **22 de santé** et **1 d'armure**.",
+        "Il lâche **1 à 3 Tendon de jarret**. Tendon de jarret appelle l'Esprit de la ruée à l'Anneau piétiné : voir [gardiens](guardians).",
+        "Chassé, il lâche aussi 1 à 3 Gibier cru, jusqu'à 2 Cuir de la Marche et jusqu'à 1 Os. Reproduis avec **Grain de steppe**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:palewing",
+      "title": "Aile pâle",
+      "text": [
+        "Un milan roux, pâle sous les ailes, à la queue profondément fourchue, qui plane au-dessus de l'herbe, d'un à trois. **10 de santé**, pas d'armure.",
+        "Il lâche **1 à 3 Duvet pâle**, qui se broie en teinture blanche (voir [réactifs](reagents)).",
+        "Chassé, il lâche aussi 1 à 2 Plume et jusqu'à 1 Gibier cru. Reproduis avec **Grain de steppe ou graines de blé**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:burrow_gnasher",
+      "title": "Ronge-terrier",
+      "text": [
+        "Un lucane fouisseur aux grandes pinces courbes, le chasseur de la steppe. Il vit dans les tunnels sombres sous l'herbe et en sort de jour comme de nuit, un ou deux à la fois. Il a **23 de santé** et **3 d'armure**, et sa morsure inflige **4** et t'empoisonne pendant 3 secondes.",
+        "Il lâche **1 à 2 dents de broyeur**, un réactif de venin. Les Ronge-terrier remontent aussi pour rejoindre le combat de l'Esprit de la ruée.",
+        "Chassé, il lâche aussi jusqu'à 1 os et jusqu'à 1 œil d'araignée."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chasse et pâturage",
+      "text": [
+        "Outre son réactif, chacun en lâche plus quand tu le chasses, et encore plus avec Butin. La viande tombe rôtie si l'animal est mort en brûlant. Pour élever les sauvages, **faufile-toi** pendant que tu nourris deux adultes avec leur nourriture ; nourri normalement, un sauvage s'attendrit envers toi à la place."
+      ]
+    }
+  ]
+}

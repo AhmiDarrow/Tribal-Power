@@ -1,0 +1,78 @@
+{
+  "name": "부족 요리",
+  "icon": "tribalpower:honeycake",
+  "order": 20,
+  "items": [
+    "tribalpower:keepers_root_mash",
+    "tribalpower:grit_baked_bread",
+    "tribalpower:rootbinder_rice",
+    "tribalpower:edge_walker_jerky",
+    "tribalpower:drumheart_chili",
+    "tribalpower:pattern_tart",
+    "tribalpower:honeycake",
+    "tribalpower:seal_carvers_broth",
+    "tribalpower:loom_thread_noodles"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "모든 부족은 자기만의 방식으로 요리 하나를 만들고, 그것을 먹으면 그 부족의 [은총](tribe_boons)을 **5분** 지닌다. [화로 냄비](hearth_pot)에서 조리한다.",
+        "- **지킴이 뿌리 으깸** (흙): 잿불 뿌리 ×2, 초원 곡식, 그릇.",
+        "- **자갈 빵** (돌): 초원 곡식 ×2, 철 자갈.",
+        "- **뿌리매듭 쌀** (새싹): 습지 쌀 ×2, 정령 갈대, 그릇.",
+        "- **가장자리 걷는 자의 육포** (발톱): 날 사냥고기 ×2, 잿불 뿌리.",
+        "- **북심장 칠리** (불꽃): 잿불 뿌리 ×2, 미광 콩, 날 사냥고기, 그릇."
+      ],
+      "title": "아홉 부족, 아홉 요리"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **무늬 타르트** (시계): 미광 콩, 초원 곡식, 서리 열매.",
+        "- **꿀케이크** (무리): 벌집 조각, 초원 곡식 ×2, 달걀.",
+        "- **인장 새기는 이의 국** (문장): 습지 쌀, 메아리 꽃, 마치 잎, 그릇.",
+        "- **베틀 실 국수** (물레가락): 습지 쌀 ×2, 레이 엉겅퀴, 그릇.",
+        "부족이 당신을 **벗**이라 부르면, 그 일족이 그 요리의 바탕이 된 작물 넷에 그 요리를 판다. 부족의 화로에서 그 부족의 요리를 바치면 **평판 6**이 되며, 시약을 빼면 어떤 선물보다 많다."
+      ],
+      "title": "아홉 부족, 아홉 요리, 이어서"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:keepers_root_mash"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grit_baked_bread"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rootbinder_rice"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:edge_walker_jerky"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart_chili"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pattern_tart"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:honeycake"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:seal_carvers_broth"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_thread_noodles"
+    }
+  ],
+  "next": "road_fare"
+}

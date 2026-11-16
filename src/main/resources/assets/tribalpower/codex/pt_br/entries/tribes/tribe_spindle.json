@@ -1,0 +1,65 @@
+{
+  "name": "Costureiros do tear",
+  "icon": "tribalpower:tribe_mark",
+  "order": 120,
+  "spoiler": true,
+  "unlock": "tribe:spindle",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_spindle",
+      "title": "Costureiros do tear",
+      "text": [
+        "“O Tear nunca foi um só fio. Eram nove de acordo.”",
+        "Fio do **Fuso**, voz do **Tear**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quem são",
+      "text": [
+        "Os Costureiros do tear seguravam o Fuso e costuraram os fios das outras tribos num só pano sobre o céu. Quando o pano rasgou, rasgou ao longo da costura deles, e eles ainda estão costurando. O ofício deles é **trilhas de portal e a retecelagem**.",
+        "Os acampamentos deles ficam **apenas na Marcha**: nos Campos de cristal e na estranha terra iluminada de cada faixa. Você terá de cruzar para o outro lado para encontrá-los."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que eles querem",
+      "text": [
+        "O reagente deles é o **Fio de Tear**, que vale **+8** de estima no Lar deles.",
+        "Eles também preferem Cristal da Marcha, uma Bússola, uma Bússola de pedra de caminho ou uma Bússola do horizonte: **+3** cada. Qualquer outra comida vale **+1**, e uma Célula de Pulso carregada **+2 a cada 10 de Pulso**, até +8.",
+        "Lembre-se: o Lar aceita no máximo **60** de estima por dia em oferendas; veja [Tribos e estima](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que o Ancião troca",
+      "text": [
+        "**Hóspede**: 4 Cristal da Marcha por 3 Fragmento de eco; uma Bússola por 8 Tábuas da Marcha.",
+        "**Amigo**: 6 Cristal da Marcha por um Fio de Tear; 4 Eco sintonizado por uma Bússola de pedra de caminho; 4 Arroz de brejo por Macarrão de fio do Tear.",
+        "**Parente**: 4 Eco vinculado e um Fio de Tear por uma Âncora de Tear; 2 Fio de Tear por um Selo de Tear.",
+        "Cada troca rende **+2** de estima."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marca, totem e dádiva",
+      "text": [
+        "Em **Voz**, o Ancião dá a você a Marca da tribo dos Costureiros do tear. Fabrique-a com um {item:tribalpower:resonance_totem_loom} e dois Tece-espírito para o [Totem de parentesco](kinship_totem) deles.",
+        "Ao lado de um Ressonador de Pulso, é mais uma voz; ao lado de uma estação, empresta **Tear**.",
+        "Quem é Parente dos Costureiros do tear carrega a [dádiva](tribe_boons) deles: os cantos custam **um quarto a menos** para cantar.",
+        "O prato deles carrega a dádiva por **5 minutos**, e a [relíquia](elders_and_stories) deles enquanto você a carregar.",
+        "A troca de Amigo deles transforma Cristal da Marcha em Fio de Tear, que também é o reagente deles. Eles são a única tribo que vende uma **Âncora de Tear**.",
+        "No grau **Voz**, você também pode vincular um **Tecelão de eco** como [familiar](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "spindle",
+      "title": "Seu trabalho com eles",
+      "text": [
+        "O que o Ancião dos Costureiros do tear pediu a você, e até onde a história deles chegou. Veja [Anciãos, pedidos e histórias](elders_and_stories)."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Dove andare dopo",
+  "icon": "tribalpower:gate_drum",
+  "order": 5,
+  "pages": [
+    {
+      "type": "next_step",
+      "title": "Passo successivo",
+      "text": [
+        "Una cosa concreta da fare, letta da dove sei sul cammino dal primo Focolare al nono accordo. Cambia man mano che vai."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Quando il tuo accampamento fa la propria energia, segui ciò che ti incuriosisce:",
+        "- I [Laboratori](echo_attune) trasformano le schegge in cristalli più forti, metalli e potenziamenti.",
+        "- Le [Macchine dell'accampamento](grove_tender) coltivano, raccolgono e sorvegliano mentre sei occupato.",
+        "- [Deposito e carico](ancestral_cache) tiene i tuoi beni e li sposta senza tubi, e [bussole e porte](waystone_compass) spostano te.",
+        "- [Trame](placement_is_the_ritual) si costruiscono, non si fabbricano: la Vasca di pietra e la Fossa d'ascolto.",
+        "- Un [familiare](familiar_basics) porta la voce di un totem e rende più forte la tua magia di quella voce.",
+        "- [Le Nove Tribù](standing) tengono accampamenti per la terra. Nutri un Focolare per ottenere scambi, doni e, col tempo, un Totem di parentela.",
+        "- Con gli amici, un [accampamento condiviso](shared_camps) condivide un caveau, dispositivi e Ancore di via.",
+        "- Il [Tamburo della porta](gate_drum) apre la via verso la Marcia, quando sei pronto."
+      ]
+    }
+  ]
+}

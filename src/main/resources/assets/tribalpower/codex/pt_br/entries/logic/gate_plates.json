@@ -1,0 +1,265 @@
+{
+  "name": "Placas de porta",
+  "icon": "tribalpower:chorus_plate",
+  "order": 72,
+  "items": [
+    "tribalpower:chorus_plate",
+    "tribalpower:gathering_plate",
+    "tribalpower:discord_plate",
+    "tribalpower:hush_plate"
+  ],
+  "next": "signal_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Coro, Reunião, Discórdia, Silêncio",
+      "text": [
+        "Quatro modos de duas vozes concordarem:",
+        "- **Coro** (AND) canta só quando a esquerda e a direita estão ambas ativas.",
+        "- **Reunião** (OR) canta quando qualquer um dos lados está ativo.",
+        "- **Discórdia** (XOR) canta quando os lados discordam.",
+        "- **Silêncio** (NAND) canta, a menos que os dois lados estejam ativos.",
+        "A resposta é **15 ou 0** a partir da face da frente. Coloque Fio de canto nessa face para levá-la adiante, ou sincronize outra placa para ouvi-la.",
+        "Qual lado é a esquerda e qual é a direita está na página [placas de canto](song_plates)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Dois interruptores, uma estação",
+      "steps": [
+        {
+          "caption": "Um Triturador de eco que queremos pausar a partir de qualquer um de dois lugares.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:stone"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Monte uma Placa de reunião no bloco, apontando para a estação. Essa face é a saída dela.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:gathering_plate[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Coloque uma alavanca à esquerda dela e outra à direita: essas são as duas entradas.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Com qualquer alavanca ligada, a placa canta 15 para a estação, que pausa e guarda tudo o que segura.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Troque por uma Placa de coro e ela espera as duas alavancas antes de cantar.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:chorus_plate[facing=north]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chorus_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gathering_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:discord_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hush_plate"
+    }
+  ]
+}

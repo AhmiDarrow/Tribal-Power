@@ -1,0 +1,30 @@
+{
+  "name": "Marschwanderer",
+  "icon": "tribalpower:march_walker_spawn_egg",
+  "items": [
+    "tribalpower:march_walker_spawn_egg"
+  ],
+  "order": 50,
+  "spoiler": true,
+  "next": "spirit_wisp",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:march_walker",
+      "text": [
+        "Ein Marschwanderer ist der stille Graser des Marsches: ein stämmiger Tapir mit einem moosigen Sattelpolster und gegabelten Zinken, die von Geisteslicht leuchten. Der Sattel ist nur sein Fell; du kannst keinen reiten. Du siehst sie in Herden in der Steppe und in jedem Biom des Marsches außer den Sandbänken, selbst in der Glutöde.",
+        "Es hat **18 Gesundheit** und **1 Rüstung**. Es ist scheu: es hält etwa zehn Blöcke Abstand zu Monstern und gerät in Panik, wenn es verletzt wird."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Halte eine **Geistscherbe** und die Wanderer laufen dir neugierig nach. So führst du leicht ein paar nach Hause oder in einen Pferch.",
+        "Sie erscheinen auf Marschrasen, Erde, Moos und Schnee, unter freiem Himmel.",
+        "Ein Wanderer lässt **1 bis 3 Rohes Wildbret** fallen, bis zu 2 Marschleder und manchmal einen Knochen, mehr mit Plünderung; das Fleisch kommt als Gebratenes Wildbret, wenn es brennend starb.",
+        "Züchte zwei mit **Weizen** oder **Steppenkorn**, denen sie so bereitwillig folgen wie einer Geistscherbe. Ein Wanderer lässt sich nicht bürsten und geht keine Bindung ein."
+      ],
+      "title": "Mit Marschwanderern leben"
+    }
+  ]
+}

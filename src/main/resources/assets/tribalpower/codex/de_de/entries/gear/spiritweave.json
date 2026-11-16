@@ -1,0 +1,91 @@
+{
+  "name": "Geistergewebe",
+  "icon": "tribalpower:spiritweave_hood",
+  "order": 30,
+  "items": [
+    "tribalpower:spiritweave",
+    "tribalpower:spiritweave_robe",
+    "tribalpower:spiritweave_leggings",
+    "tribalpower:spiritweave_boots"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritweave_hood",
+      "text": [
+        "Stoffrüstung so zäh wie Diamant, gewebt, um einem Totem zu antworten. An eine Stimme gebunden, weckt jedes Teil einen Segen, gehalten von ein wenig Puls aus einer Pulszelle, die du trägst, und das gebundene Teil leuchtet damit."
+      ],
+      "title": "Geistergewebe-Rüstung"
+    },
+    {
+      "type": "text",
+      "title": "Der Stoff",
+      "text": [
+        "Geistergewebe-Stoff kommt aus dem **Echobinder** mit der Stimme Wasser: jede Wolle wird ein Stoff, und Echoseide, Dämmersamt, Laternendaune, Moosrückenschuppe oder ein Sturmflügel werden zwei.",
+        "Vier Teile nehmen die üblichen Rüstungsformen; Robe und Hose nehmen außerdem einen Resonanzkern in der Mitte. Geistergewebe-Stoff flickt sie an jedem Amboss. Echoentweben macht aus Stoff wieder Wolle."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Es tragen",
+      "text": [
+        "Ungebunden ist Geistergewebe schlichte Rüstung: es schützt wie Diamant, gibt keinen Segen und verbraucht keinen Puls. Seine Kurzinfo listet, was jede Stimme in dem Teil wecken würde.",
+        "Schleiche und benutze ein Teil auf einem gesetzten Resonanz-Totem mit **40 Puls** in einer getragenen Zelle, um seine Stimme zu binden. Eine gebundene Kapuze, Robe oder Hose verbraucht **3 Puls alle vier Sekunden**, und das hält jeden Vorteil des Teils am Laufen, die auf einen Schlag, einen Sturz oder eine Schlinge antworten ebenso wie die stetigen Segen. Die Stiefel verbrauchen nur, wenn einer ihrer Vorteile genutzt wird; jede Zahlung deckt vier Sekunden.",
+        "Wenn deine Zellen leer sind, hören die Segen auf, jeder Vorteil mit ihnen. Lade nach, oder zieh die Teile aus."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stimmen und Ränge",
+      "text": [
+        "Jede Stimme gibt jedem Teil einen anderen Segen; gemischte Stimmen sind so gedacht. Siehe [Totemgebundene Ausrüstung](totem_bound_gear) für jede.",
+        "Stufe jedes Teil im Echoabstimmer, im Binder und im Manifestierer auf, mit denselben Kosten und Katalysatoren wie [Geistergerät](spiritgear). Jeder Rang macht ein Teil fester: mehr Rüstung und Zähigkeit, mehr Rückstoßresistenz und extra Leben, bis zu **2 Herzen** je Teil bei Manifestiert."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Volle Sets",
+      "text": [
+        "Trage ein ganzes Set eines Rangs, und es wirkt zusammen:",
+        "- Ein volles Set **Gebunden**: **10%** weniger erlittener Schaden.",
+        "- Ein volles Set **Manifestiert**: etwa **29 Rüstung** und **20 Zähigkeit**, **8 Extraherzen**, **20%** weniger erlittener Schaden, und solange die Robe angeschaltet ist, flickt sie ein Herz alle vier Sekunden für **4 Puls**. Gebaut für die härtesten Kämpfe."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_hood"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_robe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_leggings"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_boots"
+    },
+    {
+      "type": "text",
+      "title": "Eine eigene Zelle",
+      "text": [
+        "Wie [Geistergerät](spiritgear) kann jedes Teil eine eigene **Pulszelle** tragen: Rechtsklick mit einer Zelle auf das Teil in deinem Inventar, und sie geht hinein, Ladung und alles. Das Teil zehrt von dieser Zelle, bevor es die Zellen anrührt, die du trägst. Rechtsklick auf das Teil mit leerem Cursor holt die Zelle wieder heraus.",
+        "Bei einer Kapuze mit Brille nimmt, sobald die Zelle draußen ist, der nächste Klick mit leerem Cursor die Brille ab und gibt dir die Leylinse zurück, aus der sie gemacht wurde."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ein Teil ausschalten",
+      "text": [
+        "Jedes getragene Teil hat einen Ausschalter. Öffne den Ausrüstungsbildschirm (standardmäßig die Apostroph-Taste, unter Tribal Power in der Steuerung) und setze das Teil auf Aus: es schützt weiter wie Rüstung, aber jeder Vorteil des Teils stoppt, auch die, die auf einen Schlag oder einen Sturz antworten, und es zieht keinen Puls, bis du es wieder einschaltest. Der Tooltip sagt es in Rot, solange es aus ist.",
+        "Die Brille der Kapuze hat dort ihren eigenen Schalter und ihre eigene Taste. Derselbe Bildschirm zeigt, welches Gewölbe dein Säckel öffnet, und lässt dich das Puls-HUD ausblenden."
+      ]
+    }
+  ]
+}

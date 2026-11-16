@@ -1,0 +1,55 @@
+{
+  "name": "Lente ley",
+  "icon": "tribalpower:ley_lens",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_lens",
+      "text": [
+        "Un panel de cristal, un Resonador de cobre y un Fragmento de Espíritu hacen una lente para la vista de ley. Mira a través de ella y ves lo que hacen el terreno y tu campamento: cuán fuerte es la ley, hasta dónde llega el Pulso, qué tótems están despiertos y qué máquinas trabajan."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cinco vistas",
+      "text": [
+        "Sostenla en cualquiera de las dos manos y úsala para recorrer cinco vistas:",
+        "- **Ley**: dibuja las líneas de ley a tu alrededor, cada hilo del color de su voz.",
+        "- **Zona de Pulso**: muestra la red de entramado sobre la que estás: el alcance de **8 bloques** de sus conductores, el que tocas contorneado con más brillo, y una marca sobre cada bloque que guarda Pulso. El panel nombra los conductores de la red y su ritmo, el rango de tu conductor y lo que llevó el último segundo, y suma el Pulso que entra en la red frente a lo que gastan sus máquinas. Fuera del entramado, lo dice.",
+        "- **Voces**: marca los tótems cercanos con el color de su propia voz si están respondidos, un tono más oscuro si están tenues, y gris si están callados.",
+        "- **Máquinas**: marca las máquinas de Tribal Power a tu alrededor.",
+        "- **Apagado**: el cristal se oscurece. Ni líneas, ni panel, ni marcas. Las gafas de ley que llevas puestas siguen mostrando sus hilos.",
+        "Cada vista tiene su propio panel en la pantalla. La vista de Ley muestra la fuerza de la ley donde estás; Zona de Pulso, lo guardado y lo que fluye; Voces, las voces al alcance; y Máquinas, las estaciones, los relés y los alijos a tu alrededor. Apagado no muestra nada."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Hilos de ley",
+      "text": [
+        "Las líneas de ley son una red por toda la dimensión: el Pulso del planeta, no bloques. Cada línea es un hilo del color de un Tótem de resonancia (Tierra en verde, Fuego en naranja, Agua en azul, Aire en cielo pálido, Espíritu en violeta o Telar en dorado), con un nudo brillante que palpita a lo largo.",
+        "Un tótem tira del hilo de su propio color a través de sí, así que puedes guiar un hilo según dónde plantes el tótem. Hay un cruce más o menos cada **80 bloques**. La mayoría une de dos a cuatro hilos, y solo uno de cada cuarenta, más o menos, junta los seis.",
+        "Fabrica una Lente ley en una [Capucha de Tejido espiritual](spiritweave) y las gafas de la capucha muestran los mismos hilos mientras la llevas puesta, incluso con una lente en la mano puesta en Apagado; una lente en otra vista los oculta. Agáchate y usa la capucha, o haz un clic agachado con la mano vacía mientras la tienes en la cabeza, para apagar y encender las gafas."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "ley_lens",
+      "title": "Leer el suelo",
+      "text": "La lente dibuja solo los hilos, nunca el suelo. En la vista de Ley, la barra de fuerza del panel se pone dorada donde un Colector de ley cantaría más alto y azul donde apenas zumbaría."
+    },
+    {
+      "type": "text",
+      "title": "De cerca",
+      "text": [
+        "Agáchate y usa la lente sobre un Colector de ley para imprimir en el chat el desglose exacto de factores de ese colector: los mismos números con los que recoge.",
+        "Agáchate y úsala sobre una criatura de la Marcha, salvaje o vinculada, para imprimir sus hilos y sus Marcas; mira [Vincular un familiar](familiars).",
+        "La línea de fuerza es el mismo compás que contaría allí un colector, de 1 a **16**, mostrado como una parte de los 16 completos. La parte del terreno se detiene en 6, y cada línea de ley suma hasta 2, menos cuanto más lejos estés de ella. Un compás de **8 o más** mantiene despiertos los tótems cercanos. Un techo quita cielo, lluvia y tormenta, pero las líneas se quedan, así que un colector bajo techo se debilita, no muere."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_lens"
+    }
+  ]
+}

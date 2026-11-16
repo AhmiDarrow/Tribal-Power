@@ -1,0 +1,16 @@
+{
+  "name": "Tavoletta: Il Non Cantato",
+  "icon": "tribalpower:lore_tablet",
+  "order": 200,
+  "spoiler": true,
+  "unlock": "tablet:10",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Da una Sala degli antenati sommersa, a proposito del tamburo che nessuno ha colpito:",
+        "“Un tamburo fu portato via da ogni accampamento che cadeva, perché il battito non si fermasse. L'ultimo tamburo fu portato nel cerchio e non restò nessuno a colpirlo. Il suo custode si fece cavo ad aspettare. Sveglialo con il quattro tempi e si alzerà per essere colpito. Accovacciati quando batte. Risincronizzalo quando tace. Vuole solo riavere il ritmo.”"
+      ]
+    }
+  ]
+}

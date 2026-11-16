@@ -1,0 +1,321 @@
+{
+  "name": "격자를 짜다",
+  "icon": "tribalpower:lattice_conductor",
+  "order": 40,
+  "next": "keeping_totems",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "펄스는 격자 전도체를 따라서만 이동한다. 첫 전도체가 북과 작업대를 잇는다. 야영지가 넓어지면 더 짜라.",
+        "서로 8블록 안의 전도체는 하나의 네트워크로 이어지고, 그중 아무거나에서 8 안에 있는 것도 모두 그 위에 있다. 야영지 한쪽 끝의 발전기가 다른 끝의 기계에 동력을 준다. 한 번 제작하면 네 개가 된다.",
+        "전도체는 처음에 **초당 64 펄스**를 옮긴다. 네트워크가 더 옮겨야 하면 전도체를 [승급](machine_ranks)한다(초당 256, 1,024, 그다음 4,096). 또는 바쁜 발전기와 기계 옆에 더 둔다.",
+        "의식 분필은 목소리를 위해 토템을 잇는다. **의식 분필**로 하나를 우클릭하고(뼛가루, 청금석, 정령 조각으로 막대 네 개), 16블록 미만의 다른 하나를 우클릭한다. 분필은 목소리를 옮기고, 펄스는 옮기지 않는다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "작은 격자",
+      "steps": [
+        {
+          "caption": "야영지 한쪽 끝에 발전기, 다른 끝에 작업대.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:echo_attune"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "둘 다에서 8블록 안의 격자 전도체 하나가 둘을 하나의 네트워크로 짠다. 작업대는 그것을 통해 북에서 끌어온다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "닿는 곳의 토템은 네트워크에서 버퍼를 채우고 목소리를 유지한다.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "서로 8 안의 전도체는 이어진다. 각각 초당 64 펄스를 옮기고, 승급하면 더 옮긴다. 바쁜 발전기와 기계 옆에 더 둔다.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

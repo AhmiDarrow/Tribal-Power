@@ -1,0 +1,65 @@
+{
+  "name": "道中の食料",
+  "icon": "tribalpower:drovers_flatbread",
+  "order": 22,
+  "items": [
+    "tribalpower:drovers_flatbread",
+    "tribalpower:glimmer_crisps",
+    "tribalpower:hunters_skewer",
+    "tribalpower:steppe_pemmican",
+    "tribalpower:frostberry_preserve",
+    "tribalpower:thistle_tea",
+    "tribalpower:highland_crumble"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "歩きの食料",
+      "text": [
+        "どの食事も部族の[恩恵](tribe_dishes)を帯びるわけではない。野営の食料は歩き手が持っていくものだ。安く、[炉の鍋](hearth_pot)で手早く、それぞれ一つの役目のため。ほとんどはマーチの作物と、どの畑でも育つものを混ぜる。",
+        "- **牛追いの平パン**：草原穀物×2、小麦。鍋ひとつで二つ、満腹度はそれぞれ5、64個まで重ねられる。腹を満たすいちばん安い方法。",
+        "- **微光の薄焼き**：微光豆×2、乾燥した昆布。鍋ひとつで三つ、満腹度3、そして**一瞬で食べられる**ので、打撃の合間に一口かじれる。",
+        "- **狩人の串**：生肉ならどれでも、熾根、ビートルート。鍋ひとつで二つ、満腹度6と**移動速度上昇が20秒**、獲物を追い詰めるために。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "歩きの食料、続き",
+      "text": [
+        "- **草原の保存肉**：焼いた肉ならどれでも、霜の実、スイートベリー。鍋ひとつで三つ、満腹度はわずか4だが、大きさのわりに飽和度が最高で、長い道中いちばん長く腹持ちする。",
+        "- **霜の実の砂糖煮**：霜の実×2、砂糖、ガラス瓶に入れる。満腹度4と**火炎耐性が30秒**、熾火の荒野を渡るため。瓶は戻ってくる。",
+        "- **アザミ茶**：レイのアザミ、マーチの葉、ハニカム、ガラス瓶に入れる。食べ物としては少ないが、満腹でも飲め、**毒、空腹、吐き気を治す**。悪い食事への野営の答えだ。",
+        "- **高地の砕き菓子**：リンゴ、草原穀物、スイートベリー、砂糖。満腹度6と**跳躍力上昇が45秒**、尾根のため。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drovers_flatbread"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:glimmer_crisps"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hunters_skewer"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:steppe_pemmican"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:frostberry_preserve"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:thistle_tea"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:highland_crumble"
+    }
+  ],
+  "next": "hearth_meals"
+}

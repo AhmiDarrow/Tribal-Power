@@ -1,0 +1,51 @@
+{
+  "name": "Espreitador de juncos",
+  "icon": "tribalpower:reed_fang",
+  "order": 90,
+  "spoiler": true,
+  "items": [
+    "tribalpower:reed_stalker_spawn_egg",
+    "tribalpower:reed_fang"
+  ],
+  "next": "shardback",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:reed_stalker",
+      "text": [
+        "Um lince listrado que se esconde entre Cana de Espírito. Golpes rápidos trazem um veneno curto.",
+        "Caçado, também solta até 1 Couro da Marcha e até 1 Osso."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Os Espreitadores de juncos se escondem nos pântanos da Superfície e nos pântanos de mangue, no Pântano de juncos da Marcha e nos Baixios, e mais ralos nos Campos de cristal e na Estepe.",
+        "Tem **22 de vida** e **1 de armadura**, move-se rápido e golpeia por **4**. Cada mordida envenena você por 3 segundos. Traga leite, ou mantenha distância e deixe que ele venha até você."
+      ],
+      "title": "Onde e como"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Solta **de 1 a 2 Presa de junco**.",
+        "Uma Presa de junco sintoniza em 2 Eco sintonizado sob Espírito."
+      ],
+      "title": "O que ele dá"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Nenhum amuleto vinculará um Espreitador de juncos."
+      ],
+      "title": "Não se vincula"
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Além do reagente, solta isto quando caçado, mais com Pilhagem."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "name": "Pia de pedra",
+  "icon": "tribalpower:stone_font",
+  "order": 40,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:stone_font",
+      "text": [
+        "A Pia de pedra pede à pedra que fique. Dê Pulso a ela e o formato certo ao redor, e ela se enche de pedregulho, depois pedra, depois obsidiana.",
+        "Pedregulho sem escora é barato o bastante para rodar num [Coração de tambor](drumheart) tocado à mão, então este é o primeiro padrão que a maioria dos acampamentos constrói."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 1,
+      "title": "Pedregulho: a pia e quatro marcas",
+      "text": "Desenhe uma marca de giz em cada lado da pia, no mesmo chão."
+    },
+    {
+      "type": "text",
+      "title": "Pedregulho",
+      "text": [
+        "Com suas quatro marcas e um Coração de tambor tecido até ela por um condutor em até **8 blocos**, a pia faz **um pedregulho a cada 2 segundos** a **4 Pulso por segundo**. Nenhuma voz é necessária.",
+        "Os espaços dela são só de saída: não mande pedregulho com um funil, a pia faz o próprio. Agache e clique com o botão direito com a mão vazia para pegar o que ela fez, ou use um funil ou um relé. Sem nada dentro, o mesmo clique agachado percorre a face que você clicou: Ambos, Entrada, Saída e Fechado. As placas funcionam igual no topo e no fundo da pia: uma placa de itens em qualquer um dos dois puxa a pedra, e uma placa de fluidos ajustada para um ou outro despeja água ou lava.",
+        "O pedregulho da pia serve para construir e para martelar em cascalho e areia. O Triturador de eco faz fragmentos de eco só a partir de pedra, não de pedregulho, e pedra é o que o próximo nível faz."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 2,
+      "title": "Pedra e obsidiana: escore-a",
+      "text": "Mantenha as quatro marcas e acrescente uma Pedra de âncora em cada canto de um 5x5 ao redor da pia."
+    },
+    {
+      "type": "text",
+      "title": "Pedra",
+      "text": [
+        "Escorada, e com a voz **Terra** ao alcance, a pia faz **pedra a cada 3 segundos** a **32 Pulso por segundo**. Essa pedra é exatamente o que o Triturador de eco transforma em fragmentos de eco.",
+        "O totem de Terra tem de ser mantido acordado (veja [Manter](keeping)): enquanto está fraco, cada pedra leva cerca de 30% a mais, e quando fica quieto a pedra para. Pedregulho nunca precisa de Terra."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Obsidiana",
+      "text": [
+        "A obsidiana precisa da escora e de Terra, mais uma de duas coisas:",
+        "- As vozes **Fogo e Água**, ambas ao alcance: obsidiana a cada **12 segundos** a **48 Pulso por segundo**.",
+        "- Ou canalize **250 mB de água e 250 mB de lava** para cada bloco: a mesma obsidiana a apenas **12 Pulso por segundo**. A pia guarda até 4000 mB de cada.",
+        "Canalizar para uma pia sem escora não faz nada. Se Fogo e Água estiverem os dois presentes, a pia usa as vozes e deixa os tanques quietos."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Profundidade e graus",
+      "text": [
+        "Abaixo de **y 0** a pia dá a ardósia profunda de cada nível: pedregulho de ardósia profunda e depois ardósia profunda. A obsidiana continua obsidiana. Um Fosso de escuta não aceita ardósia profunda, então construa a pia que alimenta um fosso acima de **y 0**.",
+        "Suba o grau da pia como qualquer outra oficina: pedidos mais rápidos, mais Pulso por segundo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ler a pia",
+      "text": [
+        "Um comparador junto à pia lê o quanto ela já avançou no bloco que está fazendo, e cai a 0 enquanto espera qualquer coisa.",
+        "Se a pia estiver parada, agache e clique com o botão direito nela com este livro. Ela nomeia marcas, âncoras e vozes que faltam."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:stone_font"
+    }
+  ],
+  "next": "listening_pit"
+}

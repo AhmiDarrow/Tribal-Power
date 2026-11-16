@@ -1,0 +1,51 @@
+{
+  "name": "Báculo séxtuple",
+  "icon": "tribalpower:spirit_staff",
+  "order": 10,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_staff",
+      "text": [
+        "Un báculo que habla las seis voces. Elige una, apunta y lanza.",
+        "Gasta Pulso de una Célula de Pulso, nunca durabilidad, y puede llevar una célula propia, como el [Equipo espiritual](spiritgear)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Los seis hechizos",
+      "text": [
+        "Agáchate y usa para recorrer Tierra, Fuego, Agua, Aire, Espíritu y Telar; la barra de acción nombra la voz. Usa para lanzar. La tecla **Báculo: siguiente voz** recorre sin agacharte una vez que la asignas en Tribal Power, dentro de Controles.",
+        "- **Tierra** (12 de Pulso): un golpe de 4 de daño que ralentiza mucho al enemigo durante 5 segundos.",
+        "- **Fuego** (18): un impacto de 8 de daño que prende al enemigo durante 4 segundos.",
+        "- **Agua** (24): te cura y te purifica. Apaga el fuego, quita el veneno y otorga regeneración durante 5 segundos y respiración acuática durante 30.",
+        "- **Aire** (16): un salto corto hacia adelante y caída lenta durante 6 segundos.",
+        "- **Espíritu** (20): visión nocturna durante 30 segundos, y todo hostil dentro de **12 bloques** brilla durante 12.",
+        "- **Telar** (6): ata a un enemigo y lo atrae hasta **8 bloques** hacia ti."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zurcido",
+      "text": [
+        "Con el Telar elegido, agáchate y usa cuando no haya un enemigo en la mira y ningún bloque esté cerca delante: el báculo te **zurce** **6 bloques** hacia adelante por el aire libre a cambio de **10 Pulso**. Se niega a dejarte en bloques sólidos o en peligros.",
+        "Por eso, para seguir el ciclo desde el Telar, mira un bloque cercano o un enemigo mientras te agachas y usas."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Alcance y descanso",
+      "text": [
+        "Tierra, Fuego y Telar necesitan un objetivo hostil. Alcanzan **18 bloques** y se detienen en los bloques sólidos; sin objetivo no se lanzan y no cuestan nada.",
+        "Tras un lanzamiento, el báculo descansa: **8 segundos** después de Agua, **2 segundos** después de los demás y **1.5 segundos** después de un zurcido.",
+        "Bebe primero de su propia célula asentada y luego de las células que llevas, la mano secundaria primero. Si todas están secas, el lanzamiento no sale.",
+        "Mientras **Silencio No Cantado** te afecte, el báculo no lanzará (consulta [Aflicciones](afflictions))."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_staff"
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "name": "霊の貯槽",
+  "icon": "tribalpower:spirit_cistern",
+  "order": 30,
+  "next": "wireless_cargo",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_cistern",
+      "text": [
+        "キャンプのタンク。液体は一つ、最大**16,000 mB**（バケツ16杯）まで入り、拾っても液体は残る。満タンでも一滴もこぼさず運べる。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "入れて、読む",
+      "text": [
+        "バケツで右クリックすると、入れるか空にできる。空手の右クリックで液体と量が読める。",
+        "普通の液体パイプ、潮のポンプ、液体リレーで出し入れできる。タンクが空になるまで、二つ目の液体は入らない。",
+        "外側を向いたコンパレーターは、空なら**0**、満たされるにつれて**1から15**を読む。",
+        "スニークして空手で面を右クリックすると、その面を決められる。両方、入力、出力、閉鎖。接しているTribal Powerの機械は、出す面から受け取る面へ毎秒最大**250 mB**を移す。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "中身を保つタンク",
+      "steps": [
+        {
+          "caption": "貯槽を置き、バケツを注ぐ。空手クリックは 1,000 / 16,000 mB と読むはずだ。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:water_bucket"
+          }
+        },
+        {
+          "caption": "外側を向いたコンパレーターは、どれだけ満たされているかを読む。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "レバーを付けると、遠いリレーからでも注入と排出がロックされる。液体はそのまま残る。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:lever[face=wall,facing=north,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "壊しても、落ちた貯槽は水を持ったまま。置き直しても、まだ満杯だ。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "知っておくとよい",
+      "text": [
+        "リレーと潮のポンプは液体を運ぶ。タンクではない。両端に貯槽を置け。",
+        "波太鼓も、壊したとき自分の水タンクを保つ。",
+        "[春の呼び](spring_calling)は、置いた貯槽を泉として印し、水で自ら満たさせる。ブロックを動かすと泉は終わり、中の水はアイテムに残る。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_cistern"
+    }
+  ]
+}

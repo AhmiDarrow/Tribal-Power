@@ -1,0 +1,470 @@
+{
+  "name": "Cargaison sans fil",
+  "icon": "tribalpower:lattice_tuner",
+  "order": 40,
+  "items": [
+    "tribalpower:item_relay",
+    "tribalpower:fluid_relay",
+    "tribalpower:longreach_item_relay",
+    "tribalpower:longreach_fluid_relay",
+    "tribalpower:astral_item_relay",
+    "tribalpower:astral_fluid_relay"
+  ],
+  "next": "cargo_filters",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:item_relay",
+      "text": [
+        "Déplace des objets ou du fluide entre deux machines sans une ligne de tuyaux. Encliquette une plaque de relais sur une face de la machine qui envoie, vise la face qui reçoit avec un Accordeur de treillis, et chaque seconde la cargaison saute.",
+        "Les relais servent à la distance. Deux blocs Tribal Power qui se touchent peuvent échanger par leurs faces (voir [Comment fonctionnent les stations](echo_workshops)) ; un coffre vanilla a encore besoin d'un entonnoir ou d'une plaque."
+      ],
+      "title": "Cargaison sans fil"
+    },
+    {
+      "type": "text",
+      "title": "Encliqueter et viser",
+      "text": [
+        "Clic droit d'une plaque sur une face d'une machine ou d'un coffre. Une plaque en main, un clic simple la pose, même sur une machine qui ouvre un écran. Elle tire du bloc où elle est collée.",
+        "La plaque tire par la face où elle est posée et livre dans la face que tu as marquée, et les deux suivent les réglages de face de ce bloc : la face de la plaque doit donner (**Sortie** ou **Les deux**) et la face marquée doit prendre (**Entrée** ou **Les deux**). Les côtés d'une station commencent en **Entrée** et seul le dessous en **Sortie**, donc règle la face d'abord.",
+        "Un [Bassin de pierre](stone_font) est déjà réglé pour les plaques : ses faces du haut et du bas sont **Les deux**, donc les plaques d'objets et de fluide y marchent dans les deux sens.",
+        "Vise-la avec l'**Accordeur de treillis** : clic droit sur la face qui doit recevoir la cargaison, puis clic droit sur la plaque. La plaque envoie tout ce qu'elle tire vers cette face.",
+        "Garde la plaque sur le treillis, à moins de 8 blocs d'un Conducteur de treillis, et aussi un totem de résonance de sa voix, éveillé ou assourdi, mais pas silencieux : **Air** pour les relais d'objets, de fluides et à longue portée, le **Métier** pour les relais astraux. Un Totem de parenté qui prête cette voix compte aussi. Sans cela, la plaque attend. Un serveur peut désactiver cette règle avec **automationNeedsVoices** dans la config commune."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Viser un relais",
+      "steps": [
+        {
+          "caption": "Deux coffres à quelque distance.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Encliquette un Relais d'objets sur le dessus du coffre qui envoie.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                1,
+                0
+              ],
+              "block": "tribalpower:item_relay[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Clic droit sur le dessus du coffre lointain avec un Accordeur de treillis pour le marquer.",
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
+        },
+        {
+          "caption": "Puis clic droit sur la plaque avec l'accordeur. Elle envoie désormais vers la face marquée.",
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -2,
+              1,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
+        },
+        {
+          "caption": "Pose un Totem de résonance (Air) à moins de 8 blocs de la plaque : les relais portent sur la voix Air.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=lower]"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=upper]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -2
+            ],
+            [
+              -1,
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "caption": "Pulsation près de la plaque qui envoie, et jusqu'à 16 objets par seconde passent.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Objets ou fluide",
+      "text": [
+        "Chaque seconde, un relais déplace jusqu'à **16 objets** ou **250 mB**.",
+        "Les relais d'objets et de fluides portent ce que dit leur nom. Un **Sceau d'Eau** dans l'emplacement **rune** fait porter du fluide à n'importe quelle plaque ; un **Sceau de Terre** lui fait porter des objets.",
+        "Pour le fluide, gare une Citerne d'Esprit à chaque bout. Les relais déplacent le fluide ; ils ne le stockent pas.",
+        "Pour choisir ce qui passe, ou le brûler, vois [Filtres et plaques du vide](cargo_filters)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Canaux",
+      "text": [
+        "Une plaque simple envoie vers un seul endroit. Monte-la en rang et elle ouvre d'autres **canaux** : [Accordeur d'écho](machine_ranks) en ouvre un deuxième, Lieur un troisième, Manifesteur un quatrième. Chaque canal a sa propre destination et son propre filtre.",
+        "Marque une face avec l'Accordeur de treillis et utilise l'accordeur sur la plaque. Chaque clic simple remplit le canal suivant sans destination, donc les canaux peuvent envoyer vers des endroits différents. Choisis un canal et fais un clic accroupi sur la plaque avec l'accordeur pour remplacer celui-là. **Délier** oublie la destination d'un canal et garde son filtre.",
+        "**Priorité** envoie la cargaison au premier canal, dans l'ordre des numéros, qui la prend et a de la place : mets les minerais en liste blanche sur le canal 1 vers un fourneau, et laisse le canal 2 prendre tout le reste vers le stockage. **Tour à tour** fait alterner les canaux.",
+        "Les canaux partagent le seul transfert de la plaque par temps, donc une plaque de rang déplace autant qu'avant, seulement vers plus d'endroits."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trois distances",
+      "text": [
+        "- Le **Relais d'objets** et le **Relais de fluides** atteignent **32 blocs**, et chaque battement qui déplace quelque chose coûte **8 Pulsation**.",
+        "- Les relais à **longue portée** atteignent **128 blocs**, pour **16 Pulsation** par battement.",
+        "- Les relais **astral** n'ont aucune limite de distance et passent d'un monde à l'autre, pour **32 Pulsation** par battement.",
+        "Un battement qui ne déplace rien ne coûte rien.",
+        "Les plaques de rang (voir [Rangs de machine](machine_ranks)) paient **118%**, **143%** ou **182%** de cela et déplacent d'autant plus : environ **19 / 23 / 29** objets ou **294 / 357 / 455 mB**. La Pulsation par objet reste à peu près égale."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Accordeur de treillis",
+      "text": [
+        "Clique droit sur la face du bloc où tu veux livrer les biens ; l'accordeur retient cette face. Puis clique droit sur la plaque avec l'accordeur pour la viser. Marque la destination, jamais la plaque. Un simple clic droit marque n'importe quel bloc, même une cache ou un coffre qui s'ouvre au clic.",
+        "La marque reste sur l'accordeur après la visée, donc une marque peut viser plusieurs plaques ; clique droit sur un autre bloc pour la remplacer. Une marque sur le bloc où repose la plaque elle-même est refusée.",
+        "Les limites de distance ci-dessus s'appliquent.",
+        "La visée reste quand tu ramasses la plaque, et son filtre aussi. Casser une plaque fait tomber sa rune à côté.",
+        "Une plaque est à toi : seuls toi et ton [camp](shared_camps) pouvez l'ouvrir, changer son filtre ou la viser avec un accordeur."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Commandes et quand elle attend",
+      "text": [
+        "Un signal de redstone continu met une plaque en pause. Alimente le bloc cible de l'accordeur pour arrêter un transfert depuis l'autre bout.",
+        "Un levier sur une station Tribal Power, une cache ou une citerne arrête aussi les plaques qui en tirent ou qui y livrent.",
+        "Un comparateur sur une plaque lit **0** sans lien, **1** liée mais en attente, **15** pendant qu'elle déplace la cargaison.",
+        "Les deux bouts doivent déjà être chargés. Une destination non chargée ou pleine fait attendre le relais ; seule une plaque Sceau de Feu détruit quoi que ce soit. Les relais ne chargent jamais les chunks eux-mêmes, alors place une Ancre de voie à l'autre bout s'il doit marcher pendant que tu es absent.",
+        "Accroupis-toi et clique droit sur une plaque avec ce livre pour voir son lien, son coût et pourquoi elle attend."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_tuner"
+    }
+  ]
+}

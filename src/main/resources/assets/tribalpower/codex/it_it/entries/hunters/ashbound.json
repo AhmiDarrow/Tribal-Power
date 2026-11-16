@@ -1,0 +1,51 @@
+{
+  "name": "Legacenere",
+  "icon": "tribalpower:ember_heart",
+  "order": 70,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ashbound_spawn_egg",
+    "tribalpower:ember_heart"
+  ],
+  "next": "rootbound",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:ashbound",
+      "text": [
+        "Un'effigie di vimini bruciata, i resti di un rito del fuoco infranto. I suoi colpi ti danno fuoco.",
+        "Cacciato, lascia anche fino a 2 Carbone e fino a 1 Osso."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "I Legacenere camminano di notte per le foreste dell'Overworld e, nella Marcia, vagano per la Steppa e le Distese di brace.",
+        "Ha **24 di salute** e **2 di armatura**, e colpisce per **4**. Ogni colpo ti dà fuoco per 2 secondi, ed è immune al fuoco. Tieni dell'acqua vicina, o combatti dove puoi entrare in una pozza."
+      ],
+      "title": "Dove e come"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Lascia **da 1 a 2 Cuore di brace**.",
+        "Un Cuore di brace si sintonizza in 2 Eco sintonizzato sotto Spirito."
+      ],
+      "title": "Cosa dà"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Nessun amuleto lega un Legacenere. Illumina i tuoi sentieri e resta lontano."
+      ],
+      "title": "Non si legherà"
+    },
+    {
+      "type": "text",
+      "title": "Caccia e conduzione",
+      "text": [
+        "Oltre al suo reagente, lascia questo quando viene cacciato, e di più con Saccheggio."
+      ]
+    }
+  ]
+}

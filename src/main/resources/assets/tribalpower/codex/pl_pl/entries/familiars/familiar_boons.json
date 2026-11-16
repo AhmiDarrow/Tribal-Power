@@ -1,0 +1,45 @@
+{
+  "name": "Co daje głos",
+  "icon": "tribalpower:ember_charm",
+  "order": 50,
+  "pages": [
+    {
+      "type": "text",
+      "title": "W promieniu 16 bloków",
+      "text": [
+        "Wszystko na tych stronach wymaga, aby twój dostrojony chowaniec był w promieniu **16 bloków** od ciebie. Liczy się każdy chowaniec, który za tobą idzie, ale spośród tych, którym kazano czekać, tylko **najbliższy**. Tłum zostawiony w domu użycza ci więc jednego głosu, nie wszystkich ich głosów.",
+        "Bez niego twoja magia działa tak jak zawsze."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Amulety Ducha",
+      "text": [
+        "Noszony amulet z głosem chowańca kosztuje do utrzymania **o 40% mniej Pulsu**, po zaokrągleniu: 2 Pulsu amuletu o jednym głosie staje się 1. Zobacz [Amulety Ducha](spirit_charms).",
+        "Każdy głos, który dzielisz, dodaje też dar, który zostaje kilka sekund po tym, jak się oddalisz:",
+        "- **Ziemia**: Odporność II zamiast I.",
+        "- **Ogień**: Pośpiech, a atakujący płoną dwa razy dłużej.",
+        "- **Woda**: Moc przewodu.",
+        "- **Powietrze**: Szybkość.",
+        "- **Duch**: wrogie istoty w promieniu 16 bloków świecą przez ściany. Blask jest wyraźny dla każdego w pobliżu, nie tylko dla ciebie.",
+        "- **Krosno**: Szczęście II."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Duchowy sprzęt",
+      "text": [
+        "Element związany z głosem chowańca zużywa **o 40% mniej Pulsu**, po zaokrągleniu: 3 za cios staje się 2, 2 za zamach wydobycia staje się 1, a 3 związanej zbroi staje się 2. Wydatek 1 Pulsu, jak orka lub strzyżenie, nie może zejść niżej, więc zamiast tego jest **darmowy przez 40% czasu**.",
+        "Jego atuty głosu (dodatkowe kłody i sadzonki, podwójne zbiory, glina z ziemi) pojawiają się **o połowę częściej**. Zobacz [Duchowy sprzęt](spiritgear)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pieśni i rytuały",
+      "text": [
+        "Wersy głosu chowańca uderzają **o 30% mocniej**, a Wezwanie sięga **o 1.5 bloku** dalej ([kształty pieśni](song_shapes)).",
+        "Rytuał pieczęci jego głosu zostawia błogosławieństwo trwające **o połowę dłużej**."
+      ]
+    }
+  ]
+}

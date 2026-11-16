@@ -1,0 +1,34 @@
+{
+  "name": "Ankerstein",
+  "icon": "tribalpower:anchor_stone",
+  "order": 30,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:anchor_stone",
+      "text": [
+        "Ankersteine stützen die Ecken eines Musters. Sonst tun sie nichts: kein Puls, kein Inventar, kein Unterhalt.",
+        "Manche Formen, wie die Lauschgrube und das Ferntor, brauchen sie von Anfang an; andere, wie das Steinbecken, nutzen sie, um eine zweite Stufe zu erreichen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sie setzen",
+      "text": [
+        "Setze sie dorthin, wo der Kodex Geister an den Ecken zeigt, und lass sie dann in Ruhe. Sie sind keine Generatoren und brauchen nichts von dir.",
+        "Zerstöre einen, und die Form fällt eine Stufe zurück, bis du ihn zurücksetzt, oder hört ganz auf, wenn sie ohne sie keine Stufe hat.",
+        "- **Steinbecken**: vier, an den Ecken eines 5x5, für Stein und Obsidian.",
+        "- **Lauschgrube**: vier für die 5x5-Grube, acht für Tiefes Lauschen.",
+        "- **Ferntor**: vier, an den Ecken seiner Grundfläche."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:anchor_stone",
+      "text": "Vier Marschstein und eine Echoscherbe ergeben **vier**."
+    }
+  ],
+  "next": "stone_font"
+}

@@ -109,7 +109,7 @@ public class SongkeeperPlayScreen extends Screen {
 
     private SongkeeperPlayScreen(BlockPos pos, Songbook.Song song, Difficulty difficulty, Songbook.Chart chart, int duel,
                                  String opponent, boolean rite, long riteSeed) {
-        super(rite ? Component.translatable("gui.tribalpower.rite.title") : Component.literal(song.title()));
+        super(rite ? Component.translatable("gui.tribalpower.rite.title") : song.titleComponent());
         this.pos = pos;
         this.song = song;
         this.difficulty = difficulty;
@@ -147,7 +147,7 @@ public class SongkeeperPlayScreen extends Screen {
         surgeOnText = Component.translatable("gui.tribalpower.songkeeper.surge_on").getString();
         resonanceText = Component.translatable("gui.tribalpower.songkeeper.resonance").getString();
         surgeKeyText = Component.translatable("gui.tribalpower.songkeeper.surge_key").getString();
-        subtitle = song.album() + "  ·  " + Component.translatable("gui.tribalpower.songkeeper.difficulty." + difficulty.key()).getString();
+        subtitle = song.albumComponent().getString() + "  ·  " + Component.translatable("gui.tribalpower.songkeeper.difficulty." + difficulty.key()).getString();
         riteTitle = Component.translatable("gui.tribalpower.rite.title").getString();
         riteLine = Component.translatable("gui.tribalpower.songkeeper.rite_line", (int) (tk.darrow.tribalpower.gate.DrumRite.PASS * 100)).getString();
         youText = Component.translatable("gui.tribalpower.songkeeper.duel.you").getString();
@@ -832,7 +832,7 @@ public class SongkeeperPlayScreen extends Screen {
             text(g, surgeKeyText, rx + rw / 2, sy + 8, 0.75F, argb(GOLD, 0.6F + 0.4F * Mth.sin(frame / 120F)), true);
 
         // song, difficulty, progress along the top
-        text(g, song.title(), 10, 8, 1, TEXT, false);
+        text(g, song.titleComponent().getString(), 10, 8, 1, TEXT, false);
         text(g, subtitle, 10, 19, 0.75F, QUIET, false);
         float progress = Mth.clamp(Math.max(0, t) / (float) song.lengthMs(), 0, 1);
         g.fill(10, 30, 160, 32, 0xFF1C262C);
@@ -928,7 +928,7 @@ public class SongkeeperPlayScreen extends Screen {
         String head = Component.translatable(failed ? "gui.tribalpower.songkeeper.failed" : fullCombo ? "gui.tribalpower.songkeeper.full_combo"
                 : "gui.tribalpower.songkeeper.complete").getString();
         text(g, head, width / 2F, y + 10, 2, failed ? RED : fullCombo ? GOLD : TEXT, true);
-        text(g, song.title() + "  ·  " + Component.translatable("gui.tribalpower.songkeeper.difficulty." + difficulty.key()).getString(),
+        text(g, song.titleComponent().getString() + "  ·  " + Component.translatable("gui.tribalpower.songkeeper.difficulty." + difficulty.key()).getString(),
                 width / 2F, y + 32, 0.75F, QUIET, true);
         int stars = failed ? 0 : Songbook.stars(song, difficulty, score);
         for (int i = 0; i < 5; i++) {

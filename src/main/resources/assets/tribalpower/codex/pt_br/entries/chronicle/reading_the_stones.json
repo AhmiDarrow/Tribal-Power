@@ -1,0 +1,38 @@
+{
+  "name": "Lendo as pedras",
+  "icon": "tribalpower:carved_stone",
+  "order": 0,
+  "spoiler": false,
+  "items": [
+    "tribalpower:carved_stone",
+    "tribalpower:mural",
+    "tribalpower:soil_banner_pattern",
+    "tribalpower:stone_banner_pattern",
+    "tribalpower:sprout_banner_pattern",
+    "tribalpower:claw_banner_pattern",
+    "tribalpower:spark_banner_pattern",
+    "tribalpower:clock_banner_pattern",
+    "tribalpower:swarm_banner_pattern",
+    "tribalpower:sigil_banner_pattern",
+    "tribalpower:spindle_banner_pattern"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Pedra entalhada e murais",
+      "text": [
+        "A Marcha escreveu a própria história, em pedra. Nas paredes das ruínas vão **Pedra entalhada**: ruínas do Tear, aldeias sobre palafitas, santuários submersos, túmulos de brejo, tumbas de cinza, ossuários, galerias de escavação e as abóbadas da Crista do Brilho. Nos terrenos dos guardiões, **Mural entalhado** têm dois blocos de largura e dois de altura, e cada um pinta o país em que está.",
+        "Clique com o botão direito em um e você o lê; o fragmento fica guardado aqui para sempre, e a Crônica o coloca no lugar. São **dezesseis**: oito pedras para a queda do Tear, oito murais para os países que ele deixou. Leia todos e a Crônica fica inteira, com o progresso **A Crônica inteira** para mostrar.",
+        "As pedras e os murais podem ser recolhidos e colocados em qualquer parede sua, e no modo criativo um clique agachado numa pedra ou num mural muda o capítulo. Cada capítulo estraga a surpresa até você encontrá-lo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pinturas e brasões",
+      "text": [
+        "Seis **pinturas** da Marcha pendem agora entre as comuns: segure uma pintura contra uma parede e uma pode aparecer. Os títulos são delas.",
+        "Quando sua posição com uma tribo chega a **Parente**, ela entrega o **brasão** dela uma vez: um padrão de estandarte com a marca da tribo. Coloque-o num tear com um estandarte e qualquer corante. Erga-o sobre um acampamento seu para mostrar de quem você é Parente."
+      ]
+    }
+  ]
+}

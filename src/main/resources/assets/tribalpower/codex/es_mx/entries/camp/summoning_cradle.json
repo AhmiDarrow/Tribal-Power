@@ -1,0 +1,699 @@
+{
+  "name": "Cuna de invocación",
+  "icon": "tribalpower:summoning_cradle",
+  "order": 90,
+  "items": [
+    "tribalpower:binding_effigy"
+  ],
+  "next": "spirit_lantern",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:summoning_cradle",
+      "text": [
+        "Invoca espíritus vivos sin cazarlos. Una Efigie de atadura recuerda a una criatura sin dañarla; una Cuna de invocación llama a esa criatura una y otra vez, mientras tenga Pulso y Tejido espiritual.",
+        "La atadura es un ritual, a propósito. No es un atajo de huevo generador."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Imprimir una efigie",
+      "text": [
+        "Fabrica una **Efigie de atadura** vacía, luego agáchate y haz clic derecho sobre una criatura válida con ella. La criatura no sufre daño.",
+        "Cualquier criatura del juego base que viva en tierra seca se puede imprimir (vacas, caballos, conejos, zorros, zombis, blazes, endermen, brujas, murciélagos y el resto), y también las bestias y los espíritus de la Marcha: sus pacedores, polillas, sabuesos, acechadores, troles, goblins, hadas, sombras, gente de los árboles y el resto. El Wither, el Dragón del End, el Warden y el Guardián anciano nunca pueden, ni los invocadores, los aldeanos, los vendedores ambulantes, los gólems ni las criaturas de agua. Los guardianes, El No Cantado y el Guardián coloso son jefes y no pueden, y tampoco los Fuegos fatuos espirituales, los Caminantes de la Marcha, los Espíritus errantes, el Pariente tribal, Aletabrillo, las Campanas a la deriva, las Rayas del velo, las Anguilas de limo ni los Vencejos del Telar.",
+        "Una atadura viva no se puede sobrescribir; gasta sus hilos primero. El texto emergente nombra la impronta y los hilos que quedan.",
+        "Una impronta sola no convoca nada. Debe tejerse en la atadura de tres voces."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La atadura de tres voces",
+      "text": [
+        "Asienta un **Sello de Espíritu** en un Brasero ritual. Coloca tótems de **Tierra**, **Aire** y **Espíritu** a menos de 8 bloques, ten **200 Pulso** al alcance y lleva **tres Tejido espiritual**.",
+        "Sin redstone en el brasero, haz clic derecho con tu efigie impresa y vacía. Las tres voces anudan en ella **512** hilos de invocación, y toman el Pulso y el Tejido espiritual.",
+        "Una efigie agotada se renueva del mismo modo, o puedes imprimir primero otra criatura en ella.",
+        "Si falta algo, el brasero lo dice."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "La atadura de tres voces",
+      "steps": [
+        {
+          "caption": "Coloca un Brasero ritual y asienta un Sello de Espíritu en él.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ritual_brazier"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:spirit_seal"
+          }
+        },
+        {
+          "caption": "Los tótems de Tierra, Aire y Espíritu, a menos de 8 bloques, dan las tres voces.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -2
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un generador y un Conductor de entramado cercanos aportan los 200 Pulso.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              -2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Lleva tres Tejido espiritual y haz clic derecho en el brasero con la efigie impresa: 512 hilos.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:binding_effigy"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Hacer funcionar la cuna",
+      "text": [
+        "La efigie atada va en la **primera** ranura de la cuna, y el Tejido espiritual en la **segunda**.",
+        "Cada **diez segundos** intenta una vez llamar a la criatura a un suelo despejado y seco, a **3 bloques** y en su mismo nivel. Una invocación cuesta **80 Pulso**, **un Tejido espiritual** y **un hilo**. Un intento fallido o bloqueado no gasta nada.",
+        "La cuna guarda una reserva de **2.400 Pulso** y la recarga hasta 80 por segundo desde el entramado. Responde a **Espíritu**: sin un tótem de Espíritu a menos de 8 bloques (consulta [Manos del campamento](camp_hands)), se queda inactiva."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un suelo para la cuna",
+      "steps": [
+        {
+          "caption": "Coloca la cuna en un suelo plano, con espacio alrededor.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:summoning_cradle"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Pulso por un conductor a menos de 8 bloques: cada invocación cuesta 80.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              -2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "La efigie atada va en la primera ranura, y el Tejido espiritual en la segunda.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:spiritweave"
+          }
+        },
+        {
+          "caption": "Las criaturas aparecen en suelo despejado y seco, a 3 bloques, una cada diez segundos.",
+          "highlight": [
+            [
+              2,
+              -1,
+              2
+            ],
+            [
+              -2,
+              -1,
+              2
+            ],
+            [
+              2,
+              -1,
+              -1
+            ],
+            [
+              1,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Límites y automatización",
+      "text": [
+        "Se pausa mientras hay **8 o más** criaturas a menos de 12 bloques, así que apártalas. Los hostiles nunca se llaman en Pacífico ni dentro del círculo de un Tótem del silencio.",
+        "Un comparador lee los hilos que quedan. La redstone lo pausa todo.",
+        "Las tolvas y las [placas de relé](wireless_cargo) pueden meter Tejido espiritual desde arriba o desde los lados. La cara de abajo solo entrega una efigie agotada, lista para renovarse, a una tolva o a una placa puesta debajo.",
+        "Romper la cuna suelta la misma efigie, con los hilos que le quedan intactos."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:summoning_cradle"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:binding_effigy"
+    }
+  ]
+}

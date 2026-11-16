@@ -1,0 +1,16 @@
+{
+  "name": "Tablilla: Cuerda de los Vinculadores de raíces",
+  "icon": "tribalpower:lore_tablet",
+  "order": 120,
+  "spoiler": true,
+  "unlock": "tablet:2",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Desde una Sala de los ancestros hundida, en palabras de los Vinculadores de raíces:",
+        "“Las raíces son la única cuerda que el vacío respeta. Plantamos las primeras anclas en las islas que caían y las atamos de isla a isla, de raíz a raíz. La mitad aguantó. Planta un brote en el suelo de la Marcha y lo sentirás tirar hacia los demás.”"
+      ]
+    }
+  ]
+}

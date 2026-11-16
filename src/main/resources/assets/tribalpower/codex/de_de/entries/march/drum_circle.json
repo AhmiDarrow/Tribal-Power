@@ -1,0 +1,396 @@
+{
+  "name": "Trommelkreis",
+  "icon": "tribalpower:silent_drum",
+  "order": 50,
+  "spoiler": true,
+  "items": [
+    "tribalpower:music_disc_drum_circle"
+  ],
+  "next": "the_unsung",
+  "pages": [
+    {
+      "type": "image",
+      "image": "drum_circle",
+      "text": [
+        "Zwölf Pfeiler mit Laterne oben umringen eine Stille Trommel im Marschhochland."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Trommelkreise stehen offen im Hochland, von einem Grat aus leicht zu sehen. In der Mitte ist die **Stille Trommel**; ihr Hüter, [Der Ungesungene](the_unsung), schläft, bis jemand sie spielt.",
+        "Eine Truhe zwischen den Pfeilern enthält immer eine **Schallplatte** des Viertakts des Kreises, dazu Knochen, Kerzen, Echoscherben und manchmal einen Knochenklang. Zwei Überlieferungstafeln hängen in der Nähe.",
+        "Bevor du schlägst: binde einen Rückkehrkompass und bring Essen, Rüstung, geladene Pulszellen und einen Knochenklang mit. Bring einen Freund mit, wenn du kannst; der Kampf dauert ein paar Minuten."
+      ],
+      "title": "Was hier ist"
+    },
+    {
+      "type": "scene",
+      "title": "Den Viertakt spielen",
+      "steps": [
+        {
+          "caption": "Die Stille Trommel steht im Herzen des Rings aus Laternenpfeilern.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                -2,
+                1,
+                -2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                -2,
+                1,
+                2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                -2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:silent_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Schlag eins: Rechtsklick mit leerer Hand oder einem Knochenklang.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Schlag zwei, etwa eine Sekunde später. Zu früh oder zu spät, und er dröhnt dumpf und fängt von vorn an.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Schläge drei und vier im selben stetigen Takt.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Beim vierten Schlag antwortet die Trommel, und Der Ungesungene steigt aus der Mitte des Kreises.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Jeder Schlag muss **16 bis 28 Spielticks** nach dem vorigen kommen, etwa eine Sekunde. Ein Schlag innerhalb von 4 Ticks nach dem letzten wird ignoriert, und ein falscher Schlag dröhnt dumpf und setzt die Zählung zurück. Wartest du zu lange, verklingt ein halb gespielter Rhythmus.",
+        "Jede Trommel antwortet einmal pro **zwanzig Minuten Echtzeit** und nie, solange ihr Hüter schon wach ist; sie sagt dir, wie viele Minuten noch bleiben. Wenn Der Ungesungene zurückgesetzt wird, weil alle gegangen sind, kann die Trommel sofort wieder gespielt werden.",
+        "Ein Komparator liest die Trommel: **3** je gezähltem Schlag und ein Aufblitzen von **15**, wenn ein Rhythmus fertig ist."
+      ],
+      "title": "Der Rhythmus, genau"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:silent_drum",
+      "text": "Eine Trommel, die du selbst baust, hält den Rhythmus, aber Der Ungesungene steigt nur vom Altar: polierter Tiefenschiefer unter der Trommel und eine **brennende** Kerze an jeder der vier Ecken. Der Trommelkreis ist schon so gebaut."
+    }
+  ]
+}

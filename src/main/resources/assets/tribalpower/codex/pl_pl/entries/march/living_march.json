@@ -1,0 +1,66 @@
+{
+  "name": "Żywy Marsz",
+  "icon": "tribalpower:ley_lens",
+  "order": 12,
+  "spoiler": false,
+  "pages": [
+    {
+      "type": "events",
+      "title": "Właśnie teraz",
+      "text": [
+        "Co Marsz robi, gdy to czytasz. Zmienia się z tobą albo bez ciebie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pogoda Marszu",
+      "text": [
+        "Siedem krain Marszu ma własną pogodę, poza deszczem: **Opad popiołu** na Pustkowiach żaru, **Burza połysku** nad Kryształowymi polami, **Biała zamieć** na Polach śniegu, **Mgła mokradła** na Trzcinowym mokradle, **Mgła szronu** na Mroźnym brzegu, **Burza pyłowa** nad Słonymi równinami i **Dryf zarodników** na Moczarach kapeluszy blasku.",
+        "Każda zamyka świat: widzisz mniej, a duchy wstają za dnia pod nią, jak wstałyby w nocy.",
+        "Każdy rodzaj nastaje mniej więcej raz na dzień gry i trwa **od 8 do 20 minut**. Strona Kodeksu powyżej mówi, co trwa; niebo też."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pogoda i generatory",
+      "text": [
+        "Każda pogoda sprzyja generatorom jednego głosu i hamuje generatory innego, domyślnie o połowę więcej od sprzyjającego głosu i połowę tyle od hamowanego:",
+        "- **Opad popiołu** zasila Rogi żaru i dławi Harfy wiatru.",
+        "- **Burza połysku** zasila Dzwony pobudki i tępi Bęben-serca.",
+        "- **Biała zamieć** napędza Harfy wiatru i zamraża Bębny fal.",
+        "- **Mgła mokradła** nadyma Bębny fal i tłumi Rogi żaru.",
+        "- **Mgła szronu** na Mroźnym brzegu nadyma Bębny fal i dławi Rogi żaru.",
+        "- **Burza pyłowa** na Słonych równinach napędza Harfy wiatru i suszy Bębny fal.",
+        "- **Dryf zarodników** na Moczarach kapeluszy blasku zasila Dzwony pobudki i tłumi Bębny fal.",
+        "**Pogoda ostrzega.** Dwie minuty przed tym, jak pogoda osiądzie, Marsz mówi o tym na czacie i nad paskiem szybkiego wyboru: czas dotrzeć do dachu, obozu albo wrót. Skok ogłasza się tak samo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Skoki ley",
+      "text": [
+        "Od czasu do czasu nici ley jednego głosu biegną **jasno**: skok. Przez [Soczewka ley](ley_lens) płoną, a soczewka nazywa głos. Póki to trwa, każdy Kolektor ley, którego nici niosą ten głos, daje **podwójnie**.",
+        "Druga strona: każda komórka ley ma **skrzyżowanie**, punkt, w którym schodzą się jej nici, a stanie na gołym podczas skoku, bez kolektora w pobliżu, który by go wypił, daje ci **Choroba ley**: ziemia się kołysze i twój Puls odpływa. Zejdź, albo postaw na nim kolektor i weź skok dla siebie.",
+        "Domyślnie skok trwa **15 minut**, a następny przychodzi około półtorej godziny po jego końcu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Święta",
+      "text": [
+        "Każde plemię ma **dzień święta**, a dziewięć zmienia się w cyklu dwudziestu siedmiu dni. W ich dzień palą się ogniska obozu, Palenisko rzuca swój kolor w powietrze, a Ród trzyma się Paleniska zamiast wędrować.",
+        "Starszy ma słowa święta, a jeśli poprosisz, by dołączyć do uczty, wciska ci w ręce dwie porcje dania plemienia i kupę pozycji, raz na święto. Obrzęd odprawiony tego dnia w obozie daje podziękowanie święta ponad podziękowaniem obrzędu, a jedzenie uczty przy Palenisku liczy cię przy ich stole.",
+        "Strona Kodeksu powyżej mówi, czyj to dzień, a Marsz mówi, kiedy dzień się zmienia."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:wandering_spirit",
+      "title": "Wędrowne duchy",
+      "text": [
+        "Rzadko w Marszu ciepłe światło dryfuje blisko ciebie: **Wędrowny duch**. Nie ucieka. Dojdź do niego, a powie ci linijkę historii swojego kraju i zostawi mały dar, odczynnik, na który odpowiada jego strażnik, albo czasem Rdzeń rezonansu, i odejdzie.",
+        "Zostawiony sam, gaśnie w parę minut. Każdy kraj ma trzy rzeczy do powiedzenia; usłysz je wszystkie, a znasz Marsz trochę lepiej."
+      ]
+    }
+  ]
+}

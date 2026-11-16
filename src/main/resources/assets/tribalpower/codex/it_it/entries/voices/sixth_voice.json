@@ -1,0 +1,201 @@
+{
+  "name": "La sesta voce",
+  "icon": "tribalpower:resonance_totem_loom",
+  "order": 80,
+  "items": [
+    "tribalpower:loom_thread"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_totem_loom",
+      "text": [
+        "La sesta voce è il filo stesso. Il totem di Telaio è l'ultimo Totem di risonanza, e viene dalla Marcia: **Filo di Telaio** dalle Sale degli Antenati, e un cuore da Il Non Cantato."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trovare il filo",
+      "text": [
+        "Le Sale degli Antenati sommerse, nella Steppa della Marcia e negli Altipiani, tengono Filo di Telaio nei loro due forzieri. Leggi le quattro tavolette mentre esci.",
+        "I Cucitori del telaio scambiano anche un Filo di Telaio a chi è Amico, per sei Cristallo della Marcia.",
+        "Intaglia un **Sigillo di Telaio**: un Sigillo vergine e un Filo di Telaio, informe. Sistemato in un Braciere rituale con la voce del Telaio e Pulso attraverso un conduttore entro **8 blocchi**, infila **2 Pulso** in una Cella di Pulso che porti ogni **due secondi** mentre stai entro **6 blocchi**, con Fortuna. Il braciere spende **8 Pulso** a battuta per farlo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Prima del totem",
+      "text": [
+        "Costruisci la Distessitura d'eco: Pietra della Marcia intorno a due Risonatore di rame, una Scheggia di Spirito e un Filo di Telaio. Le serve la voce del Telaio entro 8 blocchi. Finché non puoi creare il totem, costruiscila accanto a un totem di Telaio che sia già in un accampamento dei Cucitori del telaio, in una Sala degli Antenati o in una Guglia di cristallo.",
+        "Poi sveglia Il Non Cantato a un Cerchio di tamburi e prendi il suo **Cuore Non Cantato**."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Insediare la sesta voce",
+      "steps": [
+        {
+          "caption": "Un Risonatore di Pulso e una Distessitura d'eco, a pochi blocchi di distanza.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_unweave"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Piazza il totem di Telaio entro 8 blocchi da entrambi.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "La Distessitura d'eco ora può lavorare, e il Risonatore sente una voce distinta in più.",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:manifested_ingot"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ciò che il Telaio apre",
+      "text": [
+        "Crea il totem di Telaio con quattro Cristallo della Marcia, due Filo di Telaio e due Assi della Marcia intorno al Cuore Non Cantato.",
+        "Con il Telaio a portata, la Distessitura d'eco ritrasforma i lingotti in echi, i nuclei in lingotti, il Tessitospirito in lana e gli strumenti e le armi danneggiati di Dotazione spirituale in un Lingotto manifestato.",
+        "Il Bastone sestuplo ottiene Vincolo e, acquattandoti senza bersaglio, Punto. Il rito Vincolo ley richiede il Sigillo di Telaio, e le Porta lontana richiedono la voce del Telaio."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_loom"
+    }
+  ]
+}

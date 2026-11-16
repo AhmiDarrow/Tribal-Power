@@ -1,0 +1,17 @@
+{
+  "name": "11. Cairns",
+  "icon": "tribalpower:mural",
+  "order": 20,
+  "spoiler": true,
+  "unlock": "fragment:10",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Cairns",
+      "text": [
+        "“Les Champs de neige sont les prés des Gardiens de la colonie, sous un hiver venu avec la chute et resté. Les ruches dorment sous les cairns. Le froid a appris leur bourdonnement et en a fait une chose à lui.”",
+        "Trouvé sur une peinture murale, sur le terrain d'un gardien."
+      ]
+    }
+  ]
+}

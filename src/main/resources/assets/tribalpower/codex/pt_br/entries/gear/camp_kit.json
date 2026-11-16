@@ -1,0 +1,56 @@
+{
+  "name": "Chave e varinha",
+  "icon": "tribalpower:totem_wrench",
+  "order": 25,
+  "items": [
+    "tribalpower:weavers_wand"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:totem_wrench",
+      "title": "Chave de totem",
+      "text": [
+        "Toda máquina do acampamento aponta para algum lado e, cedo ou tarde, para o lado errado. Use a chave num bloco e ele gira no lugar, sem quebrar nem colocar de novo. Troncos e pilares rolam para o eixo seguinte.",
+        "**Use agachado a face de uma máquina** e essa face passa por Ambos, Entrada, Saída e Fechado — o mesmo ajuste que a própria aba lateral da máquina mostra, alcançável de fora da tela.",
+        "Nas [placas de canto](song_plates), ela sincroniza em vez de girar: use uma placa agachado para segurar o canto dela e depois use outra para que ela ouça a primeira, sem um fio no meio."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que custa e o que recusa",
+      "text": [
+        "Um giro toma **1 Pulso** de qualquer célula que você carregue. Sem Pulso com você, a chave gasta um ponto dos seus **512**, e assim ainda funciona num dia ruim.",
+        "Uma tocha de parede, uma escada ou uma alavanca passa para a parede seguinte que a segure e fica parada se não houver nenhuma.",
+        "Ela não gira um bloco que na verdade é dois: uma cama, uma porta, um baú duplo, uma planta alta ou um **pistão estendido** e a cabeça dele. Recolha o pistão primeiro.",
+        "Ela respeita a terra protegida e recusa máquinas colocadas por alguém de fora do seu acampamento, como uma mão vazia faria: ainda lê as placas de canto de outro acampamento, mas não as sincroniza nem segura os cantos delas."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:totem_wrench"
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:weavers_wand",
+      "title": "Varinha do Tecelão",
+      "text": [
+        "Clique na face de um bloco e a varinha leva essa face para fora, por cada vizinho igual: até **32 blocos** numa passagem, encostada ao lado em que você clicou.",
+        "Os blocos vêm da sua mochila e da sua barra de atalhos, e custam **2 Pulso** cada um; cada varredura gasta da varinha um ponto dos seus **768**. Ela só preenche espaço vazio e nunca substitui o que já está lá, assim um chão é colocado em um clique e nada por baixo se perde."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Onde ela não coloca",
+      "text": [
+        "A varinha ignora qualquer ponto onde o bloco não poderia ficar (uma tocha sem onde se prender, uma planta sobre pedra) e qualquer ponto em terra protegida, e coloca o resto.",
+        "Ela não copia um bloco que guarde mais de um item ou que tenha um inventário: uma laje dupla, uma porta ou uma cama, uma pilha de velas ou pepinos-do-mar, neve em camadas, um baú ou uma máquina.",
+        "Se você ficar sem blocos ou sem Pulso no meio do caminho, a varredura simplesmente para ali."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:weavers_wand"
+    }
+  ]
+}

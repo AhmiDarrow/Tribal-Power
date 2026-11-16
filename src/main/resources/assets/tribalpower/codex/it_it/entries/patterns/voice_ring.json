@@ -1,0 +1,33 @@
+{
+  "name": "Anello di voce",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 50,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Sei voci, disposte",
+      "text": [
+        "Un [Risonatore di Pulso](pulse_resonator) conta al massimo **cinque** voci da un mucchio sciolto di totem, totem di parentela compresi. Per contare tutti e sei gli elementi più la parentela, le voci devono essere **disposte**.",
+        "L'Anello di voce è otto posti intorno al risonatore, a **tre blocchi** sui punti cardinali e sulle diagonali, tutti al livello del risonatore stesso. Otto, perché sei totem spaziati in modo uniforme non stanno su una griglia quadrata."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "voice_ring",
+      "tier": 1,
+      "title": "L'anello",
+      "text": "Un totem in ognuno degli otto scomparti, a tre blocchi dal Risonatore."
+    },
+    {
+      "type": "text",
+      "title": "Riempire l'anello",
+      "text": [
+        "Ogni scomparto richiede un Totem di risonanza. Un Totem di parentela non può riempire uno scomparto, ma aggiunge comunque la sua tribù da qualsiasi punto entro 8 blocchi. Contano solo le voci **distinte**, sesta inclusa: due totem di Terra restano una sola voce, quindi gli scomparti di avanzo possono tenere duplicati.",
+        "Contano solo i totem nello stato **Risposto**; uno silenzioso va svegliato prima (vedi [Custodia](keeping)).",
+        "Sistema il catalizzatore come al solito. Accovacciati e fai clic destro sul Risonatore con questo libro per vedere il suo catalizzatore e quante voci sente. Se si ferma a cinque con sei voci intorno, uno scomparto dell'anello è ancora vuoto."
+      ]
+    }
+  ]
+}

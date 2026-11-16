@@ -1,0 +1,255 @@
+{
+  "name": "Sintonizzare e vincolare",
+  "icon": "tribalpower:echo_attune",
+  "order": 40,
+  "items": [
+    "tribalpower:echo_bind",
+    "tribalpower:attuned_echo",
+    "tribalpower:bound_echo"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_attune",
+      "text": [
+        "Il Sintonizzatore di eco (Fuoco) trasforma la Scheggia di eco in **Eco sintonizzato**. Il suo partner, il Vincolatore di eco (Acqua), trasforma l'Eco sintonizzato in **Eco vincolato**.",
+        "Questi sono i passi di mezzo del reticolo: materiali per macchine migliori e cristalli più forti per il tuo Risonatore di Pulso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sintonizzare",
+      "text": [
+        "Piazza il Sintonizzatore di eco con un totem di Fuoco entro 8 blocchi e dagli Scheggia di eco. Ognuno diventa un Eco sintonizzato in **3 secondi** a **40 Pulso al secondo**.",
+        "Il Sintonizzatore di eco trasforma anche una scheggia di ametista in una Scheggia di Spirito.",
+        "Con polvere di luminite in uno slot catalizzatore, il Sintonizzatore di eco accende anche [Vetro di quarzo](glimmer_ridge).",
+        "I trofei delle creature della Marcia, come un Cuore di brace, una Zanna di canna o un Dente di fenditura, si sintonizzano in **due** Eco sintonizzato ciascuno, ma quelli vogliono la voce **Spirito**, non Fuoco."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Vincolare",
+      "text": [
+        "Piazza il Vincolatore di eco con un totem di Acqua entro 8 blocchi e dagli Eco sintonizzato. Ognuno diventa un Eco vincolato in **4 secondi** a **48 Pulso al secondo**.",
+        "Il Vincolatore di eco trasforma anche la lana in **Tessitospirito** e la terra in **quattro palle di argilla**. I bottini morbidi delle creature, come Velluto dell'alba, Piumino di lanterna o Ala di tempesta, si vincolano in due Tessitospirito ciascuno."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Una catena senza tramogge",
+      "steps": [
+        {
+          "caption": "Piazza il Vincolatore di eco con un totem di Acqua accanto.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Metti il Sintonizzatore di eco sopra, con un totem di Fuoco vicino.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "La faccia inferiore di Sintonizzatore di eco manda in uscita, per impostazione predefinita, verso la faccia superiore di Vincolatore di eco, così gli echi scendono da soli.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Metti Scheggia di eco dall'alto e prendi Eco vincolato da Vincolatore di eco.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Concatenare",
+      "text": [
+        "Metti Sintonizzatore di eco su Vincolatore di eco, o accanto con le facce a contatto impostate da Uscita a Ingresso, e la catena cammina senza tramoggia. Non rivolgere mai Entrambi verso Entrambi.",
+        "Metti Vincolatore di eco su Manifestatore di eco per proseguire verso lingotti e nuclei.",
+        "Una leva mette in pausa l'una o l'altra stazione. Se non si muove nulla, controlla le voci e il Pulso con questo libro."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_attune"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_bind"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:attuned_echo"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bound_echo"
+    }
+  ]
+}

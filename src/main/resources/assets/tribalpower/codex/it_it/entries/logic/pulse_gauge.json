@@ -1,0 +1,264 @@
+{
+  "name": "Indicatore di Pulso e Soglia di Pulso",
+  "icon": "tribalpower:pulse_gauge",
+  "order": 30,
+  "spoiler": false,
+  "items": [
+    "tribalpower:pulse_threshold"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_gauge",
+      "text": [
+        "L'Indicatore di Pulso trasforma il Pulso immagazzinato in pietrarossa. Puntalo verso un Cuoretamburo, un generatore, un risonatore o un Collettore di ley, qualunque cosa che conservi Pulso, ed emette da **0 a 15** secondo quanto è piena quella riserva. Le officine attingono Pulso intorno a sé e non ne tengono da leggere.",
+        "Il suo simile, la **Soglia di Pulso**, risponde con un semplice sì o no: la riserva è almeno così piena?",
+        "Entrambi si fanno con Pietra della Marcia, quindi aspettano il tuo primo viaggio verso la Marcia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Indicatore di Pulso",
+      "text": [
+        "Accovacciati e posizionalo contro il blocco che vuoi leggere; la freccia punta nel blocco che hai cliccato. Un clic normale userebbe quel blocco al suo posto e batterebbe un Cuoretamburo. Emette da **ogni faccia tranne la freccia**, debolmente dai lati e fortemente dal retro.",
+        "Il segnale è **0** quando la riserva è vuota, poi sale da 1 a 15 mentre si riempie. Si aggiorna ogni 4 tick, e un comparatore che legge l'indicatore ottiene lo stesso numero.",
+        "Clic destro per vedere il Pulso immagazzinato, la capacità e il segnale."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Soglia di Pulso",
+      "text": [
+        "Posizionala allo stesso modo, accovacciato, con la freccia verso la riserva. Clic destro per scorrere **25, 50, 75 e 100%**; parte da 50.",
+        "Emette un **15** pieno finché il Pulso immagazzinato è a quella quota o sopra, e niente sotto. Come l'indicatore, non emette mai dalla faccia della freccia, così non disturba la riserva che osserva. Un comparatore legge l'impostazione da 1 a 4."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pausa o protezione",
+      "text": [
+        "Un segnale tenuto mette in pausa le macchine. Collegata dritta a una macchina, una Soglia di Pulso la mette in pausa mentre la riserva è **abbastanza piena**.",
+        "Di solito vuoi il contrario: mettere in pausa una stazione affamata mentre il tamburo è **basso**, così ti resta una riserva. Metti una **Piastra inversa** sulla linea. Ora 'troppo vuoto' è il segnale attivo: sotto l'impostazione l'Inversa canta e la stazione va in pausa; quando il tamburo si riprende, l'Inversa tace e il lavoro riprende.",
+        "Prova con una stazione affamata prima di cablare tutto l'accampamento."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Tenere una riserva",
+      "steps": [
+        {
+          "caption": "Un Cuoretamburo alimenta un Frantumatore di eco a tre blocchi di distanza.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                3
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "caption": "Accovacciati e posiziona una Soglia di Pulso contro il tamburo, freccia verso l'interno; un clic normale batterebbe il tamburo. Clic destro sulla Soglia di Pulso per scegliere 25, 50, 75 o 100%.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:pulse_threshold[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Accovacciati e monta una Piastra inversa sul retro della Soglia di Pulso, rivolta alla stazione; un clic normale cambierebbe l'impostazione della Soglia di Pulso. Legge il blocco su cui poggia.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:inverse_plate[facing=south]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Sotto l'impostazione la Soglia di Pulso tace, l'Inversa canta, e la stazione aspetta che il tamburo si riempia.",
+          "highlight": [
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_gauge"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_threshold"
+    }
+  ],
+  "next": "song_thread"
+}

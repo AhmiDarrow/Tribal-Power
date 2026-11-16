@@ -1,0 +1,16 @@
+{
+  "name": "Tabliczka: Marsz",
+  "icon": "tribalpower:lore_tablet",
+  "order": 210,
+  "spoiler": true,
+  "unlock": "tablet:11",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Z zatopionej Sali przodków, dla tego, kto następny pójdzie przez Marsz:",
+        "“Marsz to miejsce, gdzie nić przetarła się najcieniej i upadła ziemia spoczęła. Sale leżą zatopione po nadproże; obozy trzymają rytm, choć przy bębnie nikogo nie ma; kryształ rośnie tam, gdzie napięcie Krosna wciąż się zbiera. Idź przez niego z pełnym Ogniwo Pulsu i pewną ręką. Tutaj wszystko wciąż odpowiada na uderzenie.”"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Pináculo de cristal",
+  "icon": "tribalpower:march_crystal",
+  "order": 70,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "image",
+      "image": "crystal_spire",
+      "text": [
+        "Um pináculo afilado de Cristal da Marcha nos Campos de Cristal, com um posto de passagem ao pé."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ao pé do pináculo há um acampamento pequeno: um lar, estandartes, um totem do Tear, camas e um tear. Ali vivem dois Costureiros do tear da tribo do Fuso, um Ancião e um Tecelão.",
+        "Os Costureiros do tear mantêm dois tipos de acampamento, ambos só na Marcha: este pequeno posto de passagem nos Campos de Cristal e um acampamento completo com seu próprio Ancião em cada banda. Em cada um pende uma Tábua de relatos."
+      ],
+      "title": "O posto de passagem"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Eles recebem **Cristal da Marcha**, **Fio de Tear** e bússolas como oferendas. Cada um aumenta sua [posição](standing) com a tribo.",
+        "No grau **Amigo**, eles abrem trocas de Fio de Tear, o suprimento constante que você quer depois de saquear os Salões dos Ancestrais perto de você.",
+        "A história completa deles está na página dos [Costureiros do tear](tribe_spindle)."
+      ],
+      "title": "Trocas com os Costureiros do tear"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Os Campos de cristal são mesas em terraços, e é fácil perder o rumo entre o cristal. Vincule uma bússola antes de vaguear.",
+        "Os Lomoestilhaços empurram com força perto das beiradas. Mantenha as costas longe dos despenhadeiros."
+      ],
+      "title": "Como se deslocar"
+    }
+  ]
+}

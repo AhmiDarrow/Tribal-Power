@@ -1,0 +1,254 @@
+{
+  "name": "Tótem de parentesco",
+  "icon": "tribalpower:kinship_totem",
+  "order": 30,
+  "items": [
+    "tribalpower:tribe_mark"
+  ],
+  "next": "tribe_boons",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:kinship_totem",
+      "text": [
+        "Un tótem tallado a partir de una Marca tribal. Junto a un Resonador de Pulso es una **voz extra**, contada para la tribu y no para su elemento, así que añade Pulso incluso donde ese elemento ya canta.",
+        "Nunca calla, y presta la voz de su tribu a cualquier estación cercana."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ganar la Marca",
+      "text": [
+        "Sube tu posición con una tribu hasta **Voz (800)** y luego habla con el Anciano de esa tribu. El Anciano te pone una **Marca tribal** en la mano. Ese regalo llega solo una vez por tribu, pero cada **tercera** petición que termines para ellos también paga una Marca, desde Huésped en adelante (véase [Ancianos, peticiones e historias](elders_and_stories)).",
+        "La Marca lleva el nombre de la tribu y su dicho. La Marca que el Anciano da al llegar a Voz también abre la página de esa tribu en este libro; las Marcas pagadas por peticiones, no.",
+        "Huésped y Amigo no bastan para el regalo de Voz. Si te falta, comercia, haz ofrendas y acepta peticiones hasta llegar a Voz; véase [Tribus y posición](standing)."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribes_kinship_totem",
+      "title": "Tallar el tótem",
+      "text": [
+        "Pon la Marca tribal, el **Tótem de resonancia de la voz de esa tribu** y **dos Tejido espiritual** en cualquier casilla de una cuadrícula de fabricación. La Marca se consume en el tótem."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué tótem va con qué Marca",
+      "text": [
+        "- **Tierra**: Guardianes del lecho, Cantores de grava.",
+        "- **Agua**: Vinculadores de raíces.",
+        "- **Fuego**: Caminantes del borde, Corazones de tambor.",
+        "- **Aire**: Tejedores de patrones, Guardianes de la colonia.",
+        "- **Espíritu**: Talladores de sellos.",
+        "- **Telar**: Zurcidores del telar.",
+        "Haz clic derecho sobre un Tótem de parentesco colocado para ver su tribu y la voz que presta."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Una voz extra",
+      "steps": [
+        {
+          "caption": "Un Resonador de Pulso con un tótem de Tierra y uno de Fuego canta dos voces.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un Tótem de parentesco de los Corazones de tambor añade una tercera voz, aunque Fuego ya esté aquí.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:kinship_totem[tribe=4]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Un tótem de los Guardianes del lecho añade una cuarta. Las voces se multiplican: en un Fragmento de eco, tres dan 15 de Pulso por segundo y cuatro dan 24.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:kinship_totem[tribe=0]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Un segundo tótem de la misma tribu no añade nada. El Resonador cuenta tribus, no bloques.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:kinship_totem[tribe=4]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "En un Resonador de Pulso",
+      "text": [
+        "Cada tribu distinta con un Tótem de parentesco dentro de **8 bloques** cuenta como una voz más. Los tótems de parentesco nunca callan, así que siempre cuentan; los tótems de resonancia solo cuentan mientras están Respondidos.",
+        "El Resonador sigue necesitando al menos un **Tótem de resonancia** respondido propio. Los tótems de parentesco por sí solos no lo arrancan.",
+        "Un montón suelto sigue teniendo un tope de **cinco voces** en total. Construye un [Anillo de voz](voice_ring) y el tope se levanta: seis elementos más las nueve tribus suman **quince**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "En estaciones y máquinas de campamento",
+      "text": [
+        "A 8 bloques de un taller, del Ancla de Telar o de una [mano de campamento](camp_hands) que espera una voz, un Tótem de parentesco solo **presta el elemento de su tribu**, como si allí estuviera un Tótem de resonancia respondido de esa voz. No es una séptima voz.",
+        "Como nunca calla, cuenta incluso junto a un Tótem de resonancia callado de la misma voz. Así mantienes en marcha una estación o una máquina de campamento en un sitio que visitas poco.",
+        "El riego de un Cuidador de la arboleda sigue necesitando un Tótem de resonancia de Agua."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "En el Foso de escucha",
+      "text": [
+        "Las franjas de mena profundas, calientes y raras de un [Foso de escucha](listening_pit) necesitan todas un **Tótem de parentesco de los Cantores de grava**, o un **Hogar de la tribu**, de pie dentro del patrón.",
+        "La reputación con los Cantores de grava sigue marcando el límite: **Pariente** para las franjas profundas y calientes, **Voz** para la rara."
+      ]
+    }
+  ]
+}

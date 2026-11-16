@@ -1,0 +1,69 @@
+{
+  "name": "Miejsca Marszu",
+  "icon": "tribalpower:march_stone_bricks",
+  "order": 64,
+  "spoiler": true,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ruiny i obozy",
+      "text": [
+        "Plemiona zostawiły więcej niż sale i kręgi bębnów. Każda ziemia Marszu ma własne szczątki, większość ze skrzynią wartą otwarcia, a kilka strzeże to, co wciąż tam chodzi.",
+        "Ruiny starych Wrota i Kryształowa grota trzymają najlepsze skrzynie za **Pusty strażnik**, a Popielny grób za spawnerami **Popiołozwiązany** i **Chochlik żagwi**. Te skrzynie mogą mieć **Rdzeń rezonansu** lub **Nić Krosna**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Obozy i wsie",
+      "text": [
+        "Każde plemię trzyma obóz w każdym pasie Marszu, zbudowany z własnego drewna i gruntu tego pasa: mroźna sosna i śnieg na zamarzniętej krawędzi, ciernista jodła i iglasty ił w zimnych tajgach, palma bębna na sawannach, słoneczna kora i sól w gorących ziemiach. Strażnicy posłania trzymają łąki i wzgórza, Śpiewacy żwiru szczyty i mesy, Wiązacze korzeni głębokie lasy, Chodzący po krawędzi tajgi, Bęben-serca suchą i palącą ziemię, Tkacze wzorów otwarte stepy, Strażnicy kolonii kwitnące ziemie, Rzeźbiarze pieczęci ciemne lasy, a Szwacze krosna dziwny, oświetlony kraj.",
+        "**Wsie** stoją też w każdym pasie: plac z Palenisko plemienia, ogniem, totemem, studnią i Krosno, jego cztery Ród, i własny generator głosu, który buczy; ulice z kamienia pasa prowadzą do chat, długich domów, warsztatu z Kruszarka echa i Stół pieśni, spichlerza plonu pasa, kaplicy, wieży strażniczej, zagrody roślinożerców pasa i ogrodu kwiatowego. Palenisko wsi przyjmuje ofiary jak Palenisko obozu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Kawałki starego świata",
+      "text": [
+        "Nad szczytami i wysokim gruntem, i nad niejednym Płaczący kolos, wiszą na niebie **unoszące się góry starego świata**: wysokie urwiska ze skały Marszu, szerokie u korony i zwężone w szpic u dołu, ściany pasiaste i omszone, na szczycie darń i drzewa, pęknięty pierścień z Cegły ze skrzynią w środku, pnącza po każdej stronie i wodospad lejący się z krawędzi. Wiszą grupami na różnych wysokościach, połączone olbrzymimi pnączami, a małe skały dryfują wokół.",
+        "Grupę trzyma przy ziemi **olbrzymie korzenie z Drewno (wierzba)**, otulone w Liście i obwieszone zasłonami z Pasmo wierzby, które schodzą całą drogę w dół. Da się po nich wspinać: chwyć u stóp korzenia i wespnij się do nieba. Nad Płaczący kolos korzenie kończą się w jego koronie, więc drzewo jest drabiną."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Step i wyżyny",
+      "text": [
+        "- **Kapliczka wędrowca**: zadaszona kapliczka przydrożna na starej ścieżce, ze skrzynią ofiar.",
+        "- **Kamienie pastwiska**: krąg stojących kamieni wokół lizawki.",
+        "- **Opuszczona stacja przelotowa**: zrujnowany posterunek przekaźnikowy, jeden maszt wciąż stoi.",
+        "- **Upadła wieża bębna**: złamana wieża; jej wielki bęben leży w trawie.",
+        "- **Latarnia wartowniczego ognia**: kamienna wieża na pagórku, jej ogień sygnałowy wciąż się pali.",
+        "- **Kamieniołom echa**: tarasowy dół z Ruda Marszu w ścianach i żurawiem na krawędzi.",
+        "- **Ołtarz burzy**: ołtarz z tufu pod piorunochronem.",
+        "- **Ustronie Rzeźbiarze pieczęci**: izby wykute w urwisku, z warsztatem i poddaszem.",
+        "- **Ruiny starych Wrota**: na wpół zasypane Wrota drogi nad strzeżoną salą i zakratowanym skarbcem."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Śnieżne Pola i Pustkowia Żaru",
+      "text": [
+        "- **Zamarznięta długa sala**, **Lodowy kopiec**, **Chata Łowca** i **Warta zorzy** w śniegu.",
+        "- **Kuźnia żaru**, **Iglica żagwi** i **Pierścień żużlu** w popiele, oraz **Nora resztek**, gdzie ocalali wytrzymali.",
+        "- **Popielny grób**: zakopany grób pod Pustkowiami Żaru, strzeżony, i ryzyko się opłaca."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pola Kryształu i Trzcinowe bagno",
+      "text": [
+        "- **Rozbite obserwatorium**: taras mapy nieba pod pękniętą kopułą.",
+        "- **Obelisk rezonansu**: obelisk zwieńczony kryształem nad ukrytym skarbcem.",
+        "- **Ruina Krosno**: upadłe wielkie krosno, płótno wciąż wisi.",
+        "- **Kryształowa grota**: spiralne schody w dół, do jaskini geody i skarbca za Drzwi z żelaza.",
+        "- **Wieś na palach**, **Zatopiona kaplica**, **Trzcinowy więcierz** i **Bagienny kurhan** na bagnie.",
+        "- **Studnia Duch**: zadaszona studnia w kręgu kwiatów, skrzynia ofiar na dnie wody."
+      ]
+    }
+  ]
+}

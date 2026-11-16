@@ -1,0 +1,16 @@
+{
+  "name": "Tafel: Bienenstock der Koloniehüter",
+  "icon": "tribalpower:lore_tablet",
+  "order": 160,
+  "spoiler": true,
+  "unlock": "tablet:6",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Aus einem Trommelkreis im Marsch, in den Worten der Koloniehüter:",
+        "“Du besitzt keinen Bienenstock. Du stehst mit ihm auf gutem Fuß. Biete Honig an, pflanze die Blumen des Marsches, und der Schwarm leitet den Puls für dich durch die Wabe. Nimm, ohne zu fragen, und die Wabe wird still. Sie ist darin sehr geduldig.”"
+      ]
+    }
+  ]
+}

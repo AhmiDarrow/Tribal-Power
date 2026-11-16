@@ -1,0 +1,91 @@
+{
+  "name": "Tessitospirito",
+  "icon": "tribalpower:spiritweave_hood",
+  "order": 30,
+  "items": [
+    "tribalpower:spiritweave",
+    "tribalpower:spiritweave_robe",
+    "tribalpower:spiritweave_leggings",
+    "tribalpower:spiritweave_boots"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritweave_hood",
+      "text": [
+        "Armatura di stoffa dura come il diamante, tessuta per rispondere a un totem. Legata a una voce, ogni pezzo sveglia un dono, tenuto da un po' di Pulso da una Cella di Pulso che porti, e il pezzo legato brilla con esso."
+      ],
+      "title": "Armatura di Tessitospirito"
+    },
+    {
+      "type": "text",
+      "title": "Il tessuto",
+      "text": [
+        "Il tessuto di Tessitospirito viene dal **Vincolatore di eco** con la voce Acqua: qualsiasi lana diventa un tessuto, e Seta di eco, Velluto dell'alba, Piumino di lanterna, Scaglia di dorsomuschio o un'Ala di tempesta ne fanno due.",
+        "Quattro pezzi prendono le solite forme dell'armatura; la veste e i gambali prendono anche un Nucleo risonante al centro. Il tessuto di Tessitospirito li ripara su qualsiasi incudine. Distessitura d'eco riporta il tessuto a lana."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Indossarlo",
+      "text": [
+        "Non legato, il Tessitospirito è armatura semplice: protegge come il diamante, non dà alcun dono e non spende Pulso. Il suggerimento elenca cosa ogni voce sveglierebbe in quel pezzo.",
+        "Accovacciati e usa un pezzo su un Totem di risonanza posizionato con **40 Pulso** in una cella che porti per legare la sua voce. Un cappuccio, una veste o dei gambali legati spendono **3 Pulso ogni quattro secondi**, e ciò tiene attivo ogni privilegio del pezzo, quelli che rispondono a un colpo, a una caduta o a un laccio come i doni costanti. Gli stivali spendono solo quando si usa uno dei loro privilegi; ogni pagamento copre quattro secondi.",
+        "Quando le tue celle si asciugano, i doni si fermano, e con loro ogni privilegio. Ricarica, o togli i pezzi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Voci e ranghi",
+      "text": [
+        "Ogni voce dà a ogni pezzo un dono diverso; le voci miste sono volute. Vedi [Equipaggiamento legato al totem](totem_bound_gear) per ciascuna.",
+        "Alza di rango ogni pezzo nel Sintonizzatore di eco, nel Vincolatore e nel Manifestatore, con gli stessi costi e catalizzatori della [Dotazione spirituale](spiritgear). Ogni rango rende il pezzo più saldo: più armatura e robustezza, più resistenza al contraccolpo e salute in più, fino a **2 cuori** a pezzo al Manifestato."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Set completi",
+      "text": [
+        "Indossa un set intero di un solo rango e funziona insieme:",
+        "- Un set **Vincolato** completo: **10%** di danni subiti in meno.",
+        "- Un set **Manifestato** completo: circa **29 di armatura** e **20 di robustezza**, **8 cuori extra**, **20%** di danni subiti in meno e, mentre la veste è accesa, ripristina un cuore ogni quattro secondi per **4 Pulso**. Fatto per gli scontri più duri."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_hood"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_robe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_leggings"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_boots"
+    },
+    {
+      "type": "text",
+      "title": "Una cella tutta sua",
+      "text": [
+        "Come la [Dotazione spirituale](spiritgear), ogni pezzo può portare una **Cella di Pulso** propria: clic destro con una cella sul pezzo nel tuo inventario ed entra, carica compresa. Il pezzo spende da quella cella prima di toccare le celle che porti. Clic destro sul pezzo con il cursore vuoto per estrarre la cella.",
+        "Su un cappuccio con occhiali, una volta tolta la cella, il clic successivo col cursore vuoto toglie gli occhiali e ti restituisce la Lente ley da cui erano fatti."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Spegnere un pezzo",
+      "text": [
+        "Ogni pezzo indossato ha un interruttore. Apri la schermata dell'equipaggiamento (il tasto apostrofo per impostazione predefinita, sotto Tribal Power nei Comandi) e imposta il pezzo su Spento: protegge ancora come armatura, ma ogni bonus del pezzo si ferma, anche quelli che rispondono a un colpo o a una caduta, e non attinge Pulso finché non lo riaccendi. Il tooltip lo dice in rosso finché è spento.",
+        "Gli occhiali del cappuccio hanno lì il loro interruttore e il loro tasto. La stessa schermata mostra quale volta apre la tua bisaccia e ti lascia nascondere l'HUD di Pulso."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "name": "歌之工作台",
+  "icon": "tribalpower:song_bench",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_bench",
+      "text": [
+        "歌之工作台是试剂化为魔法之处。它**强化**原始试剂，将其写入**歌**，制作**诗句箭**，并为灵械武器**涂油**。",
+        "强化消耗16点脉动。一张歌谱需要3到7个强化试剂、纸，以及一笔仪式粉笔。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "强化",
+      "text": [
+        "把工作台放在共鸣图腾和充能发电机的8格以内，并把试剂袋留在快捷栏里。工作台会从袋子中读取试剂。",
+        "点击列表中的试剂来选中它。**强化**，或Shift点击，会把一份原始试剂变成强化试剂，消耗16点脉动。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "写下歌",
+      "text": [
+        "放入纸和仪式粉笔，再按顺序挑选3到7个强化试剂：选中一个并按下**添加**，或双击它。第一种试剂决定歌的[形态](song_shapes)；**声音**决定它在附近哪一座图腾里唱。",
+        "按下**撰写**得到一张**歌谱**。可以直接从手上唱一次，或把它装订进歌集：放入书，把歌谱留在输出栏，在序列为空时按下**撰写**。",
+        "放入书后，**撰写**会把歌直接写入书中。**取出**把当前页重新取出为歌谱，**拿取**则把袋子里的原始试剂交给你。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "花费",
+      "text": [
+        "撰写会消耗那些试剂、纸和一笔粉笔，外加歌谱上每一种试剂**12脉动**。有等级的工作台做任何事都少要一些脉动。",
+        "最初的歌集有1页，每页最多3个试剂。精装歌集有3页，每页最多5个，合唱歌集有5页，每页最多7个。",
+        "右键手持的书来歌唱。潜行并右键来翻页。放进书里的脉动电池先支付，然后才是你携带的电池。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "为武器涂油",
+      "text": [
+        "输出栏旁边是一个**武器槽**。放入灵械武器（原版或其他模组的武器不能接受涂油），在列表中选中试剂并按下**涂油**。",
+        "它消耗该种类的**4份强化试剂**和**32脉动**，武器会一直保留试剂的力量，直到你用别的东西给它涂油。整件事写在[涂油](anointing)页。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "一座工作台，两种声音",
+      "steps": [
+        {
+          "caption": "一台范围内有发电机的歌之工作台。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_bench"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "范围内的土图腾可以作为歌谱的声音。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "再加上一座火图腾，工作台就能用两种声音里的任意一种来唱。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "诗句箭",
+      "text": [
+        "选中一份强化试剂并按下**制箭**：一份试剂和8点脉动做出**四**支以你所选声音歌唱的诗句箭。",
+        "要更强的箭，先用**添加**摆上最多3份强化试剂，再按**制箭**：这四支箭带着那段短诗，每份试剂8点脉动。主试剂每多一份就加一点威力，其他试剂会在命中时一并带上。",
+        "握住脉动弓并拉弦。普通的音波弹在拉满时最多消耗6点脉动；诗句箭再加6，并带上其试剂的歌。脉动弩发射同样的箭。",
+        "放进弓里的脉动电池先支付，然后才是你携带的电池。",
+        "红石信号会暂停工作台。"
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_bow",
+      "title": "脉动弓",
+      "text": [
+        "锻造方式与其他灵械相同：两块**显化锭**和一只**骨铃**，用三根线绷弦。它不需要箭；每次拉弓都射出一发音波弹，笔直飞行，约60格后消散。",
+        "拉满造成**7**点，半拉按其份额，所以轻点只是点一下。诗句箭每将一份主试剂作为箭羽装上，便加一点，最多**3**。",
+        "耐久为1024。脉动为每一发付账，所以射击不会磨损它。在[灵砧](spirit_anvil)上用显化锭修补，每次四分之一。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_bow"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:song_bench"
+    }
+  ],
+  "items": [
+    "tribalpower:bound_songbook",
+    "tribalpower:chorus_songbook",
+    "tribalpower:pulse_bow",
+    "tribalpower:reagent_pouch",
+    "tribalpower:song_sheet",
+    "tribalpower:songbook",
+    "tribalpower:verse_arrow"
+  ],
+  "next": "song_shapes"
+}

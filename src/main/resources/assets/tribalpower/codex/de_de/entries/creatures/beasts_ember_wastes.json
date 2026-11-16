@@ -1,0 +1,74 @@
+{
+  "name": "Bestien der Glutöde",
+  "icon": "tribalpower:cinder_plate",
+  "order": 240,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cinderhide_spawn_egg",
+    "tribalpower:ashmoth_spawn_egg",
+    "tribalpower:slaglump_spawn_egg",
+    "tribalpower:emberjaw_spawn_egg",
+    "tribalpower:cinder_plate",
+    "tribalpower:ash_wing",
+    "tribalpower:slag_curd",
+    "tribalpower:ember_fang"
+  ],
+  "next": "beasts_reed_fen",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Der Asche eigene",
+      "text": [
+        "Zwei der Tiere der Glutöde leben am Rand der Lava, eines fliegt durch die Asche, und eines jagt nachts den Basalt.",
+        "Jede sanfte Bestie hier lässt sich einmal pro Minute bürsten, um ihr Reagenz zu bekommen, und wird mit ihrem eigenen Futter gelockt und gezüchtet, genannt weiter unten unter **Jagd und Zucht**. Sie lässt sich binden wie jedes sanfte Tier (siehe [Vertraute](familiars)), und obwohl keine eine eigene Gabe hat, kann eine gebundene trotzdem an einem Totem eine Stimme annehmen und deine Magie stärken (siehe [Einstimmen an einem Totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinderhide",
+      "title": "Zunderhaut",
+      "text": [
+        "Eine Vulkanschildkröte, Feuer zwischen den Schildplatten, die neben Lava und auf dem heißen Stein darum lebt, jeweils eine oder zwei. **30 Gesundheit** und **7 Rüstung**, langsam, und **immun gegen Feuer**.",
+        "Sie lässt **1 bis 3 Zunderplatte** fallen, ein Glut-Reagenz.",
+        "Gejagt lässt sie außerdem 1 bis 2 Rohes Wildbret und bis zu 1 Marschleder fallen. Züchten mit **Glutwurzel**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ashmoth",
+      "title": "Aschemotte",
+      "text": [
+        "Eine graue Schwärmerin der Asche, die breiten Flügel über lachsfarbene Hinterflügel zurückgelegt und der Körper zum Schwanz hin lachsfarben gebändert, zu eins bis drei. **10 Gesundheit**, keine Rüstung.",
+        "Sie lässt **1 bis 3 Ascheflügel** fallen, die sich zu schwarzem Farbstoff mahlen lassen.",
+        "Gejagt lässt sie außerdem bis zu 1 Faden und bis zu 1 Schwarzpulver fallen. Züchten mit **Glutwurzel**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slaglump",
+      "title": "Schlackeklumpen",
+      "text": [
+        "Ein langer, niedriger Lavasalamander mit flachem Spatenkopf, schwarz mit orangefarbenen Flecken, der sich an der Lava suhlt, jeweils einer oder zwei. **26 Gesundheit** und **5 Rüstung**, und **immun gegen Feuer**.",
+        "Er lässt **1 bis 3 Schlackequark** fallen, ein Glut-Reagenz.",
+        "Gejagt lässt er außerdem bis zu 1 Magmacreme und bis zu 2 Eisenklumpen fallen. Züchten mit **Glutwurzel**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:emberjaw",
+      "title": "Glutkiefer",
+      "text": [
+        "Ein gestreifter Feuerraptor, der niedrig läuft, den Schwanz nach hinten, fast nur Kiefer, und nachts auf dem Basalt aufsteigt, jeweils einer oder zwei. Er hat **32 Gesundheit** und **3 Rüstung** und trifft mit **6**, und stößt dich bei jedem Treffer zurück. Bei all seiner Farbe ist er **nicht** feuerfest.",
+        "Er lässt **1 bis 2 Glutzahn** fallen, ein Stoß-Reagenz.",
+        "Gejagt lässt er außerdem bis zu 2 Knochen und bis zu 2 Holzkohle fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Zucht",
+      "text": [
+        "Neben seinem Reagenz lässt jedes beim Erlegen mehr fallen, und mit Plünderung noch mehr. Fleisch fällt gebraten, wenn das Tier brennend gestorben ist. Um wilde Tiere zu züchten, **schleiche** dich, während du zwei ausgewachsenen Tieren ihr Futter gibst; normal gefüttert, wird dir ein wildes Tier stattdessen zugetan."
+      ]
+    }
+  ]
+}

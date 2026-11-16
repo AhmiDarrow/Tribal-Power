@@ -1,0 +1,65 @@
+{
+  "name": "Tkacze wzorów",
+  "icon": "tribalpower:tribe_mark",
+  "order": 90,
+  "spoiler": true,
+  "unlock": "tribe:clock",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_clock",
+      "title": "Tkacze wzorów",
+      "text": [
+        "„Fabryka to pieśń, która przestała potrzebować śpiewaka.”",
+        "Pasmo **Zegar**, głos **Powietrze**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Kim są",
+      "text": [
+        "Tkacze wzorów zapisali swoje czasy na kołach zegarowych i na pyle ciem i pozwolili, by Krosno niosło melodię. Gdy nadeszło Cięcie, ich pieśni grały dalej. Ich rzemiosło to **pieśni na czas i automatyzacja**.",
+        "Ich obozy stoją w **lasach brzozowych**, a w Marszu ich obóz stoi w każdym pasie, od zamarzniętej północy po sól."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Czego chcą",
+      "text": [
+        "Ich reagent to **Skrzydło burzy**, warte **+8** reputacji przy ich Palenisku.",
+        "Cenią też Redstone, Zegar, Przekaźnik albo Komparator: **+3** każdy. Każde inne jedzenie jest warte **+1**, a naładowane Ogniwo Pulsu **+2 za każde 10 Puls**, do +8.",
+        "Pamiętaj, że Palenisko przyjmuje najwyżej **60** reputacji dziennie z ofiar; zobacz [Plemiona i reputacja](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Czym handluje Starszy",
+      "text": [
+        "**Gość**: 8 Redstone w zamian za 2 Odłamek echa; Zegar w zamian za 4 Przekaźnik.",
+        "**Przyjaciel**: 2 Dostrojone echo w zamian za 4 Komparator; 16 Redstone w zamian za Skrzydło burzy; 4 Fasola błysku w zamian za Tarta wzorów.",
+        "**Ród**: 3 Związane echo w zamian za Przewodnik kraty; 2 Związane echo w zamian za Harfa wiatru.",
+        "Każdy handel daje **+2** reputacji."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Znak, totem i dar",
+      "text": [
+        "Na **Głos** Starszy daje ci Znak plemienia Tkacze wzorów. Wytwórz go z {item:tribalpower:resonance_totem_air} i dwie Duchotkanina w ich [Totem pokrewieństwa](kinship_totem).",
+        "Obok Rezonator Pulsu to jeszcze jeden głos; obok stacji użycza **Powietrze**.",
+        "Ród Tkacze wzorów nosi swój [dar](tribe_boons): stacje echa w promieniu 8 bloków od ciebie działają z **podwójną prędkością**.",
+        "Ich danie niesie dar przez **5 minut**, a ich [relikt](elders_and_stories), dopóki go nosisz.",
+        "Tkacze wzorów to jedyne plemię, które sprzedaje **Harfa wiatru**, generator Powietrza.",
+        "Na **Głos** możesz też związać **Ćma burzy** jako [chowaniec](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "clock",
+      "title": "Twoja praca z nimi",
+      "text": [
+        "O co Starszy Tkacze wzorów cię prosił i jak daleko zaszła ich opowieść. Zobacz [Starsi, prośby i opowieści](elders_and_stories)."
+      ]
+    }
+  ]
+}

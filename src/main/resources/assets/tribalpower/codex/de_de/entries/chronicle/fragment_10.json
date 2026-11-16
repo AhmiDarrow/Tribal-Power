@@ -1,0 +1,17 @@
+{
+  "name": "11. Steinmale",
+  "icon": "tribalpower:mural",
+  "order": 20,
+  "spoiler": true,
+  "unlock": "fragment:10",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Steinmale",
+      "text": [
+        "“Die Schneefelder sind die Wiesen der Koloniehüter unter einem Winter, der mit dem Sturz kam und blieb. Die Stöcke schlafen unter den Steinmalen. Die Kälte lernte ihr Summen und machte etwas Eigenes daraus.”",
+        "Gefunden auf einem Wandbild am Grund eines Wächters."
+      ]
+    }
+  ]
+}

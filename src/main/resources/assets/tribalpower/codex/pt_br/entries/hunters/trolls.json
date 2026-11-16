@@ -1,0 +1,74 @@
+{
+  "name": "Troles",
+  "icon": "tribalpower:troll_hide",
+  "order": 320,
+  "spoiler": true,
+  "items": [
+    "tribalpower:crag_troll_spawn_egg",
+    "tribalpower:rime_troll_spawn_egg",
+    "tribalpower:slag_troll_spawn_egg",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:slag_hide"
+  ],
+  "next": "goblins",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Troles",
+      "text": [
+        "Grandes, lentos para cair e rápidos para a raiva. Três tipos de trol guardam a pedra alta da Marcha e o calor dela, e os três caçam você."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:crag_troll",
+      "title": "Trol do penhasco",
+      "text": [
+        "Encontrado no Planalto. Surge à noite em terreno aberto, um ou dois por vez.",
+        "Caçado, também solta de 1 a 3 Couro da Marcha, de 1 a 2 ossos e até 2 sílex."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:rime_troll",
+      "title": "Trol de geada",
+      "text": [
+        "Encontrado nos Campos de neve. Surge à noite em terreno aberto, um ou dois por vez.",
+        "Caçado, também larga de 1 a 3 Couro da Marcha, de 1 a 2 ossos e de 1 a 3 bolas de neve."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slag_troll",
+      "title": "Trol de escória",
+      "text": [
+        "Encontrado nos Ermos de brasa, junto à lava e na pedra quente ao redor, de dia ou de noite, um ou dois por vez. É **imune ao fogo**.",
+        "Caçado, também larga de 1 a 3 Couro da Marcha, de 1 a 2 ossos e de 1 a 3 pepitas de ferro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Enfrentar um",
+      "text": [
+        "Um trol tem **69 de vida** e **6 de armadura** e acerta por **9**. O golpe de um Trol do penhasco ou de um Trol de geada empurra você para trás; o de um Trol de escória ateia fogo em você por 2 segundos.",
+        "Mantenha distância e nunca lute contra um com lava atrás de você."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que dão",
+      "text": [
+        "Cada um larga **1 a 2** da sua pele, mais com Pilhagem. **Pele de trol** e **Pele de geada** são reagentes de Empurrão, **Pele de escória** um reagente de Brasa: veja [reagentes](reagents).",
+        "Os trols nunca formam vínculo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caça e rebanho",
+      "text": [
+        "Além do reagente, cada um larga mais quando caçado, e mais ainda com Pilhagem."
+      ]
+    }
+  ]
+}

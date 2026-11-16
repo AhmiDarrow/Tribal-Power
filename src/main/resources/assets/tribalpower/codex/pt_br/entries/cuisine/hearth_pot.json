@@ -1,0 +1,32 @@
+{
+  "name": "Panela do Lar",
+  "icon": "tribalpower:hearth_pot",
+  "order": 10,
+  "items": [
+    "tribalpower:hearth_pot"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:hearth_pot",
+      "title": "Uma panela sobre o fogo",
+      "text": [
+        "A Panela do Lar é uma panela larga de barro num berço de cobre. Coloque-a **sobre calor**: uma fogueira acesa, fogo, fogo das almas, magma, lava ou uma [Tigela de brasa](pulse_lights) bem embaixo. Ela não pede Pulso nenhum, então é a primeira máquina de um acampamento.",
+        "Abra-a e ponha cada ingrediente no **seu próprio assento** do quadrado de dois por dois, onde a receita o mostra: o primeiro em cima à esquerda, depois em cima à direita, embaixo à esquerda e embaixo à direita. Os assentos que a refeição não usa ficam vazios. Uma **tigela** vai no assento ao lado do quadrado quando a refeição quer uma. Um prato leva cerca de **12 segundos** sobre o fogo, comida de estrada rápida só **8**, e um banquete **20**, e a refeição sai à direita."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Cada [prato da tribo](tribe_dishes), cada pedaço de [comida de estrada](road_fare) e de [refeição do Lar](hearth_meals), e cada [banquete](feasts) é uma receita da Panela do Lar. Uma refeição que quer uma tigela ou um frasco de vidro o toma no assento ao lado do quadrado. Os assentos importam: os ingredientes certos nos assentos errados não fazem nada. O JEI lista todos sob a panela.",
+        "Funis a alimentam por cima e pelos lados e tiram a refeição por baixo, então uma panela pode manter um acampamento alimentado sozinha. Um funil põe tigelas e frascos no assento ao lado do quadrado, e cada ingrediente num assento onde alguma refeição o quer, conforme o que os outros assentos já seguram. Para manter uma refeição andando, coloque primeiro um de cada à mão; os funis então completam cada assento, e uma refeição que quer a mesma coisa duas vezes enche os dois assentos por igual. Quem faz pacotes pode acrescentar as próprias refeições como receitas do tipo Lar."
+      ],
+      "title": "O que cozinha"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hearth_pot"
+    }
+  ],
+  "next": "tribe_dishes"
+}

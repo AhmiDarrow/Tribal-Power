@@ -1,0 +1,259 @@
+{
+  "name": "Cairn de Pulsation",
+  "icon": "tribalpower:pulse_cairn",
+  "order": 70,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_cairn",
+      "text": "Un cairn de pierres qui tient la mesure : le stockage du treillis. Chaque pierre stocke **4,000 Pulsation**. Sur un réseau de treillis, il boit le surplus des générateurs du réseau et le prête aux machines du réseau, jusqu'à **64 par seconde** dans chaque sens. Les générateurs par à-coups le remplissent ; les machines affamées y puisent de façon régulière."
+    },
+    {
+      "type": "text",
+      "title": "Empiler",
+      "text": [
+        "Les cairns qui se touchent face contre face, de n'importe quel côté, au-dessus ou en dessous, se joignent en **une pile** et un seul stock : deux pierres tiennent **8,000 Pulsation**, trois tiennent **12,000**, et ainsi de suite. Une pile réunit jusqu'à **64 pierres**, soit **256,000 Pulsation** de pierres simples ; une pierre de plus reste seule.",
+        "Utilise n'importe quelle pierre et tu vois toute la pile. Mets de la Pulsation n'importe où et elle se répartit sur les pierres ; puise dans n'importe quelle pierre et toute la pile paie. Chaque pierre ajoute son propre rythme à la vitesse à laquelle la pile fait entrer et sortir la Pulsation."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rangs",
+      "text": [
+        "Le Cairn de Pulsation [prend rang](machine_ranks) comme n'importe quelle machine, en Accordeur d'écho, Lieur d'écho et Manifesteur d'écho. Une pierre de rang contient plus et déplace la Pulsation plus vite, en entrée comme en sortie, aux mêmes rythmes qu'un conducteur :",
+        "- **Tissé** : 4,000 Pulsation, 64 par seconde.",
+        "- **Accordé**: 16,000 Pulsation, 256 par seconde.",
+        "- **Lié**: 64,000 Pulsation, 1,024 par seconde.",
+        "- **Manifesté**: 256,000 Pulsation, 4,096 par seconde.",
+        "Un tas additionne ses pierres, quels que soient leurs rangs. Une pierre d'avant les rangs est Tissé, et une pierre cassée garde son rang, mais pas sa Pulsation."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Remplir et lire",
+      "text": [
+        "Un cairn rejoint le treillis comme n'importe quoi d'autre, dans un rayon de 8 blocs d'un [Conducteur de treillis](lattice_conductor). Il ne boit que le **surplus** d'un générateur, ce qui dépasse la moitié de sa réserve, et jamais celui d'un autre cairn, ainsi la Pulsation dont les machines se servent reste intacte. Les machines du réseau dépensent d'abord les générateurs, puis les cairns. La Pulsation qui entre et celle qui sort passent aussi par les conducteurs à portée, alors règle leur rang pour qu'il suive.",
+        "Casse une pierre et la Pulsation qu'elle portait est perdue : la pierre revient vide, et le reste du tas garde ce qu'il contient. Dépense un tas avant de le déplacer.",
+        "Un comparateur contre n'importe quelle pierre lit à quel point tout le tas est plein. Un signal de redstone sur n'importe quelle pierre arrête le remplissage du tas."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un tas de pierres",
+      "steps": [
+        {
+          "caption": "Place un cairn près d'un générateur qui vient par à-coups, comme une Cloche d'éveil, avec un Conducteur de treillis à portée des deux.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:wake_bell"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Ajoutes-en au-dessus ou à côté. Les pierres qui se touchent forment un seul tas : trois tiennent 12,000 Pulsation.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "N'importe quelle forme se joint, côte à côte ou empilée, jusqu'à 64 pierres : 256,000 Pulsation dans un seul tas.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                1
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Un comparateur contre n'importe quelle pierre lit à quel point tout le tas est plein.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Où il brille",
+      "text": [
+        "Pose un cairn, une Cloche d'éveil et une Fosse d'écoute autour d'un conducteur, et les à-coups de la cloche deviennent le tirage régulier que la fosse veut.",
+        "Les deux bouts doivent être chargés. Accroupis-toi et fais un clic droit sur un cairn avec ce livre pour voir combien de pierres son tas a réunies et ce que cette pierre porte."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_cairn",
+      "text": "Six Pierre de la Marche, deux Écho lié et une Cellule de Pulsation."
+    }
+  ]
+}

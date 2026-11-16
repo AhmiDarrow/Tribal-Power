@@ -1,0 +1,27 @@
+{
+  "name": "Il nono accordo",
+  "icon": "tribalpower:rite_ninth_agreement",
+  "order": 66,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rite_ninth_agreement"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Un finale",
+      "text": [
+        "Il Telaio era nove fili d'accordo. Finisci le storie di tutte e nove le tribù, gli otto [guardiani](guardians) e Il Non Cantato, e tieni nove reliquie. Crea la tavoletta dagli otto nuclei e un Cuore Non Cantato, traccia un **cerchio di Telaio** (un Sigillo di Telaio posato sul braciere), raduna **2,000 Pulso** entro **8 blocchi** dal braciere (**1,500** in un cerchio di livello due), ed esegui il rito con tutte e nove le reliquie addosso. La tavoletta si consuma; le reliquie no.",
+        "Il Telaio acconsente. Nove luci salgono dal cerchio, una nel colore di ogni tribù, e la Marcia risponde alla tua voce da allora."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa cambia",
+      "text": [
+        "Per chi ha stretto l'accordo: ogni tribù ti tratta almeno come **Consanguineo**, qualunque sia la tua posizione; tutti e nove i doni si posano su di te per **30 minuti**; e l'aurora della Marcia arde piena e stabile ogni notte che stai sotto di essa.",
+        "L'accordo è tuo per sempre in quel mondo, e si fa una volta per giocatore. Dopo, il rito rinnova i nove doni: eseguilo di nuovo con una tavoletta nuova e lo stesso Pulso, e tutti e nove si posano su di te per altri 30 minuti pieni. Le reliquie si chiedono solo la prima volta."
+      ]
+    }
+  ]
+}

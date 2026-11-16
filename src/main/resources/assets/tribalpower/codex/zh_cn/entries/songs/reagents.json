@@ -1,0 +1,261 @@
+{
+  "name": "试剂",
+  "icon": "tribalpower:reagent_pouch",
+  "order": 10,
+  "items": [
+    "tribalpower:reagent_pouch",
+    "tribalpower:dawn_velvet",
+    "tribalpower:lantern_down",
+    "tribalpower:mossback_scale",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:bounder_horn",
+    "tribalpower:grub_husk",
+    "tribalpower:tuft_wool",
+    "tribalpower:shank_sinew",
+    "tribalpower:pale_down",
+    "tribalpower:crag_fleece",
+    "tribalpower:boulder_tusk",
+    "tribalpower:drift_bladder",
+    "tribalpower:prism_crest",
+    "tribalpower:shard_wing",
+    "tribalpower:glow_husk",
+    "tribalpower:drift_pelt",
+    "tribalpower:frost_hoof",
+    "tribalpower:snow_veil",
+    "tribalpower:ash_wing",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:silt_fin",
+    "tribalpower:pale_streamer",
+    "tribalpower:shoal_scale",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark",
+    "tribalpower:ember_heart",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale",
+    "tribalpower:cinder_plate",
+    "tribalpower:slag_curd",
+    "tribalpower:slag_hide",
+    "tribalpower:knotted_root",
+    "tribalpower:heartwood_core",
+    "tribalpower:reed_fang",
+    "tribalpower:gnasher_tooth",
+    "tribalpower:facet_barb",
+    "tribalpower:rime_mandible",
+    "tribalpower:shard_barb",
+    "tribalpower:brine_fang",
+    "tribalpower:prism_carapace",
+    "tribalpower:scree_knuckle",
+    "tribalpower:ember_fang",
+    "tribalpower:reed_whorl",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:sentinel_sigil",
+    "tribalpower:pale_fang",
+    "tribalpower:barrow_shroud",
+    "tribalpower:drowned_weed",
+    "tribalpower:storm_wing",
+    "tribalpower:veil_tatter",
+    "tribalpower:cinder_knot",
+    "tribalpower:shade_ember",
+    "tribalpower:bell_fragment",
+    "tribalpower:wraith_veil",
+    "tribalpower:rift_tooth",
+    "tribalpower:lurker_claw",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn",
+    "tribalpower:echo_silk",
+    "tribalpower:gloom_silk"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "远行界的每种生物都会留下一点东西：一颗牙、一片鳞、一簇羊毛。那就是**试剂**，Tribal Power靠它们把狩猎变成魔法。",
+        "把{item:tribalpower:reagent_pouch}放在快捷栏里。捡到的普通试剂都会直接进入袋子。袋子每种最多装**999**个，原始的和强化过的都算，因此不会塞满背包。带**线**的试剂留在背包里（下一页）。",
+        "右键袋子可以查看内部，并取出原始试剂，用于染料、药剂和配方。歌之工作台的**取出**按钮也一样。",
+        "试剂一开始是**原始**的。在[歌之工作台](song_bench)花费16脉动即可**强化**。原始试剂用来熬制药剂，也会进入少数配方；强化过的用来写歌、制作诗句箭，并给武器涂膏。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "线",
+      "text": [
+        "有些试剂带**线**，分为I、II或III，在提示框里以金色标名。它表示试剂所离开的那只生物有多强，在试剂离开时读取，方式是击杀或毛刷：取血统中超过2的最强线，金色名字的**精英**再加一档。",
+        "- **线 I**：野生生物且线为3，或任意精英。",
+        "- **线 II**：繁殖血脉且线为4，或线为3的精英。",
+        "- **线 III**：**崇高**血脉，线为5。用毛刷刷自己的崇高使魔，每分钟得到两个。",
+        "不同线的试剂不会堆叠。在别处，带线的试剂与其他试剂一样。[地脉之心](ley_heart)烧得更旺，价值是**6、9或12**，普通的则是4。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "族系",
+      "text": [
+        "试剂的作用取决于它的**族系**，族系来自它脱离的那只生物。一共十一族，无论用在何处，意思都一样：",
+        "- 在**歌**中，第一份试剂之后试剂追加的东西;",
+        "- 在**涂膏的武器**上，武器对击中之物做什么（[涂膏](anointing)）；",
+        "- 在**药剂**里，药汤对服用者做什么（[药剂](remedies)）。",
+        "后面的页面列出每个族系、属于它的试剂，以及它在这三处各做什么。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "把一份原始试剂放进**碗**里，配上一根**仪式粉笔**一起研磨（三样都放进合成栏；一整组粉笔不行），得到**2份染料**。碗会返还，粉笔只失去一道刻痕。",
+        "十六种试剂做成十六种染料：",
+        "- **白色**: 淡绒",
+        "- **淡灰色**: 啮兽羊毛",
+        "- **灰色**: 风暴翼",
+        "- **黑色**: 灰翅",
+        "- **棕色**: 幼虫壳",
+        "- **红色**: 余烬微粒",
+        "- **橙色**: 岩浆鳞",
+        "- **黄色**: 烬树皮"
+      ],
+      "title": "试剂染料"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **黄绿色**: 哥布林耳朵",
+        "- **绿色**: 节根",
+        "- **青色**: 微光粉",
+        "- **淡蓝色**: 潜伏者之爪",
+        "- **蓝色**: 棱镜甲壳",
+        "- **紫色**: 灯笼绒羽",
+        "- **品红色**: 钟盖木孢子",
+        "- **粉红色**: 仙子花瓣"
+      ],
+      "title": "试剂染料，续"
+    },
+    {
+      "type": "text",
+      "title": "余烬",
+      "text": [
+        "**试剂**：余烬之心、余烬微粒、岩浆鳞、烬板、炉渣凝乳、炉渣皮.",
+        "- **歌**：使目标着火。",
+        "- **涂膏**：灼烧：点燃目标，并给每一击加上火焰。",
+        "- **Remedy**：引火：力量。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "闪电",
+      "text": [
+        "**试剂**：烬结、幽影余烬。",
+        "- **歌**：点燃目标。",
+        "- **涂油**：唤风暴：四分之一的打击会向附近两个敌人弧射闪电。",
+        "- **Remedy**：迅捷：速度。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "寒冷",
+      "text": [
+        "**试剂**：钟碎片、怨灵帷幕。",
+        "- **歌**：使目标减速。",
+        "- **涂油**：冻伤：使目标减速并冻结。",
+        "- **Remedy**：冷却：抗火。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "毒液",
+      "text": [
+        "**试剂**：芦苇尖牙、啮牙、刻面刺、雾凇颚、碎片尖刺、卤水尖牙。",
+        "- **歌**：使目标中毒。",
+        "- **涂油**：毒液：使目标中毒。",
+        "- **Remedy**：解毒：解除中毒、凋零、饥饿和反胃。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "疾风",
+      "text": [
+        "**试剂**：风暴翼、帷幕残片。",
+        "- **歌**：击退目标。",
+        "- **涂油**：烈风：将目标向后并向上抛出。",
+        "- **Remedy**：羽落：缓降。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "根",
+      "text": [
+        "**试剂**：节根、心材核心。",
+        "- **歌**：使目标减速。",
+        "- **涂油**：定根：五分之一的打击会把目标定在原地。",
+        "- **Remedy**：扎根：抗性。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "猛推",
+      "text": [
+        "**试剂**：棱镜甲壳、碎石节、余烬牙、苇旋、巨魔皮、雾凇皮。",
+        "- **歌**：用力击退目标。",
+        "- **涂油**：碎甲：目标身上的护甲越多，打击咬得越深。",
+        "- **Remedy**：壁垒：伤害吸收。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "编织",
+      "text": [
+        "**试剂**：回响丝、晦丝。",
+        "- **歌**：使目标减速。",
+        "- **涂油**：回响：四分之一的打击会以一半的威力再击中一次。",
+        "- **Remedy**：明视：夜视，解除失明和黑暗。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "削弱",
+      "text": [
+        "**试剂**：哨卫印、苍白尖牙、古坟裹尸布、溺亡水草。",
+        "- **歌**：使目标虚弱。",
+        "- **涂油**：汲取：使目标虚弱。",
+        "- **Remedy**：恢复：给予急迫，并解除虚弱、缓慢和挖掘疲劳。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "猎犬",
+      "text": [
+        "**试剂**：裂隙牙、潜伏者之爪、哥布林耳朵、哥布林尖牙、狗头人鳞片、狗头人角。",
+        "- **歌**：使目标发光。",
+        "- **涂油**：嗜血：生命偷取，每一次打击的15%以生命返还。",
+        "- **Remedy**：活力：生命提升。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "寂静",
+      "text": [
+        "**试剂**：黎明绒、灯笼绒羽、苔背鳞、灰簇、啮兽羊毛、微光粉、扑鸟翼、跃兽角、幼虫壳、簇绒、胫腱、淡绒、崖绒、巨岩獠牙、漂囊、棱镜冠、碎片翅、荧光壳、漂毛皮、霜蹄、雪帷幕、灰翅、沼足、泽蹄、泥沼囊、铃冠、玻璃翅、晶洞外壳、淤泥鳍、苍白飘带、浅滩鳞、炉树皮、长老树皮、霜松树皮、烬树皮、垂泪结、钟盖木孢子、高跷根、仙子尘、仙子花瓣、仙子火花。",
+        "- **歌**：给你片刻的生命恢复。",
+        "- **涂油**：经验修补：武器在击中时自行修复。",
+        "- **Remedy**：经验修补：生命恢复。"
+      ]
+    }
+  ],
+  "next": "song_bench"
+}

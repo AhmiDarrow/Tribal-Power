@@ -1,0 +1,56 @@
+{
+  "name": "Caça e couro",
+  "icon": "tribalpower:roast_game",
+  "order": 45,
+  "items": [
+    "tribalpower:raw_game",
+    "tribalpower:march_leather"
+  ],
+  "next": "ashbound",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:roast_game",
+      "text": [
+        "Os animais da Marcha alimentam você tanto quanto os do Mundo Superior. A carne deles é **Caça crua**, e os couros dão **Couro da Marcha**.",
+        "Caça assada enche tanto quanto um filé, o que deixa as viagens longas pela Marcha bem mais fáceis."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Caça crua** vem de Saltador de cinza, Focinho-de-matacão, Pastador de sino, Couro-de-cisco, Saltador do penhasco, Manto-de-penhasco, Cervo da alvorada, Peloderiva, Pernalta do paul, Andarilho de geada, Raposa-lanterna, Canela-longa, Andorinhão do Tear, Andarilho da Marcha, Pula-pântano, Lomomusgo, Asa-pálida, Pastador-prisma, Pastador de crista e Lomo-de-tufo.",
+        "**Couro da Marcha** vem de Focinho-de-matacão, Pastador de sino, Couro-de-cisco, Saltador do penhasco, Trol do penhasco, Manto-de-penhasco, Cervo da alvorada, Tocaieiro profundo, Peloderiva, Pernalta do paul, Andarilho de geada, Raposa-lanterna, Canela-longa, Andarilho da Marcha, Lomomusgo, Pastador-prisma, Espiral de junco, Espreitador de juncos, Pastador de crista, Cão da fenda, Trol de geada, Trol de escória, Lomo-de-tufo e Raia do véu.",
+        "A página de cada criatura informa as quantidades.",
+        "Saque adiciona até mais um de cada. Um animal que morre queimando solta a carne já assada."
+      ],
+      "title": "De onde vem"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Caça crua** restaura **3** pontos de fome e pouca saturação. Caça assada restaura 8 com saturação alta.",
+        "Cozinhe numa fornalha, num defumador (duas vezes mais rápido) ou numa fogueira (o mais lento, mas sem combustível).",
+        "Os dois contam como carne: os lobos comem, e outros mods tratam como carne crua ou cozida."
+      ],
+      "title": "Cozinhar e comer"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Um Couro da Marcha vira um couro comum, então qualquer coisa que peça couro, como um Tambor silencioso, está a um passo de fabricação.",
+        "Também conta como couro para outros mods que aceitem qualquer couro."
+      ],
+      "title": "Couro da Marcha"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:roast_game"
+    },
+    {
+      "type": "recipe",
+      "item": "minecraft:leather",
+      "text": "Um Couro da Marcha faz um couro."
+    }
+  ]
+}

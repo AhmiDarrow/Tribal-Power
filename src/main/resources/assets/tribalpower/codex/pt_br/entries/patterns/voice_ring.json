@@ -1,0 +1,33 @@
+{
+  "name": "Anel de voz",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 50,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Seis vozes, dispostas",
+      "text": [
+        "Um [Ressonador de Pulso](pulse_resonator) conta no máximo **cinco** vozes de um monte solto de totens, totens de parentesco inclusos. Para contar os seis elementos mais o parentesco, as vozes têm de estar **dispostas**.",
+        "O Anel de voz são oito lugares ao redor do ressonador, a **três blocos** nos pontos cardeais e nas diagonais, todos no nível do próprio ressonador. Oito, porque seis totens espaçados por igual não cabem numa grade quadrada."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "voice_ring",
+      "tier": 1,
+      "title": "O anel",
+      "text": "Um totem em cada um dos oito espaços, a três blocos do Ressonador."
+    },
+    {
+      "type": "text",
+      "title": "Encher o anel",
+      "text": [
+        "Cada espaço precisa de um Totem de ressonância. Um Totem de parentesco não pode preencher um espaço, mas ainda soma a tribo dele de qualquer lugar dentro de 8 blocos. Só contam as vozes **distintas**, a sexta incluída: dois totens de Terra continuam uma só voz, então os espaços que sobram podem levar duplicatas.",
+        "Só contam os totens no estado **Respondido**; um quieto precisa ser acordado antes (veja [Guarda](keeping)).",
+        "Coloque o catalisador como de costume. Agache e clique com o botão direito no Ressonador com este livro para ver o catalisador dele e quantas vozes ele ouve. Se parar em cinco com seis vozes ao redor, um espaço do anel ainda está vazio."
+      ]
+    }
+  ]
+}

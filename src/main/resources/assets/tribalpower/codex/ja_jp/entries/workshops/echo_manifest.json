@@ -1,0 +1,260 @@
+{
+  "name": "エコー顕現",
+  "icon": "tribalpower:echo_manifest",
+  "order": 50,
+  "items": [
+    "tribalpower:manifested_ingot",
+    "tribalpower:resonant_core"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_manifest",
+      "text": [
+        "霊の作業台。格子の一番上にある。エコー顕現は、結ばれたエコーを**顕現したインゴット**にし、インゴットを**共鳴核**にする。この書で最も優れた装備と機械の心臓だ。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "使い方",
+      "text": [
+        "エコー顕現を、8ブロック以内に霊のトーテムがある場所に置く。",
+        "- 結ばれたエコーから顕現したインゴットへ：**5秒**、**毎秒64パルス**。",
+        "- 顕現したインゴットから共鳴核へ：**8秒**、**毎秒80パルス**。",
+        "核は、大パルス電池、霊織りのローブと霊織りのレギンス、六重の杖、長距離リレー、門の要石に入る。霊装の道具には顕現したインゴットだけで足りる。パルス共鳴器に据えると、核はその最強の結晶になる。",
+        "守護者の戦利品と織機の糸で、共鳴核が六つできる。[守護者](guardians)を参照。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "柱の全体",
+      "steps": [
+        {
+          "caption": "エコー顕現と、その横の霊のトーテム。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_manifest"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "その上にエコー結束を置き、水のトーテムを添える。結ばれたエコーは下のエコー顕現へ降りていく。",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "その上にエコー調律を足し、火のトーテムを添える。これで一連の流れになる。",
+          "place": [
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "範囲内に発電機があれば、エコーの欠片は上から入り、顕現したインゴットは下から出る。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              2,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "コツ",
+      "text": [
+        "下からホッパーで回収する。核を作るなら、インゴットをエコー顕現の入力に戻す。",
+        "エコー顕現は、機械と霊装のランクを上げるときの最後の工程でもある。",
+        "レバーで作業台を一時停止する。この書のレシピ、またはJEIに、時間とパルスが出る。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_manifest"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:manifested_ingot"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonant_core"
+    }
+  ]
+}

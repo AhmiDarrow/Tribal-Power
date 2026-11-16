@@ -1,0 +1,342 @@
+{
+  "name": "歌蔓",
+  "icon": "tribalpower:song_vine",
+  "order": 50,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_vine",
+      "text": [
+        "模様織りの歌は石に沿う。歌蔓はブロックの面を這い、角を回してレッドストーンを運ぶ巻きひげで、リレーもダストも要らない。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "伸ばす",
+      "text": [
+        "固体の面を右クリックすると、蔓はその面に寄り、空中に収まる。",
+        "すでにある蔓を別の蔓で右クリックすると、同じ場所に二つ目の面が足される。床と壁、あるいは立方体のすべての面。",
+        "出力は、角を回って次の面に入るところも含め、**1歩につき1**下がる。歌糸、歌の板、バニラのレッドストーンダスト、コンパレーターと話す。",
+        "蔓か、それがしがみつくブロックを壊すと、**面ごとに蔓一つ**が戻る。リレーは今もアイテムを運ぶ。蔓が運ぶのは歌だけだ。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "角の向こう",
+      "steps": [
+        {
+          "caption": "柱の一方にレバー、向こう面に灯したいランプ。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                2,
+                0
+              ],
+              "block": "minecraft:redstone_lamp"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "床をクリックして蔓を敷く。各片はクリックした面に寄りかかる。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_vine[down=true]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_vine[down=true]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "柱のそばの蔓をクリックして壁面も与え、それから壁を登る。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_vine[down=true,east=true]"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:song_vine[east=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "上を越えて運ぶ。歌は角を包むたびに一歩を失う。",
+          "place": [
+            {
+              "pos": [
+                1,
+                2,
+                0
+              ],
+              "block": "tribalpower:song_vine[down=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "レバーを引くと、角の向こうのランプが灯る。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            },
+            {
+              "pos": [
+                2,
+                2,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              2,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:song_vine",
+      "text": "歌糸一つと霊の葦一つで**八**ができる。"
+    }
+  ],
+  "next": "verse_link"
+}

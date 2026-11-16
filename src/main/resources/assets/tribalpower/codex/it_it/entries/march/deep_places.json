@@ -1,0 +1,48 @@
+{
+  "name": "Luoghi profondi della Marcia",
+  "icon": "tribalpower:march_stone_bricks",
+  "order": 32,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Sotto lo scavo",
+      "text": [
+        "Tutto il resto che la Marcia ha sepolto è sepolto appena — un tumulo sotto l'erba, una tomba una dozzina di blocchi più giù. Questi quattro sono più all'interno, sprofondati nella pietra stessa, senza pozzo e senza ingresso. Li trovi scavando, o seguendo una grotta che si apre dove non dovrebbe.",
+        "Porta una torcia. Nessuno è illuminato da un capo all'altro, e ciò che vive laggiù c'era prima."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Il Tempio Profondo",
+      "text": [
+        "Una sala a colonne di Mattoni di pietra della Marcia, sigillata nella roccia: un altare a gradini sotto il centro, con una **Tavoletta dei racconti** posata sulla pietra di fondo, lanterne di Spirito ai due lati e un baule in ogni angolo lontano. Il pavimento è di pietra levigata, e l'ingresso si chiuse molto tempo fa.",
+        "Custodisce le cose vecchie — echi vincolati, sigilli, opera intonata."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La Galleria di scavo",
+      "text": [
+        "Qualcuno ha lavorato questo filone e si è fermato. Legno puntellato, tetto di assi, minerale ancora nei muri, e un'estremità sotto un crollo di macerie che spiega probabilmente la sosta. Un baule di attrezzi e razioni vicino alla bocca.",
+        "Meno profonde del resto: le incontri dove il minerale vale ancora la pena."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La Volta del Barlume",
+      "text": [
+        "Solo sotto la **Cresta del Barlume**. Una camera lavorata di Pietra di luna e Pietra di luna levigata, con Agata muschiata posata nel pavimento ad anelli, Vetro di quarzo illuminato incastonato nella volta sopra, e Quarzo della Marcia cresciuto dalla pietra — su dal pavimento, giù dal tetto.",
+        "Chi l'ha tagliata si metteva in mostra. Il baule tiene la pietra propria della cresta, e pietra luminosa per illuminarla."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "L'Ossario",
+      "text": [
+        "Una cripta: nicchie tagliate in tre corsi lungo entrambe le pareti lunghe, osso deposto dentro, ragnatela sul resto, e una lanterna di Spirito ogni pochi passi che in qualche modo brucia ancora. Un baule in fondo.",
+        "La più profonda delle quattro. È soprattutto osso e marciume, ma non solo quello."
+      ]
+    }
+  ]
+}

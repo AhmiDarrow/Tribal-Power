@@ -1,0 +1,34 @@
+{
+  "name": "Formation de brisure",
+  "icon": "tribalpower:echo_shatter",
+  "order": 60,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Un Broyeur d'écho renforcé",
+      "text": [
+        "La Formation de brisure est un renfort optionnel pour ton [Broyeur d'écho](echo_shatter). Centre la station dans un cinq par cinq, dresse un Totem de résonance à chaque coin et place une Cache ancestrale juste en dessous.",
+        "En échange, la station dépense **un quart de Pulsation en moins** et vide sa sortie directement dans la cache en dessous.",
+        "C'est entièrement optionnel : sans cela, la station fonctionne exactement comme avant."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "shatter_array",
+      "tier": 1,
+      "title": "La formation",
+      "text": "Quatre totems aux coins, à deux blocs sur les diagonales, et la cache sous la station."
+    },
+    {
+      "type": "text",
+      "title": "Le réussir",
+      "text": [
+        "Les quatre totems des coins doivent être la voix de la recette que la station exécute. Pour des éclats tirés de la pierre, c'est **Terre**. Une mauvaise voix à n'importe quel coin signifie simplement pas de réduction.",
+        "La formation se trace seulement autour du Broyeur d'écho ; les autres stations d'écho ne la prennent pas.",
+        "Un signal de redstone sur la cache arrête le vidage. Accroupis-toi et fais un clic droit sur la station avec ce livre pendant qu'elle travaille, pour voir si elle compte comme formée."
+      ]
+    }
+  ]
+}

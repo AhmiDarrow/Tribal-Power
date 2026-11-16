@@ -1,0 +1,36 @@
+{
+  "name": "記憶板",
+  "icon": "tribalpower:memory_plate",
+  "order": 76,
+  "items": [
+    "tribalpower:memory_plate",
+    "tribalpower:tally_plate",
+    "tribalpower:verse_plate"
+  ],
+  "next": "timing_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "記憶、集計、詩句",
+      "text": [
+        "これらの板は覚えている。",
+        "- **記憶**：通電した左は15にし、通電した右は消す。出力は別の指示まで保たれる。両方とも通電なら、消去が勝つ。",
+        "- **集計**：背面の立ち上がりごとに1を足す。カウントが閾値に達すると15を歌う。空手でしゃがんで使うと閾値は**1から8**を循環する（最初は4）。左の立ち上がりはカウントを戻す。",
+        "- **詩句**：入力パルスなしで**4**から始まる。背面の立ち上がりごとに**8**、次に**12**、次に**15**、そして4へ戻る。コンパレーターは同じ数を読む。",
+        "詩句板は詩句の呼びではない。配線なしでランプや機械へレッドストーンを運ぶには、[詩句の呼びと応え](verse_link)を見ること。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:memory_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tally_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_plate"
+    }
+  ]
+}

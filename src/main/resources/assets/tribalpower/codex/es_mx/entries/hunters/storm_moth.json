@@ -1,0 +1,52 @@
+{
+  "name": "Polilla de tormenta",
+  "icon": "tribalpower:storm_wing",
+  "order": 120,
+  "spoiler": true,
+  "items": [
+    "tribalpower:storm_moth_spawn_egg",
+    "tribalpower:storm_wing"
+  ],
+  "next": "cinder_imp",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:storm_moth",
+      "text": [
+        "Un espíritu criado por la tormenta, sobre altas alas de pizarra marcadas con relámpagos. Un racimo brillante de motas avisa de su ráfaga.",
+        "Cazado, también suelta hasta 2 cuerdas y hasta 1 membrana de fantasma."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Las Polillas de tormenta vuelan sobre las Tierras altas de la Marcha, los Campos de nieve y la Cresta del destello, y unas pocas sobre los Yermos de brasa.",
+        "Tiene **20 de salud** y ninguna armadura. Se queda atrás y lanza una ráfaga desde hasta 12 bloques: **4 de daño** y un empujón fuerte. Rompe su línea de visión y el hechizo falla."
+      ],
+      "title": "Dónde y cómo"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Suelta **de 1 a 2 Ala de tormenta**.",
+        "Un Ala de tormenta se convierte en 2 Tejido espiritual bajo el Agua."
+      ],
+      "title": "Lo que da"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Alcanza **Voz** con los **Tejedores de patrones** y luego usa un Amuleto de vínculo con un adulto: dos de cada cinco intentos, y el amuleto se gasta si falla. O aliméntala con su propio reactivo: uno de cada cinco, y el reactivo se gasta de todos modos.",
+        "Una polilla vinculada que se sienta deja un pequeño clic invisible de redstone una vez por segundo, un reloj gratis para tus mecanismos. Consulta [regalos del familiar](familiar_gifts)."
+      ],
+      "title": "Como familiar"
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, suelta esto al cazarlo, y más con Botín."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Neuf disputes",
+  "icon": "tribalpower:lore_tablet",
+  "order": 50,
+  "spoiler": false,
+  "next": "mending_means",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Aucune tribu ne pouvait tenir le ciel seule. Sol sans Pierre, c'est de la chaleur sans endroit où se tenir. Étincelle sans Horloge, c'est un battement sans chant. Sigille sans Fuseau, c'est une promesse sans route pour rentrer.",
+        "L'ancien monde n'était pas la paix. C'était de l'entretien. Huit tractions sont devenues huit disputes, et la neuvième, celle des Couseurs du métier, fut la couture le long de laquelle ils ont déchiré. Puis le reste est parti comme une corde à travers une main.",
+        "L'Entaille n'était pas une guerre. C'étaient neuf tâches laissées inachevées dans le même souffle."
+      ]
+    }
+  ]
+}

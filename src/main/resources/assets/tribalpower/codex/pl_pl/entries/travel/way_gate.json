@@ -1,0 +1,63 @@
+{
+  "name": "Wrota drogi",
+  "icon": "tribalpower:gate_keystone",
+  "order": 30,
+  "items": [
+    "tribalpower:gate_frame"
+  ],
+  "next": "far_gate",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_keystone",
+      "text": [
+        "Przejście do innego przejścia. Zbuduj dwie kamienne ramy, połącz ich zworniki, zapal jeden, a wszystko, co wejdzie, wyjdzie z drugiego: gracze, zwierzęta, moby i upuszczone przedmioty tak samo."
+      ],
+      "title": "Wrota drogi"
+    },
+    {
+      "type": "pattern",
+      "pattern": "way_gate",
+      "title": "Budowanie ramy",
+      "text": "Pierścień pięć na pięć bez narożników, zwornik pośrodku dolnego rzędu. Środek, na trzy szeroki i na trzy wysoki, zostaje pusty."
+    },
+    {
+      "type": "text",
+      "title": "Ramy i zwornik",
+      "text": [
+        "Jeden wyrób z sześciu Kamień Marszu, dwóch miedzi i Odłamek echa daje **cztery Ramy wrót**. Pierścień bierze **11** ram, a sam zwornik bierze jeszcze cztery, wraz z Rdzeń rezonansu, Odłamek Ducha i Ogniwo Pulsu.",
+        "Zwornik trzyma Puls wrót, do **600**. Kliknij prawym przyciskiem z Ogniwem Pulsu, by wlać do **100** naraz. Zapalone wrota też doładowują się same, do 40 na sekundę, z kraty, przez przewodnik w zasięgu 8 bloków.",
+        "Tylko gracz, który postawił zwornik wrót, oraz jego obóz mogą go ładować, łączyć, zapalać lub niszczyć. Łączenie przewleka oba końce na nowo, więc nie możesz też połączyć się z wrotami drogi kogoś innego."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Łączenie pary",
+      "text": [
+        "Zbuduj drugie wrota drogi w tym samym świecie.",
+        "- **Kompas:** kucnij i kliknij prawym pierwszy zwornik wrót niepowiązanym kompasem kamienia drogi, aby powiązać go tam, potem kucnij i kliknij prawym drugi zwornik wrót tym kompasem.",
+        "- **Kreda:** kliknij prawym jeden zwornik wrót rytualną kredą, potem drugi, w odległości do **64 bloków**.",
+        "- Sygil wrót też działa; zobacz [Dalekie wrota](far_gate).",
+        "Para odpowiada w obie strony. **/tribalpower gate list** wymienia każde wrota drogi postawione przez ciebie i ich partnera."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zapalanie i przechodzenie",
+      "text": [
+        "Kliknij prawym zwornik wrót pustą ręką, aby go zapalić: **400 Puls** z jego zapasu. Kliknij prawym ponownie, aby zgasł. Krótki sygnał redstone przełącza go tak samo, a trzymany sygnał utrzymuje go w ciemności i odmawia podróży.",
+        "Każde przejście zabiera **20 Puls** z wrót drogi, w które wchodzisz. Lądujesz w ramie partnera, oświetlonej lub nie. Odnowienie **jednej sekundy** nie pozwala od razu odbić się z powrotem. Jeźdźcy i pojazdy nie mogą przejść.",
+        "Komparator pokazuje **0** bez połączenia, **1 do 14** dla zmagazynowanego Pulsu i **15**, gdy coś przechodzi.",
+        "Zobacz [Strzec drogi](keeping_the_way), gdy coś pójdzie nie tak."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_frame"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_keystone"
+    }
+  ]
+}

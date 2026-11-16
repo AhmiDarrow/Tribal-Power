@@ -1,0 +1,71 @@
+{
+  "name": "Mãos do acampamento",
+  "icon": "minecraft:campfire",
+  "order": 10,
+  "next": "grove_tender",
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Os Tecelões de padrões ensinaram o acampamento a continuar trabalhando depois que o cantor partiu. São as máquinas que plantam, recolhem, fabricam, bombeiam e vigiam enquanto você está fazendo outra coisa.",
+        "- O **Tratador do bosque** planta e colhe um canteiro de 9 por 9.",
+        "- O **Laço de vento** apanha os itens largados no chão.",
+        "- O **Tear de selos** fabrica uma receita de bancada de trabalho, sem parar.",
+        "- A **Bomba de maré** move fluido de um tanque a outro.",
+        "- O **Tambor de guarda** golpeia os hostis que entram no acampamento."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cada mão responde a uma voz",
+      "text": [
+        "Toda mão que trabalha sozinha precisa de um totem da sua voz em **8 blocos**. Sem um, fica ociosa, e a linha de estado nomeia o totem que ela quer:",
+        "- **Terra**: Tratador do bosque e Âncora de caminho.",
+        "- **Espírito**: Tambor de guarda, Totem do silêncio e Berço de invocação.",
+        "- **Água**: Bomba de maré.",
+        "- **Ar**: Laço de vento e [relés](wireless_cargo).",
+        "- **Tear**: Tear de selos e relés astrais.",
+        "Um Totem de ressonância conta enquanto está Respondido ou Tênue, não depois que ficou Quieto (veja [Manutenção](keeping)). Um Totem de parentesco que empresta a mesma voz também conta, e nunca fica quieto.",
+        "Uma mão que espera a sua voz não faz nada: nenhum trabalho, nenhum Pulso gasto, e nada passado aos blocos ao lado."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Regras que todas compartilham",
+      "text": [
+        "Cada uma tira Pulso da treliça: um [Condutor de treliça](lattice_conductor) a **8 blocos** dela, numa rede com geradores. O Laço de vento, o Tambor de guarda, a Bomba de maré e o Tear de selos pagam só quando agem. O Tratador do bosque, o Totem do silêncio, a Âncora de caminho e o Berço de invocação primeiro enchem uma reserva própria de **2,400 Pulso**, até **80** por segundo, e trabalham a partir dela.",
+        "Um sinal de redstone constante, como uma alavanca, o pausa. Um comparador lê o que ele está fazendo ou o quanto está cheio; cada entrada diz qual.",
+        "O Tear de selos, a Bomba de maré, o Laço de vento e o Tambor de guarda podem subir de posto para Sintonizador de eco, depois Vinculador de eco e depois Manifestador de eco (veja [Postos das máquinas](machine_ranks)). Uma mão com posto bate mais rápido, a cada **85%**, **70%** ou **55%** de um segundo, mas o Pulso por tarefa continua o mesmo, então a treliça sente a velocidade extra.",
+        "Agache e use uma **Chave de totem** numa face da máquina para percorrer Ambos, Entrada, Saída e Fechado. Uma face Fechada não oferece espaços a funis, tubos nem placas de relé. Uma placa de relé entra em qualquer uma delas com um clique direito simples, mesmo naquela cujo clique abre uma tela."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cuidar do acampamento",
+      "text": [
+        "Outros blocos do acampamento cuidam do lugar em si, em vez de fazer as tarefas:",
+        "- Um [Totem do silêncio](hush_totem) impede que hostis apareçam.",
+        "- Uma [Âncora de caminho](wayanchor) mantém um chunk distante acordado.",
+        "- Um [Berço de invocação](summoning_cradle) chama uma criatura vinculada de novo e de novo.",
+        "- As [Lanternas de Espírito](spirit_lantern) e as [luzes de Pulso](pulse_lights) iluminam os caminhos.",
+        "- Um [Carrilhão de chuva](rain_chime) transforma o clima num sinal de redstone.",
+        "- Uma [Mesa de oferendas](offering_table) é um depósito de 27 espaços ao lado de um lar.",
+        "Agache e clique com o botão direito em qualquer um deles com este livro quando algo não quiser começar."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Viver no acampamento",
+      "text": [
+        "Um acampamento é mais do que suas máquinas. Para construir e para o dia a dia, veja:",
+        "- [Giz de construtor](builders_chalk), para marcar cabanas, muros e ritos antes de construir.",
+        "- A [Bancada tribal](tribal_bench), uma bancada de trabalho que mantém a grade.",
+        "- O [Elevador de trepadeiras](vine_lift), para torres e poços.",
+        "- [Móveis do acampamento](camp_furniture) e o [Amuleto de vento](wind_charm), para parecer habitado.",
+        "- O [Tambor do Guardião do canto](songkeeper_drum), para tocar tambor só pela alegria.",
+        "- [Acampamentos compartilhados](shared_camps), quando amigos constroem com você."
+      ]
+    }
+  ]
+}

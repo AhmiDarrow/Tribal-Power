@@ -1,0 +1,35 @@
+{
+  "name": "La colocación es el ritual",
+  "icon": "tribalpower:ritual_chalk",
+  "order": 10,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Construido, no fabricado",
+      "text": [
+        "Algunas máquinas solo despiertan cuando los bloques de alrededor quedan en la forma correcta. La máquina del centro es el **ancla**; la forma a su alrededor es su **patrón**.",
+        "Las anclas son la Pila de piedra, la Malla de resonancia, el Brasero ritual, el Resonador de Pulso, el Triturador de eco y la Piedra clave del portal. Cada una tiene su página en este libro, con la forma armada bloque a bloque.",
+        "Cualquier rotación vale, así que orienta la forma hacia el lado que mejor le quede a tu campamento."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Revisar tu trabajo",
+      "text": [
+        "Agáchate y haz clic derecho con este libro en la Pila de piedra, la Malla de resonancia o una Piedra clave del portal. Nombra el nivel que alcanzó la forma, hacia dónde mira y las primeras **tres** cosas que aún faltan, y unos destellos marcan dónde van. Un Brasero ritual lista lo que falta, sin los destellos.",
+        "Muchos patrones tienen un segundo nivel más grande. Esos suelen pedir [Piedras de ancla](anchor_stone) apuntaladas en las esquinas, y a cambio dan a la máquina más que hacer.",
+        "Las formas se unen con [Marcas rituales](ritual_mark), trazadas con Tiza ritual."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 1,
+      "title": "La forma más pequeña",
+      "text": "Una Pila de piedra y cuatro marcas de tiza. Es el patrón más fácil para aprender, y funciona con un tambor tocado a mano."
+    }
+  ],
+  "next": "ritual_mark"
+}

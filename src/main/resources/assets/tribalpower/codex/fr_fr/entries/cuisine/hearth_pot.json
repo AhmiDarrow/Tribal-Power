@@ -1,0 +1,32 @@
+{
+  "name": "Pot de l'Âtre",
+  "icon": "tribalpower:hearth_pot",
+  "order": 10,
+  "items": [
+    "tribalpower:hearth_pot"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:hearth_pot",
+      "title": "Un pot sur le feu",
+      "text": [
+        "Le Pot de l'Âtre est un large pot d'argile dans un berceau de cuivre. Pose-le **sur une chaleur** : un feu de camp allumé, du feu, du feu des âmes, du magma, de la lave ou un [Bol de braise](pulse_lights) juste dessous. Il ne demande aucune Pulsation, donc c'est la première machine d'un camp.",
+        "Ouvre-le et mets chaque ingrédient dans **son propre siège** du carré de deux par deux, là où la recette le montre : le premier en haut à gauche, puis en haut à droite, en bas à gauche et en bas à droite. Les sièges que le repas n'utilise pas restent vides. Un **bol** va dans le siège à côté du carré quand le repas en veut un. Un plat prend environ **12 secondes** sur le feu, des victuailles de route rapides aussi peu que **8**, et un festin **20**, et le repas sort à droite."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Chaque [plat de tribu](tribe_dishes), chaque [victuailles de route](road_fare) et chaque [repas de l'Âtre](hearth_meals), et chaque [festin](feasts) est une recette du Pot de l'Âtre. Un repas qui veut un bol ou une fiole le prend dans le siège à côté du carré. Les sièges comptent : les bons ingrédients aux mauvais sièges ne font rien. JEI les liste tous sous le pot.",
+        "Les entonnoirs le nourrissent par le haut et les côtés et prennent le repas par le bas, donc un pot peut nourrir un camp tout seul. Un entonnoir met bols et fioles dans le siège à côté du carré, et chaque ingrédient dans un siège où un repas le veut, selon ce que les autres sièges tiennent déjà. Pour garder un repas en cours, place d'abord un de chaque à la main ; les entonnoirs complètent ensuite chaque siège, et un repas qui veut la même chose deux fois fait remplir les deux sièges à parts égales. Les faiseurs de packs peuvent ajouter leurs repas comme recettes du type Âtre."
+      ],
+      "title": "Ce qu'il cuit"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hearth_pot"
+    }
+  ],
+  "next": "tribe_dishes"
+}

@@ -1,0 +1,265 @@
+{
+  "name": "Pompa pływów",
+  "icon": "tribalpower:tide_pump",
+  "order": 50,
+  "next": "ward_drum",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tide_pump",
+      "text": [
+        "Przenosi płyn z jednego zbiornika do zbiornika po drugiej stronie, **250 mB** na sekundę, i ciągnie wodę z bloku **bezpośrednio pod** sobą. Woda z «Cysterna Ducha» do «Bęben fal», lawa z jednego magazynu do drugiego: działa każdy zbiornik płynów, z tego moda albo z innego.",
+        "Trzyma własną małą studnię, **4000 mB**, na to, co ciągnie z dołu, i na to, co przynoszą płyty przekaźnika płynów. Zniszcz ją, a zachowa ustawienia, kierunek pompowania, ustawienie każdej ściany i rangę, wraz ze studnią i każdym płynem, który właśnie przenosiła.",
+        "Odpowiada na **Woda**: trzymaj totem Woda w promieniu 8 bloków (zobacz [Ręce obozu](camp_hands)), inaczej stoi bezczynnie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "W którą stronę pompuje",
+      "text": [
+        "Pompa ma przód, ścianę ze strzałką. Jak piec, stawia się ją tą ścianą ku tobie i możesz skierować ją w górę, w dół albo w bok.",
+        "Domyślnie **ciągnie ze zbiornika z przodu** i **pcha do zbiornika z tyłu**. Kucnij i kliknij prawym pustą ręką, aby to odwrócić; zwykłe kliknięcie prawym pokazuje, co zrobiła ostatnio, na przykład ciągnięcie albo pchanie **250 mB**.",
+        "Komparator pokazuje **15**, gdy pompa ciągnie od frontu, i **1**, gdy tłoczy w front."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Woda od dołu",
+      "text": [
+        "Postaw pompę nad nieruchomą wodą, a przy każdym takcie nabierze wiadro, **1000 mB**, do swojej studni. Nad nieskończoną wodą, źródłem z dwoma sąsiednimi źródłami i stałym gruntem pod spodem, źródło zostaje; samotne źródło jest zabierane tak, jak zabiera je wiadro.",
+        "Nad zbiornikiem natomiast nabiera **250 mB** na takt z tego zbiornika, chyba że ten zbiornik jest już jej frontem albo tyłem.",
+        "To, co trzyma studnia, idzie najpierw do zbiornika, w który tłoczy, domyślnie tylnego, **250 mB** na takt; gdy nie ma tam zbiornika, czeka w studni."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Płyty przekaźnika płynów",
+      "text": [
+        "Płyta przekaźnika płynów albo płyta przedmiotów, której dano Pieczęć Wody, wchodzi na dowolną ściankę pompy zwykłym kliknięciem prawym. Nastrój ją przyrządem Stroiciel kraty, a poniesie wodę ze studni do zbiornika gdziekolwiek w zasięgu (zobacz [Ładunek bezprzewodowy](wireless_cargo)).",
+        "Płyta gdzie indziej, nastrojona na jedną ze ścianek pompy, napełnia zamiast tego studnię, a pompa przekazuje to dalej jak wszystko, co nabiera.",
+        "Każda ścianka jest otwarta w obie strony. Skradając się, użyj **Klucz totemu** na ściance, aby przełączać ją przez Oba, Wejście, Wyjście i Zamknięte."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Ze zbiornika do zbiornika",
+      "steps": [
+        {
+          "caption": "Dwa zbiorniki z przerwą między nimi. Ten po prawej jest pełny.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Postaw między nimi Pompa pływów stroną ze strzałką do pełnego zbiornika.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:tide_pump[facing=east]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Postaw generator i Przewodnik kraty w zasięgu 8 bloków: co sekundę przesuwa 250 mB za 4 Puls.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Płyn wypływa z przedniego zbiornika i wpływa do tylnego.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Przykucnij i kliknij pompę prawym przyciskiem, aby ją odwrócić; teraz lewy zbiornik opróżnia się do prawego.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wskazówki",
+      "text": [
+        "Oba zbiorniki muszą przyjmować ten sam płyn, a zbiornik, który odbiera, potrzebuje miejsca.",
+        "Podniesienie rangi skraca takt; Puls na 250 mB zostaje **4**. Dźwignia wstrzymuje pompę.",
+        "Studnia jest mała: sparuj pompę z Cysterna Ducha albo Bęben fal tam, gdzie płyn ma zostać na miejscu."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tide_pump"
+    }
+  ]
+}

@@ -1,0 +1,712 @@
+{
+  "name": "林园照料者",
+  "icon": "tribalpower:grove_tender",
+  "order": 20,
+  "next": "wind_snare",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:grove_tender",
+      "text": [
+        "一个从不睡觉的农工。林园照料者会种植、培育并收获周围9乘9的田畦，并把收成放在自己的仓库里，直到你、漏斗或储柜把它取走。",
+        "它处理作物、树苗、甘蔗、仙人掌、竹子、甜浆果、下界疣和可可，切下茎蔓结出的南瓜和西瓜，并采收长成的瓶子草。原版的、远行界的和其他模组的都算：杜鹃、红树胎生苗和瓶子草荚果放进种子行，整合包归入原版作物标签和树苗标签的作物或树苗也一样。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "如何放置",
+      "text": [
+        "**自己来放。**照料者记得是谁放下的，并用那名玩家的权限工作，所以领地保护仍然有效。没有人认领的照料者什么也不做。它听从**土**：在8格内留一个土图腾（见[营地之手](camp_hands)），否则就站着闲置。",
+        "它在**自己的高度**上工作：田畦是照料者所在高度上、向每一侧伸出**4格**的正方形。所以把它放在作物高度，放在沉进耕地的方块上，不要放在作物上面。",
+        "种子放进菜单的**顶行**，也就是前九个槽。漏斗和管道从顶部或侧面把它们送进去。收成填满其余的槽，并从**底部**那一面离开。[中继板](wireless_cargo)像漏斗一样操作它：装在底部的把收成送走，调到顶部或侧面的板则填满种子行。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "配合AgriCraft",
+      "text": [
+        "整合包里有AgriCraft时，照料者把它的作物当作自己的来做。顶行的**作物桩**会放到田畦上（耕地，或远行界自己的土壤），**种子**会先进入空桩，然后才去别处：一颗已分析的AgriCraft种子，或AgriCraft认得的普通作物，比如马铃薯或任何远行界作物。",
+        "成熟的植株按点击收获的方式收获：产物进仓库，植株留在桩上，被剪短后再长。杂草以**4脉动**耙除，长得慢的植株以**16**催长。",
+        "它仍要土图腾、储备里的脉动，以及一个认领过的主人，和其他工作一样。如果桩是空的，看状态行：那里写着照料者在等什么。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "被照料的田畦",
+      "steps": [
+        {
+          "caption": "耕好地，把先祖储柜沉进正中间。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "把林园照料者立在储柜上，让它处在作物高度；水会保持耕地湿润。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:grove_tender"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "在8格内加入脉动和一个土图腾，然后给它种子：它每秒种一处，花费4脉动。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:wheat_seeds"
+          }
+        },
+        {
+          "caption": "成熟的小麦以12脉动收割并补种，留下一颗种子。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            }
+          ]
+        },
+        {
+          "caption": "照料者的底面是输出，所以收成不用漏斗就掉进储柜。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "每项工作的花费",
+      "text": [
+        "每秒一次，它沿田畦查看并做**一件**工作：",
+        "- **种植**一处空位：**4脉动**。",
+        "- **收获**成熟的东西：**12 脉动**。作物、下界疣和可可被割下并重新种上，留一颗种子；浆果被摘下，灌丛留下；甘蔗、仙人掌和竹子在茎高达**三**时失去顶端；南瓜或西瓜被切开，茎留下再结一个；长成的瓶子草整株割下。",
+        "- **催长**树苗、茎、作物、可可荚、浆果丛或竹笋，如同骨粉：**16 脉动**。",
+        "- **浇水**于田畦：**4 脉动**（见下）。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "树木",
+      "text": [
+        "田畦没有别的事时，它会伐木：从自身高度往上，砍掉**宽9、高11**柱体内的原木和树叶，每块**12 脉动**。若要树场，给它树苗：它把树苗种在泥土上，向上催长，然后取走树。",
+        "它只砍**长成的树**。一根原木算数，是当与它相连的原木碰到这棵树自己长出的树叶时，因此高树干或宽的二乘二会一直砍到地面，而不是留下树桩。",
+        "你建造的东西不动：原木墙和房子、你放置的树叶，以及你为可可供放的丛林原木。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "土壤、水与动力",
+      "text": [
+        "每种植物要它惯用的地面：作物要靠近水的耕地，树苗要泥土，仙人掌要沙子，甘蔗要水边的沙子或泥土，下界疣要灵魂沙，可可要田畦里的丛林原木。",
+        "**浇水。**在 8 格内放一个共鸣图腾（水），状态为已应答或微光，照料者就会保持田畦的耕地湿润：每条干沟在一拍内浸透，花费**4 脉动**。不必再在作物间开沟。借出水之声的亲族图腾不算；必须是共鸣图腾。",
+        "照料者保有**2,400 脉动**的储备，并从网格每秒最多补充**80**。手持脉动电池右键单击，即可手动加满。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "停下的时候",
+      "text": [
+        "右键单击可查看它在做什么、持有多少脉动。若库存已满，它会留下成熟的植物并等待，所以请清空它，或给它一个可以投入的储柜。",
+        "拉杆会暂停工作并锁住物品栏。比较器读取它有多满。",
+        "潜行时用空手右键单击某一面，可改变该面的作用：双向、输入、输出或关闭。",
+        "附近的风圈套会接住仍掉到地上的东西，印织机可以把收成变成别的东西。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grove_tender"
+    }
+  ]
+}

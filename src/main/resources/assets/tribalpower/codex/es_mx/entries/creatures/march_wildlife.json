@@ -1,0 +1,96 @@
+{
+  "name": "Fauna de la Marcha",
+  "icon": "tribalpower:raw_glimmerfin",
+  "order": 190,
+  "items": [
+    "tribalpower:glimmerfin_spawn_egg",
+    "tribalpower:drift_bell_spawn_egg",
+    "tribalpower:veil_ray_spawn_egg",
+    "tribalpower:silt_eel_spawn_egg",
+    "tribalpower:loom_swift_spawn_egg",
+    "tribalpower:raw_glimmerfin",
+    "tribalpower:cooked_glimmerfin",
+    "tribalpower:raw_silt_eel",
+    "tribalpower:smoked_silt_eel",
+    "tribalpower:drift_jelly",
+    "tribalpower:glimmerfin_bucket"
+  ],
+  "next": "beasts_steppe",
+  "pages": [
+    {
+      "type": "text",
+      "title": "En el agua",
+      "text": [
+        "Las lagunas, las charcas y los lagos de montaña de la Marcha están llenos de vida.",
+        "Todos se quedan en el agua abierta bajo el cielo, nunca en el agua encerrada en la roca de abajo."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmerfin",
+      "title": "Aletabrillo",
+      "text": [
+        "Pez pequeño de neón, con aletas encendidas, que nada en cardúmenes en el agua de cada tierra. Recoge uno con un cubo de agua, o cocínalo."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:drift_bell",
+      "title": "Campana a la deriva",
+      "text": [
+        "Una medusa lenta y luminosa con forma de campana, en el agua de cada tierra salvo las Alturas y los Yermos de Brasa. Inofensiva. Su **Gelatina a la deriva** te deja respirar bajo el agua y ver en la oscuridad un rato."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:veil_ray",
+      "title": "Raya del velo",
+      "text": [
+        "Una manta ancha y tímida de la Estepa, las Alturas, la Ciénaga de Juncos y los Bajíos; se aleja deslizándose de quien se acerca. Suelta Cuero de la Marcha y Aletabrillo."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:silt_eel",
+      "title": "Anguila de limo",
+      "text": [
+        "Una anguila de ciénaga color oliva, de las charcas y los canales de la Ciénaga de Juncos, de los Bajíos y del agua donde los Yermos de Brasa bajan hasta el mar. Nada junto al Aletabrillo y muerde a quien vadea su agua. Cocínala en una Anguila de limo ahumada para una buena comida."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:loom_swift",
+      "title": "Vencejo del Telar",
+      "text": [
+        "Los **Vencejo del Telar** dan vueltas sobre la tierra abierta en bandadas sueltas de **3 a 6**, solo de día y con tiempo seco, y nunca sobre los Yermos de Brasa; no se juntan más de **12** a tu alrededor. Sueltan una pluma o dos y, de vez en cuando, algo de Caza cruda."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "En el aire",
+      "text": [
+        "Más cerca del suelo, el aire bulle de insectos: **luciérnagas** sobre la ciénaga y la estepa de noche, **saetas de junco** que rozan el agua de día, **alas de vidrio** que revolotean sobre las flores de los Campos de Cristal y **jejenes de ceniza** que suben desde los Yermos de Brasa. Solo son luz y movimiento; no se pueden atrapar, y no le cuestan nada a tu mundo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Los rebaños vuelven",
+      "text": [
+        "Caza o doma un tramo de la Marcha hasta dejarlo vacío y no seguirá vacío. Más o menos **una vez por minuto**, en un sitio tranquilo **de 32 a 96 bloques** de ti y nunca a menos de **24 bloques** de nadie, unos pocos animales de esa tierra pueden volver: los mismos herbívoros con los que empezó, incluidos los que añadan allí otros mods. Los que viven en cuevas y en la lava vuelven a su propio suelo.",
+        "Dejan de venir cuando unos **seis** animales viven a 32 bloques del sitio. Los domesticados y los del corral también cuentan, así que la tierra se rellena más o menos hasta como empezó y no más, y los rebaños salvajes nunca abarrotan tus granjas ni un campamento concurrido.",
+        "Los peces, las medusas y los vencejos van y vienen solos con el agua y el cielo. Los ajustes del servidor pueden cambiar el ritmo, o desactivar el regreso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Alimentar y criar",
+      "text": [
+        "Sostén **Alga de cinta** o **Hierba marina** y Aletabrillo, Campana a la deriva y Raya del velo nadan hacia ti, incluso las rayas tímidas. Alimenta a dos de la misma clase y hacen un tercero.",
+        "Una **Caña de pescar** lanzada en cualquier agua de la Marcha saca Aletabrillo crudo, y uno de cada cuatro lances una Anguila de limo cruda, en lugar de bacalao y salmón. Sostén un **Cubo vacío** en tu otra mano y un Aletabrillo sube vivo, como Cubo de aletabrillo: la forma fácil de poblar un estanque.",
+        "Sostén **Semillas de trigo** o **Grano de la estepa** y los Vencejo del Telar dan vueltas cerca de ti, lo bastante para alimentarlos. Dos alimentados hacen un tercero del mismo modo.",
+        "Sus crías nacen ya adultas y nunca se alejan, así que un estanque poblado sigue poblado. Cada pareja descansa cinco minutos antes de criar otra vez. La Anguila de limo no toma comida.",
+        "La Campana a la deriva también suelta una bola de slime de vez en cuando."
+      ]
+    }
+  ]
+}

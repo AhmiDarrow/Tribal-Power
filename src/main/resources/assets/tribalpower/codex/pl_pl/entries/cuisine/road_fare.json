@@ -1,0 +1,65 @@
+{
+  "name": "Strawne na drogę",
+  "icon": "tribalpower:drovers_flatbread",
+  "order": 22,
+  "items": [
+    "tribalpower:drovers_flatbread",
+    "tribalpower:glimmer_crisps",
+    "tribalpower:hunters_skewer",
+    "tribalpower:steppe_pemmican",
+    "tribalpower:frostberry_preserve",
+    "tribalpower:thistle_tea",
+    "tribalpower:highland_crumble"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Jedzenie na drogę",
+      "text": [
+        "Nie każdy posiłek niesie [dar](tribe_dishes) plemienia. Jedzenie obozowe to to, co pakuje wędrowiec: tanie, szybkie przy [Garnek Paleniska](hearth_pot), i każde do jednej roboty. Większość miesza plony Marszu z tym, co rośnie na każdej farmie.",
+        "- **Podpłomyk pasterza**: Ziarno stepu ×2, pszenica. Dwa na garnek, po 5 głodu, składa się do 64. Najtańszy sposób, żeby nie chodzić głodnym.",
+        "- **Chrupki błysku**: Fasola błysku ×2, suszone wodorosty. Trzy na garnek, 3 głodu, i **zjadane w mgnieniu**, by złapać kęs między ciosami.",
+        "- **Szpikulec Łowcy**: dowolne surowe mięso, Korzeń żaru, burak. Dwa na garnek, 6 głodu i **Szybkość przez 20 sekund**, by dogonić zwierzynę."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jedzenie na drogę, ciąg dalszy",
+      "text": [
+        "- **Pemmikan stepu**: dowolne pieczone mięso, Mroźna jagoda, słodkie jagody. Trzy na garnek, tylko 4 głodu, ale najlepsze nasycenie jak na swój rozmiar: najdłużej trzyma sytość w długiej wędrówce.",
+        "- **Konfitura z mroźnej jagody**: Mroźna jagoda ×2, cukier, w szklanej butelce. 4 głodu i **Odporność na ogień przez 30 sekund**, by przejść Pustkowia żaru. Butelka wraca.",
+        "- **Herbata z ostu**: Oset ley, Liść Marszu, plaster miodu, w szklanej butelce. Mało jedzenia, ale możesz ją pić najedzony, i **leczy zatrucie, głód i mdłości**: odpowiedź obozu na zły posiłek.",
+        "- **Kruszonka wyżynna**: jabłko, Ziarno stepu, słodkie jagody, cukier. 6 głodu i **Zwiększona wysokość skoku przez 45 sekund** na granie."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drovers_flatbread"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:glimmer_crisps"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hunters_skewer"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:steppe_pemmican"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:frostberry_preserve"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:thistle_tea"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:highland_crumble"
+    }
+  ],
+  "next": "hearth_meals"
+}

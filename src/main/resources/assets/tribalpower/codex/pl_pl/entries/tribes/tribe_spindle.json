@@ -1,0 +1,65 @@
+{
+  "name": "Szwacze krosna",
+  "icon": "tribalpower:tribe_mark",
+  "order": 120,
+  "spoiler": true,
+  "unlock": "tribe:spindle",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_spindle",
+      "title": "Szwacze krosna",
+      "text": [
+        "“Krosno nigdy nie było jedną nicią. To było dziewięć zgodnych.”",
+        "Pasmo **Wrzeciono**, głos **Krosno**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Kim są",
+      "text": [
+        "Szwacze krosna trzymali Wrzeciono i zszyli pasma innych plemion w jedno płótno nad niebem. Gdy płótno pękło, pękło wzdłuż ich szwu, a oni wciąż szyją. Ich rzemiosło to **ścieżki wrót i tkanie na nowo**.",
+        "Ich obozy stoją **tylko w Marszu**: na Kryształowych Polach i w dziwnym, oświetlonym kraju każdego pasa. Musisz przejść na drugą stronę, by ich spotkać."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Czego chcą",
+      "text": [
+        "Ich odczynnik to **Nić Krosna**, warta **+8** reputacji przy ich Palenisku.",
+        "Cenią też Kryształ Marszu, Kompas, Kompas kamienia drogi albo Kompas horyzontu: **+3** za sztukę. Każde inne jedzenie jest warte **+1**, a naładowane Ogniwo Pulsu **+2 za każde 10 Puls**, do +8.",
+        "Pamiętaj: Palenisko przyjmuje najwyżej **60** reputacji dziennie z ofiar; zobacz [Plemiona i reputacja](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co wymienia Starszy",
+      "text": [
+        "**Gość**: 4 Kryształ Marszu za 3 Odłamek echa; Kompas za 8 Deski (Marsz).",
+        "**Przyjaciel**: 6 Kryształ Marszu za Nić Krosna; 4 Dostrojone echo za Kompas kamienia drogi; 4 Ryż mokradła za Makaron z nici Krosna.",
+        "**Ród**: 4 Związane echo i Nić Krosna za Krosno-kotwica; 2 Nić Krosna za Pieczęć Krosna.",
+        "Każda wymiana daje **+2** reputacji."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Znak, totem i dar",
+      "text": [
+        "Na randze **Głos** Starszy daje ci Znak plemienia Szwaczy krosna. Wytwórz go z {item:tribalpower:resonance_totem_loom} i dwie Duchotkanina w ich [Totem pokrewieństwa](kinship_totem).",
+        "Przy Rezonatorze Pulsu to jeszcze jeden głos; przy stacji użycza **Krosno**.",
+        "Ród Szwaczy krosna nosi swój [dar](tribe_boons): pieśni kosztują **o ćwierć mniej**, by je śpiewać.",
+        "Ich potrawa niesie dar przez **5 minut**, a ich [relikt](elders_and_stories), dopóki go nosisz.",
+        "Ich wymiana rangi Przyjaciel zamienia Kryształ Marszu w Nić Krosna, która jest też ich reagentem. Są jedynym plemieniem, które sprzedaje **Krosno-kotwica**.",
+        "Na randze **Głos** możesz też związać **Tkacz echa** jako [chowańca](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "spindle",
+      "title": "Twoja praca z nimi",
+      "text": [
+        "O co poprosił cię Starszy plemienia Szwacze krosna, i jak daleko zaszła ich opowieść. Zobacz [Starsi, prośby i opowieści](elders_and_stories)."
+      ]
+    }
+  ]
+}

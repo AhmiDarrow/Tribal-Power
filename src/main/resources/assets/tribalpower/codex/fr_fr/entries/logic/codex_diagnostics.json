@@ -1,0 +1,30 @@
+{
+  "name": "Diagnostics du codex",
+  "icon": "minecraft:spyglass",
+  "order": 20,
+  "spoiler": false,
+  "items": [],
+  "next": "pulse_gauge",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Demande au bloc",
+      "text": [
+        "Accroupis-toi et fais un clic droit avec le Codex spirituel sur n'importe quelle machine, plaque ou réserve tribale, et elle s'explique en mots simples.",
+        "- Pulsation stockée, le réseau de treillis sur lequel il se trouve (ou qu'il est hors du treillis), le conducteur par lequel il puise, avec son rang et son débit, chaque générateur du réseau avec sa sortie cette seconde, les voix présentes, la Pulsation qu'il pourrait puiser, et si la redstone le met en pause.",
+        "- Les ateliers nomment leur recette, et toute voix manquante ou sortie pleine.",
+        "- Les relais signalent des extrémités non chargées ou verrouillées.",
+        "- Les braseros listent les rites que leur sceau autorise.",
+        "- Les ancres de motif montrent les fantômes des pièces manquantes et nomment les trois premières.",
+        "- Les plaques de chant listent chaque plaque qu'elles sont synchronisées pour entendre, avec son oreille et ce qu'elle chante."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Prends-en l'habitude",
+      "text": [
+        "Quand quelque chose reste immobile, demande-lui avant de commencer à démonter la construction. Neuf fois sur dix, la réponse tient en une ligne : une voix silencieuse, une sortie pleine, un signal maintenu ou une marque manquante."
+      ]
+    }
+  ]
+}

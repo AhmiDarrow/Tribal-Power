@@ -1,0 +1,46 @@
+{
+  "name": "Kolosswächter",
+  "icon": "tribalpower:heartwood_core",
+  "order": 310,
+  "spoiler": true,
+  "items": [
+    "tribalpower:colossus_warden_spawn_egg",
+    "tribalpower:heartwood_core"
+  ],
+  "next": "trolls",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:colossus_warden",
+      "title": "Kolosswächter",
+      "text": [
+        "Die Weide, enorm gewachsen und gehend. Der Kolosswächter ist der einzige wandernde Boss des Marschs, sieben Blöcke hoch, und man findet ihn nie allein.",
+        "Er ist nicht der Trauerkoloss, die große Weide, die in Hainen über das Fenn steht: siehe [Bäume des Marschs](march_trees)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Einen finden",
+      "text": [
+        "Er erhebt sich selten, nur im **Schilffenn**, auf offenem Boden bei Nacht. Er kommt mit seinem Hain um sich: **2 bis 4 Trauerwächter**, **1 bis 3 Sumpffee** und bis zu **2 Moorschweber**. Sie sind sanft und bleiben sanft.",
+        "Eine Bossleiste zeigt allen in der Nähe seine Gesundheit. Er verblasst nicht bei Tagesanbruch wie andere Geister, und solange er nah ist, kannst du nicht schlafen. Wenn er geht, ohne zu sterben, geht sein Hain mit ihm. Nur ein Kolosswächter, der von selbst aufsteigt, bringt einen Hain mit: einer aus einem Spawn-Ei kommt allein."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ihn bekämpfen",
+      "text": [
+        "Er hat **260 Gesundheit** und **14 Rüstung**, und er ist langsam. Jeder Schlag macht **12** und verwurzelt dich: du wirst 3 Sekunden verlangsamt, also lass dich nicht zweimal erwischen.",
+        "Wie jeder Geist, der nachts aufsteigt, kommt er stärker, und er kann als Elite mit goldenem Namen erscheinen. Bring Freunde mit, einen Bogen und Platz zum Zurückweichen. Er wird sich nicht binden."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was er hinterlässt",
+      "text": [
+        "Er lässt immer seinen **Herzholzkern** fallen, ein Wurzel-Reagenz, das du nirgends sonst bekommst, dazu **16 bis 32 Weide-Stamm**, **4 bis 8 Weide-Setzling**, **6 bis 12 Weidensträhne**, **4 bis 8 Knotige Wurzel** und **8 bis 16 Erfahrungsfläschchen**. Plünderung gibt mehr.",
+        "Es gibt keinen riesigen Weide-Setzling: pflanze vier Weide-Setzling im Quadrat, um dir einen eigenen Trauerkoloss zu ziehen."
+      ]
+    }
+  ]
+}

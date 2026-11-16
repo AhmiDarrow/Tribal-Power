@@ -1,0 +1,394 @@
+{
+  "name": "Tribus y reputación",
+  "icon": "tribalpower:tribe_hearth",
+  "order": 10,
+  "spoiler": false,
+  "items": [
+    "tribalpower:tribe_banner"
+  ],
+  "next": "tribal_kin",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tribe_hearth",
+      "text": [
+        "Nueve tribus custodiaron antaño el Telar, un Mechón cada una, y sus campamentos siguen llevando el compás. Cada campamento se alza alrededor de un **Hogar de la tribu**.",
+        "Alimenta el hogar y la tribu empieza a conocerte. Esa es tu **reputación**, y abre sus trueques, sus secretos y, al final, su Marca."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribes_standing",
+      "title": "Un campamento tribal",
+      "text": [
+        "Un campamento se reconoce fácil: un hogar que arrastra humo de colores, un Estandarte tribal al lado y cuatro Parientes en sus quehaceres. El color del estandarte nombra a la tribu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dónde viven las tribus",
+      "text": [
+        "Cada tribu acampa en la tierra que conviene a su Mechón:",
+        "- **Guardianes del lecho**: llanuras.",
+        "- **Cantores de grava**: montañas y costas rocosas.",
+        "- **Vinculadores de raíces**: bosques y junglas.",
+        "- **Caminantes del borde**: taiga.",
+        "- **Corazones de tambor**: sabana.",
+        "- **Tejedores de patrones**: bosques de abedules.",
+        "- **Guardianes de la colonia**: bosques de flores, praderas y arboledas de cerezos.",
+        "- **Talladores de sellos**: bosques oscuros.",
+        "- **Zurcidores del telar**: solo los Campos de cristal de la Marcha.",
+        "Cada tribu también mantiene un campamento en cada franja de [la Marcha](the_march), hecho con la madera y la piedra de esa franja."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Tu primera visita",
+      "steps": [
+        {
+          "caption": "Cada campamento se alza alrededor de su Hogar de la tribu. Aquí haces amigos.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:tribe_hearth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "El Estandarte tribal de al lado nombra a la tribu por su color. Déjalo en pie.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:tribe_banner[tribe=0,facing=south,wall=false]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Un telar cercano es donde trabaja el Tejedor del campamento. Los cuatro Parientes no se alejan más de 16 bloques.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:loom"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Haz clic derecho en el hogar con algo que la tribu prefiera. El pan da a los Guardianes del lecho +3 de reputación.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:bread"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Haz clic derecho en él con la mano vacía cuando quieras para ver tu reputación y tu rango.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué ofrecer",
+      "text": [
+        "Haz clic derecho en el hogar con una ofrenda en la mano. Toma un objeto a la vez:",
+        "- El **reactivo** de la tribu: **+8** de reputación.",
+        "- El [plato](tribe_dishes) propio de la tribu: **+6**.",
+        "- Un objeto **preferido**: **+3**.",
+        "- Cualquier otra **comida**: **+1**.",
+        "- Una **Célula de Pulso** cargada: el hogar bebe hasta **40 Pulso** de ella y da **+2 por cada 10**, así que como mucho **+8**. La célula necesita al menos 10 Pulso dentro.",
+        "Reactivos: Guardianes del lecho **Fragmento de eco**, Cantores de grava **Eco sintonizado**, Vinculadores de raíces **Escama de lomomusgo**, Caminantes del borde **Diente de la grieta**, Corazones de tambor **Campanilla de hueso**, Tejedores de patrones **Ala de tormenta**, Guardianes de la colonia **Plumón de farol**, Talladores de sellos **Fragmento de Espíritu**, Zurcidores del telar **Hilo de Telar**. La página de cada tribu también lista sus preferidos.",
+        "Lo que a la tribu no le sirve se queda en tu mano, y el hogar lo dice. Una célula con menos de **10 Pulso** simplemente se ignora."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué tan rápido crece",
+      "text": [
+        "El Hogar de una tribu acepta como máximo **60 de reputación al día** de tus ofrendas. Después te dice que la tribu ya tomó todo lo que tomará hoy, y cerca del límite un regalo que vale más de lo que queda permanece en tu mano. Diecisiete ofrendas favorecidas (51) o siete reactivos (56) bastan para llegar a **Huésped** en tu primer día.",
+        "Hay tres caminos más, y ninguno cuenta para el límite del Hogar. Mata a un monstruo hostil en un radio de **24 bloques** de un Hogar por **+1**, hasta **veinte al día** por cada tribu. La muerte tiene que ser tuya: un enemigo que abata tu familiar no da nada. Cada intercambio con el Anciano da **+2**. Y cuando ya eres Huésped, las [peticiones](elders_and_stories) del Anciano pagan **8 a 16** cada una.",
+        "En el [día de festival](living_march) de la tribu, unirse al festín del Anciano da **40** de reputación y dos cuencos de su plato; un rito en su campamento da **30** más, y un festín comido junto al Hogar da **20**. Cada uno cuenta una vez por festival.",
+        "Llegar a Voz lleva muchos días. Solo con ofrendas no llegarás en uno."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Los rangos",
+      "text": [
+        "- **Extraño** (por debajo de 50): el Anciano aún no tiene nada para ti.",
+        "- **Huésped** (50): el Anciano abre los dos primeros intercambios.",
+        "- **Amigo** (150): dos intercambios más, y el plato propio de la tribu a cambio de cuatro de su cultivo de la Marcha.",
+        "- **Pariente** (400): los dos últimos intercambios, el [don](tribe_boons) de la tribu mientras conserves la reputación, y su emblema: un **Diseño de estandarte** para cualquier Telar.",
+        "- **Voz** (800): el Anciano te pone en la mano una **Marca tribal**, una vez por cada tribu. La Marca es la llave de un [Tótem de parentesco](kinship_totem), y abre la página de esa tribu en este libro.",
+        "Tu reputación con los Cantores de grava también decide qué tan hondo puede escuchar un [Foso de escucha](listening_pit)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué nunca hacer",
+      "text": [
+        "- **Golpear a un Pariente** cuesta **25** de reputación, y cada Pariente de esa tribu en un radio de 24 bloques se vuelve contra ti. Los Cazadores te atacan durante un **minuto**.",
+        "- **Romper el Hogar** cuesta **40** y lanza a los Cazadores contra ti del mismo modo.",
+        "- **Romper un estandarte** cuesta **5**.",
+        "La reputación puede caer por debajo de un rango que ya ganaste. Un mensaje rojo te avisa cuando bajas."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Llevar la cuenta",
+      "text": [
+        "Escribe **/tribalpower standing** para ver las nueve tribus a la vez, con tu reputación y tu rango en cada una.",
+        "Un comparador junto a un Hogar lee el rango del último jugador que lo usó: **0** para un Extraño y hasta **15** para una Voz. Útil para una puerta que solo se abre a los amigos de la tribu.",
+        "Si perteneces a un [campamento compartido](shared_camps), una cuarta parte de cada reputación que un miembro gane o pierda después de unirse cae también sobre el campamento. Donde tu rango importe, cuenta el del campamento si es más alto que el tuyo."
+      ]
+    }
+  ]
+}

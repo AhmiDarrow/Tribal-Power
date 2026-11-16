@@ -1,0 +1,66 @@
+{
+  "name": "La Marcha viva",
+  "icon": "tribalpower:ley_lens",
+  "order": 12,
+  "spoiler": false,
+  "pages": [
+    {
+      "type": "events",
+      "title": "Ahora mismo",
+      "text": [
+        "Lo que la Marcha está haciendo mientras lees esto. Cambia contigo o sin ti."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Clima de la Marcha",
+      "text": [
+        "Siete de los países de la Marcha tienen un clima propio, más allá de la lluvia: **Caída de ceniza** en los Yermos de brasa, una **Tormenta de destello** sobre los Campos de cristal, un **Blanco total** en los Campos de nieve, **Bruma de la ciénaga** en la Ciénaga de juncos, **Niebla de escarcha** en la Costa gélida, una **Tormenta de polvo** sobre las Llanuras de sal y **Deriva de esporas** en el Lodazal de sombrerillos.",
+        "Cada uno cierra el mundo: ves menos, y los espíritus surgen de día bajo él como lo harían de noche.",
+        "Cada tipo se asienta más o menos una vez por día de juego y dura **8 a 20 minutos**. La página del Códice de arriba te dice cuál corre; el cielo también."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "El clima y los generadores",
+      "text": [
+        "Cada clima favorece los generadores de una voz y entorpece los de otra; por defecto, la mitad más de la voz favorecida y la mitad de la voz entorpecida:",
+        "- **Caída de ceniza** alimenta los Cuernos de brasa y ahoga las Arpas de viento.",
+        "- Una **Tormenta de destello** alimenta las Campanas de despertar y embota los Corazones de tambor.",
+        "- Un **Blanco total** impulsa las Arpas de viento y congela los Tambores de olas.",
+        "- **Bruma de la ciénaga** hincha los Tambores de olas y amortigua los Cuernos de brasa.",
+        "- **Niebla de escarcha** en la Costa gélida hincha los Tambores de olas y ahoga los Cuernos de brasa.",
+        "- Una **Tormenta de polvo** en las Llanuras de sal impulsa las Arpas de viento y seca los Tambores de olas.",
+        "- **Deriva de esporas** en el Lodazal de sombrerillos alimenta las Campanas de despertar y amortigua los Tambores de olas.",
+        "**El clima avisa.** Dos minutos antes de que un clima se asiente, la Marcha lo dice, en el chat y sobre la barra de acceso: tiempo de llegar a un techo, un campamento o un portal. Una oleada se anuncia igual."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Oleadas de ley",
+      "text": [
+        "De vez en cuando los hilos de ley de una voz corren **brillantes**: una oleada. A través de la [Lente ley](ley_lens) arden, y la lente nombra la voz. Mientras dura, cada Colector de ley cuyos hilos llevan esa voz rinde el **doble**.",
+        "El otro lado: cada celda de ley tiene un **cruce**, el punto donde se juntan sus hilos, y estar de pie sobre uno desnudo durante una oleada, sin un colector cerca que la beba, te da **Mal de ley**: el suelo se mece y tu Pulso se vacía. Apártate, o pon un colector encima y haz tuya la oleada.",
+        "Por defecto una oleada dura **15 minutos**, y la siguiente llega más o menos una hora y media después de que termina."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Festivales",
+      "text": [
+        "Cada tribu guarda un **día de festival**, y las nueve se turnan en un ciclo de veintisiete días. En su día arden las hogueras del campamento, el Hogar lanza su color al aire, y los Pariente se quedan en el Hogar en vez de vagar.",
+        "El Anciano tiene palabras de festival, y si pides unirte al festín te pone en las manos dos del plato de la tribu y un montón de posición, una vez por festival. Un rito hecho en el campamento ese día gana el agradecimiento del festival además del del rito, y comer un festín junto al Hogar te cuenta en su mesa.",
+        "La página del Códice de arriba dice de quién es el día, y la Marcha te avisa cuando el día cambia."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:wandering_spirit",
+      "title": "Espíritus errantes",
+      "text": [
+        "Rara vez, allá en la Marcha, una luz cálida deriva cerca de ti: un **Espíritu errante**. No huye. Alcánzalo y te dice una línea de la historia de su país y deja un regalo pequeño, el reactivo al que responde su guardián, o de vez en cuando un Núcleo resonante, y se va.",
+        "Si lo dejas, se apaga en un par de minutos. Cada país tiene tres cosas que decir; óyelas todas y conoces un poco mejor la Marcha."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "name": "Jak działają stacje",
+  "icon": "minecraft:hopper",
+  "order": 10,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Stacje echa zamieniają jedno w drugie: kamień w odłamki, odłamki w mocniejsze kryształy, rudę w żwir, żwir w metal. Każdy przepis potrzebuje trzech rzeczy naraz: właściwe **wejście**, pasujący **Totem rezonansu** w zasięgu 8 bloków oraz **Puls** w wystarczającej ilości, który dochodzi przez Przewodnik kraty w zasięgu 8 bloków.",
+        "Otwórz stację, włóż składnik do gniazda wejścia i weź wyniki z ośmiu gniazd wyjścia. Zostaw trochę wolnego miejsca na wyjściu; pełna stacja staje.",
+        "Dwa małe gniazda na **katalizator** trzymają to, co praca zużywa poza wejściem: echa, rdzenie albo Nić Krosna, o które prosi ranga Duchowego sprzętu, lub sproszkowany jasnogłaz, gdy Dostrajacz echa rozświetla Szkło kwarcowe. Rangi maszyn nie potrzebują żadnego. Jeśli jednego brakuje, ta księga zgłasza **Potrzebny katalizator** i podaje jego nazwę.",
+        "Przepisy w tej księdze, albo JEI, gdy jest zainstalowany, pokazują czas, Puls i głos każdego przepisu."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Pierwszy układ",
+      "steps": [
+        {
+          "caption": "Generator, przewodnik, stacja i totem mogą stać obok siebie na jednej podłodze.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Lej pod stacją zbiera jej wyjście, bo dolna ściana domyślnie wysyła.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Dźwignia albo dowolny sygnał redstone wstrzymuje stację. Nic nie przepada, kiedy czeka.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ściany i automatyzacja",
+      "text": [
+        "Każda ściana stacji ma ustawienie: **Wejście**, **Wyjście**, **Oba** albo **Zamknięte**. Domyślnie pięć górnych ścian przyjmuje przedmioty, a dolna je wysyła. Zmień ścianę bocznymi przyciskami stacji albo kucnij i kliknij tę ścianę prawym przyciskiem pustą ręką, by ją przełączać. **Klucz totemu** robi to samo: kucnij i użyj go na ścianie. Leje trzymają się tych samych ustawień.",
+        "Maszyny Tribal Power, które się stykają, podają sobie przedmioty, do **16** na sekundę, i płyn, do **250 mB** na sekundę, więcej z maszyny z rangą: ustaw ścianę źródłową na Wyjście, a ścianę odbierającą na Wejście. Ściana Oba przy ścianie Oba niczego nie rusza, więc przedmioty nigdy nie skaczą tam i z powrotem.",
+        "Skoro dół jest domyślnie Wyjściem, a góra Wejściem, stacja stojąca na innej oddaje wyniki prosto w dół bez ustawień. Na odległość kliknij prawym płytę przekaźnika w ścianę stacji. Płyta ciągnie przez tę ścianę, więc najpierw ustaw ją na **Wyjście** albo **Oba**; zobacz [Bezprzewodowy ładunek](wireless_cargo).",
+        "Sygnał redstone na stacji zatrzymuje też leje, przekaźniki i stykające się maszyny, które biorą z niej albo ją zasilają."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gdy praca staje",
+      "text": [
+        "Kucnij i kliknij stację prawym przyciskiem z tą książką. Powie, czy czeka na Puls, czy potrzebuje totemu, czy totem milczy, czy jest pełna, czy wstrzymał ją redstone.",
+        "Cichy totem zatrzymuje **nową** pracę; wyrób już w toku i tak dobiega końca.",
+        "Komparator odczytuje, jak pełna jest stacja. Paczki danych mogą dodać własne przepisy tribalpower:lattice, używając wspólnych tagów składników."
+      ]
+    }
+  ]
+}

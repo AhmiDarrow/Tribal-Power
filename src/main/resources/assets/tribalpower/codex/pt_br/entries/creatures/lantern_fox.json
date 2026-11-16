@@ -1,0 +1,52 @@
+{
+  "name": "Raposa-lanterna",
+  "icon": "tribalpower:lantern_down",
+  "order": 30,
+  "spoiler": true,
+  "items": [
+    "tribalpower:lantern_fox_spawn_egg",
+    "tribalpower:lantern_down"
+  ],
+  "next": "mossback",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:lantern_fox",
+      "text": [
+        "Uma raposa tímida do crepúsculo, com uma lanterna acesa na ponta da cauda, que marca caminhos seguros. Escove os adultos para obter Penugem de lanterna.",
+        "Caçado, também deixa Caça crua, de 1 a 2, e Couro da Marcha, até 1. Reproduza com **frutas vermelhas**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "As raposas-lanterna vivem nas florestas da Superfície e em quase toda a Marcha: sobretudo nos Campos de neve, mas também na estepe, no planalto, nos Campos de cristal, no Paul de juncos, na Crista do brilho e até nos Ermos de brasa.",
+        "Uma raposa tem **14 pontos de vida** e nenhuma armadura. Ela foge se for ferida e evita monstros. Reproduza duas com **bagas doces**."
+      ],
+      "title": "Onde você o encontra"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Escove um adulto para obter **Penugem de lanterna**, uma vez por minuto. A penugem se vincula em 2 Tece-espírito sob a Água, e os Guardiões da colônia a preferem como oferenda.",
+        "Uma raposa caçada larga Caça crua e às vezes Couro da Marcha, mas nunca a penugem, então escovar é o único jeito de obtê-la."
+      ],
+      "title": "O que ela dá"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Uma raposa vinculada é uma lanterna que segue você. Ela carrega uma luz invisível por onde anda, dá a você Visão noturna enquanto você fica perto e marca minérios próximos com brilhos que só você vê.",
+        "Os detalhes estão na página de [dons do familiar](familiar_gifts)."
+      ],
+      "title": "Como familiar"
+    },
+    {
+      "type": "text",
+      "title": "Caça e criação",
+      "text": [
+        "Quando caçado, ele larga isto, mais com Pilhagem. A carne cai assada se o animal morreu queimando. Para reproduzir os selvagens, **agache** enquanto você alimenta dois adultos com a comida deles; alimentado normalmente, um selvagem se afeiçoa a você em vez disso."
+      ]
+    }
+  ]
+}

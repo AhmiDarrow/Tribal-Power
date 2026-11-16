@@ -1,0 +1,254 @@
+{
+  "name": "Verwandtschafts-Totem",
+  "icon": "tribalpower:kinship_totem",
+  "order": 30,
+  "items": [
+    "tribalpower:tribe_mark"
+  ],
+  "next": "tribe_boons",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:kinship_totem",
+      "text": [
+        "Ein Totem, geschnitzt aus der Marke eines Stammes. Neben einem Pulsresonator ist es eine **zusätzliche Stimme**, gezählt für den Stamm statt für sein Element, und so fügt es Puls hinzu, selbst wo dieses Element schon singt.",
+        "Es wird nie still und leiht die Stimme seines Stammes jeder Station in der Nähe."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Marke verdienen",
+      "text": [
+        "Hebe deinen Stand bei einem Stamm auf **Stimme (800)**, dann sprich mit dem Ältesten dieses Stammes. Der Älteste drückt dir eine **Stammesmarke** in die Hand. Dieses Geschenk gibt es nur einmal je Stamm, aber jede **dritte** Bitte, die du für sie erfüllst, zahlt auch eine Marke, ab Gast (siehe [Älteste, Bitten und Geschichten](elders_and_stories)).",
+        "Die Marke trägt den Namen des Stammes und seinen Spruch. Die Marke, die der Älteste bei Stimme gibt, öffnet auch die Seite dieses Stammes in diesem Buch; Marken, die für Bitten gezahlt werden, tun das nicht.",
+        "Gast und Freund reichen nicht für das Geschenk der Stimme. Wenn du zu niedrig stehst, handle, bring Gaben und nimm Bitten an, bis du Stimme erreichst; siehe [Stämme und Stand](standing)."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribes_kinship_totem",
+      "title": "Das Totem schnitzen",
+      "text": [
+        "Leg die Stammesmarke, das **Resonanz-Totem der Stimme dieses Stammes** und **zwei Geistergewebe** irgendwo ins Handwerksraster. Die Marke wird in das Totem verbraucht."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Welches Totem zu welcher Marke passt",
+      "text": [
+        "- **Erde**: Polsterhüter, Griessänger.",
+        "- **Wasser**: Wurzelbinder.",
+        "- **Feuer**: Kantenläufer, Trommelherzen.",
+        "- **Luft**: Musterweber, Koloniehüter.",
+        "- **Geist**: Siegelkerber.",
+        "- **Webstuhl**: Webstuhl-Näher.",
+        "Rechtsklicke ein platziertes Verwandtschafts-Totem, um seinen Stamm und die Stimme zu sehen, die es leiht."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Eine zusätzliche Stimme",
+      "steps": [
+        {
+          "caption": "Ein Pulsresonator mit einem Totem der Erde und einem des Feuers singt zwei Stimmen.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Verwandtschafts-Totem der Trommelherzen fügt eine dritte Stimme hinzu, obwohl Feuer schon da ist.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:kinship_totem[tribe=4]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Totem der Polsterhüter fügt eine vierte hinzu. Stimmen vervielfachen sich: auf einer Echoscherbe machen drei 15 Puls pro Sekunde und vier machen 24.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:kinship_totem[tribe=0]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Ein zweites Totem desselben Stammes fügt nichts hinzu. Der Resonator zählt Stämme, nicht Blöcke.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:kinship_totem[tribe=4]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "An einem Pulsresonator",
+      "text": [
+        "Jeder verschiedene Stamm mit einem Verwandtschafts-Totem innerhalb von **8 Blöcken** zählt als eine Stimme mehr. Verwandtschafts-Totems werden nie still, also zählen sie immer; Resonanz-Totems zählen nur, solange sie Beantwortet sind.",
+        "Der Resonator braucht weiterhin mindestens ein eigenes beantwortetes **Resonanz-Totem**. Verwandtschafts-Totems allein starten ihn nicht.",
+        "Ein loser Haufen bleibt bei insgesamt **fünf Stimmen**. Baue einen [Stimmring](voice_ring), und die Obergrenze hebt sich: sechs Elemente plus alle neun Stämme ergeben **fünfzehn**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "An Stationen und Lagermaschinen",
+      "text": [
+        "Innerhalb von 8 Blöcken um eine Werkstatt, den Webstuhl-Anker oder eine [Lagerhand](camp_hands), die auf eine Stimme wartet, verleiht ein Verwandtschafts-Totem nur **das Element seines Stammes**, als stünde dort ein beantwortetes Resonanz-Totem dieser Stimme. Es ist keine siebte Stimme.",
+        "Weil es nie verstummt, zählt es sogar neben einem stillen Resonanz-Totem derselben Stimme. So hältst du eine Station oder eine Lagermaschine an einem Ort in Gang, den du selten besuchst.",
+        "Das Bewässern eines Hainpfleger braucht weiterhin ein Wasser-Resonanz-Totem."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "In der Lauschgrube",
+      "text": [
+        "Die tiefen, heißen und seltenen Erzbänder einer [Lauschgrube](listening_pit) brauchen alle ein **Griessänger-Verwandtschafts-Totem** oder einen **Herd des Stammes**, stehend im Muster.",
+        "Das Ansehen bei den Griessänger setzt weiter die Grenze: **Sippe** für die tiefen und heißen Bänder, **Stimme** für das seltene."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "name": "醒钟",
+  "icon": "tribalpower:wake_bell",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wake_bell",
+      "text": [
+        "印刻者的手艺：一口哀悼死者的钟。死在近处的生物都会把脉动付进它的储库，于是刷怪场便成了发电厂。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "它如何支付",
+      "text": [
+        "**16格**内的死亡为敌对生物支付**20脉动**，为被动生物支付**5**。玩家的死亡不支付任何东西。",
+        "死亡填满 **2,000** 的蓄积，钟在无等阶时至多放出 **每秒8**。每级等阶增加 **每秒 15% 脉动**，四舍五入为整数脉动。大型农场填满蓄积后便闲置；超出边缘的都会失去。",
+        "只有**最近**的钟能听见一次死亡，所以叠放钟毫无用处。被红石暂停的钟什么也听不见。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "农场旁的钟",
+      "steps": [
+        {
+          "caption": "把钟挂在东西死去之处的16格以内。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wake_bell"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "每次击杀填满它的蓄积；钟至多每秒放出8脉动。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "旁边的脉动石冢会把这些迸发按到来的速度吞下。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "石冢8格以内的机器抽出一条平稳的线，无论击杀多么不均。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "提示",
+      "text": [
+        "黑暗农场或守护鼓的杀戮场都可以。玩家从不是守护鼓的目标，钟仍会听见它造成的每一次死亡。",
+        "聆听坑要平稳的抽取，所以把钟和脉动石冢配在一起。",
+        "钟是[印刻者](tribe_sigil)的手艺：配方需要钟碎片和灵之印，印刻者把钟交易给族人。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wake_bell"
+    }
+  ]
+}

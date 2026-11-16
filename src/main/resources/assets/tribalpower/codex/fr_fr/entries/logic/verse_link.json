@@ -1,0 +1,294 @@
+{
+  "name": "Appel de vers et Réponse de vers",
+  "icon": "tribalpower:verse_call",
+  "order": 60,
+  "spoiler": false,
+  "items": [
+    "tribalpower:verse_answer"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:verse_call",
+      "text": [
+        "Seize vers, et aucun fil. Un **Appel de vers** écoute la redstone ; une **Réponse de vers** dans les 32 blocs, accordée sur le même vers, le rechante en sortie.",
+        "L'Appel se fait avec [Fil de chant](song_thread) et la Réponse avec Liane de chant, les deux ont donc besoin de **Fil de Métier** de la Marche."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Accorder une paire",
+      "text": [
+        "Fixe un Appel de vers sur n'importe quelle face de bloc. Il entend la redstone de **chaque côté sauf celui qu'il regarde**.",
+        "Fixe une Réponse de vers sur une face à moins de **32 blocs**, dans le même monde. Elle chante par sa face, dans le bloc devant elle.",
+        "Accroupis-toi et fais un clic droit sur l'une ou l'autre plaque, main vide, pour faire passer son vers de **1 à 16** ; les deux doivent correspondre. Fais un clic droit main vide pour lire le vers et la puissance.",
+        "Chaque plaque appartient à qui l'a posée et à son camp, donc réaccorder celle d'un autre est refusé.",
+        "La Réponse copie la puissance que l'Appel entend, donc ce n'est pas toujours 15. Quand plusieurs Appels partagent un vers, la Réponse prend le plus fort. Un vers qui ne correspond pas reste silencieux."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "De l'autre côté de la cour",
+      "steps": [
+        {
+          "caption": "Monte un Appel de vers sur un bloc. Le levier à côté est le chant qu'il portera.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:verse_call[facing=north]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Monte une Réponse de vers sur un autre bloc, face à la lampe qu'elle doit alimenter.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:verse_answer[facing=north]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:redstone_lamp"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Accroupis-toi et fais un clic droit sur chaque plaque, main vide, jusqu'à ce que les deux montrent le même vers.",
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Tire le levier : la Réponse chante la même puissance dans la lampe.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Là où ça aide",
+      "text": [
+        "Les relais déplacent encore les objets ; ces plaques ne déplacent que la redstone. Pour joindre une plaque de chant à une autre, une synchro avec la Clé de totem est plus simple (voir [Plaques de chant](song_plates)).",
+        "Une horloge peut faire tourner tout un camp : un Battement à côté d'un Appel, et une Réponse sur le même vers à chaque tambour. Seuls deux tambours à moins de 8 blocs l'un de l'autre gagnent Pulsation, alors espace-les.",
+        "Un Sceau d'Air va dans l'Appel et un Carillon d'os dans la Réponse. Les Tisserands de motifs préfèrent les horloges et l'Aile de tempête."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_call"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_answer"
+    }
+  ],
+  "next": "song_plates"
+}

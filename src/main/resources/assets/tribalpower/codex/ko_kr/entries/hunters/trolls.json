@@ -1,0 +1,74 @@
+{
+  "name": "트롤",
+  "icon": "tribalpower:troll_hide",
+  "order": 320,
+  "spoiler": true,
+  "items": [
+    "tribalpower:crag_troll_spawn_egg",
+    "tribalpower:rime_troll_spawn_egg",
+    "tribalpower:slag_troll_spawn_egg",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:slag_hide"
+  ],
+  "next": "goblins",
+  "pages": [
+    {
+      "type": "text",
+      "title": "트롤",
+      "text": [
+        "크고, 잘 쓰러지지 않으며, 쉽게 분노한다. 세 종류의 트롤이 마치의 높은 돌과 그 열기를 지키며, 셋 다 너를 사냥한다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:crag_troll",
+      "title": "바위 트롤",
+      "text": [
+        "고지에서 발견된다. 밤이면 열린 땅 위로 일어난다. 한 번에 한두 마리.",
+        "사냥하면 마치 가죽 1~3개, 뼈 1~2개, 부싯돌 최대 2개도 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:rime_troll",
+      "title": "서리 트롤",
+      "text": [
+        "눈 들판에서 발견된다. 밤이면 열린 땅 위로 일어난다. 한 번에 한두 마리.",
+        "사냥하면 마치 가죽도 1에서 3, 뼈는 1에서 2, 눈덩이는 1에서 3 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slag_troll",
+      "title": "광재 트롤",
+      "text": [
+        "잔불 황무지에 있다. 용암 곁과 주위 뜨거운 돌 위에, 낮에도 밤에도, 한 번에 한 마리 또는 두 마리. **화염에 면역**이다.",
+        "사냥하면 마치 가죽도 1에서 3, 뼈는 1에서 2, 철 조각은 1에서 3 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "하나와 싸우기",
+      "text": [
+        "트롤은 **체력 69**와 **방어구 6**을 갖고 타격은 **9**이다. 바위 트롤이나 서리 트롤의 타격은 당신을 뒤로 밀고, 광재 트롤의 타격은 2초 동안 불붙인다.",
+        "거리를 두고, 등 뒤에 용암이 있는 채로 싸우지 마라."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "주는 것",
+      "text": [
+        "각각 가죽을 **1에서 2** 떨어뜨리며, 약탈이면 더 많다. **트롤 가죽**과 **서리 가죽**은 밀치기 시약이고, **광재 가죽**은 잔불 시약이다. [시약](reagents)을 보라.",
+        "트롤은 결코 결속하지 않는다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "사냥과 무리",
+      "text": [
+        "시약 외에, 사냥하면 더 떨어지고 약탈로는 한층 더 떨어진다."
+      ]
+    }
+  ]
+}

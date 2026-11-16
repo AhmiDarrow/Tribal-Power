@@ -1,0 +1,141 @@
+{
+  "name": "初めてのパルス",
+  "icon": "tribalpower:drumheart",
+  "order": 10,
+  "next": "first_workshop",
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "どの野営地も太鼓から始まる。[太鼓の心臓](drumheart)は安定した拍を蓄えたパルスに変え、その[格子](lattice_conductor)上の機械がそれを使える。",
+        "レシピはこの最後のページにある。板材、革、**骨の鈴**2つ、**霊の欠片**1つ。鈴と欠片は骨、糸、アメジスト、レッドストーンですぐ作れる。[霊の欠片と共鳴器](crafting_components)を見よ。いくつか作っておけ。序盤はほぼ全部がこれを使う。",
+        "作業する場所に太鼓を置いて鳴らす。**空手**で右クリック、およそ**1秒に1回**。間に合った拍は、焦った連打よりはるかに値打ちがある。",
+        "数百パルスを蓄えるまで叩く（この本を持ってしゃがみ右クリックで確認）。最初の工房はその蓄えで動く。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "拍を保つ",
+      "steps": [
+        {
+          "caption": "最初の工房を建てる場所に太鼓の心臓を置く。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "空手で、およそ1秒に1回右クリックする。間に合った拍ごとに24パルス増える。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "速すぎると拍がずれ、増分が減る。一定のリズムを探せ。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart",
+      "text": "太鼓は1,000パルスを蓄える。機械は両方から8ブロック以内の**格子の伝導体**を通して取り出す。次のページに置き場所がある。太鼓は一つか二つで十分だ。同じ8ブロック以内の三つ目は音は鳴るが、何も得られない。"
+    }
+  ]
+}

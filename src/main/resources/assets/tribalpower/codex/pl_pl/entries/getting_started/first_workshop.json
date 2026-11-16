@@ -1,0 +1,214 @@
+{
+  "name": "Twój pierwszy warsztat",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "next": "self_powered",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Warsztaty Tribal Power nazywają się **stacje echa**. Każda potrzebuje trzech rzeczy blisko siebie: czegoś do obróbki, Pulsu dochodzącego przez kratę i właściwego **Totem rezonansu** w pobliżu, który da jej głos.",
+        "Pierwsza stacja, której chcesz, to [Kruszarka echa](echo_shatter): siedem kamienia wokół Kościany dzwonek i Miedziany rezonator. Cztery sztabki miedzi wokół Kościany dzwonek dają **dwa** Miedziany rezonator. Kruszy kamień w **Odłamek echa**, mały kryształ, dzięki któremu zrobisz Puls bez bębnienia.",
+        "Puls płynie tylko wzdłuż [Przewodnik kraty](lattice_conductor): stacja bez przewodnika w zasięgu 8 bloków głoduje nawet tuż przy pełnym bębnie. Cztery Miedziany rezonator wokół pyłu redstone dają **cztery** przewodniki; postaw jeden między bębnem a stacją.",
+        "Kruszarka echa potrzebuje głosu **Ziemia**. Zrób {item:tribalpower:resonance_totem_earth} z kłód, ziemi, Kościany dzwonek i Miedziany rezonator i postaw go przy stacji. Totem nie jest źródłem mocy. Traktuj go jak nauczyciela stacji: bez niego stacja czeka i nic nie wydaje.",
+        "Totem ma **dwa bloki wysokości**, więc zostaw wolny blok nad miejscem. Kliknij dowolną połowę; zniszczenie którejkolwiek zabiera cały totem. Totem ze starego świata odrasta górą, gdy blok nad nim jest wolny."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Kącik Kruszarki echa",
+      "steps": [
+        {
+          "caption": "Postaw Kruszarka echa obok swojego Bęben-serce.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Postaw Przewodnik kraty w zasięgu 8 bloków od obu. Puls płynie tylko wzdłuż przewodników: bez jednego stacja głoduje, choćby bęben stał tuż obok.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Dodaj Totem rezonansu (Ziemia) w zasięgu 8 bloków. Tuż obok jest najprościej.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Otwórz Kruszarkę echa i włóż kamień. Bruk daje tylko żwir, więc najpierw go przetop.",
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "minecraft:stone"
+          },
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Utrzymuj bęben naładowany. Po kilku sekundach wychodzi Odłamek echa.",
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jeśli nie ruszy",
+      "text": [
+        "Kucnij i kliknij prawym przyciskiem stację z tą książką. Powie, czy brakuje jej Pulsu, przewodnika, jej totemu albo miejsca na wyjściu.",
+        "Kruszarka echa zużywa Puls szybciej, niż ręczny bęben go tworzy, więc najpierw nabij zapas i niech bęben niesie pracę.",
+        "Dźwignia albo dowolny stały sygnał redstone wstrzymuje stację. Nic nie ginie, gdy czeka."
+      ]
+    }
+  ]
+}

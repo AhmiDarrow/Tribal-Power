@@ -1,0 +1,72 @@
+{
+  "name": "Comidas del Hogar",
+  "icon": "tribalpower:long_hunt_stew",
+  "order": 24,
+  "items": [
+    "tribalpower:drift_bell_dumplings",
+    "tribalpower:delvers_pottage",
+    "tribalpower:fen_callers_chowder",
+    "tribalpower:reed_wrapped_eel",
+    "tribalpower:ember_roast_squash",
+    "tribalpower:long_hunt_stew",
+    "tribalpower:bloomsong_custard",
+    "tribalpower:fish_and_chips"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Una comida para el trabajo que viene",
+      "text": [
+        "Más lleno que la [comida de camino](road_fare) y cocinado con la captura salvaje de la Marcha: cada comida te llena bien y presta un don sencillo para la tarea que tienes delante. Ninguna llena más que el mejor [plato de la tribu](tribe_dishes), y ninguna trae un favor.",
+        "- **Empanadillas de campana a la deriva**: Gelatina a la deriva, Grano de la estepa, un huevo. Dos por olla, 5 de hambre y **Caída lenta durante 30 segundos**: cómelas antes de una caída.",
+        "- **Potaje del excavador**: un hongo marrón y uno rojo, una papa, Arroz de ciénaga, un cuenco. 7 de hambre y **Prisa durante 90 segundos**, el cuenco de un minero.",
+        "- **Caldo del llamador de la ciénaga**: cualquier pescado crudo (Aletabrillo crudo o Anguila de limo cruda), Arroz de ciénaga, alga, una papa, un cuenco. 8 de hambre y **Respiración acuática durante 90 segundos**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Una comida para el trabajo que viene, continúa",
+      "text": [
+        "- **Anguila envuelta en junco**: Anguila de limo cruda, Caña de Espíritu, Hoja de la Marcha. 7 de hambre y **Visión nocturna durante 120 segundos**, para el agua oscura y las cuevas hondas.",
+        "- **Calabaza asada a la brasa**: una calabaza, Raíz de brasa, Grano de la estepa. Dos por olla, 6 de hambre y **Fuerza durante 30 segundos**.",
+        "- **Estofado de la larga cacería**: Caza asada, una papa, una zanahoria, Raíz de brasa, un cuenco. 9 de hambre, la comida de campamento más llena, y **Absorción durante 60 segundos**: cómelo antes de una noche dura.",
+        "- **Natillas del canto floral**: Flor de eco, un huevo, azúcar, panal, un cuenco. 6 de hambre y **Regeneración durante 15 segundos**, para curarte en marcha.",
+        "- **Pescado con papas fritas**: dos Aletabrillo crudo en lo alto del cuadrado, dos Raíz de brasa debajo. 8 de hambre y la **mayor saturación de cualquier comida del campamento**, así que te mantiene lleno más tiempo, pero no presta ningún don.",
+        "Los cuencos vuelven cuando comes. Los paquetes pueden cambiar cuánto dura cada don en la configuración."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_bell_dumplings"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:delvers_pottage"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fen_callers_chowder"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:reed_wrapped_eel"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_roast_squash"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:long_hunt_stew"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bloomsong_custard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fish_and_chips"
+    }
+  ],
+  "next": "feasts"
+}

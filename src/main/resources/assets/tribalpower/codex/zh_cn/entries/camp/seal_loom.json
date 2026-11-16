@@ -1,0 +1,245 @@
+{
+  "name": "印织机",
+  "icon": "tribalpower:seal_loom",
+  "order": 40,
+  "items": [
+    "tribalpower:recipe_seal"
+  ],
+  "next": "tide_pump",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:seal_loom",
+      "text": [
+        "一台自己干活的工作台。把一个工作台配方教给配方印，原版或任何模组都行，格子保持有料，它每秒织出一个结果，每个**6脉动**。印不会被用掉。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "教它配方",
+      "text": [
+        "用空白印和纸做成**配方印**，然后打开印织机。印放在格子旁边自己的槽里，不是三乘三的正中。",
+        "像在工作台上那样把配方摆进格子：做木棍时，一块木板放在另一块上面。",
+        "关闭界面，潜行并用**空手**右键印织机。印会记下配方，提示文字会为它命名。",
+        "只有空白印能被教会。新配方要做新印；改格子永远不会改变旧印记住的东西。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "让它运转",
+      "text": [
+        "印放好、正确的物品在正确的槽里时，它每一拍从网格取出**6脉动**制作一次。两块木板给出四根木棍，印还在。它听从**织机**：在8格内放一个共鸣图腾（织机）（见[营地之手](camp_hands)），否则它闲置。",
+        "结果会装满九个输出槽，并从**底**面离开，进入那里的漏斗或[中继板](wireless_cargo)。空桶和瓶子之类的剩余一起出去，所以不会堵住格子；配方归还的工具，比如研磨碗，回到自己的槽。输出装不下一次制作和它的剩余时，印织机就等待，什么也不消耗。",
+        "等级会缩短节拍；每次制作的脉动仍是6。拉杆会暂停它，比较器读取它有多满。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "木棍织机",
+      "steps": [
+        {
+          "caption": "把印织机和发电机、网格导体放在8格以内。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:seal_loom[facing=south]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "把配方印放进印槽，摆好配方，然后空手潜行点击。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:recipe_seal"
+          }
+        },
+        {
+          "caption": "上方的漏斗让格子保持满的；每件物品进入第一个接受它的槽。",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=down]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "下方的漏斗从底面抽出结果。",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "给它供料",
+      "text": [
+        "漏斗，或一块调到织机上的中继板，会把每件物品送进网格里第一个能收下它的格子。这适合单格配方，比如原木做成木板。有序配方就用手把要用的格子装满整组，它会一直合成，直到其中一格用尽。如果网格不再与印相符，它就等待，什么也不消耗。",
+        "手里拿着物品时，潜行并对一个面右键，即可改变该面：双向、输入、输出或关闭。",
+        "连接大批存储之前，先试一批。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:seal_loom"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:recipe_seal",
+      "text": "在织机上铭印；一枚印只记一个配方。"
+    }
+  ]
+}

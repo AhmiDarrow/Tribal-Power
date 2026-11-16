@@ -1,0 +1,174 @@
+{
+  "name": "雨铃",
+  "icon": "tribalpower:rain_chime",
+  "order": 120,
+  "next": "offering_table",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rain_chime",
+      "text": [
+        "把天气变成红石信号。雨铃不需要脉动，也不需要燃料，自己也不产生脉动。它只告诉你天空在做什么。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "读取",
+      "text": [
+        "把比较器贴着它：雨天**8**，雷暴**15**，晴天**0**。天气是全世界的，所以屋顶压不住它。",
+        "下雨时，它还会每**十秒**轻响一次。",
+        "红石信号进入铃里会让它静音，并把输出设为0。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "天气提示",
+      "steps": [
+        {
+          "caption": "把铃放在比较器能读到的地方。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:rain_chime"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "背对它的比较器读取天气。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "这里只要下雨就点亮一盏灯，更精细的逻辑能区分雨（8）和雷（15）。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "思路",
+      "text": [
+        "用天气暂停[地脉收集器](ley_collector)，或随天气打开营地的灯。出门前把雷暴读数当作警告。",
+        "不用燃料，不用维护：放下之后，它只是听着。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rain_chime"
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "name": "Kompasy kamienia drogi",
+  "icon": "tribalpower:waystone_compass",
+  "order": 20,
+  "items": [
+    "tribalpower:horizon_compass",
+    "tribalpower:astral_compass"
+  ],
+  "next": "way_gate",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:waystone_compass",
+      "text": [
+        "Zaznacz miejsce, a potem wróć tam w mgnieniu oka. Kompas pamięta jedną podłogę lądowania i zabiera cię tam za odrobinę Pulsu z ogniwa w twoim plecaku."
+      ],
+      "title": "Kompasy kamienia drogi"
+    },
+    {
+      "type": "text",
+      "title": "Wiązanie i użycie",
+      "text": [
+        "Kucnij i kliknij prawym **wierzch** solidnego bloku, aby powiązać tę podłogę jako lądowanie.",
+        "Kliknij prawym w powietrze, aby podróżować. Podróż opłaca się ogniwami Pulsu z dowolnego miejsca ekwipunku, a potem następuje odnowienie **5 sekund**.",
+        "Lądujesz na stojąco na powiązanej podłodze, więc potrzeba **dwóch pustych, suchych bloków** nad nią i niczego groźnego tuż obok: ognia, lawy, magmy, kaktusa, zapalonego ogniska, krzewów jagód, róż Withera albo sypkiego śniegu.",
+        "Jeśli nie ma gdzie bezpiecznie stanąć, podróż odmawia i nic nie wydaje. Puls jest pobierany dopiero, gdy lądowanie jest wolne. Nie możesz podróżować, jadąc na czymś."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Lądowanie",
+      "steps": [
+        {
+          "caption": "Wybierz solidny blok podłogi na lądowanie.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "minecraft:polished_andesite"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Kucnij i kliknij prawym jego górną ścianę kompasem, aby go powiązać.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:waystone_compass"
+          }
+        },
+        {
+          "caption": "Trzymaj dwa bloki nad nim puste i suche; tam staniesz.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dźwignia zasilająca podłogę blokuje przybycie, na kiedy chcesz mieć drzwi zamknięte.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=wall,facing=east,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trzy kompasy",
+      "text": [
+        "- **Kompas kamienia drogi**: do **128 bloków**, ten sam świat, **20 Puls**.",
+        "- **Kompas horyzontu**: dowolna odległość w tym samym świecie, **40 Puls**.",
+        "- **Kompas astralny**: dowolna odległość, między światami, **100 Puls**. Jedyny, który sprowadza cię do domu z Marszu.",
+        "Kompas kamienia drogi łączy też parę wrót drogi (zobacz [Wrota drogi](way_gate))."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:waystone_compass"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:horizon_compass"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_compass"
+    }
+  ]
+}

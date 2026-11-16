@@ -1,0 +1,40 @@
+{
+  "name": "Benedizioni delle voci",
+  "icon": "tribalpower:resonance_totem_spirit",
+  "order": 120,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_seal",
+      "title": "Una voce si posa su di te",
+      "text": [
+        "Ciascuna delle sei voci ha una **benedizione**: un modo di prestarsi a chi favorisce. La vedrai come un effetto di stato nel colore di quella voce.",
+        "Ci sono tre modi per ottenerne una:",
+        "- **Canta una guardia.** Un canto di guardia concede la benedizione della sua voce, **45 secondi** per ogni nota di potere che contiene.",
+        "- **Un [rito del sigillo](rite_circle) su un Piedistallo del rito** benedice tutti entro 6 blocchi con la voce del sigillo per **5 minuti**; un rito amplificato ne dà sette e mezzo, a livello II. Un [famiglio](familiar_boons) sintonizzato di quella voce accanto a te lo allunga di un'altra metà.",
+        "- **Mangia da un [banchetto](feasts) di una voce.** Ogni porzione concede la benedizione di quella voce per 8 minuti.",
+        "Un **Amuleto della lanterna** indossato tiene accesa ogni benedizione o dono **la metà in più**, finché il mantenimento è pagato."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Terra**: scavi il **25%** più veloce e resti saldo contro il contraccolpo.",
+        "- **Fuoco**: i tuoi colpi danno fuoco al bersaglio per 3 secondi; a **livello II** il fuoco non può toccarti.",
+        "- **Acqua**: nuoti più veloce e recuperi **mezzo cuore al secondo** finché sei bagnato.",
+        "- **Aria**: ogni caduta è di 3 blocchi più corta, e salti più in alto.",
+        "- **Spirito**: gli ostili entro 16 blocchi brillano attraverso i muri.",
+        "- **Telaio**: **un decimo** del Pulso che il tuo equipaggiamento spende torna a esso, anche dalle spese più piccole: una quota ancora troppo piccola per essere resa aspetta sul pezzo finché non fa un Pulso intero.",
+        "Il livello II raddoppia i numeri. Il latte toglie una benedizione, come toglie ogni effetto."
+      ],
+      "title": "Le sei benedizioni"
+    },
+    {
+      "type": "text",
+      "text": [
+        "I riti sono la via sicura: insedia un sigillo, traccia il cerchio col gesso, e tutto l'accampamento è benedetto in una volta prima di una notte nella Marcia. I canti sono la via rapida sulla strada. Ogni cifra vive nella sezione **effetti** della configurazione comune."
+      ],
+      "title": "Dove trovarle"
+    }
+  ]
+}

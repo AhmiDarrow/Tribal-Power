@@ -1,0 +1,72 @@
+{
+  "name": "Fossa d'ascolto",
+  "icon": "tribalpower:resonance_mesh",
+  "order": 70,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_mesh",
+      "text": [
+        "La Maglia di risonanza è il cuore della Fossa d'ascolto: una fossa puntellata che ascolta il minerale fuori dalla pietra rinnovabile.",
+        "Nutrila di pietra, dalle Pulso e la voce della Terra, e il minerale di metallo grezzo e di gemme finisce in un deposito sopra di essa. Non si esaurirà mai come una miniera."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "listening_pit",
+      "tier": 1,
+      "title": "La fossa",
+      "text": "Un pavimento 5x5 di qualsiasi pietra naturale dell'Overworld (pietra, ardesia profonda, granito, diorite, andesite o tufo), Pietre d'ancora agli angoli, gesso da ogni bordo fino al centro e la maglia al centro."
+    },
+    {
+      "type": "text",
+      "title": "Prima che ascolti",
+      "text": [
+        "La fossa ha bisogno di tutto questo, e il Codice spirituale nomina ciò che manca:",
+        "- La voce della **Terra** entro 8 blocchi, tenuta sveglia: un totem fioco rallenta il ciclo, uno quieto lo ferma.",
+        "- Un **Deposito ancestrale** a contatto con la maglia. Con il gesso su tutti e quattro i lati e pietra sotto, significa **sopra**. La maglia vi svuota tutto, quindi non ti serve una tramoggia.",
+        "- Pulso dal reticolo. La maglia tiene una propria riserva di **200 Pulso**, così un generatore a raffiche non fa incespicare il ciclo.",
+        "- Grado **Amico** presso i Cantori di ghiaia, anche per il minerale comune. La fossa di uno Straniero si blocca."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nutrirla",
+      "text": [
+        "Tieni il **Deposito ancestrale** sopra rifornito di pietra: la fossa prende da lì il suo **substrato** e rimette nello stesso deposito il minerale che sente. Il gesso e la pietra chiudono la maglia su ogni altro lato, quindi il deposito è dove le tue mani, le tramogge e i relè la alimentano.",
+        "Fai clic destro sulla maglia con un **campione**, come ferro grezzo, per guidare ciò che chiama. Il campione è un filtro e non viene mai consumato; accovacciati con la mano vuota per riprenderlo. Vedi [Ciò che offre il suolo](what_the_ground_offers)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Intorno alla fossa",
+      "text": [
+        "Tieni il tamburo o il generatore fuori dal 5x5: tutto il pavimento appartiene alla fossa. Assegna un grado alla maglia come a qualsiasi altro laboratorio.",
+        "Un comparatore contro la maglia legge quanto è avanzato il ciclo e scende a 0 ogni volta che la fossa si blocca."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "listening_pit",
+      "tier": 2,
+      "title": "Ascolto profondo",
+      "text": "Sette per sette: due anelli di Pietre d'ancora agli angoli e un Totem di risonanza di qualunque voce su ogni bordo cardinale."
+    },
+    {
+      "type": "text",
+      "title": "Ascolto profondo",
+      "text": [
+        "Il 7x7 raddoppia il rinforzo degli angoli e pone un totem su ogni bordo cardinale. Apre le fasce **profonda**, **calda** e **rara**.",
+        "Tutte e tre richiedono anche un **Focolare della tribù** o un **Totem di parentela dei Cantori di ghiaia** ritto dentro lo schema. Il minerale comune no.",
+        "Grado presso i Cantori di ghiaia: **Amico** per il comune (anche su una fossa piccola), **Consanguineo** per profondo e caldo, **Voce** per raro. Il caldo vuole anche il Fuoco; il raro vuole lo Spirito. Il Codice spirituale nomina ciò che ti manca ancora."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_mesh"
+    }
+  ],
+  "next": "what_the_ground_offers"
+}

@@ -1,0 +1,87 @@
+{
+  "name": "Braseiro ritual",
+  "icon": "tribalpower:ritual_brazier",
+  "order": 70,
+  "items": [
+    "tribalpower:blank_seal",
+    "tribalpower:earth_seal",
+    "tribalpower:fire_seal",
+    "tribalpower:water_seal",
+    "tribalpower:air_seal",
+    "tribalpower:spirit_seal",
+    "tribalpower:loom_seal"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ritual_brazier",
+      "text": [
+        "O braseiro segura um selo elemental e o transforma em uma bênção contínua para todos por perto. Também é o coração de cada rito de tábua."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Acender uma bênção",
+      "text": [
+        "Clique com o botão direito no braseiro com um selo para assentá-lo. O selo nunca se gasta; agache com a mão vazia para pegá-lo de volta.",
+        "Mantenha o totem desse selo a **8 blocos**, e Pulso na treliça por perto. Enquanto alguém estiver dentro de **6 blocos**, o braseiro gasta **8 Pulso a cada dois segundos** e abençoa a todos. Sem ninguém perto, não gasta nada.",
+        "Um sinal de redstone mantido o pausa; o Pulso guardado não é despejado. Um sinal breve dispara o rito assentado (veja [Círculo de rito](rite_circle)).",
+        "Também queima [incenso](remedies) para todos por perto, sem selo e sem Pulso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "As bênçãos",
+      "text": [
+        "- **Terra**: pressa.",
+        "- **Fogo**: resistência ao fogo.",
+        "- **Água**: regeneração.",
+        "- **Ar**: queda lenta.",
+        "- **Espírito**: visão noturna.",
+        "- **Tear**: sorte, e cada batida tece **2 Pulso** em uma Célula de Pulso carregada que tenha espaço."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Selos",
+      "text": [
+        "Todo selo começa em branco: papel, um Fragmento de Espírito e um Carrilhão de osso fazem **dois** Selos em branco.",
+        "Adicione terra para Terra, carvão vegetal para Fogo, um balde de água para Água, uma pena para Ar, um Fragmento de Espírito para Espírito, ou Fio de Tear para o Tear.",
+        "Os selos vão para amuletos e tábuas de rito; a receita de uma tábua sempre devolve o selo. Um selo usado em um Pedestal do rito é gasto num [rito de selo](rite_circle) rápido."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ritual_brazier"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:blank_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:earth_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fire_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:water_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:air_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_seal"
+    }
+  ],
+  "next": "rite_circle"
+}

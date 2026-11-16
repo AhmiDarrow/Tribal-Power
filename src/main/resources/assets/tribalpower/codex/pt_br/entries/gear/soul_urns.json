@@ -1,0 +1,50 @@
+{
+  "name": "Urnas de alma",
+  "icon": "tribalpower:copper_soul_urn",
+  "order": 44,
+  "items": [
+    "tribalpower:woven_soul_urn",
+    "tribalpower:copper_soul_urn",
+    "tribalpower:manifested_soul_urn",
+    "tribalpower:resonant_soul_urn"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:copper_soul_urn",
+      "title": "Leve uma criatura para casa",
+      "text": [
+        "Uma urna de alma puxa uma criatura para dentro. **Use-a em uma criatura** para tomá-la, e **use-a em um bloco** para colocá-la de volta ali, sã e inteira.",
+        "Ela leva qualquer ser vivo, exceto **jogadores**, **chefes**, **elites** da Marcha e criaturas que outra pessoa tenha domado ou vinculado: uma vaca para o curral novo, um aldeão para a vila, um familiar do outro lado de um rio."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Tomar uma criatura é um uso, e soltá-la é outro:",
+        "- **Tecida**: 2 usos, uma captura e uma soltura.",
+        "- **Cobre**: 10 usos, cinco viagens.",
+        "- **Manifestada**: 20 usos, dez viagens.",
+        "- **Ressonante**: nunca se desgasta.",
+        "Uma urna não aceita uma criatura quando resta só um uso, então você nunca prende algo que não possa soltar. A barra sob a urna mostra o desgaste, e uma urna sem usos restantes se desfaz ao soltar a última criatura."
+      ],
+      "title": "Quatro níveis"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:woven_soul_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_soul_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:manifested_soul_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonant_soul_urn"
+    }
+  ]
+}

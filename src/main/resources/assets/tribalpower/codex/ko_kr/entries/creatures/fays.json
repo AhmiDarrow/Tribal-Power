@@ -1,0 +1,65 @@
+{
+  "name": "요정",
+  "icon": "tribalpower:fay_dust",
+  "order": 350,
+  "spoiler": true,
+  "items": [
+    "tribalpower:glimmer_fay_spawn_egg",
+    "tribalpower:prism_fay_spawn_egg",
+    "tribalpower:marsh_fay_spawn_egg",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "요정",
+      "text": [
+        "빛이 이상한 곳에서 요정은 공중에서 춤춘다. 작고 온순하며, 몬스터에게서 달아난다.",
+        "1분에 한 번 솔질하면 시약을 얻고, **설탕**이나 **꿀이 든 병**으로 유인하여 번식시킬 수 있다. 온순한 동물처럼 결속할 수 있다([사역마](familiars) 참조). 저만의 선물은 없어도, 결속된 개체는 토템에서 목소리를 받아 마법을 강화할 수 있다([토템에서 조율](familiar_attuning) 참조)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "세 종류",
+      "text": [
+        "요정은 **8 체력**이 있고 방어력은 없으며, 한 마리에서 세 마리씩 날고 시약을 **1에서 3**개 떨어뜨린다. 약탈이면 더 많다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmer_fay",
+      "title": "희광 요정",
+      "text": [
+        "금색이며, 희광 능선 위에 있다. **요정 가루**를 떨어뜨린다.",
+        "사냥하면 발광석 가루를 최대 2개 떨어뜨린다. **설탕이나 꿀이 든 병**(으)로 번식시킨다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_fay",
+      "title": "프리즘 요정",
+      "text": [
+        "장미색이며, 수정의 들 위에 있다. **요정 꽃잎**을 떨어뜨린다(분홍색 염료).",
+        "사냥하면 분홍색 꽃잎을 최대 2개, 자수정 조각을 최대 1개 떨어뜨린다. **설탕이나 꿀이 든 병**(으)로 번식시킨다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:marsh_fay",
+      "title": "습지 요정",
+      "text": [
+        "초록색이며, 갈대 습지 위에 있다. 몇 마리는 [거상 파수꾼](colossus_warden)과 함께 난다. **요정 불꽃**을 떨어뜨린다.",
+        "사냥하면 발광 열매를 최대 1개, 발광석 가루를 최대 1개 떨어뜨린다. **설탕이나 꿀이 든 병**(으)로 번식시킨다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "사냥과 목축",
+      "text": [
+        "시약 말고도, 사냥하면 더 떨어지고 약탈이면 더 늘어난다. 야생을 번식시키려면 다 자란 둘에게 먹이를 주는 동안 **웅크리기**를 한다. 보통으로 먹이면 야생은 대신 마음을 연다."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "name": "余烬荒原的野兽",
+  "icon": "tribalpower:cinder_plate",
+  "order": 240,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cinderhide_spawn_egg",
+    "tribalpower:ashmoth_spawn_egg",
+    "tribalpower:slaglump_spawn_egg",
+    "tribalpower:emberjaw_spawn_egg",
+    "tribalpower:cinder_plate",
+    "tribalpower:ash_wing",
+    "tribalpower:slag_curd",
+    "tribalpower:ember_fang"
+  ],
+  "next": "beasts_reed_fen",
+  "pages": [
+    {
+      "type": "text",
+      "title": "灰烬自己的",
+      "text": [
+        "荒原的动物里，有两种住在熔岩边缘，一种穿灰而飞，一种夜里在玄武岩上狩猎。",
+        "这里每只温顺的野兽都可以每分钟刷一次以取得试剂，并用各自的食物引诱和繁殖，食物见下文**狩猎与牧养**。它可以像任何温顺动物一样结契（见[使魔](familiars)）。尽管都没有自己的天赋，已结契的仍可在图腾上取得一种声音，并强化你的魔法（见[在图腾上调谐](familiar_attuning)）。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinderhide",
+      "title": "烬皮",
+      "text": [
+        "火山龟，甲片缝隙里透着火，栖在熔岩边上和周围的热石上，一次一两只。**30点生命值**和**7点护甲**，缓慢，并且**免疫火焰**。",
+        "掉落**1至3个烬板**，一种余烬试剂。",
+        "猎杀时还会掉落1至2个生野味和最多1个远行界皮革。用**余烬根**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ashmoth",
+      "title": "灰蛾",
+      "text": [
+        "灰烬里的灰色天蛾，宽翅后掠，盖住鲑红色后翅，身体朝尾部有鲑红色环带，一只到三只。**10点生命值**，无护甲。",
+        "掉落**1至3个灰翅**，可磨成黑色染料。",
+        "猎杀时还会掉落最多1根线和最多1个火药。用**余烬根**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slaglump",
+      "title": "炉渣团",
+      "text": [
+        "又长又矮的熔岩蝾螈，头扁得像一把铲，黑身上有橙色斑块，在熔岩边打滚，一次一两只。**26点生命值**和**5点护甲**，并且**免疫火焰**。",
+        "掉落**1至3个炉渣凝乳**，一种余烬试剂。",
+        "猎杀时还会掉落最多1个岩浆膏和最多2个铁粒。用**余烬根**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:emberjaw",
+      "title": "余烬颚",
+      "text": [
+        "条纹火焰迅猛龙，贴地奔跑，尾巴拖在后面，身子几乎全是颚，夜里从玄武岩上起来，一次一两只。它有**32点生命值**和**3点护甲**，命中**6**，每一击都把你击退。尽管颜色如此，它**并不**防火。",
+        "掉落**1至2个余烬牙**，一种击退试剂。",
+        "猎杀时还会掉落最多2根骨头和最多2个木炭。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猎与牧养",
+      "text": [
+        "除试剂外，猎杀时掉落更多，有抢夺时再多一些。若死于燃烧，肉会以烤熟形态掉落。要繁殖野生个体，给两只成年的喂它们的食物时须**潜行**。若正常喂食，野生的反而会亲近你。"
+      ]
+    }
+  ]
+}

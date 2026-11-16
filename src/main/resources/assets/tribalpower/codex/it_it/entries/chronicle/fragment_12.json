@@ -1,0 +1,17 @@
+{
+  "name": "13. La Porta",
+  "icon": "tribalpower:mural",
+  "order": 22,
+  "spoiler": true,
+  "unlock": "fragment:12",
+  "pages": [
+    {
+      "type": "text",
+      "title": "La Porta",
+      "text": [
+        "“Il Crinale lucente è la volta degli Intagliatori di sigilli, sigillata dall'interno il giorno della caduta. A ciò che vi chiusero fu chiesto, con cortesia, di restare. Da allora si nutre della richiesta.”",
+        "Trovato su un murale, sul terreno di un custode."
+      ]
+    }
+  ]
+}

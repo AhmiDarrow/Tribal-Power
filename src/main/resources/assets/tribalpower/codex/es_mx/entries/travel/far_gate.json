@@ -1,0 +1,53 @@
+{
+  "name": "Portal lejano",
+  "icon": "tribalpower:gate_sigil",
+  "order": 40,
+  "next": "keeping_the_way",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_sigil",
+      "text": [
+        "Un portal que cruza entre mundos. El Portal lejano es un marco más alto, reforzado con Piedras de ancla y con la voz del Telar, y enlazado con un Sigilo del portal. La voz del Telar es lo que pone los otros mundos detrás de El No Cantado."
+      ],
+      "title": "Portal lejano"
+    },
+    {
+      "type": "pattern",
+      "pattern": "far_gate",
+      "title": "Construir el marco",
+      "text": "El anillo es una hilada más alto, alrededor de un interior de tres de ancho y cuatro de alto. Cuatro Piedras de ancla están en las esquinas de su planta, delante y detrás del marco."
+    },
+    {
+      "type": "text",
+      "title": "Lo que necesita",
+      "text": [
+        "Trece marcos del portal, una Piedra clave del portal y cuatro [Piedras de ancla](anchor_stone).",
+        "La voz del **Telar** a menos de **8 bloques** de la piedra clave (véase [La sexta voz](sixth_voice)). Sin ella el portal no se enciende, y uno encendido se apaga.",
+        "Una piedra clave en un marco de Portal lejano guarda hasta **2,000 Pulso**. Viértelo con Células de Pulso, hasta 100 cada vez."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sigilo del portal",
+      "text": [
+        "Fabrica un sigilo con un Sello en blanco, Hilo de Telar y un Fragmento de Espíritu.",
+        "Agáchate y haz clic derecho en una piedra clave con él para anotar ese portal. Luego haz clic derecho en la otra piedra clave para atar las dos, en ambos sentidos, incluso en otro mundo.",
+        "Ambos extremos deben ser Portales lejanos para cruzar entre mundos. Un servidor puede apagar los Portales lejanos por completo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Encendido y cruce",
+      "text": [
+        "Encender cuesta **1,200 Pulso** de los **2,000** propios del portal. Cada cruce cuesta **120** y va seguido de un enfriamiento de **dos segundos**.",
+        "Todo lo demás funciona como un Portal de senda: la mano o una señal golpeada para encender, se llega dentro del marco lejano, y rechazo y devolución cuando no hay donde estar de pie.",
+        "Llegar a la Marcha por un Portal lejano cuenta como una visita, igual que el Tambor del portal."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_sigil"
+    }
+  ]
+}

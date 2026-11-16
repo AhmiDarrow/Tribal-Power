@@ -1,0 +1,87 @@
+{
+  "name": "Brasero rituel",
+  "icon": "tribalpower:ritual_brazier",
+  "order": 70,
+  "items": [
+    "tribalpower:blank_seal",
+    "tribalpower:earth_seal",
+    "tribalpower:fire_seal",
+    "tribalpower:water_seal",
+    "tribalpower:air_seal",
+    "tribalpower:spirit_seal",
+    "tribalpower:loom_seal"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ritual_brazier",
+      "text": [
+        "Le brasero porte un sceau élémentaire et en fait une bénédiction continue pour tous les proches. Il est aussi le cœur de chaque rite de tablette."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Allumer une bénédiction",
+      "text": [
+        "Fais un clic droit sur le brasero avec un sceau pour l'y poser. Le sceau n'est jamais consommé ; accroupis-toi la main vide pour le reprendre.",
+        "Garde le totem de ce sceau dans un rayon de **8 blocs**, et de la Pulsation dans le treillis proche. Tant que quelqu'un se tient dans un rayon de **6 blocs**, le brasero dépense **8 Pulsation toutes les deux secondes** et les bénit tous. Sans personne à proximité, il ne dépense rien.",
+        "Un signal de redstone maintenu le met en pause ; la Pulsation stockée n'est pas vidée. Un signal bref déclenche son rite posé (voir [Cercle de rite](rite_circle)).",
+        "Il brûle aussi de l'[encens](remedies) pour tous les proches, sans sceau et sans Pulsation."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les bénédictions",
+      "text": [
+        "- **Terre** : célérité.",
+        "- **Feu** : résistance au feu.",
+        "- **Eau** : régénération.",
+        "- **Air** : chute lente.",
+        "- **Esprit** : vision nocturne.",
+        "- **Métier** : chance, et chaque battement enfile **2 Pulsation** dans une Cellule de Pulsation portée qui a de la place."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sceaux",
+      "text": [
+        "Chaque sceau commence vierge : du papier, un Éclat d'Esprit et un Carillon d'os font **deux** Sceaux vierges.",
+        "Ajoute de la terre pour Terre, du charbon de bois pour Feu, un seau d'eau pour Eau, une plume pour Air, un Éclat d'Esprit pour Esprit, ou du Fil de Métier pour le Métier.",
+        "Les sceaux entrent dans les amulettes et les tablettes de rite ; une recette de tablette rend toujours son sceau. Un sceau utilisé sur un Piédestal du rite est dépensé pour un [rite de sceau](rite_circle) rapide."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ritual_brazier"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:blank_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:earth_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fire_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:water_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:air_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_seal"
+    }
+  ],
+  "next": "rite_circle"
+}

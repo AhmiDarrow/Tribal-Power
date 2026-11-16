@@ -1,0 +1,17 @@
+{
+  "name": "Tabliczka: Obrzęd Rzeźbiarzy pieczęci",
+  "icon": "tribalpower:lore_tablet",
+  "order": 170,
+  "spoiler": true,
+  "unlock": "tablet:7",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Tylko ołtarz Głębokiej świątyni, zapieczętowany w kamieniu Marszu, przechowuje tę tabliczkę. Niezaśpiewany też ją nosi i oddaje, gdy upadnie; powieś ją na ścianie, by ją przeczytać.",
+        "Własnymi słowami Rzeźbiarzy pieczęci, wyciętymi równie starannie jak pieczęć:",
+        "“Duch idzie tam, gdzie proszą go grzecznie, i zostaje tam, gdzie go karmią. Pieczęć to grzeczna prośba wycięta w kamieniu. Brasero to posiłek. Wycięliśmy czyste pieczęcie tysiącami przed Cięciem i prosiliśmy o stanowczo za dużo. Proś o niewiele. Karm go dobrze.”"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "营地机械",
+  "icon": "tribalpower:grove_tender",
+  "order": 40,
+  "description": "替你照看营地的装置：它们耕种、采集、守卫、抽送、照亮道路，并让区块保持唤醒。"
+}

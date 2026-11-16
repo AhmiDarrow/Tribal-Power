@@ -1,0 +1,122 @@
+{
+  "name": "Feras de todas as terras",
+  "icon": "tribalpower:grazer_wool",
+  "order": 280,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ash_hopper_spawn_egg",
+    "tribalpower:ridge_grazer_spawn_egg",
+    "tribalpower:crag_bounder_spawn_egg",
+    "tribalpower:glimmer_moth_spawn_egg",
+    "tribalpower:dust_flitter_spawn_egg",
+    "tribalpower:stone_grub_spawn_egg",
+    "tribalpower:ember_drifter_spawn_egg",
+    "tribalpower:magma_creeper_spawn_egg",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:bounder_horn",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:grub_husk",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale"
+  ],
+  "next": "walking_trees",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Andarilhos",
+      "text": [
+        "Oito criaturas mansas não estão presas a uma terra só. Você vai encontrá-las por toda a Marcha, a céu aberto, nas cavernas e à beira da lava.",
+        "Cada fera mansa daqui pode ser escovada para obter seu reagente uma vez por minuto, e é atraída e se reproduz com a própria comida, indicada em **Caça e criação** mais abaixo. Pode ser vinculada como qualquer animal manso (veja [familiares](familiars)), e embora nenhuma tenha um dom próprio, uma vinculada ainda pode tomar uma voz num totem e fortalecer a sua magia (veja [sintonizar em um totem](familiar_attuning)).",
+        "Vários dos reagentes deles se moem em corante: veja [reagentes](reagents)."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ash_hopper",
+      "title": "Saltador de cinza",
+      "text": [
+        "Um jerboa pequeno e ágil da Estepe, dos Campos de cristal e dos Ermos de brasa, em grupos de dois a quatro. **12 de saúde**. Solta **1 a 2 Tufo de cinza**.",
+        "Caçado, também solta até 1 Caça crua e até 1 pele de coelho. Reproduza-o com **cenouras ou Grão da estepe**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ridge_grazer",
+      "title": "Pastador de crista",
+      "text": [
+        "Um mamute lanoso pequeno do Planalto, da Crista do brilho e dos Campos de neve. **26 de saúde**, **2 de armadura**. Solta **1 a 2 Lã de pastador** (corante cinza-claro).",
+        "Caçado, também solta de 1 a 2 Caça crua e até 1 Couro da Marcha. Reproduza-o com **trigo**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:crag_bounder",
+      "title": "Saltador do penhasco",
+      "text": [
+        "Um íbex do Planalto, da Crista do brilho, dos Campos de neve e dos Campos de cristal. **20 de saúde**, **2 de armadura**. Solta **1 a 2 Chifre de saltador**.",
+        "Caçado, também solta de 1 a 2 Caça crua e até 1 Couro da Marcha. Reproduza-o com **trigo**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:dust_flitter",
+      "title": "Esvoaçante de poeira",
+      "text": [
+        "Um pintassilgo pequeno, o voador mais comum da Marcha, em todas as terras, inclusive os Baixios. **8 de saúde**. Solta **1 a 2 Asa de esvoaçante**.",
+        "Caçado, também solta até 2 penas. Reproduza-o com **sementes de trigo ou Grão da estepe**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmer_moth",
+      "title": "Mariposa de brilho",
+      "text": [
+        "Uma mariposa-lua verde-pálida dos Campos de cristal, da Crista do brilho e do Pântano de juncos. **10 de saúde**. Solta **1 a 2 Pó de brilho** (corante ciano).",
+        "Caçada, também solta até 1 linha e até 1 pó de pedra luminosa. Reproduza-a com **Flor de eco ou qualquer flor pequena**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "No subsolo e junto à lava",
+      "text": [
+        "Os dois habitantes da lava aparecem onde quer que a Marcha tenha lava, em todas as terras menos os Baixios."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stone_grub",
+      "title": "Larva de pedra",
+      "text": [
+        "Uma larva de tricóptero num estojo de seixos, das cavernas escuras sob todas as terras menos os Baixios, de duas a quatro por vez. **10 de saúde**, **4 de armadura**. Solta **1 a 2 Casca de larva** (corante marrom).",
+        "Caçada, também solta até 1 bola de slime. Reproduza-a com **Chapéu-lanterna ou qualquer cogumelo**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ember_drifter",
+      "title": "Derivante de brasa",
+      "text": [
+        "Um vaga-lume de ventre de fogo que se reúne à beira da lava. **12 de saúde**, **imune ao fogo**. Solta **1 a 2 Partícula de brasa** (corante vermelho), um reagente de brasa.",
+        "Caçado, também solta até 2 carvão vegetal. Reproduza-o com **carvão ou carvão vegetal**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:magma_creeper",
+      "title": "Creeper de magma",
+      "text": [
+        "Um pangolim de magma, lento e encouraçado, da pedra quente junto à lava. **22 de saúde**, **6 de armadura**, **imune ao fogo**. Solta **1 a 2 Escama de magma** (corante laranja), um reagente de brasa. A Escama de magma chama o Titã de escória no Trono de escória.",
+        "Caçado, também solta até 1 creme de magma. Reproduza-o com **carvão ou carvão vegetal**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caça e criação",
+      "text": [
+        "Além do reagente, cada um larga mais quando é caçado, e mais ainda com Pilhagem. A carne cai assada se o animal morreu queimando. Para reproduzir os selvagens, **agache** enquanto você dá a comida deles a dois adultos; alimentado normalmente, um selvagem se afeiçoa a você."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Aflicciones",
+  "icon": "tribalpower:spirit_remnant",
+  "order": 45,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Más allá del [Malestar espiritual](spirit_sickness), tres cosas más pueden posarse en ti ahí fuera:",
+        "- **Silencio No Cantado**: los dardos de Silencio del No Cantado se llevan tu voz. Durante **12 segundos** no responden ni canción ni voz de báculo. Espera a que pase, bebe leche o lávalo.",
+        "- **Deshilachado**: un golpe de un salvaje **Tejedor de eco** o **Reptador umbrío** te arranca algo: **dos corazones** de salud durante **dos minutos**. La leche no le hace nada.",
+        "- **Mal de ley**: el suelo se mece y las células que llevas pierden **2 de Pulso cada dos segundos** por cada nivel. Viene de estar de pie sobre un cruce de ley desnudo mientras los hilos se agitan. La leche lo quita."
+      ],
+      "title": "Lo que la Marcha te deja"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Todo [remedio](remedies) las quita todas, y también el [Círculo de sanación](healing_circle) y una noche en la [cabaña de sudor](sweat_lodge).",
+        "La vía antigua es el **Pozo de Espíritu**: encuentra uno en la Marcha, entra en su agua y **agáchate**. Por **40 de Pulso** de una célula que lleves, el pozo te quita toda aflicción, el Malestar espiritual incluido."
+      ],
+      "title": "Lavado limpio"
+    }
+  ]
+}

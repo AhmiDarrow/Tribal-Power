@@ -1,0 +1,86 @@
+{
+  "name": "Lier un familier",
+  "icon": "tribalpower:bonding_charm",
+  "order": 20,
+  "next": "familiar_gifts",
+  "pages": [
+    {
+      "type": "image",
+      "image": "familiars_bonding",
+      "text": [
+        "Lier rend une créature tienne pour de bon. Un familier lâche **le double** de réactif quand tu le brosses, une fois par minute, et personne d'autre ne peut le brosser."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Chaque créature porte cinq fils : **Charpente** (santé), **Foulée** (vitesse), **Croc** (dégâts), **Bourdon** (la fréquence de son don) et **Garde** (armure). Chaque cran en plus ou en moins vaut 12%.",
+        "**Accroupis-toi et regarde n'importe quelle créature de la Marche** pour voir ses fils, ses Marques, sa génération et sa **lignée**, les cinq fils additionnés. Tes compagnons montrent les leurs dès que tu les regardes.",
+        "Les fils sauvages tombent de 0 à 3, donc deux renards de la même clairière ne sont pas des clones. Seule la reproduction atteint 4, et l'**Exalté** 5. Choisis celui que tu veux garder : lier ne relance jamais rien."
+      ],
+      "title": "Lis-le d'abord"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Il y a deux façons de lier une créature adulte. Les jeunes ne peuvent pas être liées.",
+        "- **Nourris-le**, comme tu apprivoiserais un loup. Les animaux doux prennent leur nourriture habituelle et se lient environ une fois sur trois ; les vestiges prennent leur propre réactif et se lient une fois sur cinq. Chaque essai dépense la nourriture.",
+        "- **Utilise un Charme de lien** sur lui : trois essais sur cinq pour les animaux doux, deux sur cinq pour les vestiges. Le charme est consommé quand le lien prend. Un essai raté le garde avec un animal doux, mais le dépense sur un vestige.",
+        "Un vestige ne répond, d'une façon ou de l'autre, que lorsque sa tribu t'appelle **Voix** ([qui peut être lié](familiar_basics)). Des cœurs veulent dire que ça a marché ; de la fumée, que non."
+      ],
+      "title": "Liaison"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Fabrique-le tôt avec **quatre ficelles** autour d'un **Éclat d'Esprit** et **un réactif de créature**. Une fois que tu as de l'Espritissu, **deux Espritissu** peuvent remplacer la ficelle.",
+        "Le réactif peut être l'un de ces neuf : Velours de l'aube, Duvet de lanterne, Écaille de dos-mousse, Carapace prismatique, Dent de faille, Nœud d'escarbille, Aile de tempête, Fragment de cloche ou Soie d'écho. Brosse un Cerf de l'aube, un Renard-lanterne ou un Dos-mousse pour en obtenir un, une fois par minute, ou prends-en un sur un vestige tombé ; les réactifs des autres bêtes ne conviennent pas. Quel qu'il soit, le charme lie toute créature qui répond.",
+        "Le même charme donne plus tard une voix à ton familier : vois [accorder auprès d'un totem](familiar_attuning)."
+      ],
+      "title": "Le Charme de lien"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bonding_charm",
+      "text": "N'importe lequel des neuf réactifs de créature remplit la case du milieu, en haut."
+    },
+    {
+      "type": "text",
+      "text": [
+        "Un familier te suit dès que tu es à **10 blocs** et se téléporte vers toi au-delà de **12**. Il ignore tes coups.",
+        "Utilise-le en te baissant pour le faire attendre, et encore pour le rappeler. Tiens quelque chose quand tu le fais sur un Dos-mousse, car une main vide ouvre sa sacoche.",
+        "**Un combattant** (un Dos-éclat ou un Molosse de la faille) et **deux aides** peuvent suivre en même temps. Ceux qui sont assis et tout ce que tu montes ne comptent pas. Ceux en trop s'assoient et te disent pourquoi. Un familier qui attend et qui est blessé se lève et suit, s'il reste de la place dans ta compagnie.",
+        "Ce que tue ton familier ne te donne aucun rang dans la tribu et ne compte pas pour les chasses d'une tribu. La mise à mort doit être la tienne."
+      ],
+      "title": "Tenir compagnie"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Fais se reproduire deux compagnons liés de la même espèce en nourrissant les deux de leur nourriture pendant qu'ils sont proches. Les animaux sauvages se reproduisent aussi, si tu te baisses en les nourrissant, et leurs petits naissent sauvages. Comme pour les loups, les petits de deux compagnons à toi **naissent dans ta compagnie**, et plus de nourriture les aide à grandir.",
+        "Chaque petit prend la moitié de chaque fil de chaque parent, parfois poussée un peu vers le haut ou vers le bas. Les paires qui t'appartiennent ensemble s'améliorent un peu plus souvent.",
+        "**Reproduis fort avec fort.** Quand les deux parents sont à 3 ou mieux dans un fil, le petit a une chance sur quatre de monter d'un cran au-dessus de l'un comme de l'autre, et c'est le seul moyen d'atteindre 4 et l'Exalté 5. Une lignée élevée avec soin finit bien plus forte que n'importe quel sauvage.",
+        "Attention aux copies : reproduire la même Charpente et le même Croc trois générations de suite sous un seul propriétaire **Effiloche** la lignée et abaisse son Bourdon."
+      ],
+      "title": "Reproduire de meilleurs fils"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Les marques sont des particularités nommées. Certaines se montrent avec une copie ; les autres exigent une copie des deux parents.",
+        "- Une copie : **Fil discret** (suit à partir de 8 blocs, s'arrête à 2), **Peau de pierre** (+1 d'armure, un peu plus lent), **Dérive** (plus rapide, 2 de santé en moins, s'agite après une minute d'attente), **Gueule douce** (ne mord ni les villageois ni les golems), **Veine luisante** (renard), **Étai** (Dos-éclat).",
+        "- Deux copies : **Aigu** (le don agit plus vite), **Bourdon nocturne** (plus rapide la nuit), **Marque de Parent** (né de la paire d'un seul propriétaire, un peu plus d'armure), et les marques d'espèce **Bond**, **Poche profonde**, **Piste**, **Tempo**, **Clic juste**, **Immobile** et **Ramassage**.",
+        "Quelques créatures sauvages nées de la Marche sont **Étincelées** : elles scintillent et portent une copie forte du fil vers lequel penche leur espèce."
+      ],
+      "title": "Marques"
+    },
+    {
+      "type": "text",
+      "title": "Soigner un familier",
+      "text": [
+        "Nourris un familier blessé avec sa nourriture préférée pour le soigner. Un [baume](remedies) utilisé sur lui, de l'encens qui brûle et le [Hochet du guérisseur](healers_rattle) le soignent aussi.",
+        "S'il en tombe un, il laisse un **Vestige de l'Esprit**. Un [Cercle de guérison](healing_circle) le rappelle, voix comprise."
+      ]
+    }
+  ]
+}

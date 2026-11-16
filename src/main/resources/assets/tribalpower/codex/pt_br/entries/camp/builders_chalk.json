@@ -1,0 +1,89 @@
+{
+  "name": "Giz de construtor",
+  "icon": "tribalpower:builders_chalk",
+  "order": 140,
+  "next": "tribal_bench",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:builders_chalk",
+      "text": [
+        "O Giz ritual marca totens e se gasta ao fazer isso. Este é o outro tipo: um bastão de construtor, guardado para medir. Segure-o, e ele ergue um **holograma** de uma forma no mundo — um bloco fantasma em cada espaço que a forma ainda precisa — para você colocar blocos de verdade dentro dos fantasmas em vez de contar e esperar.",
+        "Ele nunca se gasta, e não coloca nada nem quebra nada. O holograma é desenhado só na sua própria tela; ninguém mais o vê, e o servidor não faz trabalho nenhum por ele."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Como usar",
+      "text": [
+        "**Usar** muda a forma. **Agachar e clique direito** aumenta, **agachar e clique esquerdo** diminui; o tamanho dá a volta em qualquer extremo. Num rito de colocação, o mesmo agachar percorre o nível, e o tamanho que você tinha definido fica como está. Agachar com o giz para fora nunca quebra um bloco, então você pode ajustá-lo em pé dentro das próprias paredes.",
+        "Um giz sem marca definida só desenha enquanto está na sua mão, então um traçado nunca segue os seus pés enquanto você balança uma picareta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fixar o traçado",
+      "text": [
+        "**Use-o em um bloco para fixar o traçado.** O holograma para de seguir você e fica naquele ponto — e continua de pé enquanto o giz estiver **em qualquer lugar da sua barra de atalhos**, para você guardá-lo, pegar blocos e construir dentro dos fantasmas. Use-o de novo no mesmo ponto para apagar a marca.",
+        "Um fantasma só fica onde um bloco ainda é preciso. Preencha um e ele se apaga, então o que continua brilhando é exatamente o que falta construir.",
+        "A marca definida só fica no mundo em que foi definida, e só enquanto você está num raio de **192 blocos**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tamanho",
+      "text": [
+        "Os tamanhos vão de **2** a **128**, medidos a partir da marca — então o maior círculo tem **257 blocos de lado a lado**. O passo se abre conforme cresce, fino perto de uma cabana e grosso perto de uma muralha de cortina, de modo que o intervalo todo são dezoito paradas, e não cento e vinte e sete.",
+        "O holograma alcança cerca de **48 blocos**, e numa forma grande o bastante para inundar a vista ele desenha mais perto em vez de rarear. Ande pela linha e ele acompanha você."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "As formas",
+      "text": [
+        "- **Quadrado**, **Círculo**, **Cruz** e **Hexágono**: contornos planos para uma planta.",
+        "- **Paredes**: uma planta quadrada erguida em três fiadas, o que é uma sala.",
+        "- **Cúpula**: a casca de um hemisfério, para um telhado.",
+        "- **Cabana**: quatro paredes com um vão numa face e um telhado em degraus por cima.",
+        "- **Casa comprida**: um salão duas vezes mais longo que largo, com uma viga de cumeeira e duas empenas.",
+        "- **Acampamento de treliça**: o quadrado que uma máquina na marca realmente alcança, e os quatro pontos onde um Totem de ressonância ficaria para levar esse alcance para fora."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Por que o quadrado, e não um círculo",
+      "text": [
+        "Cada máquina mede o alcance em cada direção por conta própria, então o alcance é um **cubo**, não uma bola. Um bloco oito a leste e oito ao norte de um gerador está no alcance; um a dez blocos bem a leste não está, por mais perto que o segundo pareça num mapa.",
+        "Por isso **Acampamento de treliça** desenha um quadrado. Defina-o em **8** e é exatamente a zona em que um Coração de tambor, uma estação ou um Condutor de treliça trabalha."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Os ritos",
+      "text": [
+        "Depois do Acampamento de treliça, o giz desenha as obras deste livro, na ordem em que você as encontra: **Pia de pedra**, **Fosso de escuta**, **Círculo de rito**, **Anel de voz**, **Formação de estilhaço**, **Portal da senda**, **Portal distante**.",
+        "A marca é onde a máquina fica. Um fantasma é um bloco que o rito ainda quer — Marcas rituais, Pedras de âncora, totens, pedestais, o piso de pedra sob um Fosso de escuta, o depósito sob uma estação de eco, a moldura de um portal. O interior aberto de um portal fica escuro, porque esse espaço tem de ficar livre."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Níveis e orientação",
+      "text": [
+        "Agachar e clique direito sobe o nível; agachar e clique esquerdo desce. O Fosso de escuta começa como o **5 por 5**; o nível seguinte é Escuta profunda, o **7 por 7** com totens nos pontos cardeais. A Pia de pedra e o Círculo de rito também têm um segundo nível. O Anel de voz, a Formação de estilhaço e os dois portais são um único traçado.",
+        "Um rito se vira para o lado que você está olhando e fica virado depois que você define a marca. Olhe ao longo do portal antes de plantá-lo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nível a laser",
+      "text": [
+        "O último da lista é o **nível a laser**: uma linha reta e nivelada de fantasmas que sai da marca na direção em que você olha, para uma parede, uma estrada, um túnel ou um canal longo. **Agachar e clique direito** ou **agachar e clique esquerdo** passa o comprimento por **64**, **128** e **256** blocos.",
+        "Enquanto segue você, ele gira com o seu olhar. Use-o em um bloco para fixá-lo, e ele guarda a orientação que você tinha então. Como toda forma, desenha cerca de **48 blocos** ao seu redor, então ande pela linha e o resto se acende à frente."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:builders_chalk"
+    }
+  ]
+}

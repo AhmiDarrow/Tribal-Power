@@ -1,0 +1,70 @@
+{
+  "name": "Heilmittel",
+  "icon": "tribalpower:spirit_tincture",
+  "order": 20,
+  "items": [
+    "tribalpower:spirit_tincture",
+    "tribalpower:spirit_salve",
+    "tribalpower:spirit_incense"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_tincture",
+      "title": "Drei Wege, es zu nehmen",
+      "text": [
+        "- **Tinktur**: trink sie. Das Mittel hält **3 Minuten**, und du bekommst die Flasche zurück.",
+        "- **Salbe**: benutze sie, um sie dir aufzutragen, oder **benutze sie an jemand anderem**: einem Freund, einem Dorfbewohner, deinem Vertrauten. Sie heilt auf einmal **3 Herzen**, hebt **jeden** schädlichen Effekt auf und das Heilmittel hält halb so lang wie eine Tinktur.",
+        "- **Weihrauch**: setze ihn in ein [Ritualkohlenbecken](ritual_brazier), und er brennt für alle ringsum. Sieh unten.",
+        "**Jedes Heilmittel hebt [Geistleiden](spirit_sickness)** auf, und auch die anderen [Leiden](afflictions) des Marsches: Ungesungene Stille, Ausgefranst und Leyleiden."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was jede Familie braut",
+      "text": [
+        "- **Zunder** (Glut): Stärke.",
+        "- **Beschleunigung** (Blitz): Schnelligkeit.",
+        "- **Kühlung** (Kälte): Feuerresistenz.",
+        "- **Gegengift** (Gift): hebt Vergiftung, Verfall, Hunger und Übelkeit auf.",
+        "- **Federfall** (Bö): Langsamer Fall.",
+        "- **Verwurzelung** (Wurzel): Resistenz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was jede Familie braut, Fortsetzung",
+      "text": [
+        "- **Bollwerk** (Stoß): Absorption.",
+        "- **Klare Sicht** (Gewebe): Nachtsicht, hebt Blindheit und Dunkelheit auf.",
+        "- **Wiederherstellung** (Schwächung): Eile, hebt Schwäche, Langsamkeit und Abbaulähmung auf.",
+        "- **Vitalität** (Hund): Gesundheitsschub.",
+        "- **Reparatur** (Stille): Regeneration.",
+        "Die Farbe des Gebräus ist die Farbe seines Reagenzes, so kannst du sie in deinem Bündel auseinanderhalten."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Stimme des Totems",
+      "text": [
+        "Das Totem, das dem Kessel beim Brauen am nächsten ist, fügt seine eigene Gabe hinzu, angezeigt in der Kurzinfo:",
+        "- **Erde**: gewährt 2 Herzen Absorption.",
+        "- **Feuer**: hält anderthalbmal so lang.",
+        "- **Wasser**: eine Stufe stärker.",
+        "- **Luft**: heilt auf einmal 2 Herzen.",
+        "- **Geist**: fügt 10 Sekunden Regeneration hinzu.",
+        "- **Webstuhl**: hält doppelt so lang, bleibt aber auf Stufe I."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Brennender Weihrauch",
+      "text": [
+        "Benutze Weihrauch an einem Ritualkohlenbecken, um ihn einzusetzen; es fasst bis zu **16** Stäbchen eines Gebräus. Es brennt von allein, **ohne Siegel und ohne Puls**.",
+        "Alle zwei Sekunden erhält jeder innerhalb von **8 Blöcken**, Spieler und verbundene Vertraute, das Heilmittel für 12 Sekunden, und Vertraute werden um ein Herz geheilt. Jedes Stäbchen hält **30 Sekunden**. Ein Redstone-Signal am Kohlenbecken löscht es; benutze es schleichend mit leerer Hand, ohne eingesetztes Siegel, um den Weihrauch zurückzunehmen.",
+        "So hältst du ein ganzes Lager durch eine lange Nacht auf den Beinen."
+      ]
+    }
+  ],
+  "next": "healers_rattle"
+}

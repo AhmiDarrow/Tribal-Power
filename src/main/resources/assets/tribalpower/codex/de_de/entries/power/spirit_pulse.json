@@ -1,0 +1,225 @@
+{
+  "name": "Geistpuls",
+  "icon": "tribalpower:pulse_cell",
+  "order": 5,
+  "items": [
+    "tribalpower:greater_pulse_cell",
+    "tribalpower:grand_pulse_cell"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_cell",
+      "text": [
+        "Puls ist die lebendige Energie, auf der jede Maschine von Tribal Power läuft. Generatoren machen ihn, Maschinen verbrauchen ihn, und eine **Pulszelle** lässt dich etwas davon in der Tasche tragen, für Werkzeuge, Zauber und Reisen.",
+        "Eine schlichte Zelle hält **1,200 Puls**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wo der Puls wohnt",
+      "text": [
+        "Puls ist gespeicherte Energie. Ein Generator wie das Trommelherz, der Leysammler oder der Pulsresonator macht ihn und hält ihn im eigenen Speicher. Eine Maschine verbraucht ihn bei der Arbeit, erreicht diesen Speicher aber nur über das **Gitter**.",
+        "Puls reist nur entlang des [Gitterkonduktor](lattice_conductor). Alles innerhalb von **8 Blöcken** um einen Konduktor liegt auf dem Gitter: Generatoren, Maschinen, Lagerhände, Relais, Totems und [Pulskairn](pulse_cairn). Konduktoren innerhalb von 8 voneinander verbinden sich zu einem Netz, und eine Maschine zieht von den Generatoren und Kairns ihres Netzes. Eine Maschine ohne Konduktor in Reichweite hungert, selbst direkt neben einer vollen Trommel.",
+        "Für deine erste Werkstatt setze einen Konduktor zwischen die Trommel und die Station. Jeder Konduktor trägt anfangs **64 Puls pro Sekunde**, mehr, wenn er [an Rang gewinnt](machine_ranks). Maschinen leeren zuerst die Generatoren des Netzes, dann die Pulskairne des Netzes. Totems sind nicht zum Ausgeben da: jedes Resonanz-Totem hält **250 Puls** für sich, und dieser Puffer hält seine Stimme."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Angebot und Nachfrage",
+      "text": [
+        "Eine Maschine kann eine Weile aus einer Reserve laufen, auch wenn sie schneller ausgibt, als du erzeugst. Wenn sie ständig an- und ausgeht, vergleiche den Puls, den sie braucht, mit dem, was deine Generatoren liefern, und füge Erzeugung hinzu oder baue eine größere Reserve. Jede Pulszahl in diesem Buch gilt für die Standardeinstellungen; ein Pack kann sie ändern, und die Anzeige einer Maschine zeigt immer ihre echten Kosten.",
+        "Totems sind keine Generatoren. Ein passendes Totem gibt einer Station ihre Stimme, genannt **Einstimmung**; es erzeugt keine Energie. Ducke dich und rechtsklicke eine Maschine mit diesem Buch, und es meldet Energie und Einstimmung getrennt."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Eine Zelle füllen",
+      "steps": [
+        {
+          "caption": "Ein geladenes Trommelherz hält den Puls, den du hineingetrommelt hast.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Rechtsklicke es mit einer Pulszelle: eine Nutzung füllt die Zelle so weit, wie die Trommel hergibt.",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -1,
+              0,
+              0
+            ],
+            "item": "tribalpower:pulse_cell"
+          }
+        },
+        {
+          "caption": "Ein Pulsresonator, ein Stimmwerk wie eine Windharfe oder ein Pulskairn füllt eine Zelle ebenso, in einer Nutzung alles, was sie fassen kann.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:pulse_cell"
+          }
+        },
+        {
+          "caption": "Der Generator verliert, was die Zelle gewinnt. Ein Leysammler kann eine Zelle so nicht füllen.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:ley_collector"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Es tragen",
+      "text": [
+        "Eine Pulszelle hält **1.200 Puls**; eine **Größere Pulszelle** hält **4.800**; eine **Prächtige Pulszelle** hält **19.200**. Trage geladene Zellen für Zauber, Geistergerät, Amulette und Reisen. All das zieht an Zellen in deinem Inventar.",
+        "Eine Zelle in deiner Tasche ist **nicht** im Gitter. Werkstätten und Tafelriten brauchen weiter Puls aus dem Gitter um sie herum.",
+        "Um ein Wegtor oder ein Ferntor zu laden, benutze eine Zelle an seinem Schlussstein: jede Nutzung schiebt bis zu **100 Puls** hinein, und Fahrten verbrauchen diesen Vorrat, nicht die Zelle in deiner Tasche. Eine Tortrommel braucht gar keinen Puls: ihr Ritus öffnet sie.",
+        "Benutze eine Zelle an einem Lager, um Puls in seinen Vorrat von **2.400** für die [Lagerhände](camp_hands) zu gießen; eine Nutzung bewegt so viel, wie im Lager Platz ist.",
+        "Ein [Pulsmesser](pulse_gauge), auf eine Maschine gerichtet, die Puls hält, liest ab, wie voll sie ist."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_cell"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:greater_pulse_cell",
+      "text": "Eine Pulszelle zwischen zwei Resonanzkernen und zwei Manifestierten Barren, alles aus dem Echomanifestierer."
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grand_pulse_cell",
+      "text": "Eine größere Zelle, umringt von vier Resonanzkernen und vier Manifestierten Barren."
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "name": "Corno di brace",
+  "icon": "tribalpower:ember_horn",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_horn",
+      "text": [
+        "Il mestiere dei Cuoritamburo: un corno che brucia il combustibile della fornace in Pulso. Carbone, carbonella, lava, verghe di blaze: qualunque cosa bruci una fornace, il corno la volge in potenza costante.",
+        "Contiene **1,000 Pulso**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Alimentarlo",
+      "text": [
+        "Fai clic destro con del combustibile, oppure lascia che una tramoggia o un relè lo alimenti. Il tempo di combustione del combustibile diviso per venti è il suo Pulso: il carbone è **80**, un blocco di carbone **800**, un secchio di lava **1,000**, una verga di blaze **120**.",
+        "Lascia uscire quel Pulso fino a **20 al secondo**. Più combustibile non alza il tetto; dura solo di più.",
+        "Accende il pezzo successivo solo quando ha spazio, così un corno pieno non spreca nulla. Il secchio vuoto della lava esce sopra il corno; da un fuoco acceso non si può estrarre nient'altro.",
+        "Accovacciati e fai clic destro su una faccia a mano vuota per farlo passare tra Entrambi, Ingresso, Uscita e Chiuso, come fa la [Chiave del totem](camp_kit)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un corno che si alimenta da solo",
+      "steps": [
+        {
+          "caption": "Piazza il corno dove le macchine entro 8 blocchi possono attingervi.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_horn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Una tramoggia sopra gli dà combustibile.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=down]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un baule di carbone sopra la tramoggia lo tiene acceso a lungo: ogni carbone è 80 Pulso.",
+          "place": [
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_horn[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Una leva accanto mette in pausa il corno. Il combustibile aspetta e basta.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Aumentare la scala",
+      "text": [
+        "Senza rango, il corno produce al massimo **20 al secondo**. Ogni rango aggiunge **15% di Pulso al secondo**, arrotondato a un Pulso intero. Oltre ciò, costruisci altri corni.",
+        "Nessun ciclo che puoi automatizzare trasforma il combustibile in più combustibile di quanto ne bruci. Persino il carbone richiamato dalla Fossa d'ascolto costa più Pulso da recuperare e frantumare di quanto ne restituisca.",
+        "Un clic a mano vuota ti dice cosa produce e cosa contiene. Accovacciati e fai clic destro con questo libro per vedere il combustibile e la combustione ancora dovuta.",
+        "I corni sono l'opera dei [Cuoritamburo](tribe_spark): la ricetta richiede un Nodo di tizzone e un Sigillo di Fuoco, e i Cuoritamburo scambiano un corno con chiunque chiamino Amico."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_horn"
+    }
+  ]
+}

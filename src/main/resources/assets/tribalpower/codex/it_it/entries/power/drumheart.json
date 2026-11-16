@@ -1,0 +1,170 @@
+{
+  "name": "Cuoretamburo",
+  "icon": "tribalpower:drumheart",
+  "order": 10,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:drumheart",
+      "text": [
+        "Il primo generatore che costruirai, e quello a cui continuerai a tornare. Il Cuoretamburo conserva fino a **1,000 Pulso**, e ogni battito che gli dai ne aggiunge."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Suonarlo",
+      "text": [
+        "Fai clic destro con la **mano vuota**, circa **una volta al secondo**. Un battito a tempo dà **24 Pulso**. Uno fuori tempo dà al massimo **10**, e meno quanto prima segue l'ultimo, quindi un ritmo costante batte il clic veloce.",
+        "Le macchine attingono dal tamburo attraverso un [Conduttore di reticolo](lattice_conductor) entro 8 blocchi da esso, mai direttamente da esso. Per portare energia altrove, usa una **Cella di Pulso** sul tamburo. Rompere il tamburo perde il Pulso che contiene.",
+        "Suonare a mano sveglia anche ogni totem entro 8 blocchi; vedi [Custodia](keeping)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Suonarlo con redstone",
+      "steps": [
+        {
+          "caption": "Un Cuoretamburo da solo ha bisogno che tu tenga il tempo.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Metti una Piastra del battito accanto. Batte una volta al secondo.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:heartbeat_plate"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ogni impulso della piastra è un battito. Il tamburo ora si riempie da solo mentre lavori altrove.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Il ritmo, esattamente",
+      "text": [
+        "I battiti di redstone distanti **da 17 a 23 tick di gioco** contano come in tempo. I battiti a meno di **8 tick** di distanza vengono ignorati. Venti tick sono un secondo alla velocità normale del server.",
+        "Un segnale di redstone tenuto non mette in pausa il Cuoretamburo; solo il fronte di salita di un impulso conta come battito.",
+        "I tamburi si ostacolano. Solo **due tamburi in una zona** — la stessa portata di 8 blocchi che un conduttore tesse — producono Pulso; ogni altro batte ancora e suona ancora, ma non rende nulla. Distanziali di più e ognuno torna a pagare.",
+        "Ogni [rango](machine_ranks) aggiunge **15% di Pulso per battito**. I generatori non accelerano come fanno le stazioni con rango."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart"
+    }
+  ]
+}

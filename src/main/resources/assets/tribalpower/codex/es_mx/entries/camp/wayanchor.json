@@ -1,0 +1,38 @@
+{
+  "name": "Ancla de camino",
+  "icon": "tribalpower:wayanchor",
+  "order": 80,
+  "next": "summoning_cradle",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wayanchor",
+      "text": [
+        "Mantiene un chunk en marcha mientras estás lejos. Un extremo de relé, un Foso de escucha o un Portal en un chunk lejano se detiene cuando no hay nadie cerca; una Ancla de camino mantiene su chunk cargado por **16 Pulso** al segundo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Poner uno en marcha",
+      "text": [
+        "Colócala dentro del chunk que debe seguir despierto. Sostiene exactamente ese chunk, no un radio a su alrededor. Responde a **Tierra**: mantén un tótem de Tierra a 8 bloques o menos (véase [Manos del campamento](camp_hands)), o suelta el chunk.",
+        "Guarda una reserva de **2,400 Pulso** y la recarga hasta en **80** por segundo desde el entramado. También puedes rellenarla con una Célula de Pulso.",
+        "La redstone, o una reserva vacía, suelta el chunk. Romper el ancla lo suelta de inmediato.",
+        "Haz clic derecho para ver si está sosteniendo. Un comparador lee 15 mientras lo hace."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Límites y usos",
+      "text": [
+        "Cada jugador puede tener en marcha hasta **32** anclas en cada mundo. Los miembros de un [campamento compartido](shared_camps), en cambio, comparten **12** anclas entre ellos, contadas en todos los mundos, así que pónganse de acuerdo sobre qué chunks importan.",
+        "Los relés nunca mantienen los chunks cargados por sí mismos. Si ambos extremos de un relé deben funcionar mientras viajas, pon un ancla en el extremo lejano.",
+        "Los Portales mantienen despierto su extremo lejano unos segundos cuando alguien llega, así que un Portal solo necesita un ancla si allí algo debe seguir en marcha."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wayanchor"
+    }
+  ]
+}

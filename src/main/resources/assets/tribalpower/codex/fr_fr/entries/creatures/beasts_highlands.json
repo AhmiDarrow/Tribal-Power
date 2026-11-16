@@ -1,0 +1,74 @@
+{
+  "name": "Bêtes des hautes terres",
+  "icon": "tribalpower:crag_fleece",
+  "order": 210,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cragcoat_spawn_egg",
+    "tribalpower:bouldersnout_spawn_egg",
+    "tribalpower:updrifter_spawn_egg",
+    "tribalpower:scree_lurcher_spawn_egg",
+    "tribalpower:crag_fleece",
+    "tribalpower:boulder_tusk",
+    "tribalpower:drift_bladder",
+    "tribalpower:scree_knuckle"
+  ],
+  "next": "beasts_glimmer_ridge",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Propres aux hautes terres",
+      "text": [
+        "Parmi la pierre, la mousse et les bosquets des hautes terres vivent un bélier de montagne, un sanglier, une physalie qui dérive au vent, et un singe de pierre qui sort la nuit.",
+        "Chaque bête douce d'ici se brosse une fois par minute pour son réactif, et s'attire et se reproduit avec sa propre nourriture, nommée plus bas sous **Chasse et élevage**. On peut la lier comme n'importe quel animal doux (voir [familiers](familiars)) et, même si aucune n'a de don propre, une liée peut tout de même prendre une voix à un totem et renforcer ta magie (voir [s'accorder à un totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cragcoat",
+      "title": "Manteau d'escarpement",
+      "text": [
+        "Un bélier de montagne à la toison lourde, en troupeaux de deux à quatre. **30 de santé** et **7 d'armure**, et lent.",
+        "Il lâche de 1 à 3 **Toison d'escarpement**, davantage avec Butin.",
+        "Chassé, il lâche aussi de 1 à 3 Gibier cru et jusqu'à 2 Cuir de la Marche. Reproduis avec **blé**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bouldersnout",
+      "title": "Groin-de-roche",
+      "text": [
+        "Un sanglier à défenses, à la peau comme un éboulis, en troupeaux de deux à quatre. **30 de santé** et **4 d'armure**.",
+        "Il lâche de 1 à 3 **Défense de roche**.",
+        "Chassé, il lâche aussi de 1 à 3 Gibier cru et jusqu'à 2 Cuir de la Marche. Reproduis avec **pommes de terre ou carottes**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:updrifter",
+      "title": "Hautdériveur",
+      "text": [
+        "Une physalie du ciel, un flotteur vitreux sous une crête magenta traînant des tentacules urticants, qui dérive au-dessus des pentes, d'une à trois. **12 de santé**, sans armure.",
+        "Il lâche de 1 à 3 **Vessie à la dérive**.",
+        "Chassé, il lâche aussi jusqu'à 2 Ficelle. Reproduis avec **Chardon de ley**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:scree_lurcher",
+      "title": "Titubeur d'éboulis",
+      "text": [
+        "Un singe de pierre, des plaques de roche sur le dos, qui apparaît la nuit en terrain ouvert, un ou deux à la fois. Il a **32 de santé** et **3 d'armure** et frappe pour **6**, et chaque coup te repousse.",
+        "Il lâche de 1 à 2 **Phalange d'éboulis**, un réactif de Poussée.",
+        "Chassé, il lâche aussi de 1 à 2 Silex et jusqu'à 2 Pépite de fer."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chasse et élevage",
+      "text": [
+        "Outre son réactif, chacun en lâche plus quand on le chasse, et encore plus avec Butin. La viande tombe en Gibier rôti si l'animal est mort en brûlant. Pour reproduire les sauvages, **accroupis-toi** pendant que tu nourris deux adultes de leur nourriture ; nourri normalement, un sauvage s'apprivoise à la place."
+      ]
+    }
+  ]
+}

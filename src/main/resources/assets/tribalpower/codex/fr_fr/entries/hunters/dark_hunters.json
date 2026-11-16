@@ -1,0 +1,74 @@
+{
+  "name": "Chasseurs dans le noir",
+  "icon": "tribalpower:lurker_claw",
+  "order": 290,
+  "spoiler": true,
+  "items": [
+    "tribalpower:deep_lurker_spawn_egg",
+    "tribalpower:pale_stalker_spawn_egg",
+    "tribalpower:gloom_crawler_spawn_egg",
+    "tribalpower:veil_drifter_spawn_egg",
+    "tribalpower:lurker_claw",
+    "tribalpower:pale_fang",
+    "tribalpower:gloom_silk",
+    "tribalpower:veil_tatter"
+  ],
+  "next": "colossus_warden",
+  "pages": [
+    {
+      "type": "text",
+      "title": "En dessous et au-dessus",
+      "text": [
+        "Trois chasseurs possèdent les grottes de la Marche, et ils s'y lèvent dans le noir le jour aussi bien que la nuit. Un quatrième dérive au-dessus des hautes terres la nuit.",
+        "Aucun d'eux ne se liera. Chacun lâche **1 à 2** de son réactif, davantage avec Butin."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:deep_lurker",
+      "title": "Guetteur des profondeurs",
+      "text": [
+        "Une taupe à nez étoilé de la taille d'un ours, le plus coriace des chasseurs des grottes, sous toutes les terres de la Marche, un ou deux à la fois. Il a **32 points de vie** et **3 d'armure** et mord pour **5**.",
+        "Il lâche **Griffe de guetteur**, un réactif de Molosse qui se broie en teinture Bleu clair.",
+        "Quand on le chasse, il lâche aussi jusqu'à 2 os et jusqu'à 1 Cuir de la Marche."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_stalker",
+      "title": "Traqueur pâle",
+      "text": [
+        "Une goule des cavernes émaciée et sans yeux, grande, pâle et vive, des cavernes sous la Steppe, les Hautes Terres, la Crête de la Lueur, les Champs de Neige et les Champs de Cristal, une ou deux à la fois. **24 points de vie** et **1 point d'armure**. Son coup inflige **4** et t'affaiblit pendant 4 secondes.",
+        "Elle lâche **Croc pâle**, un réactif d'Affaiblissement.",
+        "Chassée, elle lâche aussi 1 à 2 os."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:gloom_crawler",
+      "title": "Rampeur de pénombre",
+      "text": [
+        "Un mille-pattes des cavernes, bas et sombre, des cavernes sous toutes les terres sauf les Bas-fonds, un ou deux à la fois. **22 points de vie** et **2 points d'armure**. Sa morsure inflige **4**, te ralentit pendant 3 secondes et peut te laisser [Effiloché](afflictions).",
+        "Il lâche **Soie de pénombre**, un réactif de Tissage.",
+        "Chassé, il lâche aussi 1 à 2 ficelles et jusqu'à 1 œil d'araignée."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:veil_drifter",
+      "title": "Dériveur du voile",
+      "text": [
+        "Un linceul déchiré à la dérive, sur des ailes de chauve-souris, qui s'élève la nuit au-dessus des Hautes Terres, de la Crête de la Lueur, des Champs de Neige et des Champs de Cristal, un ou deux à la fois. **18 points de vie** et **1 point d'armure**.",
+        "Jusqu'à 12 blocs de distance, il lance une rafale de **3** qui te repousse. Un abri interrompt l'incantation. Il lâche **Lambeau de voile**, un réactif de Rafale.",
+        "Chassé, il lâche aussi jusqu'à 1 membrane de Phantom et jusqu'à 1 ficelle."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chasse et pâturage",
+      "text": [
+        "Outre son réactif, chacun en lâche plus quand on le chasse, et encore plus avec Butin."
+      ]
+    }
+  ]
+}

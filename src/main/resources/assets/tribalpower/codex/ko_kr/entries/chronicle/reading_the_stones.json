@@ -1,0 +1,38 @@
+{
+  "name": "돌 읽기",
+  "icon": "tribalpower:carved_stone",
+  "order": 0,
+  "spoiler": false,
+  "items": [
+    "tribalpower:carved_stone",
+    "tribalpower:mural",
+    "tribalpower:soil_banner_pattern",
+    "tribalpower:stone_banner_pattern",
+    "tribalpower:sprout_banner_pattern",
+    "tribalpower:claw_banner_pattern",
+    "tribalpower:spark_banner_pattern",
+    "tribalpower:clock_banner_pattern",
+    "tribalpower:swarm_banner_pattern",
+    "tribalpower:sigil_banner_pattern",
+    "tribalpower:spindle_banner_pattern"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "조각된 돌과 벽화",
+      "text": [
+        "마치는 제 역사를 돌에 적어 두었다. 폐허의 벽에는 **조각된 돌**이 박혀 있다. 베틀의 폐허, 고상 마을, 가라앉은 사당, 늪의 고분, 재의 무덤, 납골당, 굴착 회랑, 그리고 잔광 능선의 금고실이다. 수호자의 터에는 가로 두 블록, 세로 두 블록의 **조각된 벽화**가 서 있고, 각각 서 있는 땅을 그린다.",
+        "하나를 우클릭하면 읽힌다. 조각은 여기에 영원히 남고, 연대기가 제자리에 놓는다. **열여섯**: 베틀의 추락을 위한 돌 여덟, 남겨 둔 나라들을 위한 벽화 여덟. 모두 읽으면 연대기가 온전해지고, 발전 과제 **온전한 연대기**가 그 증거다.",
+        "돌과 벽화는 집어 자기 벽이라면 어디에나 놓을 수 있다. 크리에이티브에서는 돌이나 벽화를 웅크리며 클릭하면 장이 바뀐다. 모든 장은 찾기 전까지는 이야기를 흘린다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "그림과 문장",
+      "text": [
+        "마치의 **그림** 여섯이 이제 보통 그림들 사이에 걸린다. 그림을 벽에 대면 하나가 나올 수 있다. 제목은 그림 저마다의 것이다.",
+        "부족과의 위상이 **일족**에 이르면, 그 **문장**을 한 번 건넨다. 부족의 표식이 있는 현수막 무늬다. 현수막과 아무 염료나 함께 베틀에 넣는다. 자기 야영지 위에 걸어, 누구의 일족인지 보여 준다."
+      ]
+    }
+  ]
+}

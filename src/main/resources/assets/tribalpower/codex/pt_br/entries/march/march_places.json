@@ -1,0 +1,69 @@
+{
+  "name": "Lugares da Marcha",
+  "icon": "tribalpower:march_stone_bricks",
+  "order": 64,
+  "spoiler": true,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ruínas e acampamentos",
+      "text": [
+        "As tribos deixaram mais do que salões e círculos de tambores. Cada terra da Marcha tem os próprios restos, a maioria com um baú que vale abrir, e alguns guardados pelo que ainda anda por lá.",
+        "As Ruínas do Portal antigo e a Gruta de cristal guardam seus melhores baús atrás de **Sentinela oco**, e a Tumba de cinza atrás de geradores de **Cinzligado** e de **Diabrete de borralho**. Esses baús podem guardar um **Núcleo ressonante** ou **Fio de Tear**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Acampamentos e aldeias",
+      "text": [
+        "Cada tribo mantém um acampamento em cada faixa da Marcha, feito da madeira e do chão da própria faixa: pinho de geada e neve na borda congelada, abeto espinhoso e marga de agulhas nas taigas frias, palmeira-tambor nas savanas, casca-de-sol e sal nas terras quentes. Os Guardiões do leito ficam com os prados e as colinas, os Cantores de cascalho com os picos e as mesas, os Vinculadores de raízes com os bosques profundos, os Caminhantes da borda com as taigas, os Corações de tambor com o chão seco e ardente, os Tecelões de padrões com as estepes abertas, os Guardiões da colônia com as terras em flor, os Entalhadores de selos com os bosques escuros e os Costureiros do tear com o país estranho e iluminado.",
+        "**Aldeias** também ficam em cada faixa: uma praça com o Lar da tribo, o fogo, o totem, o poço e o Tear, seus quatro Parente, e o gerador próprio da voz, zumbindo; ruas da pedra da faixa que levam a cabanas, casas compridas, uma oficina com um Triturador de eco e uma Bancada do canto, um celeiro da cultura da faixa, um santuário, uma torre de vigia, um curral dos pastadores da faixa e um jardim de flores. O Lar de uma aldeia aceita oferendas como o Lar de um acampamento."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pedaços do velho mundo",
+      "text": [
+        "Sobre os picos e o terreno alto, e sobre mais de um Colosso chorão, **montanhas flutuantes do velho mundo** pendem no céu: penhascos altos de rocha da Marcha, largos na coroa e afinados numa ponta embaixo, as faces em faixas e musgosas, grama e árvores no topo, um anel quebrado de Tijolos com um baú dentro, trepadeiras em cada lado e uma cachoeira que despenca da borda. Pendem em grupos a alturas diferentes, ligadas por trepadeiras gigantes, com pedras pequenas à deriva ao redor.",
+        "Um grupo se prende ao chão por **raízes gigantes de Madeira de salgueiro**, revestidas de Folhas e com cortinas de Mecha de salgueiro que descem o caminho todo. Dá para escalar: segure na base de uma raiz e suba até o céu. Sobre um Colosso chorão as raízes acabam na copa, então a árvore é a escada."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "A Estepe e o planalto",
+      "text": [
+        "- **Santuário do viajante**: um santuário coberto à beira do caminho, numa trilha antiga, com um baú de oferendas.",
+        "- **Pedras de pasto**: um anel de pedras de pé ao redor de um lambedouro de sal.",
+        "- **Posto abandonado**: um posto de revezamento em ruínas, um mastro ainda de pé.",
+        "- **Torre do tambor caída**: uma torre quebrada; seu grande tambor jaz na grama.",
+        "- **Baliza de vigília**: uma torre de pedra num outeiro, com o fogo de sinal ainda aceso.",
+        "- **Pedreira de eco**: um poço em terraços com Minério da Marcha nas paredes e um guindaste na borda.",
+        "- **Altar da tempestade**: um altar de tufo sob um para-raios.",
+        "- **Retiro dos Entalhadores de selos**: salas escavadas num penhasco, com uma oficina e um sótão.",
+        "- **Ruínas do Portal antigo**: um Portal da senda meio enterrado sobre um salão vigiado e uma câmara gradeada."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Os Campos de Neve e os Ermos da Brasa",
+      "text": [
+        "- **Salão longo congelado**, **Marco de gelo**, **Cabana do Caçador** e **Vigia da aurora** na neve.",
+        "- **Forja de brasa**, **Torre de borralho** e **Anel de escória** na cinza, e o **Covil do remanescente**, onde os sobreviventes resistiram.",
+        "- **Tumba de cinza**: uma tumba enterrada sob os Ermos da Brasa, guardada, e vale o risco."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Os Campos de Cristal e o Brejo dos Juncos",
+      "text": [
+        "- **Observatório estilhaçado**: um terraço de carta estelar sob uma cúpula quebrada.",
+        "- **Obelisco de ressonância**: um obelisco coroado de cristal sobre uma câmara oculta.",
+        "- **Ruína do Tear**: um grande tear caído, o pano ainda pendurado.",
+        "- **Gruta de cristal**: uma escada em espiral desce até uma caverna de geodo e uma câmara atrás de uma Porta de ferro.",
+        "- **Aldeia sobre palafitas**, **Santuário submerso**, **Açude de juncos** e **Túmulo de brejo** no brejo.",
+        "- **Poço do Espírito**: um poço coberto cercado de flores, o baú de oferendas no fundo da água."
+      ]
+    }
+  ]
+}

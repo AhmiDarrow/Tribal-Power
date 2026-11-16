@@ -1,0 +1,17 @@
+{
+  "name": "9. 灰",
+  "icon": "tribalpower:mural",
+  "order": 18,
+  "spoiler": true,
+  "unlock": "fragment:8",
+  "pages": [
+    {
+      "type": "text",
+      "title": "灰",
+      "text": [
+        "“余烬荒地曾是鼓心族的森林。森林在坠落时燃烧，再也没有熄灭。鼓手们逃走时，炉渣之下有什么接过了节拍，从此一直守着错误的拍子。”",
+        "发现于守护者之地的一幅壁画上。"
+      ]
+    }
+  ]
+}

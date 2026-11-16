@@ -1,0 +1,51 @@
+{
+  "name": "Centinela hueco",
+  "icon": "tribalpower:sentinel_sigil",
+  "order": 110,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hollow_sentinel_spawn_egg",
+    "tribalpower:sentinel_sigil"
+  ],
+  "next": "storm_moth",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:hollow_sentinel",
+      "text": [
+        "Una armadura vacía de guardián que aún vigila los viejos caminos, lanza en mano. Sus golpes te dejan el brazo débil.",
+        "Si se caza, también suelta de 1 a 3 pepitas de hierro."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Los Centinelas huecos recorren las Tierras Altas de la Marcha, los Campos de Nieve y la Cresta del Destello; unos pocos, los Campos de Cristal; y tres montan guardia en cada [Salón de los ancestros](ancestor_hall).",
+        "Tiene **44 de salud** y **6 de armadura**, el más duro de los remanentes, y golpea por **6**. Cada golpe te da Debilidad durante 4 segundos. La luz y un bastón cargado ayudan."
+      ],
+      "title": "Dónde y cómo"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Suelta **de 1 a 2 Sigilo de centinela**.",
+        "Un Sigilo de centinela se sintoniza en 2 Eco sintonizado bajo Espíritu."
+      ],
+      "title": "Lo que da"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ningún amuleto vinculará a un Centinela hueco. Sirve a las salas, no a ti."
+      ],
+      "title": "No se vinculará"
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, suelta esto si se caza, y más con Saqueo."
+      ]
+    }
+  ]
+}

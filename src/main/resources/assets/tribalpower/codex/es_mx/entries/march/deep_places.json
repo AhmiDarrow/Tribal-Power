@@ -1,0 +1,48 @@
+{
+  "name": "Lugares profundos de la Marcha",
+  "icon": "tribalpower:march_stone_bricks",
+  "order": 32,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Bajo la excavación",
+      "text": [
+        "Todo lo demás que enterró la Marcha está apenas enterrado — un túmulo bajo el césped, una tumba a una docena de bloques de profundidad. Estos cuatro están más adentro, hundidos en la piedra misma, sin pozo y sin entrada. Los encuentras minando, o siguiendo una cueva que se abre donde no debería.",
+        "Lleva una antorcha. Ninguno está iluminado de punta a punta, y lo que vive ahí abajo llegó primero."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "El Templo profundo",
+      "text": [
+        "Una sala columnada de Ladrillos de piedra de la Marcha, sellada en la roca: un altar escalonado bajo el centro, con una **Tablilla de relatos** puesta en su piedra trasera, faroles de Espíritu a cada lado y un cofre en cada esquina lejana. El suelo está puesto en piedra pulida, y la entrada se cerró hace mucho.",
+        "Guarda lo viejo — ecos vinculados, sellos, obra armonizada."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La Galería de excavación",
+      "text": [
+        "Alguien trabajó esta veta y paró. Madera apuntalada, techo de tablones, mena aún en las paredes, y un extremo bajo un derrumbe de escombros que probablemente explica la parada. Un cofre de herramientas y raciones junto a la boca.",
+        "Más superficiales que el resto: las encuentras donde la mena aún vale la pena."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La Bóveda del Destello",
+      "text": [
+        "Solo bajo la **Cresta del Destello**. Una cámara labrada de Piedra lunar y Piedra lunar pulida, con Ágata musgosa puesta en el suelo en anillos, Cristal de cuarzo iluminado encajado en la bóveda de arriba, y Cuarzo de la Marcha crecido de la piedra — hacia arriba desde el suelo, hacia abajo desde el techo.",
+        "Quien la talló estaba luciéndose. El cofre guarda la piedra propia de la cresta, y piedra luminosa para alumbrarla."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "El Osario",
+      "text": [
+        "Una cripta: hornacinas en tres hiladas a lo largo de ambos muros largos, hueso puesto en ellas, telaraña en el resto, y un farol de Espíritu cada pocos pasos que de algún modo sigue ardiendo. Un cofre al fondo.",
+        "La más profunda de las cuatro. Es sobre todo hueso y podredumbre, pero no solo eso."
+      ]
+    }
+  ]
+}

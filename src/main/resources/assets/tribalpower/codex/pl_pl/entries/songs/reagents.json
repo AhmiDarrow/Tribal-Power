@@ -1,0 +1,261 @@
+{
+  "name": "Odczynniki",
+  "icon": "tribalpower:reagent_pouch",
+  "order": 10,
+  "items": [
+    "tribalpower:reagent_pouch",
+    "tribalpower:dawn_velvet",
+    "tribalpower:lantern_down",
+    "tribalpower:mossback_scale",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:bounder_horn",
+    "tribalpower:grub_husk",
+    "tribalpower:tuft_wool",
+    "tribalpower:shank_sinew",
+    "tribalpower:pale_down",
+    "tribalpower:crag_fleece",
+    "tribalpower:boulder_tusk",
+    "tribalpower:drift_bladder",
+    "tribalpower:prism_crest",
+    "tribalpower:shard_wing",
+    "tribalpower:glow_husk",
+    "tribalpower:drift_pelt",
+    "tribalpower:frost_hoof",
+    "tribalpower:snow_veil",
+    "tribalpower:ash_wing",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:silt_fin",
+    "tribalpower:pale_streamer",
+    "tribalpower:shoal_scale",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark",
+    "tribalpower:ember_heart",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale",
+    "tribalpower:cinder_plate",
+    "tribalpower:slag_curd",
+    "tribalpower:slag_hide",
+    "tribalpower:knotted_root",
+    "tribalpower:heartwood_core",
+    "tribalpower:reed_fang",
+    "tribalpower:gnasher_tooth",
+    "tribalpower:facet_barb",
+    "tribalpower:rime_mandible",
+    "tribalpower:shard_barb",
+    "tribalpower:brine_fang",
+    "tribalpower:prism_carapace",
+    "tribalpower:scree_knuckle",
+    "tribalpower:ember_fang",
+    "tribalpower:reed_whorl",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:sentinel_sigil",
+    "tribalpower:pale_fang",
+    "tribalpower:barrow_shroud",
+    "tribalpower:drowned_weed",
+    "tribalpower:storm_wing",
+    "tribalpower:veil_tatter",
+    "tribalpower:cinder_knot",
+    "tribalpower:shade_ember",
+    "tribalpower:bell_fragment",
+    "tribalpower:wraith_veil",
+    "tribalpower:rift_tooth",
+    "tribalpower:lurker_claw",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn",
+    "tribalpower:echo_silk",
+    "tribalpower:gloom_silk"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Każde stworzenie Marszu zostawia coś po sobie: kieł, łuskę, kępkę wełny. To **odczynniki**, i tak Tribal Power zamienia polowanie w magię.",
+        "Trzymaj {item:tribalpower:reagent_pouch} na pasku szybkiego wyboru. Każdy zwykły odczynnik, który podniesiesz, trafia prosto do sakiewki. Sakiewka mieści do **999** każdego rodzaju, surowe i wzmocnione, więc nie zapełnia twoich toreb. Odczynnik z **Nicią** zostaje w torbach (następna strona).",
+        "Kliknij sakiewkę prawym przyciskiem, aby zajrzeć do środka i wyjąć surowe odczynniki, do barwników, remediów i przepisów. Przycisk **Weź** przy Stół pieśni robi to samo.",
+        "Odczynnik na początku jest **surowy**. [Stół pieśni](song_bench) pozwala **wzmocnić** go za 16 Puls. Surowe odczynniki warzą remedia i wchodzą do kilku przepisów; wzmocnione piszą pieśni, opierzają strzały zwrotki i namaszczają broń."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nici",
+      "text": [
+        "Niektóre odczynniki niosą **Nić**, I, II lub III, nazwaną złotem w opisie. To siła stworzenia, z którego pochodzą, odczytana, gdy odczynnik je opuszcza, przez zabicie albo pędzel: najsilniejsza nić linii krwi powyżej 2 i stopień więcej dla **elity** o złotym imieniu.",
+        "- **Nić I**: dzikie stworzenie z nicią na 3, albo dowolna elita.",
+        "- **Nić II**: hodowana linia z nicią na 4, albo elita z nicią na 3.",
+        "- **Nić III**: **wywyższona** linia, nić na 5. Szczotkuj własnego wywyższonego chowańca, a wyjdą dwa na minutę.",
+        "Odczynniki różnych Nici nigdy się nie składają. Wszędzie indziej odczynnik z nicią działa jak każdy inny; [Serce ley](ley_heart) spala go goręcej, wart **6, 9 lub 12** wobec 4 u zwykłego."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rodziny",
+      "text": [
+        "To, co robi odczynnik, zależy od jego **rodziny**, a ta pochodzi od stworzenia, z którego spadł. Jest ich jedenaście i każda znaczy to samo, gdziekolwiek jej użyjesz:",
+        "- w **pieśni**, co odczynnik dodaje po pierwszym;",
+        "- na **namaszczonej broni**, co broń robi temu, w co trafi ([Namaszczenie](anointing));",
+        "- w **remedium**, co wywar robi temu, kto je przyjmie ([Remedia](remedies)).",
+        "Następne strony wymieniają każdą rodzinę, które odczynniki do niej należą i co robi w każdym z trzech."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Zetrzyj surowy odczynnik w **misce** z jednym patyczkiem **Rytualna kreda** (włóż wszystkie trzy w siatkę wytwarzania; cały stos kredy się nie nada) i dostaniesz **2 barwnika**. Miska wraca, a kreda traci tylko jeden znak.",
+        "Szesnaście odczynników daje szesnaście barwników:",
+        "- **Biały**: Blady puch",
+        "- **Jasnoszary**: Wełna skubacza",
+        "- **Szary**: Skrzydło burzy",
+        "- **Czarny**: Popielne skrzydło",
+        "- **Brązowy**: Łupina larwy",
+        "- **Czerwony**: Pyłek żaru",
+        "- **Pomarańczowy**: Łuska magmy",
+        "- **Żółty**: Kora żaru"
+      ],
+      "title": "Barwniki z odczynników"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Jasnozielony**: Ucho goblina",
+        "- **Zielony**: Sękaty korzeń",
+        "- **Błękitny**: Pył połysku",
+        "- **Jasnoniebieski**: Szpon czyhacza",
+        "- **Niebieski**: Pryzmatyczny pancerz",
+        "- **Fioletowy**: Puch latarni",
+        "- **Purpurowy**: Zarodnik dzwonkowego kapelusza",
+        "- **Różowy**: Płatek wróżki"
+      ],
+      "title": "Barwniki z odczynników, ciąg dalszy"
+    },
+    {
+      "type": "text",
+      "title": "Żar",
+      "text": [
+        "**Odczynniki**: Serce żaru, Pyłek żaru, Łuska magmy, Płyta żaru, Żużlowy twaróg, Skóra żużla.",
+        "- **Pieśń**: podpala cel.",
+        "- **Namaszczenie**: Przypalenie: pali cel i dodaje ogień do każdego ciosu.",
+        "- **Remedy**: Podpałka: Siła."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Błyskawica",
+      "text": [
+        "**Odczynniki**: Węzeł żagwi, Żar cienia.",
+        "- **Pieśń**: podpala cel.",
+        "- **Namaszczenie**: Wezwanie burzy: jedna czwarta ciosów posyła łuk błyskawicy w dwóch pobliskich wrogów.",
+        "- **Remedy**: Przyspieszenie: Szybkość."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chłód",
+      "text": [
+        "**Odczynniki**: Odłamek dzwonu, Zasłona upiora.",
+        "- **Pieśń**: spowalnia cel.",
+        "- **Namaszczenie**: Odmrożenie: spowalnia i zamraża cel.",
+        "- **Remedy**: Chłodzenie: Odporność na ogień."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jad",
+      "text": [
+        "**Odczynniki**: Kieł trzciny, Ząb miażdżący, Kolec fasety, Żuwaczka szronu, Kolec odłamka, Solankowy kieł.",
+        "- **Pieśń**: zatruwa cel.",
+        "- **Namaszczenie**: Jad: zatruwa cel.",
+        "- **Remedy**: Antidotum: zdejmuje zatrucie, uwiąd, głód i nudności."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Podmuch",
+      "text": [
+        "**Odczynniki**: Skrzydło burzy, Strzęp zasłony.",
+        "- **Pieśń**: odrzuca cel do tyłu.",
+        "- **Namaszczenie**: Wicher: ciska cel w tył i w górę.",
+        "- **Remedy**: Upadek pióra: Powolne opadanie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Korzeń",
+      "text": [
+        "**Odczynniki**: Sękaty korzeń, Rdzeń twardzieli.",
+        "- **Pieśń**: spowalnia cel.",
+        "- **Namaszczenie**: Wrastanie: jedna piąta ciosów zakorzenia cel w miejscu.",
+        "- **Remedy**: Zakorzenienie: Odporność."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pchnięcie",
+      "text": [
+        "**Odczynniki**: Pryzmatyczny pancerz, Kłykieć piargu, Kieł węgielka, Trzcinowy okółek, Skóra trolla, Skóra szronu.",
+        "- **Pieśń**: mocno odrzuca cel do tyłu.",
+        "- **Namaszczenie**: Rozłupanie: ciosy gryzą tym mocniej, im więcej pancerza nosi cel.",
+        "- **Remedy**: Szaniec: Absorpcja."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Splot",
+      "text": [
+        "**Odczynniki**: Jedwab echa, Mroczny jedwab.",
+        "- **Pieśń**: spowalnia cel.",
+        "- **Namaszczenie**: echo: jedna czwarta ciosów uderza drugi raz za połowę.",
+        "- **Remedy**: Jasny wzrok: Widzenie w ciemności, zdejmuje ślepotę i ciemność."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Osłabić",
+      "text": [
+        "**Odczynniki**: Sygil strażnika, Blady kieł, Całun kurhanu, Wodorost utopca.",
+        "- **Pieśń**: osłabia cel.",
+        "- **Namaszczenie**: Wysysanie: osłabia cel.",
+        "- **Remedy**: Przywracanie: Pośpiech, zdejmuje słabość, spowolnienie i zmęczenie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ogar",
+      "text": [
+        "**Odczynniki**: Ząb szczeliny, Szpon czyhacza, Ucho goblina, Kieł goblina, Łuska kobolda, Róg kobolda.",
+        "- **Pieśń**: sprawia, że cel świeci.",
+        "- **Namaszczenie**: Żądza krwi: kradzież życia, 15% każdego ciosu wraca jako zdrowie.",
+        "- **Remedy**: Wigor: Zwiększenie zdrowia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cisza",
+      "text": [
+        "**Odczynniki**: Aksamit świtu, Puch latarni, Łuska mchogrzbietu, Kępka popiołu, Wełna skubacza, Pył połysku, Skrzydło trzepotka, Róg skoczka, Łupina larwy, Wełna kępy, Ścięgno goleni, Blady puch, Runo urwiska, Kieł głazu, Pęcherz dryfu, Grzebień pryzmatu, Skrzydło odłamka, Świetlista łuska, Skóra dryfu, Mroźne kopyto, Zasłona śniegu, Popielne skrzydło, Bagienna stopa, Kopyto moczarów, Pęcherz torfowiska, Dzwonkowy grzebień, Szklane skrzydło, Skorupa geody, Mułowa płetwa, Blada wstęga, Łuska mielizny, Kora Paleniska, Kora starszego, Kora mroźnej sosny, Kora żaru, Płaczący węzeł, Zarodnik dzwonkowego kapelusza, Szczudłowy korzeń, Pył wróżki, Płatek wróżki, Iskra wróżki.",
+        "- **Pieśń**: daje ci chwilę regeneracji.",
+        "- **Namaszczenie**: Naprawa: broń naprawia się przy uderzeniu.",
+        "- **Remedy**: Naprawa: Regeneracja."
+      ]
+    }
+  ],
+  "next": "song_bench"
+}

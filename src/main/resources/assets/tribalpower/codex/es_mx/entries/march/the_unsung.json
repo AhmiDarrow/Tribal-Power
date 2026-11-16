@@ -1,0 +1,74 @@
+{
+  "name": "El No Cantado",
+  "icon": "tribalpower:unsung_heart",
+  "order": 60,
+  "spoiler": true,
+  "items": [
+    "tribalpower:the_unsung_spawn_egg"
+  ],
+  "next": "crystal_spire",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:the_unsung",
+      "text": [
+        "Un tambor en forma de reloj de arena, con una máscara de porcelana agrietada y dos brazos de runas. Solo quiere el ritmo de vuelta."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "El No Cantado nunca entra por su cuenta. Solo se alza cuando alguien toca el ritmo de cuatro golpes en un [Tambor silencioso](drum_circle), y en su última fase vuelve a ese tambor.",
+        "Tiene **400 de salud** y **8 de armadura**, no puede ser empujado e ignora los efectos de poción. Una barra de jefe marca sus tres fases: Golpe, Coro y Silencio.",
+        "Lleva comida, armadura, Células de Pulso cargadas, una Campanilla de hueso y un camino de vuelta ya probado. Un amigo lo hace mucho más fácil."
+      ],
+      "title": "Antes del primer golpe"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Mientras está por encima de dos tercios de su salud, una onda de choque sale **cada 3 segundos** y golpea a todos dentro de **8 bloques** por **6**, con un empuje fuerte.",
+        "Agáchate justo antes de que impacte para afirmarte: recibes **la mitad del daño** y ningún empuje.",
+        "Su barrido de brazo inflige **10**, así que mantén el tambor entre tú y él cuando se acerque."
+      ],
+      "title": "Golpe"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Por debajo de dos tercios empieza a llamar **dos Tejedores de eco cada 8 segundos**, hasta **seis** a la vez, y las ondas de choque llegan cada **2.5 segundos**.",
+        "Elimina a los tejedores antes de que te ralenticen. Su mordida te deja torpe, y aún tienes ondas de choque contra las que afirmarte.",
+        "Un tejedor que vincules en la pelea (los Zurcidores del telar deben llamarte **Voz**) es tuyo: deja de contarse para El No Cantado y se queda cuando la pelea termina."
+      ],
+      "title": "Coro"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Por debajo de un tercio flota sobre el tambor y no puede recibir daño. Cada 2 segundos dispara un rayo de tejido lento: **5 de daño**, Lentitud y Debilidad, y [Silencio No Cantado](afflictions) durante **12 segundos**: ninguna canción ni voz de báculo responde hasta que se disipa. Los rayos se rompen en los bloques sólidos, así que cubrirse ayuda.",
+        "Camina hasta el Tambor silencioso y toca otra vez el ritmo de cuatro golpes. Eso lo resincroniza: queda **aturdido durante 8 segundos** y recibe **el doble de daño**, y después aún puede recibir daño normal durante **4 segundos** más.",
+        "Silencio vuelve **12 segundos** después de cada resincronización, así que golpea fuerte y luego toca otra vez."
+      ],
+      "title": "Silencio"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Un **Corazón No Cantado**, con el que se fabrica el tótem del Telar ([la sexta voz](sixth_voice)).",
+        "- **16 a 24 Hilo de Telar**.",
+        "- **4 Núcleos resonantes**.",
+        "- Un **Disco de música** del Círculo de tambores.",
+        "- El [Rito de los Talladores de sellos](tablet_7), una Tablilla de relatos que, por lo demás, solo se guarda en un altar del Templo profundo. Cuélgala en un muro y léela.",
+        "Si nadie permanece dentro de **48 bloques** durante **30 segundos**, se reinicia: desaparece con sus tejedores y el tambor queda listo para tocar de nuevo."
+      ],
+      "title": "Lo que deja"
+    },
+    {
+      "type": "text",
+      "title": "La prueba de los Zurcidores del telar",
+      "text": [
+        "El No Cantado es el guardián en el que termina la historia de los Zurcidores del telar: aquiétalo con la historia de ellos en su último paso, y su reliquia será tuya. Sus Tejedores de eco ya no sueltan nada, y necesita espacio para alzarse: nada sólido en los cinco bloques sobre el tambor, ni en el cinco por cinco a su alrededor. Consulta [Los guardianes](guardians)."
+      ]
+    }
+  ]
+}

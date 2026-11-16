@@ -1,0 +1,36 @@
+{
+  "name": "Utrzymywanie drogi",
+  "icon": "minecraft:map",
+  "order": 50,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Wrota buduje się tak, by były bezpieczne. Wrota zawsze stawiają cię **we własnej ramie dalekich wrót** i nigdy nie kopią, nie budują ani nie oczyszczają niczego, żeby zrobić miejsce.",
+        "Jeśli w dalekiej ramie nie ma gdzie stanąć, wyprawa odmawia, a Puls wraca do zwornika.",
+        "Daleki koniec pozostaje załadowany przez **dziesięć sekund** wokół twojego przybycia, więc partner w niezaładowanym chunku wciąż odpowiada. Tylko [Kotwica szlaku](wayanchor) trzyma go załadowanym dłużej."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gdy wrota się łamią",
+      "text": [
+        "Złam zwornik, a jego partner zostaje od razu zwolniony i gaśnie. Każdy w zasięgu 16 bloków od partnera dowiaduje się, które wrota przepadły.",
+        "**/tribalpower gate list** pokazuje każde wrota, które postawiłeś, i na co odpowiadają. **/tribalpower gate unlink <name>** przecina jedną z twoich nici ręcznie.",
+        "Aby połączyć ponownie, użyj jeszcze raz kompasu, kredy albo sygilu, jak w [Wrota drogi](way_gate)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gdy wrota nie działają",
+      "text": [
+        "- **\"Ten zwornik nie ma wokół ramy\"**: brakuje bloku ramy albo stoi nie na miejscu. Sprawdź według wzoru.",
+        "- **Potrzeba Pulsu**: naładuj zwornik; światło i podróż biorą się z jego własnego zapasu.",
+        "- **Gaśnie samo**: trzyma się na nim sygnał redstone, blok ramy został zbity albo Dalekie wrota straciły głos Krosna.",
+        "- **\"Nić niczego nie znajduje\"**: wrota świecą, ale nie są połączone.",
+        "Przykucnij i kliknij prawym zwornik tą książką, aby zobaczyć pełny stan."
+      ]
+    }
+  ]
+}

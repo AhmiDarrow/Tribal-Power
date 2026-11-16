@@ -1,0 +1,41 @@
+{
+  "name": "Scheggia di Spirito e risonatori",
+  "icon": "tribalpower:spirit_shard",
+  "order": 5,
+  "items": [
+    "tribalpower:copper_resonator",
+    "tribalpower:bone_chime"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_shard",
+      "text": [
+        "Due pezzi umili compaiono in quasi ogni ricetta di Tribal Power: la **Scheggia di Spirito** e il **Risonatore di rame**. Fai presto una pila di ciascuno e raramente resterai fermo.",
+        "Entrambi partono da un **Campanello d'osso**: un osso, uno spago e una scheggia di ametista ne fanno due."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Da dove vengono",
+      "text": [
+        "Una Scheggia di Spirito è una scheggia di ametista, una polvere di redstone e un Campanello d'osso, fabbricati insieme. Ogni fabbricazione dà **due**.",
+        "Un Risonatore di rame si fa con quattro lingotti di rame intorno a un Campanello d'osso. Ogni fabbricazione dà anch'essa **due**.",
+        "Una volta raggiunta la Marcia, il **Minerale della Marcia** è la fonte più economica di schegge: passalo nel [Frantumatore di eco](echo_shatter) con un totem di Terra e si rompe in **due Scheggia di Spirito** in 4 secondi, a 40 Pulso al secondo."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_shard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_resonator"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bone_chime",
+      "text": "Il Campanello d'osso sveglia anche un totem quieto quando lo usi sul totem."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Phalène de tempête",
+  "icon": "tribalpower:storm_wing",
+  "order": 120,
+  "spoiler": true,
+  "items": [
+    "tribalpower:storm_moth_spawn_egg",
+    "tribalpower:storm_wing"
+  ],
+  "next": "cinder_imp",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:storm_moth",
+      "text": [
+        "Un esprit nourri par la tempête, sur de hautes ailes d'ardoise marquées d'éclairs. Une grappe brillante de grains annonce sa rafale.",
+        "Chassé, il lâche aussi jusqu'à 2 ficelles et jusqu'à 1 membrane de Phantom."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Les Phalènes de tempête volent au-dessus des Hautes terres de la Marche, des Champs de neige et de la Crête de lueur, et quelques-unes au-dessus des Terres désolées de braise.",
+        "Il a **20 de santé** et pas d'armure. Il reste en retrait et lance une rafale jusqu'à 12 blocs : **4 de dégâts** et une forte poussée. Brise sa ligne de vue et le sort échoue."
+      ],
+      "title": "Où et comment"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Il lâche **1 à 2 Aile de tempête**.",
+        "Une Aile de tempête se lie en 2 Espritissu sous l'Eau."
+      ],
+      "title": "Ce qu'il donne"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Atteins **Voix** auprès des **Tisserands de motifs**, puis utilise un Charme de lien sur un adulte : deux essais sur cinq, le charme est dépensé en cas d'échec. Ou nourris-la de son propre réactif : un essai sur cinq, et le réactif est dépensé dans tous les cas.",
+        "Un phalène lié qui s'assoit laisse un petit clic invisible de redstone une fois par seconde, une horloge gratuite pour tes mécanismes. Voir [dons du familier](familiar_gifts)."
+      ],
+      "title": "Comme familier"
+    },
+    {
+      "type": "text",
+      "title": "Chasse et élevage",
+      "text": [
+        "Outre son réactif, il lâche ceci quand on le chasse, davantage avec Butin."
+      ]
+    }
+  ]
+}

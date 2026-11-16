@@ -1,0 +1,38 @@
+{
+  "name": "Stilletotem",
+  "icon": "tribalpower:hush_totem",
+  "order": 70,
+  "next": "wayanchor",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:hush_totem",
+      "text": [
+        "Frieden für das ganze Lager. Solange es gefüttert wird, stoppt das Stilletotem feindliche Spawns innerhalb von **24 Blöcken**, für **8 Puls** pro Sekunde."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Es still halten",
+      "text": [
+        "Stelle es in die Mitte des Lagers, innerhalb von 8 Blöcken von einem Gitterkonduktor, und ein **Geist**-Totem ebenfalls innerhalb von 8 Blöcken: ohne seine Stimme steht es still (siehe [Lagerhände](camp_hands)). Es hält eine Reserve von **2.400 Puls**, um eine stille Phase zu überbrücken, und füllt sie um bis zu **80 Puls** pro Sekunde nach. Rechtsklicke es mit einer Pulszelle, um von Hand nachzufüllen.",
+        "Es stoppt natürliche Spawns und Spawner-Spawns jedes Feindlichen, die der Oberwelt wie die des Marschs, einschließlich der Feindlichen einer Beschwörungswiege. Es hält auch **Phantoms** fern: keins wird auf einen Spieler geschickt, der im Kreis steht.",
+        "Es entfernt keine Mobs, die schon da sind, es stoppt keine Tiere, und es setzt niemals Befehle oder Spawn-Eier außer Kraft.",
+        "Redstone bringt es sofort zum Schweigen. Ein Komparator liest 15, solange es stillt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Mit ihm leben",
+      "text": [
+        "Feindliche können noch von außerhalb des Kreises hereinlaufen, also halte auch die Ränder beleuchtet, oder stell eine Schutztrommel am Tor auf.",
+        "Wenn du eine Beschwörungswiege für Feindliche betreibst, halte sie mehr als 24 Blöcke vom Totem entfernt, oder leg das Totem an einen Hebel und wechsle zwischen Frieden und Beschwörung.",
+        "Eine Geistlaterne und ein Stilletotem zusammen machen ein stilles Lager."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hush_totem"
+    }
+  ]
+}

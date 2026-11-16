@@ -1,0 +1,123 @@
+{
+  "name": "灵护符",
+  "icon": "tribalpower:sky_charm",
+  "order": 60,
+  "items": [
+    "tribalpower:ember_charm",
+    "tribalpower:tide_charm",
+    "tribalpower:root_charm",
+    "tribalpower:lantern_charm",
+    "tribalpower:spindle_charm",
+    "tribalpower:ward_charm",
+    "tribalpower:hearth_charm",
+    "tribalpower:veil_charm",
+    "tribalpower:chorus_charm",
+    "tribalpower:gathering_charm"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:sky_charm",
+      "text": [
+        "护符是佩戴的印章。每个带有一种图腾声音和一个恩惠，你最多可以在 Tribal Power 自己的护符槽里佩戴**三个**。不需要其他模组。"
+      ],
+      "title": "灵护符"
+    },
+    {
+      "type": "text",
+      "title": "佩戴护符",
+      "text": [
+        "使用护符即可佩戴。潜行使用任意护符，打开三个槽位。",
+        "佩戴的护符从随身的脉动电池消耗**每2秒每个声音2脉动**。电池耗尽时恩惠停止，飞行也一并停止，所以充能或卸下。",
+        "声音会在你佩戴的一切上累加，但同一声音出现两次也只给一次恩惠。",
+        "附近与护符声音相同的调谐[使魔](familiar_boons)会使该护符的维持降低**40%**，并加上它自己的恩惠。",
+        "佩戴的护符会在你死亡时掉落在地上，除非你的世界保留物品栏。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "十一个护符",
+      "text": [
+        "- **天空**（风）：脉动尚存时可创造飞行，任何带风的护符都一样，聚集合符除外。",
+        "- **余烬**（火）：抗火，攻击者会着火3秒。",
+        "- **潮汐**（水）：水下呼吸，以及泳者的从容。",
+        "- **根**（土）：抗性。",
+        "- **灯笼**（灵）：夜视。在它得到支付时，你获得的每项祝福或恩惠都会持续**再长一半**。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "十一个护符，续",
+      "text": [
+        "- **纺锤**（织机）：幸运。大约十次里有三次，每两秒向随身的电池返还至多**2脉动**。",
+        "- **守护**（土）：大约挡开四分之一的抛射物；若护符上还有灵，则挡开一半。",
+        "- **炉**（火）：让你保持饱食。",
+        "- **帷幕**（灵）：潜行时隐去你的身形。",
+        "- **聚集**（风）：把掉落物和经验值吸向你。",
+        "- **合唱**：以沉默开始，并向火盆学习。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "合唱与额外声音",
+      "text": [
+        "沉默的合唱仍然消耗2。在8个方块内，对有**三个不同的图腾**和**200脉动**的仪式火盆潜行使用，它会绑定附近的每一种声音。",
+        "对共鸣图腾潜行使用护符，花费**40脉动**即可加上该声音。声音越多，佩戴花费越高，作用也越多。",
+        "守护与炉带有土和火，因此也会给予抗性和抗火。风还会给予缓降，除非同时也佩戴了火。飞行来自风这一声音，而非仅凭天空护符：任何佩戴中且带有风的护符，无论是天空本身的还是你后来加上的，都能在脉动尚存时让你飞行。聚集合符是唯一的例外：它自己的风用在吸引上。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "聚集合符",
+      "text": [
+        "在佩戴且得到支付时，它把掉落的物品和经验值从**5个方块**内吸向你，**每个额外声音再加2**，最多**11**。",
+        "**潜行**可暂停，以便你丢下东西。别人刚扔出的一堆会等到能捡起时再动，留给另一名玩家的一堆归对方，其他模组标记为不可移动的物品保持不动。",
+        "它的风用在吸引上，因此与天空不同，它不给予飞行，也不给予缓降。你给它加上的声音，与在任何护符上一样生效。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:sky_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tide_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:root_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lantern_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spindle_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ward_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hearth_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:veil_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chorus_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gathering_charm"
+    }
+  ]
+}

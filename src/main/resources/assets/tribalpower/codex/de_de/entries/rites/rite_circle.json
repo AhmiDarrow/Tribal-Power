@@ -1,0 +1,74 @@
+{
+  "name": "Ritenkreis",
+  "icon": "tribalpower:rite_pedestal",
+  "order": 80,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_pedestal",
+      "text": [
+        "Ein Ritussockel hält und zeigt einen Gegenstand. Vier davon um ein Ritualkohlenbecken bilden den **Ritenkreis**, den jeder Tafelritus braucht, der Frühlingsruf eingeschlossen.",
+        "Der stehende Segen eines Kohlenbeckens braucht ihn nicht: der will nur das eingesetzte Siegel und sein Totem."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "rite_circle",
+      "tier": 1,
+      "title": "Den Kreis zeichnen",
+      "text": "Kohlenbecken in der Mitte, vier Ritussockel auf den Diagonalen, Kreide, die sie verbindet."
+    },
+    {
+      "type": "text",
+      "title": "Den Kreis benutzen",
+      "text": [
+        "Ist der Kreis unvollständig, sagt ein Tafelritus, der Kreis sei nicht gezeichnet und die Tafel werde nicht verbraucht. Ducke dich und rechtsklicke das Kohlenbecken mit diesem Buch, und es listet, was dem Kreis noch fehlt.",
+        "Tafeln können auf den Sockeln warten. Ein angeschlagenes Redstone-Signal am Kohlenbecken zündet den eingesetzten Ritus mit der Tafel eines Sockels, die zum Siegel passt, und ein Komparator liest, ob ein Sockel besetzt ist. So setzt du einen [Ritus auf eine Uhr](redstone_language)."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "rite_circle",
+      "tier": 2,
+      "title": "Stimmen auf den Kardinalen",
+      "text": "Setze vier Totems der eigenen Stimme des Ritus auf die Kardinalen: der Ritus kostet ein Viertel weniger und hält doppelt so lang."
+    },
+    {
+      "type": "text",
+      "title": "Der stärkere Kreis",
+      "text": [
+        "Die vier kardinalen Totems zählen nur, wenn sie zum gewirkten Ritus passen, also hilft ein Wasserkreis dem Regenruf und dem Frühlingsruf, nicht aber dem Morgenruf.",
+        "Es ist optional. Ein schlichter Kreis wirkt jeden Ritus zum vollen Preis."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ein Siegelritus von Hand",
+      "text": [
+        "Ein Sockel nimmt auch einen schnellen Ritus ganz ohne Kreis an. Benutze ein elementares **Siegel** auf einem Ritussockel: Das Siegel wird verbraucht, und seine Stimme wirkt **20 Sekunden** bis **zwei Minuten** auf dich und auf jeden Feind innerhalb von **6 Blöcken**.",
+        "Wenn eine Zelle, die du trägst, **8 Puls** enthält, nimmt der Ritus sie und wird **verstärkt**: stärker und länger.",
+        "Alle innerhalb von 6 Blöcken erhalten auch den [Stimmensegen](voice_blessings) des Siegels für **5 Minuten**, oder siebeneinhalb auf Stufe II, wenn er verstärkt ist. Ein eingestimmter [Vertrauter](familiar_boons) der Stimme des Siegels neben dir lässt ihn anderthalbmal so lange wirken. Im Lager eines Stammes zählt es als der Ritus, den ihre Bitten verlangen.",
+        "Ein Redstone-Signal auf dem Sockel weist ihn ab."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was jedes Siegel bewirkt",
+      "text": [
+        "- **Erde**: Resistenz, Absorption und Eile; feindliche Wesen in der Nähe werden verwurzelt, und das Gras unter dem Sockel festigt sich zu einem Pfad.",
+        "- **Feuer**: Feuerresistenz; Feinde fangen Feuer, Schnee und Eis schmelzen, und kalte Lagerfeuer entzünden sich.",
+        "- **Wasser**: Unterwasseratmung und die Anmut eines Schwimmers; Feuer gehen aus, und Ackerland wird durchnässt. Verstärkt beschleunigt es auch Pflanzen.",
+        "- **Luft**: sanfter Fall, Schnelligkeit und ein höherer Sprung; Feinde werden zurückgeweht, und der Regen klart auf.",
+        "- **Geist**: Regeneration und Nachtsicht; hebt Vergiftung, Verfall, Blindheit, Langsamkeit, Schwäche und Hunger auf und heilt jeden Spieler in der Nähe; Feinde leuchten und werden schwächer. Verstärkt fädelt es **12 Puls** zurück in eine Zelle, die du trägst.",
+        "- **Webstuhl**: Glück und Schnelligkeit; Feinde werden herangezogen und verlangsamt, und jeder Spieler in der Nähe bekommt **12 Puls** (24 verstärkt) in seine Zellen eingefädelt."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_pedestal"
+    }
+  ],
+  "next": "spring_calling"
+}

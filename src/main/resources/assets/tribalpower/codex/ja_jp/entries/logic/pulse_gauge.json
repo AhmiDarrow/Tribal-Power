@@ -1,0 +1,264 @@
+{
+  "name": "パルス計とパルス閾値",
+  "icon": "tribalpower:pulse_gauge",
+  "order": 30,
+  "spoiler": false,
+  "items": [
+    "tribalpower:pulse_threshold"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_gauge",
+      "text": [
+        "パルス計は蓄えたパルスをレッドストーンに変える。太鼓の心臓、発電機、共鳴器、レイ収集器など、パルスを蓄えるものに向けると、その蓄えの満ち具合に応じて**0から15**を出す。作業場は周囲からパルスを引き、読むための蓄えは持たない。",
+        "その対、**パルス閾値**は、ただのはいかいいえかを答える。蓄えは少なくともこれだけ満ちているか？",
+        "どちらもマーチの石で作るので、マーチへの最初の旅を待っている。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "パルス計",
+      "text": [
+        "しゃがんで、読みたいブロックに付けて置く。矢印はクリックしたブロックの中を指す。普通のクリックはそのブロックを代わりに使い、太鼓の心臓を叩く。**矢印以外のすべての面**から出し、側面は弱く、背面は強い。",
+        "蓄えが空なら信号は**0**で、満たされるにつれて1から15へ上がる。4ティックごとに更新され、計を読むコンパレーターは同じ数を得る。",
+        "右クリックで、蓄えたパルス、容量、信号が見える。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "パルス閾値",
+      "text": [
+        "同じように、しゃがんで、矢印を蓄えへ向けて置く。右クリックで**25、50、75、100%**を循環する。最初は50。",
+        "蓄えたパルスがその割合以上のあいだ、満タンの**15**を出し、それ未満では何も出さない。計と同じく矢印の面からは決して出さないので、見ている蓄えを乱さない。コンパレーターは設定を1から4として読む。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "止めるか守るか",
+      "text": [
+        "保持された信号は機械を止める。機械へ直結すると、パルス閾値は蓄えが**十分に満ちている**あいだそれを止める。",
+        "たいてい欲しいのは逆だ。太鼓が**低い**あいだ飢えた設備を止め、予備を残す。線の上に**反転板**を置く。すると'空っぽすぎ'が通電信号になる。設定より下では反転が歌って設備が止まり、太鼓が回復すると反転は静まり、仕事が再開する。",
+        "キャンプ全体へ配線する前に、飢えた設備ひとつで試す。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "予備を残す",
+      "steps": [
+        {
+          "caption": "太鼓の心臓が、3ブロック離れたエコー破砕へ供給する。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                3
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "caption": "しゃがんでパルス閾値を太鼓に付ける。矢印は内側。普通のクリックは代わりに太鼓を叩く。パルス閾値を右クリックして25、50、75、100%を選ぶ。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:pulse_threshold[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "しゃがんで反転板をパルス閾値の背面に付ける。設備のほうを向ける。普通のクリックはパルス閾値の設定を変えてしまう。載っているブロックを読む。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:inverse_plate[facing=south]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "設定より下ではパルス閾値が静まり、反転が歌い、太鼓が再び満たされるまで設備は待つ。",
+          "highlight": [
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_gauge"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_threshold"
+    }
+  ],
+  "next": "song_thread"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Szałas potu",
+  "icon": "tribalpower:sweat_stones",
+  "order": 60,
+  "items": [
+    "tribalpower:sweat_stones"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:sweat_stones",
+      "title": "Gorące kamienie",
+      "text": [
+        "**Kamienie potu** parują i świecą, gdy stoją nad żarem: zapalone ognisko, ogień, ogień dusz, blok magmy, lawa albo Misa żaru pod spodem. Zabierz żar, a ostygną.",
+        "Włóż kilka do małego szałasu z łóżkiem, a masz szałas potu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Noc w szałasie",
+      "text": [
+        "Prześpij całą noc w łóżku z **Kamienie potu gorące w promieniu 5 bloków**, nie więcej niż **2 bloki** nad lub pod łóżkiem, i **dach nad tobą** (cokolwiek stałego, od dwóch do pięciu bloków nad łóżkiem).",
+        "Budzisz się **w pełni uzdrowiony**, bez żadnych szkodliwych efektów, z **10 minut** [Błogosławieństwo Ducha](spirit_sickness) i odrobiną Regeneracji. Działa tylko, jeśli naprawdę śpisz do rana."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:sweat_stones"
+    }
+  ]
+}

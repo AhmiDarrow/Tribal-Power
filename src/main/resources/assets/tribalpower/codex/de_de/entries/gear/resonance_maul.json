@@ -1,0 +1,30 @@
+{
+  "name": "Resonanzschlägel",
+  "icon": "tribalpower:resonance_maul",
+  "order": 20,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_maul",
+      "text": [
+        "Eine schwere Spitzhacke der Diamantstufe, die in einem Schwung eine Ebene von **3 mal 3** leerräumt, bezahlt mit Puls. Tunnel und Steinbrüche gehen dreimal schneller."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Beim Schwingen",
+      "text": [
+        "Halte ihn in der Haupthand und ducke dich, um eine Blockfläche zu benutzen. Der Schlägel bricht die Ebene von 3 mal 3 um diesen Block, parallel zur Fläche, die du triffst.",
+        "Jeder Block kostet **8 Puls**, zuerst aus der eingesetzten Zelle des Schlägels, dann aus den Zellen, die du trägst, und der Puls schont die Schneide: das 3 mal 3 nutzt nicht ab. Geht der Puls mitten im Schwung aus, bleiben die restlichen Blöcke. Nach einem Schwung, der etwas zerbricht, ruht der Schlägel **eine Sekunde**.",
+        "Er nimmt nur, was eine Spitzhacke nehmen könnte, und nur, was seine Diamantstufe ernten kann. Geschütztes Land wird geachtet.",
+        "Ohne Ducken geschwungen ist er eine gewöhnliche Spitzhacke und nutzt sich wie eine ab.",
+        "Eine totemgebundene Erde-Spitzhacke öffnet 3 mal 3 genauso; siehe [Totemgebundene Ausrüstung](totem_bound_gear)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_maul"
+    }
+  ]
+}

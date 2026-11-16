@@ -1,0 +1,18 @@
+{
+  "name": "Gdy porozumienia zawiodły",
+  "icon": "tribalpower:lore_tablet",
+  "order": 20,
+  "spoiler": false,
+  "next": "continents_of_thread",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Nikt nie przeciął Krosno. Ciągnięto je z dziewięciu stron, a ten kodeks nie umie powiedzieć, która nić puściła pierwsza. Plemiona też nie, pod koniec. Przez chwilę niebo było podłogą. W następnej porozumienia zawiodły w jednym tchu.",
+        "Strażnicy posłania poczuli to pierwsi: paleniska ostygły, choć niebo wciąż wyglądało na całe. Potem żywe kotwice Wiązaczy korzeni trzymały przez sezon, i przez ten sezon cokolwiek wciąż jest tu na górze.",
+        "Strażnicy pękli na swoich arenach. Pieśni grały dalej, choć nikt ich nie słyszał. Ścieżki wrót zostały otwarte donikąd.",
+        "To był węzeł, który się rozwiązywał. Kontynenty spadły w czasie werbla. To, co nie spadło, to posłanie ziemi, które Pasma wciąż pamiętają. Stoisz na resztkach, które nauczyły się być podłogą."
+      ]
+    }
+  ]
+}

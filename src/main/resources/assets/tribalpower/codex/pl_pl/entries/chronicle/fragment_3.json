@@ -1,0 +1,17 @@
+{
+  "name": "4. Cięcie",
+  "icon": "tribalpower:carved_stone",
+  "order": 13,
+  "spoiler": true,
+  "unlock": "fragment:3",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Cięcie",
+      "text": [
+        "“Nikt nie pamięta, kto pierwszy przestał śpiewać. Rzeźbiarze pieczęci mówią, że pieczęć wyrzeźbiono jako żądanie. Bęben-serca mówią, że rytm opuszczono. Tkacze wzorów mówią, że wzór zmieniono bez pytania. Wszyscy mają rację, i w tym kłopot.”",
+        "Znaleziono na Rzeźbiony kamień w ruinach Marszu."
+      ]
+    }
+  ]
+}

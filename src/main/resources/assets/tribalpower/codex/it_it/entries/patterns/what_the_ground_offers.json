@@ -1,0 +1,65 @@
+{
+  "name": "Ciò che il suolo offre",
+  "icon": "minecraft:raw_iron",
+  "order": 80,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ciò che la fossa chiama su",
+      "text": [
+        "La fossa chiama su esattamente ciò che darebbe un giro di scavo con Tocco di velluto: l'**oggetto grezzo** per un metallo, il **blocco di minerale** per una gemma. Ogni ciclo consuma il suo substrato e dà un risultato.",
+        "La pietra è rinnovabile: una [Vasca di pietra](stone_font) la fa. Pietra della Marcia si ottiene fondendo Ciottoli della Marcia, che estrai nella Marcia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le quattro fasce",
+      "text": [
+        "- **Comune**: carbone, rame e ferro. **10 secondi** a **56 Pulso al secondo**, su **due pietre**.",
+        "- **Profonda**: oro, redstone e lapislazzuli. **15 secondi** a **64**, su **due Pietra della Marcia**. Il quarzo non è in questa fascia.",
+        "- **Calda**: il quarzo e il minerale d'oro del Nether. **20 secondi** a **72**, su due Pietra della Marcia, con **Fuoco**.",
+        "- **Rara**: diamante, smeraldo e qualsiasi metallo o gemma che la scansione di ghiaia ha trovato nel tuo zaino. **40 secondi** a **48**, su **quattro Pietra della Marcia e una Scheggia di Spirito**, con **Spirito**. Circa un ciclo raro su quattro dà il doppio."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quale fascia sente",
+      "text": [
+        "Profonda, Calda e Rara richiedono [Ascolto profondo](listening_pit) e il rango adatto. Senza un campione, una fossa sotto **y 0** sente una fascia più profonda, e Spirito la porta ancora una più giù.",
+        "Se rango o forma non arrivano così lontano, la fossa si accontenta della fascia più profonda che può raggiungere, invece di bloccarsi.",
+        "Sotto y 0, o sopra l'ardesia profonda, le gemme escono come minerali di ardesia profonda."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Campioni",
+      "text": [
+        "Un campione è un filtro, mai un ingrediente. Sistemane uno facendo clic destro sulla maglia con un metallo grezzo, ghiaia o una gemma.",
+        "Un materiale che il campione nomina pesa **sei volte** tanto quanto qualsiasi altra cosa nella fascia. Un campione chiede anche la fascia più profonda che lo contiene e che la fossa può raggiungere: l'oro significa la fascia calda quando Fuoco è acceso, la fascia profonda altrimenti.",
+        "Un campione che nessuna fascia raggiungibile contiene viene ignorato, e il Codice lo dice."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Voci alla fossa",
+      "text": [
+        "Terra è obbligatoria. Ogni altra voce scambia una cosa con un'altra; nessuna è un semplice moltiplicatore.",
+        "- **Acqua** lava: un risultato in più ogni **terzo** ciclo, per **250 mB** dal serbatoio della maglia. Riempilo con un secchio; contiene 4,000 mB.",
+        "- **Aria** accelera il ciclo a circa **0.65** del suo tempo e chiede circa **1.55 volte** il Pulso al secondo. Il Pulso per oggetto non cambia.",
+        "- **Fuoco** apre la fascia calda a 72 Pulso al secondo. La fossa ascolta lì solo quando un campione di quarzo o d'oro lo chiede, e l'oro esce allora come Minerale d'oro del Nether.",
+        "- **Spirito** sente una fascia più profonda e apre la rara.",
+        "- Il **Telaio** dimezza il substrato, arrotondato per eccesso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quanto costa",
+      "text": [
+        "Un ciclo di ferro è **560 Pulso** su due pietre.",
+        "Estrarre costa ancora meno Pulso per lingotto. Il dono della fossa è che non si esaurisce mai."
+      ]
+    }
+  ]
+}

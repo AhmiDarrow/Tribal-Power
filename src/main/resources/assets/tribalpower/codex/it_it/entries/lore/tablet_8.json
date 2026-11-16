@@ -1,0 +1,16 @@
+{
+  "name": "Tavoletta: Filo dei Cucitori del telaio",
+  "icon": "tribalpower:lore_tablet",
+  "order": 180,
+  "spoiler": true,
+  "unlock": "tablet:8",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Da una Guglia di cristallo o da un accampamento dei Cucitori del telaio, con le loro parole:",
+        "“Il Telaio non è mai stato un filo solo. Erano nove d'accordo. Tenevamo il Fuso e cucimmo i fili delle tribù in una sola tela sopra il cielo. Quando otto tiri diventarono otto litigi, la tela si strappò lungo la nostra cucitura. Stiamo ancora cucendo. Porta cristallo. Porta filo.”"
+      ]
+    }
+  ]
+}

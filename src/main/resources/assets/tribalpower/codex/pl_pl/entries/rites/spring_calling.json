@@ -1,0 +1,391 @@
+{
+  "name": "Wezwanie wiosny",
+  "icon": "tribalpower:rite_spring_calling",
+  "order": 90,
+  "spoiler": false,
+  "items": [],
+  "next": "world_rites",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_spring_calling",
+      "text": [
+        "Najmniejszy obrzęd tabliczki i to, skąd bierze się woda obozu. Wezwanie wiosny zamienia Cysterna Ducha przy brasero w źródło: **100 mB na sekundę przez dziesięć minut**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wezwanie źródła",
+      "text": [
+        "Narysuj [Krąg obrzędu](rite_circle). Osadź **Pieczęć Wody** w brasero i postaw **Cysterna Ducha** tak, by jej dotykała.",
+        "Kucnij i użyj tabliczki na brasero. Pobiera **300 Puls** z kraty w zasięgu 8 bloków, a cysterna zaczyna się napełniać. Nie musisz stać obok.",
+        "Brak kręgu, brak cysterny albo za mało Pulsu: obrzęd nazywa problem i nic nie jest zużywane."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Źródło przy brasero",
+      "steps": [
+        {
+          "caption": "Narysuj krąg: brasero, cztery cokoły na przekątnych, kreda między nimi.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ritual_brazier"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Osadź Pieczęć Wody w brasero.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:water_seal"
+          }
+        },
+        {
+          "caption": "Postaw «Cysterna Ducha» tuż przy brasero.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Przykucnij i użyj tabliczki na brasero. Cysterna sama napełnia się przez dziesięć minut.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:rite_spring_calling"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Utrzymać przepływ",
+      "text": [
+        "Wyrzeźb jeszcze jedną tabliczkę, gdy źródło wyschnie. Z czterema totemami (Woda) na stronach świata kręgu koszt jest o ćwierć mniejszy i trwa dwa razy dłużej.",
+        "Przesunięcie cysterny kończy źródło; woda, która już jest w środku, zostaje na przedmiocie.",
+        "Lawa po stronie Marszu zostaje ręcznym transportem."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_spring_calling",
+      "text": "Dwa bruki (albo czernit, albo bruk głębokiego łupka), Trzcina Ducha i Pieczęć Wody. Pieczęć wraca."
+    }
+  ]
+}

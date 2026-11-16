@@ -1,0 +1,260 @@
+{
+  "name": "Manifestator echa",
+  "icon": "tribalpower:echo_manifest",
+  "order": 50,
+  "items": [
+    "tribalpower:manifested_ingot",
+    "tribalpower:resonant_core"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_manifest",
+      "text": [
+        "Stacja Ducha, na szczycie kraty. Manifestator echa zamienia związane echa w **Manifestowane sztabki**, a sztabki w **Rdzenie rezonansu**, serce najlepszego sprzętu i najlepszych maszyn w tej księdze."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Użycie",
+      "text": [
+        "Postaw Manifestator echa z totemem Ducha w zasięgu 8 bloków.",
+        "- Związane echo w Manifestowaną sztabkę: **5 sekund** przy **64 Pulsu na sekundę**.",
+        "- Manifestowana sztabka w Rdzeń rezonansu: **8 sekund** przy **80 Pulsu na sekundę**.",
+        "Rdzenie trafiają do Większych ogniw Pulsu, Szaty duchotkaniny i Nogawic duchotkaniny, Sześciokrotnego kostura, przekaźników dalekiego zasięgu i zworników wrót. Narzędzia duchowego sprzętu potrzebują tylko Manifestowanych sztabek. Osadzony w Rezonatorze Pulsu rdzeń jest jego najsilniejszym kryształem.",
+        "Trofeum strażnika i Nić Krosna dają sześć Rdzeni rezonansu; zobacz [Strażnicy](guardians)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Cała kolumna",
+      "steps": [
+        {
+          "caption": "Manifestator echa z totemem Ducha obok.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_manifest"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Postaw Wiązacz echa na wierzchu, z totemem Wody: związane echa schodzą w dół do Manifestatora echa.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dodaj Dostrajacz echa nad tym, z totemem Ognia, dla całego łańcucha.",
+          "place": [
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Przy generatorze w zasięgu Odłamki echa wchodzą górą, a Manifestowane sztabki wychodzą dołem.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              2,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Porady",
+      "text": [
+        "Zbieraj od dołu lejem. Aby zrobić rdzenie, włóż sztabki z powrotem do wejścia Manifestatora echa.",
+        "Manifestator echa to także ostatni przystanek, gdy nadajesz rangę maszynom i duchowemu sprzętowi.",
+        "Dźwignia wstrzymuje stację. Przepisy w tej księdze albo JEI podają czas i Puls."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_manifest"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:manifested_ingot"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonant_core"
+    }
+  ]
+}

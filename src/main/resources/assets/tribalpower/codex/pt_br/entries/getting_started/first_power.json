@@ -1,0 +1,141 @@
+{
+  "name": "Seu primeiro Pulso",
+  "icon": "tribalpower:drumheart",
+  "order": 10,
+  "next": "first_workshop",
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Todo acampamento começa com um tambor. O [Coração de tambor](drumheart) transforma uma batida constante em Pulso armazenado, que as máquinas na sua [treliça](lattice_conductor) podem gastar.",
+        "A receita está na última página daqui: tábuas, couro, dois **Carrilhão de osso** e um **Fragmento de Espírito**. Carrilhões e fragmentos se fabricam rápido com osso, linha, ametista e redstone; veja [Fragmentos de Espírito e ressonadores](crafting_components). Faça alguns, pois quase tudo no começo os usa.",
+        "Coloque o tambor onde você pretende trabalhar e toque nele: clique com o botão direito com a **mão vazia**, cerca de **uma vez por segundo**. Uma batida no tempo vale muito mais do que um clique frenético.",
+        "Toque até ele guardar algumas centenas de Pulso (agache-se e clique com o botão direito com este livro para conferir). Sua primeira oficina funciona com essa reserva."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Manter o ritmo",
+      "steps": [
+        {
+          "caption": "Coloque o Coração de tambor onde você pretende construir sua primeira oficina.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Com a mão vazia, clique com o botão direito nele cerca de uma vez por segundo. Cada batida no tempo soma 24 Pulso.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Rápido demais, e as batidas caem fora do tempo e somam menos. Ache um ritmo constante.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart",
+      "text": "O tambor guarda 1,000 Pulso. As máquinas puxam dele por um **Condutor de treliça** a até 8 blocos de ambos; a página seguinte mostra onde ele fica. Um ou dois tambores bastam: um terceiro dentro dos mesmos 8 blocos ainda soa, mas não rende nada."
+    }
+  ]
+}

@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:relic_spindle"
     },
-    "title": "Nine agreeing",
-    "description": "Finish the Loom-stitchers' story.",
+    "title": {
+      "translate": "advancement.tribalpower.tribes.story_spindle.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.tribes.story_spindle.description"
+    },
     "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,

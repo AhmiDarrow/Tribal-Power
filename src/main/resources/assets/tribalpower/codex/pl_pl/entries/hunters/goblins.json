@@ -1,0 +1,62 @@
+{
+  "name": "Gobliny",
+  "icon": "tribalpower:goblin_ear",
+  "order": 330,
+  "spoiler": true,
+  "items": [
+    "tribalpower:fen_goblin_spawn_egg",
+    "tribalpower:tunnel_goblin_spawn_egg",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang"
+  ],
+  "next": "kobolds",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Gobliny",
+      "text": [
+        "Małe, szybkie i złośliwe gobliny przychodzą po jednym albo dwa naraz i idą prosto na ciebie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dwa rodzaje",
+      "text": [
+        "Goblin ma **18 zdrowia** i **1 pancerza**, jest szybki i uderza za **4**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:fen_goblin",
+      "title": "Goblin moczarów",
+      "text": [
+        "Chudy goblin o wielkich uszach, z trzcinową włócznią, spotykany na Trzcinowym bagnie. Nocą wychodzi na otwarty teren.",
+        "Upolowany zostawia też do 2 bryłek złota, do 1 kości i do 1 nici."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tunnel_goblin",
+      "title": "Goblin tunelu",
+      "text": [
+        "Przygarbiony goblin z kolczastą maczugą i świecą przyczepioną do czapki, spotykany w ciemnych tunelach pod stepem, gdzie wychodzi dniem i nocą.",
+        "Upolowany zostawia też do 2 węgla, do 2 bryłek żelaza i do 1 kości."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co dają",
+      "text": [
+        "Goblin moczarów zostawia **1 do 2 Ucho goblina** (barwnik jasnozielony), Goblin tunelu **1 do 2 Kieł goblina**, więcej z Grabieżą. Oba to reagenty Ogara: namaszczone sprawiają, że broń wypija z powrotem część każdego ciosu. Zobacz [odczynniki](reagents).",
+        "Gobliny nigdy się nie wiążą."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i hodowla",
+      "text": [
+        "Oprócz reagentu każdy zostawia więcej, gdy go upolować, i jeszcze więcej z Grabieżą."
+      ]
+    }
+  ]
+}

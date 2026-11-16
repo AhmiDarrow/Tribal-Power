@@ -1,0 +1,17 @@
+{
+  "name": "6. Il trasporto",
+  "icon": "tribalpower:carved_stone",
+  "order": 15,
+  "spoiler": true,
+  "unlock": "fragment:5",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Il trasporto",
+      "text": [
+        "“I Custodi del giaciglio non corsero. Raccolsero il suolo, un cesto alla volta, e misero un Focolare su ogni giaciglio che salvarono. Gli altri risero, e poi vennero e si sedettero accanto ai fuochi.”",
+        "Trovato su una Pietra intagliata nelle rovine della Marcia."
+      ]
+    }
+  ]
+}

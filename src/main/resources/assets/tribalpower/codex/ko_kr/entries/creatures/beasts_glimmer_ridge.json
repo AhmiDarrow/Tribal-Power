@@ -1,0 +1,74 @@
+{
+  "name": "희미빛 능선의 짐승",
+  "icon": "tribalpower:prism_crest",
+  "order": 220,
+  "spoiler": true,
+  "items": [
+    "tribalpower:prism_grazer_spawn_egg",
+    "tribalpower:shardmoth_spawn_egg",
+    "tribalpower:glowgrub_spawn_egg",
+    "tribalpower:facet_stalker_spawn_egg",
+    "tribalpower:prism_crest",
+    "tribalpower:shard_wing",
+    "tribalpower:glow_husk",
+    "tribalpower:facet_barb"
+  ],
+  "next": "beasts_snow_fields",
+  "pages": [
+    {
+      "type": "text",
+      "title": "능선 고유의 것",
+      "text": [
+        "[희미빛 능선](glimmer_ridge)의 월장석 고지에는, 탁 트인 곳에 판을 두른 풀뜯이와 나방이, 아래 동굴에 발광벌레와 수정 거미가 있다.",
+        "여기 온순한 짐승은 일 분에 한 번 솔질해 시약을 얻을 수 있고, 아래 **사냥과 사육**에 적힌 자기 먹이로 유인하고 번식시킨다. 어떤 온순한 동물처럼 유대할 수 있다([패밀리어](familiars) 참조). 저마다의 선물은 없으나, 유대한 짐승은 토템에서 목소리를 받아 당신의 마법을 강화할 수 있다([토템에서 조율](familiar_attuning) 참조)."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_grazer",
+      "title": "프리즘 풀뜯이",
+      "text": [
+        "등에 프리즘 판이 한 줄로 난, 키가 낮은 도마뱀 풀뜯이. 두 마리에서 네 마리의 무리. **체력 24**와 **방어력 3**.",
+        "**프리즘 볏**을 1~3개 떨어뜨린다. 약탈이면 더 많다.",
+        "사냥하면 날 사냥고기를 1~2개, 마치 가죽을 최대 1개 떨어뜨린다. **미광 콩**으로 번식한다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shardmoth",
+      "title": "파편나방",
+      "text": [
+        "커팅한 수정 날개의 보라색 나방. 능선 위를 한 마리에서 세 마리까지 펄럭인다. **체력 10**, 방어력 없음.",
+        "**파편 날개**를 1~3개 떨어뜨린다.",
+        "사냥하면 실을 최대 1개, 자수정 조각을 최대 1개 떨어뜨린다. **미광 콩**으로 번식한다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glowgrub",
+      "title": "빛애벌레",
+      "text": [
+        "크고 어두운 머리 아래로 길고 마디진 발광벌레. 꼬리 끝이 타며, 능선 아래 어두운 동굴에 한 번에 한 마리에서 세 마리. **체력 18**과 **방어력 1**. 온순하며, 어떤 풀뜯이처럼 몬스터에게서 달아난다.",
+        "**빛 껍질**을 1~3개 떨어뜨린다.",
+        "사냥하면 발광석 가루를 최대 2개 떨어뜨린다. **등롱갓**이나 아무 버섯으로 번식한다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:facet_stalker",
+      "title": "다면 추적자",
+      "text": [
+        "같은 동굴의 수정 거미. 낮이든 밤이든 그 어둠 속에 한 마리 또는 두 마리씩 나타난다. **체력 21**과 **방어력 1**이 있고, 빠르며, 물면 **5**이고 3초 동안 독에 걸린다.",
+        "**다면 가시**를 1~2개 떨어뜨린다. 독 시약이다.",
+        "사냥하면 자수정 조각을 최대 1개, 실을 최대 1개 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "사냥과 사육",
+      "text": [
+        "시약 말고도, 사냥하면 더 많이 떨어지고 약탈이면 더 늘어난다. 불타 죽으면 고기는 구운 사냥고기가 된다. 야생을 번식시키려면 어른 둘에게 각자의 먹이를 주는 동안 **웅크리기**를 한다. 보통으로 먹이면 야생은 대신 너에게 마음을 연다."
+      ]
+    }
+  ]
+}

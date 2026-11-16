@@ -1,0 +1,52 @@
+{
+  "name": "Diablotin d'escarbille",
+  "icon": "tribalpower:cinder_knot",
+  "order": 130,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cinder_imp_spawn_egg",
+    "tribalpower:cinder_knot"
+  ],
+  "next": "mourning_bell",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinder_imp",
+      "text": [
+        "Un diablotin de feu agile. Il rassemble des étincelles avant un trait ardent.",
+        "Quand on le chasse, il lâche aussi de la Poudre de Blaze avec une chance sur trois."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Les spécimens de Diablotin d'escarbille volettent à travers les Hautes terres de la Marche et la Crête de lueur, et ils sont surtout courants dans les Terres désolées de braise.",
+        "Il a **18 points de vie** et **1 d'armure** et il est immunisé contre le feu. Jusqu'à 12 blocs, il lance un trait de **4 dégâts** qui t'enflamme pendant 2 secondes. Le trait n'enflamme jamais le terrain. Un abri interrompt l'incantation."
+      ],
+      "title": "Où et comment"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Il lâche **1 à 2 Nœud d'escarbille**.",
+        "Un Nœud d'escarbille s'accorde en 2 Écho accordé sous Esprit."
+      ],
+      "title": "Ce qu'il donne"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Atteins **Voix** auprès des **Cœurs-tambours**, puis utilise un Charme de lien sur un adulte : deux essais sur cinq, le charme est dépensé en cas d'échec. Ou nourris-le de son propre réactif : un essai sur cinq, et le réactif est dépensé dans tous les cas.",
+        "Un diablotin lié rend **4 Pulsation** chaque fois que tu joues un Cœur-tambour à la main. Voir [dons du familier](familiar_gifts)."
+      ],
+      "title": "Comme familier"
+    },
+    {
+      "type": "text",
+      "title": "Chasse et conduite",
+      "text": [
+        "Outre son réactif, il lâche ceci quand on le chasse, davantage avec Butin."
+      ]
+    }
+  ]
+}

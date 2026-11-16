@@ -1,0 +1,59 @@
+{
+  "name": "Unção",
+  "icon": "tribalpower:spiritgear_greatsword",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_bench",
+      "title": "Um reagente na lâmina",
+      "text": [
+        "A unção trabalha o poder de um reagente numa arma, para que cada golpe o carregue. Faz-se na [Bancada do canto](song_bench), e a arma o guarda para sempre, até você escolher substituí-lo.",
+        "Uma arma guarda **uma unção por vez**. Ungi-la de novo com um reagente de outra família troca o poder antigo pelo novo; um reagente da família que ela já carrega é recusado, então você nunca desperdiça reagentes por acidente."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Como fazer",
+      "text": [
+        "1. Erga um [Totem de ressonância](six_voices) de qualquer voz a até 8 blocos da bancada, com um gerador carregado ao alcance.",
+        "2. Mantenha a Bolsa de reagentes na barra de atalhos, com pelo menos **4 potencializados** reagentes do tipo que você quer.",
+        "3. Coloque a arma no **espaço de arma** da bancada, ao lado do resultado.",
+        "4. Clique nesse reagente na lista para selecioná-lo e pressione **Ungir**. Custa os 4 reagentes e **32 Pulso**.",
+        "A dica da arma mostra a unção e o reagente de onde ela veio."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que pode ser ungido",
+      "text": [
+        "Toda arma de Equipamento espiritual, da Lâmina à [família mais nova](spiritgear_weapons). Nada mais aceita o trabalho da bancada: nem uma espada vanilla, nem a de outro mod.",
+        "Quem faz packs pode abrir isso a mais pela tag de item **tribalpower:anointable**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "As onze unções",
+      "text": [
+        "- **Cauterizante** (Brasa): queima o alvo e adiciona fogo a cada golpe.",
+        "- **Chamado da tempestade** (Raio): um quarto dos golpes arqueia um raio em dois hostis próximos.",
+        "- **Geladura** (Frio): desacelera e congela o alvo.",
+        "- **Veneno** (Veneno): envenena o alvo.",
+        "- **Vendaval** (Rajada): arremessa o alvo para trás e para cima.",
+        "- **Enraizamento** (Raiz): um quinto dos golpes enraíza o alvo no lugar."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "As onze unções, continuação",
+      "text": [
+        "- **Fendimento** (Empurrão): os golpes mordem mais quanto mais armadura o alvo usa.",
+        "- **eco** (Trama): um quarto dos golpes acerta uma segunda vez pela metade.",
+        "- **Drenagem** (Enfraquecimento): enfraquece o alvo.",
+        "- **Sede de sangue** (Cão): roubo de vida, 15% de cada golpe volta como vida.",
+        "- **Remendo** (Quietude): a arma se repara ao golpear.",
+        "As unções só disparam nos seus próprios golpes corpo a corpo, não em flechas ou feitiços. Cada número está na seção **anointing** da config comum, para que um pack possa ajustá-los."
+      ]
+    }
+  ]
+}

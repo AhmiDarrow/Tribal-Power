@@ -1,0 +1,214 @@
+{
+  "name": "Deine erste Werkstatt",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "next": "self_powered",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Die Werkstätten von Tribal Power heißen **Echostationen**. Jede braucht drei Dinge nah beieinander: etwas zum Bearbeiten, Puls, der sie durch das Gitter erreicht, und das passende **Resonanz-Totem** in der Nähe, das ihr ihre Stimme gibt.",
+        "Die erste Station, die du willst, ist [Echozermalmer](echo_shatter): sieben Stein um einen Knochenklang und einen Kupferresonator. Vier Kupferbarren um einen Knochenklang ergeben **zwei** Kupferresonator. Er zerbricht Stein zu einer **Echoscherbe**, dem kleinen Kristall, mit dem du Puls erzeugen kannst, ohne zu trommeln.",
+        "Puls reist nur entlang eines [Gitterkonduktor](lattice_conductor): eine Station ohne Konduktor innerhalb von 8 Blöcken hungert, selbst direkt neben einer vollen Trommel. Vier Kupferresonator um einen Redstone-Staub ergeben **vier** Konduktoren; setz einen zwischen Trommel und Station.",
+        "Der Echozermalmer braucht die Stimme **Erde**. Fertige ein {item:tribalpower:resonance_totem_earth} aus Stämmen, Erde, einem Knochenklang und einem Kupferresonator und stell ihn nahe an die Station. Das Totem ist keine Kraftquelle. Sieh es als Lehrer der Station: ohne es wartet die Station und gibt nichts aus.",
+        "Ein Totem ist **zwei Blöcke hoch**, also lass einen Block über der Stelle frei. Klick auf eine der Hälften; brichst du eine Hälfte, geht das ganze Totem. Ein Totem aus einer älteren Welt lässt seine Spitze nachwachsen, sobald der Block darüber frei ist."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Die Ecke des Echozermalmers",
+      "steps": [
+        {
+          "caption": "Setz den Echozermalmer neben dein Trommelherz.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Setz einen Gitterkonduktor innerhalb von 8 Blöcken von beiden. Puls reist nur entlang von Konduktoren: ohne einen hungert die Station, egal wie nah die Trommel steht.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Stell ein Resonanz-Totem (Erde) innerhalb von 8 Blöcken dazu. Direkt daneben ist am einfachsten.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Öffne den Echozermalmer und lege Stein hinein. Bruchstein gibt nur Kies, also schmilz ihn zuerst.",
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "minecraft:stone"
+          },
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Halt die Trommel geladen. Nach ein paar Sekunden kommt eine Echoscherbe heraus.",
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wenn es nicht anläuft",
+      "text": [
+        "Ducke dich und rechtsklicke die Station mit diesem Buch. Sie sagt, ob ihr Puls fehlt, ein Konduktor, ihr Totem oder Platz in der Ausgabe.",
+        "Der Echozermalmer verbraucht Puls schneller, als eine Handtrommel ihn erzeugt, also trommle erst eine Reserve und lass die Trommel die Arbeit tragen.",
+        "Ein Hebel oder jedes stetige Redstone-Signal pausiert eine Station. Während sie wartet, geht nichts verloren."
+      ]
+    }
+  ]
+}

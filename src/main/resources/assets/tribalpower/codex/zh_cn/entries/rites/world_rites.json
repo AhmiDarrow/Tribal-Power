@@ -1,0 +1,64 @@
+{
+  "name": "世界仪式",
+  "icon": "tribalpower:rite_rain_calling",
+  "order": 100,
+  "items": [
+    "tribalpower:rite_sky_clearing",
+    "tribalpower:rite_dawn_calling"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_rain_calling",
+      "text": [
+        "石板仪式超出营地，改变世界本身。刻一块石板，把对应的印安放在其圆内的仪式火盆中，并消耗脉动。"
+      ],
+      "title": "天气仪式"
+    },
+    {
+      "type": "text",
+      "title": "刻制与施放",
+      "text": [
+        "每块石板是两个圆石（或黑石或深板岩圆石）、它的试剂和对应的印，无序。印会还回来。",
+        "把那枚印安进火盆（它的祝福继续生效），画出[仪式圆](rite_circle)，并在火盆**8格**内凑齐全部花费：一座储备充足的鼓心、一个带好催化剂的共鸣器，或几台发电机合在一起。口袋里的电池不算。脉动计或灵之典籍会显示总量。",
+        "潜行并对火盆使用石板。若网格所持少于费用，则不消耗任何东西；否则石板被消耗，脉动被抽出。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "三种天气仪式",
+      "text": [
+        "- **唤雨**（水，**400**脉动，一根芦苇尖牙）：二十分钟的雨，期间地脉收集器更强。从这里开始。",
+        "- **放晴**（风，**400**，一片风暴翼）：四十分钟的晴空。",
+        "- **黎明召唤**（火，**800**，一颗余烬之心）：把夜晚催向日出，除非游戏规则 tribalpower:allowDawnRite 处于关闭。",
+        "圆的四个基本方位上有四个对应图腾，费用减四分之一，时间加倍。火盆上若保持着红石信号，仪式会被拒绝。",
+        "接下来，试试[土地仪式](land_rites)。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_rain_calling"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_sky_clearing"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_dawn_calling"
+    },
+    {
+      "type": "text",
+      "title": "治愈之环",
+      "text": [
+        "灵之仪式，施放方式与其他相同，并安放灵之印。花费**500脉动**，开放**10分钟**。",
+        "它治愈圈中的所有人，玩家和已结契的使魔，解除一切伤害，祝福他们，并召回任何倒下的使魔，只要你曾把它的[灵骸](healing_circle)放在它的台座上。完整的故事在[萨满治疗](healing_circle)。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_healing_circle"
+    }
+  ],
+  "next": "land_rites"
+}

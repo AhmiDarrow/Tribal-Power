@@ -1,0 +1,33 @@
+{
+  "name": "Rankenlift",
+  "icon": "tribalpower:vine_lift",
+  "order": 160,
+  "items": [
+    "tribalpower:vine_lift"
+  ],
+  "next": "camp_furniture",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:vine_lift",
+      "title": "Lebende Ranke, die dich trägt",
+      "text": [
+        "Ein Rankenlift ist ein Polster aus lebender Ranke. Setze auf jedes Stockwerk eines Turms oder eines Minenschachts einen, übereinander in der **gleichen Säule**, und sie finden einander von selbst. Kein Verbinden, keine Energie.",
+        "- **Springe** auf einem Lift, um zum nächsten Lift darüber aufzusteigen.",
+        "- **Schleiche** auf einem Lift, um zum nächsten Lift darunter zu sinken."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Beliebig viele lassen sich stapeln; jeder Sprung oder jedes Schleichen geht einen Lift weiter und überspringt die leeren Stockwerke dazwischen. Ein Lift blickt bis zu **48 Blöcke** in jede Richtung.",
+        "Der nächste Lift braucht zwei Blöcke Platz darüber, um darin zu stehen; ein Lift mit einer Decke darüber wird übergangen, damit du nie in einer Wand ankommst."
+      ],
+      "title": "Sie aufreihen"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:vine_lift"
+    }
+  ]
+}

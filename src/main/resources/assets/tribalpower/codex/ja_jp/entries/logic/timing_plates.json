@@ -1,0 +1,40 @@
+{
+  "name": "時間板",
+  "icon": "tribalpower:heartbeat_plate",
+  "order": 78,
+  "items": [
+    "tribalpower:heartbeat_plate",
+    "tribalpower:drift_plate",
+    "tribalpower:strike_plate",
+    "tribalpower:chance_plate"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "鼓動、漂い、打撃、確率",
+      "text": [
+        "- **鼓動**は**1ティックの間15**を出し、それから休む。しゃがみ使用で**20、40、80、160**ティックを巡り、20に戻る。開始は20、1秒。",
+        "- **漂い**は背面が**4、8、16または32**ティック生きて続いたあとでのみ背面を写し（しゃがみ使用で循環、開始は4）、背面が落ちるとすぐに下がる。",
+        "- **打撃**は立ち上がる背面に15を1ティック出し、それから静かになる。太鼓の心臓と火鉢が聞く、打たれた信号だ。",
+        "- **確率**は背面が立ち上がるたびにコインを弾く。15か0で、背面が落ちるまで保持する。",
+        "太鼓の心臓の上の1秒の鼓動は、縁がテンポに乗ったとき**24-パルス**の拍になる。より遅い設定では1拍につき**10**しか得られない。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:heartbeat_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:strike_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chance_plate"
+    }
+  ]
+}

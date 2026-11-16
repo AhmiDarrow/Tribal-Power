@@ -1,0 +1,98 @@
+{
+  "name": "Broń Duchowego sprzętu",
+  "icon": "tribalpower:spiritgear_halberd",
+  "order": 42,
+  "items": [
+    "tribalpower:spiritgear_spear",
+    "tribalpower:spiritgear_halberd",
+    "tribalpower:spiritgear_battle_axe",
+    "tribalpower:spiritgear_warhammer",
+    "tribalpower:spiritgear_dagger",
+    "tribalpower:spiritgear_scythe",
+    "tribalpower:spiritgear_greatsword",
+    "tribalpower:spiritgear_trident"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_greatsword",
+      "title": "Rodzina Ostrza",
+      "text": [
+        "[Ostrze duchowego sprzętu](spiritgear) ma już rodzinę: włócznia, halabarda, topór bojowy, młot bojowy, sztylet, kosa, miecz dwuręczny i trójząb. Robi się je tak samo, z Manifestowanych sztabek i Kościanego dzwonka, większość z patykiem jako drzewcem, i każde ma **kościaną rękojeść**.",
+        "Pod spodem każda jest Ostrzem. Rośnie na stacjach echa, wydaje Puls na uderzenia echa (opłacony cios się nie zużywa), bierze głos totemu i na Manifestowanym trafia bossów mocniej i leczy cię z każdego ciosu. Zmieniają się zasięg, waga i jeden własny ruch."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Liczby",
+      "text": [
+        "- **Włócznia**: 7 obrażeń, 1.3 zamachów na sekundę, zasięg +1.5. Pchnięcie w sprincie trafia **35%** mocniej.",
+        "- **Halabarda**: 10 obrażeń, 0.9 zamachów na sekundę, zasięg +1, ciężka (−4%). Zamiata i łamie wzniesioną tarczę.",
+        "- **Topór bojowy**: 11 obrażeń, 0.8 zamachów na sekundę, zasięg —, ciężki (−6%). Ciężkie rozłupujące cięcie; łamie tarcze.",
+        "- **Młot bojowy**: 12 obrażeń, 0.7 zamachów na sekundę, zasięg —, najcięższy (−8%). Ciosy przechodzą przez pancerz: **30%** pancerza celu wraca jako dodatkowe obrażenia. Łamie tarcze."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Liczby, ciąg dalszy",
+      "text": [
+        "- **Sztylet**: 4.5 obrażeń, 2.4 zamachów na sekundę, zasięg −0.5, lekki (+5%). Cios z **tyłu** pada **1.75×** mocniej.",
+        "- **Kosa**: 8 obrażeń, 1.0 zamachów na sekundę, zasięg +0.5, lekko ciężka (−2%). Każdy cios ścina też **połowę** twojego ataku w każdego wrogiego wokół celu.",
+        "- **Miecz dwuręczny**: 10 obrażeń, 0.85 zamachów na sekundę, zasięg +0.5, ciężki (−6%). Najszersze, najmocniejsze cięcie.",
+        "- **Trójząb**: 8 obrażeń, 1.1 zamachów na sekundę, zasięg +1. Wgryza się **50%** głębiej we wszystko, co stoi w wodzie albo w deszczu.",
+        "To wartości na randze 0. Rangi dokładają premie Ostrza: **+2**, **+5** i **+10** obrażeń ataku. Każda liczba jest w sekcji **broń** wspólnej konfiguracji."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Każda coś oddaje. Ciężka broń bije najmocniej, ale zamach jest wolny i **zwalnia twój chód**, gdy jest w ręce; sztylet jest słaby, lecz szybki i pozwala iść trochę szybciej.",
+        "Zasięg trzyma cię bezpiecznie, ale długa broń robi mniej na sekundę; cięcia i żniwo kosy błyszczą przeciw tłumowi i marnują ciężar na jednym celu.",
+        "Ostrze jest uniwersalne: bez zasięgu, bez wagi, bez własnego ruchu i bez niczego, w czym jest słabe."
+      ],
+      "title": "Żadna broń nie wygrywa wszystkiego"
+    },
+    {
+      "type": "text",
+      "title": "Długie i krótkie",
+      "text": [
+        "Długa broń naprawdę jest długa: włócznia ma około dwóch długości miecza w ręce, halabarda i miecz dwuręczny prawie tyle, topór i młot półtora raza. Sztylet jest krótki i szybki.",
+        "Zasięg liczy się tyle co obrażenia. Włócznia albo trójząb trzyma Ogara szczeliny na długość ramienia; sztylet chce cię blisko i z tyłu.",
+        "Każda z nich może nieść [namaszczenie](anointing)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_spear"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_halberd"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_battle_axe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_warhammer"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_dagger"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_scythe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_greatsword"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_trident"
+    }
+  ],
+  "next": "totem_bound_gear"
+}

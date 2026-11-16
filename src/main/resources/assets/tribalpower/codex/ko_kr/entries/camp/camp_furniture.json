@@ -1,0 +1,473 @@
+{
+  "name": "야영 가구",
+  "icon": "tribalpower:march_table",
+  "order": 170,
+  "items": [
+    "tribalpower:march_stool",
+    "tribalpower:spirit_urn",
+    "tribalpower:woven_mat",
+    "tribalpower:wall_shelf",
+    "tribalpower:hanging_rack",
+    "tribalpower:spirit_door"
+  ],
+  "next": "wind_charm",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_table",
+      "text": [
+        "야영지는 사람이 사는 느낌이 나야 한다. 이 조각의 대부분은 마치의 나무, 돌, 갈대, 잎으로 만들며, 어느 것도 펄스를 요구하지 않는다. 그저 풍경이 아니다. 선반과 탁자와 항아리에 물건을 내려놓고, 걸상에 앉고, 부적을 두드리면 울린다."
+      ],
+      "title": "야영 가구"
+    },
+    {
+      "type": "text",
+      "title": "각 물건",
+      "text": [
+        "- **마치 탁자**: 놓으면 당신을 향하며, 위에 물건을 네 개 둔다.",
+        "- **마치 걸상**: 놓으면 당신을 향한다. 맨손으로 사용하면 앉고, 웅크리거나 다시 사용하면 일어난다.",
+        "- **정령 항아리**: 선반이나 구석에 두는 돌 항아리. 입 안에 물건을 하나 넣는다.",
+        "- **엮은 돗자리**: 어떤 바닥에도 까는 얇은 깔개. 반 블록과 계단도 포함된다.",
+        "탁자나 항아리를, 무언가를 든 채 사용하면 내려놓고, 맨손이면 다시 집는다. 내려놓은 것은 둔 곳에 남고, 조각이 부서지면 함께 떨어지며, 비교기가 읽을 수 있다. 호퍼와 파이프는 가구를 건드리지 않는다 — 저장고가 물건을 보관한다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "선반과 걸이",
+      "text": [
+        "- **벽 선반**: 거의 모든 블록의 옆면에 걸린다(울타리, 담장, 원목). 그 블록이 없어지면 떨어진다. 무언가를 든 채 사용하면 판 위에 내려놓고, 맨손이면 다시 집는다. 네 개가 들어가고, 자리마다 하나다. 비교기가 얼마나 찼는지 읽는다.",
+        "- **매달린 걸이**: 구리 고리 네 개가 달린 레일로, 고정한 곳 높은 자리에 붙는다. 항아리, 도구, 꾸러미는 판 위에 두지 않고 고리에 매달린다. 선반과 같이 작동한다. 무언가를 든 채 사용하면 걸고, 맨손이면 내린다. 비교기가 얼마나 찼는지 읽는다. 그 아래로 걸어 다닌다.",
+        "매달아 다는 장식은 [바람 부적](wind_charm)을 보라. 두드리면 울린다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "야영의 한구석",
+      "steps": [
+        {
+          "caption": "바닥에 엮은 돗자리를 깐다.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:woven_mat"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "돗자리 위에 마치 탁자, 양옆에 걸상.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_table[facing=north]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_stool[facing=east]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_stool[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              -1,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "벽 선반은 매달리려면 뒤에 무언가가 필요하다.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                1
+              ],
+              "block": "tribalpower:wall_shelf[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "정령 항아리가 구석을 채운다.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_urn[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "정령 문",
+      "text": [
+        "**정령 문**은 야영지를 위한 정령의 문턱이다. 기둥 둘, 인방, 등 하나. **플레이어, 맺어진 사역마, 온순한 생물 모두**는 아무것도 없는 듯 가운데를 곧장 지나간다.",
+        "**괴물이나 적대적인 정령**은 그것을 단단한 벽으로 맞닥뜨린다. 목책의 빈틈에 하나를 걸면, 드나드는 동안 밤은 밖에 머문다.",
+        "길이 이어지길 바라는 방향으로 놓아라. 부드러운 빛을 내어, 어두워진 뒤의 입구를 표시한다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_table"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_stool"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:woven_mat"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wall_shelf"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hanging_rack"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_door"
+    }
+  ]
+}

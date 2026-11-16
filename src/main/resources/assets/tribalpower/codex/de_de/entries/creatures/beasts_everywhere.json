@@ -1,0 +1,122 @@
+{
+  "name": "Bestien aller Länder",
+  "icon": "tribalpower:grazer_wool",
+  "order": 280,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ash_hopper_spawn_egg",
+    "tribalpower:ridge_grazer_spawn_egg",
+    "tribalpower:crag_bounder_spawn_egg",
+    "tribalpower:glimmer_moth_spawn_egg",
+    "tribalpower:dust_flitter_spawn_egg",
+    "tribalpower:stone_grub_spawn_egg",
+    "tribalpower:ember_drifter_spawn_egg",
+    "tribalpower:magma_creeper_spawn_egg",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:bounder_horn",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:grub_husk",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale"
+  ],
+  "next": "walking_trees",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Wanderer",
+      "text": [
+        "Acht sanfte Kreaturen sind an kein einzelnes Land gebunden. Du triffst sie im ganzen Marsch, im Freien, in den Höhlen und am Rand der Lava.",
+        "Jede sanfte Bestie hier lässt sich einmal pro Minute nach ihrem Reagenz bürsten und wird mit ihrem eigenen Futter angelockt und gezüchtet, genannt unter **Jagd und Haltung** weiter unten. Sie lässt sich binden wie jedes sanfte Tier (siehe [Vertraute](familiars)), und obwohl keine eine eigene Gabe hat, kann eine gebundene an einem Totem dennoch eine Stimme annehmen und deine Magie stärken (siehe [an einem Totem einstimmen](familiar_attuning)).",
+        "Mehrere ihrer Reagenzien lassen sich zu Farbstoff mahlen: siehe [Reagenzien](reagents)."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ash_hopper",
+      "title": "Aschespringer",
+      "text": [
+        "Eine kleine, flinke Springmaus der Steppe, der Kristallfelder und des Glutödlands, in Gruppen von zwei bis vier. **12 Gesundheit**. Lässt **1 bis 2 Aschebüschel** fallen.",
+        "Gejagt lässt er außerdem bis zu 1 Rohes Wildbret und bis zu 1 Kaninchenfell fallen. Züchte ihn mit **Karotten oder Steppenkorn**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ridge_grazer",
+      "title": "Gratgraser",
+      "text": [
+        "Ein kleines Wollmammut des Hochlands, des Schimmergrats und der Schneefelder. **26 Gesundheit**, **2 Rüstung**. Lässt **1 bis 2 Graserwolle** fallen (Farbstoff Hellgrau).",
+        "Gejagt lässt er außerdem 1 bis 2 Rohes Wildbret und bis zu 1 Marschleder fallen. Züchte ihn mit **Weizen**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:crag_bounder",
+      "title": "Klippenspringer",
+      "text": [
+        "Ein Steinbock des Hochlands, des Schimmergrats, der Schneefelder und der Kristallfelder. **20 Gesundheit**, **2 Rüstung**. Lässt **1 bis 2 Springerhorn** fallen.",
+        "Gejagt lässt er außerdem 1 bis 2 Rohes Wildbret und bis zu 1 Marschleder fallen. Züchte ihn mit **Weizen**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:dust_flitter",
+      "title": "Staubflatterer",
+      "text": [
+        "Ein kleiner Fink, der häufigste Flieger im Marsch, in jedem Land einschließlich des Flachwassers. **8 Gesundheit**. Lässt **1 bis 2 Flattererflügel** fallen.",
+        "Gejagt lässt er außerdem bis zu 2 Federn fallen. Züchte ihn mit **Weizensamen oder Steppenkorn**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmer_moth",
+      "title": "Schimmermotte",
+      "text": [
+        "Ein blassgrüner Mondspinner der Kristallfelder, des Schimmergrats und des Schilfmoors. **10 Gesundheit**. Lässt **1 bis 2 Schimmerstaub** fallen (Farbstoff Türkis).",
+        "Gejagt lässt sie außerdem bis zu 1 Faden und bis zu 1 Glowstone-Staub fallen. Züchte sie mit **Echoblüte oder eine beliebige kleine Blume**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Unter der Erde und an der Lava",
+      "text": [
+        "Beide Lavabewohner zeigen sich überall, wo der Marsch Lava hat, in jedem Land außer dem Flachwasser."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stone_grub",
+      "title": "Steinmade",
+      "text": [
+        "Eine Köcherfliegenlarve in einem Köcher aus Kieseln, aus den dunklen Höhlen unter jedem Land außer dem Flachwasser, zwei bis vier auf einmal. **10 Gesundheit**, **4 Rüstung**. Lässt **1 bis 2 Madenhülle** fallen (Farbstoff Braun).",
+        "Gejagt lässt sie außerdem bis zu 1 Schleimball fallen. Züchte sie mit **Laternenhut oder einen beliebigen Pilz**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ember_drifter",
+      "title": "Glutstreicher",
+      "text": [
+        "Ein Leuchtkäfer mit Feuerbauch, der sich an der Lava sammelt. **12 Gesundheit**, **immun gegen Feuer**. Lässt **1 bis 2 Glutkörnchen** fallen (Farbstoff Rot), ein Glutreagenz.",
+        "Gejagt lässt er außerdem bis zu 2 Holzkohle fallen. Züchte ihn mit **Kohle oder Holzkohle**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:magma_creeper",
+      "title": "Magmacreeper",
+      "text": [
+        "Ein Magmapangolin, langsam und gepanzert, vom heißen Stein an der Lava. **22 Gesundheit**, **6 Rüstung**, **immun gegen Feuer**. Lässt **1 bis 2 Magmaschuppe** fallen (Farbstoff Orange), ein Glutreagenz. Die Magmaschuppe ruft den Schlackentitan am Schlackenthron.",
+        "Gejagt lässt er außerdem bis zu 1 Magmacreme fallen. Züchte ihn mit **Kohle oder Holzkohle**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Haltung",
+      "text": [
+        "Neben seinem Reagenz lässt jedes beim Erlegen mehr fallen, und mit Plünderung noch mehr. Fleisch fällt gebraten, wenn das Tier brennend gestorben ist. Um wilde Tiere zu züchten, **schleiche** dich, während du zwei ausgewachsenen Tieren ihr Futter gibst; normal gefüttert, wird dir ein wildes Tier stattdessen zugetan."
+      ]
+    }
+  ]
+}

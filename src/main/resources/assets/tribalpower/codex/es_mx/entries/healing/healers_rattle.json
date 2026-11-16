@@ -1,0 +1,38 @@
+{
+  "name": "Sonaja del sanador",
+  "icon": "tribalpower:spiritgear_rattle",
+  "order": 30,
+  "items": [
+    "tribalpower:spiritgear_rattle"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_rattle",
+      "title": "Sacúdela",
+      "text": [
+        "Una calabaza seca en un mango de hueso, y una pieza de [Equipo espiritual](spiritgear). **Mantén Usar** y sacude: cada medio segundo sana a quien miras dentro de 6 bloques, o a ti cuando no miras a nadie.",
+        "Cada sacudida cura **3/4 de un corazón** y gasta **2 de Pulso**, primero de la célula de la sonaja y luego de las células que llevas. Sirve con cualquiera amistoso: jugadores, aldeanos, animales y familiares por igual, pero no con criaturas hostiles."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rangos y voces",
+      "text": [
+        "Se gradúa en las estaciones de eco como el resto del Equipo espiritual, y cada rango cura un **50%** más. Desde **Vinculado** también alivia el [Malestar espiritual](spirit_sickness) un nivel por sacudida.",
+        "Vincúlala a un tótem y cada sacudida trae un don:",
+        "- **Agua**: cura la mitad más.",
+        "- **Espíritu**: quita todo efecto dañino.",
+        "- **Tierra**: Resistencia breve.",
+        "- **Fuego**: Resistencia al fuego breve.",
+        "- **Aire**: Velocidad breve.",
+        "- **Telar**: Regeneración breve."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_rattle"
+    }
+  ],
+  "next": "spirit_sickness"
+}

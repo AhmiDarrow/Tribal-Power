@@ -1,0 +1,55 @@
+{
+  "name": "Leylinse",
+  "icon": "tribalpower:ley_lens",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_lens",
+      "text": [
+        "Eine Glasscheibe, ein Kupferresonator und eine Geistscherbe machen eine Linse für die Ley-Sicht. Schau hindurch, und du siehst, was das Land und dein Lager tun: wie stark die Ley ist, wohin der Puls reicht, welche Totems wach sind und welche Maschinen arbeiten."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fünf Blicke",
+      "text": [
+        "Halt sie in einer der beiden Hände und benutze sie, um durch fünf Blicke zu schalten:",
+        "- **Ley**: zeichnet die Ley-Linien um dich, jeden Faden in der Farbe seiner Stimme.",
+        "- **Pulszone**: zeigt das Gitternetz, auf dem du stehst: die Reichweite von **8 Blöcken** der Konduktoren, den, den du antippst, am hellsten umrissen, und eine Markierung über jedem Block, der Puls hält. Das Panel nennt die Konduktoren des Netzes und seine Rate, den Rang deines Konduktors und was er in der letzten Sekunde trug, und rechnet den eingehenden Puls des Netzes gegen das auf, was seine Maschinen ausgeben. Abseits des Gitters sagt es das.",
+        "- **Stimmen**: markiert nahe Totems in der Farbe ihrer eigenen Stimme, wenn sie beantwortet sind, in einem dunkleren Ton, wenn sie matt sind, und grau, wenn sie still sind.",
+        "- **Maschinen**: markiert die Maschinen von Tribal Power um dich.",
+        "- **Aus**: das Glas wird dunkel. Keine Linien, kein Panel, keine Markierungen. Die Ley-Brille, die du trägst, zeigt ihre Fäden weiter.",
+        "Jeder Blick hat ein eigenes Panel auf deinem Bildschirm. Die Ley-Sicht zeigt die Ley-Stärke, wo du stehst, die Pulszone, was gespeichert ist und fließt, Stimmen die Stimmen in Reichweite, und Maschinen die Stationen, Relais und Speicher um dich. Aus zeigt nichts."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ley-Fäden",
+      "text": [
+        "Die Ley-Linien sind ein Netz über die ganze Dimension: der Puls des Planeten, keine Blöcke. Jede Linie ist ein Faden in der Farbe eines Resonanz-Totems (Erde grün, Feuer orange, Wasser blau, Luft blasser Himmel, Geist violett oder Webstuhl gold), mit einem hellen Knoten, der daran entlang pocht.",
+        "Ein Totem zieht den Faden seiner eigenen Farbe durch sich, also steuerst du einen Faden darüber, wo du das Totem stellst. Eine Kreuzung liegt ungefähr alle **80 Blöcke**. Die meisten verbinden zwei bis vier Fäden, und nur etwa eine von vierzig bringt alle sechs zusammen.",
+        "Fertige eine Leylinse zu einer [Geistergewebekapuze](spiritweave), und die Brille der Kapuze zeigt dieselben Fäden, solange du sie trägst, auch mit einer Linse in der Hand auf Aus; eine Linse auf einem anderen Blick verdeckt sie. Benutze die Kapuze im Schleichen, oder mache einen Schleichklick mit leerer Hand, während sie auf deinem Kopf ist, um die Brille aus- und einzuschalten."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "ley_lens",
+      "title": "Den Boden lesen",
+      "text": "Die Linse zeichnet nur die Fäden, nie den Boden. In der Ley-Sicht wird der Stärkebalken auf deinem Panel gold, wo ein Leysammler am lautesten singen würde, und blau, wo er kaum summen würde."
+    },
+    {
+      "type": "text",
+      "title": "Aus der Nähe",
+      "text": [
+        "Benutze die Linse im Schleichen auf einem Leysammler, um die genaue Faktoraufstellung dieses Sammlers im Chat auszugeben: dieselben Zahlen, mit denen er sammelt.",
+        "Benutze sie im Schleichen auf einer Kreatur des Marsches, wild oder gebunden, um ihre Fäden und Male auszugeben; siehe [Einen Vertrauten binden](familiars).",
+        "Die Stärkelinie ist derselbe Schlag, den ein Sammler dort zählen würde, von 1 bis **16**, gezeigt als Anteil der vollen 16. Der Anteil des Landes endet bei 6, und jede Ley-Linie fügt bis zu 2 hinzu, weniger, je weiter du von ihr stehst. Ein Schlag von **8 oder mehr** hält nahe Totems wach. Ein Dach nimmt Himmel, Regen und Gewitter weg, die Linien bleiben aber, also wird ein Sammler unter Dach schwächer, nicht tot."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_lens"
+    }
+  ]
+}

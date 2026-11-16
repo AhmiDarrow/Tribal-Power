@@ -1,0 +1,41 @@
+{
+  "name": "Éclat d'Esprit et résonateurs",
+  "icon": "tribalpower:spirit_shard",
+  "order": 5,
+  "items": [
+    "tribalpower:copper_resonator",
+    "tribalpower:bone_chime"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_shard",
+      "text": [
+        "Deux pièces modestes reviennent dans presque chaque recette de Tribal Power : l'**Éclat d'Esprit** et le **Résonateur en cuivre**. Fais une pile de chaque tôt, et tu seras rarement bloqué.",
+        "Les deux partent d'un **Carillon d'os** : un os, une ficelle et un éclat d'améthyste en font deux."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "D'où ils viennent",
+      "text": [
+        "Un Éclat d'Esprit est un éclat d'améthyste, une poudre de redstone et un Carillon d'os, fabriqués ensemble. Chaque fabrication donne **deux**.",
+        "Un Résonateur en cuivre se fait avec quatre lingots de cuivre autour d'un Carillon d'os. Chaque fabrication donne aussi **deux**.",
+        "Une fois la Marche atteinte, le **Minerai de la Marche** est la source de fragments la moins chère : passe-le dans le [Broyeur d'écho](echo_shatter) avec un totem de Terre, et il se brise en **deux Éclat d'Esprit** en 4 secondes, à 40 Pulsation par seconde."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_shard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_resonator"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bone_chime",
+      "text": "Le Carillon d'os réveille aussi un totem calme quand tu l'utilises sur le totem."
+    }
+  ]
+}

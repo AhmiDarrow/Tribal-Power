@@ -1,0 +1,65 @@
+{
+  "name": "Graveurs de sceaux",
+  "icon": "tribalpower:tribe_mark",
+  "order": 110,
+  "spoiler": true,
+  "unlock": "tribe:sigil",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_sigil",
+      "title": "Graveurs de sceaux",
+      "text": [
+        "« L'Esprit va là où on le prie poliment et reste là où on le nourrit. »",
+        "Brin de **Sigille**, voix d'**Esprit**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qui ils sont",
+      "text": [
+        "Les Graveurs de sceaux ont taillé des sceaux vierges par milliers avant la Coupure, et en ont demandé bien trop. Un sceau est une demande polie gravée dans la pierre ; un brasero est le repas. Leur art est **sceaux et rites**.",
+        "Leurs camps se tiennent dans les **forêts sombres**, et dans la Marche un de leurs camps se tient dans chaque bande, du nord gelé jusqu'au sel."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'ils veulent",
+      "text": [
+        "Leur réactif est l'**Éclat d'Esprit**, qui vaut **+8** d'estime à leur Âtre.",
+        "Ils prisent aussi un Sceau vierge ou n'importe quel sceau d'élément : **+3** chacun. Toute autre nourriture vaut **+1**, et une Cellule de Pulsation chargée **+2 pour chaque 10 de Pulsation**, jusqu'à +8.",
+        "Rappelle-toi que l'Âtre accepte au plus **60** d'estime par jour en offrandes ; voir [Tribus et estime](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que l'Ancien échange",
+      "text": [
+        "**Hôte** : 2 Éclat d'Esprit contre un Sceau vierge ; 4 Éclat d'écho contre 4 Craie rituelle.",
+        "**Ami** : un Sceau vierge et 2 Éclat d'Esprit contre un Sceau d'Esprit ; 3 Écho accordé et 2 Éclat d'Esprit contre la Tablette de rite : Nuit calme ; 4 Riz de tourbière contre le Bouillon du graveur de sceaux.",
+        "**Parent** : 3 Écho lié contre un Brasero rituel ; 4 Écho lié contre une Cloche d'éveil.",
+        "Chaque échange rapporte **+2** de réputation."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marque, totem et don",
+      "text": [
+        "À **Voix**, l'Ancien te donne la Marque de tribu des Graveurs de sceaux. Fabrique-la avec un {item:tribalpower:resonance_totem_spirit} et deux Espritissu pour obtenir leur [Totem de parenté](kinship_totem).",
+        "À côté d'un Résonateur de Pulsation, c'est une voix de plus ; à côté d'une station, il prête **Esprit**.",
+        "Les Parents des Graveurs de sceaux portent leur [don](tribe_boons) : tes amulettes demandent **la moitié** de la Pulsation.",
+        "Leur plat porte le don pendant **5 minutes**, et leur [relique](elders_and_stories) tant que tu le portes.",
+        "Leur échange d'Ami contre une Tablette de rite évite d'en chercher les réactifs. Ils sont aussi la seule tribu à vendre une **Cloche d'éveil**.",
+        "À **Voix**, tu peux aussi lier une **Cloche de deuil** comme [familier](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "sigil",
+      "title": "Ton travail avec eux",
+      "text": [
+        "Ce que l'Ancien des Graveurs de sceaux t'a demandé, et jusqu'où leur histoire est allée. Voir [Anciens, requêtes et récits](elders_and_stories)."
+      ]
+    }
+  ]
+}

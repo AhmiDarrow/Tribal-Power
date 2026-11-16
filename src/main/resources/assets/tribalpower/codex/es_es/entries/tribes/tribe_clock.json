@@ -1,0 +1,65 @@
+{
+  "name": "Tejedores de patrones",
+  "icon": "tribalpower:tribe_mark",
+  "order": 90,
+  "spoiler": true,
+  "unlock": "tribe:clock",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_clock",
+      "title": "Tejedores de patrones",
+      "text": [
+        "“Una fábrica es una canción que ya no necesita al cantante.”",
+        "Mechón de **Reloj**, voz de **Aire**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quiénes son",
+      "text": [
+        "Los Tejedores de patrones escribieron sus tiempos en ruedas de reloj y polvo de polilla, y dejaron que el Telar llevara la melodía. Cuando llegó el Corte, sus canciones siguieron sonando. Su oficio es **canciones temporizadas y automatización**.",
+        "Sus campamentos están en **bosques de abedules**, y en la Marcha hay un campamento suyo en cada franja, desde el norte helado hasta la sal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué quieren",
+      "text": [
+        "Su reactivo es el **Ala de tormenta**, que vale **+8** de reputación en su Hogar.",
+        "También prefieren Redstone, un Reloj, un Repetidor o un Comparador: **+3** cada uno. Cualquier otra comida vale **+1**, y una Célula de Pulso cargada **+2 por cada 10 Pulso**, hasta +8.",
+        "Recuerda que el Hogar acepta como máximo **60** de reputación al día en ofrendas; consulta [Tribus y reputación](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué intercambia el Anciano",
+      "text": [
+        "**Huésped**: 8 Redstone por 2 Fragmento de eco; un Reloj por 4 Repetidor.",
+        "**Amigo**: 2 Eco sintonizado por 4 Comparador; 16 Redstone por un Ala de tormenta; 4 Frijol de fulgor por una Tarta de patrones.",
+        "**Pariente**: 3 Eco vinculado por un Conductor de entramado; 2 Eco vinculado por un Arpa de viento.",
+        "Cada intercambio da **+2** de reputación."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marca, tótem y don",
+      "text": [
+        "En **Voz**, el Anciano te da la Marca tribal de los Tejedores de patrones. Fabrícala con un {item:tribalpower:resonance_totem_air} y dos Tejido espiritual para hacer su [Tótem de parentesco](kinship_totem).",
+        "Junto a un Resonador de Pulso es una voz más; junto a una estación, presta **Aire**.",
+        "Los Pariente de los Tejedores de patrones llevan su [don](tribe_boons): las estaciones de eco a 8 bloques de ti funcionan a **doble velocidad**.",
+        "Su plato lleva el don durante **5 minutos**, y su [reliquia](elders_and_stories) mientras la lleves.",
+        "Los Tejedores de patrones son la única tribu que vende un **Arpa de viento**, el generador de Aire.",
+        "En **Voz** también puedes vincular una **Polilla de tormenta** como [familiar](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "clock",
+      "title": "Tu trabajo con ellos",
+      "text": [
+        "Lo que el Anciano de los Tejedores de patrones te ha pedido, y hasta dónde ha llegado su historia. Consulta [Ancianos, peticiones e historias](elders_and_stories)."
+      ]
+    }
+  ]
+}

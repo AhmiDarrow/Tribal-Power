@@ -1,0 +1,226 @@
+{
+  "name": "Rezonator Pulsu",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 30,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_resonator",
+      "text": [
+        "Moc, która wciąż napływa, gdy cię nie ma. Osadź w środku kryształ, otocz go totemami różnych głosów, a sam zabuczy Pulsem. Mieści do **2,500 Puls**, a gdy go rozbijesz, tracisz to, co zgromadzone."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jak to uruchomić",
+      "text": [
+        "Kliknij prawym Rezonator, trzymając **Odłamek echa** (z [Kruszarka echa](echo_shatter)). Kryształ siedzi w środku jako katalizator i Puls, który powstaje, powoli go zużywa, więc mocno pracujący Rezonator wymaga wymiany. Przykucnij i kliknij prawym pustą ręką, aby wyjąć to, co zostało z kryształu; zużycie zostaje. Wyjmij stary kryształ, zanim osadisz lepszy. Leje nie mogą go zasilać.",
+        "Potem daj mu przynajmniej **dwa różne głosy** w zasięgu 8 bloków, na przykład totem Ziemi i totem Ognia. Liczy głosy, nie bloki: dwa totemy Ziemi to wciąż jeden głos.",
+        "Odłamek i dwa głosy dają **8 Puls na sekundę**. Głosy mnożą się, zamiast się dodawać: każdy, który przyniesiesz, jest wart więcej niż poprzedni, więc cały krąg jest wart dużo więcej niż suma jego totemów."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Pierwsze światło",
+      "steps": [
+        {
+          "caption": "Postaw Rezonator tam, gdzie jego totemy będą miały miejsce wokół.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Kliknij prawym, trzymając Odłamek echa, aby osadzić katalizator.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dodaj totem Ziemi.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dodaj totem Ognia, drugi głos. Rezonator zaczyna buczeć: 8 Puls na sekundę.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Trzeci głos, Woda, podnosi to do 15 Puls na sekundę. Każdy nowy głos jest wart więcej od poprzedniego.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Mocniejsze kryształy",
+      "text": [
+        "Co sekundę Rezonator robi **głosy × (głosy + 2)** Puls, razy jego kryształ: **×1** dla Odłamek echa, **×1.5** Dostrojone, **×2** Związane, **×3** dla Rdzeń rezonansu. Sześć głosów daje więc 48, 72, 96 albo 144 na sekundę.",
+        "- **Odłamek echa**: kamień w Kruszarka echa, z Ziemia.",
+        "- **Dostrojone echo**: odłamki w Dostrajacz echa, z Ogień.",
+        "- **Związane echo**: Dostrojone echo w Wiązacz echa, z Woda.",
+        "- **Rdzeń rezonansu**: Manifestowana sztabka w Manifestator echa, z Duch.",
+        "Sześć głosów wymaga układu [Pierścień głosu](voice_ring): luźna sterta liczy najwyżej pięć głosów, Totem pokrewieństwa wliczone.",
+        "Aby spalać te kryształy obok reagentów i wody, ze wszystkimi sześcioma głosami w gwieździe, zbuduj [Serce ley](ley_heart)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gdy zostaje ciemny",
+      "text": [
+        "Liczą się tylko totemy **Odpowiedziany**; cichy trzeba najpierw obudzić (zobacz [Utrzymanie](keeping)). Totem pokrewieństwa dodają swoje plemiona jako dodatkowe głosy, ale Rezonator i tak potrzebuje własnego Totem rezonansu Odpowiedziany. Stały sygnał redstone wstrzymuje go.",
+        "Kryształ kruszeje, gdy da swoją część: około **20,000 Puls** na Odłamek echa, **60,000** na Dostrojone echo, **150,000** na Związane echo i **400,000** na Rdzeń rezonansu. Pełny Rezonator nic nie robi, a jego kryształ odpoczywa, aż coś wyda zapas.",
+        "Każda [ranga](machine_ranks) samego Rezonatora dodaje **15% Puls na sekundę**."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_resonator"
+    }
+  ]
+}

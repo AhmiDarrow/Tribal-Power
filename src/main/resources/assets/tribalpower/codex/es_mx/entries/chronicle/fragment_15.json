@@ -1,0 +1,17 @@
+{
+  "name": "16. El nidal",
+  "icon": "tribalpower:mural",
+  "order": 25,
+  "spoiler": true,
+  "unlock": "fragment:15",
+  "pages": [
+    {
+      "type": "text",
+      "title": "El nidal",
+      "text": [
+        "“Las Tierras Altas son los puentes de los Caminantes del borde, el último suelo antes del borde. El viento que viene del borde fue una canción, una vez. Lo que anida en él ahora canta la misma canción al revés y arroja a los caminantes para oírlos tocar el suelo.”",
+        "Hallado en un mural, en el terreno de un guardián."
+      ]
+    }
+  ]
+}

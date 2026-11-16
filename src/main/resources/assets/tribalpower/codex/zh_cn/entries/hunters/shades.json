@@ -1,0 +1,73 @@
+{
+  "name": "幽影",
+  "icon": "tribalpower:barrow_shroud",
+  "order": 360,
+  "spoiler": true,
+  "items": [
+    "tribalpower:barrow_shade_spawn_egg",
+    "tribalpower:pale_wraith_spawn_egg",
+    "tribalpower:cinder_shade_spawn_egg",
+    "tribalpower:drowned_shade_spawn_egg",
+    "tribalpower:barrow_shroud",
+    "tribalpower:wraith_veil",
+    "tribalpower:shade_ember",
+    "tribalpower:drowned_weed"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "幽影",
+      "text": [
+        "远行界的亡者在死去的地方行走：一顶空兜帽，里面有两盏光，还有一件袍子，下面什么也没有。每只幽影有**25生命**且没有护甲，攻击造成**5**，但各自的打法不同。",
+        "每种掉落自己的试剂**1到2个**，有抢夺时更多。它们都不会结缘。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:barrow_shade",
+      "title": "古坟幽影",
+      "text": [
+        "一个戴着王冠、裹着墓布的死王。它在高地之下的黑暗洞穴出没，不论昼夜，每次一两只。它的一击会使你虚弱4秒。",
+        "掉落**古坟裹尸布**，一种虚弱试剂。",
+        "猎杀时还会掉落1到2个骨头，以及最多1个幻翼膜。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_wraith",
+      "title": "苍白怨灵",
+      "text": [
+        "拖着长帷幕的冰冷怨灵。夜里在雪原上空飞行，每次一两只。从最远12格外施放寒意，使你减速3秒。掩体会打断施法。",
+        "掉落**怨灵帷幕**，一种寒意试剂。",
+        "猎杀时还会掉落最多1个幻翼膜和最多2个雪球。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinder_shade",
+      "title": "烬幽影",
+      "text": [
+        "一具双手焦黑的阴燃怨灵。夜里在余烬荒原上空飞行，每次一两只，并且**免疫火焰**。从最远12格外施放雷弹，让你燃烧2秒。掩体会打断施法。",
+        "掉落**幽影余烬**，一种雷弹试剂。",
+        "猎杀时还会掉落最多1个幻翼膜，并有三分之一的概率掉落烈焰粉。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:drowned_shade",
+      "title": "溺亡幽影",
+      "text": [
+        "挂满水草、提着灯笼的怨灵。夜里它从浅滩的水中升起，每次一两只，会游或者走着追你：岸边也躲不开它。它的一击会使你虚弱4秒。",
+        "掉落**溺亡水草**，一种虚弱试剂。",
+        "被猎杀时还会掉落最多1个幻翼膜和最多2个海晶碎片。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猎与牧养",
+      "text": [
+        "除自身试剂外，被猎杀时掉落更多，有抢夺时再多一些。"
+      ]
+    }
+  ]
+}

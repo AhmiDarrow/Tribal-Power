@@ -1,0 +1,41 @@
+{
+  "name": "霊の欠片と共鳴器",
+  "icon": "tribalpower:spirit_shard",
+  "order": 5,
+  "items": [
+    "tribalpower:copper_resonator",
+    "tribalpower:bone_chime"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_shard",
+      "text": [
+        "地味な部品が二つ、Tribal Powerのほぼすべてのレシピに出る。**霊の欠片**と**銅の共鳴器**だ。早めにそれぞれ1スタック作れば、まず止まらない。",
+        "どちらも**骨の鈴**から始まる。骨と糸とアメジストの欠片で二つできる。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "出どころ",
+      "text": [
+        "霊の欠片は、アメジストの欠片とレッドストーンダストと骨の鈴を一緒に作る。1回で**二つ**。",
+        "銅の共鳴器は、骨の鈴の周りに銅インゴット四つ。1回でも**二つ**。",
+        "マーチに着いたら、**マーチの鉱石**のほうが欠片は安い。土のトーテムと一緒に[エコー破砕](echo_shatter)へ入れると、4秒、毎秒40パルスで**2つの霊の欠片**に砕ける。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_shard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_resonator"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bone_chime",
+      "text": "骨の鈴は、静かなトーテムに使うとそのトーテムを起こす。"
+    }
+  ]
+}

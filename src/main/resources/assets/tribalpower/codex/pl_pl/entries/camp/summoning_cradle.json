@@ -1,0 +1,699 @@
+{
+  "name": "Kołyska przywołania",
+  "icon": "tribalpower:summoning_cradle",
+  "order": 90,
+  "items": [
+    "tribalpower:binding_effigy"
+  ],
+  "next": "spirit_lantern",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:summoning_cradle",
+      "text": [
+        "Przywołuj żywe duchy, nie polując na nie. Figurka wiązania pamięta jedną istotę i jej nie krzywdzi; Kołyska przywołania wzywa potem tę istotę raz za razem, dopóki ma Puls i Duchotkanina.",
+        "Wiązanie jest rytuałem, celowo. To nie skrót przez jajo przyzywające."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Odciskanie figurki",
+      "text": [
+        "Wytwórz pustą **Figurka wiązania**, potem kucnij i kliknij nią prawym odpowiednią istotę. Istota nie doznaje krzywdy.",
+        "Każde stworzenie z podstawowej gry, które żyje na suchej ziemi, można odcisnąć (krowy, konie, króliki, lisy, zombie, płomyki, endermany, wiedźmy, nietoperze i reszta), a także własne bestie i duchy Marszu: jego spasacze, ćmy, ogary, tropiciele, trolle, gobliny, wróżki, cienie, drzewolud i reszta. Wither, Smok Kresu, Warden i Prastary strażnik nigdy nie mogą, ani przywoływacze, osadnicy, wędrowni handlarze, golemy czy istoty wody. Strażnicy, Niezaśpiewany i Strażnik kolos to bossowie i nie mogą, tak samo jak Duchowe ogniki, Wędrowcy Marszu, Wędrowne duchy, Ród plemienny, Błyskopłetwa, Dzwony dryfu, Płaszczki zasłony, Węgorze mułu ani Jerzyki krosna.",
+        "Żywego wiązania nie da się nadpisać; najpierw zużyj jego nici. Etykieta podaje odcisk i nici, które zostały.",
+        "Sam odcisk niczego nie przywołuje. Trzeba go wpleść przez wiązanie trzech głosów."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wiązanie trzech głosów",
+      "text": [
+        "Osadź **Pieczęć Ducha** w «Rytualne brasero». Ustaw totemy **Ziemia**, **Powietrze** i **Duch** w promieniu 8 bloków, miej **200 Puls** w zasięgu i nieś **trzy Duchotkanina**.",
+        "Bez redstone na brasero kliknij je prawym odciśniętą, pustą figurką. Trzy głosy wiążą w nią **512** nici przywołania i biorą Puls oraz Duchotkanina.",
+        "Wyczerpaną figurkę odnawia się tak samo, albo możesz najpierw odcisnąć na niej inną istotę.",
+        "Jeśli czegoś brakuje, brasero o tym mówi."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Wiązanie trzech głosów",
+      "steps": [
+        {
+          "caption": "Postaw «Rytualne brasero» i osadź w nim Pieczęć Ducha.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ritual_brazier"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:spirit_seal"
+          }
+        },
+        {
+          "caption": "Totemy Ziemia, Powietrze i Duch w promieniu 8 bloków dają trzy głosy.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -2
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Generator i Przewodnik kraty w pobliżu dostarczają 200 Puls.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              -2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Nieś trzy Duchotkanina i kliknij prawym brasero odciśniętą figurką: 512 nici.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:binding_effigy"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Praca kołyski",
+      "text": [
+        "Związana figurka trafia do **pierwszego** miejsca kołyski, a Duchotkanina do **drugiego**.",
+        "Co **dziesięć sekund** próbuje raz wezwać istotę na wolną, suchą podłogę w promieniu **3 bloków**, na własnym poziomie. Przywołanie kosztuje **80 Puls**, **jedną Duchotkanina** i **jedną nić**. Nieudana albo zablokowana próba nic nie zużywa.",
+        "Kołyska trzyma zapas **2 400 Puls** i uzupełnia go do 80 na sekundę z kraty. Odpowiada na **Duch**: bez totemu Duch w promieniu 8 bloków (zobacz [Ręce obozu](camp_hands)) stoi bezczynnie."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Podłoga dla kołyski",
+      "steps": [
+        {
+          "caption": "Postaw kołyskę na płaskiej podłodze, z miejscem dookoła.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:summoning_cradle"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Puls przez przewodnik w promieniu 8 bloków: każde przywołanie kosztuje 80.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              -2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Związana figurka trafia do pierwszego miejsca, Duchotkanina do drugiego.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:spiritweave"
+          }
+        },
+        {
+          "caption": "Istoty pojawiają się na wolnej, suchej podłodze w promieniu 3 bloków, jedna co dziesięć sekund.",
+          "highlight": [
+            [
+              2,
+              -1,
+              2
+            ],
+            [
+              -2,
+              -1,
+              2
+            ],
+            [
+              2,
+              -1,
+              -1
+            ],
+            [
+              1,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Limity i automatyzacja",
+      "text": [
+        "Pauza trwa, gdy w promieniu 12 bloków jest **8 lub więcej** mobów, więc odsuń je. Wrogich nigdy nie wzywa się na Pokojowym ani w kręgu Totem ciszy.",
+        "Komparator odczytuje pozostałe nici. Redstone wstrzymuje wszystko.",
+        "Leje i [płyty przekaźnika](wireless_cargo) mogą podawać Duchotkanina z góry albo z boków. Dolna ściana oddaje tylko wyczerpaną figurkę, gotową do odnowienia, do leja albo na płytę pod spodem.",
+        "Zniszczenie kołyski upuszcza tę samą figurkę, a pozostałe nici zostają nienaruszone."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:summoning_cradle"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:binding_effigy"
+    }
+  ]
+}

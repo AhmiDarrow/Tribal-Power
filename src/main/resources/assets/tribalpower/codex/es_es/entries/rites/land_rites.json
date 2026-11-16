@@ -1,0 +1,50 @@
+{
+  "name": "Ritos de la tierra",
+  "icon": "tribalpower:rite_green_blessing",
+  "order": 110,
+  "items": [
+    "tribalpower:rite_still_night",
+    "tribalpower:rite_ley_binding"
+  ],
+  "next": "voice_blessings",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_green_blessing",
+      "text": [
+        "Los ritos de la tierra cambian una región por un tiempo: cultivos más rápidos, menos hostiles, o un enlace prestado entre tótems lejanos.",
+        "Siguen las mismas reglas que todo rito de tablilla: el sello coincidente, el círculo y Pulso por un conductor a 8 bloques."
+      ],
+      "title": "Ritos de la tierra"
+    },
+    {
+      "type": "text",
+      "title": "Los tres ritos de la tierra",
+      "text": [
+        "- **Bendición verde** (Tierra, **600** Pulso, una Raíz anudada): bendice los **nueve chunks** alrededor del brasero durante veinte minutos. Los cultivos, brotes y tallos de allí reciben tics aleatorios extra y brillan en verde.",
+        "- **Noche quieta** (Espíritu, **600**, un Sigilo de centinela): acalla la aparición de hostiles en **64 bloques** durante quince minutos, como un amplio Tótem del silencio. Los Talladores de sellos venden esta tablilla a los Amigos.",
+        "- **Vinculación ley** (Telar, **1.200**, Hilo de Telar): ata el Tótem de resonancia más cercano al brasero con otro dentro de **64 bloques** durante treinta minutos. Mientras zumba, los conductores al alcance de un tótem se tejen en la red del otro, y el Pulso cruza el hilo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Antes de lanzar",
+      "text": [
+        "Traza el círculo primero: si faltan pedestales, el lanzamiento falla sin gastar la tablilla.",
+        "Cuatro tótems coincidentes en los cardinales del círculo bajan el coste un cuarto y duplican el tiempo: la Bendición verde dura entonces cuarenta minutos por 450 Pulso."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_green_blessing"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_still_night"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_ley_binding"
+    }
+  ]
+}

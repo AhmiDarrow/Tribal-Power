@@ -1,0 +1,259 @@
+{
+  "name": "Pulskairn",
+  "icon": "tribalpower:pulse_cairn",
+  "order": 70,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_cairn",
+      "text": "Ein Kairn aus Steinen, der einen Schlag hält: der Speicher des Gitters. Jeder Stein speichert **4,000 Puls**. In einem Gitter-Netz trinkt er den Überschuss der Generatoren des Netzes und leiht ihn den Maschinen des Netzes, bis zu **64 pro Sekunde** je Richtung. Stoßweise Generatoren füllen ihn; hungrige Maschinen ziehen stetig daraus."
+    },
+    {
+      "type": "text",
+      "title": "Stapeln",
+      "text": [
+        "Kairns, die sich Fläche an Fläche berühren, an jeder Seite, oben oder unten, verbinden sich zu **einem Stapel** und einem Speicher: zwei Steine halten **8,000 Puls**, drei halten **12,000**, und so weiter. Ein Stapel verbindet bis zu **64 Steine**, das sind **256,000 Puls** an schlichten Steinen; ein Stein darüber steht allein.",
+        "Nutze irgendeinen Stein, und du siehst den ganzen Stapel. Lege Puls irgendwo hinein, und er verteilt sich über die Steine; ziehe von irgendeinem Stein, und der ganze Stapel zahlt. Jeder Stein addiert seine eigene Rate dazu, wie schnell der Stapel Puls hinein- und hinausbewegt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ränge",
+      "text": [
+        "Der Pulskairn [erhält Ränge](machine_ranks) wie jede Maschine, in Echoabstimmer, Echobinder und Echomanifestierer. Ein gerangter Stein hält mehr und bewegt Puls schneller, hinein und hinaus, mit denselben Raten wie ein Konduktor:",
+        "- **Gewebt**: 4,000 Puls, 64 pro Sekunde.",
+        "- **Abgestimmt**: 16,000 Puls, 256 pro Sekunde.",
+        "- **Gebunden**: 64,000 Puls, 1,024 pro Sekunde.",
+        "- **Manifestiert**: 256,000 Puls, 4,096 pro Sekunde.",
+        "Ein Haufen zählt seine Steine zusammen, gleich welchen Rang sie haben. Ein Stein aus der Zeit vor den Rängen ist Gewebt, und ein zerbrochener Stein behält seinen Rang, aber nicht seinen Puls."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Füllen und ablesen",
+      "text": [
+        "Ein Kairn schließt sich dem Gitter an wie alles andere, innerhalb von 8 Blöcken um einen [Gitterkonduktor](lattice_conductor). Er trinkt nur den **Überschuss** eines Generators, das, was über der Hälfte seines Speichers liegt, und nie von einem anderen Kairn, damit der Puls, von dem die Maschinen arbeiten, unangetastet bleibt. Maschinen im Netz verbrauchen zuerst Generatoren, dann Kairne. Puls hinein und hinaus läuft auch durch die Konduktoren in Reichweite, also gib ihnen einen passenden Rang.",
+        "Zerbrich einen Stein, und der Puls, den er trug, ist verloren: der Stein kommt leer zurück, und der Rest des Haufens behält, was er hält. Verbrauche einen Haufen, bevor du ihn versetzt.",
+        "Ein Komparator an einem beliebigen Stein liest, wie voll der ganze Haufen ist. Ein Redstone-Signal an einem beliebigen Stein stoppt das Füllen des Haufens."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Ein Haufen Steine",
+      "steps": [
+        {
+          "caption": "Setze einen Kairn neben einen Generator, der in Stößen kommt, etwa eine Weckglocke, mit einem Gitterkonduktor in Reichweite von beiden.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:wake_bell"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Setze weitere oben oder daneben. Steine, die sich berühren, sind ein Haufen: drei halten 12,000 Puls.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Jede Form schließt sich an, nebeneinander oder gestapelt, bis zu 64 Steine: 256,000 Puls in einem Haufen.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                1
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Komparator an einem beliebigen Stein liest, wie voll der ganze Haufen ist.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wo es glänzt",
+      "text": [
+        "Setze einen Kairn, eine Weckglocke und eine Lauschgrube um einen Konduktor, und die Stöße der Glocke werden zum stetigen Bezug, den die Grube will.",
+        "Beide Enden müssen geladen sein. Schleiche und rechtsklicke einen Kairn mit diesem Buch, um zu sehen, wie viele Steine sein Haufen vereint hat und was dieser Stein trägt."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_cairn",
+      "text": "Sechs Marschstein, zwei Gebundenes Echo und eine Pulszelle."
+    }
+  ]
+}

@@ -1,0 +1,300 @@
+{
+  "name": "Maschinenränge",
+  "icon": "tribalpower:echo_attune",
+  "order": 90,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Werkstätten und Generatoren lassen sich hochstufen, so wie Geistergerät: setze die Maschine in den Echoabstimmer, dann in den Echobinder, dann in den Echomanifestierer. Jeder Rang macht sie schneller, und sie bezahlt die Geschwindigkeit mit Puls.",
+        "Du kannst keinen Schritt überspringen: der Binder weist eine Maschine mit Rang 0 ab, und der Manifestierer will Rang 2."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was ein Rang kostet",
+      "text": [
+        "Jeder Schritt braucht Puls und Zeit, aber keine Katalysatoren:",
+        "- Abstimmer (Feuer): **16 Sekunden** bei **96 Puls pro Sekunde**, für Rang 1.",
+        "- Binder (Wasser): **20 Sekunden** bei **128**, für Rang 2.",
+        "- Manifestierer (Geist): **24 Sekunden** bei **160**, für Rang 3."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Drei Stimmen, drei Ränge",
+      "steps": [
+        {
+          "caption": "Nimm die Maschine auf. Als Gegenstand kommt sie in den Echoabstimmer, mit einem Resonanz-Totem (Feuer), für Rang 1.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -2,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "Dann in den Echobinder, mit Wasser, für Rang 2.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "Dann in den Echomanifestierer, mit Geist, für Rang 3.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_manifest"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "Stelle sie wieder hin. Der Rang sitzt auf dem Block und auf dem Gegenstand, wenn du ihn aufnimmst.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was ein Rang bewirkt",
+      "text": [
+        "- Rang 1: **85%** der Zeit, **118%** des Pulses pro Sekunde.",
+        "- Rang 2: **70%** der Zeit, **143%** des Pulses.",
+        "- Rang 3: **55%** der Zeit, **182%** des Pulses.",
+        "Stationen zählen ganze Sekunden, daher wird ein kurzer Auftrag im nächsten Rang vielleicht nicht schneller, zahlt aber trotzdem den höheren Puls. Ränge lohnen sich am besten bei langer Arbeit wie Kernen, dem Hochstufen und dem Glutofen.",
+        "Generatoren arbeiten anders: jeder Rang fügt **15% Puls pro Sekunde** hinzu, nicht die 118% der Werkstatt. Lagerhände schlagen schneller bei demselben Puls pro Zug.",
+        "Die **Liedbank** ist wieder anders: jeder Rang senkt ihren Puls, auf **85%**, **70%** und **55%**.",
+        "Relaisplatten bewegen mehr und zahlen dafür mehr Puls, und jeder Rang öffnet einen Kanal mehr: einen bei Rang 0, bis zu vier bei Rang 3. Ein Gitterkonduktor trägt **64**, **256**, **1,024** oder **4,096** Puls pro Sekunde je nach Rang, und ein Pulskairn-Stein hält **4,000**, **16,000**, **64,000** oder **256,000** und bewegt Puls mit der Rate des Konduktors. Der Wandler und der Energetisierer bewegen mehr Puls pro Sekunde. Ein gerangter Speicher oder eine Zisterne gibt Gegenstände und Flüssigkeit nur schneller an berührende Maschinen weiter."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Welche Maschinen",
+      "text": [
+        "Jede Echo-Station, der Glutofen und die Liedbank; das Trommelherz, der Leysammler, der Pulsresonator und alle fünf Stimmenhandwerke; der Gitterkonduktor, der Pulskairn, der Harmonische Energetisierer, der Gitterwandler, der Ahnenspeicher und die Geistzisterne; jedes Relais; das Steinbecken und das Resonanzgeflecht; und die Lagerhände (Gezeitenpumpe, Windschlinge, Schutztrommel, Siegelwebstuhl).",
+        "Die Kurzinfo zeigt den Rang mit Namen: Gewoben (0), Abgestimmt (1), Gebunden (2), Manifestiert (3). Wenn eine Station die Maschine nicht nimmt, ist es die falsche Station für ihren jetzigen Rang; ducke dich und mache einen Rechtsklick auf die Station mit diesem Buch."
+      ]
+    }
+  ]
+}

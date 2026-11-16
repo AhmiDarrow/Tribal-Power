@@ -1,0 +1,51 @@
+{
+  "name": "Lié-racine",
+  "icon": "tribalpower:knotted_root",
+  "order": 80,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rootbound_spawn_egg",
+    "tribalpower:knotted_root"
+  ],
+  "next": "reed_stalker",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:rootbound",
+      "text": [
+        "Un gardien de racines nouées, tordu par une ligne ley coupée. Lent, mais robuste.",
+        "Chassé, il lâche aussi de 1 à 3 bâtons et jusqu'à 2 Poudre d'os."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Les Lié-racine rôdent dans les forêts de l'Overworld, dans la steppe de la Marche, dans le Marais des roseaux et dans les Bas-fonds.",
+        "Il a **38 de santé** et **5 d'armure** et frappe pour **6**. Chaque coup t'enracine et te ralentit pendant 3 secondes. Lui-même est lent, alors recule, attends la fin des racines et frappe encore."
+      ],
+      "title": "Où et comment"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Il lâche **1 à 2 Racine nouée**.",
+        "Une Racine nouée s'accorde en 2 Écho accordé sous Esprit."
+      ],
+      "title": "Ce qu'il donne"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Aucun charme ne liera un Lié-racine."
+      ],
+      "title": "Il ne se liera pas"
+    },
+    {
+      "type": "text",
+      "title": "Chasse et troupeau",
+      "text": [
+        "Outre son réactif, il lâche ceci quand on le chasse, davantage avec Butin."
+      ]
+    }
+  ]
+}

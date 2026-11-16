@@ -1,0 +1,6 @@
+{
+  "name": "Lagermaschinen",
+  "icon": "tribalpower:grove_tender",
+  "order": 40,
+  "description": "Geräte, die ein Lager für dich betreuen: sie bestellen, sammeln, bewachen, pumpen, leuchten den Weg aus und halten Chunks wach."
+}

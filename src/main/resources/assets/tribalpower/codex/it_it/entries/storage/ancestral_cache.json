@@ -1,0 +1,220 @@
+{
+  "name": "Deposito ancestrale",
+  "icon": "tribalpower:ancestral_cache",
+  "order": 10,
+  "next": "spirit_cistern",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ancestral_cache",
+      "text": [
+        "Un grande deposito **da 54 scomparti** per le scorte dell'accampamento, con un trucco che un baule non ha: imposta le facce, e alimenta o svuota le macchine di Tribal Power che lo toccano, senza tramoggia e senza relè."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Impostare le facce",
+      "text": [
+        "Aprilo e usa il riquadro di I/O per impostare ogni faccia su **Ingresso**, **Uscita**, **Entrambi** o **Chiuso**. Accovacciarti e fare clic destro su una faccia a mano vuota la fa scorrere anche così.",
+        "Le macchine di Tribal Power che lo toccano passano fino a **16 oggetti al secondo** da una faccia che dà (Uscita o Entrambi) a una faccia che prende (Ingresso o Entrambi). Due facce su Entrambi non scambiano mai, così le pile non possono fare la spola tra loro.",
+        "La faccia inferiore di una stazione è Uscita, così un deposito sotto una stazione raccoglie tutto ciò che essa fa. Imposta una faccia su Uscita contro il lato Ingresso di una stazione e la alimenta."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Una stazione che si svuota da sola",
+      "steps": [
+        {
+          "caption": "Posa un Deposito ancestrale dove deve andare l'uscita.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Metti il Frantumatore di eco sopra; la faccia inferiore di una stazione è Uscita.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dai al Frantumatore di eco il suo totem di Terra e Pulso, come al solito.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Le schegge ora cadono dritte nel deposito, senza bisogno di tramoggia.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Consigli",
+      "text": [
+        "Le tramogge e i tubi rispettano le stesse impostazioni di faccia, quindi una faccia Chiusa respinge anche loro.",
+        "I vicini usano le facce; i relè servono per la distanza. Vedi [Carico senza fili](wireless_cargo).",
+        "Una leva blocca sia il menu sia l'automazione. Un comparatore legge quanto è pieno."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ancestral_cache"
+    },
+    {
+      "type": "text",
+      "title": "Il pulsante Riordina",
+      "text": [
+        "Ogni inventario che valga la pena riordinare ha un piccolo pulsante **Riordina** nell'angolo vuoto sopra i suoi scomparti: il tuo zaino, questo deposito, il [Deposito profondo](deep_cache) (e il caveau che apre una Bisaccia del viandante o un accampamento) e qualsiasi baule, botte, scatola di shulker o tramoggia.",
+        "Una pressione unisce ciò che si può unire e dispone il resto in ordine. La tua barra rapida e la tua armatura non si spostano mai, e gli scomparti di una macchina restano intatti: il pulsante compare solo sopra un deposito semplice. Riordinare un caveau non ci mette mai una Bisaccia del viandante.",
+        "Disattivalo con **sortButtons** nella configurazione del client se affolla la schermata di un'altra mod."
+      ]
+    }
+  ]
+}

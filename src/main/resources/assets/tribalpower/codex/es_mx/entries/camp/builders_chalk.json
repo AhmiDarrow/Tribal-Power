@@ -1,0 +1,89 @@
+{
+  "name": "Tiza de constructor",
+  "icon": "tribalpower:builders_chalk",
+  "order": 140,
+  "next": "tribal_bench",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:builders_chalk",
+      "text": [
+        "La Tiza ritual marca tótems y se gasta al hacerlo. Esta es la otra clase: una vara de constructor, guardada para medir. Sostenla y ella alza un **holograma** de una forma en el mundo — un bloque fantasma en cada espacio que la forma todavía necesita — para que coloques bloques de verdad dentro de los fantasmas en vez de contar y esperar.",
+        "Nunca se desgasta, y no coloca nada ni rompe nada. El holograma se dibuja solo en tu propia pantalla; nadie más lo ve, y el servidor no hace ningún trabajo por él."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Manejarla",
+      "text": [
+        "**Usar** cambia la forma. **Agacharte y clic derecho** la agranda, **agacharte y clic izquierdo** la reduce; el tamaño da la vuelta en cualquiera de los dos extremos. En un rito de colocación, el mismo agacharse recorre el nivel, y el tamaño que habías fijado se queda como está. Agacharte con la tiza fuera nunca rompe un bloque, así que puedes ajustarla de pie dentro de tus propios muros.",
+        "Una tiza sin marca fijada solo dibuja mientras está en tu mano, así que un trazado nunca te sigue los pies mientras blandes un pico."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fijar el trazado",
+      "text": [
+        "**Úsala sobre un bloque para fijar el trazado.** El holograma deja de seguirte y se queda en ese sitio — y sigue en pie mientras la tiza esté **en cualquier lugar de tu barra rápida**, así que puedes guardarla, tomar bloques y construir dentro de los fantasmas. Úsala de nuevo en el mismo sitio para borrar la marca.",
+        "Un fantasma solo se alza donde todavía hace falta un bloque. Llena uno y se apaga, así que lo que sigue brillando es exactamente lo que queda por construir.",
+        "La marca fijada solo se mantiene en el mundo en que se fijó, y solo mientras estás en un radio de **192 bloques**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tamaño",
+      "text": [
+        "Los tamaños van de **2** a **128**, medidos desde la marca — así que el círculo más grande mide **257 bloques de lado a lado**. El paso se abre al crecer, fino cerca de una cabaña y grueso cerca de una muralla de cortina, de modo que todo el rango son dieciocho topes y no ciento veintisiete.",
+        "El holograma alcanza unos **48 bloques**, y en una forma lo bastante grande para inundar la vista se dibuja más cerca en vez de adelgazarse. Camina la línea y te sigue el paso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Las formas",
+      "text": [
+        "- **Cuadrado**, **Círculo**, **Cruz** y **Hexágono**: contornos planos para una planta.",
+        "- **Muros**: una planta cuadrada levantada tres hiladas, que es una habitación.",
+        "- **Cúpula**: la cáscara de una semiesfera, para un techo.",
+        "- **Cabaña**: cuatro muros con un vano en una cara y un tejado escalonado encima.",
+        "- **Casa larga**: una sala el doble de larga que de ancha, con una viga de cumbrera y dos hastiales.",
+        "- **Campamento de entramado**: el cuadrado que de verdad alcanza una máquina en la marca, y los cuatro puntos donde se pondría un Tótem de resonancia para llevar ese alcance hacia fuera."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Por qué el cuadrado, y no un círculo",
+      "text": [
+        "Cada máquina mide su alcance en cada dirección por separado, así que el alcance es un **cubo**, no una bola. Un bloque a ocho al este y ocho al norte de un generador está en alcance; uno a diez bloques justo al este no, por mucho más cerca que parezca el segundo en un mapa.",
+        "Por eso **Campamento de entramado** dibuja un cuadrado. Ponlo en **8** y es exactamente la zona en la que trabaja un Corazón de tambor, una estación o un Conductor de entramado."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Los ritos",
+      "text": [
+        "Pasado el Campamento de entramado, la tiza dibuja las obras de este libro, en el orden en que las encuentras: **Pila de piedra**, **Foso de escucha**, **Círculo de rito**, **Anillo de voz**, **Formación de quiebre**, **Portal de senda**, **Portal lejano**.",
+        "La marca es donde se alza la máquina. Un fantasma es un bloque que el rito todavía quiere — Marcas rituales, Piedras de ancla, tótems, pedestales, el suelo de piedra bajo un Foso de escucha, el alijo bajo una estación de eco, el marco de un portal. El interior abierto de un portal se queda oscuro, porque ese espacio tiene que quedar libre."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Niveles y orientación",
+      "text": [
+        "Agacharte y clic derecho sube el nivel; agacharte y clic izquierdo lo baja. El Foso de escucha empieza como el **5 por 5**; el nivel siguiente es Escucha profunda, el **7 por 7** con tótems en los puntos cardinales. La Pila de piedra y el Círculo de rito también tienen un segundo nivel. El Anillo de voz, la Formación de quiebre y ambos portales son un solo trazado.",
+        "Un rito gira hacia donde miras, y se queda girado una vez que fijas la marca. Mira a lo largo del portal antes de plantarlo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nivel láser",
+      "text": [
+        "La última de la lista es el **nivel láser**: una línea recta y a nivel de fantasmas que sale de la marca hacia donde miras, para un muro, un camino, un túnel o un canal largo. **Agacharte y clic derecho** o **agacharte y clic izquierdo** recorre su longitud por **64**, **128** y **256** bloques.",
+        "Mientras te sigue, gira con tu mirada. Úsalo sobre un bloque para fijarlo, y conserva la orientación que tenías entonces. Como toda forma, dibuja unos **48 bloques** a tu alrededor, así que camina la línea y el resto se enciende por delante."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:builders_chalk"
+    }
+  ]
+}

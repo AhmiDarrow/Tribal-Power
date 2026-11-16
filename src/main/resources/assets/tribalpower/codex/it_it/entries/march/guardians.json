@@ -1,0 +1,125 @@
+{
+  "name": "I guardiani",
+  "icon": "tribalpower:vault_seal",
+  "order": 65,
+  "spoiler": true,
+  "items": [
+    "tribalpower:slag_titan_spawn_egg",
+    "tribalpower:bog_matriarch_spawn_egg",
+    "tribalpower:cairn_wight_spawn_egg",
+    "tribalpower:prism_serpent_spawn_egg",
+    "tribalpower:vault_sentinel_spawn_egg",
+    "tribalpower:tide_drummer_spawn_egg",
+    "tribalpower:stampede_spirit_spawn_egg",
+    "tribalpower:storm_roc_spawn_egg",
+    "tribalpower:guardian_altar",
+    "tribalpower:slag_core",
+    "tribalpower:fen_heart",
+    "tribalpower:cairn_stone",
+    "tribalpower:prism_core",
+    "tribalpower:vault_seal",
+    "tribalpower:tide_shell",
+    "tribalpower:herd_horn",
+    "tribalpower:storm_plume"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Otto guardiani",
+      "text": [
+        "Otto dei paesi della Marcia tengono un **guardiano**: ciò su cui finisce la storia di ogni tribù (vedi [Anziani, richieste e storie](elders_and_stories)). Sono boss in ogni senso: una barra del boss, niente contraccolpo, niente pozioni, niente urna dell'anima, due fasi, e uno scontro per cui vale la pena prepararsi.",
+        "Un guardiano non arriva mai vagando. Ognuno ha un **terreno** nel suo bioma, un anello di pietra con un **Altare del guardiano** al centro, e si alza solo da quell'altare: l'altare deve poggiare su ardesia profonda levigata, con una candela accesa a ogni angolo (l'altare o niente), deve esserci spazio sopra, e riposa circa venti minuti tra una chiamata e l'altra.",
+        "Usa l'altare a mano vuota e ti dice cosa vuole: un pugno del reagente di quel bioma, otto di base. Mettilo sopra e fatti indietro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Due fasi",
+      "text": [
+        "A metà salute ogni guardiano è **ridestato**: il suo attacco proprio, prima ogni **4 secondi**, arriva circa ogni **2,4 secondi** e colpisce più forte, e chiama al suo fianco le creature del bioma, **2** subito e altri **2** ogni **15 secondi**, mai più di **6**. Quelle creature non lasciano nulla e svaniscono quando lui cade.",
+        "Se nessuno resta entro **48 blocchi** per mezzo minuto, il guardiano torna a dormire imbattuto; l'altare non ha più bisogno del suo riposo e si può richiamare subito.",
+        "Una creatura chiamata a cui ti leghi nello scontro è tua: una Falena della tempesta del Posatoio, poniamo, una volta che i Tessitori di trame ti chiamano **Voce**. Smette di contare per il guardiano e resta quando lo scontro finisce.",
+        "Quando cade, chiunque entro **48 blocchi** sia nella storia di quella tribù conclude la **prova**, e il suo **nucleo** cade con un mucchio di reagenti e **da 2 a 3 nuclei risonanti**. Ogni terreno tiene anche una cassa che può contenere nuclei risonanti, Filo di Telaio, una mela d'oro o una Tavoletta dei racconti vuota."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slag_titan",
+      "title": "Titano di scoria",
+      "text": [
+        "Una fonderia che cammina: un gigante dal ventre di fornace, pugni da crogiolo e una corona di camino. **Il Trono di Scoria nelle Distese di Brace**. Chiamato con Scaglie di magma. **360 di salute** e **12 di armatura**. Accovacciati per puntellarti contro i suoi colpi; nella seconda fase gli anelli si accendono e i Diavoletti di tizzone sorgono dalla scoria. La sua caduta chiude la storia dei **Cuoritamburo**.",
+        "Lascia il **Nucleo di scoria**, **da 8 a 14 scaglie di magma**, **da 4 a 8 cortecce di cenere** e **da 2 a 3 nuclei risonanti**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bog_matriarch",
+      "title": "Matriarca della palude",
+      "text": [
+        "Un grande rospo di nidiata che porta i piccoli sul dorso, coperto di canne e barbigli di radice. **La Radice Annegata nella Torbiera delle Canne**. Chiamata con Zanne di canna. **320 di salute** e **8 di armatura**. La sua trappola ti trascina e ti rallenta, e ti avvelena una volta ridestata; resta sul terreno solido e abbatti gli Inseguitori dei canneti che chiama prima che sciamino. La sua caduta chiude la storia dei **Legaradici**.",
+        "Lascia il **Cuore di torbiera**, **da 8 a 14 zanne di canna**, **da 4 a 8 radici nodose** e **da 2 a 3 nuclei risonanti**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cairn_wight",
+      "title": "Spettro del tumulo",
+      "text": [
+        "Una pila di pietre di tumulo accese sotto un teschio di alce, in un manto di brina. **L'Anello del Tumulo nei Campi di Neve**. Chiamato con Mandibole di brina. **300 di salute** e **6 di armatura**. Il suo fiato congela tutto ciò che ha davanti. Giragli dietro e occupati degli Strisciatori di brina che chiama. La sua caduta chiude la storia dei **Custodi della colonia**.",
+        "Lascia la **Pietra di tumulo**, **da 8 a 14 mandibole di brina**, **da 4 a 8 piumini pallidi** e **da 2 a 3 nuclei risonanti**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_serpent",
+      "title": "Serpente di prisma",
+      "text": [
+        "Un wyrm di cristallo con spina di prisma e cresta di gemma. **La Frattura Cantante nei Campi di Cristallo**. Chiamato con Carapace prismatico. **300 di salute** e **8 di armatura**. Spara dardi di luce che ti segnano lucente. Spostati di lato, avvicinati e guarda il secondo dardo che aggiunge in fase due, quando gli Inseguitori di schegge lo raggiungono. La sua caduta chiude la storia dei **Cantori di ghiaia**.",
+        "Lascia il **Nucleo di prisma**, **da 8 a 14 carapaci prismatici**, **da 4 a 8 polveri di barlume** e **da 2 a 3 nuclei risonanti**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:vault_sentinel",
+      "title": "Sentinella della volta",
+      "text": [
+        "Una porta di volta che cammina: un costrutto il cui petto è una volta sigillata, con lastre per lame. **La Porta Sigillata sul Crinale del Barlume**. Chiamato con Sigilli di sentinella. **380 di salute** e **16 di armatura**, il più pesante della Marcia, e un fendente che ti scaraventa giù dal crinale. In fase due si protegge per tre secondi alla volta (aspetta che passi) e chiama Strisciatori ombrosi. La sua caduta chiude la storia degli **Intagliatori di sigilli**.",
+        "Lascia il **Sigillo della volta**, **da 8 a 14 Sigillo di sentinella**, **da 4 a 8 Seta ombrosa** e **da 2 a 3 Nucleo risonante**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tide_drummer",
+      "title": "Tamburino della marea",
+      "text": [
+        "Un paguro gigante che vive in un tamburo da guerra incrostato di balani e lo batte con le chele. **La Pietra della marea nei Bassifondi**. Chiamato con Zanna di salamoia. **320 di salute** e **8 di armatura**. Ogni colpo attira tutti verso di lui e ferisce; ridestato, rallenta anche te e chiama Agguatatori di salamoia. Combattilo dalla riva, con le spalle a qualcosa di solido. La sua caduta chiude la storia dei **Tessitori di trame**.",
+        "Lascia la **Conchiglia della marea**, **da 8 a 14 Zanna di salamoia**, **da 4 a 8 Scaglia di secca** e **da 2 a 3 Nucleo risonante**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stampede_spirit",
+      "title": "Spirito della carica",
+      "text": [
+        "Uno spirito uro, con maschera d'osso, corna a lira e criniera di polvere. **Il Cerchio calpestato nella Steppa**. Chiamato con Tendine di stinco. **300 di salute** e **6 di armatura**. Carica. Spostati di lato e colpiscilo mentre passa, e abbatti i Rosicatana prima della carica successiva. La sua caduta chiude la storia dei **Custodi del giaciglio**.",
+        "Lascia il **Corno del branco**, **da 8 a 14 Tendine di stinco**, **da 4 a 8 Zanna di masso** e **da 2 a 3 Nucleo risonante**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:storm_roc",
+      "title": "Roc della tempesta",
+      "text": [
+        "Un uccello del tuono: un'aquila della tempesta crestata, con barre di fulmine nelle ali. **Il posatoio sugli Altipiani**. Chiamato con Ala di tempesta. **280 di salute** e **4 di armatura**. Piomba e ti scaglia in aria, e nella fase due il fulmine segue ogni picchiata e le Falene della tempesta lo raggiungono. Un arco e un tetto aiutano più di uno scudo. La sua caduta chiude la storia dei **Camminatori del ciglio**.",
+        "Lascia la **Piuma di tempesta**, **da 8 a 14 Ala di tempesta**, **da 4 a 8 Piumino pallido** e **da 2 a 3 Nucleo risonante**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "A cosa servono i nuclei",
+      "text": [
+        "Ogni nucleo con un Filo di Telaio fa sei Nucleo risonante, la via più rapida per averli nel gioco. Tutti e otto i nuclei insieme a un {item:tribalpower:unsung_heart} fanno la tavoletta di [Il nono accordo](ninth_agreement)."
+      ]
+    }
+  ]
+}

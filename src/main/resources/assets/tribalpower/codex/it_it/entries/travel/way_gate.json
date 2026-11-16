@@ -1,0 +1,63 @@
+{
+  "name": "Porta della via",
+  "icon": "tribalpower:gate_keystone",
+  "order": 30,
+  "items": [
+    "tribalpower:gate_frame"
+  ],
+  "next": "far_gate",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_keystone",
+      "text": [
+        "Un varco verso un altro varco. Costruisci due telai di pietra, collega le loro chiavi, accendine uno e tutto ciò che entra esce dall'altro: giocatori, animali, mob e oggetti lasciati cadere allo stesso modo."
+      ],
+      "title": "Porta della via"
+    },
+    {
+      "type": "pattern",
+      "pattern": "way_gate",
+      "title": "Costruire il telaio",
+      "text": "Un anello di cinque per cinque senza gli angoli, chiave al centro della fila in basso. L'interno, largo tre e alto tre, resta vuoto."
+    },
+    {
+      "type": "text",
+      "title": "Telai e chiave",
+      "text": [
+        "Una lavorazione di sei Pietra della Marcia, due di rame e una Scheggia di eco rende **quattro Telai della porta**. Un anello richiede **11** telai, e la chiave stessa ne richiede altri quattro, con un Nucleo risonante, una Scheggia di Spirito e una Cella di Pulso.",
+        "La chiave tiene il Pulso della porta, fino a **600**. Fai clic destro con una Cella di Pulso per versarne fino a **100** per volta. Una porta accesa si ricarica anche da sola, fino a 40 al secondo, dal reticolo, tramite un conduttore entro 8 blocchi.",
+        "Solo il giocatore che ha posizionato una chiave della porta, e il suo accampamento, possono caricarla, collegarla, accenderla o romperla. Collegare reinfila entrambe le estremità, quindi non puoi collegarti nemmeno alla porta della via di qualcun altro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Collegare una coppia",
+      "text": [
+        "Costruisci la seconda porta della via nello stesso mondo.",
+        "- **Bussola:** accovacciati e fai clic destro sulla prima chiave della porta con una bussola di pietra di via non vincolata per vincolarla lì, poi accovacciati e fai clic destro sulla seconda chiave della porta con quella bussola.",
+        "- **Gesso:** fai clic destro su una chiave della porta con il gesso rituale, poi sull'altra, fino a **64 blocchi** di distanza.",
+        "- Anche un sigillo della porta funziona; vedi [Porta lontana](far_gate).",
+        "La coppia risponde in entrambi i sensi. **/tribalpower gate list** nomina ogni porta della via che hai posizionato e la sua compagna."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Accendere e attraversare",
+      "text": [
+        "Fai clic destro sulla chiave della porta a mano vuota per accenderla: **400 Pulso** dalla sua riserva. Fai di nuovo clic destro per lasciarla spegnere. Un segnale di redstone a impulso la commuta allo stesso modo, mentre un segnale tenuto la lascia spenta e rifiuta il viaggio.",
+        "Ogni attraversamento prende **20 Pulso** dalla porta della via in cui entri. Atterri dentro la cornice del partner, accesa o no. Un recupero di **un secondo** ti impedisce di rimbalzare subito indietro. Chi è in sella e i veicoli non possono passare.",
+        "Un comparatore legge **0** se non è collegata, **1 a 14** per il Pulso immagazzinato e **15** quando qualcosa attraversa.",
+        "Vedi [Custodire la via](keeping_the_way) per cosa succede quando le cose vanno storte."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_frame"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_keystone"
+    }
+  ]
+}

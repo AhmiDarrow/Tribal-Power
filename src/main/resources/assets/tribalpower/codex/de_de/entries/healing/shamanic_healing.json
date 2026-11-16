@@ -1,0 +1,27 @@
+{
+  "name": "Schamanische Heilung",
+  "icon": "tribalpower:spirit_salve",
+  "order": 0,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Jeder Stamm hat jemanden, der heilt. Hier bist du das: ein Kessel über dem Feuer, eine Rassel in der Hand und die alten Riten.",
+        "- Der [Geistkessel](spirit_kettle) braut **Heilmittel** aus einem Reagenz, einem Kraut und einer Basis.",
+        "- [Heilmittel](remedies) gibt es als Tinkturen zum Trinken, Salben zum Auftragen und Weihrauch zum Verbrennen für alle zugleich.",
+        "- Die [Heiler-Rassel](healers_rattle) heilt, wen du ansiehst, für ein wenig Puls.",
+        "- [Geistleiden](spirit_sickness) ist, was die schlimmsten Geister des Marsches an dir lassen, und warum all das zählt.",
+        "- Der [Heilkreis](healing_circle) heilt ein ganzes Lager und ruft gefallene Vertraute zurück.",
+        "- Eine [Schwitzhütte](sweat_lodge) schickt dich verletzt ins Bett und weckt dich heil."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wo du anfängst",
+      "text": [
+        "Baue zuerst den Kessel. Stelle ihn auf ein brennendes Lagerfeuer, innerhalb von 8 Blöcken um einen Gitterkonduktor in einem geladenen Netz; ein Resonanz-Totem in der Nähe ist nicht zwingend, fügt aber jedem Gebräu seine Stimme hinzu. Ein Stapel Salben in deinem Bündel ist der Unterschied zwischen einer harten Nacht im Marsch und einem Nachhauseweg zu Fuß."
+      ]
+    }
+  ],
+  "next": "spirit_kettle"
+}

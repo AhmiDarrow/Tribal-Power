@@ -1,0 +1,17 @@
+{
+  "name": "Was Flicken bedeutet",
+  "icon": "tribalpower:lore_tablet",
+  "order": 55,
+  "spoiler": false,
+  "next": "holding_is_the_work",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Du setzt die Kontinente nicht zurück. Du lehrst neun Stimmen, sich wieder zu einigen, ein Lager nach dem anderen.",
+        "Eine Kreideverbindung ist ein Versprechen. Ein sitzender Katalysator ist ein neu aufgenommenes Gespräch. Ein Tafelritus heißt, höflich zu bitten, kleiner, als die alte Welt bat.",
+        "Der Marsch hat die Hallen behalten, die Trommeln, die Tafeln. Sag den Lagern, dass es uns leidtut, dass es so lange gedauert hat."
+      ]
+    }
+  ]
+}

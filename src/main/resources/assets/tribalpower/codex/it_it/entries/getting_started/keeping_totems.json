@@ -1,0 +1,25 @@
+{
+  "name": "Tenere i totem svegli",
+  "icon": "tribalpower:bone_chime",
+  "order": 50,
+  "next": "where_next",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "I totem amano la compagnia. Uno che viene usato resta **Risposto** per circa 40 minuti di tempo caricato. Poi diventa **Fievole** per altri 40 minuti, e le stazioni di quella voce lavorano circa il 30% più lente. Poi cade **Quieto**, e il lavoro nuovo può fermarsi anche con Pulso d'avanzo.",
+        "Svegliare un totem è facile: clic destro a mano vuota, oppure usa un **Campanello d'osso** su di esso. Suonare a mano un Cuoretamburo entro 8 blocchi lo sveglia anche. Una volta sveglio, un totem resta sveglio finché una stazione della sua voce lavora vicino.",
+        "Alcune cose tengono i totem svegli per te. Un [famiglio](familiar_attuning) che porta la voce di un totem lo tiene sveglio fino a **8 blocchi**, il Tamburino di una tribù sveglia ogni totem vicino al suo battito, e un [Totem di parentela](kinship_totem) non diventa mai quieto.",
+        "I totem all'aperto, vicino ad acqua e piante, restano svegli il doppio. Un totem sotto un tetto tiene il ritmo normale.",
+        "Un totem ha anche bisogno di Pulso nel proprio serbatoio. In una rete di reticolo con Pulso si riempie e resta pieno; fuori dal reticolo si svuota in circa due minuti e diventa **silenzioso**, sveglio o no. Un totem nuovo parte pieno, quindi metti un [Conduttore di reticolo](lattice_conductor) a portata prima di allora."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dove leggere altro",
+      "text": [
+        "Le regole complete sono sulla pagina [Custodia](keeping). Se una stazione si è fermata e l'energia va bene, un totem silenzioso è di solito il motivo, e il Codice spirituale te lo dirà quando ti accovacci e fai clic destro sulla stazione."
+      ]
+    }
+  ]
+}

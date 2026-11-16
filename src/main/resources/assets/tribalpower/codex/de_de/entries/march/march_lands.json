@@ -1,0 +1,117 @@
+{
+  "name": "Länder des Marsches",
+  "icon": "tribalpower:rime_ice",
+  "order": 21,
+  "items": [
+    "tribalpower:rime_ice",
+    "tribalpower:frost_shale",
+    "tribalpower:scree",
+    "tribalpower:needle_loam",
+    "tribalpower:hoarmoss",
+    "tribalpower:pale_sand",
+    "tribalpower:spore_turf",
+    "tribalpower:pale_stone",
+    "tribalpower:salt_crust",
+    "tribalpower:ochre_sand",
+    "tribalpower:ochre_sandstone",
+    "tribalpower:kiln_clay_rust",
+    "tribalpower:kiln_clay_ochre",
+    "tribalpower:kiln_clay_bone",
+    "tribalpower:kiln_clay_ash",
+    "tribalpower:glass_sand",
+    "tribalpower:glowmoss",
+    "tribalpower:silence_weave",
+    "tribalpower:hush_bloom",
+    "tribalpower:salt_pillar",
+    "tribalpower:resonant_spike",
+    "tribalpower:icebloom",
+    "tribalpower:frostcap",
+    "tribalpower:grey_heather",
+    "tribalpower:hoar_thistle",
+    "tribalpower:songgrass",
+    "tribalpower:loom_bell",
+    "tribalpower:dawn_poppy",
+    "tribalpower:chime_bud",
+    "tribalpower:sunwheel",
+    "tribalpower:thornbrush",
+    "tribalpower:tangle_fern",
+    "tribalpower:spirit_cane",
+    "tribalpower:gloomcap_sprout"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "title": "Sechs Bänder des Marsches",
+      "text": [
+        "Der Marsch reicht vom Gefrorenen zum Heißen und hinab ins Dunkel, **neunundfünfzig Lande** in sechs Bändern. Jedes Band ist ein langes Temperaturgefälle über die Karte; darin behalten das Nasse und das Trockene, das Hohe und das Tiefe und der fremde Boden hoher Seltsamkeit je ihr eigenes Land.",
+        "Jedes Land hat seinen eigenen Boden, seinen eigenen Bewuchs und seine eigenen Geister. Das Bestiarium des Kodex sagt, wo jede Kreatur lebt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gefroren",
+      "text": [
+        "Das kalte Ende des Marsches: Schnee über Marschgras, Reifeis, wo der Wind seinen Willen hatte, und der Nachtschleier in seiner hellsten Form.",
+        "Marschschneefelder, Reifspitzen, Reifbirken-Taiga, Frostküste, Gefrorener Weiher, Reifmeer, Tiefes Reifmeer, Raureifgipfel, Splittergipfel, Frostkiefernhänge, Schleierflächen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Kalt",
+      "text": [
+        "Taigas aus Dornentanne, Moore, Geröll und der mineralische Gipfel des Schimmergrats.",
+        "Schimmergrat, Dornentannen-Taiga, Uralte Dornentannen-Taiga, Hügelgrabmoor, Geröllhöhen, Windgepeitschte Dornentanne, Raureifmoos-Hain, Graue Küste, Kaltes Flachwasser, Tiefes kaltes Flachwasser, Karseeland."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gemäßigt",
+      "text": [
+        "Das Herz des Marsches: Steppe, Fenn, Kristallland, Wälder aus Liedahorn und Herdeiche, und das Meer.",
+        "Marschsteppe, Marschschilf-Fenn, Marschkristallfelder, Marschflachwasser, Liedahornwald, Blütenwiese, Herdeichenwaldland, Uraltes Herdeichenwaldland, Schleierholz, Klangobsthain, Hochwiese, Sonnenradsteppe, Webstuhlfluss, Schlickstrand, Tiefes Flachwasser, Leuchtkappenmoor."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Warm",
+      "text": [
+        "Trommelpalmen-Savannen, das Wirrholz und die Stelzensümpfe, unter dem Hochland und den Sonnengipfeln.",
+        "Marschhochland, Trommelpalmen-Savanne, Trommelpalmen-Plateau, Windgepeitschte Trommelpalme, Wirrholz, Offenes Wirrholz, Rohrdickicht, Schreitermangrove, Sonnengipfel, Warmes Flachwasser, Tiefes warmes Flachwasser."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Heiß",
+      "text": [
+        "Salz, Ofenton und Asche: das trockene Ende des Marsches, hinab zu einem Meeresgrund aus geschmolzenem Glas.",
+        "Marschglutödland, Salzflächen, Ofentafelberg, Geschnittener Tafelberg, Sonnenrinden-Tafelberg, Glasflachwasser."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Untergrund",
+      "text": [
+        "Was unter jedem Band liegt: die singenden Höhlen, die leuchtenden Mulden, die Leyadern und die Stille.",
+        "Singende Höhlen, Düsterschirm-Mulden, Die Stille, Leyadern."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Neuer Boden",
+      "text": [
+        "- **Reifeis** und **Frostschiefer** in den gefrorenen Gipfeln und Spitzen; **Nadellehm** und **Raureifmoos** unter den Taigas; **Geröll** auf den Höhen.",
+        "- **Blasser Sand** an den Stränden, **Sporenrasen** im Leuchtkappenmoor, **Blasser Stein** auf den Sonnengipfeln.",
+        "- **Salzkruste** und **Salzsäulen** auf den Flächen; **Ockersand**, **Ockersandstein** und vier Töne **Ofenton** in den Tafelbergen; **Glassand** unter dem Glasflachwasser.",
+        "- **Resonanzspitzen**, die unter dem Fuß klingen, in den Singenden Höhlen, **Leuchtmoos** in den Düsterschirm-Mulden, und **Schweigegewebe** mit seinen **Flüsterblüten** in der Stille."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Neuer Bewuchs",
+      "text": [
+        "Eisblüte, Frostkappe, Graues Heidekraut, Raureifdistel, Liedgras, Webstuhlglocke, Morgenmohn, Klangknospe, Sonnenrad, Dornengestrüpp, Wirrfarn, Geistrohr und Düsterschirm-Sprosse, jedes in dem Land, das zu ihm passt. Die neun neuen Bäume stehen auf der Baumseite."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "name": "Totem pokrewieństwa",
+  "icon": "tribalpower:kinship_totem",
+  "order": 30,
+  "items": [
+    "tribalpower:tribe_mark"
+  ],
+  "next": "tribe_boons",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:kinship_totem",
+      "text": [
+        "Totem wyrzeźbiony z przedmiotu Znak plemienia. Obok bloku Rezonator Pulsu liczy się jako **dodatkowy głos**, dla plemienia, a nie dla jego elementu, więc dodaje Puls nawet tam, gdzie ten element już śpiewa.",
+        "Nigdy nie milknie i użycza głosu swojego plemienia każdej pobliskiej stacji."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zdobywanie Znaku",
+      "text": [
+        "Podnieś swoją pozycję u plemienia do rangi **Głos (800)**, potem porozmawiaj ze Starszym tego plemienia. Starszy wciska ci w dłoń **Znak plemienia**. Ten dar jest tylko raz na plemię, ale co **trzecia** prośba, którą dla nich ukończysz, też płaci Znakiem, od Gościa wzwyż (zobacz [Starsi, prośby i opowieści](elders_and_stories)).",
+        "Znak niesie nazwę plemienia i jego powiedzenie. Znak, który Starszy daje przy randze Głos, otwiera też stronę tego plemienia w tej księdze; Znaki płacone za prośby — nie.",
+        "Gość i Przyjaciel nie wystarczą do daru Głosu. Jeśli ci brakuje, handluj, składaj dary i przyjmuj prośby, aż dojdziesz do Głosu; zobacz [Plemiona i pozycja](standing)."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribes_kinship_totem",
+      "title": "Rzeźbienie totemu",
+      "text": [
+        "Połóż Znak plemienia, **Totem rezonansu głosu tego plemienia** oraz **dwie Duchotkanina** w dowolnym miejscu siatki rzemieślniczej. Znak zostaje zużyty w totem."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Który totem pasuje do którego Znaku",
+      "text": [
+        "- **Ziemia**: Strażnicy posłania, Śpiewacy żwiru.",
+        "- **Woda**: Wiązacze korzeni.",
+        "- **Ogień**: Chodzący po krawędzi, Bęben-serca.",
+        "- **Powietrze**: Tkacze wzorów, Strażnicy kolonii.",
+        "- **Duch**: Rzeźbiarze pieczęci.",
+        "- **Krosno**: Szwacze krosna.",
+        "Kliknij prawym ustawiony Totem pokrewieństwa, aby zobaczyć jego plemię i głos, którego użycza."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Dodatkowy głos",
+      "steps": [
+        {
+          "caption": "Rezonator Pulsu z totemem Ziemi i totemem Ognia śpiewa dwoma głosami.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Totem pokrewieństwa plemienia Bęben-serca dodaje trzeci głos, choć Ogień już tu jest.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:kinship_totem[tribe=4]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Totem plemienia Strażnicy posłania dodaje czwarty. Głosy mnożą się: Odłamek echa przy trzech daje 15 Pulsu na sekundę, a przy czterech daje 24.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:kinship_totem[tribe=0]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Drugi totem tego samego plemienia nic nie dodaje. Rezonator liczy plemiona, nie bloki.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:kinship_totem[tribe=4]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Przy bloku Rezonator Pulsu",
+      "text": [
+        "Każde osobne plemię, które ma Totem pokrewieństwa w promieniu **8 bloków**, liczy się jako jeszcze jeden głos. Totemy pokrewieństwa nigdy nie milkną, więc liczą się zawsze; totemy rezonansu liczą się tylko, gdy są Odpowiedziane.",
+        "Rezonator nadal musi mieć co najmniej jeden własny, odpowiedziany **Totem rezonansu**. Same totemy pokrewieństwa go nie uruchomią.",
+        "Luźna sterta wciąż zatrzymuje się na **pięciu głosach** łącznie. Zbuduj [Pierścień głosu](voice_ring), a limit się podniesie: sześć elementów plus wszystkie dziewięć plemion dają **piętnaście**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Na stacjach i maszynach obozu",
+      "text": [
+        "W promieniu 8 bloków od warsztatu, Krosno-kotwica albo [ręka obozu](camp_hands), która czeka na głos, Totem pokrewieństwa tylko **użycza elementu swojego plemienia**, jakby stał tam odpowiedziany Totem rezonansu tego głosu. To nie jest siódmy głos.",
+        "Ponieważ nigdy nie milknie, liczy się nawet obok cichego Totem rezonansu tego samego głosu. To dobry sposób, by utrzymać stację albo maszynę obozu w ruchu w miejscu, które rzadko odwiedzasz.",
+        "Do podlewania Opiekun gaju wciąż potrzebny jest Totem rezonansu Wody."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "W Dole nasłuchu",
+      "text": [
+        "Głębokie, gorące i rzadkie pasma rudy [Dołu nasłuchu](listening_pit) wszystkie potrzebują **Totem pokrewieństwa Śpiewaków żwiru** albo **Palenisko plemienia**, stojących wewnątrz wzoru.",
+        "Poważanie u Śpiewacy żwiru wciąż ustala limit: **Ród** dla pasm głębokich i gorących, **Głos** dla rzadkiego."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "name": "根缚者",
+  "icon": "tribalpower:knotted_root",
+  "order": 80,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rootbound_spawn_egg",
+    "tribalpower:knotted_root"
+  ],
+  "next": "reed_stalker",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:rootbound",
+      "text": [
+        "纠结树根的守卫，被一条切断的地脉扭歪。慢，但结实。",
+        "猎杀时还会掉落1到3个木棍，以及最多2个骨粉。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "根缚者潜伏在主世界的森林、远行界草原、芦苇泽和浅滩。",
+        "它有**38生命**和**5护甲**，攻击造成**6**。每次击中都会把你缠住，减速3秒。它自己也慢，所以后退，等缠根过去，再打。"
+      ],
+      "title": "地点与方式"
+    },
+    {
+      "type": "text",
+      "text": [
+        "掉落**1到2株节根**。",
+        "一株节根在灵之下调谐为2个调谐回响。"
+      ],
+      "title": "它给出什么"
+    },
+    {
+      "type": "text",
+      "text": [
+        "没有护符能让根缚者结缘。"
+      ],
+      "title": "不会结缘"
+    },
+    {
+      "type": "text",
+      "title": "狩猎与驱赶",
+      "text": [
+        "除了它的试剂，猎杀时还会掉落这个，有抢夺时更多。"
+      ]
+    }
+  ]
+}

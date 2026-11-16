@@ -1,0 +1,36 @@
+{
+  "name": "Mantener el camino",
+  "icon": "minecraft:map",
+  "order": 50,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Los portales se construyen para ser seguros. Un portal siempre te deja **dentro del propio marco del Portal lejano** y nunca cava, construye ni despeja nada para hacer sitio.",
+        "Si no hay dónde estar de pie dentro del marco lejano, el viaje se niega y el Pulso vuelve a la piedra clave.",
+        "El extremo lejano se mantiene cargado durante **diez segundos** alrededor de tu llegada, así que la pareja en un chunk no cargado sigue respondiendo. Solo un [Ancla de camino](wayanchor) lo mantiene cargado más tiempo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cuando un portal se rompe",
+      "text": [
+        "Rompe una piedra clave y su pareja se libera al instante y se apaga. A quien esté a 16 bloques de la pareja se le dice qué portal se perdió.",
+        "**/tribalpower gate list** muestra cada portal que colocaste y a qué responde. **/tribalpower gate unlink <name>** corta uno de tus hilos a mano.",
+        "Para volver a enlazar, usa otra vez una brújula, tiza o un sigilo, como en [Portal de senda](way_gate)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cuando un portal no funciona",
+      "text": [
+        "- **\"Esta piedra clave no tiene marco a su alrededor\"**: falta un bloque del marco o está mal colocado. Compruébalo con el patrón.",
+        "- **Necesita Pulso**: carga la piedra clave; la luz y el viaje salen ambos de su propia reserva.",
+        "- **Se apaga solo**: hay una señal de redstone mantenida, se rompió un bloque del marco, o un Portal lejano perdió su voz del Telar.",
+        "- **\"El hilo no encuentra nada\"**: el portal está encendido, pero no enlazado.",
+        "Agáchate y haz clic derecho en una piedra clave con este libro para ver su estado completo."
+      ]
+    }
+  ]
+}

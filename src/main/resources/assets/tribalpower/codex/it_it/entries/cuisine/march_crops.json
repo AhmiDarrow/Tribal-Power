@@ -1,0 +1,35 @@
+{
+  "name": "Colture della Marcia",
+  "icon": "tribalpower:emberroot",
+  "order": 0,
+  "items": [
+    "tribalpower:emberroot",
+    "tribalpower:fen_rice",
+    "tribalpower:frostberry",
+    "tribalpower:glimmer_bean",
+    "tribalpower:steppe_grain"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Cinque colture crescono selvatiche là fuori, ognuna nel proprio paese. Trova una macchia, raccoglila, e ciò che hai raccolto è il seme: piantalo su terra zappata come una patata. Attecchisce anche su terra semplice, Suolo della Marcia o sabbia, ed è così che crescono le macchie selvatiche.",
+        "- **Radice di brace** nelle Distese di brace: un tubero rosso e caldo.",
+        "- **Riso di torbiera** nella Torbiera dei canneti.",
+        "- **Bacca di brina** nei Campi di neve.",
+        "- **Fagiolo di bagliore** sulla Cresta di bagliore, dove mette radici nella pietra di luna e nell'agata muschiata, e nei Campi di cristallo.",
+        "- **Grano della steppa** nella steppa."
+      ],
+      "title": "Ciò che la Marcia fa crescere"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Crescono in quattro stadi. Tutti si possono mangiare crudi, anche se non per molto. La [Zappa di Dotazione spirituale](spiritgear) li miete e li ripianta in un solo colpo, le api li impollinano, e il [dono Germoglio](tribe_boons) li affretta.",
+        "La Bacca di brina e il Fagiolo di bagliore contano anche come erbe per il [Calderone dello Spirito](spirit_kettle)."
+      ],
+      "title": "Coltivarli"
+    }
+  ],
+  "next": "hearth_pot"
+}

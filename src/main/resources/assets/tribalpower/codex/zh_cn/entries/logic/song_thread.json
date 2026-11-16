@@ -1,0 +1,268 @@
+{
+  "name": "歌线",
+  "icon": "tribalpower:song_thread",
+  "order": 40,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_thread",
+      "text": [
+        "红石是一声喊；歌线是哼过空气的一条线。它把信号从**0到15**送向全部**六个方向**，上下也算，而且不需要任何东西来托住。",
+        "**它需要织机线**。只有远行界会给出：旧殿、陵墓、门与栖处中的箱子，织机缝工在朋友阶的交易，以及未歌者。歌藤、歌板和诗节呼唤都用歌线做成，所以它们也在等它。在那之前，用红石粉、红石中继器和比较器来搭建。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "拉一条线",
+      "text": [
+        "能量像粉末一样下降**每格一点**。若要远端仍是满15，就把线留短，或用一块回响板把它补回。",
+        "原版红石粉、拉杆、歌板、歌藤和比较器都会对它说话。两块歌板之间可以完全不用线，用图腾扳手同步它们（见[歌板](song_plates)）。",
+        "它传得很弱：不会给碰到的石头供能，所以从不锁存。一道线墙就是一道歌墙。要让卷须贴着石头拐过角，见[歌藤](song_vine)。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "歌的时钟",
+      "steps": [
+        {
+          "caption": "放下一个鼓心。它自己不会打拍，得你来保持节奏。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "把心跳板装在方块侧面，面向鼓。它朝外指的那一面就是输出。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:heartbeat_plate[facing=east]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "从板的那一面把歌线拉到鼓上。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_thread"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_thread"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "新的心跳已经每20刻跳一次，一秒一下。右键查看；只有蹲下使用才会让它变慢。",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "每一次准时的拍子加上24脉动，所以没人消耗时鼓会装满。",
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "守时",
+      "text": [
+        "鼓心把间隔为**17到23刻**的拍子算作准时，价值**24脉动**。其他间隔最多给**10**，间隔少于8刻的拍子会被忽略，所以把心跳留在20刻：更慢的设置每次只给10。只有彼此相距8格以内的两面鼓才能获得脉动。",
+        "如果鼓装不满，就检查板的朝向、它的支撑方块和线，并去掉附近一切恒定能量。先让时钟和鼓运转，再添加阈值或记忆板。",
+        "若想把储存的量变成信号，就加一个[脉动计](pulse_gauge)。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:song_thread",
+      "text": "织机线周围的红石会做出**八**。"
+    }
+  ],
+  "next": "song_vine"
+}

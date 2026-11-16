@@ -1,0 +1,367 @@
+{
+  "name": "織機の錨",
+  "icon": "tribalpower:loom_anchor",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:loom_anchor",
+      "text": [
+        "織機の縫い手の技であり、終盤の発電機だ。織機の錨は完全な野営の分を払う。異なるトーテムの声ひとつごとに**毎秒1パルス**、**8ブロック**以内、最大で六つまで。",
+        "**1,000パルス**を蓄える。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "声を数える",
+      "text": [
+        "数えるのは声で、トーテムではない。土のトーテムが六つでも声は一つ。静かなトーテムも数に入る。何もない空気は入らない。",
+        "近くのどのトーテムでも、有効な[レイ結束](world_rites)は速度を**倍にする**。",
+        "血縁のトーテムは、部族の元素を同じ六つの声の組へ貸し出す。七つ目の声ではない。土のトーテムのそばの砂礫の歌い手の血縁のトーテムは、何も足さない。",
+        "エコー調律、次にエコー結束、その次にエコー顕現でランクすると、工房の118%ではなく、ランクごとに**毎秒15%パルス**が加わる。ボーナスはパルスの整数に丸められるので、毎秒2か3しか出さない発電機は最初のランクでは何も得ない。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "声の真ん中",
+      "steps": [
+        {
+          "caption": "錨を自分のトーテムの真ん中に植える。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:loom_anchor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "声は二つ、土と火。毎秒2パルス。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "水と風を足す。声は四つ、毎秒4。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              -2
+            ]
+          ]
+        },
+        {
+          "caption": "霊と織機で組が揃う。毎秒6。近くでレイ結束が鳴っているあいだは12。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              2,
+              0,
+              -2
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "確認",
+      "text": [
+        "素手のクリックで、産出と保持量が分かる。この本でしゃがみ右クリックすると、声の数と、レイ結束が届いているかが分かる。",
+        "錨は[織機の縫い手](tribe_spindle)の技だ。レシピには共鳴核と織機の糸が要る。織機の縫い手は、一族に、結ばれたエコーと織機の糸と引き換えに錨を渡す。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_anchor"
+    }
+  ]
+}

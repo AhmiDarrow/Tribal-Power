@@ -1,0 +1,31 @@
+{
+  "name": "Geisteramboss",
+  "icon": "tribalpower:spirit_anvil",
+  "order": 45,
+  "items": [
+    "tribalpower:manifested_block"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_anvil",
+      "text": [
+        "Ein Amboss für Geistergerät, das sich nur abnutzt, wenn es ohne Puls arbeitet. Leg links ein abgenutztes Werkzeug oder eine abgenutzte Waffe aus Geistergerät hin (auch den Pulsbogen und die Puls-Armbrust) und rechts **Manifestierter Barren**: jeder Barren stellt ein Viertel der Haltbarkeit wieder her, für je eine Stufe plus die übliche Ambossgebühr für frühere Arbeit, so wie ein Eisenamboss ein Werkzeug mit seinem eigenen Metall repariert."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Immer noch ein Amboss",
+      "text": [
+        "Er tut alles, was ein Amboss tut: umbenennen, verzauberte Bücher hinzufügen, zwei gleiche Werkzeuge verbinden, andere Ausrüstung mit ihrem eigenen Material reparieren.",
+        "Anders als ein Eisenamboss splittert oder zerbricht er nie, weder durch Benutzung noch durch einen Sturz. Er fällt trotzdem, wenn nichts ihn hält.",
+        "Seine Fläche ist ein Manifestmetallblock zwischen zwei Eisenblöcken: neun Manifestierter Barren zusammengefertigt, und zurück in neun Barren, wann immer du sie brauchst.",
+        "Jedes Stück Geistergerät, die Werkzeuge, die Waffen, die Schere, die Rassel, beide Bögen und der [Resonanzschlägel](resonance_maul), lässt sich nur mit **Manifestierter Barren** reparieren, hier oder auf jedem Amboss, nie mit Diamanten. Geistergewebe repariert man mit Stoff aus Geistergewebe."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_anvil"
+    }
+  ]
+}

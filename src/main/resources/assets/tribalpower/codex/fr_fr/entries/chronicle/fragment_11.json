@@ -1,0 +1,17 @@
+{
+  "name": "12. Cristal",
+  "icon": "tribalpower:mural",
+  "order": 21,
+  "spoiler": true,
+  "unlock": "fragment:11",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Cristal",
+      "text": [
+        "“Les Champs de cristal ont poussé là où les mailles des Chanteurs de gravier sont tombées en chantant. La pierre s'est souvenue du ton et a poussé vers lui. Presque tout le champ est dans le ton. La part qui ne l'est pas a un long corps et une mémoire plus longue.”",
+        "Trouvé sur une peinture murale, sur le terrain d'un gardien."
+      ]
+    }
+  ]
+}

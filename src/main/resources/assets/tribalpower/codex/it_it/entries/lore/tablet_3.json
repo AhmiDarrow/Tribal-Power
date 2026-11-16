@@ -1,0 +1,16 @@
+{
+  "name": "Tavoletta: Stivali dei Camminatori del ciglio",
+  "icon": "tribalpower:lore_tablet",
+  "order": 130,
+  "spoiler": true,
+  "unlock": "tablet:3",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Conservata in un accampamento degli Intagliatori di sigilli, nelle parole dei Camminatori del ciglio:",
+        "“Prima gli stivali. Poi il ponte. Poi il coraggio; arriva da solo. Abbiamo camminato il ciglio della spaccatura dove il filo si sfilacciava più sottile e messo appigli per gli altri. Un appiglio è ferro, cuoio e la promessa di non guardare giù.”"
+      ]
+    }
+  ]
+}

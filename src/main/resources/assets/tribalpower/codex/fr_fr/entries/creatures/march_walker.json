@@ -1,0 +1,30 @@
+{
+  "name": "Marcheur de la Marche",
+  "icon": "tribalpower:march_walker_spawn_egg",
+  "items": [
+    "tribalpower:march_walker_spawn_egg"
+  ],
+  "order": 50,
+  "spoiler": true,
+  "next": "spirit_wisp",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:march_walker",
+      "text": [
+        "Un Marcheur de la Marche est le brouteur discret de la Marche : un tapir trapu, avec un tapis de selle moussu et des pointes fourchues qui luisent d'une lumière d'Esprit. La selle n'est que son pelage ; tu ne peux pas en monter un. Tu les verras en hardes dans la Steppe, et dans chaque biome de la Marche sauf les Hauts-fonds, même dans les Landes de braise.",
+        "Il a **18 points de vie** et **1 d'armure**. Il est timide : il reste à environ dix blocs des monstres et panique s'il est blessé."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Tiens un **Éclat d'Esprit** et les marcheurs te suivent, curieux. C'est le moyen simple d'en mener quelques-uns chez toi ou dans un enclos.",
+        "Ils apparaissent sur le gazon de la Marche, la terre, la mousse et la neige, à l'air libre.",
+        "Un marcheur lâche **1 à 3 Gibier cru**, jusqu'à 2 Cuir de la Marche et parfois un os, davantage avec Butin ; la viande sort en Gibier rôti s'il est mort en brûlant.",
+        "Fais-en reproduire deux avec du **Blé** ou du **Grain de steppe**, qu'ils suivent aussi volontiers qu'un Éclat d'Esprit. Un marcheur ne se brosse pas et ne crée pas de lien."
+      ],
+      "title": "Vivre avec les marcheurs"
+    }
+  ]
+}

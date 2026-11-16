@@ -1,0 +1,40 @@
+{
+  "name": "Círculo de sanación",
+  "icon": "tribalpower:rite_healing_circle",
+  "order": 50,
+  "items": [
+    "tribalpower:rite_healing_circle",
+    "tribalpower:spirit_remnant"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_healing_circle",
+      "title": "El rito del campamento",
+      "text": [
+        "El Círculo de sanación es un [rito del mundo](world_rites). Construye un [Círculo de rito](rite_circle), asienta un **Sello de Espíritu** en el brasero y conjura la tablilla: **500 de Pulso**, y el círculo sigue abierto **10 minutos** (un círculo de segundo nivel, con cuatro tótems de Espíritu en los puntos cardinales, cuesta **375 de Pulso** y sigue abierto **20 minutos**).",
+        "Al abrirse, todos dentro de **12 bloques**, jugadores y familiares vinculados, se curan **10 corazones**, pierden todo efecto dañino y ganan **10 minutos** de [Bendición espiritual](spirit_sickness)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Mientras sigue abierto",
+      "text": [
+        "El resto del tiempo, el círculo sana a todos dentro a razón de **un corazón cada dos segundos** y quita el Malestar espiritual en cuanto prende. Es un buen sitio al que retirarse."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Llamar de vuelta a los caídos",
+      "text": [
+        "Cuando muere un **familiar vinculado**, no desaparece sin más. Deja un brillante **Restos del Espíritu** donde cayó, que nunca desaparece, y recibes un mensaje que lo dice. (No lo confundas con los restos salvajes de la Marcha: este es el espíritu de tu compañero, que espera.)",
+        "Pon el resto en uno de los **cuatro pedestales** del círculo antes de conjurar. Cuando el círculo se abre, el familiar vuelve en ese pedestal: **entero**, sigue siendo tuyo, con su nombre y su entramado. Lo que llevaba cayó donde cayó él, como siempre, así que recógelo también."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_healing_circle"
+    }
+  ],
+  "next": "sweat_lodge"
+}

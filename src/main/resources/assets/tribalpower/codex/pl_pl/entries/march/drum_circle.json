@@ -1,0 +1,396 @@
+{
+  "name": "Krąg bębnów",
+  "icon": "tribalpower:silent_drum",
+  "order": 50,
+  "spoiler": true,
+  "items": [
+    "tribalpower:music_disc_drum_circle"
+  ],
+  "next": "the_unsung",
+  "pages": [
+    {
+      "type": "image",
+      "image": "drum_circle",
+      "text": [
+        "Dwanaście filarów zwieńczonych latarniami otacza Cichy bęben na Wyżynach Marszu."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Kręgi bębnów stoją na otwartej przestrzeni na Wyżynach, łatwo je dostrzec z grani. Pośrodku jest **Cichy bęben**; jego strażnik, [Niezaśpiewany](the_unsung), śpi, aż ktoś na nim zagra.",
+        "Skrzynia wśród filarów zawsze ma **Płyta muzyczna** czterotaktu kręgu, a do tego kości, świece, Odłamki echa i czasem Kościany dzwonek. W pobliżu wiszą dwie Tabliczki podań.",
+        "Zanim uderzysz: zwiąż kompas powrotu i weź jedzenie, zbroję, naładowane Ogniwa Pulsu i Kościany dzwonek. Weź przyjaciela, jeśli możesz; walka trwa kilka minut."
+      ],
+      "title": "Co tu jest"
+    },
+    {
+      "type": "scene",
+      "title": "Granie czterotaktu",
+      "steps": [
+        {
+          "caption": "Cichy bęben stoi w sercu pierścienia filarów z latarniami.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                -2,
+                1,
+                -2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                -2,
+                1,
+                2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                -2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:silent_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Uderzenie pierwsze: kliknij prawym przyciskiem pustą ręką albo Kościany dzwonek.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Uderzenie drugie, około sekundy później. Za wcześnie albo za późno, i głucho buczy, a potem zaczyna od nowa.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Uderzenia trzecie i czwarte w tym samym równym tempie.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Przy czwartym uderzeniu bęben odpowiada, a Niezaśpiewany wstaje ze środka kręgu.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Każde uderzenie musi paść **16 do 28 ticków gry** po poprzednim, około sekundy. Cios w ciągu 4 ticków od ostatniego jest ignorowany, a złe uderzenie głucho buczy i zeruje licznik. Zaczekasz za długo, a niedograny rytm zaniknie.",
+        "Każdy bęben odpowiada raz na **dwadzieścia minut czasu rzeczywistego** i nigdy, gdy jego strażnik już nie śpi; mówi, ile minut zostało. Jeśli Niezaśpiewany resetuje się, bo wszyscy odeszli, na bębnie można zagrać od razu.",
+        "Komparator odczytuje bęben: **3** za policzone uderzenie i błysk **15**, gdy rytm się dopełnia."
+      ],
+      "title": "Rytm, dokładnie"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:silent_drum",
+      "text": "Bęben, który zbudujesz sam, trzyma rytm, ale Niezaśpiewany wstaje tylko z ołtarza: wypolerowany łupek głębinowy pod bębnem i **zapalona** świeca w każdym z czterech rogów. Krąg bębnów jest już tak zbudowany."
+    }
+  ]
+}

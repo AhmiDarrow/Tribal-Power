@@ -1,0 +1,64 @@
+{
+  "name": "세계의 의식",
+  "icon": "tribalpower:rite_rain_calling",
+  "order": 100,
+  "items": [
+    "tribalpower:rite_sky_clearing",
+    "tribalpower:rite_dawn_calling"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_rain_calling",
+      "text": [
+        "서판 의식은 야영지를 넘어 세계 자체를 바꾼다. 서판을 새기고, 맞는 인장을 그 원 안의 의식 화로대에 앉힌 뒤 펄스를 쓴다."
+      ],
+      "title": "날씨의 의식"
+    },
+    {
+      "type": "text",
+      "title": "새김과 시전",
+      "text": [
+        "서판은 각각 조약돌 두 개(또는 흑암이나 심층암 조약돌), 그 시약, 맞는 인장이다. 형태 없음. 인장은 되돌려진다.",
+        "그 인장을 화로대에 앉힌다(축복은 그대로 이어진다). [의식의 원](rite_circle)을 그리고, 화로대에서 **8블록** 안에 비용 전부를 모은다. 충분히 찬 북심장, 좋은 촉매가 있는 공명기, 또는 발전기 여럿. 주머니의 전지는 세지 않는다. 펄스 계기나 정령 서고가 합계를 보여 준다.",
+        "웅크리고 서판을 화로대에 사용한다. 격자가 비용보다 적으면 아무것도 쓰이지 않는다. 그렇지 않으면 서판은 소비되고 펄스가 뽑힌다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "세 가지 날씨의 의식",
+      "text": [
+        "- **비 부르기** (물, **400** 펄스, 갈대 송곳니): 이십 분의 비. 그동안 레이 수집기가 더 세진다. 여기서 시작하라.",
+        "- **하늘 맑히기** (바람, **400**, 폭풍 날개): 사십 분의 맑은 하늘.",
+        "- **새벽의 부름** (불, **800**, 잔불 심장): 밤을 해돋이까지 재촉한다. 게임 규칙 tribalpower:allowDawnRite가 꺼져 있으면 그러지 않는다.",
+        "원의 네 방위에 맞는 토템이 넷 있으면 비용은 4분의 1 줄고 시간은 두 배가 된다. 화로대에 레드스톤 신호가 유지되면 의식은 거부된다.",
+        "다음은 [대지의 의식](land_rites)을 시도하라."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_rain_calling"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_sky_clearing"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_dawn_calling"
+    },
+    {
+      "type": "text",
+      "title": "치유의 원",
+      "text": [
+        "정령 의식. 다른 것과 같이 시전하며 정령 인장을 앉힌다. 비용은 **500 펄스**이고 **10분** 열려 있다.",
+        "원 안의 모두, 플레이어와 결속된 패밀리어를 치유하고, 모든 해를 거두며, 축복하고, 그 단 위에 [정령 잔재](healing_circle)를 올려 둔 쓰러진 패밀리어를 불러온다. 전체 이야기는 [주술적 치유](healing_circle)에 있다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_healing_circle"
+    }
+  ],
+  "next": "land_rites"
+}

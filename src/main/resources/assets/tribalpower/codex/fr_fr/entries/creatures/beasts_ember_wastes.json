@@ -1,0 +1,74 @@
+{
+  "name": "Bêtes des Landes de braise",
+  "icon": "tribalpower:cinder_plate",
+  "order": 240,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cinderhide_spawn_egg",
+    "tribalpower:ashmoth_spawn_egg",
+    "tribalpower:slaglump_spawn_egg",
+    "tribalpower:emberjaw_spawn_egg",
+    "tribalpower:cinder_plate",
+    "tribalpower:ash_wing",
+    "tribalpower:slag_curd",
+    "tribalpower:ember_fang"
+  ],
+  "next": "beasts_reed_fen",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ceux de la cendre",
+      "text": [
+        "Deux des animaux des Landes vivent au bord de la lave, un vole dans la cendre, et un chasse le basalte la nuit.",
+        "Chaque bête douce d'ici peut être brossée pour son réactif une fois par minute, et on l'attire et on la reproduit avec sa propre nourriture, nommée plus bas sous **Chasse et élevage**. On peut la lier comme n'importe quel animal doux (voir [familiers](familiars)) et, bien qu'aucune n'ait de don propre, une liée peut encore prendre une voix à un totem et renforcer ta magie (voir [s'accorder à un totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinderhide",
+      "title": "Peau-d'escarbille",
+      "text": [
+        "Une tortue volcanique, le feu visible entre les écailles de sa carapace, qui vit au bord de la lave et sur la pierre chaude alentour, une ou deux à la fois. **30 de santé** et **7 d'armure**, lente, et **immunisée au feu**.",
+        "Elle lâche **1 à 3 Plaque d'escarbille**, un réactif de braise.",
+        "Chassée, elle lâche aussi 1 à 2 Gibier cru et jusqu'à 1 Cuir de la Marche. Élever avec **Racine de braise**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ashmoth",
+      "title": "Phalène de cendre",
+      "text": [
+        "Un sphinx gris de la cendre, ses larges ailes rabattues sur des ailes postérieures saumon et le corps annelé de saumon vers la queue, d'un à trois. **10 de santé**, sans armure.",
+        "Il lâche **1 à 3 Aile de cendre**, qui se broient en teinture noire.",
+        "Chassé, il lâche aussi jusqu'à 1 ficelle et jusqu'à 1 poudre à canon. Élever avec **Racine de braise**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slaglump",
+      "title": "Motte de scories",
+      "text": [
+        "Une salamandre de lave, longue et basse, à tête plate en bêche, noire à taches orange, qui se vautre près de la lave, une ou deux à la fois. **26 de santé** et **5 d'armure**, et **immunisée au feu**.",
+        "Elle lâche **1 à 3 Caillé de scories**, un réactif de braise.",
+        "Chassée, elle lâche aussi jusqu'à 1 crème de magma et jusqu'à 2 pépites de fer. Élever avec **Racine de braise**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:emberjaw",
+      "title": "Mâchoire-de-braise",
+      "text": [
+        "Un rapace de feu rayé, courant bas, la queue tendue derrière, presque rien que mâchoire, qui se dresse sur le basalte la nuit, un ou deux à la fois. Il a **32 de santé** et **3 d'armure** et frappe pour **6**, te repoussant à chaque coup. Malgré toute sa couleur, il n'est **pas** à l'épreuve du feu.",
+        "Il lâche **1 à 2 Croc de braise**, un réactif de poussée.",
+        "Chassé, il lâche aussi jusqu'à 2 os et jusqu'à 2 charbon de bois."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chasse et élevage",
+      "text": [
+        "Outre son réactif, chacun en lâche plus quand on le chasse, et davantage encore avec Butin. La viande tombe rôtie si l'animal est mort en brûlant. Pour faire se reproduire les sauvages, **accroupis-toi** pendant que tu donnes leur nourriture à deux adultes ; nourri normalement, un sauvage s'attache à toi à la place."
+      ]
+    }
+  ]
+}

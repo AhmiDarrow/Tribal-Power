@@ -1,0 +1,51 @@
+{
+  "name": "Sześciokrotny kostur",
+  "icon": "tribalpower:spirit_staff",
+  "order": 10,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_staff",
+      "text": [
+        "Kostur, który mówi wszystkimi sześcioma głosami. Wybierz jeden, wyceluj i rzuć.",
+        "Zużywa Puls z Ogniwa Pulsu, nigdy wytrzymałości, i może nieść własne ogniwo, jak [Duchowy sprzęt](spiritgear)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sześć czarów",
+      "text": [
+        "Kucnij i użyj, by przełączać Ziemię, Ogień, Wodę, Powietrze, Ducha i Krosno; pasek akcji podaje głos. Użyj, by rzucić. Klawisz **Kostur: następny głos** przełącza bez kucania, gdy przypiszesz go w Tribal Power w Sterowaniu.",
+        "- **Ziemia** (12 Pulsu): cios za 4 obrażenia, który mocno spowalnia wroga na 5 sekund.",
+        "- **Ogień** (18): uderzenie za 8 obrażeń, które podpala wroga na 4 sekundy.",
+        "- **Woda** (24): leczy cię i oczyszcza. Gasi ogień, usuwa truciznę i daje regenerację na 5 sekund oraz oddychanie pod wodą na 30.",
+        "- **Powietrze** (16): krótki skok do przodu i powolne opadanie na 6 sekund.",
+        "- **Duch** (20): widzenie w ciemności na 30 sekund, a każdy wrogi w zasięgu **12 bloków** świeci przez 12.",
+        "- **Krosno** (6): pęta wroga i przyciąga go do ciebie na maksymalnie **8 bloków**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Szycie",
+      "text": [
+        "Przy wybranym Krośnie kucnij i użyj, gdy żaden wróg nie jest na celowniku i żaden blok nie jest blisko z przodu: kostur **szyje** cię **6 bloków** naprzód przez otwarte powietrze za **10 Pulsu**. Nie pozwoli wylądować w stałych blokach ani zagrożeniach.",
+        "Dlatego, by przełączyć dalej od Krosna, patrz na pobliski blok albo wroga, kucając i używając."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zasięg i odpoczynek",
+      "text": [
+        "Ziemia, Ogień i Krosno potrzebują wrogiego celu. Sięgają na **18 bloków** i zatrzymują się na stałych blokach; bez celu nie strzelają i nic nie kosztują.",
+        "Po rzuceniu kostur odpoczywa: **8 sekund** po Wodzie, **2 sekundy** po pozostałych, **1.5 sekundy** po szwie.",
+        "Najpierw pije z własnego osadzonego ogniwa, potem z ogniw, które nosisz, najpierw druga ręka. Jeśli wszystkie są puste, czar się nie uruchamia.",
+        "Póki jest na tobie **Niezaśpiewana cisza**, kostur nie rzuca (zobacz [Dolegliwości](afflictions))."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_staff"
+    }
+  ]
+}

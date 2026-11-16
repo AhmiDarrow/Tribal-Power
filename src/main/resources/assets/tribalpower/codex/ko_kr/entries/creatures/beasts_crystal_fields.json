@@ -1,0 +1,74 @@
+{
+  "name": "수정 들판의 짐승",
+  "icon": "tribalpower:chime_crest",
+  "order": 260,
+  "spoiler": true,
+  "items": [
+    "tribalpower:chime_grazer_spawn_egg",
+    "tribalpower:glass_flitter_spawn_egg",
+    "tribalpower:geode_grub_spawn_egg",
+    "tribalpower:shard_stalker_spawn_egg",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:shard_barb"
+  ],
+  "next": "beasts_shallows",
+  "pages": [
+    {
+      "type": "text",
+      "title": "수정의 것",
+      "text": [
+        "계단식 메사는 트인 곳에 긴 목의 초식동물과 잠자리를, 아래 동굴에 공벌레를, 밤에 수정 위를 걷는 수정 사마귀를 두고 있다.",
+        "이곳의 온순한 짐승은 모두 일 분에 한 번 빗질해 시약을 얻을 수 있고, 각자 먹이로 유인하고 번식시킨다. 먹이는 아래 **사냥과 목축**에 적혀 있다. 온순한 동물처럼 유대할 수 있다([사역마](familiars) 참조). 어느 것도 고유한 선물은 없지만, 유대를 맺은 개체는 토템에서 목소리를 받아 당신의 마법을 강화할 수 있다([토템에서 조율](familiar_attuning) 참조)."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:chime_grazer",
+      "title": "울림 초식수",
+      "text": [
+        "보라색의 털이 많고 목이 긴 초식수. 큰 수정 뿔이 둘이고, 등을 따라 수정 능선이 있다. 두 마리에서 네 마리의 무리. **체력 24**와 **방어력 3**.",
+        "**울림 볏 1~3개**를 떨어뜨린다. 약탈이 있으면 더 많다.",
+        "사냥하면 날 사냥고기 1~2개, 마치 가죽 최대 1개, 자수정 조각 최대 1개도 떨어뜨린다. **밀**로 번식."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glass_flitter",
+      "title": "유리 날벌레",
+      "text": [
+        "유리 날개의 잠자리. 한 마리에서 세 마리. **체력 10**, 방어력 없음.",
+        "**유리 날개 1~3개**를 떨어뜨린다.",
+        "사냥하면 깃털을 최대 2개 더 떨어뜨린다. **메아리 꽃이나 아무 작은 꽃**으로 번식."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:geode_grub",
+      "title": "정동 유충",
+      "text": [
+        "줄무늬 라일락 돌로 된 무거운 공벌레. 머리에는 옅은 판, 등뼈를 따라 정동 능선. 메사 아래 어두운 동굴에 한 번에 한 마리에서 세 마리. **체력 26**과 **방어력 5**. 매우 느리고 온순하다.",
+        "**정동 껍질 1~3개**를 떨어뜨린다.",
+        "사냥하면 자수정 조각을 최대 2개 더 떨어뜨린다. **등롱갓이나 아무 버섯**으로 번식."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shard_stalker",
+      "title": "파편 추적자",
+      "text": [
+        "밤에 수정 사이에서 일어나는 수정 사마귀. 한 번에 한두 마리. **체력 21**과 **방어력 1**을 가지고, 빠르며, 공격은 **5**이고 3초 동안 당신을 중독시킨다.",
+        "**파편 가시 1~2개**를 떨어뜨린다. 독 시약.",
+        "사냥하면 자수정 조각 최대 1개, 실 최대 1개도 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "사냥과 목축",
+      "text": [
+        "시약 외에, 사냥하면 더 떨어지고 약탈이면 한 번 더 늘어난다. 불타 죽으면 고기는 구워진 채로 떨어진다. 야생을 번식시키려면 어른 둘에게 먹이를 주는 동안 **웅크리기**. 그냥 먹이면 야생은 대신 당신에게 마음을 연다."
+      ]
+    }
+  ]
+}

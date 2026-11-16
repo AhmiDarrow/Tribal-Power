@@ -1,0 +1,52 @@
+{
+  "name": "Jeleń świtu",
+  "icon": "tribalpower:dawn_velvet",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:dawn_stag_spawn_egg",
+    "tribalpower:dawn_velvet"
+  ],
+  "next": "lantern_fox",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:dawn_stag",
+      "text": [
+        "Pasące się zwierzę świtu, którego poroże wygina się jak lira i niesie dawną pieśń lasu. Wyszczotkuj dorosłe, aby uzyskać Aksamit świtu.",
+        "Upolowany zostawia też Surowa dziczyzna, od 1 do 3, i Skóra Marszu, do 2. Do rozmnażania potrzeba **pszenica**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Jeleń świtu pasie się stadami w lasach zwykłego świata i w Marszu: na stepie, na wyżynach, na Migotliwej grani i na trzcinowym mokradle. Pojawiają się na otwartym, dobrze oświetlonym gruncie.",
+        "Jeleń ma **24 zdrowia** i **1 pancerz**. Jest łagodny: ucieka, gdy zostanie zraniony, i trzyma się z dala od potworów. Aby rozmnożyć dwa, potrzeba **pszenica**."
+      ],
+      "title": "Gdzie je znajdziesz"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Wyszczotkuj dorosłego, aby uzyskać **Aksamit świtu**, raz na minutę. Aksamit wiąże się w 2 Duchotkanina pod głosem Woda.",
+        "Jeśli upolujesz jednego, zostawia **1 do 3 Surowa dziczyzna** i **0 do 2 Skóra Marszu**; Grabież dodaje jeszcze do jednej sztuki z każdego, a jeleń, który ginie w ogniu, zostawia mięso już upieczone. Zobacz [Dziczyzna i skóra](game_and_leather)."
+      ],
+      "title": "Co daje"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Powiąż dorosłego za pomocą Amulet więzi, a stanie się wierzchowcem bez siodła. Użyj go, aby wsiąść, kieruj wzrokiem, przytrzymaj skok dla krótkiego susa i skradaj się, aby zsiąść.",
+        "Niesie tylko tego, z kim jest związany. Jeleń z mocną nicią Kroku biega szybciej, a rzadki znak **Skok** skacze wyżej. Więcej na stronie [dary chowańca](familiar_gifts)."
+      ],
+      "title": "Jako chowaniec"
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i wypas",
+      "text": [
+        "Upolowany zostawia to, a z Grabieżą więcej. Mięso wypada upieczone, jeśli zwierzę zginęło płonąc. Aby rozmnażać dzikie, **skradaj się**, gdy karmisz dwa dorosłe ich jedzeniem; karmione normalnie, dzikie zwierzę zamiast tego oswaja się z tobą."
+      ]
+    }
+  ]
+}

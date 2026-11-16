@@ -1,0 +1,52 @@
+{
+  "name": "Tessitore di eco",
+  "icon": "tribalpower:echo_silk",
+  "order": 160,
+  "spoiler": true,
+  "items": [
+    "tribalpower:echo_weaver_spawn_egg",
+    "tribalpower:echo_silk"
+  ],
+  "next": "dark_hunters",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:echo_weaver",
+      "text": [
+        "Un ragno arpa, le zampe tese come un'arpa: un custode a otto zampe di canti spezzati. Il morso rallenta la preda.",
+        "Cacciato, lascia anche da 1 a 3 corde e fino a 1 occhio di ragno."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "I tessitori di eco strisciano per la Steppa della Marcia, i Campi di Cristallo, l'Acquitrino dei Canneti e i Bassifondi. Il Non Cantato li invoca anche nel suo Coro.",
+        "Ha **26 punti di salute** e **3 punti di armatura** e morde per **4**, ti rallenta per 3 secondi e può lasciarti [Sfilacciato](afflictions). Non piazza mai ragnatele né danneggia il tuo accampamento."
+      ],
+      "title": "Dove e come"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Lascia **da 1 a 2 Seta di eco**.",
+        "Seta di eco si lega in 2 Tessitospirito sotto l'Acqua."
+      ],
+      "title": "Cosa dà"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Raggiungi **Voce** presso i **Cucitori del telaio**, poi usa un Amuleto di legame su un adulto: due tentativi su cinque, l'amuleto si consuma se fallisce. Oppure nutrilo col suo reagente: un tentativo su cinque, e il reagente si consuma in ogni caso.",
+        "Un tessitore legato raccoglie ciò che cade intorno a sé e te lo lancia. Vedi [doni del famiglio](familiar_gifts)."
+      ],
+      "title": "Come famiglio"
+    },
+    {
+      "type": "text",
+      "title": "Caccia e pascolo",
+      "text": [
+        "Oltre al suo reagente, lascia questo se cacciato, di più con Saccheggio."
+      ]
+    }
+  ]
+}

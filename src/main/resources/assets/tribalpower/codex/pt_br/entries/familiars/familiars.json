@@ -1,0 +1,86 @@
+{
+  "name": "Vincular um familiar",
+  "icon": "tribalpower:bonding_charm",
+  "order": 20,
+  "next": "familiar_gifts",
+  "pages": [
+    {
+      "type": "image",
+      "image": "familiars_bonding",
+      "text": [
+        "Vincular torna a criatura sua para sempre. Um familiar solta **o dobro** de reagente quando você o escova, uma vez por minuto, e ninguém mais pode escová-lo."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Toda criatura carrega cinco fios: **Armação** (vida), **Passada** (velocidade), **Presa** (dano), **Zumbido** (com que frequência o dom funciona) e **Guarda** (armadura). Cada passo para cima ou para baixo vale 12%.",
+        "**Agache e olhe para qualquer criatura da Marcha** para ver os fios, as Marcas, a geração e a **linhagem**, os cinco fios somados. Seus companheiros mostram os deles sempre que você olha.",
+        "Fios selvagens saem de 0 a 3, então duas raposas da mesma clareira não são clones. Só a criação chega a 4, e o **Exaltado** a 5. Escolha o que você quer guardar: vincular nunca relança nada."
+      ],
+      "title": "Leia primeiro"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Há duas formas de vincular uma criatura adulta. As jovens não podem ser vinculadas.",
+        "- **Alimente-o**, como você faria para conquistar um lobo. Os animais mansos aceitam a comida de sempre e se vinculam cerca de uma vez em três; os remanescentes aceitam o próprio reagente e se vinculam uma vez em cinco. Cada tentativa gasta a comida.",
+        "- **Use um Amuleto de vínculo** nele: três tentativas em cinco para animais mansos, duas em cinco para remanescentes. O amuleto se gasta quando o vínculo pega. Uma tentativa falha o conserva com um animal manso, mas o gasta num remanescente.",
+        "Um remanescente só responde, de um jeito ou de outro, quando a tribo dele chama você de **Voz** ([quem pode ser vinculado](familiar_basics)). Corações querem dizer que deu certo; fumaça, que não."
+      ],
+      "title": "Vinculação"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Faça cedo com **quatro linhas** ao redor de um **Fragmento de Espírito** e **um reagente de criatura**. Quando você tiver Tece-espírito, **dois Tece-espírito** podem substituir a linha.",
+        "O reagente pode ser qualquer um dos nove: Veludo da alvorada, Penugem de lanterna, Escama de lomomusgo, Carapaça prismática, Dente da fenda, Nó de borralho, Asa da tempestade, Fragmento de sino ou Seda de eco. Passe o pincel num Cervo da alvorada, numa Raposa-lanterna ou num Lomomusgo para obter um, uma vez por minuto, ou pegue um de um remanescente caído; reagentes de outras feras não servem. Qualquer um que entre, o amuleto vincula qualquer criatura que responda.",
+        "O mesmo amuleto depois dá uma voz ao seu familiar: veja [sintonizar em um totem](familiar_attuning)."
+      ],
+      "title": "O Amuleto de vínculo"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bonding_charm",
+      "text": "Qualquer um dos nove reagentes de criatura ocupa o espaço do meio, em cima."
+    },
+    {
+      "type": "text",
+      "text": [
+        "Um familiar segue você quando você está a **10 blocos** e se teletransporta até você depois de **12**. Ele ignora os seus golpes.",
+        "Use-o agachado para fazê-lo esperar, e de novo para chamá-lo de volta. Segure algo ao fazer isso com um Lomomusgo, porque a mão vazia abre o alforje.",
+        "**Um lutador** (um Lomoestilhaço ou um Cão da fenda) e **dois ajudantes** podem seguir ao mesmo tempo. Os que estão sentados e qualquer coisa que você esteja montando não contam. Os extras sentam e dizem o porquê. Um familiar à espera que se machuca se levanta e segue, se houver lugar na sua companhia.",
+        "O que o seu familiar mata não dá posição na tribo e não conta para as caçadas de uma tribo. A morte tem que ser sua."
+      ],
+      "title": "Fazer companhia"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Faça dois companheiros vinculados da mesma espécie procriarem, alimentando os dois com a comida deles enquanto estão perto. Animais selvagens também procriam, se você agachar ao alimentá-los, e os filhotes nascem selvagens. Como com os lobos, os filhotes de dois companheiros seus **nascem na sua companhia**, e mais comida os ajuda a crescer.",
+        "Cada filhote fica com metade de cada fio de cada pai, às vezes um pouco para cima ou para baixo. Pares que são seus juntos melhoram um pouco mais vezes.",
+        "**Reproduza forte com forte.** Quando os dois pais estão em 3 ou melhor num fio, o filhote tem uma chance em quatro de subir um passo acima de qualquer um dos dois, e esse é o único jeito de chegar a 4 e ao Exaltado 5. Uma linhagem criada com cuidado fica bem mais forte do que qualquer selvagem.",
+        "Cuidado ao copiar: reproduzir a mesma Armação e a mesma Presa por três gerações seguidas sob um só dono **Esfiapa** a linhagem e baixa o Zumbido dela."
+      ],
+      "title": "Reproduzir fios melhores"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Marcas são peculiaridades com nome. Algumas aparecem com uma cópia; o resto precisa de uma cópia dos dois pais.",
+        "- Uma cópia: **Fio quieto** (segue a partir de 8 blocos, para aos 2), **Pele de pedra** (+1 de armadura, um pouco mais lento), **Deriva** (mais rápido, 2 a menos de vida, fica inquieto após um minuto de espera), **Boca macia** (não morde aldeões nem golens), **Veio de brilho** (raposa), **Escora** (Lomoestilhaço).",
+        "- Duas cópias: **Aguçado** (o dom funciona mais rápido), **Zumbido noturno** (mais rápido à noite), **Marca de Parente** (nasce do par de um só dono, um pouco mais de armadura), e as marcas de espécie **Salto**, **Bolso fundo**, **Rastro**, **Tempo**, **Clique certo**, **Quieto** e **Coleta**.",
+        "Algumas criaturas selvagens nascidas na Marcha são **Cintiladas**: elas cintilam e carregam uma cópia forte do fio para o qual a espécie pende."
+      ],
+      "title": "Marcas"
+    },
+    {
+      "type": "text",
+      "title": "Curar um familiar",
+      "text": [
+        "Alimente um familiar ferido com a comida favorita dele para curá-lo. Uma [pomada](remedies) usada nele, incenso queimando e o [Chocalho do curandeiro](healers_rattle) também o curam.",
+        "Se um cair, deixa um **Remanescente do Espírito**. Um [Círculo de cura](healing_circle) o chama de volta, com a voz e tudo."
+      ]
+    }
+  ]
+}

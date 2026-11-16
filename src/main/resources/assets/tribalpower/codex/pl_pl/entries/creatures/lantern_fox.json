@@ -1,0 +1,52 @@
+{
+  "name": "Lis-latarnia",
+  "icon": "tribalpower:lantern_down",
+  "order": 30,
+  "spoiler": true,
+  "items": [
+    "tribalpower:lantern_fox_spawn_egg",
+    "tribalpower:lantern_down"
+  ],
+  "next": "mossback",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:lantern_fox",
+      "text": [
+        "Nieśmiały zmierzchowy lis z latarnią płonącą na czubku ogona, która znaczy bezpieczne ścieżki. Wyszczotkuj dorosłe, aby uzyskać Puch latarni.",
+        "Upolowany zostawia też Surowa dziczyzna, od 1 do 2, i Skóra Marszu, do 1. Do rozmnażania: **słodkie jagody**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Lisy-latarnie żyją w lasach Zwykłego świata i niemal wszędzie w Marszu: najbardziej na Śnieżnych polach, ale też na stepie, na wyżynach, na Kryształowych polach, na Moczarach trzcin, na Grani połysku, a nawet na Pustkowiach żaru.",
+        "Lis ma **14 punktów zdrowia** i żadnego pancerza. Zmyka, gdy jest ranny, i unika potworów. Rozmnóż dwa za pomocą **słodkich jagód**."
+      ],
+      "title": "Gdzie go znaleźć"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Wyszczotkuj dorosłego, by dostać **Puch latarni**, raz na minutę. Puch wiąże się w 2 Duchotkanina pod Wodą, a Strażnicy kolonii cenią go jako ofiarę.",
+        "Upolowany lis upuszcza Surową dziczyznę i czasem Skórę Marszu, ale nigdy swojego puchu, więc szczotkowanie to jedyny sposób, by go zdobyć."
+      ],
+      "title": "Co daje"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Związany lis to latarnia, która za tobą podąża. Niesie niewidzialne światło, gdziekolwiek idzie, daje ci Widzenie w ciemności, póki jesteś blisko, i oznacza pobliskie rudy błyskami, które widzisz tylko ty.",
+        "Szczegóły są na stronie [darów chowańca](familiar_gifts)."
+      ],
+      "title": "Jako chowaniec"
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i hodowla",
+      "text": [
+        "Upolowane upuszcza to, więcej z Grabieżą. Mięso wypada upieczone, jeśli zwierzę zginęło w ogniu. Aby rozmnażać dzikie, **skradaj się**, gdy karmisz dwa dorosłe ich jedzeniem; karmione zwyczajnie, dzikie zamiast tego się do ciebie przekonywa."
+      ]
+    }
+  ]
+}

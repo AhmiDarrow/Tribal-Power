@@ -1,0 +1,184 @@
+{
+  "name": "Cloche d'éveil",
+  "icon": "tribalpower:wake_bell",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wake_bell",
+      "text": [
+        "L'ouvrage des Graveurs de sceaux : une cloche qui pleure les morts. Chaque créature qui meurt près d'elle verse de la Pulsation dans son réservoir, et une ferme de monstres devient une centrale."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Comment elle paie",
+      "text": [
+        "Une mort dans **16 blocs** paie **20 Pulsation** pour un hostile et **5** pour une créature passive. Les morts des joueurs ne paient rien.",
+        "Les morts remplissent un réservoir de **2,000**, que la cloche laisse sortir au plus **8 par seconde** sans rang. Le rang ajoute **15% de Pulsation par seconde** par rang, arrondi à une Pulsation entière. Une grande ferme remplit le réservoir, puis reste inactive ; tout ce qui dépasse le bord est perdu.",
+        "Seule la cloche la **plus proche** entend une mort, donc empiler des cloches ne sert à rien. Une cloche mise en pause par la redstone n'entend rien du tout."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Une cloche près de la ferme",
+      "steps": [
+        {
+          "caption": "Suspends la cloche à 16 blocs ou moins de l'endroit où les choses meurent.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wake_bell"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Chaque mort remplit son réservoir ; la cloche le laisse sortir jusqu'à 8 de Pulsation par seconde.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un Cairn de Pulsation à côté avale ces à-coups aussi vite qu'ils arrivent.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Les machines à 8 blocs ou moins du cairn tirent une ligne régulière, si inégales que soient les morts.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Astuces",
+      "text": [
+        "Une ferme sombre ou le terrain de mise à mort d'un Tambour de garde conviennent tous les deux. Les joueurs ne sont jamais la cible d'un Tambour de garde, et la cloche entend quand même chaque mort qu'il provoque.",
+        "Une Fosse d'écoute veut un tirage régulier, alors associe la cloche à un Cairn de Pulsation.",
+        "Les cloches sont l'ouvrage des [Graveurs de sceaux](tribe_sigil) : la recette demande un Fragment de cloche et un Sceau d'Esprit, et les Graveurs de sceaux échangent une cloche avec leur Parent."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wake_bell"
+    }
+  ]
+}

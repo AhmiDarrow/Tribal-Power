@@ -1,0 +1,49 @@
+{
+  "name": "Warsztat plemienny",
+  "icon": "tribalpower:oak_tribal_bench",
+  "order": 150,
+  "items": [
+    "tribalpower:oak_tribal_bench",
+    "tribalpower:spruce_tribal_bench",
+    "tribalpower:birch_tribal_bench",
+    "tribalpower:jungle_tribal_bench",
+    "tribalpower:acacia_tribal_bench",
+    "tribalpower:dark_oak_tribal_bench",
+    "tribalpower:mangrove_tribal_bench",
+    "tribalpower:cherry_tribal_bench",
+    "tribalpower:bamboo_tribal_bench",
+    "tribalpower:crimson_tribal_bench",
+    "tribalpower:warped_tribal_bench",
+    "tribalpower:march_tribal_bench",
+    "tribalpower:hearthoak_tribal_bench",
+    "tribalpower:frostpine_tribal_bench",
+    "tribalpower:cinder_tribal_bench",
+    "tribalpower:willow_tribal_bench",
+    "tribalpower:bellcap_tribal_bench",
+    "tribalpower:strider_tribal_bench"
+  ],
+  "next": "vine_lift",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:oak_tribal_bench",
+      "title": "Stół, który pamięta",
+      "text": [
+        "Warsztat plemienny to stół rzemieślniczy szeroki na dwa bloki, z półką wzdłuż tyłu, i jest z każdego drewna, żeby pasował do obozu, w którym stoi.",
+        "Różnica, która się liczy: **siatka należy do stołu**. Zamknij go w połowie przepisu, a wszystko zostanie tam, gdzie zostało położone, zamiast wracać do plecaka.",
+        "Półka z tyłu mieści **cztery** rzeczy, jak Półka ścienna: kliknij półkę, trzymając coś, aby to odłożyć, a z pustą ręką, aby zabrać. Kliknij blat, aby otworzyć siatkę, z zieloną książką przepisów obok."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Z JEI",
+      "text": [
+        "Jeśli używasz JEI, warsztat jest pełnym stanowiskiem wytwarzania: otwórz przepis wytwarzania i naciśnij **+** (albo klawisze przenoszenia przepisu JEI), aby ściągnąć składniki z ekwipunku do siatki. Kliknięcie strzałki w warsztacie pokazuje każdy przepis wytwarzania."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:oak_tribal_bench"
+    }
+  ]
+}

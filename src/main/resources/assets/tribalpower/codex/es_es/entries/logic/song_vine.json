@@ -1,0 +1,342 @@
+{
+  "name": "Vid de canto",
+  "icon": "tribalpower:song_vine",
+  "order": 50,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_vine",
+      "text": [
+        "El canto de un Tejedor de patrones sigue la piedra. La Vid de canto es un zarcillo que trepa por las caras de los bloques y lleva la redstone por las esquinas, sin relé y sin polvo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cultivarla",
+      "text": [
+        "Haz clic derecho en una cara sólida y la vid se asienta en el aire contra esa cara.",
+        "Haz clic derecho en una vid ya puesta con otra para añadir una segunda cara en el mismo sitio: suelo y muro, o cada lado de un cubo.",
+        "La potencia baja **uno por paso**, también donde dobla una esquina hacia la cara siguiente. Habla con el Hilo de canto, las placas de canto, el polvo de redstone vanilla y los comparadores.",
+        "Rómpela, o el bloque al que se agarra, y recuperas **una vid por cara**. Los relés siguen llevando objetos; las vides llevan solo el canto."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A la vuelta de la esquina",
+      "steps": [
+        {
+          "caption": "Una palanca a un lado de un pilar, una lámpara al lado lejano, la que queremos encender.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                2,
+                0
+              ],
+              "block": "minecraft:redstone_lamp"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Haz clic en el suelo para tender la vid; cada pieza se apoya en la cara en la que hiciste clic.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_vine[down=true]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_vine[down=true]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Haz clic en la vid junto al pilar para darle también una cara de pared, luego trepa la pared.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_vine[down=true,east=true]"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:song_vine[east=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Llévala por encima. La canción envuelve cada esquina y pierde un paso cada vez.",
+          "place": [
+            {
+              "pos": [
+                1,
+                2,
+                0
+              ],
+              "block": "tribalpower:song_vine[down=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Tira de la palanca: la lámpara al otro lado de la esquina se enciende.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            },
+            {
+              "pos": [
+                2,
+                2,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              2,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:song_vine",
+      "text": "Un Hilo de canto y una Caña de Espíritu hacen **ocho**."
+    }
+  ],
+  "next": "verse_link"
+}

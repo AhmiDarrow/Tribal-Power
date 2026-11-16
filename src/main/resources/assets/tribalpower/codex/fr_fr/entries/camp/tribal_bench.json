@@ -1,0 +1,49 @@
+{
+  "name": "Établi tribal",
+  "icon": "tribalpower:oak_tribal_bench",
+  "order": 150,
+  "items": [
+    "tribalpower:oak_tribal_bench",
+    "tribalpower:spruce_tribal_bench",
+    "tribalpower:birch_tribal_bench",
+    "tribalpower:jungle_tribal_bench",
+    "tribalpower:acacia_tribal_bench",
+    "tribalpower:dark_oak_tribal_bench",
+    "tribalpower:mangrove_tribal_bench",
+    "tribalpower:cherry_tribal_bench",
+    "tribalpower:bamboo_tribal_bench",
+    "tribalpower:crimson_tribal_bench",
+    "tribalpower:warped_tribal_bench",
+    "tribalpower:march_tribal_bench",
+    "tribalpower:hearthoak_tribal_bench",
+    "tribalpower:frostpine_tribal_bench",
+    "tribalpower:cinder_tribal_bench",
+    "tribalpower:willow_tribal_bench",
+    "tribalpower:bellcap_tribal_bench",
+    "tribalpower:strider_tribal_bench"
+  ],
+  "next": "vine_lift",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:oak_tribal_bench",
+      "title": "Une table qui se souvient",
+      "text": [
+        "L'Établi tribal est un établi de deux blocs de large, avec une étagère le long du fond, et il existe dans chaque bois pour aller avec le camp où il se tient.",
+        "La différence qui compte : **la grille appartient à l'établi**. Ferme-le au milieu d'une recette et tout reste où tu l'as laissé, au lieu de retomber dans ton sac.",
+        "L'étagère du fond tient **quatre** choses, comme une Étagère murale : clique sur l'étagère en tenant quelque chose pour le poser, et à main vide pour le reprendre. Clique sur le plateau pour ouvrir la grille, avec le livre de recettes vert à côté."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Avec JEI",
+      "text": [
+        "Si tu utilises JEI, l'établi est une station d'artisanat complète : ouvre une recette d'artisanat et appuie sur **+** (ou les touches de déplacement de recette de JEI) pour tirer les ingrédients de ton inventaire dans la grille. Cliquer sur la flèche de l'établi montre chaque recette d'artisanat."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:oak_tribal_bench"
+    }
+  ]
+}

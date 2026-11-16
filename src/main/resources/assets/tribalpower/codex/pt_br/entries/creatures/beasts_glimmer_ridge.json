@@ -1,0 +1,74 @@
+{
+  "name": "Feras da Crista do brilho",
+  "icon": "tribalpower:prism_crest",
+  "order": 220,
+  "spoiler": true,
+  "items": [
+    "tribalpower:prism_grazer_spawn_egg",
+    "tribalpower:shardmoth_spawn_egg",
+    "tribalpower:glowgrub_spawn_egg",
+    "tribalpower:facet_stalker_spawn_egg",
+    "tribalpower:prism_crest",
+    "tribalpower:shard_wing",
+    "tribalpower:glow_husk",
+    "tribalpower:facet_barb"
+  ],
+  "next": "beasts_snow_fields",
+  "pages": [
+    {
+      "type": "text",
+      "title": "As próprias da Crista",
+      "text": [
+        "As alturas de pedra-da-lua da [Crista do brilho](glimmer_ridge) guardam um pastador de placas e uma mariposa a céu aberto, e um verme-luz e uma aranha de cristal nas cavernas abaixo.",
+        "Cada fera mansa daqui pode ser escovada para obter seu reagente uma vez por minuto, e é atraída e se reproduz com a própria comida, indicada em **Caça e criação** mais abaixo. Pode ser vinculada como qualquer animal manso (veja [familiares](familiars)), e embora nenhuma tenha um dom próprio, uma vinculada ainda pode tomar uma voz num totem e fortalecer a sua magia (veja [sintonizar em um totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_grazer",
+      "title": "Pastador-prisma",
+      "text": [
+        "Um pastador lagarto, baixo, com uma fileira de placas de prisma no lombo, em manadas de dois a quatro. **24 de saúde** e **3 de armadura**.",
+        "Solta de 1 a 3 **Crista de prisma**, mais com Pilhagem.",
+        "Caçado, também solta de 1 a 2 Caça crua e até 1 Couro da Marcha. Reproduza com **Feijão de fulgor**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shardmoth",
+      "title": "Mariposa-estilhaço",
+      "text": [
+        "Uma mariposa violeta, de asas de cristal lapidado, que esvoaça sobre a crista, de uma a três. **10 de vida**, sem armadura.",
+        "Solta de 1 a 3 **Asa de estilhaço**.",
+        "Caçado, também solta até 1 Linha e até 1 Fragmento de ametista. Reproduza com **Feijão de fulgor**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glowgrub",
+      "title": "Larva-luz",
+      "text": [
+        "Um verme-de-luz, longo e segmentado sob uma cabeça grande e escura, a ponta da cauda em brasa; das cavernas escuras sob a crista, de um a três por vez. **18 de vida** e **1 de armadura**. É manso e foge dos monstros como qualquer pastador.",
+        "Solta de 1 a 3 **Casca luminosa**.",
+        "Caçado, também solta até 2 Pó de pedra luminosa. Reproduza com **Chapéu-lanterna** ou qualquer cogumelo."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:facet_stalker",
+      "title": "Espreita-faceta",
+      "text": [
+        "Uma aranha de cristal das mesmas cavernas. Surge ali no escuro, de dia ou de noite, uma ou duas por vez. Tem **21 de vida** e **1 de armadura**, é rápida, e a mordida causa **5** e envenena você por 3 segundos.",
+        "Solta de 1 a 2 **Farpa de faceta**, um reagente de Veneno.",
+        "Caçado, também solta até 1 Fragmento de ametista e até 1 Linha."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caça e criação",
+      "text": [
+        "Além do reagente, cada um solta mais quando caçado, e mais ainda com Pilhagem. A carne cai como Caça assada se o animal morreu queimando. Para reproduzir os selvagens, **agache** enquanto alimenta dois adultos com a comida deles; alimentado normalmente, um selvagem se afeiçoa a você."
+      ]
+    }
+  ]
+}

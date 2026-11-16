@@ -1,0 +1,52 @@
+{
+  "name": "Diabrete de borralho",
+  "icon": "tribalpower:cinder_knot",
+  "order": 130,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cinder_imp_spawn_egg",
+    "tribalpower:cinder_knot"
+  ],
+  "next": "mourning_bell",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinder_imp",
+      "text": [
+        "Um diabrete de fogo ágil. Junta faíscas antes de um projétil ardente.",
+        "Quando caçado, também solta Pó de blaze com uma chance de um em três."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Os exemplares de Diabrete de borralho esvoaçam pelo Planalto da Marcha e pela Crista do brilho, e são mais comuns nos Ermos de brasa.",
+        "Ele tem **18 de vida** e **1 de armadura** e é imune ao fogo. De até 12 blocos de distância, lança um projétil de **4 de dano** que te incendeia por 2 segundos. O projétil nunca incendeia o terreno. Cobertura interrompe a conjuração."
+      ],
+      "title": "Onde e como"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ele solta **1 a 2 Nó de borralho**.",
+        "Um Nó de borralho sintoniza em 2 Eco sintonizado sob Espírito."
+      ],
+      "title": "O que ele dá"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Alcance **Voz** com os **Corações de tambor** e então use um Amuleto de vínculo em um adulto: duas tentativas em cinco, e o amuleto se gasta se falhar. Ou alimente-o com o próprio reagente: uma tentativa em cinco, e o reagente se gasta de qualquer jeito.",
+        "Um diabrete vinculado devolve **4 Pulso** cada vez que você toca um Coração de tambor à mão. Veja [presentes do familiar](familiar_gifts)."
+      ],
+      "title": "Como familiar"
+    },
+    {
+      "type": "text",
+      "title": "Caça e condução",
+      "text": [
+        "Além do reagente, ele solta isto quando caçado, e mais com Pilhagem."
+      ]
+    }
+  ]
+}

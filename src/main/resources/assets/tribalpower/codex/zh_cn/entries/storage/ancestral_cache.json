@@ -1,0 +1,220 @@
+{
+  "name": "先祖储柜",
+  "icon": "tribalpower:ancestral_cache",
+  "order": 10,
+  "next": "spirit_cistern",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ancestral_cache",
+      "text": [
+        "一个给营地补给用的大型**54格**储柜，有箱子没有的本事：设好各面，它就会给贴着它的Tribal Power机器送料或清空它们，不用漏斗，也不用中继。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "设置各面",
+      "text": [
+        "打开它，用输入输出面板把每个面设为**输入**、**输出**、**双向**或**关闭**。潜行并用空手右键点某一面，也会循环切换。",
+        "贴着的Tribal Power机器会把至多**每秒16个物品**从给出的面（输出或双向）送进接收的面（输入或双向）。两个双向的面从不相交易，因此堆叠不会在它们之间来回倒腾。",
+        "工作站的底面是输出，所以放在工作站下面的储柜会接住它做出的一切。把一个面设为输出，对着工作站的输入侧，就会给工作站供料。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "会自己出货的工作站",
+      "steps": [
+        {
+          "caption": "把先祖储柜放在产出该去的地方。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "把回响粉碎立在它上面；工作站的底面是输出。",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "照旧给回响粉碎配上它的土图腾和脉动。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "碎片现在直接掉进储柜，不需要漏斗。",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "提示",
+      "text": [
+        "漏斗和管道遵循相同的面设置，因此关闭的面也会把它们拒之门外。",
+        "相邻方块走面；中继器用于远距离。参见[无线货物](wireless_cargo)。",
+        "拉杆会锁住菜单和自动化。比较器读取它有多满。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ancestral_cache"
+    },
+    {
+      "type": "text",
+      "title": "整理按钮",
+      "text": [
+        "凡值得整理的物品栏，槽位上方的空角都有一个小小的**整理**按钮：你自己的背包、这个储柜、[深层储柜](deep_cache)（以及旅人挎包或营地打开的储库），还有任何箱子、木桶、潜影盒或漏斗。",
+        "按一下会合并能合并的，再把其余的按顺序排开。你的快捷栏和盔甲从不动，机器的槽位也不会被碰：这个按钮只出现在普通存储上方。整理储库时绝不会把旅人挎包放进去。",
+        "如果它挤占了其他模组的界面，就在客户端配置里用**sortButtons**关掉。"
+      ]
+    }
+  ]
+}

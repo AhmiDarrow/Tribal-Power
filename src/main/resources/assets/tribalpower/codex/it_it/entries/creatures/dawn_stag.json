@@ -1,0 +1,52 @@
+{
+  "name": "Cervo dell'alba",
+  "icon": "tribalpower:dawn_velvet",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:dawn_stag_spawn_egg",
+    "tribalpower:dawn_velvet"
+  ],
+  "next": "lantern_fox",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:dawn_stag",
+      "text": [
+        "Un brucatore dell'alba, le cui corna si curvano come una lira e portano il vecchio canto della foresta. Spazzola gli adulti per ottenere Velluto dell'alba.",
+        "Cacciato, lascia anche Selvaggina cruda, da 1 a 3, e Cuoio della Marcia, fino a 2. Alleva con **grano**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Branchi di Cervo dell'alba brucano nelle foreste dell'Overworld e, nella Marcia, nella steppa, sugli altipiani, sulla Cresta del luccichio e nella torbiera di canne. Compaiono su terreno aperto e ben illuminato.",
+        "Un cervo ha **24 di salute** e **1 di armatura**. È mansueto: fugge se ferito e sta lontano dai mostri. Allevane due con **grano**."
+      ],
+      "title": "Dove lo trovi"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Spazzola un adulto per ottenere **Velluto dell'alba**, una volta al minuto. Il velluto si lega in 2 Tessitospirito sotto Acqua.",
+        "Se ne cacci uno, lascia **1 a 3 Selvaggina cruda** e **0 a 2 Cuoio della Marcia**; Saccheggio aggiunge fino a uno in più per tipo, e un cervo che muore bruciando lascia la carne già cotta. Vedi [Selvaggina e cuoio](game_and_leather)."
+      ],
+      "title": "Cosa dà"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Lega un adulto con un Amuleto di legame e diventa una cavalcatura che non richiede sella. Usalo per salire, guida con lo sguardo, tieni il salto per un balzo breve e accovacciati per scendere.",
+        "Porta solo chi gli è legato. Un cervo con un filo di Falciata robusto corre più veloce, e il marchio raro **Balzo** salta più in alto. Altro alla pagina [doni del familiare](familiar_gifts)."
+      ],
+      "title": "Come familiare"
+    },
+    {
+      "type": "text",
+      "title": "Caccia e pastura",
+      "text": [
+        "Cacciato, lascia questo, e di più con Saccheggio. La carne cade arrostita se l'animale è morto bruciando. Per far riprodurre i selvatici, **accovacciati** mentre nutri due adulti con il loro cibo; nutrito normalmente, un selvatico invece si affeziona a te."
+      ]
+    }
+  ]
+}

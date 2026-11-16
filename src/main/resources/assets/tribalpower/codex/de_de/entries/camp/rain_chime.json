@@ -1,0 +1,174 @@
+{
+  "name": "Regenklangspiel",
+  "icon": "tribalpower:rain_chime",
+  "order": 120,
+  "next": "offering_table",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rain_chime",
+      "text": [
+        "Macht aus dem Wetter ein Redstone-Signal. Das Regenklangspiel braucht keinen Puls und keinen Brennstoff und erzeugt auch keinen Puls. Es sagt dir nur, was der Himmel tut."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Es ablesen",
+      "text": [
+        "Stelle einen Komparator daran: **8** bei Regen, **15** bei Gewitter, **0** bei klarem Himmel. Das Wetter gilt weltweit, also bringt ein Dach es nicht zum Schweigen.",
+        "Es klingt auch leise alle **zehn Sekunden**, solange es regnet.",
+        "Ein Redstone-Signal in das Klangspiel schaltet es stumm und setzt seine Ausgabe auf 0."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Ein Wetterzeichen",
+      "steps": [
+        {
+          "caption": "Stelle das Klangspiel dorthin, wo ein Komparator es lesen kann.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:rain_chime"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Komparator, der von ihm wegzeigt, liest das Wetter.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Hier schaltet es bei Regen eine Lampe an, und feinere Logik unterscheidet Regen (8) von Donner (15).",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ideen",
+      "text": [
+        "Pausiere einen [Leysammler](ley_collector) oder schalte die Lagerlichter mit dem Wetter ein. Nimm den Donnerwert als Warnung, bevor du losziehst.",
+        "Kein Brennstoff, kein Unterhalt: einmal gesetzt, hört es nur zu."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rain_chime"
+    }
+  ]
+}

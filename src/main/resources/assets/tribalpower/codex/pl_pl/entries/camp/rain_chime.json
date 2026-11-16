@@ -1,0 +1,174 @@
+{
+  "name": "Dzwonek deszczu",
+  "icon": "tribalpower:rain_chime",
+  "order": 120,
+  "next": "offering_table",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rain_chime",
+      "text": [
+        "Zamienia pogodę w sygnał redstone. Dzwonek deszczu nie potrzebuje Pulsu ani paliwa i sam Pulsu nie wytwarza. Mówi tylko, co robi niebo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jak to czytać",
+      "text": [
+        "Postaw komparator przy nim: **8** w deszczu, **15** w burzy, **0** przy czystym niebie. Pogoda obejmuje cały świat, więc dach go nie wycisza.",
+        "Dzwoni też cicho co **dziesięć sekund**, gdy pada.",
+        "Sygnał redstone do dzwonka wycisza go i ustawia wyjście na 0."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Znak pogody",
+      "steps": [
+        {
+          "caption": "Postaw dzwonek tam, gdzie komparator może go odczytać.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:rain_chime"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Komparator odwrócony od niego odczytuje pogodę.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Tu zapala lampę, gdy pada, a dokładniejsza logika odróżnia deszcz (8) od grzmotu (15).",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pomysły",
+      "text": [
+        "Wstrzymaj [Kolektor ley](ley_collector) albo włączaj światła obozu wraz z pogodą. Użyj odczytu grzmotu jako ostrzeżenia, zanim ruszysz.",
+        "Bez paliwa, bez utrzymania: raz postawiony, tylko nasłuchuje."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rain_chime"
+    }
+  ]
+}

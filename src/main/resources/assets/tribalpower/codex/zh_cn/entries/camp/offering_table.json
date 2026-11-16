@@ -1,0 +1,29 @@
+{
+  "name": "供桌",
+  "icon": "tribalpower:offering_table",
+  "order": 130,
+  "next": "builders_chalk",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:offering_table",
+      "text": [
+        "一个 27 格的营地仓库，面子比箱子好看。放在炉或摇篮旁边，让供品、食物和灵织随手可及。它不需要脉动。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "使用",
+      "text": [
+        "它是储物，不是第二个部落炉。提升在部落中地位的供品要放在炉本身上（见[地位](standing)）；桌子什么也不给。",
+        "只有放置它的玩家及其营地可以打开；若无人认领，则任何人都能打开。",
+        "漏斗、管道和[中继板](wireless_cargo)可以从每一面装入或取出。潜行时用空手右键单击某一面，可改变该面：双向、输入、输出或关闭。",
+        "比较器读取它有多满。红石信号会同时锁住菜单和自动化。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:offering_table"
+    }
+  ]
+}

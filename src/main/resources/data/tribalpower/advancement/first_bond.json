@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:bonding_charm"
     },
-    "title": "A friend in the dark",
-    "description": "Bond a familiar with a Bonding Charm or its favourite food.",
+    "title": {
+      "translate": "advancement.tribalpower.first_bond.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.first_bond.description"
+    },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true,

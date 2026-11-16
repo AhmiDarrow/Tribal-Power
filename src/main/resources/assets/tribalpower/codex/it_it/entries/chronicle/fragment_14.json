@@ -1,0 +1,17 @@
+{
+  "name": "15. Steppa",
+  "icon": "tribalpower:mural",
+  "order": 24,
+  "spoiler": true,
+  "unlock": "fragment:14",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Steppa",
+      "text": [
+        "“La Steppa è il giaciglio che i Custodi del giaciglio non poterono portare: troppo grande, e la mandria era sopra quando esso cadde. La mandria non ha mai smesso di correre. Piedi silenziosi potrebbero riportare il giaciglio; quelli rumorosi si uniscono alla carica.”",
+        "Trovato su un murale, sul terreno di un custode."
+      ]
+    }
+  ]
+}

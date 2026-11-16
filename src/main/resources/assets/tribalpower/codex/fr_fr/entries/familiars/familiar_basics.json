@@ -1,0 +1,40 @@
+{
+  "name": "Ce qu'est un familier",
+  "icon": "tribalpower:dawn_velvet",
+  "order": 10,
+  "next": "familiars",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Un compagnon pour ta magie",
+      "text": [
+        "Un **familier** est une créature liée à toi. Il te suit, attend où tu le lui dis et ne disparaît jamais, et chaque sorte a un don qui lui est propre ([ce que font les familiers](familiar_gifts)).",
+        "Donne-lui une voix à un **Totem de résonance** et il fait partie de ta magie : les Amulettes d'Esprit et l'Espritoutillage de cette voix coûtent moins, et ses chants et ses rites se renforcent, tant qu'il est à **16 blocs** de toi.",
+        "La magie fonctionne sans familier. Un familier la rend plus forte."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qui peut être lié",
+      "text": [
+        "- **Bêtes douces** : le Cerf de l'aube et le Renard-lanterne des forêts, le Dos-mousse des marais, et les brouteurs, les sauteurs et les phalènes de chaque biome de la Marche. N'importe qui peut les lier.",
+        "- **Six vestiges**, une fois que leur tribu te nomme **Voix** (800 d'estime) : Dos-éclat, Molosse de la faille, Diablotin d'escarbille, Phalène de tempête, Cloche de deuil et Tisserand d'écho. La page suivante dit quelle tribu parle pour lequel.",
+        "Lié-cendre, Lié-racine, les Traqueurs des roseaux et les Sentinelles creuses ne répondent jamais, pas plus que les boss, les gobelins, les trolls ou les autres hostiles de la Marche. Les petits ne peuvent pas être liés.",
+        "**Accroupis-toi et regarde** une créature pour voir si elle peut être liée et ce qu'il lui faut. Une Lentille ley utilisée accroupi sur elle dit la même chose."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Dos-éclat : les **Chanteurs de gravier**.",
+        "- Molosse de la faille : les **Marcheurs de lisière**.",
+        "- Diablotin d'escarbille : les **Cœurs-tambours**.",
+        "- Phalène de tempête : les **Tisserands de motifs**.",
+        "- Cloche de deuil : les **Graveurs de sceaux**.",
+        "- Tisserand d'écho : les **Couseurs du métier**.",
+        "Voir [estime](standing) pour savoir comment la gagner."
+      ],
+      "title": "Quelle tribu pour quel vestige"
+    }
+  ]
+}

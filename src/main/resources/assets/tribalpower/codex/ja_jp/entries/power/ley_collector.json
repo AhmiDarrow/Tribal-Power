@@ -1,0 +1,467 @@
+{
+  "name": "レイ収集器",
+  "icon": "tribalpower:ley_collector",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_collector",
+      "text": [
+        "惑星のレイの線を飲む発電機。線の通る場所に、開けた空、水、植物、生命のあいだへ置くと、そこに立っていなくても**二秒**ごとにパルスを足す。",
+        "**2,000パルス**を持つ。壊すと失われる。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "何を聴くか",
+      "text": [
+        "二秒ごとに収集器は**1点につき3パルス**をその**拍**に応じて足す。拍は**1**から始まり、**8ブロック**以内の土地がさらに足す：",
+        "- 開けた空：昼は**+1**、夜は**+3**。",
+        "- 雨は**+2**、雷雨はさらに**+1**。",
+        "- 水：最大**+4**。",
+        "- 植物：最大**+4**。草、葉、花、作物、苔のブロックは四つごとに一つ。水と植物は、収集器の下2ブロックから上2ブロックまでしか数えない。",
+        "- 共鳴トーテム：最大**+3**、異なる声ごとに一つ。",
+        "- 部族の炉が**+1**。動物：最大**+2**、一対につき一つ。",
+        "- マーチでは**+2**。満月の下では**+1**。",
+        "それらの贈り物は土地の取り分であり、土地の取り分の上限は**6**だ。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "レイの線",
+      "text": [
+        "拍の残りは、収集器のそばを通るレイの線だ。線ごとに最大**+2**、糸の真上なら2すべて、離れるほど少なく、**7.5ブロック**でゼロになる。上でも下でも横と同じだ。線は世界を覆う網で、**六**が揃うのはごく稀な場所だけであり、収集器はそれ以上を数えない。拍全体の上限は**16**で、二秒ごとに**48パルス**を払う。",
+        "共鳴トーテムは自分の色の糸を自身へ通し、他の色には手を出さない。六つのトーテムを収集器の周りに置き、各糸がトーテムへ向かう途中で収集器を横切るようにする。それが収束だ。色は六つ、拍に乗る線も六本まで。",
+        "レイの奔流の間、奔る声を糸が運ぶ収集器は二倍を出す。[生きているマーチ](living_march)を参照。",
+        "[レイの心臓](ley_heart)は自分の線を六本、トーテムを通して外へ起こす。その一本の上に置いた収集器はそれを感じる。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "良い場所",
+      "steps": [
+        {
+          "caption": "収集器を、空の見える開けた地面に置け。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ley_collector"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "周りの植物は拍ごとに足される。生きたブロック四つで一点、最大四点。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "minecraft:oak_leaves"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:oak_leaves"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:poppy"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:dandelion"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:fern"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:short_grass"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "違う声のトーテムは一つにつき一点、最大三点。",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              -1
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "屋根は空と雨と嵐を奪う。弱るだけで、死にはしない。植物と声はまだ数える。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "調律",
+      "text": [
+        "スニークしたままレイレンズを収集器に使うと、内訳が要因ごとに正確に出る。出る数は拍であり、毎秒のパルスではない。レイの視界は近くを通る線を描く。建てる前にその上に立てる。",
+        "拍が**8以上**（16の半分）のとき、収集のたびに8ブロック以内のトーテムを起こし、応答したままにする。ここで効くのは拍だけだ。収集器の空きは関係ない。[維持](keeping)を参照。",
+        "レッドストーン信号で止まる。各[ランク](machine_ranks)は収集ごとに**15%**を足す。",
+        "弱そうなら、しゃがんでこの本で右クリックする。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_collector"
+    }
+  ]
+}

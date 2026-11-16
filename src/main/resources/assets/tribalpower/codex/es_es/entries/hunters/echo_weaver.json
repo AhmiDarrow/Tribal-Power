@@ -1,0 +1,52 @@
+{
+  "name": "Tejedor de eco",
+  "icon": "tribalpower:echo_silk",
+  "order": 160,
+  "spoiler": true,
+  "items": [
+    "tribalpower:echo_weaver_spawn_egg",
+    "tribalpower:echo_silk"
+  ],
+  "next": "dark_hunters",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:echo_weaver",
+      "text": [
+        "Una araña arpa, las patas tensas como un arpa: una guardiana de ocho patas de canciones rotas. Su mordedura ralentiza a la presa.",
+        "Si lo cazas, también suelta de 1 a 3 cuerdas y hasta 1 ojo de araña."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Los tejedores de eco se arrastran por la Estepa de la Marcha, los Campos de Cristal, el Tremedal de Juncos y los Bajíos. El No Cantado también los invoca en su Coro.",
+        "Tiene **26 puntos de salud** y **3 puntos de armadura**, y muerde por **4**. Te ralentiza durante 3 segundos y puede dejarte [Deshilachado](afflictions). Nunca coloca telarañas ni daña tu campamento."
+      ],
+      "title": "Dónde y cómo"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Suelta **1 a 2 Seda de eco**.",
+        "Seda de eco se convierte en 2 Tejido espiritual bajo el Agua."
+      ],
+      "title": "Qué da"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Alcanza **Voz** con los **Zurcidores del telar**, luego usa un Amuleto de vínculo en un adulto: dos intentos de cada cinco; el amuleto se gasta si fallas. O aliméntalo con su propio reactivo: un intento de cada cinco, y el reactivo se gasta igual.",
+        "Un tejedor vinculado recoge lo que cae a su alrededor y te lo lanza. Consulta [regalos del familiar](familiar_gifts)."
+      ],
+      "title": "Como familiar"
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, suelta esto si lo cazas, y más con Saqueo."
+      ]
+    }
+  ]
+}

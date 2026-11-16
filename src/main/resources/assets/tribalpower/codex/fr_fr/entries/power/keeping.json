@@ -1,0 +1,190 @@
+{
+  "name": "Maintien",
+  "icon": "tribalpower:bone_chime",
+  "order": 40,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Les totems ont besoin d'attention autant que de puissance. Un totem que tu utilises reste éveillé ; un que tu ignores s'endort peu à peu. Cela s'appelle le **Maintien**, et un totem est toujours dans l'un de trois états :",
+        "- **Répondu** : éveillé, pendant environ **40 minutes** de temps chargé après sa dernière utilisation.",
+        "- **Estompé** : en train de s'effacer, pendant encore **40 minutes**. Les stations correspondantes prennent environ **30% de plus**.",
+        "- **Calme** : endormi. Un nouveau travail peut s'interrompre, même s'il reste de la Pulsation.",
+        "L'horloge ne tourne que tant que le chunk du totem est chargé. Un générateur plein ne réveille pas à lui seul un totem calme.",
+        "Le Maintien est l'une des deux choses dont un totem a besoin. L'autre est de la Pulsation dans son **tampon** : un totem au tampon vide est **silencieux** et ne prête aucune voix, si éveillé soit-il. Sur un réseau de treillis qui contient de la Pulsation, le tampon se remplit et reste plein ; hors du treillis, ou sur un treillis à sec, il se vide en environ deux minutes (voir [Conducteur de treillis](lattice_conductor)). Les deux ne se touchent jamais : la Pulsation ne réveille pas un totem calme, et le réveil ne remplit pas un tampon vide."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Réveiller un totem",
+      "text": [
+        "Fais un clic droit sur un totem estompé ou calme à main vide, ou utilise un **Carillon d'os** sur n'importe quel totem, pour le réveiller et relancer son horloge.",
+        "Battre un Cœur-tambour à la main réveille chaque totem dans un rayon de 8 blocs. Il en va de même des Tambours de rang Parent des tribus, et d'un Collecteur de ley dont le battement est de 8 ou plus.",
+        "Un familier accordé garde répondu chaque totem de sa voix dans un rayon de 8 blocs, et réveille celui qui est devenu calme (voir [Lier un familier](familiars)).",
+        "Le travail garde les totems éveillés : chaque seconde qu'une station correspondante travaille, elle nourrit les totems de sa voix. Cela maintient un totem répondu ou estompé, mais ne réveille pas celui qui est déjà calme.",
+        "Une Plaque de battement peut garder un Cœur-tambour en train de produire de la puissance, mais les battements de redstone ne gardent pas les totems éveillés."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Réveiller un totem calme",
+      "steps": [
+        {
+          "caption": "Ce broyeur a de la Pulsation et un totem de Terre, mais il s'est arrêté : son totem est devenu calme.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Utilise un Carillon d'os sur le totem, ou fais un clic droit à main vide, pour le réveiller.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          }
+        },
+        {
+          "caption": "La station reprend son travail, et chaque seconde de travail garde le totem répondu.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Prévoir un camp",
+      "text": [
+        "Les totems des lieux luxuriants restent éveillés **deux fois plus longtemps**. Un totem compte les blocs tout autour de lui : ciel ouvert (davantage la nuit), pluie, eau et plantes, herbe sous les pieds comprise. Quand cela fait un endroit fort, son horloge tourne à mi-vitesse. La plupart des totems sous un toit ou sur la pierre nue gardent l'allure normale.",
+        "Un [Totem de parenté](kinship_totem) ne devient jamais calme. Dans un rayon de 8 blocs, il garde sa voix répondue pour les stations et les mains du camp, même à côté d'un Totem de résonance de cette voix qui est devenu calme.",
+        "La vue des voix de la [Lentille ley](ley_lens) marque les totems de la couleur de leur propre voix quand ils sont répondus, d'une teinte plus sombre quand ils sont estompés, et en gris quand ils sont calmes ou silencieux. Et quand une station s'arrête alors que sa puissance semble bonne, accroupis-toi et fais un clic droit dessus avec ce livre : il dit si son totem est estompé ou calme."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bone_chime"
+    }
+  ]
+}

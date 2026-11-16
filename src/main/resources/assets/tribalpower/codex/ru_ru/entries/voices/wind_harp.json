@@ -1,0 +1,438 @@
+{
+  "name": "Ветряная арфа",
+  "icon": "tribalpower:wind_harp",
+  "order": 30,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wind_harp",
+      "text": [
+        "Ремесло: Ткачи узоров. Арфа, натянутая к открытому небу, делает Пульс из ветра, даром. Раз это бесплатно, есть предел: до **6 Пульс в секунду**.",
+        "Вмещает **1,000 Пульс**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Куда её вешать",
+      "text": [
+        "Арфа должна видеть небо из блока над ней. Под крышей она не даёт **совсем ничего**.",
+        "- Под открытым небом: **2 в секунду** (1 базовый, 1 за небо).",
+        "- Высота: **+1** на y 128 и выше, **+2** на y 192 и выше.",
+        "- Погода: **+1** в дождь, **+2** в бурю.",
+        "Предел без ранга — **6 в секунду**. Ранг добавляет **15% Пульс в секунду** за ранг. Бонус округляется до целого числа Пульс, поэтому генератор, который даёт только 2 или 3 в секунду, ничего не получает от первого ранга."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Одна арфа, одно небо",
+      "steps": [
+        {
+          "caption": "Поставь арфу на открытую землю: 2 Пульс в секунду под чистым небом.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wind_harp"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Накрой её крышей, и она замолчит. Арфа должна видеть небо.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Сними крышу, и вторая арфа в пределах 12 блоков делит тот же ветер: каждая делает половину.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:wind_harp"
+            }
+          ],
+          "remove": [
+            [
+              -1,
+              2,
+              -1
+            ],
+            [
+              -1,
+              2,
+              0
+            ],
+            [
+              -1,
+              2,
+              1
+            ],
+            [
+              0,
+              2,
+              -1
+            ],
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              1,
+              2,
+              -1
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              1,
+              2,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Держи арфы дальше чем в 12 блоках друг от друга, или построй одну высоко на горе.",
+          "remove": [
+            [
+              2,
+              0,
+              2
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Арфы делят ветер",
+      "text": [
+        "Арфы в пределах **12 блоков** во все стороны, край включительно, делят ветер с округлением вниз: две тесные арфы под чистым небом дают по 1 в секунду, а три не дают ничего. Стена из арф — стена украшений. Смысл в одной арфе.",
+        "Сигнал красной пыли её останавливает. Присядь и нажми по ней правой кнопкой с этой книгой, чтобы увидеть небо, высоту, погоду и тесноту, и что добавляет каждое.",
+        "Арфы — ремесло [Ткачи узоров](tribe_clock): для рецепта нужны Штормовое крыло и Печать Воздуха, и Ткачи узоров меняют арфу для Родня."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wind_harp"
+    }
+  ]
+}

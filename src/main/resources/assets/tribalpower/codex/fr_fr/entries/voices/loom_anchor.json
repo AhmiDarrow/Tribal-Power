@@ -1,0 +1,367 @@
+{
+  "name": "Ancre de Métier",
+  "icon": "tribalpower:loom_anchor",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:loom_anchor",
+      "text": [
+        "L'ouvrage des Couseurs du métier, et le générateur de fin de partie. L'Ancre de Métier paie un camp complet : **1 Pulsation par seconde** pour chaque voix de totem distincte, dans **8 blocs**, jusqu'à six.",
+        "Elle contient **1,000 Pulsation**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Compter les voix",
+      "text": [
+        "Elle compte les voix, pas les totems : six totems de Terre font une voix. Les totems silencieux comptent encore ; l'air vide, non.",
+        "Un [Lien de ley](world_rites) actif sur n'importe quel totem proche **double** le rythme.",
+        "Les Totem de parenté prêtent l'élément de leur tribu au même ensemble de six voix. Ils ne sont pas une septième voix : un Totem de parenté de Chanteur de gravier à côté d'un totem de Terre n'ajoute rien.",
+        "La classer en Accordeur d'écho, puis Lieur d'écho, puis Manifesteur d'écho ajoute **15% de Pulsation par seconde** par rang, et non les 118% de l'atelier. Le bonus est arrondi à une Pulsation entière, donc un générateur qui ne fait que 2 ou 3 par seconde ne gagne rien à son premier rang."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Au milieu des voix",
+      "steps": [
+        {
+          "caption": "Plante l'ancre au milieu de tes totems.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:loom_anchor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Deux voix, Terre et Feu : 2 Pulsation par seconde.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ajoute Eau et Air : quatre voix, 4 par seconde.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              -2
+            ]
+          ]
+        },
+        {
+          "caption": "Esprit et Métier complètent l'ensemble : 6 par seconde, ou 12 tant qu'un Lien de ley bourdonne tout près.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              2,
+              0,
+              -2
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La vérifier",
+      "text": [
+        "Un clic à main vide montre ce qu'elle produit et ce qu'elle contient. Accroupis-toi et fais un clic droit avec ce livre pour le compte de voix et pour savoir si un Lien de ley l'atteint.",
+        "Les ancres sont l'ouvrage des [Couseurs du métier](tribe_spindle) : la recette demande un Noyau résonnant et un Fil de Métier, et les Couseurs du métier échangent une ancre à leur Parent contre des Échos liés et un Fil de Métier."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_anchor"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "name": "Rzeźbiarze pieczęci",
+  "icon": "tribalpower:tribe_mark",
+  "order": 110,
+  "spoiler": true,
+  "unlock": "tribe:sigil",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_sigil",
+      "title": "Rzeźbiarze pieczęci",
+      "text": [
+        "„Duch idzie tam, gdzie prosi się go grzecznie, i zostaje tam, gdzie go karmią.”",
+        "Pasmo **Sygil**, głos **Duch**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Kim są",
+      "text": [
+        "Rzeźbiarze pieczęci wycinali czyste pieczęcie tysiącami przed Cięciem i prosili o stanowczo za dużo. Pieczęć to grzeczna prośba wyryta w kamieniu; brasero to posiłek. Ich rzemiosło to **pieczęcie i obrzędy**.",
+        "Ich obozy stoją w **mrocznych lasach**, a w Marszu ich obóz stoi w każdym pasie, od zamarzniętej północy po sól."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Czego chcą",
+      "text": [
+        "Ich reagent to **Odłamek Ducha**, wart **+8** reputacji przy ich Palenisku.",
+        "Cenią też Czysta pieczęć albo dowolną pieczęć żywiołu: **+3** każdy. Każde inne jedzenie jest warte **+1**, a naładowane Ogniwo Pulsu **+2 za każde 10 Puls**, do +8.",
+        "Pamiętaj, że Palenisko przyjmuje najwyżej **60** reputacji dziennie z ofiar; zobacz [Plemiona i reputacja](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Czym handluje Starszy",
+      "text": [
+        "**Gość**: 2 Odłamek Ducha w zamian za Czysta pieczęć; 4 Odłamek echa w zamian za 4 Rytualna kreda.",
+        "**Przyjaciel**: Czysta pieczęć i 2 Odłamek Ducha w zamian za Pieczęć Ducha; 3 Dostrojone echo i 2 Odłamek Ducha w zamian za Tabliczka obrzędu: Cicha noc; 4 Ryż mokradła w zamian za Bulion rzeźbiarza pieczęci.",
+        "**Ród**: 3 Związane echo za Rytualne brasero; 4 Związane echo za Dzwon pobudki.",
+        "Każda wymiana daje **+2** reputacji."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Znak, totem i dar",
+      "text": [
+        "Przy **Głos** Starszy daje ci Znak plemienia Rzeźbiarzy pieczęci. Wytwórz go z {item:tribalpower:resonance_totem_spirit} i dwóch Duchotkanina w ich [Totem pokrewieństwa](kinship_totem).",
+        "Gdy obok jest Rezonator Pulsu, to jeszcze jeden głos; przy stacji dodaje **Duch**.",
+        "Ród Rzeźbiarzy pieczęci nosi swój [dar](tribe_boons): twoje amulety proszą o **połowę** Pulsu.",
+        "Ich danie niesie dar przez **5 minut**, a ich [relikt](elders_and_stories) tak długo, jak go nosisz.",
+        "Ich wymiana na randze Przyjaciel za Tabliczka obrzędu to skrót omijający szukanie jej odczynników. Są też jedynym plemieniem, które sprzedaje **Dzwon pobudki**.",
+        "Przy **Głos** możesz też związać **Dzwon żałobny** jako [chowańca](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "sigil",
+      "title": "Twoja praca z nimi",
+      "text": [
+        "O co poprosił cię Starszy Rzeźbiarzy pieczęci i jak daleko zaszła ich historia. Zobacz [Starsi, prośby i opowieści](elders_and_stories)."
+      ]
+    }
+  ]
+}

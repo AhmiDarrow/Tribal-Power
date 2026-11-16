@@ -1,0 +1,68 @@
+{
+  "name": "Ancianos, encargos e historias",
+  "icon": "tribalpower:relic_spindle",
+  "order": 15,
+  "spoiler": false,
+  "items": [
+    "tribalpower:relic_soil",
+    "tribalpower:relic_stone",
+    "tribalpower:relic_sprout",
+    "tribalpower:relic_claw",
+    "tribalpower:relic_spark",
+    "tribalpower:relic_clock",
+    "tribalpower:relic_swarm",
+    "tribalpower:relic_sigil",
+    "tribalpower:relic_spindle"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Hablar con un Anciano",
+      "text": [
+        "El campamento de cada tribu tiene un **Anciano**, y una vez que eres Huésped te hablarán. Haz clic derecho en uno y se abre una conversación: lo que dicen a la izquierda, lo que puedes responder como botones.",
+        "El comercio es una de las cosas que puedes pedir. Los Extraños solo reciben unas pocas palabras secas y una pista sobre el hogar, así que trae una ofrenda primero (consulta [Tribus y prestigio](standing)).",
+        "Lo que ofrece el Anciano cambia según lo que hayas hecho: encargos, su historia y, una vez que la termines, una bienvenida más cálida.",
+        "En el [día de festival](living_march) de la tribu, el Anciano también te invita al banquete."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Encargos",
+      "text": [
+        "Pregunta a un Anciano **\"¿Hay trabajo que pueda hacer?\"** y te dan uno de los encargos de la tribu. Cada tribu tiene tres abiertos en un día dado, y cambian con los días; si el de hoy no te conviene, vuelve mañana.",
+        "Llevas **un encargo por tribu** a la vez. Cuando terminas **tres** en un día, entre todas las tribus, los Ancianos no dan trabajo nuevo hasta mañana. El trabajo que ya llevas sí se puede entregar.",
+        "Termínalo y dile al Anciano **\"Ya hice lo que pediste.\"** Cada uno paga **8 a 16** de prestigio, y cada **tercer** encargo terminado de una tribu paga una **Marca tribal** de más, mucho antes de que llegues a Voz.",
+        "El Códice lleva la cuenta por ti: la página de cada tribu termina con su petición abierta y lo avanzada que está."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que piden",
+      "text": [
+        "- **Traer**: trae lo que aprecian, como su cosecha de la Marcha. Llévalo cuando se lo digas al Anciano.",
+        "- **Entregar**: trae dos cuencos de su propio [plato](tribe_dishes).",
+        "- **Cazar**: rechaza a seis criaturas de la oscuridad dentro de **48 bloques** de su hogar. El golpe mortal debe ser tuyo.",
+        "- **Rito**: realiza cualquier rito en un brasero o un pedestal dentro de 48 bloques de su hogar.",
+        "- **Construir**: levanta **Muros** de tamaño 3 o más dentro de 48 bloques de su hogar, marcados con Tiza de constructor, y lleva esa tiza cuando se lo digas al Anciano. Constrúyelos con bloques trabajados, como tablones, ladrillos o roca: la piedra en bruto, la tierra, la arena, la terracota, el hielo y el propio suelo de la Marcha no cuentan. Una construcción cuenta **una vez**: los muros ya entregados a esa tribu no vuelven a pagar."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Su historia",
+      "text": [
+        "Pide **«Cuéntame tu historia»** y el Anciano empieza un camino más largo: **siete pasos**, una tribu cada vez, que se apoyan en todo lo demás que haces con ellos. Conviértete en su Amigo, trae lo único que aprecian, caza cerca de sus fuegos, realiza un rito en su campamento, trae su plato y, al final, ve adonde te envíen.",
+        "El último paso es una **prueba**: la tierra de cada tribu guarda un guardián, y la tribu quiere que lo enfrentes. La prueba de los Zurcidores del telar es El No Cantado en persona; los otros ocho esperan en sus tierras, contados en [Los guardianes](guardians). Si caes en el combate, la historia simplemente espera. Un guardián dejado solo medio minuto vuelve a dormirse sin ser vencido, y su altar se puede llamar de nuevo enseguida.",
+        "Enfrenta al guardián solo cuando el Anciano te envíe. Un guardián vencido antes no cuenta para la historia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Las nueve reliquias",
+      "text": [
+        "Termina la historia y el Anciano te entrega la **reliquia** de la tribu: una cosa pequeña y única que otorga la [bendición](tribe_boons) de esa tribu siempre que esté en tu inventario, sea cual sea tu posición, y te marca para bien ante sus ojos.",
+        "{item:tribalpower:relic_soil} (Guardianes del lecho). {item:tribalpower:relic_stone} (Cantores de grava). {item:tribalpower:relic_sprout} (Vinculadores de raíces). {item:tribalpower:relic_claw} (Caminantes del borde). {item:tribalpower:relic_spark} (Corazones de tambor). {item:tribalpower:relic_clock} (Tejedores de patrones). {item:tribalpower:relic_swarm} (Guardianes de la colonia). {item:tribalpower:relic_sigil} (Talladores de sellos). {item:tribalpower:relic_spindle} (Zurcidores del telar).",
+        "Una para cada tribu: cada una es el fin de una historia y el principio de que las nueve vuelvan a acordar."
+      ]
+    }
+  ]
+}

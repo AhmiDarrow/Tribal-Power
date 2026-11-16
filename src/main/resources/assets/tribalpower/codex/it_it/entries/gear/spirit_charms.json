@@ -1,0 +1,123 @@
+{
+  "name": "Amuleti dello Spirito",
+  "icon": "tribalpower:sky_charm",
+  "order": 60,
+  "items": [
+    "tribalpower:ember_charm",
+    "tribalpower:tide_charm",
+    "tribalpower:root_charm",
+    "tribalpower:lantern_charm",
+    "tribalpower:spindle_charm",
+    "tribalpower:ward_charm",
+    "tribalpower:hearth_charm",
+    "tribalpower:veil_charm",
+    "tribalpower:chorus_charm",
+    "tribalpower:gathering_charm"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:sky_charm",
+      "text": [
+        "Gli amuleti sono sigilli da indossare. Ognuno porta una voce di totem e un dono, e puoi portarne fino a **tre** negli scomparti per amuleti propri di Tribal Power. Non serve nessun altro mod."
+      ],
+      "title": "Amuleti dello Spirito"
+    },
+    {
+      "type": "text",
+      "title": "Indossare gli amuleti",
+      "text": [
+        "Usa un amuleto per indossarlo. Accovacciati e usa un amuleto qualsiasi per aprire i tre scomparti.",
+        "Gli amuleti indossati costano **2 di Pulso per voce ogni due secondi**, presi da una Cella di Pulso che porti. Quando le celle si esauriscono, i doni si fermano, e il volo con essi, quindi ricarica o toglili.",
+        "Le voci si sommano su tutto ciò che indossi, ma la stessa voce due volte dà il suo dono una volta sola.",
+        "Un [famiglio](familiar_boons) sintonizzato vicino che condivide la voce di un amuleto riduce il mantenimento di quell'amuleto del **40%** e aggiunge un dono suo.",
+        "Gli amuleti indossati cadono a terra quando muori, a meno che il tuo mondo non conservi l'inventario."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gli undici amuleti",
+      "text": [
+        "- **Cielo** (Aria): volo creativo finché dura il Pulso, come con qualsiasi amuleto che porti Aria, tranne l'Amuleto di raccolta.",
+        "- **Brace** (Fuoco): resistenza al fuoco, e chi attacca prende fuoco per 3 secondi.",
+        "- **Marea** (Acqua): respirazione acquatica e grazia del nuotatore.",
+        "- **Radice** (Terra): resistenza.",
+        "- **Lanterna** (Spirito): visione notturna, e ogni benedizione o dono che ottieni mentre è pagata dura **la metà in più**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gli undici amuleti, continua",
+      "text": [
+        "- **Fuso** (Telaio): fortuna, e circa tre volte su dieci restituisce fino a **2 di Pulso** in una cella che porti, ogni due secondi.",
+        "- **Guardia** (Terra): devia circa un proiettile su quattro, o uno su due se Spirito è anche sui tuoi amuleti.",
+        "- **Focolare** (Fuoco): ti tiene sazio.",
+        "- **Velo** (Spirito): ti nasconde mentre ti accovacci.",
+        "- **Raccolta** (Aria): attira verso di te gli oggetti lasciati e l'esperienza.",
+        "- **Coro**: inizia in silenzio e impara da un braciere."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Coro e voci in più",
+      "text": [
+        "Un Coro silenzioso costa ancora 2. Accovacciati e usalo su un Braciere rituale con **tre totem diversi** entro 8 blocchi e **200 di Pulso**, e lega ogni voce vicina.",
+        "Accovacciati e usa un amuleto su un Totem di risonanza per aggiungere quella voce per **40 di Pulso**. Più voci costano di più da indossare e fanno di più.",
+        "Guardia e Focolare portano Terra e Fuoco, quindi danno anche resistenza e resistenza al fuoco. Aria dà anche caduta lenta, a meno che anche Fuoco sia indossato. Il volo arriva con la voce Aria, non con il solo Amuleto del cielo: qualsiasi amuleto indossato che porti Aria, quello proprio del Cielo o uno che hai aggiunto, ti fa volare finché dura il Pulso. L'Amuleto di raccolta è l'unica eccezione: la sua Aria va nella trazione."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "L'Amuleto di raccolta",
+      "text": [
+        "Mentre è indossato e pagato, attira verso di te oggetti lasciati ed esperienza da **5 blocchi**, **2 in più per voce extra**, fino a **11**.",
+        "**Accovacciati** per metterlo in pausa e poter lasciare oggetti. Una pila che qualcuno ha appena lanciato viene lasciata stare finché non si può raccogliere, una pila tenuta per un altro giocatore è sua, e gli oggetti che un altro mod segna come da non spostare restano fermi.",
+        "La sua Aria va nella trazione, quindi, a differenza del Cielo, non dà volo né caduta lenta. Le voci che gli aggiungi funzionano come su qualsiasi amuleto."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:sky_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tide_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:root_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lantern_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spindle_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ward_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hearth_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:veil_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chorus_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gathering_charm"
+    }
+  ]
+}

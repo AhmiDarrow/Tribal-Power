@@ -1,0 +1,30 @@
+{
+  "name": "Signalplatten",
+  "icon": "tribalpower:inverse_plate",
+  "order": 74,
+  "items": [
+    "tribalpower:inverse_plate",
+    "tribalpower:echo_plate"
+  ],
+  "next": "memory_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Umkehr und Echo",
+      "text": [
+        "Eine Stimme, gewendet oder getragen.",
+        "- **Umkehr** (NOT) singt, solange ihre Rückseite still ist, und verstummt, wenn die Rückseite aktiv ist.",
+        "- **Echo** (BUFFER) kopiert die Rückseite: aktiv bleibt aktiv, auf vollen 15.",
+        "Nutze Umkehr, um aus einer Pulsschwelle einen Alarm 'zu leer' zu machen. Nutze Echo, um einen verklingenden Liedfaden auf volle Stärke zu bringen."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:inverse_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_plate"
+    }
+  ]
+}

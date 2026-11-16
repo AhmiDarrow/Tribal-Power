@@ -1,0 +1,239 @@
+{
+  "name": "Triturador de eco",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_shatter",
+      "text": [
+        "A estação de Terra, e a primeira que você vai construir. O Triturador de eco tem dois trabalhos: quebrar **Pedra** em Fragmentos de eco, o cristal que alimenta um Ressonador de Pulso, e triturar blocos e minérios em algo menor."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fazer fragmentos",
+      "text": [
+        "Coloque **Pedra** ou **Ardósia**; a Pedra da Marcha também serve. Pedregulho não faz fragmentos, então funda primeiro em pedra.",
+        "Um fragmento leva **2 segundos** a **32 de Pulso por segundo**. O Pulso guardado por perto, no reservatório de um gerador ou num marco, leva um gerador lento por um lote.",
+        "Ele precisa de um totem de Terra em até 8 blocos e de um gerador carregado. O fragmento é o pequeno catalisador do seu primeiro Ressonador de Pulso, gasto aos poucos pelo Pulso que ele produz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trituração",
+      "text": [
+        "- Pedregulho, pedregulho de ardósia e Pedregulho da Marcha viram cascalho; cascalho vira areia.",
+        "- A areia vira pó quando o mod de peneiração compatível está instalado; senão, uma bola de argila.",
+        "- Diorito vira quartzo. O Minério da Marcha vira dois Fragmentos de Espírito.",
+        "- Metais brutos e minérios de metal viram **dois cascalhos** cada, em 4 segundos a 40 de Pulso por segundo. Veja [Metais e gemas](metals_and_gems).",
+        "- Minérios de gemas com Toque suave se estilhaçam direto na gema, no dobro do que o minério largaria sozinho.",
+        "As receitas deste livro, ou o JEI, mostram as entradas e saídas exatas do seu pacote."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "O cascalho desce",
+      "steps": [
+        {
+          "caption": "Um Forno de brasa com seu totem de Fogo.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Assente o Triturador de eco em cima dele, com um totem de Terra por perto.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A face de baixo do Triturador de eco entrega e a face de cima do Forno de brasa aceita, então o cascalho cai direto para dentro.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Adicione um gerador, alimente ferro bruto por cima e pegue as barras no Forno de brasa.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "item": "minecraft:raw_iron"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Indo além",
+      "text": [
+        "Construa o padrão [Formação de estilhaço](shatter_array) ao redor dele e ele gasta um quarto a menos de Pulso e esvazia a saída num Depósito ancestral embaixo.",
+        "Os níveis o deixam mais rápido; veja [Níveis das máquinas](machine_ranks). Uma alavanca o pausa."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shatter"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shard",
+      "text": "O que o Triturador de eco faz com pedra e ardósia."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "name": "Llave y varita",
+  "icon": "tribalpower:totem_wrench",
+  "order": 25,
+  "items": [
+    "tribalpower:weavers_wand"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:totem_wrench",
+      "title": "Llave de tótem",
+      "text": [
+        "Cada máquina del campamento mira hacia algún lado, y tarde o temprano mira hacia el lado equivocado. Usa la llave sobre un bloque y este gira en su sitio, sin romperlo ni volver a colocarlo. Los troncos y los pilares ruedan a su eje siguiente.",
+        "**Usa agachado la cara de una máquina** y esa cara recorre Ambos, Entrada, Salida y Cerrado: el mismo ajuste que muestra la almohadilla lateral de la propia máquina, alcanzable desde fuera de la pantalla.",
+        "En las [placas de canto](song_plates) sincroniza en vez de girar: usa una placa agachado para guardar su canto, luego usa otra para que oiga el primero, sin un cable de por medio."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que cuesta y lo que rechaza",
+      "text": [
+        "Un giro toma **1 Pulso** de cualquier célula que lleves. Si no llevas Pulso, la llave gasta un punto de sus **512**, así que sigue sirviendo en un mal día.",
+        "Una antorcha de pared, una escalera o una palanca pasa a la siguiente pared que pueda sostenerla, y se queda quieta si no hay ninguna.",
+        "No girará un bloque que en realidad son dos: una cama, una puerta, un cofre doble, una planta alta, o un **pistón extendido** y su cabeza. Primero retrae el pistón.",
+        "Respeta la tierra protegida y rechaza las máquinas colocadas por alguien de fuera de tu campamento, igual que una mano vacía: aun así lee las placas de canto de otro campamento, pero no las sincroniza ni guarda sus cantos."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:totem_wrench"
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:weavers_wand",
+      "title": "Varita del Tejedor",
+      "text": [
+        "Haz clic en la cara de un bloque y la varita lleva esa cara hacia fuera por cada vecino igual: hasta **32 bloques** en una pasada, apoyada contra el lado en el que hiciste clic.",
+        "Los bloques salen de tu mochila y de tu barra de acceso rápido, y cuestan **2 Pulso** cada uno; cada barrido desgasta la varita un punto de sus **768**. Solo llena el espacio vacío y nunca reemplaza lo que ya está, así que un suelo queda colocado de un clic y no se pierde nada debajo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Donde no coloca",
+      "text": [
+        "La varita omite cualquier sitio donde el bloque no podría sostenerse (una antorcha sin donde agarrarse, una planta sobre piedra) y cualquier sitio en terreno protegido, y coloca el resto.",
+        "No copia un bloque que contenga más de un objeto o que guarde un inventario: una losa doble, una puerta o una cama, una pila de velas o de pepinillos, nieve en capas, un cofre o una máquina.",
+        "Si te quedas sin bloques o sin Pulso a mitad de camino, el barrido simplemente se detiene ahí."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:weavers_wand"
+    }
+  ]
+}

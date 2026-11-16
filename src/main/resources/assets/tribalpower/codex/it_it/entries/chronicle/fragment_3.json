@@ -1,0 +1,17 @@
+{
+  "name": "4. Il taglio",
+  "icon": "tribalpower:carved_stone",
+  "order": 13,
+  "spoiler": true,
+  "unlock": "fragment:3",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Il taglio",
+      "text": [
+        "“Nessuno ricorda chi smise di cantare per primo. Gli Intagliatori di sigilli dicono che un sigillo fu intagliato come una pretesa. I Cuoritamburo dicono che il ritmo fu lasciato cadere. I Tessitori di trame dicono che la trama fu cambiata senza chiedere. Hanno tutti ragione, ed è questo il problema.”",
+        "Trovato su una Pietra intagliata nelle rovine della Marcia."
+      ]
+    }
+  ]
+}

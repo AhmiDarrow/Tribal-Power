@@ -1,0 +1,129 @@
+{
+  "name": "Duchowy sprzęt",
+  "icon": "tribalpower:spiritgear_pickaxe",
+  "order": 40,
+  "items": [
+    "tribalpower:spiritgear_axe",
+    "tribalpower:spiritgear_shovel",
+    "tribalpower:spiritgear_blade",
+    "tribalpower:spiritgear_shears",
+    "tribalpower:spiritgear_hoe"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_pickaxe",
+      "text": [
+        "Narzędzia wykute z Manifestowana sztabka: kilof, siekiera, łopata, ostrze, nożyce i motyka. Tną jak diament. Kilof, siekiera, łopata, ostrze i motyka wytrzymują **1,561** użyć, jak diament, a nożyce **1,024**.",
+        "Jeśli mogą czerpać Puls z ogniwa, Puls jest ceną pracy, a ostrze zostaje oszczędzone: opłacony blok, użycie lub cios wcale się nie zużywa.",
+        "[Łuk Pulsu](song_bench) i [Kusza «Puls»](pulse_crossbow) też są kute z Manifestowana sztabka i wytrzymują **1,024**. Każdy strzał jest opłacany Puls, więc strzelanie ich nie zużywa. Wszystko naprawia się na [Kowadło Ducha](spirit_anvil)."
+      ],
+      "title": "Duchowy sprzęt — narzędzia"
+    },
+    {
+      "type": "text",
+      "title": "Puls do pracy",
+      "text": [
+        "Wydobyty blok kosztuje **2 Puls**, trafienie **3**, użycie **1**, pobierane z dowolnego Ogniwo Pulsu, które nosisz.",
+        "Bez Puls narzędzie wciąż działa, ale wtedy się zużywa: tyle, ile zużyłoby każde narzędzie, i punkt więcej za głód, aż osiągnie Związany. Pasek akcji mówi, że głoduje.",
+        "Dostrojony do głosu elementu [chowaniec](familiar_boons) w pobliżu zmniejsza zużycie o **40%**. Każdy element naprawia się za pomocą Manifestowana sztabka na dowolnym kowadle, nigdy diamentami."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Podnoszenie rangi",
+      "text": [
+        "Rangi są tym, co czyni Duchowy sprzęt czymś szczególnym, i mają wymagać prawdziwego wysiłku. Osadź element w stacji, totem w pobliżu, włóż **katalizatory** do gniazd katalizatora i utrzymuj przepływ Puls:",
+        "- **Dostrajacz echa**, Ogień: ranga 0 do 1. **45 sekund** przy **96 Puls na sekundę**, i **4 Dostrojone echo**.",
+        "- **Wiązacz echa**, Woda: ranga 1 do 2. **90 sekund** przy **128**, i **4 Związane echo**.",
+        "- **Manifestator echa**, Duch: ranga 2 do 3. **180 sekund** przy **192**, i **2 Rdzeń rezonansu** i **4 Nić Krosna**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zanim podniesiesz rangę",
+      "text": [
+        "Każda stacja przyjmuje tylko następną rangę: Wiązacz echa odmawia rangi 0, a Manifestator echa wszystkiego poniżej Związany. Nić Krosna pochodzi tylko od [Niezaśpiewany](the_unsung), więc najwyższa ranga czeka, aż go pokonasz.",
+        "To ciężkie pobory dla każdego obozu. Przynieś rezonator z dobrym katalizatorem albo kilka generatorów w promieniu 8 bloków.",
+        "Stacja czeka i nic nie wydaje, aż katalizatory są w środku; zużywają się, gdy ranga dojdzie. Podpowiedź zawsze pokazuje, czego potrzebuje następna ranga."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co dają rangi",
+      "text": [
+        "- **Dostrojony**: każda czynność kosztuje o jeden Puls mniej, nigdy poniżej jednego (kopanie 1, trafienie 2, użycie 1), kopie **20%** szybciej i uderza mocniej.",
+        "- **Związany**: głodna czynność nie zużywa więcej niż u dowolnego narzędzia i kopie **45%** szybciej.",
+        "- **Manifestowany**: kopie **80%** szybciej, połowa głodnych czynności wcale się nie zużywa, a atuty głosu stają się silniejsze.",
+        "Ostrze i jego [rodzina broni](spiritgear_weapons) zyskują najwięcej: **+2**, **+5** i **+10** obrażeń ataku według rangi oraz trochę szybkości ataku. Ostrze Manifestowany trafia **bossów o 25% mocniej** i leczy cię o **10%** każdego ciosu, a tego chcesz w długiej walce.",
+        "Kilof powiązany z Krosno wydaje **0 Puls** na kopanie. Rozplot echa rozkłada uszkodzone narzędzie z powrotem w jedną Manifestowana sztabka, zapominając rangę i głos."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nożyce",
+      "text": [
+        "**Nożyce duchowego sprzętu** przycinają liście, wełnę, pnącza i pajęczynę, awansują w randze i biorą głos jak reszta zestawu.",
+        "- **Ziemia**: jedno machnięcie zabiera całą ścianę 3x3 listowia.",
+        "- **Powietrze**: przycinanie nie kosztuje Puls i wcale nie zużywa.",
+        "- **Woda**: ostrzyżona owca zachowuje runo w połowie przypadków, a przy Manifestowany zawsze.",
+        "- **Ogień**: użyte na ulu uspokaja pszczoły dymem, więc bez roju.",
+        "- **Duch**: to, co ostrzyże, jest potem naprawiane, a pobliskie bestie warte strzyżenia świecą.",
+        "- **Krosno**: ścinki idą prosto do ręki."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Motyka",
+      "text": [
+        "**Motyka duchowego sprzętu** zbiera i sieje jednym ruchem: użyj jej na dojrzałej uprawie, a plon spadnie, a jedno ziarno wraca prosto w ziemię. Uprawa bez własnego ziarna jest zebrana i zostaje goła.",
+        "- **Ziemia**: od razu przewraca 3x3 gleby.",
+        "- **Woda**: bruzdy wychodzą mokre, a pole uprawne wokół ciebie zostaje nawodnione, póki ją trzymasz.",
+        "- **Powietrze**: zbiera 3x3.",
+        "- **Krosno**: zbiera 5x5 i nie wydaje na to Puls.",
+        "- **Duch**: ćwierć zbiorów wypada podwójnie (ziarna osobno)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_pickaxe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_axe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_shovel"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_blade"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_shears"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_hoe"
+    },
+    {
+      "type": "text",
+      "title": "Własne ogniwo",
+      "text": [
+        "Każda część Duchowego sprzętu i Duchotkaniny, [Młot rezonansu](resonance_maul), [Sześciokrotny kostur](sixfold_staff), śpiewniki i łuki Pulsu mogą nieść własne **Ogniwo Pulsu**. Weź ogniwo w ekwipunku i **kliknij nim prawym na część**: wchodzi do środka, z całym ładunkiem.",
+        "Część zawsze wydaje najpierw z własnego ogniwa. Dopiero gdy to ogniwo jest puste, sięga po ogniwa, które nosisz, więc dobrze naładowany zestaw działa długo po tym, jak kieszenie wyschną."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zamiana ogniw",
+      "text": [
+        "Kliknij prawym większe ogniwo (jedno **{item:tribalpower:greater_pulse_cell}** albo jedno **{item:tribalpower:grand_pulse_cell}**) na część z mniejszym, by ją ulepszyć; stare ogniwo wraca na kursor. Ogniwo tej samej wielkości albo mniejsze tylko dopełnia siedzące.",
+        "Kliknij prawym część z **pustym kursorem**, by wyjąć jej ogniwo, z całym ładunkiem. Podpowiedź pokazuje, co trzyma każda część."
+      ]
+    }
+  ],
+  "next": "spiritgear_weapons"
+}

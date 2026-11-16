@@ -1,0 +1,194 @@
+{
+  "name": "Énergiseur harmonique",
+  "icon": "tribalpower:pulse_adapter",
+  "order": 70,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_adapter",
+      "text": [
+        "Tribal Power fait de la Pulsation ; beaucoup d'autres mods tournent sur Forge Energy (FE). L'Énergiseur harmonique est un pont à sens unique : il change la Pulsation de ton treillis en FE et la remet aux machines qui le touchent. Son vis-à-vis, le [Convertisseur de treillis](lattice_converter), ramène le FE dans l'autre sens."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le mettre en place",
+      "text": [
+        "Place l'Énergiseur harmonique à moins de **8 blocs** d'un [Conducteur de treillis](lattice_conductor) sur un réseau qui a de la Pulsation, et tout contre la machine FE qu'il doit nourrir. Il pousse l'énergie dans tout récepteur d'énergie, sur n'importe laquelle de ses faces.",
+        "Il convertit **1 Pulsation en 100 FE**, jusqu'à **60 Pulsation** par seconde (6,000 FE, soit 300 FE par tick). Les énergiseurs qui ont un rang convertissent plus de Pulsation, et font donc plus de FE, dans la même seconde.",
+        "Il met en tampon **48,000 FE** et les exporte vers des récepteurs d'énergie standard. Il ne peut pas recevoir de FE, donc rien ne peut lui renvoyer de l'énergie."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un pont vers le FE",
+      "steps": [
+        {
+          "caption": "Un générateur tient la Pulsation que tu veux dépenser.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Place l'Énergiseur à moins de 8 blocs de lui. Chaque seconde, il change jusqu'à 60 Pulsation en 6,000 FE.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_adapter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Pose ta machine à FE contre n'importe quelle autre face ; l'Énergiseur y pousse l'énergie tout seul.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Un levier à côté arrête la conversion et l'extraction.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quand rien ne circule",
+      "text": [
+        "La redstone arrête la conversion et l'extraction. Un comparateur lit à quel point le tampon de FE est plein.",
+        "Si la machine à FE reste inactive, ou bien il n'y a pas de Pulsation à portée, ou bien le récepteur est plein. Accroupis-toi et fais un clic droit sur l'Énergiseur avec ce livre pour voir son tampon et son débit."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_adapter",
+      "text": "Il faut un Noyau résonnant issu du Manifesteur d'écho."
+    }
+  ]
+}

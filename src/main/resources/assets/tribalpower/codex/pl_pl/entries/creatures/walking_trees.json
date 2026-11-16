@@ -1,0 +1,111 @@
+{
+  "name": "Chodzące drzewa",
+  "icon": "tribalpower:hearth_bark",
+  "order": 300,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hearth_warden_spawn_egg",
+    "tribalpower:grove_elder_spawn_egg",
+    "tribalpower:frostpine_sentinel_spawn_egg",
+    "tribalpower:snagwalker_spawn_egg",
+    "tribalpower:weeping_warden_spawn_egg",
+    "tribalpower:bellcap_elder_spawn_egg",
+    "tribalpower:stiltwood_spawn_egg",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root"
+  ],
+  "next": "fays",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Strażnicy gajów",
+      "text": [
+        "Nie każde drzewo Marszu stoi w miejscu. W każdej krainie, gdzie rośnie [drzewo Marszu](march_trees), kilka z jego rodzaju wstało i chodzi, w tym samym drewnie i tym samym liściu co drzewo, z którego wyszły.",
+        "Są łagodne. Raz na minutę oczyść jedno szczotką, by dostać odczynnik, i wab je oraz rozmnażaj **Mączka kostna**. Możesz je związać jak każde łagodne zwierzę (zobacz [chowańce](familiars)), a choć nie ma własnego daru, związane wciąż może przyjąć głos przy totemie i wzmocnić twoją magię (zobacz [dostrojenie przy totemie](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:hearth_warden",
+      "title": "Strażnik Paleniska",
+      "text": [
+        "Dąb paleniska Stepu, szeroki i ciężki na krótkich korzeniach. Upuszcza **Kora Paleniska**.",
+        "Upolowany upuszcza też od 1 do 3 Kłoda (dąb paleniska), do 1 Sadzonka (dąb paleniska) i od 1 do 3 patyków. Rozmnażaj go za pomocą **Mączka kostna**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:grove_elder",
+      "title": "Starszy gaju",
+      "text": [
+        "Drzewo Marszu z gajów wyżyn, wysokie i pochylone nad kosturem, z brodą z mchu. Upuszcza **Kora starszego**.",
+        "Upolowany upuszcza też od 1 do 3 Kłoda (Marsz), do 1 Sadzonka (Marsz) i od 1 do 3 patyków. Rozmnażaj go za pomocą **Mączka kostna**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:frostpine_sentinel",
+      "title": "Wartownik mroźnej sosny",
+      "text": [
+        "Mroźna sosna Śnieżnych pól, wysoki pień pod stożkiem ośnieżonych igieł; ramiona z gałęzi wychodzą spod najniższych konarów. Upuszcza **Kora mroźnej sosny**.",
+        "Upolowany upuszcza też od 1 do 3 Kłoda (mroźna sosna), do 1 Sadzonka (mroźna sosna) i od 1 do 3 patyków. Rozmnażaj go za pomocą **Mączka kostna**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:snagwalker",
+      "title": "Chodzący kikut",
+      "text": [
+        "Kikut z drzewa żaru na Żarowych pustkowiach, spalony pień martwego drewna, urwany u szczytu, wciąż się żarzy. Upuszcza **Kora żaru** (żółty barwnik).",
+        "Upolowany upuszcza też od 1 do 3 Kłoda (drzewo żaru), do 1 Sadzonka (drzewo żaru) i od 1 do 3 patyków. Rozmnażaj go za pomocą **Mączka kostna**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:weeping_warden",
+      "title": "Płaczący strażnik",
+      "text": [
+        "Wierzba Trzcinowego mokradła, zgarbiona pod kurtyną pasm. Upuszcza **Płaczący węzeł**.",
+        "Upolowany upuszcza też od 1 do 3 Kłoda (wierzba), do 1 Sadzonka (wierzba) i od 1 do 3 patyków. Rozmnażaj go za pomocą **Mączka kostna**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bellcap_elder",
+      "title": "Starszy dzwonkowego kapelusza",
+      "text": [
+        "Dzwonkowy kapelusz Kryształowych pól, krępa nóżka pod jednym ogromnym kapeluszem. Upuszcza **Zarodnik dzwonkowego kapelusza** (purpurowy barwnik).",
+        "Upolowane, daje też od 1 do 3 Kłoda (dzwonkowy kapelusz), do 1 Sadzonka (dzwonkowy kapelusz) i od 1 do 3 patyki. Rozmnażaj z **mączką kostną**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stiltwood",
+      "title": "Szczudłodrzewo",
+      "text": [
+        "Kroczydło Płycizn, niesione wysoko na łukowatych korzeniach podporowych. Daje **Szczudłowy korzeń**.",
+        "Upolowane, daje też od 1 do 3 Kłoda (kroczydło), do 1 Sadzonka (kroczydło) i od 1 do 3 patyki. Rozmnażaj z **mączką kostną**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jakie są",
+      "text": [
+        "Każde chodzące drzewo ma **48 zdrowia** i **8 pancerza**. Są powolne, trzymają się z dala od potworów i chodzą w grupach od dwóch do czterech. Każde daje **od 1 do 3** swojego odczynnika, więcej z Grabieżą.",
+        "Grań połysku nie rodzi żadnego drzewa, więc nie ma strażnika. Jedynym drzewem, które chodzi i nie jest łagodne, jest [Strażnik kolos](colossus_warden)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i pędzenie",
+      "text": [
+        "Oprócz odczynnika każde daje więcej, gdy jest upolowane, i jeszcze więcej z Grabieżą. Aby rozmnażać dzikie, **skradaj się**, gdy karmisz dwa dorosłe ich jedzeniem; karmione normalnie, dzikie zamiast tego się do ciebie przekonywa."
+      ]
+    }
+  ]
+}

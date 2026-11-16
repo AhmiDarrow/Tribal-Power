@@ -1,0 +1,36 @@
+{
+  "name": "Flaszka Ducha",
+  "icon": "tribalpower:spirit_flask",
+  "order": 35,
+  "items": [
+    "tribalpower:greater_spirit_flask"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_flask",
+      "text": [
+        "Zbiornik, który nosisz. Flaszka mieści jeden płyn, **4 000 mB** (4 wiadra) — **Większa flaszka Ducha** mieści **16 000 mB**, tyle co [Cysterna Ducha](spirit_cistern).",
+        "Nigdy nie dzieli się na stos wiader, a ilość w środku widać jako pasek pod ikoną, w kolorze płynu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Napełnianie i wylewanie",
+      "text": [
+        "- **Użyj jej na zbiorniku lub maszynie** (Cysterna Ducha, Bęben fal, zbiornik innego moda), a pobierze z niego; jeśli nie może pobrać, wlewa to, co niesie.",
+        "- **Użyj jej na źródle płynu w świecie**, a wypije jedno wiadro.",
+        "- **Użycie w skradaniu** i wylewa wiadro przed tobą.",
+        "Inne mody widzą ją jako zwykły pojemnik na płyn, więc rury i maszyny napełniające mogą ją napełniać i opróżniać, gdy leży w twoim plecaku."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_flask"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:greater_spirit_flask"
+    }
+  ]
+}

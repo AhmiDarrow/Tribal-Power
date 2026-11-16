@@ -1,0 +1,34 @@
+{
+  "name": "Schiera di frantumazione",
+  "icon": "tribalpower:echo_shatter",
+  "order": 60,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Un Frantumatore di eco rinforzato",
+      "text": [
+        "La Schiera di frantumazione è un rinforzo facoltativo per il tuo [Frantumatore di eco](echo_shatter). Centra la stazione in un cinque per cinque, alza un Totem di risonanza a ogni angolo e metti un Deposito ancestrale direttamente sotto.",
+        "In cambio la stazione spende **un quarto di Pulso in meno** e svuota l'uscita dritta nel deposito sotto.",
+        "È del tutto facoltativo: senza di esso la stazione funziona esattamente come prima."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "shatter_array",
+      "tier": 1,
+      "title": "La schiera",
+      "text": "Quattro totem sugli angoli, due blocchi in fuori sulle diagonali, e il deposito sotto la stazione."
+    },
+    {
+      "type": "text",
+      "title": "Farlo giusto",
+      "text": [
+        "Tutti e quattro i totem degli angoli devono essere la voce della ricetta che la stazione sta eseguendo. Per schegge dalla pietra, quella è **Terra**. Una voce sbagliata a qualsiasi angolo significa semplicemente niente sconto.",
+        "La schiera si traccia solo intorno al Frantumatore di eco; le altre stazioni di eco non la accettano.",
+        "Un segnale di redstone sul deposito ferma lo svuotamento. Accovacciati e fai clic destro sulla stazione con questo libro mentre lavora, per vedere se risulta schierata."
+      ]
+    }
+  ]
+}

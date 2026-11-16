@@ -1,0 +1,58 @@
+{
+  "name": "Festins",
+  "icon": "tribalpower:fire_feast",
+  "order": 30,
+  "items": [
+    "tribalpower:earth_feast",
+    "tribalpower:fire_feast",
+    "tribalpower:water_feast",
+    "tribalpower:air_feast",
+    "tribalpower:spirit_feast",
+    "tribalpower:loom_feast"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:earth_feast",
+      "title": "Une table pour le camp",
+      "text": [
+        "Un festin est un grand plat cuisiné pour tous. Pose-le sur un bloc solide et il tient **six portions** ; chacune que tu manges te remplit et accorde la [bénédiction](voice_blessings) de cette voix pendant **8 minutes**.",
+        "Cuis-en un au Pot de l'Âtre avec les plats et les cultures de sa voix : un Festin de Terre à partir de la purée des Gardiens des litières et du Pain de gravier, un Festin de Feu à partir de viande séchée et de chili, et ainsi de suite. Chaque recette est dans JEI, sous le pot.",
+        "Un camp qui partage un festin avant une nuit dans la Marche en repart béni ensemble. Un comparateur lit combien de portions restent."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "À table",
+      "text": [
+        "Tu ne peux prendre une portion que si tu as faim. Chacune remplit **6** de faim et donne la bénédiction au niveau I.",
+        "Un festin entier se ramasse quand on le casse. Dès qu'une portion manque, il se casse en rien, alors déplace-le avant de commencer.",
+        "Manges-en un à **24 blocs** de l'Âtre d'une tribu pendant sa [fête](living_march) et la tribu te compte à sa table : **20 d'estime**, une fois par fête."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:earth_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fire_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:water_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:air_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_feast"
+    }
+  ]
+}

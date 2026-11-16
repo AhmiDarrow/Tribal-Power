@@ -1,0 +1,43 @@
+{
+  "name": "Caldeirão do Espírito",
+  "icon": "tribalpower:spirit_kettle",
+  "order": 10,
+  "items": [
+    "tribalpower:spirit_kettle"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_kettle",
+      "title": "Um caldeirão sobre o fogo",
+      "text": [
+        "O Caldeirão do Espírito é uma panela de ferro pendurada numa armação de osso. Ele tem que ficar **sobre o calor**: uma fogueira acesa, fogo, fogo das almas, um bloco de magma, lava ou uma [Tigela de brasa](pulse_lights) logo embaixo.",
+        "Não precisa de um totem para funcionar, mas escuta um: a voz do **Totem de ressonância mais próximo**, num raio de 8 blocos, é cantada em cada preparo e o molda."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Preparo",
+      "text": [
+        "Abra-o e preencha os três assentos à esquerda:",
+        "- **Reagente**: um [reagente](reagents) cru, como item (tire-o da sua bolsa na Bancada do canto). A família dele decide o remédio.",
+        "- **Erva**: Cana de Espírito, Cardo de ley, Flor de eco, Folha da Marcha, Lírio-da-lua, Chapéu-lanterna, Líquen do véu, Baga de geada ou Feijão de fulgor.",
+        "- **Base**: um **frasco de vidro** faz **2 tinturas**, um **favo de mel** faz **2 pomadas**, o **carvão vegetal** faz **4 incensos**.",
+        "Uma fornada demora **10 segundos** e **24 Pulso**, tirados de geradores e depósitos num raio de 8 blocos ao terminar, e usa um de cada entrada. A tela avisa se está esperando calor, Pulso ou espaço na saída."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Automação",
+      "text": [
+        "Funis e tubos podem alimentá-lo por cima e pelos lados, e tirar o preparo por baixo, então um caldeirão pode manter um acampamento abastecido sozinho.",
+        "Cada número daqui está na seção **cura** da configuração comum."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_kettle"
+    }
+  ],
+  "next": "remedies"
+}

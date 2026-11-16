@@ -1,0 +1,360 @@
+{
+  "name": "波太鼓",
+  "icon": "tribalpower:wave_drum",
+  "order": 40,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wave_drum",
+      "text": [
+        "根結びの技。波太鼓は水からパルスを作る。そばの池からは少し、中へ注いだ水からは多く。発電機であり、予備のタンクではない。",
+        "**1,000パルス**を蓄える。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "二つの供給の仕方",
+      "text": [
+        "**水のそば。** 太鼓のどの面に水が触れても**毎秒3パルス**を出す。**8ブロック**以内のどの向きでも、端を含み、管の有無にかかわらず分け、切り捨てる。二つならそれぞれ**毎秒1**、四つでは何も出ない。",
+        "**自らの水。** 内部のタンクをバケツ、霊の貯槽、または液体リレーで満たすと、**毎秒10**を作り、**毎秒100 mB**を飲む。この段は奪い合わない。水がすでに代価だ。実際にパルスを渡すときだけ飲む。",
+        "太鼓に降る雨はどちらの段も倍にする。屋根のある太鼓に雨の加算はない。ランクごとに**毎秒 15% パルス**が加わる。加算は整数のパルスに丸められる。毎秒2か3しか出さない発電機は、最初のランクでは何も増えない。タンクは**4,000 mB**で、水だけ。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "池のそば",
+      "steps": [
+        {
+          "caption": "波太鼓を水際に置く。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wave_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "太鼓のどの面に水が触れても、毎秒3パルスを得る。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:water"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "8ブロック以内の二つ目の太鼓はそれを分ける。今はそれぞれ毎秒1パルス。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:wave_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "自分を養う太鼓",
+      "steps": [
+        {
+          "caption": "乾いた太鼓は、それだけでは何も出さない。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wave_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "霊の貯槽に寄せて置く。貯槽がひとりで水を太鼓へ注ぐ。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "自分の水があれば、太鼓は毎秒10パルスを作り、毎秒100 mBを飲む。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "貯槽の春の呼びがそれを満たし直すので、全体がひとりで回る。",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "移動",
+      "text": [
+        "太鼓を壊すと、落ちたアイテムはタンクの水を保つ。着いたあと水を先へ動かすなら、潮のポンプを添える。リレーと潮のポンプは流体を動かすもので、貯蔵ではない。",
+        "近くの霊の貯槽に置いた[春の呼び](spring_calling)で、水はひとりで満ちる。",
+        "レッドストーン信号で止まり、止まった太鼓は水を取らない。乾いた太鼓が得るのは水のそばの段だけだ。この本でしゃがみ右クリックすると、どの段かとタンクの中身が見える。",
+        "太鼓は[根結び](tribe_sprout)の技。レシピには結ばれた根と水の印章が要る。根結びは友に、霊の葦と引き換えに太鼓を渡す。",
+        "空き手で面をしゃがみ右クリックすると、両方、入力、出力、閉鎖と切り替わる。[トーテムレンチ](camp_kit)と同じだ。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wave_drum"
+    }
+  ]
+}

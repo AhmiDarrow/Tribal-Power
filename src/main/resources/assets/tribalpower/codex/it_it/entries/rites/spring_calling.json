@@ -1,0 +1,391 @@
+{
+  "name": "Chiamata di primavera",
+  "icon": "tribalpower:rite_spring_calling",
+  "order": 90,
+  "spoiler": false,
+  "items": [],
+  "next": "world_rites",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_spring_calling",
+      "text": [
+        "Il rito di tavoletta più piccolo, e da dove arriva l'acqua di un accampamento. Chiamata di primavera trasforma una Cisterna di Spirito accanto al braciere in una sorgente: **100 mB al secondo per dieci minuti**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chiamare una sorgente",
+      "text": [
+        "Traccia il [Cerchio del rito](rite_circle). Posa il **Sigillo d'Acqua** nel braciere e piazza una **Cisterna di Spirito** a contatto con esso.",
+        "Accovacciati e usa la tavoletta sul braciere. Essa attinge **300 Pulso** dal reticolo entro 8 blocchi, e la cisterna inizia a riempirsi. Non devi restare accanto.",
+        "Niente cerchio, niente cisterna, o troppo poco Pulso: il rito nomina il problema e non si spende nulla."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Una sorgente presso il braciere",
+      "steps": [
+        {
+          "caption": "Traccia il cerchio: braciere, quattro piedistalli sulle diagonali, gesso in mezzo.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ritual_brazier"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Posa il Sigillo d'Acqua nel braciere.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:water_seal"
+          }
+        },
+        {
+          "caption": "Metti una Cisterna di Spirito proprio contro il braciere.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Accovacciati e usa la tavoletta sul braciere. La cisterna si riempie da sola per dieci minuti.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:rite_spring_calling"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tenerlo in flusso",
+      "text": [
+        "Intaglia un'altra tavoletta quando la sorgente si esaurisce. Con quattro totem d'Acqua sui punti cardinali del cerchio, costa un quarto in meno e dura il doppio.",
+        "Spostare la cisterna chiude la sorgente; l'acqua già dentro resta sull'oggetto.",
+        "La lava dal lato della Marcia resta un trasporto a mano."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_spring_calling",
+      "text": "Due ciottoli (o pietranera o ardesia profonda ciottolosa), una Canna di Spirito e il Sigillo d'Acqua. Il sigillo torna."
+    }
+  ]
+}

@@ -1,0 +1,265 @@
+{
+  "name": "Gezeitenpumpe",
+  "icon": "tribalpower:tide_pump",
+  "order": 50,
+  "next": "ward_drum",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tide_pump",
+      "text": [
+        "Bewegt Flüssigkeit von einem Tank zum Tank auf der anderen Seite, **250 mB** pro Sekunde, und zieht Wasser aus dem Block **direkt darunter**. Wasser aus einer Geistzisterne in eine Wellentrommel, Lava von einem Speicher zum nächsten: jeder Flüssigkeitstank geht, von diesem Mod oder einem anderen.",
+        "Die Pumpe hält einen kleinen eigenen Brunnen, **4000 mB**, für das, was sie von unten zieht, und für das, was Flüssigkeits-Relaisplatten bringen. Baust du sie ab, behält sie ihre Einstellungen, wohin sie pumpt, wie jede Seite steht und ihren Rang, samt Brunnen und jeder Flüssigkeit, die sie gerade bewegte.",
+        "Die Pumpe antwortet auf **Wasser**: halte ein Totem von Wasser innerhalb von 8 Blöcken (siehe [Lagerhände](camp_hands)), sonst steht sie still."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wohin sie pumpt",
+      "text": [
+        "Die Pumpe hat eine Vorderseite, die Fläche mit dem Pfeil. Wie ein Ofen wird sie mit dieser Fläche zu dir gesetzt, und du kannst sie nach oben, nach unten oder zur Seite richten.",
+        "Standardmäßig **zieht sie aus dem Tank an ihrer Vorderseite** und **schiebt in den Tank an ihrer Rückseite**. Schleiche und rechtsklicke sie mit leerer Hand, um das umzukehren; ein normaler Rechtsklick zeigt, was sie zuletzt tat, etwa das Ziehen oder Schieben von **250 mB**.",
+        "Ein Komparator zeigt **15**, während die Pumpe von vorn zieht, und **1**, während sie nach vorn schiebt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wasser von unten",
+      "text": [
+        "Setze die Pumpe über stilles Wasser, und bei jedem Schlag zieht sie einen Eimer, **1000 mB**, in ihren Brunnen. Über unendlichem Wasser, einer Quelle mit zwei Quellnachbarn und festem Boden darunter, bleibt die Quelle; eine einzelne Quelle wird aufgenommen, so wie ein Eimer sie aufnimmt.",
+        "Über einem Tank dagegen zieht sie **250 mB** je Schlag aus diesem Tank, außer wenn dieser Tank bereits ihre Vorderseite oder ihre Rückseite ist.",
+        "Was der Brunnen hält, geht zuerst in den Tank, in den sie schiebt, standardmäßig den hinteren, **250 mB** je Schlag; ohne Tank dort wartet es im Brunnen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Flüssigkeitsrelaisplatten",
+      "text": [
+        "Eine Flüssigkeitsrelaisplatte, oder eine Gegenstandsplatte, der ein Wassersiegel gegeben wurde, kommt mit einem normalen Rechtsklick auf jede Seite der Pumpe. Stimm sie mit dem Gitterstimmer, und sie trägt Wasser aus dem Brunnen zu einem Tank irgendwo in Reichweite (siehe [Drahtlose Fracht](wireless_cargo)).",
+        "Eine Platte anderswo, auf eine der Seiten der Pumpe gestimmt, füllt stattdessen den Brunnen, und die Pumpe gibt das weiter wie alles, was sie zieht.",
+        "Jede Seite ist in beide Richtungen offen. Benutze schleichend einen **Totemschlüssel** auf einer Seite, um sie durch Beide, Eingang, Ausgang und Geschlossen zu schalten."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Von Tank zu Tank",
+      "steps": [
+        {
+          "caption": "Zwei Tanks mit einer Lücke dazwischen. Der rechte ist voll.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Stelle die Gezeitenpumpe dazwischen, die Pfeilseite zum vollen Tank.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:tide_pump[facing=east]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Stelle einen Generator und einen Gitterkonduktor innerhalb von 8 Blöcken auf: jede Sekunde bewegt sie 250 mB für 4 Puls.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Flüssigkeit fließt aus dem vorderen Tank und in den hinteren.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ducke dich und rechtsklicke die Pumpe, um sie umzukehren; jetzt leert sich der linke Tank in den rechten.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tipps",
+      "text": [
+        "Die zwei Tanks müssen dieselbe Flüssigkeit annehmen, und der empfangende Tank braucht Platz.",
+        "Ein höherer Rang verkürzt den Schlag; Puls je 250 mB bleibt **4**. Ein Hebel hält sie an.",
+        "Der Brunnen ist klein: kopple die Pumpe mit einer Geistzisterne oder einer Wellentrommel, wo die Flüssigkeit bleiben soll."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tide_pump"
+    }
+  ]
+}

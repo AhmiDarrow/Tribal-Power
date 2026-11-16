@@ -1,0 +1,42 @@
+{
+  "name": "Tambour du Gardien du chant",
+  "icon": "tribalpower:songkeeper_drum",
+  "order": 190,
+  "items": [
+    "tribalpower:songkeeper_drum"
+  ],
+  "next": "shared_camps",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:songkeeper_drum",
+      "title": "Tambourine pour le plaisir",
+      "text": [
+        "Le Tambour du Gardien du chant est un jeu de rythme sur **26 chansons** à lui : les Rites de la Porte et le Cercle de tambours, la musique de chaque terre de la Marche et les thèmes de ses gardiens. Avec **Ninjacat Skies Core** 0.5.16 ou plus récent installé, les douze thèmes des gardiens Ninjacat s'y ajoutent, et avec **Chocobos Reborn** ses huit courses aussi. Chaque chanson se joue en entier, et chaque note est relevée d'un temps réel de l'enregistrement.",
+        "Choisis un chant et une difficulté (**Facile**, **Normal**, **Difficile** ou **Expert** ; Facile n'utilise que trois tambours), puis frappe **A**, **S**, **D** et **F** (ou les touches fléchées) quand chaque peau atteint la ligne. Tu peux réassigner les quatre tambours dans les Contrôles (les touches de tambour du **rite de la Porte**) ; A, S, D, F et les flèches marchent toujours aussi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jouer",
+      "text": [
+        "Une frappe est **Parfait**, **Super** ou **Bien** selon la précision. Une série monte ton multiplicateur : **x2** à 10 d'affilée, **x3** à 20, **x4** à 30. Un raté casse la série et le chant faiblit.",
+        "Les notes lumineuses sont une phrase de **Poussée d'Esprit**. Chaque phrase nette remplit un **quart** du compteur de Poussée ; à moitié plein, appuie sur **Espace** pour doubler chaque point tant que ça dure : jusqu'à **16 secondes** compteur plein, **8** à moitié.",
+        "Surveille le compteur de **Résonance**. Les ratés le vident, les frappes le remplissent ; s'il se vide, le chant casse et aucun score n'est gardé. Facile ne casse jamais.",
+        "Si les notes et la musique se décalent sur ta machine, règle le **décalage audio** dans la liste des chants. La **Vitesse** change la course des notes, et les **sons de frappe** ajoutent un coup à chaque frappe."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Scores et duels",
+      "text": [
+        "Le tambour garde ton **meilleur score et étoiles** pour chaque chant à chaque difficulté, et un tableau des **cinq meilleurs** du serveur. Un combo complet donne des étoiles d'or.",
+        "Place **deux Tambour du Gardien du chant côte à côte** et ils deviennent une paire de duel. Depuis un tambour, défie le joueur à l'autre : vous jouez le même chant en même temps, chacun voit le score de l'autre sur une barre de tir à la corde, et le plus haut gagne. Ton bilan de duels s'affiche en haut de la liste des chants."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:songkeeper_drum"
+    }
+  ]
+}

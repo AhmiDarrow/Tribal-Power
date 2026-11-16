@@ -1,0 +1,235 @@
+{
+  "name": "Co robią chowańce",
+  "icon": "tribalpower:lantern_down",
+  "order": 30,
+  "items": [],
+  "next": "familiar_attuning",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:lantern_fox",
+      "title": "Lis-latarnia",
+      "text": [
+        "Związany Lis-latarnia oświetla drogę."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Niewidzialne **Światło Ducha** idzie z nim przy świetle **10**; znamię Żyła blasku podnosi to do **12**.",
+        "Masz widzenie w ciemności, póki zostajesz w zasięgu **8 bloków** od niego.",
+        "Co **4 sekundy** znaczy rudy w zasięgu **6 bloków** od siebie błyskami, które widzisz tylko ty. Bystrość skraca to czekanie, silny Brzęk to przyspiesza, a Nocny brzęk przyspiesza to znów po zmroku."
+      ],
+      "title": "Latarnia lisa"
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:mossback",
+      "title": "Mchogrzbiet",
+      "text": [
+        "Związany Mchogrzbiet nosi twoje rzeczy."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Użyj go skradając się **pustą ręką**, by otworzyć sakwę na **9 slotów**, albo na **12** z Głęboką kieszenią.",
+        "Jeśli zginie, sakwa wysypuje się na ziemię."
+      ],
+      "title": "Sakwa Mchogrzbietu"
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:dawn_stag",
+      "title": "Jeleń świtu",
+      "text": [
+        "Związanego Jeleń świtu można dosiadać bez siodła."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Użyj go, aby wsiąść. Steruj spojrzeniem, przytrzymaj skok dla krótkiego susa i skradaj się, aby zsiąść. Niesie tylko tego, z kim jest związany.",
+        "Krok czyni go szybszym; znamię Skok skacze wyżej."
+      ],
+      "title": "Jazda na jeleniu"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Uderzają tego, kto uderzył ciebie, i tego, kogo ty uderzasz, ale nigdy gracza ani towarzysza innego strażnika. Dzika pozostałość, którą uderzą, odpowiada walką. Są odważne, nie niezwyciężone: i tak przegrywają ze strażnikami.",
+        "**Miękka paszcza** nie pozwala im gryźć osadników ani golemów. **Trop** (dwie kopie, tylko ogary) podświetla ostatniego wroga, który cię zranił, wszędzie w zasięgu 48 bloków."
+      ],
+      "title": "Wojownicy: Odłamkogrzbiet i Ogar szczeliny"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Siedząca** Ćma burzy zostawia niewidzialny **Klik Ducha** redstone **15** raz na sekundę, na 2 ticki. Klik prawdziwy trzyma go o 2 ticki dłużej. To nie bęben: Bęben-serce, koksowniki i zworniki go ignorują, ale płyty pieśni i redstone go słyszą.",
+        "**Podążający** Chochlik żagwi zwraca **4 Puls** za każdym razem, gdy grasz na Bęben-serce ręką w zasięgu **8 bloków**. Uderzenia redstone nic nie dostają i tylko jeden chochlik płaci za uderzenie. Tempo (dwie kopie) zwraca 2 więcej, **6** w sumie."
+      ],
+      "title": "Ćma burzy i Chochlik żagwi"
+    },
+    {
+      "type": "scene",
+      "title": "Ćma jako zegar",
+      "steps": [
+        {
+          "caption": "Postaw lampę redstone tam, gdzie usiądzie twoja ćma, i użyj ćmy skradając się, by czekała obok.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Raz na sekundę niewidzialny Klik Ducha pojawia się tam, gdzie unosi się ćma.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Lampa obok zapala się przy każdym kliknięciu: darmowy zegar co sekundę.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Bęben-serce po drugiej stronie nic nie słyszy, bo bębny ignorują klik.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Podążający Dzwon żałobny w zasięgu **8 bloków** zdejmuje z ciebie zatrucie, słabość, głód, zmęczenie, ślepotę i mdłości. Bezruch (dwie kopie) zdejmuje też spowolnienie. Nigdy nie zdejmuje Uwiądu.",
+        "Podążający Tkacz echa podnosi łupy w zasięgu **4 bloków** do sakiewki na **pięć slotów** i rzuca je tobie. Zbiór (dwie kopie) sięga **8**. Użyj go skradając się z pustymi rękami, by samemu opróżnić sakiewkę."
+      ],
+      "title": "Dzwon żałobny i Tkacz echa"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Latarnia Ducha",
+  "icon": "tribalpower:spirit_lantern",
+  "order": 100,
+  "next": "pulse_lights",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_lantern",
+      "text": [
+        "Rzeźbiona latarnia z miedzi i drewna, która oświetla obóz na poziomie **15** i nigdy nie potrzebuje paliwa ani Pulsu. Jej kryształ żarzy się tymi samymi barwami co żywa krata."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Użycie",
+      "text": [
+        "Ustaw je wzdłuż ścieżek między warsztatami. Dźwignia albo dowolny sygnał redstone przyciemnia jedną, a komparator czyta 15, dopóki się świeci.",
+        "To światło, nie osłona: wrogo nastawieni wciąż potrzebują ciemności, by się pojawić, więc światło plus Totem ciszy daje cichy obóz.",
+        "Jeśli wolisz, by twoje światła działały na kracie, Świecąca trzcina, Lampa odłamka, Kinkiet echa i Misa żaru ciągną tylko strużkę Pulsu. Zobacz [Światła Pulsu](pulse_lights)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_lantern"
+    }
+  ]
+}

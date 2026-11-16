@@ -1,0 +1,38 @@
+{
+  "name": "医者沙锤",
+  "icon": "tribalpower:spiritgear_rattle",
+  "order": 30,
+  "items": [
+    "tribalpower:spiritgear_rattle"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_rattle",
+      "title": "摇一摇",
+      "text": [
+        "骨柄上的一只干葫芦，也是一件[灵械](spiritgear)。**按住使用**并摇动：每半秒治疗你所看着的、6个方块以内的对象；若谁也没看，就治疗你自己。",
+        "每摇一次治疗**3/4颗心**，消耗**2点脉动**。先用沙锤自己的电池，再用你携带的电池。对任何友好对象都有效：玩家、村民、动物和使魔，但对敌对生物无效。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "等级与声音",
+      "text": [
+        "它与其他灵械一样，在回响台提升等级，每级多治疗**50%**。从**束缚**起，每次摇动还会将[灵病](spirit_sickness)减轻一级。",
+        "把它连到一个图腾上，每次摇动都有一份赠礼：",
+        "- **水**：治疗量再增加一半。",
+        "- **灵**：解除一切有害效果。",
+        "- **土**：短暂的抗性。",
+        "- **火**：短暂的抗火。",
+        "- **风**：短暂的速度。",
+        "- **织机**：短暂的生命恢复。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_rattle"
+    }
+  ],
+  "next": "spirit_sickness"
+}

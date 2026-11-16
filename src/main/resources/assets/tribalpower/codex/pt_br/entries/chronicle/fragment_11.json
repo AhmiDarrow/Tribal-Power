@@ -1,0 +1,17 @@
+{
+  "name": "12. Cristal",
+  "icon": "tribalpower:mural",
+  "order": 21,
+  "spoiler": true,
+  "unlock": "fragment:11",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Cristal",
+      "text": [
+        "“Os Campos de Cristal cresceram onde as malhas dos Cantores de cascalho caíram cantando. A pedra lembrou o tom e cresceu na direção dele. Quase todo o campo está afinado. A parte que não está tem um corpo longo e uma memória mais longa.”",
+        "Encontrado num mural, no terreno de um guardião."
+      ]
+    }
+  ]
+}

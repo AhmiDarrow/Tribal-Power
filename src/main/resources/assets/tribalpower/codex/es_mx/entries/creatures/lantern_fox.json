@@ -1,0 +1,52 @@
+{
+  "name": "Zorro farol",
+  "icon": "tribalpower:lantern_down",
+  "order": 30,
+  "spoiler": true,
+  "items": [
+    "tribalpower:lantern_fox_spawn_egg",
+    "tribalpower:lantern_down"
+  ],
+  "next": "mossback",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:lantern_fox",
+      "text": [
+        "Un zorro tímido del crepúsculo, con un farol encendido en la punta de la cola que marca los caminos seguros. Cepilla a los adultos para obtener Plumón de farol.",
+        "Si lo cazas, también suelta Caza cruda, de 1 a 2, y Cuero de la Marcha, hasta 1. Críalo con **bayas dulces**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Los zorros farol viven en los bosques de la Superficie y en casi toda la Marcha: sobre todo en los Campos de nieve, pero también en la estepa, en las alturas, los Campos de cristal, el Tremedal de juncos, la Cresta del destello y hasta en los Yermos de brasa.",
+        "Un zorro tiene **14 puntos de salud** y ninguna armadura. Huye si lo hieren y evita a los monstruos. Cría dos con **bayas dulces**."
+      ],
+      "title": "Dónde lo encuentras"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Cepilla un adulto para obtener **Plumón de farol**, una vez por minuto. Ese plumón se vincula en 2 Tejido espiritual bajo el Agua, y los Guardianes de la colonia lo prefieren como ofrenda.",
+        "Un zorro cazado suelta Caza cruda y a veces Cuero de la Marcha, pero nunca su plumón, así que cepillarlo es la única forma de conseguirlo."
+      ],
+      "title": "Qué da"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Un zorro vinculado es un farol que te sigue. Lleva una luz invisible por donde camina, te da Visión nocturna mientras te quedas cerca y marca las menas cercanas con destellos que solo tú ves.",
+        "Los detalles están en la página de [regalos del familiar](familiar_gifts)."
+      ],
+      "title": "Como familiar"
+    },
+    {
+      "type": "text",
+      "title": "Caza y cría",
+      "text": [
+        "Al cazarlo suelta esto, y más con Saqueo. La carne sale asada si el animal murió ardiendo. Para criar salvajes, **agáchate** mientras alimentas a dos adultos con su comida; si los alimentas normal, el salvaje te toma cariño en vez de criar."
+      ]
+    }
+  ]
+}

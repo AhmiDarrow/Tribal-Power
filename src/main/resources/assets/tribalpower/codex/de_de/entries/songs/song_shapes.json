@@ -1,0 +1,53 @@
+{
+  "name": "Liedformen",
+  "icon": "tribalpower:song_sheet",
+  "order": 30,
+  "next": "pulse_crossbow",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Das erste Reagenz entscheidet",
+      "text": [
+        "Jedes Lied nimmt eine von fünf **Formen** an, und das **erste** Reagenz auf dem Blatt wählt sie nach seiner Familie ([Reagenzien](reagents)):",
+        "- **Bolzen**: zuerst ein Glut-, Bolzen- oder Hund-Reagenz.",
+        "- **Bindung**: zuerst ein Gift-, Schwächungs-, Kälte- oder Gewebe-Reagenz.",
+        "- **Schritt**: zuerst ein Bö-Reagenz.",
+        "- **Ruf**: zuerst ein Wurzel- oder Stoß-Reagenz.",
+        "- **Schutz**: zuerst ein Stille-Reagenz, die Familie jeder sanften Bestie.",
+        "Die Stimme, die du an der Werkbank gewählt hast, färbt die Form, welche es auch ist."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die fünf Formen",
+      "text": [
+        "- **Bolzen** trifft den Feindseligen, den du ansiehst, bis zu **10 Blöcke** weit, für **3** Schaden plus **1** je Kopie des ersten Reagenzes. Feuer setzt ihn in Brand, und Luft stößt ihn zurück.",
+        "- **Bindung** verlangsamt diesen Feindseligen: Langsamkeit I für eine Kopie des ersten Reagenzes, bis zu IV bei mehr, und eine Stufe mehr in der Wasser-Stimme.",
+        "- **Schritt** wirft dich nach vorn, wohin du schaust, weiter je Kopie. Luft hebt dich höher, und Luft und Geist lassen dich hinabschweben. Der Webstuhl näht dich außerdem **2 bis 4 Blöcke** voraus, wenn freier Raum zum Landen da ist.",
+        "- **Ruf** trifft jeden Feindseligen um dich, etwa **3 Blöcke** weit, für **2** Schaden plus einen halben Punkt je Kopie, mit dem Hauch der Stimme wie bei einem Bolzen.",
+        "- **Schutz** gilt nur dir: den [Segen](voice_blessings) seiner Stimme für **45 Sekunden** je Kopie, und einen eigenen Schutz. Erde gibt Resistenz, Feuer Feuerresistenz, Wasser Regeneration und Unterwasseratmung, Luft Sanfter Fall und Geschwindigkeit, Geist Nachtsicht und der Webstuhl Absorption.",
+        "Ein Bolzen oder eine Bindung braucht einen Feindseligen in Sicht. Ist keiner in Reichweite, wird das Lied nicht gesungen und kostet nichts."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was der Rest des Blatts hinzufügt",
+      "text": [
+        "Die Reagenzien nach dem ersten kleiden die Form nur. Sie fügen nie einen zweiten Zauber hinzu.",
+        "- **Eine weitere Kopie des ersten Reagenzes** macht das Lied stärker: es trifft härter, verlangsamt stärker, wirft weiter oder segnet länger.",
+        "- **Ein Reagenz einer anderen Familie** fügt den Hauch dieser Familie hinzu: Feuer, Langsamkeit, Gift, Schwäche, einen Stoß, ein Leuchten oder einen Moment Regeneration für dich. Nur die **ersten zwei** anderen Familien zählen. Eine dritte fügt nichts hinzu, und ein anderes Reagenz einer Familie, die schon auf dem Blatt ist, auch nicht.",
+        "- **Jedes Reagenz nach dem dritten** lässt das Lied länger wirken: seine Verlangsamung, sein Gift und andere nachklingende Hauche laufen **4 Sekunden** auf einem Blatt mit drei Reagenzien und eine Sekunde mehr für jedes Reagenz danach. Ein Bolzen oder eine Bindung reicht einen Block weiter. Ein Ruf greift etwas weiter.",
+        "Die Hauche treffen das Ziel eines Bolzens oder einer Bindung und alles, was ein Ruf trifft. Ein Schritt oder ein Schutz hat kein Ziel, also wirkt dort nur der Hauch der Stille, deine eigene Regeneration."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was ein Lied kostet",
+      "text": [
+        "Singen kostet **8 Puls, plus 4 je Reagenz** auf dem Blatt: **20** für drei Reagenzien, **36** für sieben. Die Gabe der Webstuhl-Näher nimmt ein Viertel ab ([Stammesgaben](tribe_boons)).",
+        "Ein Liedblatt ist verbraucht, wenn du es singst. Ein Liederbuch behält seine Lieder und ruht **1,5 Sekunden** nach jedem, bevor es wieder singt.",
+        "Ein Vertrauter der Stimme des Liedes in der Nähe lässt es härter treffen und einen Ruf weiter reichen ([was eine Stimme gibt](familiar_boons))."
+      ]
+    }
+  ]
+}

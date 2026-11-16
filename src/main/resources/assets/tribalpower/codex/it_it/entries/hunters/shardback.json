@@ -1,0 +1,52 @@
+{
+  "name": "Dorsoscheggia",
+  "icon": "tribalpower:prism_carapace",
+  "order": 100,
+  "spoiler": true,
+  "items": [
+    "tribalpower:shardback_spawn_egg",
+    "tribalpower:prism_carapace"
+  ],
+  "next": "hollow_sentinel",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:shardback",
+      "text": [
+        "Un paguro in una conchiglia di geode, corazzato di pietra canora. Tieni le distanze dalla sua spinta pesante.",
+        "Cacciato, lascia anche fino a 2 schegge di ametista."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "I Dorsoscheggia vagano per i Campi di cristallo della Marcia e, meno, per la Cresta del barlume e gli Altipiani.",
+        "Ha **36 di salute** e **8 di armatura** e colpisce per **5**. Ogni colpo ti spinge forte indietro, il che è pericoloso sulle terrazze. Combattilo lontano dai cigli."
+      ],
+      "title": "Dove e come"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Lascia **da 1 a 2 Carapace prismatico**.",
+        "Un Carapace prismatico si sintonizza in 2 Eco sintonizzato sotto Spirito."
+      ],
+      "title": "Cosa dà"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Raggiungi il prestigio **Voce** con i **Cantori di ghiaia**, poi usa un Amuleto di legame su un adulto. Due tentativi su cinque riescono; un amuleto fallito si consuma. Oppure nutrilo con il suo reagente: un tentativo su cinque, e il reagente si consuma in ogni caso.",
+        "Un Dorsoscheggia legato è un combattente: colpisce chi ti ferisce e chi tu colpisci. Il marchio raro **Puntello** lo rende difficile da respingere. Vedi [doni del famiglio](familiar_gifts)."
+      ],
+      "title": "Come familiare"
+    },
+    {
+      "type": "text",
+      "title": "Caccia e allevamento",
+      "text": [
+        "Oltre al suo reagente, lascia questo quando viene cacciato, e di più con Saccheggio."
+      ]
+    }
+  ]
+}

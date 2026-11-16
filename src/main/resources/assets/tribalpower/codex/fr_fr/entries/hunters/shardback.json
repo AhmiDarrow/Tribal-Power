@@ -1,0 +1,52 @@
+{
+  "name": "Dos-éclat",
+  "icon": "tribalpower:prism_carapace",
+  "order": 100,
+  "spoiler": true,
+  "items": [
+    "tribalpower:shardback_spawn_egg",
+    "tribalpower:prism_carapace"
+  ],
+  "next": "hollow_sentinel",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:shardback",
+      "text": [
+        "Un bernard-l'ermite dans une coquille de géode, blindé de pierre chantante. Garde tes distances face à sa lourde poussée.",
+        "Chassé, il lâche aussi jusqu'à 2 éclats d'améthyste."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Les Dos-éclat parcourent les Champs de cristal de la Marche, et moins la Crête de lueur et les Hautes Terres.",
+        "Il a **36 de santé** et **8 d'armure** et frappe pour **5**. Chaque coup te repousse fort, ce qui est dangereux sur les terrasses. Combats-le loin des rebords."
+      ],
+      "title": "Où et comment"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Il lâche **1 à 2 Carapace prismatique**.",
+        "Une Carapace prismatique s'accorde en 2 Écho accordé sous Esprit."
+      ],
+      "title": "Ce qu'il donne"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Atteins l'estime **Voix** auprès des **Chanteurs de gravier**, puis utilise un Charme de lien sur un adulte. Deux essais sur cinq réussissent ; un charme raté est dépensé. Ou nourris-le de son propre réactif : un essai sur cinq, et le réactif est dépensé dans tous les cas.",
+        "Un Dos-éclat lié est un combattant : il frappe qui te blesse et qui tu frappes. La marque rare **Étai** le rend difficile à repousser. Voir [dons du familier](familiar_gifts)."
+      ],
+      "title": "Comme familier"
+    },
+    {
+      "type": "text",
+      "title": "Chasse et élevage",
+      "text": [
+        "Outre son réactif, il lâche ceci quand on le chasse, davantage avec Butin."
+      ]
+    }
+  ]
+}

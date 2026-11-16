@@ -1,0 +1,54 @@
+{
+  "name": "共享营地",
+  "icon": "tribalpower:camp_charter",
+  "order": 200,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:camp_charter",
+      "text": [
+        "和朋友一起玩？一起建立一座营地。营地是一个有名字的团体，有一座共享宝库、每位成员都能用的装置，以及在你们之间汇集的部落声望。"
+      ],
+      "title": "共享营地"
+    },
+    {
+      "type": "image",
+      "image": "camps_identity",
+      "title": "一座营地，许多双手",
+      "text": "成员放置的一切，对整个营地开放。"
+    },
+    {
+      "type": "text",
+      "title": "建立与邀请",
+      "text": [
+        "运行 **/tribalpower camp create <name>**（最多24个字符）。你成为它的第一名成员和首领。",
+        "要邀请某人，就运行 **/tribalpower camp invite <player>**，或制作一份**营地文书**，用它对玩家右键。文书不会用掉。用它对空气右键会显示你的营地。",
+        "邀请持续**五分钟**。被邀请者用 **/tribalpower camp join <name>** 接受。",
+        "你一次只能属于一座营地。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "成员共享之物",
+      "text": [
+        "- **装置。** 成员彼此视为营地方块、纹样装置、仪式台座、中继器、门心石、歌板和诗节链接的所有者。营地之外的人会被拒之门外。",
+        "- **宝库。** 任何深层储柜或旅人挎包都会打开营地共享的**54格**宝库。打开时潜行，可在它和个人宝库之间切换；它会记住你的选择。",
+        "- **声望。** 从你加入的那天起，成员与部落每得或每失的声望，有四分之一也落在营地上。凡是你的等级要紧的地方（族人交易、他们的恩惠、部落委托、系结残片），只要营地的等级比你自己的高，就算营地的等级。",
+        "- **锚。** 营地共享**12**个路锚，所有世界一起计数。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "运营营地",
+      "text": [
+        "**/tribalpower camp info** 列出成员和锚。首领可以运行 **/tribalpower camp rename <name>** 和 **/tribalpower camp kick <player>**。任何人都可以 **/tribalpower camp leave**；如果首领离开，最早的成员继任。",
+        "最后一名成员离开时，营地解散，宝库在其脚边倾泻而出。",
+        "部落认得你之后，他们的[亲族图腾](kinship_totem)可以把他们的任意一种声音借给你的营地。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:camp_charter"
+    }
+  ]
+}

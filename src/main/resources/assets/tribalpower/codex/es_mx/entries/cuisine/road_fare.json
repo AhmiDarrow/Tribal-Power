@@ -1,0 +1,65 @@
+{
+  "name": "Víveres de camino",
+  "icon": "tribalpower:drovers_flatbread",
+  "order": 22,
+  "items": [
+    "tribalpower:drovers_flatbread",
+    "tribalpower:glimmer_crisps",
+    "tribalpower:hunters_skewer",
+    "tribalpower:steppe_pemmican",
+    "tribalpower:frostberry_preserve",
+    "tribalpower:thistle_tea",
+    "tribalpower:highland_crumble"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Comida para el camino",
+      "text": [
+        "No toda comida lleva el [don](tribe_dishes) de una tribu. La comida de campamento es lo que lleva un caminante: barata, rápida en la [Olla del Hogar](hearth_pot), y cada una hecha para un fin. La mayoría mezcla los cultivos de la Marcha con lo que crece en cualquier granja.",
+        "- **Pan plano del arriero**: Grano de la estepa ×2, trigo. Dos por olla, 5 de hambre cada uno, se apila hasta 64. La forma más barata de seguir alimentado.",
+        "- **Crujientes de fulgor**: Frijol de fulgor ×2, alga seca. Tres por olla, 3 de hambre, y **se comen en un instante**, para que puedas tomar un bocado entre golpe y golpe.",
+        "- **Brocheta del Cazador**: cualquier carne cruda, Raíz de brasa, remolacha. Dos por olla, 6 de hambre y **Velocidad durante 20 segundos**, para alcanzar tu presa."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Comida para el camino, continúa",
+      "text": [
+        "- **Pemmican de la estepa**: cualquier carne cocinada, Baya de escarcha, bayas dulces. Tres por olla, solo 4 de hambre, pero la mejor saturación para su tamaño: te mantiene lleno más tiempo en una caminata larga.",
+        "- **Conserva de baya de escarcha**: Baya de escarcha ×2, azúcar, en un frasco de cristal. 4 de hambre y **Resistencia al fuego durante 30 segundos**, para cruzar los Yermos de brasa. El frasco vuelve.",
+        "- **Té de cardo**: Cardo de ley, Hoja de la Marcha, panal, en un frasco de cristal. Poca comida, pero puedes beberlo estando lleno, y **cura el veneno, el hambre y las náuseas**: la respuesta del campamento a una mala comida.",
+        "- **Crumble de las alturas**: una manzana, Grano de la estepa, bayas dulces, azúcar. 6 de hambre y **Super salto durante 45 segundos** para las crestas."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drovers_flatbread"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:glimmer_crisps"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hunters_skewer"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:steppe_pemmican"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:frostberry_preserve"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:thistle_tea"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:highland_crumble"
+    }
+  ],
+  "next": "hearth_meals"
+}

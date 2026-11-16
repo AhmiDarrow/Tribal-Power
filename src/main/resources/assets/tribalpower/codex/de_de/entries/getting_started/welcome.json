@@ -1,0 +1,28 @@
+{
+  "name": "Dieses Buch benutzen",
+  "icon": "tribalpower:spirit_codex",
+  "order": 0,
+  "next": "first_power",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_codex",
+      "text": [
+        "Alles in Tribal Power läuft über **Puls**, eine lebendige Energie, die du machst, indem du einen Rhythmus hältst, das Land liest oder Kristalle und Totems einander singen lässt.",
+        "Dieses Buch folgt einem Lager vom ersten Trommelschlag bis zu Maschinen, die von allein laufen. Blättere mit den Pfeilen unten oder mit den Pfeiltasten.",
+        "Buch verloren? Stelle ein neues her aus einem **Buch**, einer **Geistscherbe** und einem **Knochenklang**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wenn eine Maschine still wird",
+      "text": [
+        "Ducke dich und rechtsklicke einen beliebigen Tribal Power-Block mit diesem Buch in der Hand. Der Block sagt dir, was ihm fehlt: Energie, die Stimme eines Totems, Platz in seiner Ausgabe oder ein Redstone-Signal, das ihn pausiert hält.",
+        "Diese eine Gewohnheit beantwortet die meisten Fragen schneller als jede Seite.",
+        "- **Blaue Wörter** sind Links zu anderen Seiten.",
+        "- **Gegenstände** auf einer Seite lassen sich anklicken, um ihre Seite zu öffnen. Ein Rechtsklick öffnet JEI, falls du es hast.",
+        "- **Szenen** spielen einen Bau Schritt für Schritt ab. Nutze die kleinen Pfeile unter einer Szene und ziehe sie, um sie zu drehen."
+      ]
+    }
+  ]
+}

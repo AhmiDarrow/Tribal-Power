@@ -1,0 +1,51 @@
+{
+  "name": "Cenizligado",
+  "icon": "tribalpower:ember_heart",
+  "order": 70,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ashbound_spawn_egg",
+    "tribalpower:ember_heart"
+  ],
+  "next": "rootbound",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:ashbound",
+      "text": [
+        "Una efigie de mimbre quemada, los restos de un rito de fuego quebrado. Sus golpes te prenden fuego.",
+        "Cazado, suelta además hasta 2 Carbón y hasta 1 Hueso."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Los Cenizligado caminan de noche por bosques del Supramundo y, en la Marcha, recorren la Estepa y los Yermos de brasa.",
+        "Tiene **24 de salud** y **2 de armadura**, y golpea por **4**. Cada golpe te prende fuego durante 2 segundos, y es inmune al fuego. Ten agua cerca, o pelea donde puedas meterte en un charco."
+      ],
+      "title": "Dónde y cómo"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Suelta **de 1 a 2 Corazón de brasa**.",
+        "Un Corazón de brasa se sintoniza en 2 Eco sintonizado bajo Espíritu."
+      ],
+      "title": "Qué da"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ningún amuleto vinculará a un Cenizligado. Ilumina tus caminos y se mantiene lejos."
+      ],
+      "title": "No se vinculará"
+    },
+    {
+      "type": "text",
+      "title": "Caza y arreo",
+      "text": [
+        "Además de su reactivo, suelta esto al cazarlo, y más con Botín."
+      ]
+    }
+  ]
+}

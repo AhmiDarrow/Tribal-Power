@@ -1,0 +1,64 @@
+{
+  "name": "Legaradici",
+  "icon": "tribalpower:tribe_mark",
+  "order": 60,
+  "spoiler": true,
+  "unlock": "tribe:sprout",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_sprout",
+      "title": "Legaradici",
+      "text": [
+        "“Le radici sono l'unica corda che il vuoto rispetta.”",
+        "Filo di **Germoglio**, voce di **Acqua**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chi sono",
+      "text": [
+        "I Legaradici piantarono le prime ancore viventi sulle isole che cadono e le legarono radice a radice. Le loro ancore ressero una stagione, e per quella stagione quassù c'è ancora qualcosa. Il loro mestiere è **ancore viventi e flora della Marcia**.",
+        "I loro accampamenti stanno nelle **foreste** e nelle giungle, e nella Marcia un loro accampamento sta in ogni fascia, dal nord ghiacciato al sale."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa vogliono",
+      "text": [
+        "Il loro reagente è la **Scaglia di dorsomuschio**, che vale **+8** di reputazione al loro focolare.",
+        "Favoriscono anche arbusti, semi, un blocco di muschio o una Canna di Spirito: **+3** ciascuno. Qualsiasi altro cibo vale **+1**, e una Cella di Pulso carica **+2 ogni 10 Pulso**, fino a +8.",
+        "Ricorda: il focolare prende al massimo **60** di reputazione al giorno dalle offerte; vedi [Tribù e reputazione](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa scambia l'Anziano",
+      "text": [
+        "**Ospite**: 4 arbusti di quercia per 3 Canna di Spirito; 12 semi di grano per 8 farina di ossa.",
+        "**Amico**: 6 Canna di Spirito per un Tamburo delle onde; 8 blocchi di muschio per una Scaglia di dorsomuschio; 4 Riso di torbiera per Riso dei Legaradici.",
+        "**Consanguineo**: 8 Scheggia di eco per 6 Tronco della Marcia; 2 Tessitospirito per 2 Fiore di eco.",
+        "Ogni scambio dà **+2** di reputazione."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marchio, totem e dono",
+      "text": [
+        "Al grado **Voce** l'Anziano ti dà il Marchio della tribù dei Legaradici. Crealo con un {item:tribalpower:resonance_totem_water} e due Tessitospirito per ottenere il loro [Totem di parentela](kinship_totem).",
+        "Accanto a un Risonatore di Pulso è una voce in più; accanto a una stazione presta **Acqua**.",
+        "Il grado Consanguineo dei Legaradici porta il loro [dono](tribe_boons): colture e arbusti entro 4 blocchi intorno a te crescono più in fretta.",
+        "Il loro piatto porta il dono per **5 minuti**, e la loro [reliquia](elders_and_stories) finché la porti.",
+        "I Legaradici sono l'unica tribù che vende un **Tamburo delle onde**, il generatore di Acqua."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "sprout",
+      "title": "Il tuo lavoro con loro",
+      "text": [
+        "Ciò che l'Anziano dei Legaradici ti ha chiesto, e fin dove è arrivata la loro storia. Vedi [Anziani, richieste e storie](elders_and_stories)."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "name": "歌糸",
+  "icon": "tribalpower:song_thread",
+  "order": 40,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_thread",
+      "text": [
+        "レッドストーンは叫び。歌糸は空中を口ずさむ線だ。信号を**0から15**まで、上下を含む**六方向**すべてに運び、支えるものは要らない。",
+        "**織機の糸が要る**。それを出すのはマーチだけだ。古い広間、墓、門、ねぐらのチェスト、友の位での織機の縫い手の取引、そして歌われぬ者。歌蔓、歌の板、詩句の呼びはどれも歌糸で作るので、それらもこれを待つ。それまではレッドストーンダスト、リピーター、コンパレーターで組め。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "線を引く",
+      "text": [
+        "出力はほこりと同じく**1ブロックにつき1**下がる。向こう端で15いっぱいが要るなら線は短くするか、エコー板で戻す。",
+        "バニラのレッドストーンダスト、レバー、歌の板、歌蔓、コンパレーターはどれもこれに話す。歌の板二つの間では糸を完全に省き、トーテムレンチで同期できる（[歌の板](song_plates)を見よ）。",
+        "運びは弱い。触れた石には動力を与えないので、決してラッチしない。糸の壁は歌の壁だ。角で石に沿う巻きひげは[歌蔓](song_vine)を見よ。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "歌の時計",
+      "steps": [
+        {
+          "caption": "太鼓の心臓を置く。単体では、拍を保つのはあなただ。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "鼓動板をブロックの側面に取り付け、太鼓の方を向ける。外へ向く面が出力だ。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:heartbeat_plate[facing=east]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "板の面から太鼓まで歌糸を引く。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_thread"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_thread"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "新しい鼓動は、すでに20ティックごと、1秒に1回打つ。右クリックで確認する。遅くするのは、しゃがんで使うときだけだ。",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "間に合った一拍はパルスを24足す。何も使っていなければ太鼓は満ちる。",
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "時を守る",
+      "text": [
+        "太鼓の心臓は、間隔が**17から23ティック**の拍を間に合ったものとし、値は**24パルス**だ。それ以外の間隔は多くて**10**で、8ティック未満の拍は無視される。だから鼓動は20ティックのままにせよ。遅い設定は1拍につき10しかもらえない。互いに8ブロック以内の太鼓二つだけがパルスを得る。",
+        "太鼓が満ちないなら、板の向き、支えのブロック、糸を確かめ、近くの常時動力を外す。閾値や記憶板を足す前に、時計と太鼓を動かせ。",
+        "蓄えた量を信号にするなら、[パルス計](pulse_gauge)を足す。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:song_thread",
+      "text": "織機の糸の周りのレッドストーンは**八**になる。"
+    }
+  ],
+  "next": "song_vine"
+}

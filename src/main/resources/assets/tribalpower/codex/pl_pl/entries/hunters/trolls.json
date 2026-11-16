@@ -1,0 +1,74 @@
+{
+  "name": "Trolle",
+  "icon": "tribalpower:troll_hide",
+  "order": 320,
+  "spoiler": true,
+  "items": [
+    "tribalpower:crag_troll_spawn_egg",
+    "tribalpower:rime_troll_spawn_egg",
+    "tribalpower:slag_troll_spawn_egg",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:slag_hide"
+  ],
+  "next": "goblins",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Trolle",
+      "text": [
+        "Duże, wolno padają i szybko się gniewają. Trzy rodzaje trolli trzymają wysoki kamień Marszu i jego żar, i wszystkie trzy polują na ciebie."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:crag_troll",
+      "title": "Troll urwiska",
+      "text": [
+        "Występuje na Wyżynie. Nocą podnosi się na otwartym terenie, jeden lub dwa naraz.",
+        "Upolowany upuszcza też od 1 do 3 Skóra Marszu, od 1 do 2 kości i do 2 krzemienia."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:rime_troll",
+      "title": "Troll szronu",
+      "text": [
+        "Występuje na Polach śniegu. Nocą podnosi się na otwartym terenie, jeden lub dwa naraz.",
+        "Upolowany zostawia też od 1 do 3 Skóra Marszu, od 1 do 2 kości i od 1 do 3 śnieżek."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slag_troll",
+      "title": "Troll żużla",
+      "text": [
+        "Spotykany na Pustkowiach żaru, przy lawie i na gorącym kamieniu wokół, dniem i nocą, po jednym albo po dwa. Jest **odporny na ogień**.",
+        "Upolowany zostawia też od 1 do 3 Skóra Marszu, od 1 do 2 kości i od 1 do 3 bryłek żelaza."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Walka z jednym",
+      "text": [
+        "Troll ma **69 zdrowia** i **6 pancerza** i uderza za **9**. Cios Troll urwiska albo Troll szronu odpycha cię do tyłu; cios Troll żużla podpala cię na 2 sekundy.",
+        "Zachowaj dystans i nigdy nie walcz z jednym, mając lawę za plecami."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co dają",
+      "text": [
+        "Każdy zostawia **1 do 2** swojej skóry, więcej z Grabieżą. **Skóra trolla** i **Skóra szronu** to odczynniki Pchnięcia, **Skóra żużla** odczynnik Żaru: zobacz [odczynniki](reagents).",
+        "Trolle nigdy nie tworzą więzi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i stado",
+      "text": [
+        "Oprócz odczynnika każdy upolowany zostawia więcej, a z Grabieżą jeszcze więcej."
+      ]
+    }
+  ]
+}

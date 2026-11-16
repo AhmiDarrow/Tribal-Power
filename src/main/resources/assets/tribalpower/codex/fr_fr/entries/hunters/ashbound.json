@@ -1,0 +1,51 @@
+{
+  "name": "Lié-cendre",
+  "icon": "tribalpower:ember_heart",
+  "order": 70,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ashbound_spawn_egg",
+    "tribalpower:ember_heart"
+  ],
+  "next": "rootbound",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:ashbound",
+      "text": [
+        "Une effigie d'osier brûlée, les restes d'un rite du feu brisé. Ses coups t'enflamment.",
+        "Chassé, il lâche aussi jusqu'à 2 Charbon et jusqu'à 1 Os."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Les Lié-cendre marchent la nuit dans les forêts de l'Overworld et, dans la Marche, ils rôdent dans la Steppe et les Landes de braise.",
+        "Il a **24 de santé** et **2 d'armure**, et frappe pour **4**. Chaque coup te met le feu pendant 2 secondes, et lui-même est immunisé contre le feu. Garde de l'eau à portée, ou bats-toi là où tu peux entrer dans une flaque."
+      ],
+      "title": "Où et comment"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Il lâche **de 1 à 2 Cœur de braise**.",
+        "Un Cœur de braise s'accorde en 2 Écho accordé sous Esprit."
+      ],
+      "title": "Ce qu'il donne"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Aucun charme ne liera un Lié-cendre. Éclaire tes chemins et il reste à l'écart."
+      ],
+      "title": "Il ne se liera pas"
+    },
+    {
+      "type": "text",
+      "title": "Chasse et conduite",
+      "text": [
+        "Outre son réactif, il lâche ceci quand on le chasse, davantage avec Butin."
+      ]
+    }
+  ]
+}

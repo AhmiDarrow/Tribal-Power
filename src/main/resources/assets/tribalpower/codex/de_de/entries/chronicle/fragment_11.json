@@ -1,0 +1,17 @@
+{
+  "name": "12. Kristall",
+  "icon": "tribalpower:mural",
+  "order": 21,
+  "spoiler": true,
+  "unlock": "fragment:11",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Kristall",
+      "text": [
+        "“Die Kristallfelder wuchsen dort, wo die Netze der Griessänger singend fielen. Der Stein erinnerte die Tonhöhe und wuchs auf sie zu. Der größte Teil des Feldes ist gestimmt. Der Teil, der es nicht ist, hat einen langen Körper und ein längeres Gedächtnis.”",
+        "Gefunden auf einem Wandbild am Grund eines Wächters."
+      ]
+    }
+  ]
+}

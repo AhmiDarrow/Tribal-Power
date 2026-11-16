@@ -1,0 +1,36 @@
+{
+  "name": "Balestra di Pulso",
+  "icon": "tribalpower:pulse_crossbow",
+  "order": 40,
+  "items": [
+    "tribalpower:pulse_crossbow"
+  ],
+  "next": "anointing",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_crossbow",
+      "title": "La sorella più pesante dell'arco",
+      "text": [
+        "La Balestra di Pulso spara gli stessi Dardo sonico dell'[Arco di Pulso](song_bench), e porta Freccia di verso allo stesso modo.",
+        "**Tieni premuto usa** per caricarla. Il caricamento dura un po' più di una trazione completa dell'arco e spende **10 Pulso** subito; se porti una Freccia di verso, carica anche quella, per altri 6 Pulso. **Usala di nuovo** per sparare.",
+        "Una Cella di Pulso inserita nella balestra paga per prima, poi le celle che porti.",
+        "Si forgia come l'altra Dotazione spirituale: due **Lingotto manifestato** e un **Campanello d'osso** per l'arco, spago, un uncino e un bastone. Dura 1,024, e poiché il Pulso paga ogni colpo, sparare non la consuma; l'[Incudine dello Spirito](spirit_anvil) la ripara con Lingotto manifestato, un quarto ciascuno."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- La **balestra** colpisce circa **un terzo più forte**: **10** da vicino contro i **7** dell'arco, un po' meno alla fine di un volo lungo. Vola più veloce e quasi del tutto dritta, e tiene il colpo quanto vuoi, così puoi camminare con essa carica e sparare nel momento in cui qualcosa si mostra.",
+        "- L'**arco** è più rapido: puoi scoccare di nuovo prima, e scoccare una trazione parziale quando hai fretta, anche se una trazione parziale colpisce solo per la sua parte.",
+        "Una Freccia di verso aggiunge fino a **3** in più a una trazione completa dell'arco, un po' di più dalla balestra, e porta il suo canto. I Dardo sonico non cadono, ma svaniscono dopo circa 60 blocchi.",
+        "Porta la balestra per il colpo che conta, l'arco per uno scontro in corsa."
+      ],
+      "title": "Arco o balestra?"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_crossbow"
+    }
+  ]
+}

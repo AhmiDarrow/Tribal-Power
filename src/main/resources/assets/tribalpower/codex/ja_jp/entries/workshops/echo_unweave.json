@@ -1,0 +1,190 @@
+{
+  "name": "エコーの解き織り",
+  "icon": "tribalpower:echo_unweave",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_unweave",
+      "text": [
+        "織機の作業台は格子を逆向きに動かす。エコーの解き織りは完成品を、その前の工程のものへとより多く分解し、使い込んだ霊装を金属に戻す。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "分解するもの",
+      "text": [
+        "- 顕現したインゴット: 結ばれたエコー**2**個。",
+        "- 結ばれたエコー: 調律されたエコー**2**個。",
+        "- 調律されたエコー: エコーの欠片**2**個。",
+        "- 共鳴核: 顕現したインゴット**3**個。",
+        "- 霊織り: 羊毛**1**個。",
+        "- 損傷した霊装の道具、武器、または癒し手の鳴子: 顕現したインゴット**1**個。弓とクロスボウは分解されない。",
+        "新品で無傷の道具は拒否される。霊装は先にダメージを受けねばならない。霊織りの防具は決して分解されない。",
+        "8ブロック以内に共鳴のトーテム（織機）が要る。織機がないと一時停止し、何も消費しない。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "核を解き織る",
+      "steps": [
+        {
+          "caption": "エコーの解き織りを置き、8ブロック以内に共鳴のトーテム（織機）を置く。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_unweave"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "パルスを範囲内に保ち、出力の空きを少し残す。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "共鳴核を入れると、顕現したインゴットが3個出る。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:resonant_core"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "連鎖させる",
+      "text": [
+        "ホッパーなしの逆連鎖にするには、エコー結束かエコー顕現の出力をこの装置へ入れる。",
+        "速くするなら、エコー調律、エコー結束、次にエコー顕現の順でランクを上げる。レバーは投入と作業を止める。",
+        "始まらないときは、しゃがんでこの本で右クリックし、[第六の声](sixth_voice)を読む。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_unweave"
+    }
+  ]
+}

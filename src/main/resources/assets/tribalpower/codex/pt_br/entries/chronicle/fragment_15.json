@@ -1,0 +1,17 @@
+{
+  "name": "16. O poleiro",
+  "icon": "tribalpower:mural",
+  "order": 25,
+  "spoiler": true,
+  "unlock": "fragment:15",
+  "pages": [
+    {
+      "type": "text",
+      "title": "O poleiro",
+      "text": [
+        "“As Terras Altas são as pontes dos Caminhantes da borda, o último chão antes da borda. O vento que vem da borda já foi uma canção. O que agora faz ninho nele canta a mesma canção ao contrário e joga os caminhantes para ouvi-los tocar o chão.”",
+        "Encontrado num mural, no terreno de um guardião."
+      ]
+    }
+  ]
+}

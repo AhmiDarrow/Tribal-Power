@@ -1,0 +1,87 @@
+{
+  "name": "의식 화로대",
+  "icon": "tribalpower:ritual_brazier",
+  "order": 70,
+  "items": [
+    "tribalpower:blank_seal",
+    "tribalpower:earth_seal",
+    "tribalpower:fire_seal",
+    "tribalpower:water_seal",
+    "tribalpower:air_seal",
+    "tribalpower:spirit_seal",
+    "tribalpower:loom_seal"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ritual_brazier",
+      "text": [
+        "화로대는 원소 인장 하나를 담고, 근처의 모두에게 이어지는 축복으로 바꾼다. 모든 서판 의식의 심장이다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "축복에 불 붙이기",
+      "text": [
+        "인장을 든 채 화로대를 우클릭하여 앉힌다. 인장은 결코 소모되지 않는다. 빈손으로 웅크려 도로 가져간다.",
+        "그 인장의 토템을 **8블록** 안에 두고, 근처 격자에 펄스를 둔다. 누군가 **6블록** 안에 서 있는 동안, 화로대는 **2초마다 8 펄스**를 쓰고 모두를 축복한다. 근처에 아무도 없으면 아무것도 쓰지 않는다.",
+        "유지된 레드스톤 신호는 그것을 멈춘다. 저장된 펄스는 버려지지 않는다. 짧은 신호는 앉힌 의식을 발동한다 ([의식의 원](rite_circle) 참조).",
+        "인장도 펄스도 없이, 근처의 모두를 위해 [향](remedies)도 태운다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "축복",
+      "text": [
+        "- **땅**: 성급함.",
+        "- **불**: 화염 저항.",
+        "- **물**: 재생.",
+        "- **바람**: 느린 낙하.",
+        "- **정령**: 야간 투시.",
+        "- **베틀**: 행운. 박마다, 여유가 있는 소지 중인 펄스 전지에 **2 펄스**를 엮어 넣는다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "인장",
+      "text": [
+        "모든 인장은 빈 것에서 시작한다. 종이와 정령 조각과 뼈 방울로 **두** 개의 빈 인장이 된다.",
+        "땅에는 흙, 불에는 숯, 물에는 물 양동이, 바람에는 깃털, 정령에는 정령 조각, 베틀에는 베틀 실을 더한다.",
+        "인장은 부적과 의식 서판에 들어간다. 서판 제작법은 언제나 인장을 돌려준다. 의식 단에서 쓴 인장은 빠른 [인장 의식](rite_circle)에 소모된다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ritual_brazier"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:blank_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:earth_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fire_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:water_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:air_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_seal"
+    }
+  ],
+  "next": "rite_circle"
+}

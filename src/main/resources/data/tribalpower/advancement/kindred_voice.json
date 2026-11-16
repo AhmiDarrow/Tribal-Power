@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:bonding_charm"
     },
-    "title": "Kindred voice",
-    "description": "Attune a familiar at a Resonance Totem: sneak-use a Bonding Charm on the totem with your familiar close.",
+    "title": {
+      "translate": "advancement.tribalpower.kindred_voice.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.kindred_voice.description"
+    },
     "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,

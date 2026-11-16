@@ -1,0 +1,25 @@
+{
+  "name": "Afflizioni",
+  "icon": "tribalpower:spirit_remnant",
+  "order": 45,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Oltre alla [Malattia spirituale](spirit_sickness), altre tre cose possono posarsi su di te là fuori:",
+        "- **Silenzio Non Cantato**: i dardi di Silenzio del Non Cantato si portano via la tua voce. Per **12 secondi** non rispondono né un canto né una voce di bastone. Aspetta che passi, bevi del latte o lavalo via.",
+        "- **Sfilacciato**: un colpo di un selvatico **Tessitore di eco** o **Strisciatore ombroso** ti strappa qualcosa: **due cuori** della tua salute per **due minuti**. Il latte non fa nulla.",
+        "- **Mal di ley**: il suolo ondeggia e le celle che porti perdono **2 di Pulso ogni due secondi** per ogni livello. Viene dallo stare su un incrocio di ley nudo mentre i fili si gonfiano. Il latte lo toglie."
+      ],
+      "title": "Ciò che la Marcia ti lascia addosso"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ogni [rimedio](remedies) le toglie tutte, e così il [Cerchio di guarigione](healing_circle) e una notte nella [capanna del sudore](sweat_lodge).",
+        "Il vecchio modo è il **Pozzo dello Spirito**: trovane uno nella Marcia, entra nella sua acqua e **accovacciati**. Per **40 di Pulso** da una cella che porti, il pozzo ti toglie ogni afflizione, Malattia spirituale compresa."
+      ],
+      "title": "Lavaggio netto"
+    }
+  ]
+}

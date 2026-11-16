@@ -1,0 +1,28 @@
+{
+  "name": "Usare questo libro",
+  "icon": "tribalpower:spirit_codex",
+  "order": 0,
+  "next": "first_power",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_codex",
+      "text": [
+        "Tutto in Tribal Power funziona con **Pulso**, un'energia viva che fai tenendo un ritmo, leggendo la terra o lasciando che cristalli e totem si cantino a vicenda.",
+        "Questo libro segue un accampamento dal primo colpo di tamburo fino a macchine che vanno da sole. Gira pagina con le frecce in basso o con i tasti freccia.",
+        "Perso questo libro? Fabbricane un altro con un **libro**, una **Scheggia di Spirito** e un **Campanello d'osso**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quando una macchina tace",
+      "text": [
+        "Accovacciati e fai clic destro su un qualsiasi blocco di Tribal Power con questo libro in mano. Il blocco ti dice cosa gli manca: energia, la voce di un totem, spazio nella sua uscita o un segnale di redstone che lo tiene in pausa.",
+        "Quell'unica abitudine risponde alla maggior parte delle domande più in fretta di qualunque pagina.",
+        "- Le **parole blu** sono link ad altre pagine.",
+        "- Gli **oggetti** su una pagina si possono cliccare per aprire la pagina su di essi. Il clic destro apre JEI, se ce l'hai.",
+        "- Le **scene** mostrano una costruzione passo dopo passo. Usa le piccole frecce sotto una scena e trascinala per girarla."
+      ]
+    }
+  ]
+}

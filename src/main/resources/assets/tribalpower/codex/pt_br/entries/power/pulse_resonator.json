@@ -1,0 +1,226 @@
+{
+  "name": "Ressonador de Pulso",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 30,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_resonator",
+      "text": [
+        "Energia que continua chegando enquanto você está fora. Assente um cristal dentro, cerque-o com totens de vozes diferentes, e ele zumbe Pulso sozinho. Guarda até **2,500 Pulso**, e quebrá-lo perde o que está guardado."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pôr para funcionar",
+      "text": [
+        "Clique com o botão direito no Ressonador com um **Fragmento de eco** (do [Triturador de eco](echo_shatter)). O cristal fica dentro como catalisador e o Pulso que ele produz o consome aos poucos, então um Ressonador que trabalha muito precisa trocá-lo. Agache-se e clique com o botão direito com a mão vazia para retirar o que resta do cristal; ele mantém o desgaste. Retire o cristal velho antes de assentar um melhor. Funis não conseguem alimentá-lo.",
+        "Depois dê a ele pelo menos **duas vozes diferentes** em 8 blocos, como um totem de Terra e um de Fogo. Ele conta vozes, não blocos: dois totens de Terra ainda são uma só voz.",
+        "Um fragmento e duas vozes fazem **8 Pulso por segundo**. As vozes se multiplicam em vez de se somar: cada uma que você traz vale mais que a anterior, então o anel inteiro vale bem mais que a soma dos seus totens."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Primeira luz",
+      "steps": [
+        {
+          "caption": "Coloque o Ressonador onde os totens tenham espaço ao redor.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Clique com o botão direito com um Fragmento de eco para assentar o catalisador.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Adicione um totem de Terra.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Adicione um totem de Fogo, uma segunda voz. O Ressonador começa a zumbir: 8 Pulso por segundo.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Uma terceira voz, Água, sobe isso para 15 Pulso por segundo. Cada voz nova vale mais que a anterior.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cristais mais fortes",
+      "text": [
+        "A cada segundo o Ressonador faz **vozes × (vozes + 2)** de Pulso, vezes o cristal: **×1** para um Fragmento de eco, **×1.5** Sintonizado, **×2** Vinculado, **×3** para um Núcleo ressonante. Assim seis vozes fazem 48, 72, 96 ou 144 por segundo.",
+        "- **Fragmento de eco**: pedra no Triturador de eco, com Terra.",
+        "- **Eco sintonizado**: fragmentos no Sintonizador de eco, com Fogo.",
+        "- **Eco vinculado**: Eco sintonizado no Vinculador de eco, com Água.",
+        "- **Núcleo ressonante**: Barra manifestada no Manifestador de eco, com Espírito.",
+        "Seis vozes precisam do arranjo do [Anel de voz](voice_ring): um monte solto conta no máximo cinco vozes, Totem de parentesco incluídos.",
+        "Para queimar estes cristais ao lado de reagentes e água, com as seis vozes numa estrela, construa um [Coração de ley](ley_heart)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quando continua no escuro",
+      "text": [
+        "Só os totens **Respondido** contam; um quieto precisa ser acordado primeiro (veja [Cuidado](keeping)). Os Totem de parentesco acrescentam suas tribos como vozes extras, mas o Ressonador ainda precisa de um Totem de ressonância Respondido só dele. Um sinal constante de redstone o pausa.",
+        "Um cristal esfarela quando fez a sua parte: cerca de **20,000 Pulso** para um Fragmento de eco, **60,000** para um Eco sintonizado, **150,000** para um Eco vinculado e **400,000** para um Núcleo ressonante. Um Ressonador cheio não faz nada, e seu cristal descansa até que algo gaste.",
+        "Cada [nível](machine_ranks) do próprio Ressonador acrescenta **15% Pulso por segundo**."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_resonator"
+    }
+  ]
+}

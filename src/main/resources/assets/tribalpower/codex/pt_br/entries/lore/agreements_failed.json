@@ -1,0 +1,18 @@
+{
+  "name": "Quando os acordos falharam",
+  "icon": "tribalpower:lore_tablet",
+  "order": 20,
+  "spoiler": false,
+  "next": "continents_of_thread",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Ninguém rompeu o Tear. Foi puxado de nove lados, e este Códice não pode dizer qual fio cedeu primeiro. As tribos também não, no fim. Num momento o céu era um chão. No seguinte, os acordos falharam no mesmo fôlego.",
+        "Os Guardiões do leito sentiram primeiro: os lares esfriaram enquanto o céu ainda parecia inteiro. Depois as âncoras vivas dos Vinculadores de raízes aguentaram uma estação, e essa estação é o motivo de ainda haver algo aqui em cima.",
+        "Os Guardiões se partiram em suas arenas. As canções continuaram sem ninguém para ouvi-las. As trilhas de portal ficaram abertas para lugar nenhum.",
+        "Era um nó se desfazendo. Os continentes caíram no espaço de um rufar. O que não caiu é um leito de terra de que as Mechas ainda se lembram. Você está sobre sobras que aprenderam a ser um chão."
+      ]
+    }
+  ]
+}

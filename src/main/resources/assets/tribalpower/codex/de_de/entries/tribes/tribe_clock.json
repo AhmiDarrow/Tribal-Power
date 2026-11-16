@@ -1,0 +1,65 @@
+{
+  "name": "Musterweber",
+  "icon": "tribalpower:tribe_mark",
+  "order": 90,
+  "spoiler": true,
+  "unlock": "tribe:clock",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_clock",
+      "title": "Musterweber",
+      "text": [
+        "„Eine Fabrik ist ein Lied, das den Sänger nicht mehr braucht.“",
+        "Strähne von **Uhr**, Stimme von **Luft**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wer sie sind",
+      "text": [
+        "Die Musterweber schrieben ihre Zeiten auf Uhrräder und Mottenstaub und ließen den Webstuhl die Weise tragen. Als der Schnitt kam, spielten ihre Lieder weiter. Das Handwerk ist **zeitgesteuerte Lieder und Automatisierung**.",
+        "Die Lager stehen in **Birkenwäldern**, und im Marsch steht in jedem Band eines von ihnen, vom gefrorenen Norden bis zum Salz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was sie wollen",
+      "text": [
+        "Das Reagenz ist der **Sturmflügel**, **+8** Ansehen an ihrem Herd wert.",
+        "Außerdem nehmen sie Redstone, eine Uhr, einen Redstone-Verstärker oder einen Redstone-Komparator an: **+3** je Stück. Jedes andere Essen ist **+1** wert, und eine geladene Pulszelle **+2 je 10 Puls**, bis zu +8.",
+        "Denk daran, dass der Herd am Tag höchstens **60** Ansehen aus Gaben annimmt; siehe [Stämme und Ansehen](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was der Älteste tauscht",
+      "text": [
+        "**Gast**: 8 Redstone für 2 Echoscherbe; eine Uhr für 4 Redstone-Verstärker.",
+        "**Freund**: 2 Abgestimmtes Echo für 4 Redstone-Komparator; 16 Redstone für einen Sturmflügel; 4 Schimmerbohne für eine Mustertarte.",
+        "**Sippe**: 3 Gebundenes Echo für einen Gitterkonduktor; 2 Gebundenes Echo für eine Windharfe.",
+        "Jeder Tausch bringt **+2** Ansehen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marke, Totem und Gunst",
+      "text": [
+        "Bei **Stimme** gibt dir der Älteste die Stammesmarke der Musterweber. Fertige sie mit einem {item:tribalpower:resonance_totem_air} und zwei Geistergewebe zu ihrem [Verwandtschafts-Totem](kinship_totem).",
+        "Neben einem Pulsresonator ist es eine Stimme mehr; neben einer Station leiht es **Luft**.",
+        "Die Sippe der Musterweber trägt ihre [Gunst](tribe_boons): Echo-Stationen im Umkreis von 8 Blöcken um dich arbeiten mit **doppelter Geschwindigkeit**.",
+        "Deren Gericht trägt die Gunst **5 Minuten** lang, und deren [Relikt](elders_and_stories), solange du es trägst.",
+        "Die Musterweber sind der einzige Stamm, der eine **Windharfe** verkauft, den Erzeuger für Luft.",
+        "Bei **Stimme** darfst du außerdem eine **Sturmmotte** als [Vertrauter](familiar_basics) binden."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "clock",
+      "title": "Deine Arbeit mit ihnen",
+      "text": [
+        "Was der Älteste der Musterweber von dir verlangt hat, und wie weit ihre Geschichte gekommen ist. Siehe [Älteste, Bitten und Geschichten](elders_and_stories)."
+      ]
+    }
+  ]
+}

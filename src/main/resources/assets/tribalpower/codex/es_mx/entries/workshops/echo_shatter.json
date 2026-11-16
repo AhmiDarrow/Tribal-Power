@@ -1,0 +1,239 @@
+{
+  "name": "Triturador de eco",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_shatter",
+      "text": [
+        "La estación de Tierra, y la primera que construirás. El Triturador de eco tiene dos trabajos: romper **Piedra** en Fragmentos de eco, el cristal que alimenta un Resonador de Pulso, y triturar bloques y menas en algo más pequeño."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Hacer fragmentos",
+      "text": [
+        "Pon **Piedra** o **Pizarra profunda**; la Piedra de la Marcha también sirve. El adoquín no hace fragmentos, así que primero fúndelo en piedra.",
+        "Un fragmento tarda **2 segundos** a **32 de Pulso por segundo**. El Pulso guardado cerca, en la reserva de un generador o en un túmulo, sostiene un generador lento durante un lote.",
+        "Necesita un tótem de Tierra a 8 bloques o menos y un generador cargado. El fragmento es el pequeño catalizador de tu primer Resonador de Pulso, y el Pulso que este produce lo gasta poco a poco."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Triturar",
+      "text": [
+        "- El adoquín, la pizarra profunda adoquinada y el Adoquín de la Marcha se vuelven grava; la grava se vuelve arena.",
+        "- La arena se vuelve polvo si el mod de tamizado compatible está instalado; si no, una bola de arcilla.",
+        "- La diorita se vuelve cuarzo. La Mena de la Marcha se vuelve dos Fragmentos de Espíritu.",
+        "- Los metales en bruto y las menas de metal se vuelven **dos gravas** cada uno, en 4 segundos a 40 de Pulso por segundo. Consulta [Metales y gemas](metals_and_gems).",
+        "- Las menas de gemas con Toque de seda se rompen directo en la gema, al doble de lo que la mena soltaría por sí sola.",
+        "Las recetas de este libro, o JEI, muestran las entradas y salidas exactas de tu paquete."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "La grava baja",
+      "steps": [
+        {
+          "caption": "Un Horno de brasa con su tótem de Fuego.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Coloca el Triturador de eco encima, con un tótem de Tierra cerca.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "La cara de abajo del Triturador de eco saca y la cara de arriba del Horno de brasa acepta, así que la grava cae directo adentro.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Añade un generador, alimenta hierro en bruto por arriba y toma los lingotes del Horno de brasa.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "item": "minecraft:raw_iron"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Más allá",
+      "text": [
+        "Construye el patrón de [Formación de quiebre](shatter_array) a su alrededor y gasta un cuarto menos de Pulso, y vacía su salida en un Alijo ancestral debajo.",
+        "Los rangos lo hacen más rápido; consulta [Rangos de máquinas](machine_ranks). Una palanca lo pausa."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shatter"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shard",
+      "text": "Lo que el Triturador de eco hace con la piedra y la pizarra profunda."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Dostrajanie przy totemie",
+  "icon": "tribalpower:resonance_totem_spirit",
+  "order": 40,
+  "next": "familiar_boons",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Dać mu głos",
+      "text": [
+        "Przyprowadź dorosłego chowańca w promieniu **6 bloków** od Totemu rezonansu i **użyj skradając się Amulet więzi na totemie**. Twój najbliższy chowaniec, który jeszcze nie niesie tego głosu, przyjmuje go. Amulet się nie zużywa.",
+        "Totem dźwięczy, nić jego koloru biegnie do chowańca, i odtąd mieni się on tym kolorem. Jego głos widać, gdy na niego patrzysz, i na twojej Soczewce ley.",
+        "[Totem pokrewieństwa](kinship_totem) nie może dać głosu. Użyj Totemu rezonansu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Po jednym głosie",
+      "text": [
+        "Chowaniec niesie jeden głos naraz. Zaprowadź go do innego totemu, by zmienić głos, kiedy zechcesz.",
+        "Kilka chowańców może nieść kilka głosów; [co daje głos](familiar_boons) mówi, które z nich się liczą.",
+        "Głos należy do samego chowańca: jego młode rodzą się bez głosu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Totem i chowaniec",
+      "text": [
+        "Dostrojony chowaniec utrzymuje w odpowiedzi każdy totem swojego głosu w promieniu **8 bloków** i budzi ten, który zamilkł ([utrzymywanie](keeping)). Zostaw jednego, niech czeka przy totemie, który rzadko odwiedzasz.",
+        "Użyj totemu pustą ręką, aby usłyszeć, które chowańce go utrzymują. Jeśli żaden tego nie robi, a twój własny chowaniec jest blisko, totem mówi, jak go dostroić."
+      ]
+    }
+  ]
+}

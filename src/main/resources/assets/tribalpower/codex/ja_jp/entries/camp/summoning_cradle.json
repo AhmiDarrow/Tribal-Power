@@ -1,0 +1,699 @@
+{
+  "name": "召喚の揺りかご",
+  "icon": "tribalpower:summoning_cradle",
+  "order": 90,
+  "items": [
+    "tribalpower:binding_effigy"
+  ],
+  "next": "spirit_lantern",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:summoning_cradle",
+      "text": [
+        "狩らずに、生きた霊を呼ぶ。縛りの人形は一つの生き物を傷つけずに覚え、召喚の揺りかごはパルスと霊織りがあるあいだ、その生き物を何度でも呼び出す。",
+        "縛りはわざと儀式である。スポーンエッグの近道ではない。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "人形への刻印",
+      "text": [
+        "空の**縛りの人形**を作り、スニークして条件に合う生き物をそれで右クリックする。生き物は傷つかない。",
+        "乾いた地面に暮らすバニラの生き物は刻印できる（ウシ、ウマ、ウサギ、キツネ、ゾンビ、ブレイズ、エンダーマン、ウィッチ、コウモリ、その他）。マーチ自身の獣と霊も同じだ。草食獣、蛾、猟犬、追跡者、トロール、ゴブリン、フェイ、影、樹の民、その他。ウィザー、エンダードラゴン、ウォーデン、エルダーガーディアンは決してできず、エヴォーカー、村人、行商人、ゴーレム、水の生き物もできない。ガーディアン、歌われぬ者、巨像の番人はボスなのでできず、霊の鬼火、マーチの歩行者、彷徨う霊、部族の一族、煌鰭、漂い鈴、帳エイ、シルトウナギ、織機アマツバメもできない。",
+        "生きた縛りは上書きできない。先に糸を使い切る。ツールチップは刻印と残りの糸を示す。",
+        "刻印だけでは召喚はない。三つの声の縛りで織らなければならない。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "三つの声の縛り",
+      "text": [
+        "**霊の印章**を儀式の火鉢に据える。8ブロック以内に**土**、**風**、**霊**のトーテムを置き、届く範囲に**200パルス**を用意し、**霊織り三つ**を持つ。",
+        "儀式の火鉢にレッドストーンが無いとき、刻印済みの空の人形で右クリックする。三つの声が召喚の糸**512**本を結び、パルスと霊織りを取る。",
+        "使い切った人形は同じ手順で更新する。先に別の生き物を刻印してもよい。",
+        "何かが足りなければ、火鉢がそう告げる。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "三つの声の縛り",
+      "steps": [
+        {
+          "caption": "儀式の火鉢を置き、霊の印章を据える。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ritual_brazier"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:spirit_seal"
+          }
+        },
+        {
+          "caption": "8ブロック以内の土、風、霊のトーテムが三つの声を与える。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -2
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "近くの発電機と格子の伝導体が200パルスを供給する。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              -2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "霊織りを三つ持ち、刻印した人形で火鉢を右クリックする。糸は512。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:binding_effigy"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "揺りかごを動かす",
+      "text": [
+        "縛った人形は揺りかごの**一つ目**のスロットへ、霊織りは**二つ目**へ入れる。",
+        "**十秒**ごとに一度、同じ高さの**3ブロック**以内にある空いた乾いた床へ生き物を呼ぼうとする。召喚の費用は**80パルス**、**霊織り一つ**、**糸一本**。失敗や遮断のときは何も消費しない。",
+        "揺りかごは**2,400パルス**を蓄え、格子から毎秒最大80補う。**霊**に応える。8ブロック以内に霊のトーテムが無いと（[野営の手](camp_hands)を見よ）、休んだままになる。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "揺りかごの床",
+      "steps": [
+        {
+          "caption": "揺りかごを平らな床に、周りへ余裕を残して置く。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:summoning_cradle"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "8ブロック以内の伝導体からパルスを引く。召喚ごとに80。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              -2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "縛った人形は一つ目のスロット、霊織りは二つ目。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:spiritweave"
+          }
+        },
+        {
+          "caption": "生き物は3ブロック以内の空いた乾いた床に、十秒に一匹現れる。",
+          "highlight": [
+            [
+              2,
+              -1,
+              2
+            ],
+            [
+              -2,
+              -1,
+              2
+            ],
+            [
+              2,
+              -1,
+              -1
+            ],
+            [
+              1,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "制限と自動化",
+      "text": [
+        "12ブロック以内にモブが**8体以上**いるあいだは止まる。どかすこと。敵対するものはピースフルでも、静寂のトーテムの円の中でも、決して呼ばれない。",
+        "コンパレーターが残りの糸を読む。レッドストーンはすべてを止める。",
+        "ホッパーと[中継板](wireless_cargo)は、上や横から霊織りを入れられる。底面は、更新できる使い切った人形だけを、下に置いたホッパーか板へ渡す。",
+        "揺りかごを壊すと、同じ人形が残りの糸ごと落ちる。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:summoning_cradle"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:binding_effigy"
+    }
+  ]
+}

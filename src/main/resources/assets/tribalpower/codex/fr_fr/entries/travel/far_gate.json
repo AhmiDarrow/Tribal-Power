@@ -1,0 +1,53 @@
+{
+  "name": "Porte lointaine",
+  "icon": "tribalpower:gate_sigil",
+  "order": 40,
+  "next": "keeping_the_way",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_sigil",
+      "text": [
+        "Une porte qui passe d'un monde à l'autre. La Porte lointaine est un cadre plus haut, étayé de Pierres d'ancre, à qui le Métier donne voix, et liée par un Sigille de porte. La voix du Métier est ce qui place les autres mondes derrière Le Non-chanté."
+      ],
+      "title": "Porte lointaine"
+    },
+    {
+      "type": "pattern",
+      "pattern": "far_gate",
+      "title": "Construire le cadre",
+      "text": "L'anneau est d'un rang plus haut, autour d'un intérieur de trois de large et quatre de haut. Quatre Pierres d'ancre se tiennent aux coins de son emprise, devant et derrière le cadre."
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'il faut",
+      "text": [
+        "Treize cadres de porte, une Clef de porte et quatre [Pierres d'ancre](anchor_stone).",
+        "La voix du **Métier** à moins de **8 blocs** de la clef (voir [La sixième voix](sixth_voice)). Sans elle la porte ne s'allume pas, et une allumée s'éteint.",
+        "Une clef dans un cadre de Porte lointaine contient jusqu'à **2,000 Pulsation**. Verse-la avec des Cellules de Pulsation, jusqu'à 100 à la fois."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sigille de porte",
+      "text": [
+        "Fabrique un sigille à partir d'un Sceau vierge, de Fil de Métier et d'un Éclat d'Esprit.",
+        "Accroupis-toi et clique droit sur une clef avec lui pour inscrire cette porte. Puis clique droit sur l'autre clef pour lier les deux, dans les deux sens, même dans un autre monde.",
+        "Les deux bouts doivent être des Portes lointaines pour passer d'un monde à l'autre. Un serveur peut couper entièrement les Portes lointaines."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Allumage et traversée",
+      "text": [
+        "L'allumage coûte **1,200 Pulsation** sur les **2,000** propres de la porte. Chaque traversée coûte **120** et est suivie d'une récupération de **deux secondes**.",
+        "Tout le reste marche comme une Porte de voie : la main ou un signal frappé pour allumer, arrivée dans le cadre lointain, refus et remboursement quand il n'y a pas où se tenir.",
+        "Arriver dans la Marche par une Porte lointaine compte comme une visite, tout comme le Tambour de porte."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_sigil"
+    }
+  ]
+}

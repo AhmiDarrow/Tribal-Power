@@ -1,0 +1,225 @@
+{
+  "name": "灵之脉动",
+  "icon": "tribalpower:pulse_cell",
+  "order": 5,
+  "items": [
+    "tribalpower:greater_pulse_cell",
+    "tribalpower:grand_pulse_cell"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_cell",
+      "text": [
+        "脉动是每一台 Tribal Power 机器赖以运转的活性能量。发生器制造它，机器消耗它，**脉动电池**则让你把一些带在口袋里，用于工具、法术和旅行。",
+        "普通电池存**1,200 脉动**。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "脉动所在之处",
+      "text": [
+        "脉动是存起来的能量。鼓心、地脉收集器或脉动共鸣器这样的发生器制造它，并放进自己的库。机器工作时消耗它，但只有通过**网格**才能够到那个库。",
+        "脉动只沿着[网格导体](lattice_conductor)走。导体**8个方块**以内的一切都在网格上：发生器、机器、营地人手、中继器、图腾和[脉动石冢](pulse_cairn)。彼此相距8以内的导体连成一张网，机器从自己网上的发生器和石冢抽取。够不到导体的机器会挨饿，哪怕紧挨着装满的鼓。",
+        "你的第一座工坊，在鼓和站点之间放一个导体。每个导体起初输送**每秒64脉动**，并随着[等级](machine_ranks)提升而增加。机器先耗尽网络的发电机，再耗尽网络的脉动石冢。图腾不是用来消耗的：每个共鸣图腾自持**250脉动**，那份缓冲维持着它的声音。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "供给与需求",
+      "text": [
+        "机器即使消耗得比你产出得快，也能靠储备再运行一阵。如果它总在启动和停止，就把它需要的脉动和你的发电机产量比一比，然后增加产出，或建一个更大的储备。本书中的每个脉动数值都按默认设置；整合包可以改掉它们，而机器的读数始终显示真实消耗。",
+        "图腾不是发电机。匹配的图腾赋予站点声音，称为**调谐**；它不产生能量。拿着这本书潜行并对机器右键点击，它会分别报告能量和调谐。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "装填电池",
+      "steps": [
+        {
+          "caption": "充能的鼓心存着你敲进去的脉动。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "用脉动电池右键点击它：一次使用会把电池充到鼓里还持有的量。",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -1,
+              0,
+              0
+            ],
+            "item": "tribalpower:pulse_cell"
+          }
+        },
+        {
+          "caption": "脉动共鸣器、风之竖琴之类的声音工艺，或脉动石冢，也以同样方式装填电池，一次使用装入它能接受的全部。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:pulse_cell"
+          }
+        },
+        {
+          "caption": "发电机失去电池得到的量。地脉收集器不能这样装填电池。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:ley_collector"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "携带",
+      "text": [
+        "脉动电池容纳**1,200脉动**；**高级脉动电池**容纳**4,800**；**究极脉动电池**容纳**19,200**。为法术、灵械、护符和旅行携带充能电池，它们都从你物品栏里的电池取用。",
+        "口袋里的电池**不**在网格上。工坊和石板仪式仍然需要周围网格的脉动。",
+        "要给途门或远门充能，对它的心石使用电池：每次最多移入**100脉动**，通行消耗那份储存，而不是你口袋里的电池。门鼓完全不需要脉动：它的仪式会打开它。",
+        "对营地使用电池，把脉动灌进它为[营地之手](camp_hands)准备的**2,400**储存；一次使用会移入营地还能容纳的量。",
+        "指向存有脉动的机器的[脉动计](pulse_gauge)会读出它有多满。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_cell"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:greater_pulse_cell",
+      "text": "一枚脉动电池置于两个共鸣核心和两个显化锭之间，都来自回响显化。"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grand_pulse_cell",
+      "text": "一枚高级电池，由四个共鸣核心和四个显化锭环绕。"
+    }
+  ]
+}

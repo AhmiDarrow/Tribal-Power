@@ -1,0 +1,17 @@
+{
+  "name": "6. Niesienie",
+  "icon": "tribalpower:carved_stone",
+  "order": 15,
+  "spoiler": true,
+  "unlock": "fragment:5",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Niesienie",
+      "text": [
+        "“Strażnicy posłania nie biegli. Podnosili ziemię, kosz po koszu, i stawiali Palenisko na każdym ocalonym posłaniu. Inni się śmiali, a potem przyszli i usiedli przy ogniskach.”",
+        "Znaleziono na Rzeźbiony kamień w ruinach Marszu."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "name": "Geistergerät",
+  "icon": "tribalpower:spiritgear_pickaxe",
+  "order": 40,
+  "items": [
+    "tribalpower:spiritgear_axe",
+    "tribalpower:spiritgear_shovel",
+    "tribalpower:spiritgear_blade",
+    "tribalpower:spiritgear_shears",
+    "tribalpower:spiritgear_hoe"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_pickaxe",
+      "text": [
+        "Werkzeuge, geschmiedet aus Manifestierter Barren: eine Spitzhacke, eine Axt, eine Schaufel, eine Klinge, eine Schere und eine Hacke. Diese schneiden wie Diamant. Spitzhacke, Axt, Schaufel, Klinge und Hacke halten **1,561** Einsätze, wie Diamant, und die Schere **1,024**.",
+        "Können sie Puls aus einer Zelle ziehen, ist der Puls der Preis der Arbeit und die Schneide bleibt verschont: ein bezahlter Block, Einsatz oder Schlag nutzt sich gar nicht ab.",
+        "Der [Pulsbogen](song_bench) und die [Puls-Armbrust](pulse_crossbow) werden ebenfalls aus Manifestierter Barren geschmiedet und halten **1,024**. Jeder Schuss wird in Puls bezahlt, also nutzt Schießen sie nie ab. Alles davon lässt sich am [Geisteramboss](spirit_anvil) reparieren."
+      ],
+      "title": "Geistergerät-Werkzeuge"
+    },
+    {
+      "type": "text",
+      "title": "Puls für die Arbeit",
+      "text": [
+        "Ein abgebauter Block kostet **2 Puls**, ein Treffer **3**, eine Nutzung **1**, genommen aus jeder Pulszelle, die du trägst.",
+        "Ohne Puls funktioniert das Werkzeug noch, aber dann nutzt es sich ab: was jedes Werkzeug verlieren würde, und einen Punkt mehr, weil es hungert, bis es Gebunden ist. Die Aktionsleiste sagt dir, dass es hungert.",
+        "Ein auf die Stimme des Stücks abgestimmter [Vertrauter](familiar_boons) in der Nähe senkt den Verbrauch um **40%**. Jedes Stück wird mit Manifestierter Barren an jedem Amboss repariert, nie mit Diamanten."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Im Rang aufsteigen",
+      "text": [
+        "Ränge sind der Punkt, an dem Geistergerät etwas Besonderes wird, und sie sollen echte Mühe kosten. Setze das Stück in die Station, sein Totem in der Nähe, lege die **Katalysatoren** in die Katalysatorplätze und halte den Puls im Fluss:",
+        "- **Echoabstimmer**, Feuer: Rang 0 zu 1. **45 Sekunden** bei **96 Puls pro Sekunde**, und **4 Abgestimmtes Echo**.",
+        "- **Echobinder**, Wasser: Rang 1 zu 2. **90 Sekunden** bei **128**, und **4 Gebundenes Echo**.",
+        "- **Echomanifestierer**, Geist: Rang 2 zu 3. **180 Sekunden** bei **192**, und **2 Resonanzkern** und **4 Webstuhlfaden**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Bevor du aufsteigst",
+      "text": [
+        "Jede Station nimmt nur den nächsten Rang: Echobinder lehnt Rang 0 ab, und Echomanifestierer lehnt alles unter Gebunden ab. Webstuhlfaden kommt nur von [Der Ungesungene](the_unsung), also wartet der höchste Rang, bis du ihn besiegt hast.",
+        "Das sind schwere Züge für jedes Lager. Bring einen Resonator mit einem guten Katalysator oder mehrere Generatoren innerhalb von 8 Blöcken.",
+        "Die Station wartet und gibt nichts aus, bis ihre Katalysatoren drin sind; sie werden verbraucht, wenn der Rang gelingt. Der Tooltip zeigt immer, was der nächste Rang braucht."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was die Ränge geben",
+      "text": [
+        "- **Abgestimmt**: jede Aktion kostet einen Puls weniger, nie unter eins (Abbauen 1, ein Treffer 2, eine Nutzung 1), baut **20%** schneller ab und schlägt härter.",
+        "- **Gebunden**: eine hungernde Aktion nutzt sich nicht stärker ab als bei jedem Werkzeug, und es baut **45%** schneller ab.",
+        "- **Manifestiert**: baut **80%** schneller ab, die Hälfte der hungernden Aktionen nutzt sich gar nicht ab, und die Stimmvorteile werden stärker.",
+        "Die Klinge und ihre [Waffenfamilie](spiritgear_weapons) gewinnen am meisten: **+2**, **+5** und **+10** Angriffsschaden je Rang, und etwas Angriffsgeschwindigkeit. Eine Manifestiert-Klinge trifft **Bosse 25% härter** und heilt dich für **10%** jedes Schlags, und genau das willst du in einem langen Kampf.",
+        "Eine mit dem Webstuhl verbundene Spitzhacke gibt **0 Puls** fürs Abbauen aus. Echoentweben zerlegt ein beschädigtes Werkzeug zurück in einen Manifestierter Barren und vergisst Rang und Stimme."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Schere",
+      "text": [
+        "Die **Geistergerät-Schere** schneidet Laub, Wolle, Ranken und Spinnennetz, steigt im Rang auf und nimmt eine Stimme an, wie der Rest des Satzes.",
+        "- **Erde**: ein Schwung nimmt die ganze 3x3-Fläche an Blattwerk.",
+        "- **Luft**: Stutzen kostet keinen Puls und gar keine Abnutzung.",
+        "- **Wasser**: ein geschorenes Schaf behält sein Vlies in der Hälfte der Fälle, und bei Manifestiert immer.",
+        "- **Feuer**: an einem Bienenstock benutzt, beruhigt sie die Bienen mit Rauch, also kein Schwarm.",
+        "- **Geist**: was sie schert, wird danach repariert, und nahe Tiere, die das Scheren lohnen, leuchten.",
+        "- **Webstuhl**: das Schnittgut kommt direkt zur Hand."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Hacke",
+      "text": [
+        "Die **Geistergerät-Hacke** erntet und sät in einer Bewegung: nutze sie auf einer reifen Feldfrucht, und die Ernte fällt, abzüglich eines Samens, der direkt zurück in den Boden geht. Eine Feldfrucht ohne eigenen Samen wird geerntet und bleibt kahl.",
+        "- **Erde**: wendet auf einmal 3x3 Boden.",
+        "- **Wasser**: die Furchen kommen nass heraus, und Ackerboden um dich bleibt bewässert, solange du sie hältst.",
+        "- **Luft**: erntet 3x3.",
+        "- **Webstuhl**: erntet 5x5 und gibt dabei keinen Puls aus.",
+        "- **Geist**: ein Viertel der Ernten fällt doppelt (Samen ausgenommen)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_pickaxe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_axe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_shovel"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_blade"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_shears"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_hoe"
+    },
+    {
+      "type": "text",
+      "title": "Eine eigene Zelle",
+      "text": [
+        "Jedes Teil aus Geistergerät und Geistergewebe, der [Resonanzschlägel](resonance_maul), der [Sechsfachstab](sixfold_staff), die Liederbücher und die Pulsbögen können eine eigene **Pulszelle** tragen. Nimm die Zelle im Inventar auf und **rechtsklicke sie auf das Teil**: sie geht hinein, Ladung und alles.",
+        "Das Teil zehrt immer zuerst von der eigenen Zelle. Erst wenn die leer ist, greift es nach den Zellen, die du trägst, darum läuft ein gut geladenes Set noch lange, nachdem deine Taschen trocken sind."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zellen tauschen",
+      "text": [
+        "Rechtsklicke eine größere Zelle (eine **{item:tribalpower:greater_pulse_cell}** oder eine **{item:tribalpower:grand_pulse_cell}**) auf ein Teil, das eine kleinere hält, um es aufzuwerten; die alte Zelle kommt auf deinen Cursor zurück. Eine Zelle derselben Größe oder kleiner füllt die sitzende nur auf.",
+        "Rechtsklicke ein Teil mit einem **leeren Cursor**, um seine Zelle wieder herauszunehmen, Ladung und alles. Die Kurzinfo zeigt, was jedes Teil hält."
+      ]
+    }
+  ],
+  "next": "spiritgear_weapons"
+}

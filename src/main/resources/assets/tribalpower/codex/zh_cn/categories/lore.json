@@ -1,0 +1,8 @@
+{
+  "name": "传说",
+  "icon": "tribalpower:lore_tablet",
+  "order": 120,
+  "description": "曾经那个世界的故事，以及诸部族留给后来者的石板。",
+  "spoiler": true,
+  "progress": "tablets"
+}

@@ -1,0 +1,71 @@
+{
+  "name": "Consanguineo tribale",
+  "icon": "tribalpower:tribal_kin_elder_spawn_egg",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:tribal_kin_drummer_spawn_egg",
+    "tribalpower:tribal_kin_hunter_spawn_egg",
+    "tribalpower:tribal_kin_weaver_spawn_egg"
+  ],
+  "next": "kinship_totem",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:tribal_kin",
+      "text": [
+        "Ogni accampamento tiene quattro Consanguinei: un **Anziano**, un **Tamburino**, un **Cacciatore** e un **Tessitore**. Vagano entro **16 blocchi** dal campo e non svaniscono mai; nel giorno di festival della tribù restano entro **5 blocchi** dal Focolare. Clic destro su un Tamburino, un Cacciatore o un Tessitore per vedere il loro mestiere e il tuo rango. L'Anziano invece parla con te."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_elder",
+      "title": "L'Anziano",
+      "text": [
+        "L'Anziano scambia quando sei **Ospite**. Ogni tribù ha sette offerte: due per ogni rango, da Ospite a Consanguineo, più il piatto proprio della tribù al rango Amico. Ogni scambio dà **+2** di reputazione. L'Anziano consegna anche le [richieste e la storia](elders_and_stories) della tribù."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Scambiare con l'Anziano",
+      "text": [
+        "Un Anziano non ha nulla per uno Straniero. Porta prima un'offerta al Focolare.",
+        "Le scorte sono limitate. Un'offerta si può prendere **12 volte** al giorno, **8** se chiede due oggetti diversi, e **6** se vende un reagente di creatura. L'Anziano rifornisce una volta ogni giorno di Minecraft, e chiudere la schermata non la riempie.",
+        "Quando raggiungi **Voce**, parla ancora una volta con l'Anziano. Ti preme in mano il **Marchio della tribù** della tribù, una volta per tribù. Conservalo: diventa un [Totem di parentela](kinship_totem)."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_drummer",
+      "title": "Il Tamburino",
+      "text": [
+        "Ogni **5 a 6 secondi** il Tamburino batte un tempo che immette **2 Pulso** in ogni Cuoretamburo, Collettore di ley e Risonatore di Pulso entro **8 blocchi**. Arpe del vento, Tamburi delle onde e Corni di brace non ne prendono. Il tempo tiene svegli anche i totem vicini."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_hunter",
+      "title": "Il Cacciatore",
+      "text": [
+        "Il Cacciatore sorveglia il ciglio dell'accampamento e colpisce le creature ostili entro **12 blocchi**. Ferisci però un qualsiasi Consanguineo, e il Cacciatore ti insegue per un **minuto**."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_weaver",
+      "title": "Il Tessitore",
+      "text": [
+        "Ogni **40 a 90 secondi** il Tessitore cammina fino al Telaio più vicino, entro **12 blocchi** dall'accampamento (o un Banco del canto, se non c'è un Telaio), e ci lavora per **sei secondi**. Quella posa è il lavoro. Non fabbrica nulla per te."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Vivere accanto a loro",
+      "text": [
+        "I Consanguinei sono neutrali e pazienti. Stanno accanto alle tue macchine, suonano il tamburo per i tuoi generatori e vegliano le tue notti finché vuoi.",
+        "Non colpirli mai. Un fendente di spada a vuoto costa **25** di reputazione e mette tutto l'accampamento contro di te. Vedi [Tribù e reputazione](standing) per tutto il resto che fa arrabbiare una tribù.",
+        "Le quattro uova generatrici sono per i costruttori in creativa che vogliono allestire un accampamento proprio."
+      ]
+    }
+  ]
+}

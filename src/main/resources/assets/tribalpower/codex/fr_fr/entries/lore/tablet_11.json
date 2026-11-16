@@ -1,0 +1,16 @@
+{
+  "name": "Tablette : la Marche",
+  "icon": "tribalpower:lore_tablet",
+  "order": 210,
+  "spoiler": true,
+  "unlock": "tablet:11",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Depuis une Salle des ancêtres engloutie, pour qui marchera ensuite dans la Marche :",
+        "“La Marche est là où le fil s'est effiloché le plus fin et où le sol tombé est venu se poser. Les salles gisent enfoncées jusqu'au linteau ; les camps gardent la mesure sans personne au tambour ; le cristal pousse là où la tension du Métier s'amasse encore. Parcours-la avec une Cellule de Pulsation pleine et une main sûre. Ici, tout répond encore à un battement.”"
+      ]
+    }
+  ]
+}

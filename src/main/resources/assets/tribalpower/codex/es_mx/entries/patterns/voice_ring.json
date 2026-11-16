@@ -1,0 +1,33 @@
+{
+  "name": "Anillo de voz",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 50,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Seis voces, dispuestas",
+      "text": [
+        "Un [Resonador de Pulso](pulse_resonator) cuenta como máximo **cinco** voces de un montón suelto de tótems, Tótems de parentesco incluidos. Para contar los seis elementos más el parentesco, las voces tienen que estar **dispuestas**.",
+        "El Anillo de voz son ocho puestos alrededor del resonador, a **tres bloques** en los puntos cardinales y en las diagonales, todos al nivel del propio resonador. Ocho, porque seis tótems a intervalos iguales no caben en una cuadrícula."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "voice_ring",
+      "tier": 1,
+      "title": "El anillo",
+      "text": "Un tótem en cada una de las ocho ranuras, a tres bloques del Resonador."
+    },
+    {
+      "type": "text",
+      "title": "Llenar el anillo",
+      "text": [
+        "Cada ranura necesita un Tótem de resonancia. Un Tótem de parentesco no puede llenar una ranura, aunque sigue sumando su tribu desde cualquier sitio dentro de 8 bloques. Solo cuentan las voces **distintas**, la sexta incluida: dos tótems de Tierra siguen siendo una voz, así que las ranuras de sobra pueden llevar duplicados.",
+        "Solo cuentan los tótems en estado **Respondido**; hay que despertar primero a uno callado (mira [Custodia](keeping)).",
+        "Coloca el catalizador como siempre. Agáchate y haz clic derecho en el Resonador con este libro para ver su catalizador y cuántas voces oye. Si se queda en cinco cuando hay seis voces alrededor, una ranura del anillo sigue vacía."
+      ]
+    }
+  ]
+}

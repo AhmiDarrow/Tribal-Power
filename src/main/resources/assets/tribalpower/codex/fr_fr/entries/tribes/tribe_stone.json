@@ -1,0 +1,65 @@
+{
+  "name": "Chanteurs de gravier",
+  "icon": "tribalpower:tribe_mark",
+  "order": 50,
+  "spoiler": true,
+  "unlock": "tribe:stone",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_stone",
+      "title": "Chanteurs de gravier",
+      "text": [
+        "“Le maillage ne trouve pas le minerai. Le maillage donne au minerai un endroit où se poser.”",
+        "Brin de **Pierre**, voix de la **Terre**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qui ils sont",
+      "text": [
+        "Les Chanteurs de gravier ont chanté bas sur la pierre brute jusqu'à ce qu'elle se relâche, puis plus bas encore jusqu'à ce qu'elle se brise en écho. Leur art est le **Broyeur d'écho** et les maillages.",
+        "Leurs camps se trouvent dans les **montagnes** et sur les rives pierreuses, et dans la Marche l'un de leurs camps se trouve dans chaque bande, du nord gelé jusqu'au sel."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'ils veulent",
+      "text": [
+        "Leur réactif est l'**Écho accordé**, qui vaut **+8** de réputation à leur âtre.",
+        "Ils privilégient aussi les minerais bruts, les blocs de minerai, Gravier de fer, Gravier d'or ou Gravier de cuivre : **+3** chacun. Toute autre nourriture vaut **+1**, et une Cellule de Pulsation chargée **+2 pour chaque 10 Pulsation**, jusqu'à +8.",
+        "Rappelle-toi : l'âtre prend au plus **60** de réputation par jour en offrandes ; voir [Tribus et réputation](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que l'Ancien échange",
+      "text": [
+        "**Hôte** : 4 Fer brut contre 3 Éclats d'écho ; 4 Écho accordé et 8 Pierre de la Marche contre un Maillage de résonance.",
+        "**Ami** : 6 Gravier de fer contre 2 Écho accordé ; 3 Or brut contre 4 Gravier d'or ; 4 Grain de steppe contre du Pain de gravier.",
+        "**Parent** : 6 Écho accordé contre 2 Écho lié ; 4 Écho lié contre un Broyeur d'écho.",
+        "Chaque échange rapporte **+2** de rang."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marque, totem et bienfait",
+      "text": [
+        "À **Voix**, l'Ancien te donne la Marque de tribu des Chanteurs de gravier. Fabrique-la avec un {item:tribalpower:resonance_totem_earth} et deux Espritissu pour en faire leur [Totem de parenté](kinship_totem).",
+        "À côté d'un Résonateur de Pulsation, c'est une voix de plus ; à côté d'une station, il prête **Terre**.",
+        "Les Parents des Chanteurs de gravier portent leur [bienfait](tribe_boons) : le minerai que tu casses a **une chance sur cinq** d'en donner un de plus.",
+        "Leur plat porte le bienfait pendant **5 minutes**, et leur [relique](elders_and_stories) tant que tu la portes.",
+        "Ton rang auprès des Chanteurs de gravier décide jusqu'où une [Fosse d'écoute](listening_pit) peut écouter : **Ami** pour le minerai commun, **Parent** pour les bandes profonde et chaude, **Voix** pour la rare. Leur Totem de parenté est l'une des deux façons d'ouvrir les bandes plus profondes.",
+        "À **Voix**, tu peux aussi lier un **Dos-éclat** comme [familier](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "stone",
+      "title": "Ton travail avec eux",
+      "text": [
+        "Ce que l'Ancien des Chanteurs de gravier t'a demandé, et jusqu'où leur récit est allé. Voir [Anciens, requêtes et récits](elders_and_stories)."
+      ]
+    }
+  ]
+}

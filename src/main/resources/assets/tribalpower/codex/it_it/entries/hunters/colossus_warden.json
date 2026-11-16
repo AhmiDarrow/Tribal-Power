@@ -1,0 +1,46 @@
+{
+  "name": "Custode colosso",
+  "icon": "tribalpower:heartwood_core",
+  "order": 310,
+  "spoiler": true,
+  "items": [
+    "tribalpower:colossus_warden_spawn_egg",
+    "tribalpower:heartwood_core"
+  ],
+  "next": "trolls",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:colossus_warden",
+      "title": "Custode colosso",
+      "text": [
+        "Il salice cresciuto enorme, e che cammina. Il Custode colosso è l'unico boss vagante della Marcia, alto sette blocchi, e non lo si trova mai solo.",
+        "Non è il Colosso piangente, il grande salice che sta in boschetti per l'acquitrino: vedi [alberi della Marcia](march_trees)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trovarne uno",
+      "text": [
+        "Sorge di rado, solo nell'**Acquitrino dei canneti**, sul terreno aperto di notte. Arriva con il suo boschetto intorno: **da 2 a 4 Custode piangente**, **da 1 a 3 Fata della palude** e fino a **2 Galleggiatore di torbiera**. Sono miti e restano miti.",
+        "Una barra del boss mostra la sua salute a chiunque sia vicino. Non svanisce all'alba come gli altri spiriti, e finché è vicino non puoi dormire. Se se ne va senza morire, il boschetto va con lui. Solo un Custode colosso che sorge da solo porta un boschetto: uno da un uovo generatore arriva solo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Combatterlo",
+      "text": [
+        "Ha **260 di salute** e **14 di armatura**, ed è lento. Ogni colpo infligge **12** e ti radica: sei rallentato per 3 secondi, quindi non lasciarti prendere due volte.",
+        "Come ogni spirito che sorge di notte, arriva più forte, e può sorgere come élite dal nome dorato. Porta amici, un arco e spazio per indietreggiare. Non si legherà."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ciò che lascia",
+      "text": [
+        "Lascia sempre il suo **Nucleo di durame**, un reagente di Radice che non ottieni altrove, con **da 16 a 32 Tronco di salice**, **da 4 a 8 Arbusto di salice**, **da 6 a 12 Filo di salice**, **da 4 a 8 Radice nodosa** e **da 8 a 16 bottiglie dell'esperienza**. Saccheggio ne aggiunge.",
+        "Non c'è un Arbusto di salice gigante: pianta quattro Arbusto di salice in un quadrato per far crescere un tuo Colosso piangente."
+      ]
+    }
+  ]
+}

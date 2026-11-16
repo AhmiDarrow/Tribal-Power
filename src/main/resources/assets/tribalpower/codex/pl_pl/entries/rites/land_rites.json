@@ -1,0 +1,50 @@
+{
+  "name": "Obrzędy ziemi",
+  "icon": "tribalpower:rite_green_blessing",
+  "order": 110,
+  "items": [
+    "tribalpower:rite_still_night",
+    "tribalpower:rite_ley_binding"
+  ],
+  "next": "voice_blessings",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_green_blessing",
+      "text": [
+        "Obrzędy ziemi na jakiś czas zmieniają region: szybsze uprawy, mniej wrogich albo pożyczone połączenie między dalekimi totemami.",
+        "Obowiązują je te same zasady co każdy obrzęd tabliczki: pasująca pieczęć, krąg i Puls przez przewodnik w zasięgu 8 bloków."
+      ],
+      "title": "Obrzędy ziemi"
+    },
+    {
+      "type": "text",
+      "title": "Trzy obrzędy ziemi",
+      "text": [
+        "- **Zielone błogosławieństwo** (Ziemia, **600** Pulsu, Sękaty korzeń): błogosławi **dziewięć chunków** wokół brasera przez dwadzieścia minut. Uprawy, sadzonki i łodygi iskrzą tam na zielono, a przybywa im dodatkowych losowych ticków.",
+        "- **Cicha noc** (Duch, **600**, Sygil strażnika): ucisza pojawianie się wrogich w zasięgu **64 bloków** na piętnaście minut, jak szeroki Totem ciszy. Rzeźbiarze pieczęci sprzedają tę tabliczkę Przyjaciołom.",
+        "- **Więź ley** (Krosno, **1 200**, Nić Krosna): wiąże najbliższy braserowi Totem rezonansu z innym w zasięgu **64 bloków** na trzydzieści minut. Póki buczy, przewodniki w zasięgu jednego totemu wplatają się w sieć drugiego, a Puls przechodzi po nici."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zanim rzucisz",
+      "text": [
+        "Najpierw narysuj krąg: brakujące cokoły psują rzucenie i nie zużywają tabliczki.",
+        "Cztery pasujące totemy na kardynałach kręgu tną koszt o ćwierć i podwajają czas: Zielone błogosławieństwo trwa wtedy czterdzieści minut za 450 Pulsu."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_green_blessing"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_still_night"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_ley_binding"
+    }
+  ]
+}

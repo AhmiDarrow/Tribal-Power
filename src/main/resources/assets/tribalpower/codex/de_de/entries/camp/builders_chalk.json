@@ -1,0 +1,89 @@
+{
+  "name": "Baukreide",
+  "icon": "tribalpower:builders_chalk",
+  "order": 140,
+  "next": "tribal_bench",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:builders_chalk",
+      "text": [
+        "Ritualkreide markiert Totems und wird dabei verbraucht. Dies ist die andere Art: ein Baustab, aufbewahrt zum Messen. Halte sie, und sie stellt ein **Hologramm** einer Form in die Welt — einen Geisterblock an jeder Stelle, die die Form noch braucht —, damit du echte Blöcke in die Geister setzt, statt zu zählen und zu hoffen.",
+        "Sie nutzt sich nie ab, und sie platziert nichts und bricht nichts. Das Hologramm wird nur auf deinem eigenen Bildschirm gezeichnet; niemand sonst sieht es, und der Server leistet dafür keine Arbeit."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Handhabung",
+      "text": [
+        "**Benutzen** wechselt die Form. **Schleichen und Rechtsklick** vergrößert sie, **Schleichen und Linksklick** verkleinert sie; die Größe springt an beiden Enden um. Bei einem Setzritus schaltet dasselbe Schleichen die Stufe weiter, und die Größe, die du gesetzt hattest, bleibt unangetastet. Schleichen mit der Kreide draußen zerbricht nie einen Block, also kannst du sie im Stehen in deinen eigenen Wänden bemessen.",
+        "Eine Kreide ohne gesetzte Markierung zeichnet nur, solange sie in deiner Hand ist, damit ein Layout nie deinen Füßen nachläuft, während du eine Spitzhacke schwingst."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Layout setzen",
+      "text": [
+        "**Benutze sie auf einem Block, um das Layout zu setzen.** Das Hologramm folgt dir nicht mehr und steht auf dieser Stelle — und es bleibt stehen, solange die Kreide **irgendwo in deiner Schnellzugriffsleiste** liegt, damit du sie weglegen, Blöcke nehmen und in den Geistern bauen kannst. Benutze sie noch einmal an derselben Stelle, um die Markierung wegzuwischen.",
+        "Ein Geist steht nur dort, wo noch ein Block gebraucht wird. Fülle einen, und er geht aus, sodass das, was noch leuchtet, genau das ist, was noch zu bauen ist.",
+        "Die gesetzte Markierung steht nur in der Welt, in der sie gesetzt wurde, und nur solange du höchstens **192 Blöcke** von ihr entfernt bist."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Größe",
+      "text": [
+        "Die Größen laufen von **2** bis **128**, von der Markierung aus gemessen — der größte Kreis ist also **257 Blöcke breit**. Der Schritt öffnet sich mit dem Wachstum, fein bei einer Hütte und grob bei einer Kurtine, sodass der ganze Bereich achtzehn Rasten hat statt hundertsiebenundzwanzig.",
+        "Das Hologramm reicht etwa **48 Blöcke**, und bei einer Form, die groß genug ist, die Sicht zu fluten, zeichnet es näher, statt dünner zu werden. Geh die Linie entlang, und es hält mit dir Schritt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Formen",
+      "text": [
+        "- **Quadrat**, **Kreis**, **Kreuz** und **Sechseck**: flache Umrisse für einen Grundriss.",
+        "- **Wände**: ein quadratischer Grundriss, drei Lagen hoch gestellt, das ist ein Raum.",
+        "- **Kuppel**: die Schale einer Halbkugel, für ein Dach.",
+        "- **Hütte**: vier Wände mit einer Türöffnung auf einer Seite und einem gestuften Dach darüber.",
+        "- **Langhaus**: eine Halle doppelt so lang wie breit, mit einem Firstbalken und zwei Giebeln.",
+        "- **Gitterlager**: das Quadrat, das eine Maschine an der Markierung wirklich erreicht, und die vier Stellen, auf die ein Resonanz-Totem stehen würde, um diese Reichweite nach außen zu tragen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Warum das Quadrat, und kein Kreis",
+      "text": [
+        "Jede Maschine misst ihre Reichweite entlang jeder Richtung für sich, also ist die Reichweite ein **Würfel**, keine Kugel. Ein Block acht östlich und acht nördlich von einem Generator ist in Reichweite; einer zehn Blöcke genau östlich ist es nicht, so viel näher der zweite auf einer Karte auch wirkt.",
+        "Darum zeichnet **Gitterlager** ein Quadrat. Stell es auf **8**, und es ist genau die Zone, in der ein Trommelherz, eine Station oder ein Gitterkonduktor arbeitet."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Riten",
+      "text": [
+        "Nach dem Gitterlager zeichnet die Kreide die Bauwerke dieses Buches, in der Reihenfolge, in der du ihnen begegnest: **Steinbecken**, **Lauschgrube**, **Ritenkreis**, **Stimmring**, **Splitterformation**, **Wegtor**, **Ferntor**.",
+        "Die Markierung ist dort, wo die Maschine steht. Ein Geist ist ein Block, den der Ritus noch will — Ritualmarkierungen, Ankersteine, Totems, Sockel, der Steinboden unter einer Lauschgrube, der Speicher unter einer Echo-Station, der Rahmen eines Tores. Das offene Innere eines Tores bleibt dunkel, weil dieser Raum frei bleiben muss."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stufen und Ausrichtung",
+      "text": [
+        "Schleichen und Rechtsklick hebt die Stufe; Schleichen und Linksklick senkt sie. Die Lauschgrube beginnt als das **5 mal 5**; die nächste Stufe ist Tiefes Lauschen, das **7 mal 7** mit Totems auf den Himmelsrichtungen. Das Steinbecken und der Ritenkreis haben auch eine zweite Stufe. Der Stimmring, die Splitterformation und beide Tore sind ein einziges Layout.",
+        "Ein Ritus dreht sich dorthin, wohin du schaust, und bleibt gedreht, sobald du die Markierung setzt. Schau am Tor entlang, bevor du es setzt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Laserwasserwaage",
+      "text": [
+        "Letztes in der Liste ist die **Laserwasserwaage**: eine gerade, waagerechte Linie aus Geistern, die von der Markierung in deine Blickrichtung läuft, für eine Wand, eine Straße, einen Tunnel oder einen langen Kanal. **Schleichen und Rechtsklick** oder **Schleichen und Linksklick** schaltet ihre Länge durch **64**, **128** und **256** Blöcke.",
+        "Solange sie dir folgt, schwenkt sie mit deinem Blick. Benutze sie auf einem Block, um sie zu setzen, und sie behält die Ausrichtung, die du da hattest. Wie jede Form zeichnet sie etwa **48 Blöcke** um dich, also geh die Linie entlang, und der Rest leuchtet voraus auf."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:builders_chalk"
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "name": "Das Gitter weben",
+  "icon": "tribalpower:lattice_conductor",
+  "order": 40,
+  "next": "keeping_totems",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Puls läuft nur entlang von Gitterkonduktoren. Dein erster Konduktor verbindet die Trommel und die Station; wenn dein Lager sich ausbreitet, webe mehr.",
+        "Konduktoren innerhalb von 8 Blöcken voneinander verbinden sich zu einem Netzwerk, und alles innerhalb von 8 von einem von ihnen hängt daran: ein Generator an einem Ende des Lagers versorgt eine Maschine am anderen. Eine Herstellung ergibt vier.",
+        "Jeder Konduktor trägt anfangs **64 Puls pro Sekunde**. Wenn ein Netzwerk mehr tragen muss, [erhöhe den Rang](machine_ranks) seiner Konduktoren (256, 1,024, dann 4,096 pro Sekunde) oder stelle mehr neben den ausgelasteten Generator und die Maschine.",
+        "Ritualkreide verbindet Totems für ihre Stimmen: rechtsklicke eines mit **Ritualkreide** (Knochenmehl, Lapislazuli und eine Geistscherbe ergeben vier Stifte), dann ein anderes weniger als 16 Blöcke entfernt. Kreide trägt Stimmen, nie Puls."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Ein kleines Gitter",
+      "steps": [
+        {
+          "caption": "Ein Generator an einem Ende des Lagers, eine Station am anderen.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:echo_attune"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Gitterkonduktor innerhalb von 8 Blöcken von beiden webt sie zu einem Netzwerk: die Station zieht die Trommel durch ihn.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Totem in Reichweite füllt seinen Puffer aus dem Netzwerk und behält seine Stimme.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Konduktoren innerhalb von 8 voneinander verbinden sich. Jeder trägt 64 Puls pro Sekunde, mehr mit höherem Rang; stelle sie neben ausgelastete Generatoren und Maschinen.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

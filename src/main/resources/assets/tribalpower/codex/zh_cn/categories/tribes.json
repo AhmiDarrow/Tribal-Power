@@ -1,0 +1,8 @@
+{
+  "name": "九个部族",
+  "icon": "tribalpower:tribe_mark",
+  "order": 110,
+  "description": "九个部族曾守护织机。他们的营地仍在；去赢得他们的地位和印记。",
+  "spoiler": true,
+  "progress": "tribes"
+}

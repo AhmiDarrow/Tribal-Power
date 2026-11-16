@@ -1,0 +1,74 @@
+{
+  "name": "Feras dos Baixios",
+  "icon": "tribalpower:shoal_scale",
+  "order": 270,
+  "spoiler": true,
+  "items": [
+    "tribalpower:silt_glider_spawn_egg",
+    "tribalpower:pale_drifter_spawn_egg",
+    "tribalpower:shoal_darter_spawn_egg",
+    "tribalpower:brine_lurker_spawn_egg",
+    "tribalpower:silt_fin",
+    "tribalpower:pale_streamer",
+    "tribalpower:shoal_scale",
+    "tribalpower:brine_fang"
+  ],
+  "next": "beasts_everywhere",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Os da água",
+      "text": [
+        "Quase tudo o que pertence aos Baixios vive na água deles: três nadadores mansos e uma moréia que caça ali à noite. Os nadadores nunca deixam a água: encalhado, um se debate de volta para ela e seca se não conseguir alcançá-la. Madeira de zanco anda pelas margens (veja [árvores que andam](walking_trees)). Veja [a Marcha](the_march) para a terra em si.",
+        "Você pode escovar cada fera mansa daqui uma vez por minuto para obter o reagente dela, e ela é tentada e criada com a própria comida, nomeada abaixo em **Caça e criação**. Você pode vinculá-la como qualquer animal manso (veja [familiares](familiars)), e embora nenhuma tenha um dom próprio, uma vinculada ainda pode tomar uma voz em um totem e fortalecer a sua magia (veja [sintonizar em um totem](familiar_attuning)). Um nadador vinculado segue você só até onde a água dele vai, e espera na água quando você manda que fique."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:silt_glider",
+      "title": "Planador de lodo",
+      "text": [
+        "Uma arraia que plana sobre o lodo, em grupos de dois a quatro. **14 de vida** e **1 de armadura**.",
+        "Solta **1 a 3 Nadadeira de lodo**, mais com Pilhagem.",
+        "Caçada, também solta de 1 a 2 Barbatana-brilho crua e até 1 Pó de osso. Crie com **Alga-fita ou erva marinha**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_drifter",
+      "title": "Derivante pálido",
+      "text": [
+        "Uma medusa âmbar, com o sino listrado e longos braços de fita, em grupos de dois a quatro. **12 de vida**, sem armadura.",
+        "Solta **1 a 3 Fita pálida**.",
+        "Caçada, também solta até 1 Geleia à deriva e até 1 Bola de slime. Crie com **Alga-fita ou erva marinha**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shoal_darter",
+      "title": "Dardo de baixio",
+      "text": [
+        "Uma perca pequena e listrada, em grupos de dois a quatro. **14 de vida** e **1 de armadura**.",
+        "Solta **1 a 3 Escama de baixio**.",
+        "Caçada, também solta de 1 a 2 Barbatana-brilho crua e até 1 Pó de osso. Crie com **Alga-fita ou erva marinha**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:brine_lurker",
+      "title": "Espreitador de salmoura",
+      "text": [
+        "Uma moréia que surge nos Baixios à noite, uma ou duas por vez. Tem **21 de vida** e **1 de armadura**, a mordida causa **4** e envenena você por 3 segundos. Segue a presa até a margem e volta para a água quando a perde.",
+        "Solta **1 a 2 Presa de salmoura**, um reagente de Veneno. Presa de salmoura chama o Tamborileiro da maré na Pedra da maré: veja [guardiões](guardians).",
+        "Caçada, também solta até 2 Bolsa de tinta e até 1 Barbatana-brilho crua."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Além do reagente, cada um deixa cair mais quando caçado, e mais ainda com Pilhagem. A carne cai assada se o animal morreu queimando. Para reproduzir os selvagens, **agache** enquanto alimenta dois adultos com a comida deles; se alimentar normalmente, um selvagem se afeiçoa a você."
+      ]
+    }
+  ]
+}

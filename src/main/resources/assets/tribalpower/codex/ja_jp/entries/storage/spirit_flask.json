@@ -1,0 +1,36 @@
+{
+  "name": "霊のフラスコ",
+  "icon": "tribalpower:spirit_flask",
+  "order": 35,
+  "items": [
+    "tribalpower:greater_spirit_flask"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_flask",
+      "text": [
+        "持ち運べるタンク。フラスコは液体を1種、**4,000 mB**（バケツ4杯）入れる。**上位の霊のフラスコ**は**16,000 mB**で、[霊の貯槽](spirit_cistern)と同じ量だ。",
+        "バケツのスタックには分かれない。入っている量は、アイコンの下に、その液体の色のバーで出る。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "入れると注ぐ",
+      "text": [
+        "- **タンクか機械に使う**（霊の貯槽、波太鼓、他のmodのタンク）。そこから汲む。汲めなければ、運んでいるものを注ぐ。",
+        "- **世界の液体源に使う**と、バケツ1杯を飲む。",
+        "- **スニーク使用**で、バケツ1杯を自分の前に注ぎ戻す。",
+        "他のmodからは普通の液体容器に見える。荷物の中でも、パイプと充填機械が満たし、空にできる。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_flask"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:greater_spirit_flask"
+    }
+  ]
+}

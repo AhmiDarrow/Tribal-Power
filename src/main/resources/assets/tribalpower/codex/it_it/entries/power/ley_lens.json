@@ -1,0 +1,55 @@
+{
+  "name": "Lente ley",
+  "icon": "tribalpower:ley_lens",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_lens",
+      "text": [
+        "Una lastra di vetro, un Risonatore di rame e una Scheggia di Spirito fanno una lente per la vista di ley. Guardaci attraverso e vedi cosa fanno il terreno e il tuo accampamento: quanto è forte la ley, fin dove arriva il Pulso, quali totem sono svegli e quali macchine lavorano."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cinque viste",
+      "text": [
+        "Tienila in una delle due mani e usala per scorrere cinque viste:",
+        "- **Ley**: disegna le linee di ley intorno a te, ogni filo nel colore della sua voce.",
+        "- **Zona di Pulso**: mostra la rete di reticolo su cui ti trovi: la portata di **8 blocchi** dei suoi conduttori, quello che tocchi delineato più luminoso, e un segno su ogni blocco che tiene Pulso. Il pannello nomina i conduttori della rete e il ritmo, il rango del tuo conduttore e ciò che ha portato nell'ultimo secondo, e totalizza il Pulso in entrata della rete contro ciò che spendono le sue macchine. Fuori dal reticolo lo dice.",
+        "- **Voci**: segna i totem vicini nel colore della propria voce quando sono risposti, una tinta più scura quando sono fievoli, e grigio quando sono quieti.",
+        "- **Macchine**: segna le macchine di Tribal Power intorno a te.",
+        "- **Spento**: il vetro si scurisce. Niente linee, niente pannello, niente segni. Gli occhiali ley che indossi mostrano ancora i loro fili.",
+        "Ogni vista ha il proprio pannello sullo schermo. La vista Ley mostra la forza della ley dove ti trovi, Zona di Pulso ciò che è immagazzinato e ciò che scorre, Voci le voci a portata, e Macchine le stazioni, i relè e i depositi intorno a te. Spento non mostra nulla."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fili di ley",
+      "text": [
+        "Le linee di ley sono una tela su tutta la dimensione: il Pulso del pianeta, non blocchi. Ogni linea è un filo nel colore di un Totem di risonanza (Terra in verde, Fuoco in arancione, Acqua in blu, Aria in cielo pallido, Spirito in viola o Telaio in oro), con un nodo luminoso che palpita lungo di essa.",
+        "Un totem tira attraverso di sé il filo del proprio colore, così puoi guidare un filo da dove pianti il totem. Un incrocio cade all'incirca ogni **80 blocchi**. La maggior parte ne unisce da due a quattro, e solo circa uno su quaranta riunisce tutti e sei.",
+        "Fabbrica una Lente ley in un [Cappuccio di Tessitospirito](spiritweave) e gli occhiali del cappuccio mostrano gli stessi fili mentre lo indossi, anche con una lente in mano impostata su Spento; una lente tenuta su un'altra vista li nasconde. Accovacciati e usa il cappuccio, oppure fai un clic accovacciato a mano vuota mentre è sulla testa, per spegnere e accendere gli occhiali."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "ley_lens",
+      "title": "Leggere il suolo",
+      "text": "La lente disegna solo i fili, mai il suolo. Nella vista Ley la barra di forza sul pannello diventa oro dove un Collettore di ley canterebbe più forte e blu dove a malapena mormorerebbe."
+    },
+    {
+      "type": "text",
+      "title": "Da vicino",
+      "text": [
+        "Accovacciati e usa la lente su un Collettore di ley per stampare in chat la scomposizione esatta dei fattori di quel collettore: gli stessi numeri con cui raccoglie.",
+        "Accovacciati e usala su una creatura della Marcia, selvatica o legata, per stampare i suoi fili e i suoi Marchi; vedi [Legare un famiglio](familiars).",
+        "La linea di forza è lo stesso battito che un collettore conterebbe lì, da 1 a **16**, mostrato come una quota dei 16 interi. La quota della terra si ferma a 6, e ogni linea di ley aggiunge fino a 2, meno quanto più te ne stai lontano. Un battito di **8 o più** tiene svegli i totem vicini. Un tetto toglie cielo, pioggia e tempesta, ma le linee restano, così un collettore sotto tetto diventa più debole, non morto."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_lens"
+    }
+  ]
+}

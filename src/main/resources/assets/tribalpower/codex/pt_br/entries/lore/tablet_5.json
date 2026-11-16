@@ -1,0 +1,16 @@
+{
+  "name": "Tábua: Canção dos Tecelões de padrões",
+  "icon": "tribalpower:lore_tablet",
+  "order": 150,
+  "spoiler": true,
+  "unlock": "tablet:5",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Guardada num acampamento dos Entalhadores de selos, nas palavras dos Tecelões de padrões:",
+        "“Uma fábrica é uma canção que deixou de precisar do cantor. Escrevemos os tempos em rodas de relógio e pó de mariposa e deixamos o Tear levar a melodia. Quando o Corte chegou, as canções continuaram. Algumas ainda tocam. Escute o clique antes do zumbido.”"
+      ]
+    }
+  ]
+}

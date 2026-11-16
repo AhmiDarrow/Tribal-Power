@@ -1,0 +1,74 @@
+{
+  "name": "トロール",
+  "icon": "tribalpower:troll_hide",
+  "order": 320,
+  "spoiler": true,
+  "items": [
+    "tribalpower:crag_troll_spawn_egg",
+    "tribalpower:rime_troll_spawn_egg",
+    "tribalpower:slag_troll_spawn_egg",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:slag_hide"
+  ],
+  "next": "goblins",
+  "pages": [
+    {
+      "type": "text",
+      "title": "トロール",
+      "text": [
+        "大きく、倒れにくく、怒りやすい。三種類のトロールがマーチの高い石とその熱を守り、三つともあなたを狩る。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:crag_troll",
+      "title": "岩場のトロール",
+      "text": [
+        "高地にいる。夜、開けた地面に現れる。一度に一匹か二匹。",
+        "狩りで倒すと、さらにマーチの革を1～3、骨を1～2、火打石を最大2落とす。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:rime_troll",
+      "title": "霧氷のトロール",
+      "text": [
+        "雪の野にいる。夜、開けた地面に現れる。一度に一匹か二匹。",
+        "狩猟すると、さらにマーチの革を1から3、骨を1から2、雪玉を1から3落とす。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slag_troll",
+      "title": "鉱滓のトロール",
+      "text": [
+        "残り火の荒地にいる。溶岩のそばと周りの熱い石の上、昼も夜も、一度に一匹か二匹。**火に免疫**がある。",
+        "狩猟すると、さらにマーチの革を1から3、骨を1から2、鉄塊を1から3落とす。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "一体と戦う",
+      "text": [
+        "トロールは**体力69**と**防具6**を持ち、一撃は**9**。岩場のトロールか霧氷のトロールの一撃はあなたを押し戻し、鉱滓のトロールの一撃は2秒間火をつける。",
+        "距離を取れ。背後が溶岩のときに戦うな。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "与えるもの",
+      "text": [
+        "それぞれ皮を**1から2**落とす。ドロップ増加でもっと増える。**トロールの皮**と**霧氷の皮**は押しの試薬、**鉱滓の皮**は残り火の試薬。詳しくは[試薬](reagents)。",
+        "トロールは決して絆を結ばない。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猟と群れ",
+      "text": [
+        "試薬のほかに、狩猟するとさらに落ち、ドロップ増加でもう一段増える。"
+      ]
+    }
+  ]
+}

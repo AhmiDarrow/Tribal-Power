@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:drumheart"
     },
-    "title": "The camp answers",
-    "description": "Make a Drumheart and charge a Pulse Cell.",
+    "title": {
+      "translate": "advancement.tribalpower.journey.hum.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.journey.hum.description"
+    },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false,

@@ -1,0 +1,32 @@
+{
+  "name": "Olla del Hogar",
+  "icon": "tribalpower:hearth_pot",
+  "order": 10,
+  "items": [
+    "tribalpower:hearth_pot"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:hearth_pot",
+      "title": "Una olla sobre el fuego",
+      "text": [
+        "La Olla del Hogar es una olla ancha de arcilla en una cuna de cobre. Colócala **sobre calor**: una hoguera encendida, fuego, fuego de almas, magma, lava o un [Cuenco de brasa](pulse_lights) justo debajo. No pide Pulso alguno, así que es la primera máquina de un campamento.",
+        "Ábrela y pon cada ingrediente en **su propio asiento** del cuadrado de dos por dos, donde lo muestra la receta: el primero arriba a la izquierda, luego arriba a la derecha, abajo a la izquierda y abajo a la derecha. Los asientos que la comida no usa quedan vacíos. Un **cuenco** va en el asiento junto al cuadrado cuando la comida lo pide. Un plato tarda unos **12 segundos** sobre el fuego, la comida de camino rápida tan solo **8**, y un festín **20**, y la comida sale a la derecha."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Cada [plato de la tribu](tribe_dishes), cada [comida de camino](road_fare) y cada [comida del Hogar](hearth_meals), y cada [festín](feasts) es una receta de la Olla del Hogar. Una comida que pide un cuenco o un frasco de cristal lo toma en el asiento junto al cuadrado. Los asientos importan: los ingredientes correctos en los asientos equivocados no hacen nada. JEI los lista todos bajo la olla.",
+        "Las tolvas la alimentan por arriba y por los lados y sacan la comida por abajo, así que una olla puede mantener un campamento alimentado sola. Una tolva pone cuencos y frascos en el asiento junto al cuadrado, y cada ingrediente en un asiento donde alguna comida lo pide, según lo que los otros asientos ya tienen. Para mantener una comida en marcha, coloca primero uno de cada uno a mano; las tolvas rellenan luego cada asiento, y una comida que pide lo mismo dos veces llena ambos asientos por igual. Quienes hacen paquetes pueden añadir sus propias comidas como recetas del tipo Hogar."
+      ],
+      "title": "Qué cocina"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hearth_pot"
+    }
+  ],
+  "next": "tribe_dishes"
+}

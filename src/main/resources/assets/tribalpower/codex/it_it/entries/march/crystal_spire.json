@@ -1,0 +1,40 @@
+{
+  "name": "Guglia di cristallo",
+  "icon": "tribalpower:march_crystal",
+  "order": 70,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "image",
+      "image": "crystal_spire",
+      "text": [
+        "Una guglia affusolata di Cristallo della Marcia nei Campi di cristallo, con una stazione di sosta ai suoi piedi."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ai piedi della guglia c'è un piccolo accampamento: un focolare, stendardi, un totem del Telaio, letti e un telaio. Vi vivono due Cucitori del telaio della tribù del Fuso, un Anziano e un Tessitore.",
+        "I Cucitori del telaio tengono due tipi di accampamento, entrambi solo nella Marcia: questa piccola stazione di sosta nei Campi di cristallo e un accampamento completo con un proprio Anziano in ogni banda. In ciascuno è appesa una Tavoletta dei racconti."
+      ],
+      "title": "La stazione di sosta"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Accolgono **Cristallo della Marcia**, **Filo di Telaio** e le bussole come offerte. Ciascuno alza la tua [posizione](standing) presso la tribù.",
+        "Al grado **Amico** aprono gli scambi di Filo di Telaio, la scorta costante che vuoi dopo aver saccheggiato le Sale degli Antenati vicine.",
+        "La loro storia intera è nella pagina dei [Cucitori del telaio](tribe_spindle)."
+      ],
+      "title": "Scambi con i Cucitori del telaio"
+    },
+    {
+      "type": "text",
+      "text": [
+        "I Campi di cristallo sono mesa terrazzate, ed è facile perdere l'orientamento tra il cristallo. Lega una bussola prima di vagare.",
+        "I Dorsoscheggia spingono forte vicino ai cigli. Tieni la schiena lontana dai precipizi."
+      ],
+      "title": "Come muoversi"
+    }
+  ]
+}

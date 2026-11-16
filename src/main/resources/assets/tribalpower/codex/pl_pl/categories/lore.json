@@ -1,0 +1,8 @@
+{
+  "name": "Podania",
+  "icon": "tribalpower:lore_tablet",
+  "order": 120,
+  "description": "Historia świata, który był, i tabliczki, które plemiona zostawiły tym, co przyjdą potem.",
+  "spoiler": true,
+  "progress": "tablets"
+}

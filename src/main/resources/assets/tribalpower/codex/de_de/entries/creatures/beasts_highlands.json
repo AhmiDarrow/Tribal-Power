@@ -1,0 +1,74 @@
+{
+  "name": "Bestien des Hochlands",
+  "icon": "tribalpower:crag_fleece",
+  "order": 210,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cragcoat_spawn_egg",
+    "tribalpower:bouldersnout_spawn_egg",
+    "tribalpower:updrifter_spawn_egg",
+    "tribalpower:scree_lurcher_spawn_egg",
+    "tribalpower:crag_fleece",
+    "tribalpower:boulder_tusk",
+    "tribalpower:drift_bladder",
+    "tribalpower:scree_knuckle"
+  ],
+  "next": "beasts_glimmer_ridge",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Eigenes des Hochlands",
+      "text": [
+        "Zwischen Stein, Moos und Hainen des Hochlands leben ein Bergwidder, ein Eber, eine Portugiesische Galeere, die im Wind treibt, und ein Steinaffe, der nachts hervorkommt.",
+        "Jedes sanfte Tier hier lässt sich einmal pro Minute für sein Reagens abbürsten und wird mit seinem eigenen Futter angelockt und gezüchtet, genannt unten unter **Jagd und Zucht**. Es lässt sich binden wie jedes sanfte Tier (siehe [Vertraute](familiars)), und obwohl keines eine eigene Gabe hat, kann ein gebundenes an einem Totem trotzdem eine Stimme annehmen und deine Magie stärken (siehe [an einem Totem abstimmen](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cragcoat",
+      "title": "Klippenmantel",
+      "text": [
+        "Ein Bergwidder mit schwerem Vlies, in Herden von zwei bis vier. **30 Gesundheit** und **7 Rüstung**, und langsam.",
+        "Es lässt 1 bis 3 **Klippenvlies** fallen, mehr mit Plünderung.",
+        "Gejagt lässt es außerdem 1 bis 3 Rohes Wildbret und bis zu 2 Marschleder fallen. Züchte mit **Weizen**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bouldersnout",
+      "title": "Brockenrüssel",
+      "text": [
+        "Ein Eber mit Hauern und einer Haut wie ein Steinschlag, in Herden von zwei bis vier. **30 Gesundheit** und **4 Rüstung**.",
+        "Es lässt 1 bis 3 **Brockenstoßzahn** fallen.",
+        "Gejagt lässt es außerdem 1 bis 3 Rohes Wildbret und bis zu 2 Marschleder fallen. Züchte mit **Kartoffeln oder Karotten**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:updrifter",
+      "title": "Hochschweber",
+      "text": [
+        "Eine Galeere des Himmels, ein gläserner Schwimmer unter einem Kamm in Magenta, der nesselnde Tentakel nachzieht und zu ein bis drei über die Hänge treibt. **12 Gesundheit**, keine Rüstung.",
+        "Es lässt 1 bis 3 **Treibblase** fallen.",
+        "Gejagt lässt es außerdem bis zu 2 Faden fallen. Züchte mit **Leydistel**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:scree_lurcher",
+      "title": "Gerölltaumler",
+      "text": [
+        "Ein Steinaffe mit Felsplatten auf dem Rücken, der nachts auf offenem Boden erscheint, ein oder zwei auf einmal. Er hat **32 Gesundheit** und **3 Rüstung** und trifft für **6**, und jeder Schlag stößt dich zurück.",
+        "Es lässt 1 bis 2 **Geröllknöchel** fallen, ein Stoß-Reagens.",
+        "Gejagt lässt es außerdem 1 bis 2 Feuerstein und bis zu 2 Eisenklumpen fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Zucht",
+      "text": [
+        "Neben seinem Reagens lässt jedes mehr fallen, wenn es gejagt wird, und noch mehr mit Plünderung. Fleisch fällt als Gebratenes Wildbret, wenn das Tier brennend starb. Um wilde zu züchten, **schleiche** dich, während du zwei Erwachsene mit ihrem Futter fütterst; normal gefüttert, wird ein wildes dir stattdessen zutraulich."
+      ]
+    }
+  ]
+}

@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:unsung_heart"
     },
-    "title": "The Drum Remembers",
-    "description": "Still The Unsung and carry its heart out of the Drum Circle.",
+    "title": {
+      "translate": "advancement.tribalpower.march.drum_remembers.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.march.drum_remembers.description"
+    },
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,

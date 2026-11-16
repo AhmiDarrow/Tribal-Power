@@ -1,0 +1,391 @@
+{
+  "name": "Frühlingsruf",
+  "icon": "tribalpower:rite_spring_calling",
+  "order": 90,
+  "spoiler": false,
+  "items": [],
+  "next": "world_rites",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_spring_calling",
+      "text": [
+        "Der kleinste Tafelritus, und woher das Wasser eines Lagers kommt. Frühlingsruf macht aus einer Geistzisterne neben dem Kohlenbecken eine Quelle: **100 mB pro Sekunde für zehn Minuten**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Eine Quelle rufen",
+      "text": [
+        "Zeichne den [Ritenkreis](rite_circle). Setze das **Wassersiegel** in das Kohlenbecken und stelle eine **Geistzisterne** so, dass sie es berührt.",
+        "Ducke dich und benutze die Tafel am Kohlenbecken. Sie zieht **300 Puls** aus dem Gitter innerhalb von 8 Blöcken, und die Zisterne beginnt sich zu füllen. Du musst nicht daneben stehen.",
+        "Kein Kreis, keine Zisterne oder zu wenig Puls: Der Ritus nennt das Problem, und nichts wird verbraucht."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Eine Quelle am Kohlenbecken",
+      "steps": [
+        {
+          "caption": "Zeichne den Kreis: Kohlenbecken, vier Sockel auf den Diagonalen, Kreide dazwischen.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ritual_brazier"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Setze das Wassersiegel in das Kohlenbecken.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:water_seal"
+          }
+        },
+        {
+          "caption": "Stelle eine Geistzisterne direkt an das Kohlenbecken.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ducke dich und benutze die Tafel am Kohlenbecken. Die Zisterne füllt sich zehn Minuten lang von selbst.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:rite_spring_calling"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Es im Fluss halten",
+      "text": [
+        "Schnitze eine weitere Tafel, wenn die Quelle versiegt. Mit vier Wasser-Totems auf den Himmelsrichtungen des Kreises kostet es ein Viertel weniger und läuft doppelt so lange.",
+        "Die Zisterne zu verschieben beendet die Quelle; Wasser, das schon darin ist, bleibt am Gegenstand.",
+        "Lava auf der Seite des Marschs bleibt ein Transport von Hand."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_spring_calling",
+      "text": "Zwei Bruchsteine (oder Schwarzstein oder Bruchtiefenschiefer), ein Geistrohr und das Wassersiegel. Das Siegel kommt zurück."
+    }
+  ]
+}

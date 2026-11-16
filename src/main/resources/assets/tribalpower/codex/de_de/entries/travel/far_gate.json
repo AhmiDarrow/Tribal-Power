@@ -1,0 +1,53 @@
+{
+  "name": "Ferntor",
+  "icon": "tribalpower:gate_sigil",
+  "order": 40,
+  "next": "keeping_the_way",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_sigil",
+      "text": [
+        "Ein Tor, das zwischen Welten wechselt. Das Ferntor ist ein höherer Rahmen, mit Ankersteinen verstrebt, vom Webstuhl mit Stimme versehen und mit einem Torsigill verknüpft. Die Stimme des Webstuhls setzt die anderen Welten hinter Der Ungesungene."
+      ],
+      "title": "Ferntor"
+    },
+    {
+      "type": "pattern",
+      "pattern": "far_gate",
+      "title": "Den Rahmen bauen",
+      "text": "Der Ring ist eine Lage höher, um einen Innenraum, drei breit und vier hoch. Vier Ankersteine stehen an den Ecken seines Grundrisses, vor und hinter dem Rahmen."
+    },
+    {
+      "type": "text",
+      "title": "Was es braucht",
+      "text": [
+        "Dreizehn Torrahmen, ein Torschlussstein und vier [Ankersteine](anchor_stone).",
+        "Die **Webstuhl**-Stimme innerhalb von **8 Blöcken** um den Schlussstein (siehe [Die sechste Stimme](sixth_voice)). Ohne sie leuchtet das Tor nicht, und ein leuchtendes erlischt.",
+        "Ein Schlussstein in einem Ferntor-Rahmen hält bis zu **2,000 Puls**. Gieße ihn mit Pulszellen ein, bis zu 100 auf einmal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Torsigill",
+      "text": [
+        "Fertige ein Sigill aus Leersiegel, Webstuhlfaden und Geistscherbe.",
+        "Ducke dich und rechtsklicke einen Schlussstein damit, um dieses Tor aufzuschreiben. Dann rechtsklicke den anderen Schlussstein, um die beiden zu verbinden, in beide Richtungen, selbst in einer anderen Welt.",
+        "Beide Enden müssen Ferntore sein, um zwischen Welten zu wechseln. Ein Server kann Ferntore ganz abschalten."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zünden und Überqueren",
+      "text": [
+        "Das Zünden kostet **1,200 Puls** von den eigenen **2,000** des Tors. Jeder Wechsel kostet **120**, danach folgt eine Abklingzeit von **zwei Sekunden**.",
+        "Alles andere funktioniert wie ein Wegtor: Hand oder ein angeschlagenes Signal zum Zünden, Landung im fernen Rahmen, Ablehnung und Erstattung, wenn es nirgends einen Platz zum Stehen gibt.",
+        "Ankommen im Marsch durch ein Ferntor zählt als Besuch, genau wie die Tortrommel."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_sigil"
+    }
+  ]
+}

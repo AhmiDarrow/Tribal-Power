@@ -1,0 +1,93 @@
+{
+  "name": "La Marche",
+  "icon": "tribalpower:gate_drum",
+  "order": 10,
+  "spoiler": true,
+  "next": "march_land",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "La Marche est là où le fil s'est le plus effiloché et où le sol tombé est venu se poser. Les salles gisent enfoncées jusqu'au linteau. Les camps gardent la mesure, personne au tambour. Le cristal pousse là où la tension du Métier s'amasse encore.",
+        "Là-bas, tout répond encore à un rythme. Ce n'est pas une hantise. C'est un monde qui n'a jamais appris à s'arrêter.",
+        "Tu y vas pour ce que tu ne trouves pas chez toi : **Cristal de la Marche**, **Fil de Métier** et le **Cœur Non-chanté**. Ils ouvrent le transport astral, la voix du Métier et les dernières Tablette de récits."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "L'entrée est un [Tambour de porte](gate_drum). Pas besoin de Pulsation : bats dessus le **Rite de la Porte**, quatre tambours sur **A**, **S**, **D** et **F**, et le rythme ouvre la voie.",
+        "Fais un clic droit à main vide pour commencer le rite ; réussis **60%** des battements et il te fait passer. Un signal de redstone verrouille le tambour.",
+        "Battre le rite sur un Tambour de porte dans la Marche te ramène toujours chez toi : à l'endroit d'où tu es parti, ou à ton point d'apparition s'il a disparu. Ton point de retour survit à la mort, donc un mauvais voyage ne te laisse jamais bloqué au loin.",
+        "Plus tard, une paire de [Porte de voie](way_gate) est la route de gros.",
+        "Quand une mise à jour remodèle la terre de la Marche, une vieille sauvegarde met sa Marche de côté une fois, au prochain démarrage, et la dimension repousse à mesure que tu l'explores. L'ancienne Marche, avec tout ce qui y est bâti, est déplacée vers **tribalpower_backups** dans la sauvegarde, jamais supprimée. **retrogenMarch** dans la section **world** de la configuration commune coupe cela."
+      ],
+      "title": "Aller et revenir"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Entre avec plusieurs Cellule de Pulsation chargées, de la nourriture, quelques [Baume de l'Esprit](remedies) et une main sûre. Emporte un Tambour de porte de rechange à poser pour le retour, et si tu as une Boussole astrale, lie-la à un sol sec chez toi avant de partir. La Marche est grande et chaque biome a l'air nouveau la première fois.",
+        "Des Vestige de l'Esprit surgissent partout où il fait noir, au-dessus du sol et en dessous, alors emporte des torches ou des lanternes et éclaire le chemin du retour vers ton tambour."
+      ],
+      "title": "Quoi emporter"
+    },
+    {
+      "type": "text",
+      "title": "Jour et nuit",
+      "text": [
+        "Le jour de la Marche est fait pour travailler, et sa nuit est le danger.",
+        "- **De jour** les esprits surgissent rarement à découvert, jamais à la lumière d'une torche ou d'une lanterne, et jamais à côté d'un autre. Les esprits sauvages pris sous le ciel ouvert s'effacent au lever du soleil, sauf s'ils te poursuivent déjà.",
+        "- **La nuit** ils surgissent plus forts, avec plus de santé et des coups plus durs, et certains sortent comme des **élites** au nom doré. Ils viennent par deux au plus, et cessent de surgir dès que quatre sont proches.",
+        "- **Grottes** ont leurs propres règles. Les chasseurs des grottes surgissent dans tout endroit non éclairé sous terre, de jour comme de nuit, et la limite de quatre ne tient pas en bas, donc une grotte sombre peut se remplir. Éclaire en avançant.",
+        "- Les élites et les esprits de la nuit peuvent te laisser le [Mal de l'Esprit](spirit_sickness)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dormir pour passer",
+      "text": [
+        "Les lits fonctionnent dans la Marche, et dormir toute la nuit avance l'horloge jusqu'au matin. (La Marche suit le temps de l'Overworld, donc la nuit de l'Overworld passe aussi.)",
+        "Seul un esprit qui **te chasse déjà** t'empêche de dormir. Un qui longe tes murs, non, donc un camp éclairé et muré est un endroit sûr pour se reposer."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Steppe** : herbe roulante, boqueteaux et arbres isolés. Broutent Marcheur de la Marche, Cerf de l'aube, Renard-lanterne, des lapins et quelques Dos-mousse. Chassent Lié-cendre, Lié-racine, Molosse de la faille, Tisserand d'écho et quelques Traqueur des roseaux. Les [Salles des ancêtres](ancestor_hall) s'enfoncent ici.",
+        "- **Hautes terres** : pierre, mousse et bosquets. Chèvres, Cerf de l'aube, renards, Marcheur de la Marche et lapins. Sentinelle creuse, Phalène de tempête, Diablotin d'escarbille, Molosse de la faille et quelques Dos-éclat. Foyer des [Cercle de tambours](drum_circle), d'autres Salles des ancêtres, et des émeraudes (la Crête de lueur en a aussi).",
+        "- **Champs de cristal** : mesas en terrasses de calcite et de pierre, hérissées de Cristal de la Marche. Renards, lapins, Dos-mousse et Marcheur de la Marche ; Traqueur des roseaux, Dos-éclat, Cloche de deuil, Tisserand d'écho et quelques Sentinelle creuse. La [Flèche de cristal](crystal_spire) se dresse ici."
+      ],
+      "title": "Steppe, Hautes terres, Champs de cristal"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Champs de neige** : neige et glace compactée sur Herbe de la Marche. Renard-lanterne, lapins, Marcheur de la Marche, quelques Dos-mousse et des ours polaires. Sentinelle creuse, Phalène de tempête, Cloche de deuil et Molosse de la faille.",
+        "- **Terres de braise** : pays de basalte sec, sans pluie. Peu de brouteurs s'y risquent : Marcheur de la Marche, Renard-lanterne et Sauteur de cendre. Diablotin d'escarbille, Molosse de la faille et Lié-cendre rôdent, et quelques Phalène de tempête.",
+        "- **Marais de roseaux** : chenaux de boue denses de Roseau d'Esprit. Dos-mousse, Cerf de l'aube, grenouilles, Renard-lanterne et Marcheur de la Marche ; Brillanageoire, Cloche à la dérive, Anguille de limon et Raie du voile dans l'eau, et des poulpes luisants dans les grottes inondées. Traqueur des roseaux, Lié-racine et Tisserand d'écho rôdent dans l'humide.",
+        "Feu follet spirituel dérive à travers toutes les terres de la Marche."
+      ],
+      "title": "Champs de neige, Terres de braise, Marais de roseaux"
+    },
+    {
+      "type": "text",
+      "title": "Bas-fonds, Crête de lueur",
+      "text": [
+        "- **Bas-fonds** : le pays bas, noyé sous une eau peu profonde. Étangs et mares sur des lits de limon et d'argile, arbres d'arpenteur aux racines en échasses, lys, Lys de lune et Algue ruban, et çà et là un pilier de pierre coiffé de cristal. Planeur de limon, Dériveur pâle et Dard de haut-fond y nagent, et Bois-échasses marche sur les berges ; la nuit, Rôdeur de saumure et Ombre noyée surgissent dans l'eau, et Traqueur des roseaux, Lié-racine, Tisserand d'écho et Cloche de deuil viennent du Marais de roseaux. La Pierre de marée des [gardiens](guardians) se dresse ici.",
+        "- **Crête de lueur** : le plus haut du pays, une montagne de Pierre de lune. Voir [la Crête de lueur](glimmer_ridge).",
+        "Chaque terre a, en plus de ceux-ci, ses bêtes et ses gens : voir [Bêtes de la Steppe](beasts_steppe) et les pages qui suivent."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Lis chaque Tablette de récits dans les [Salles des ancêtres](ancestor_hall). Le Codex spirituel note chacune.",
+        "- Quand tu es prêt, frappe un Tambour silencieux quatre fois, un souffle entre chaque coup, et affronte [Le Non-chanté](the_unsung).",
+        "- Ramène chez toi Cristal de la Marche, Fil de Métier et un Cœur Non-chanté. Ensemble, ils ouvrent [la sixième voix](sixth_voice).",
+        "- Va voir les Couseurs du métier à la [Flèche de cristal](crystal_spire) pour des échanges de Fil de Métier."
+      ],
+      "title": "Quoi y faire"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "name": "Camps partagés",
+  "icon": "tribalpower:camp_charter",
+  "order": 200,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:camp_charter",
+      "text": [
+        "Tu joues avec des amis ? Fonde un camp avec eux. Un camp est un groupe nommé, avec un caveau partagé, des appareils que chaque membre peut utiliser, et le statut auprès des tribus mis en commun entre vous."
+      ],
+      "title": "Camps partagés"
+    },
+    {
+      "type": "image",
+      "image": "camps_identity",
+      "title": "Un camp, plusieurs mains",
+      "text": "Tout ce qu'un membre place s'ouvre pour tout le camp."
+    },
+    {
+      "type": "text",
+      "title": "Fonder et inviter",
+      "text": [
+        "Lance **/tribalpower camp create <name>** (24 caractères au plus). Tu en deviens le premier membre et le chef.",
+        "Pour inviter quelqu'un, lance **/tribalpower camp invite <player>**, ou fabrique une **Charte du camp** et fais un clic droit sur le joueur avec. La charte ne s'use jamais. Un clic droit dans le vide avec elle montre ton camp.",
+        "Une invitation dure **cinq minutes**. L'invité accepte avec **/tribalpower camp join <name>**.",
+        "Tu ne peux appartenir qu'à un seul camp à la fois."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que partagent les membres",
+      "text": [
+        "- **Appareils.** Les membres comptent comme propriétaires des blocs de camp les uns des autres, des appareils à motifs, Piédestal du rite, des relais, Clef de porte, des plaques de chant et des liens de vers. Toute personne hors du camp est refusée.",
+        "- **Le caveau.** Toute Cache profonde ou Sacoche du voyageur ouvre le caveau partagé de **54 emplacements** du camp. Accroupis-toi en l'ouvrant pour passer de celui-ci à ton caveau personnel ; il retient ton choix.",
+        "- **Statut.** Dès le jour où tu rejoins, un quart de chaque statut qu'un membre gagne ou perd auprès d'une tribu tombe aussi sur le camp. Partout où ton rang compte (échanges de Parent, leurs faveurs, quêtes de tribu, lier un vestige), le rang du camp compte s'il est plus haut que le tien.",
+        "- **Ancres.** Le camp partage **12** Ancre de voie, comptées dans tous les mondes."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Diriger le camp",
+      "text": [
+        "**/tribalpower camp info** liste les membres et les ancres. Le chef peut lancer **/tribalpower camp rename <name>** et **/tribalpower camp kick <player>**. N'importe qui peut **/tribalpower camp leave** ; si le chef part, le plus ancien membre dirige.",
+        "Quand le dernier membre part, le camp se dissout et son caveau se répand à ses pieds.",
+        "Une fois que les tribus te connaissent, leurs [Totem de parenté](kinship_totem) peuvent prêter à ton camp n'importe laquelle de leurs voix."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:camp_charter"
+    }
+  ]
+}

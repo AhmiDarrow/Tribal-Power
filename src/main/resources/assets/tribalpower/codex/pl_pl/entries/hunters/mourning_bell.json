@@ -1,0 +1,52 @@
+{
+  "name": "Dzwon żałobny",
+  "icon": "tribalpower:bell_fragment",
+  "order": 140,
+  "spoiler": true,
+  "items": [
+    "tribalpower:mourning_bell_spawn_egg",
+    "tribalpower:bell_fragment"
+  ],
+  "next": "rift_hound",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:mourning_bell",
+      "text": [
+        "Unoszący się dzwon z zielonego brązu, z żałobną maską i świecącym sercem. Pamięta zaginione plemiona, a jego zapowiedziany dźwięk spowalnia cię.",
+        "Upolowany zostawia też 1 do 3 bryłek złota."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Dzwony żałobne unoszą się nad Kryształowymi polami Marszu i Polami śniegu, a czasem nad Trzcinowym bagnem i Płyciznami.",
+        "Ma **28 zdrowia** i **3 pancerza**. Z odległości do 12 bloków bije dźwiękiem za **4 obrażeń**, który spowalnia cię przez 3 sekundy. Schronienie przerywa pieśń."
+      ],
+      "title": "Gdzie i jak"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Zostawia **1 do 2 Odłamek dzwonu**.",
+        "Odłamek dzwonu dostraja się w 2 Dostrojone echo pod Duchem."
+      ],
+      "title": "Co daje"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Osiągnij **Głos** u **Rzeźbiarze pieczęci**, potem użyj Amulet więzi na dorosłym: dwie próby na pięć, amulet zużywa się przy porażce. Albo nakarm go jego własnym odczynnikiem: jedna próba na pięć, a odczynnik zużywa się tak czy inaczej.",
+        "Związany dzwon zdejmuje z ciebie truciznę, słabość i inne klątwy, dopóki za tobą podąża. Zobacz [dary chowańca](familiar_gifts)."
+      ],
+      "title": "Jako chowaniec"
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i hodowla",
+      "text": [
+        "Oprócz swojego odczynnika przy polowaniu zostawia to, więcej z Grabieżą."
+      ]
+    }
+  ]
+}

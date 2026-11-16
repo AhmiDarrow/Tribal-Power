@@ -1,0 +1,30 @@
+{
+  "name": "Plaques de signal",
+  "icon": "tribalpower:inverse_plate",
+  "order": 74,
+  "items": [
+    "tribalpower:inverse_plate",
+    "tribalpower:echo_plate"
+  ],
+  "next": "memory_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Inverse et Écho",
+      "text": [
+        "Une voix, tournée ou portée.",
+        "- **Inverse** (NOT) chante tant que son dos est calme, et se tait quand le dos est actif.",
+        "- **Écho** (BUFFER) copie le dos : actif reste actif, à un 15 plein.",
+        "Utilise Inverse pour faire d'un Seuil de Pulsation une alarme 'trop vide'. Utilise Écho pour ramener un Fil de chant qui s'éteint à pleine force."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:inverse_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_plate"
+    }
+  ]
+}

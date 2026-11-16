@@ -1,0 +1,16 @@
+{
+  "name": "Tábua: a Marcha",
+  "icon": "tribalpower:lore_tablet",
+  "order": 210,
+  "spoiler": true,
+  "unlock": "tablet:11",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "De um Salão dos ancestrais submerso, para quem caminhar a Marcha a seguir:",
+        "“A Marcha é onde o fio desfiou mais fino e o chão caído veio repousar. Os salões jazem afundados até a verga; os acampamentos marcam o tempo sem ninguém no tambor; o cristal cresce onde a tensão do Tear ainda se junta. Percorra-a com uma Célula de Pulso cheia e a mão firme. Tudo aqui ainda responde a uma batida.”"
+      ]
+    }
+  ]
+}

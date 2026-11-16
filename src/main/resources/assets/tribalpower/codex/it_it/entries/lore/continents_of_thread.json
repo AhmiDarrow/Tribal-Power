@@ -1,0 +1,17 @@
+{
+  "name": "Continenti di filo",
+  "icon": "tribalpower:lore_tablet",
+  "order": 40,
+  "spoiler": false,
+  "next": "nine_arguments",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Un continente era un giaciglio che aveva dimenticato di essere un giaciglio. I campi correvano perché il Suolo correva con loro. I fiumi tenevano le maniere perché il Germoglio insegnò all'acqua dove sedersi. Le città non galleggiavano. Pendevano, e pendere sembrava stare in piedi.",
+        "Le strade erano cantate, non tagliate. Il Pulso sotto un focolare si sentiva come Pulso sotto il successivo. La notte era un appuntamento che gli Intagliatori di sigilli mantenevano. Le tempeste erano una discussione da Cuoretamburo riportata indietro prima dell'alba.",
+        "Puoi ancora vedere l'abitudine nell'aurora. È il cielo che prova a ricordare un orario."
+      ]
+    }
+  ]
+}

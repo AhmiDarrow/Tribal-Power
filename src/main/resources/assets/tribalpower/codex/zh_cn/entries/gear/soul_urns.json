@@ -1,0 +1,50 @@
+{
+  "name": "魂瓮",
+  "icon": "tribalpower:copper_soul_urn",
+  "order": 44,
+  "items": [
+    "tribalpower:woven_soul_urn",
+    "tribalpower:copper_soul_urn",
+    "tribalpower:manifested_soul_urn",
+    "tribalpower:resonant_soul_urn"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:copper_soul_urn",
+      "title": "把生物带回家",
+      "text": [
+        "魂瓮将生物吸入其中。**对生物使用**以带走它，**对方块使用**则将其完好无损地放回该处。",
+        "它带走任何活物，但**玩家**、**首领**、远行界的**精英**以及别人已经驯服或结契的生物除外：新畜栏里的牛、村子里的村民、河对岸的使魔。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "收进生物算一次使用，放出又算一次：",
+        "- **织魂**：2次使用，一次捕获与一次释放。",
+        "- **铜魂**：10次使用，五次往返。",
+        "- **显魂**：20次使用，十次往返。",
+        "- **共鸣**：永不磨损。",
+        "瓮在只剩一次使用时不会收入生物，因此你永远关不住放不出去的东西。瓮下的横条显示磨损，没有剩余次数的瓮会在放出最后一只生物时碎掉。"
+      ],
+      "title": "四个等级"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:woven_soul_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_soul_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:manifested_soul_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonant_soul_urn"
+    }
+  ]
+}

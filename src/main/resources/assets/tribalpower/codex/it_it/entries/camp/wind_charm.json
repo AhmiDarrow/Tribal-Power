@@ -1,0 +1,30 @@
+{
+  "name": "Amuleto del vento",
+  "icon": "tribalpower:wind_charm",
+  "order": 180,
+  "next": "songkeeper_drum",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wind_charm",
+      "text": [
+        "Cinque aste di rame e una vela di cristallo su un cordino, per portici e soglie. Non spende Pulso e non ha un compito; sta lì per vedersi e suonare bene."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Appenderlo",
+      "text": [
+        "Mettilo sotto quasi qualsiasi cosa: un soffitto, una trave, una traversa di staccionata, una catena o una volta di foglie. Mettilo contro il fianco di un blocco e invece pende da un sostegno su quel muro.",
+        "Puoi passarci dritto attraverso: non ha collisione, ma sfiorarlo urta un'asta.",
+        "Suona da solo, ogni tanto in un giorno fermo, di più sotto la pioggia e molto in una tempesta. Sotto un tetto è più quieto. Colpiscilo per mettere in moto tutte e cinque le aste.",
+        "Rompi ciò a cui è appeso e si stacca.",
+        "La redstone non gli fa nulla. Non è una luce di Pulso, né un'Arpa del vento."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wind_charm"
+    }
+  ]
+}

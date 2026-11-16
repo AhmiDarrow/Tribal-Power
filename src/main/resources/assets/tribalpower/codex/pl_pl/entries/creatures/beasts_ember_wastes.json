@@ -1,0 +1,74 @@
+{
+  "name": "Bestie Pustkowi żaru",
+  "icon": "tribalpower:cinder_plate",
+  "order": 240,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cinderhide_spawn_egg",
+    "tribalpower:ashmoth_spawn_egg",
+    "tribalpower:slaglump_spawn_egg",
+    "tribalpower:emberjaw_spawn_egg",
+    "tribalpower:cinder_plate",
+    "tribalpower:ash_wing",
+    "tribalpower:slag_curd",
+    "tribalpower:ember_fang"
+  ],
+  "next": "beasts_reed_fen",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Swoi popiołu",
+      "text": [
+        "Dwa ze zwierząt Pustkowi żyją na skraju lawy, jedno leci przez popiół, a jedno nocą poluje na bazalcie.",
+        "Każdą łagodną bestię tutaj można raz na minutę wyczesać z jej reagentu i wabić oraz rozmnażać jej własnym pokarmem, podanym niżej w **Polowanie i hodowla**. Można ją związać jak każde łagodne zwierzę (zob. [chowańce](familiars)), a choć żadna nie ma własnego daru, związana wciąż może przyjąć głos przy totemie i wzmocnić twoją magię (zob. [dostrajanie przy totemie](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinderhide",
+      "title": "Żaroskóra",
+      "text": [
+        "Wulkaniczny żółw, ogień między tarczami skorupy, żyje przy lawie i na gorącym kamieniu wokół, jeden lub dwa naraz. **30 zdrowia** i **7 pancerza**, powolny i **odporny na ogień**.",
+        "Zostawia **1 do 3 Płyta żaru**, reagent żaru.",
+        "Upolowany zostawia też 1 do 2 Surowa dziczyzna i do 1 Skóra Marszu. Do rozmnażania: **Korzeń żaru**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ashmoth",
+      "title": "Popielćma",
+      "text": [
+        "Szary zawisak popiołu: szerokie skrzydła złożone nad łososiowymi tylnymi, ciało ku ogonowi w łososiowe pasy, od jednego do trzech. **10 zdrowia**, bez pancerza.",
+        "Zostawia **1 do 3 Popielne skrzydło**, które mielą się w czarny barwnik.",
+        "Upolowany zostawia też do 1 nić i do 1 proch. Do rozmnażania: **Korzeń żaru**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slaglump",
+      "title": "Żużlogrud",
+      "text": [
+        "Długa, niska lawowa salamandra o płaskiej łopatowatej głowie, czarna w pomarańczowe plamy, tarza się przy lawie, jedna lub dwie naraz. **26 zdrowia** i **5 pancerza**, i **odporna na ogień**.",
+        "Zostawia **1 do 3 Żużlowy twaróg**, reagent żaru.",
+        "Upolowana zostawia też do 1 magmowego kremu i do 2 bryłek żelaza. Do rozmnażania: **Korzeń żaru**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:emberjaw",
+      "title": "Węgloszczęka",
+      "text": [
+        "Pręgowany ognisty raptor, biegnie nisko z ogonem z tyłu i jest prawie samą szczęką, nocą podnosi się na bazalcie, jeden lub dwa naraz. Ma **32 zdrowia** i **3 pancerza** i uderza za **6**, odpychając cię każdym ciosem. Przy całym kolorze **nie** jest ognioodporny.",
+        "Zostawia **1 do 2 Kieł węgielka**, reagent pchnięcia.",
+        "Upolowany zostawia też do 2 kości i do 2 węgla drzewnego."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i hodowla",
+      "text": [
+        "Oprócz odczynnika każdy upuszcza więcej przy polowaniu, a z Grabieżą jeszcze więcej. Mięso wypada upieczone, jeśli zwierzę zginęło płonąc. Aby rozmnożyć dzikie, **skradaj się**, gdy karmisz dwa dorosłe osobniki ich jedzeniem; karmione zwyczajnie, dzikie zamiast tego przyzwyczaja się do ciebie."
+      ]
+    }
+  ]
+}

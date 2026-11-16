@@ -1,0 +1,18 @@
+{
+  "name": "Cuando los acuerdos fallaron",
+  "icon": "tribalpower:lore_tablet",
+  "order": 20,
+  "spoiler": false,
+  "next": "continents_of_thread",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Nadie cortó el Telar. Lo tiraron desde nueve lados, y este Códice no puede decir qué hilo cedió primero. Las tribus tampoco, al final. Un momento el cielo era un suelo. Al siguiente, los acuerdos fallaron en el mismo aliento.",
+        "Los Guardianes del lecho lo sintieron primero: los hogares se enfriaron mientras el cielo aún se veía entero. Luego las anclas vivas de los Vinculadores de raíces aguantaron una estación, y por esa estación sigue habiendo algo aquí arriba.",
+        "Los Guardianes se quebraron en sus arenas. Las canciones siguieron sin nadie que las oyera. Los senderos de portal siguieron abiertos hacia ninguna parte.",
+        "Era un nudo que se deshacía. Los continentes cayeron en un redoble. Lo que no cayó es un lecho de tierra que las Hebras aún recuerdan. Estás sobre sobras que aprendieron a ser un suelo."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "1. L'ancien ciel",
+  "icon": "tribalpower:carved_stone",
+  "order": 10,
+  "spoiler": true,
+  "unlock": "fragment:0",
+  "pages": [
+    {
+      "type": "text",
+      "title": "L'ancien ciel",
+      "text": [
+        "“Avant la Marche, il y avait un seul ciel et un seul sol en dessous, et neuf peuples qui n'étaient d'accord sur rien, sauf que le sol devait rester là où il était. Ce fut le premier accord, et longtemps cela a suffi.”",
+        "Trouvé sur une pierre gravée, dans les ruines de la Marche."
+      ]
+    }
+  ]
+}

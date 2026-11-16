@@ -1,0 +1,438 @@
+{
+  "name": "Harpe du vent",
+  "icon": "tribalpower:wind_harp",
+  "order": 30,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wind_harp",
+      "text": [
+        "L'ouvrage des Tisserands de motifs. Une harpe tendue vers le ciel ouvert fait de la Pulsation avec le vent, pour rien. Comme c'est gratuit, c'est plafonné : jusqu'à **6 de Pulsation par seconde**.",
+        "Elle contient **1,000 de Pulsation**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Où la suspendre",
+      "text": [
+        "La harpe doit voir le ciel depuis le bloc au-dessus d'elle. Sous un toit, elle ne fait **rien du tout**.",
+        "- Sous ciel ouvert : **2 par seconde** (1 de base, 1 pour le ciel).",
+        "- Hauteur : **+1** à y 128 ou plus, **+2** à y 192 ou plus.",
+        "- Météo : **+1** sous la pluie, **+2** sous une tempête.",
+        "Cela plafonne à **6 par seconde** sans rang. Le rang ajoute **15% de Pulsation par seconde** par rang. Le bonus est arrondi à une Pulsation entière, donc un générateur qui ne fait que 2 ou 3 par seconde ne gagne rien à son premier rang."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Une harpe, un ciel",
+      "steps": [
+        {
+          "caption": "Pose la harpe sur un sol dégagé : 2 Pulsation par seconde sous un ciel clair.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wind_harp"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Mets-lui un toit et elle se tait. Une harpe doit voir le ciel.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Retire le toit, et une deuxième harpe à 12 blocs ou moins partage le même vent : chacune en fait la moitié.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:wind_harp"
+            }
+          ],
+          "remove": [
+            [
+              -1,
+              2,
+              -1
+            ],
+            [
+              -1,
+              2,
+              0
+            ],
+            [
+              -1,
+              2,
+              1
+            ],
+            [
+              0,
+              2,
+              -1
+            ],
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              1,
+              2,
+              -1
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              1,
+              2,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Garde les harpes à plus de 12 blocs l'une de l'autre, ou construis-en une en haut d'une montagne.",
+          "remove": [
+            [
+              2,
+              0,
+              2
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les harpes partagent le vent",
+      "text": [
+        "Les harpes à **12 blocs** dans tous les sens, bord compris, se partagent le vent, en arrondissant vers le bas : deux harpes serrées sous un ciel clair font 1 par seconde chacune, et trois ne font rien. Un mur de harpes est un mur de décorations. Le but, c'est une seule harpe.",
+        "Un signal de redstone la met en pause. Accroupis-toi et fais un clic droit avec ce livre pour voir le ciel, la hauteur, la météo et la foule, et ce que chacun ajoute.",
+        "Les harpes sont l'ouvrage des [Tisserands de motifs](tribe_clock) : la recette demande une Aile de tempête et un Sceau d'Air, et les Tisserands de motifs échangent une harpe à leur Parent."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wind_harp"
+    }
+  ]
+}

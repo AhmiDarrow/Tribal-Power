@@ -1,0 +1,51 @@
+{
+  "name": "Radicelegato",
+  "icon": "tribalpower:knotted_root",
+  "order": 80,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rootbound_spawn_egg",
+    "tribalpower:knotted_root"
+  ],
+  "next": "reed_stalker",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:rootbound",
+      "text": [
+        "Un guardiano di radici nodose, distorto da una linea ley recisa. Lento, ma robusto.",
+        "Cacciato, lascia anche da 1 a 3 bastoni e fino a 2 Farina di ossa."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "I Radicelegato si aggirano nelle foreste dell'Overworld, nella steppa della Marcia, nella Palude dei canneti e nei Bassifondi.",
+        "Ha **38 di salute** e **5 di armatura** e colpisce per **6**. Ogni colpo ti radica e ti rallenta per 3 secondi. È lento a sua volta, quindi fatti indietro, aspetta che le radici passino e colpisci di nuovo."
+      ],
+      "title": "Dove e come"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Lascia cadere **da 1 a 2 Radice nodosa**.",
+        "Una Radice nodosa si sintonizza in 2 Eco sintonizzato sotto Spirito."
+      ],
+      "title": "Cosa dà"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Nessun amuleto legherà un Radicelegato."
+      ],
+      "title": "Non si legherà"
+    },
+    {
+      "type": "text",
+      "title": "Caccia e raduno",
+      "text": [
+        "Oltre al suo reagente, lascia cadere questo quando viene cacciato, di più con Saccheggio."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Ascensor de enredadera",
+  "icon": "tribalpower:vine_lift",
+  "order": 160,
+  "items": [
+    "tribalpower:vine_lift"
+  ],
+  "next": "camp_furniture",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:vine_lift",
+      "title": "Enredadera viva que te lleva",
+      "text": [
+        "Un Ascensor de enredadera es una base de enredadera viva. Pon uno en cada piso de una torre o de un pozo de mina, uno sobre otro en la **misma columna**, y se encuentran solos. Sin enlaces, sin energía.",
+        "- **Salta** en un ascensor para subir al siguiente de arriba.",
+        "- **Agáchate** en un ascensor para bajar al siguiente de abajo."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Se pueden apilar los que quieras; cada salto o cada vez que te agachas avanzas un ascensor, saltando los pisos vacíos de en medio. Un ascensor busca hasta **48 bloques** en cada sentido.",
+        "El siguiente ascensor necesita dos bloques de espacio encima para poder estar de pie; un ascensor con techo se omite, así nunca llegas dentro de una pared."
+      ],
+      "title": "Tenderlos en hilera"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:vine_lift"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "name": "Geteilte Lager",
+  "icon": "tribalpower:camp_charter",
+  "order": 200,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:camp_charter",
+      "text": [
+        "Spielst du mit Freunden? Gründe mit ihnen ein Lager. Ein Lager ist eine benannte Gruppe mit einem gemeinsamen Gewölbe, Geräten, die jedes Mitglied nutzen kann, und geteiltem Ansehen bei den Stämmen."
+      ],
+      "title": "Geteilte Lager"
+    },
+    {
+      "type": "image",
+      "image": "camps_identity",
+      "title": "Ein Lager, viele Hände",
+      "text": "Alles, was ein Mitglied setzt, steht dem ganzen Lager offen."
+    },
+    {
+      "type": "text",
+      "title": "Gründen und einladen",
+      "text": [
+        "Führe **/tribalpower camp create <name>** aus (bis zu 24 Zeichen). Du wirst erstes Mitglied und Anführer.",
+        "Um jemanden einzuladen, führe **/tribalpower camp invite <player>** aus oder fertige eine **Lagerurkunde** und rechtsklicke damit den Spieler. Die Urkunde geht nie auf. Ein Rechtsklick in die Luft damit zeigt dein Lager.",
+        "Eine Einladung hält **fünf Minuten**. Der Eingeladene nimmt an mit **/tribalpower camp join <name>**.",
+        "Du kannst immer nur zu einem Lager gehören."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was die Mitglieder teilen",
+      "text": [
+        "- **Geräte.** Mitglieder gelten als Besitzer der Lagerblöcke, der Mustervorrichtungen, der Ritussockel, der Relais, der Torschlusssteine, der Liedplatten und der Versverbindungen der anderen. Wer außerhalb des Lagers steht, wird abgewiesen.",
+        "- **Das Gewölbe.** Jeder Tiefspeicher oder Wandersäckel öffnet das gemeinsame Gewölbe des Lagers mit **54 Fächern**. Schleiche beim Öffnen, um zwischen diesem und deinem eigenen Gewölbe zu wechseln; es merkt sich deine Wahl.",
+        "- **Ansehen.** Ab dem Tag, an dem du beitrittst, fällt ein Viertel jedes Ansehens, das ein Mitglied bei einem Stamm gewinnt oder verliert, auch auf das Lager. Wo dein Rang zählt (Handel der Sippe, ihre Gaben, Stammesaufgaben, einen Überrest binden), zählt der Rang des Lagers, wenn er höher ist als deiner.",
+        "- **Anker.** Das Lager teilt **12** Weganker, gezählt über jede Welt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Das Lager führen",
+      "text": [
+        "**/tribalpower camp info** listet Mitglieder und Anker. Der Anführer kann **/tribalpower camp rename <name>** und **/tribalpower camp kick <player>** ausführen. Jeder kann **/tribalpower camp leave**; geht der Anführer, führt das älteste Mitglied.",
+        "Wenn das letzte Mitglied geht, löst sich das Lager auf und sein Gewölbe ergießt sich zu seinen Füßen.",
+        "Sobald die Stämme dich kennen, können ihre [Verwandtschafts-Totem](kinship_totem) deinem Lager jede ihrer Stimmen leihen."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:camp_charter"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "14. Marea",
+  "icon": "tribalpower:mural",
+  "order": 23,
+  "spoiler": true,
+  "unlock": "fragment:13",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Marea",
+      "text": [
+        "“Los Bajíos son las obras de los Tejedores de patrones, ahogadas hasta la cintura y todavía girando. La marea mantiene su patrón compás a compás. El Tamborilero que lo mantiene ha olvidado que alguna vez hubo tejedores.”",
+        "Hallado en un mural, en el terreno de un guardián."
+      ]
+    }
+  ]
+}

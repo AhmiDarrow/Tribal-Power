@@ -1,0 +1,34 @@
+{
+  "name": "Pedra de âncora",
+  "icon": "tribalpower:anchor_stone",
+  "order": 30,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:anchor_stone",
+      "text": [
+        "As Pedras de âncora firmam os cantos de um padrão. Não fazem mais nada: sem Pulso, sem inventário, sem manutenção.",
+        "Algumas formas, como o Fosso de escuta e o Portal distante, precisam delas desde o início; outras, como a Pia de pedra, usam-nas para chegar a um segundo nível."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Colocá-las",
+      "text": [
+        "Coloque-as onde o Códice mostra fantasmas nos cantos e depois deixe-as. Não são geradores e não precisam de nada de você.",
+        "Quebre uma e a forma recua um nível até você recolocá-la, ou para de vez se não tiver um nível sem elas.",
+        "- **Pia de pedra**: quatro, nos cantos de um 5x5, para pedra e obsidiana.",
+        "- **Fosso de escuta**: quatro para o fosso de 5x5, oito para a Escuta profunda.",
+        "- **Portal distante**: quatro, nos cantos da base dele."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:anchor_stone",
+      "text": "Quatro Pedra da Marcha e um Fragmento de eco fazem **quatro**."
+    }
+  ],
+  "next": "stone_font"
+}

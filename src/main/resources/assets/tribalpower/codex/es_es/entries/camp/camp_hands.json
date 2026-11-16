@@ -1,0 +1,71 @@
+{
+  "name": "Manos del campamento",
+  "icon": "minecraft:campfire",
+  "order": 10,
+  "next": "grove_tender",
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Los Tejedores de patrones enseñaron al campamento a seguir trabajando después de que el cantor se fue. Son las máquinas que cultivan, recogen, fabrican, bombean y vigilan mientras tú estás en otra cosa.",
+        "- El **Cuidador de la arboleda** planta y cosecha un bancal de 9 por 9.",
+        "- El **Lazo de viento** recoge los objetos caídos del suelo.",
+        "- El **Telar de sellos** fabrica una receta de mesa de trabajo, una y otra vez.",
+        "- La **Bomba de marea** mueve fluido de un tanque a otro.",
+        "- El **Tambor de amparo** golpea a los hostiles que entran al campamento."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cada mano responde a una voz",
+      "text": [
+        "Toda mano que trabaja por su cuenta necesita un tótem de su voz en un radio de **8 bloques**. Sin uno se queda inactiva, y su línea de estado nombra el tótem que quiere:",
+        "- **Tierra**: Cuidador de la arboleda y Ancla de camino.",
+        "- **Espíritu**: Tambor de amparo, Tótem del silencio y Cuna de invocación.",
+        "- **Agua**: Bomba de marea.",
+        "- **Aire**: Lazo de viento y [relés](wireless_cargo).",
+        "- **Telar**: Telar de sellos y relés astrales.",
+        "Un Tótem de resonancia cuenta mientras está Respondido o Tenue, no cuando ya pasó a Callado (mira [Mantenimiento](keeping)). Un Tótem de parentesco que presta la misma voz también cuenta, y nunca queda callado.",
+        "Una mano que espera su voz no hace nada: no trabaja, no gasta Pulso y no pasa nada a los bloques de al lado."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Reglas que todas comparten",
+      "text": [
+        "Cada una toma Pulso del entramado: un [Conductor de entramado](lattice_conductor) a **8 bloques** de ella, en una red con generadores. El Lazo de viento, el Tambor de amparo, la Bomba de marea y el Telar de sellos pagan solo cuando actúan. El Cuidador de la arboleda, el Tótem del silencio, el Ancla de camino y la Cuna de invocación primero llenan una reserva propia de **2,400 Pulso**, hasta **80** por segundo, y trabajan desde ahí.",
+        "Una señal de redstone constante, como una palanca, lo pone en pausa. Un comparador lee qué está haciendo o cuán lleno está; cada entrada dice cuál.",
+        "El Telar de sellos, la Bomba de marea, el Lazo de viento y el Tambor de amparo pueden subir de rango a Sintonizador de eco, luego a Vinculador de eco y luego a Manifestador de eco (mira [Rangos de máquina](machine_ranks)). Una mano con rango late más rápido, cada **85%**, **70%** o **55%** de un segundo, pero el Pulso por tarea sigue igual, así que el entramado nota la velocidad de más.",
+        "Agáchate y usa una **Llave de tótem** en una cara de la máquina para pasarla por Ambos, Entrada, Salida y Cerrado. Una cara Cerrada no ofrece ranuras a tolvas, tubos ni placas de relé. Una placa de relé se pone en cualquiera de ellas con un clic derecho normal, incluso en una cuyo clic abre una pantalla."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cuidar el campamento",
+      "text": [
+        "Otros bloques del campamento cuidan el lugar mismo, en vez de hacer las tareas:",
+        "- Un [Tótem del silencio](hush_totem) impide que aparezcan hostiles.",
+        "- Un [Ancla de camino](wayanchor) mantiene despierto un chunk lejano.",
+        "- Una [Cuna de invocación](summoning_cradle) llama a una criatura vinculada una y otra vez.",
+        "- Los [Faroles de Espíritu](spirit_lantern) y las [luces de Pulso](pulse_lights) alumbran los caminos.",
+        "- Un [Carillón de lluvia](rain_chime) convierte el clima en una señal de redstone.",
+        "- Una [Mesa de ofrendas](offering_table) es un almacén de 27 ranuras junto a un hogar.",
+        "Agáchate y haz clic derecho en cualquiera de ellos con este libro cuando algo no quiera arrancar."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Vivir en el campamento",
+      "text": [
+        "Un campamento es más que sus máquinas. Para construir y para el día a día, mira:",
+        "- [Tiza de constructor](builders_chalk), para trazar chozas, muros y ritos antes de construir.",
+        "- El [Banco tribal](tribal_bench), una mesa de trabajo que conserva su cuadrícula.",
+        "- El [Ascensor de enredadera](vine_lift), para torres y pozos.",
+        "- [Muebles del campamento](camp_furniture) y el [Amuleto de viento](wind_charm), para que se sienta habitado.",
+        "- El [Tambor del Guardián del canto](songkeeper_drum), para tocar el tambor solo por gusto.",
+        "- [Campamentos compartidos](shared_camps), cuando los amigos construyen contigo."
+      ]
+    }
+  ]
+}

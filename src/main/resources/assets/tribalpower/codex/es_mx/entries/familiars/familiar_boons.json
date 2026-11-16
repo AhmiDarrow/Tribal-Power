@@ -1,0 +1,45 @@
+{
+  "name": "Lo que da una voz",
+  "icon": "tribalpower:ember_charm",
+  "order": 50,
+  "pages": [
+    {
+      "type": "text",
+      "title": "A 16 bloques",
+      "text": [
+        "Todo lo de estas páginas necesita que tu familiar sintonizado esté a **16 bloques** de ti. Cuenta cada familiar que te sigue, pero, de los que mandaste esperar, solo cuenta el **más cercano**; así, un grupo dejado sentado en casa te presta una voz, no todas las suyas.",
+        "Sin uno, tu magia funciona igual que siempre."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Amuletos de Espíritu",
+      "text": [
+        "Un amuleto que llevas puesto y que tiene la voz del familiar cuesta **un 40% menos de Pulso** para mantenerse, redondeado: los 2 de Pulso de un amuleto de una sola voz pasan a 1. Consulta [Amuletos de Espíritu](spirit_charms).",
+        "Cada voz que compartes añade también un don, que dura unos segundos después de apartarte:",
+        "- **Tierra**: Resistencia II en lugar de I.",
+        "- **Fuego**: Prisa, y quien te ataque arde el doble de tiempo.",
+        "- **Agua**: Poder del conducto.",
+        "- **Aire**: Velocidad.",
+        "- **Espíritu**: lo hostil que esté a 16 bloques brilla a través de los muros. El brillo lo ve cualquiera que esté cerca, no solo tú.",
+        "- **Telar**: Suerte II."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Equipo espiritual",
+      "text": [
+        "Una pieza ligada a la voz del familiar gasta **un 40% menos de Pulso**, redondeado: los 3 de un golpe pasan a 2, los 2 de un golpe de minería pasan a 1 y los 3 de la armadura ligada pasan a 2. Un gasto de 1 de Pulso, como labrar o esquilar, no puede bajar más, así que en su lugar sale **gratis el 40% de las veces**.",
+        "Sus ventajas de voz (troncos y brotes de más, cosechas dobles, arcilla a partir de tierra) llegan **la mitad más a menudo**. Consulta [Equipo espiritual](spiritgear)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cantos y ritos",
+      "text": [
+        "Los versos de la voz del familiar golpean **un 30% más fuerte**, y una Llamada llega **1.5 bloques** más lejos ([formas de canto](song_shapes)).",
+        "Un rito de sello de su voz deja una bendición que dura **la mitad más de tiempo**."
+      ]
+    }
+  ]
+}

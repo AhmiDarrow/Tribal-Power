@@ -1,0 +1,92 @@
+{
+  "name": "Coração de ley",
+  "icon": "tribalpower:ley_heart",
+  "order": 35,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_heart",
+      "text": [
+        "Um [Ressonador de Pulso](pulse_resonator) e um [Coletor de ley](ley_collector) feitos um. Coloque-o no centro de uma **Estrela do coração**, com as seis vozes de totem ao redor, e ele queima três combustíveis de uma vez e ergue **seis linhas ley** para o mundo.",
+        "Ele guarda **200.000 Pulso**, cerca de 45 segundos do seu melhor, e os conserva quando você o quebra."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "A Estrela do coração",
+      "text": [
+        "Coloque o coração sobre um 3x3 de **Pedra de âncora**, depois ponha um Totem de ressonância de **cada** voz a **cinco blocos**, no nível do próprio coração. Fogo e Água ficam de frente um para o outro através do coração, numa linha. Terra e Ar, e Espírito e Tear, ficam de frente nas diagonais: três blocos de lado e quatro ao longo.",
+        "Qualquer direção serve. Até cada peça estar no lugar, o coração fica em silêncio. Agache e clique com o botão direito nele com este livro para ouvir o que falta; os lugares que faltam brilham no mundo."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "ley_heart",
+      "tier": 1,
+      "title": "A Estrela do coração",
+      "text": "Pedra de âncora sob o coração; um totem de cada voz a cinco blocos."
+    },
+    {
+      "type": "text",
+      "title": "Na treliça",
+      "text": [
+        "Coloque um [Condutor de treliça](lattice_conductor) a até **8 blocos** do coração. O Pulso dele chega às suas máquinas só ao longo da treliça, então um coração no auge quer condutores manifestados, ou vários vinculados, para levar tudo.",
+        "Seus seis totens só guardam as vozes enquanto a treliça tiver Pulso. Um totem que seca fica em silêncio e para de contar, então um coração muito tempo sem combustível precisa de outra fonte na sua treliça para acordar de novo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Três combustíveis",
+      "text": [
+        "Clique com o botão direito no coração para abri-lo. Cada combustível tem sua própria entrada:",
+        "- **Cristais de ressonador** vão na fenda de cristal: Fragmento de eco, Eco sintonizado, Eco vinculado ou Núcleo ressonante. Um queima **15, 12, 10 ou 8 minutos**: um cristal melhor canta mais alto e queima mais rápido.",
+        "- Qualquer **reagente de criatura** vai na fenda de reagente. Um simples queima **2 minutos**; um com um **Fio** (veja [Reagentes](reagents)) queima mais quente e mais rápido: **90, 60 ou 40 segundos** para Fio I, II ou III.",
+        "- A **Água** enche um tanque de 8.000 mB a partir de um balde, um cano ou uma placa de Relé de fluidos. Queima mais rápido dos três: **200 mB por segundo**, um balde a cada cinco segundos.",
+        "Funis e relés podem alimentar os dois espaços; nada volta a sair. O combustível só é gasto nos segundos que entregam Pulso, então um coração cheio descansa."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que ele produz",
+      "text": [
+        "A cada segundo o coração canta seis vezes a canção do Ressonador: **6 x vozes x (vozes + 2)**, vezes o que valem os combustíveis que queimam, sobre quatro. Um cristal vale o que vale num Ressonador (**4, 6, 8 ou 12**), um reagente simples **4** e um reagente de Fio I, II ou III **6, 9 ou 12**, e a água **2**. Suas vozes são os totens respondidos das seis.",
+        "A isso ele soma a parte da ley: **12 Pulso por segundo por cada ponto** de força ley no coração, com seis vozes respondendo. O coração lê a terra e as linhas do planeta que seus totens puxam, mas não as suas próprias seis.",
+        "Então a harmonia: dois tipos de combustível queimando juntos multiplicam tudo por **1.25**, os três por **1.5**. Sem nada queimando, não faz nada. Cada [grau](machine_ranks) do coração acrescenta **15%**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qualidade é a alavanca",
+      "text": [
+        "Com seis vozes respondendo:",
+        "- Um Fragmento de eco, um reagente simples e água fazem **1,080 a 1,368 Pulso por segundo**, de um local nu a um perfeito.",
+        "- Um Eco vinculado, um reagente de Fio II e água num local mediano (ley 8) fazem cerca de **2,200**.",
+        "- Um Núcleo ressonante, um reagente de Fio III e água num local perfeito fazem **3,096**; um coração Manifestado faz **4,489 Pulso por segundo**.",
+        "Um ressonador de Núcleo ressonante e um Coletor de ley perfeito, lado a lado, fazem 168."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que custa",
+      "text": [
+        "Combustível melhor canta mais alto e queima mais rápido. Uma hora de um coração simples (Fragmento de eco, reagentes simples, água) queima **4 Fragmento de eco, 30 reagentes e 720 baldes de água**.",
+        "Uma hora no auge queima **7.5 Núcleo ressonante, 90 reagentes de Fio III** e os mesmos 720 baldes. Um familiar Exaltado escovado a cada minuto solta 120 reagentes de Fio III por hora.",
+        "O combustível só é gasto nos segundos que entregam Pulso: um coração cheio descansa até que algo puxe dele."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Seis linhas de ley",
+      "text": [
+        "Enquanto a estrela está inteira, o coração ergue **seis linhas de ley**, uma na cor de cada totem, saindo do coração, passando pelo totem e seguindo por **64 blocos** mundo adentro. São linhas de verdade: a [Lente ley](ley_lens) as desenha, e um [Coletor de ley](ley_collector) posto ao longo de uma a sente como qualquer outra. Os totens não as dobram.",
+        "Elas ficam enquanto a estrela se mantém, ao salvar e em chunks descarregados. Quebre o coração ou qualquer um dos seis totens e as seis caem de uma vez; torne a estrela inteira de novo e elas sobem em dois segundos.",
+        "Só totens em **Respondido** cantam (veja [Manutenção](keeping)), e um coração em funcionamento mantém os seus seis respondidos. Um sinal de redstone constante o aquieta."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_heart"
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "name": "Tumulo di Pulso",
+  "icon": "tribalpower:pulse_cairn",
+  "order": 70,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_cairn",
+      "text": "Un tumulo di pietre che tiene un battito: il deposito del reticolo. Ogni pietra immagazzina **4,000 Pulso**. Su una rete di reticolo beve il surplus dei generatori della rete e lo presta alle macchine della rete, fino a **64 al secondo** per verso. I generatori a raffiche lo riempiono; le macchine affamate attingono in modo costante."
+    },
+    {
+      "type": "text",
+      "title": "Impilare",
+      "text": [
+        "I tumuli che si toccano faccia a faccia, su qualsiasi lato, sopra o sotto, si uniscono in **una pila** e un solo deposito: due pietre tengono **8,000 Pulso**, tre tengono **12,000**, e così via. Una pila unisce fino a **64 pietre**, cioè **256,000 Pulso** di pietre semplici; una pietra in più resta sola.",
+        "Usa una pietra qualsiasi e vedi tutta la pila. Metti Pulso in un punto qualsiasi e si sparge sulle pietre; preleva da una pietra qualsiasi e l'intera pila paga. Ogni pietra aggiunge il proprio ritmo a quanto in fretta la pila muove il Pulso dentro e fuori."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ranghi",
+      "text": [
+        "Il Tumulo di Pulso [sale di rango](machine_ranks) come qualsiasi macchina, in Sintonizzatore di eco, Vincolatore di eco e Manifestatore di eco. Una pietra con rango tiene di più e muove il Pulso più in fretta, dentro e fuori, agli stessi ritmi di un conduttore:",
+        "- **Tessuto**: 4,000 Pulso, 64 al secondo.",
+        "- **Sintonizzato**: 16,000 Pulso, 256 al secondo.",
+        "- **Vincolato**: 64,000 Pulso, 1,024 al secondo.",
+        "- **Manifestato**: 256,000 Pulso, 4,096 al secondo.",
+        "Un mucchio somma le sue pietre, di qualunque grado siano. Una pietra precedente ai gradi è Tessuto, e una pietra rotta conserva il grado, ma non il Pulso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Riempire e leggere",
+      "text": [
+        "Un tumulo si unisce al reticolo come qualsiasi altra cosa, entro 8 blocchi da un [Conduttore di reticolo](lattice_conductor). Beve solo l'**eccedenza** di un generatore, ciò che sta sopra metà della sua riserva, e mai da un altro tumulo, così il Pulso da cui lavorano le macchine resta intatto. Le macchine della rete consumano prima i generatori, poi i tumuli. Il Pulso in entrata e in uscita passa anche per i conduttori a portata, quindi regolane il grado perché corrisponda.",
+        "Rompi una pietra e il Pulso che portava è perduto: la pietra torna vuota, e il resto del mucchio tiene ciò che contiene. Consuma un mucchio prima di spostarlo.",
+        "Un comparatore contro qualsiasi pietra legge quanto è pieno l'intero mucchio. Un segnale di redstone su qualsiasi pietra ferma il riempimento del mucchio."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un mucchio di pietre",
+      "steps": [
+        {
+          "caption": "Sistema un tumulo accanto a un generatore che arriva a raffiche, come una Campana del risveglio, con un Conduttore di reticolo a portata di entrambi.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:wake_bell"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Mettine altre sopra o accanto. Le pietre che si toccano sono un solo mucchio: tre tengono 12,000 Pulso.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Qualsiasi forma si unisce, fianco a fianco o impilata, fino a 64 pietre: 256,000 Pulso in un mucchio.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                1
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Un comparatore contro qualsiasi pietra legge quanto è pieno l'intero mucchio.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dove brilla",
+      "text": [
+        "Metti un tumulo, una Campana del risveglio e una Fossa d'ascolto intorno a un conduttore, e le raffiche della campana diventano il prelievo costante che la fossa vuole.",
+        "Entrambe le estremità devono essere caricate. Accovacciati e fai clic destro su un tumulo con questo libro per vedere quante pietre ha riunito il suo mucchio e che cosa porta questa pietra."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_cairn",
+      "text": "Sei Pietra della Marcia, due Eco vincolato e una Cella di Pulso."
+    }
+  ]
+}

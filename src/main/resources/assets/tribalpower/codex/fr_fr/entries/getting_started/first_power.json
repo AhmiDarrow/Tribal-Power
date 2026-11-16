@@ -1,0 +1,141 @@
+{
+  "name": "Ta première Pulsation",
+  "icon": "tribalpower:drumheart",
+  "order": 10,
+  "next": "first_workshop",
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Chaque camp commence avec un tambour. Le [Cœur-tambour](drumheart) change un battement régulier en Pulsation stockée, que les machines de son [treillis](lattice_conductor) peuvent dépenser.",
+        "Sa recette est sur la dernière page ici : des planches, du cuir, deux **Carillon d'os** et un **Éclat d'Esprit**. Carillons et éclats se fabriquent vite avec de l'os, de la ficelle, de l'améthyste et de la redstone ; vois [Éclats d'Esprit et résonateurs](crafting_components). Fais-en quelques-uns : au début, presque tout s'en sert.",
+        "Place le tambour là où tu comptes travailler et joue-le : clic droit avec une **main vide**, environ **une fois par seconde**. Un battement à temps vaut bien plus qu'un clic frénétique.",
+        "Joue jusqu'à ce qu'il tienne quelques centaines de Pulsation (accroupis-toi et fais un clic droit avec ce livre pour vérifier). Ton premier atelier tourne sur cette réserve."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Garder le tempo",
+      "steps": [
+        {
+          "caption": "Pose le Cœur-tambour là où tu comptes bâtir ton premier atelier.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Main vide, fais un clic droit dessus environ une fois par seconde. Chaque battement à temps ajoute 24 Pulsation.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Trop vite, les battements tombent hors tempo et ajoutent moins. Trouve plutôt un rythme régulier.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart",
+      "text": "Le tambour contient 1,000 Pulsation. Les machines y puisent par un **Conducteur de treillis** à 8 blocs des deux ; la page suivante montre où le placer. Un ou deux tambours suffisent : un troisième dans les mêmes 8 blocs sonne encore, mais ne rapporte rien."
+    }
+  ]
+}

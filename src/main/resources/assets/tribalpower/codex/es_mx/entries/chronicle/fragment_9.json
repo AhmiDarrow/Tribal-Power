@@ -1,0 +1,17 @@
+{
+  "name": "10. Ciénaga",
+  "icon": "tribalpower:mural",
+  "order": 19,
+  "spoiler": true,
+  "unlock": "fragment:9",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ciénaga",
+      "text": [
+        "“La Ciénaga de Juncos es la labor de cuerdas de los Vinculadores de raíces, ahogada. Cada junco es un nudo que ataron para sostener el suelo; el agua vino igual. Una de ellos sostuvo más allá del final. Sigue sosteniendo.”",
+        "Hallado en un mural en el terreno de un guardián."
+      ]
+    }
+  ]
+}

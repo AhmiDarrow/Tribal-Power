@@ -1,0 +1,54 @@
+{
+  "name": "Acampamentos compartilhados",
+  "icon": "tribalpower:camp_charter",
+  "order": 200,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:camp_charter",
+      "text": [
+        "Jogando com amigos? Funde um acampamento com eles. Um acampamento é um grupo com nome, com um cofre compartilhado, dispositivos que todo membro pode usar e o prestígio com as tribos somado entre vocês."
+      ],
+      "title": "Acampamentos compartilhados"
+    },
+    {
+      "type": "image",
+      "image": "camps_identity",
+      "title": "Um acampamento, muitas mãos",
+      "text": "Tudo o que um membro coloca fica aberto para o acampamento inteiro."
+    },
+    {
+      "type": "text",
+      "title": "Fundar e convidar",
+      "text": [
+        "Execute **/tribalpower camp create <name>** (até 24 caracteres). Você se torna o primeiro membro e o líder.",
+        "Para convidar alguém, execute **/tribalpower camp invite <player>**, ou fabrique uma **Carta do acampamento** e clique com o botão direito no jogador com ela. A carta nunca se gasta. Clicar com o botão direito no ar com ela mostra seu acampamento.",
+        "Um convite dura **cinco minutos**. O convidado aceita com **/tribalpower camp join <name>**.",
+        "Você só pode pertencer a um acampamento de cada vez."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que os membros compartilham",
+      "text": [
+        "- **Dispositivos.** Os membros contam como donos dos blocos de acampamento, dos dispositivos de padrão, Pedestal do rito, dos relés, Pedra-chave do portal, das placas de canto e dos vínculos de verso uns dos outros. Quem está fora do acampamento é recusado.",
+        "- **O cofre.** Qualquer Depósito profundo ou Alforje do viajante abre o cofre compartilhado de **54 espaços** do acampamento. Agache ao abrir um para alternar entre esse e seu cofre pessoal; ele lembra sua escolha.",
+        "- **Prestígio.** Desde o dia em que você entra, um quarto de cada prestígio que um membro ganha ou perde com uma tribo cai também no acampamento. Onde seu posto importa (trocas de Parente, as dádivas deles, missões de tribo, vincular um remanescente), vale o posto do acampamento quando ele é mais alto que o seu.",
+        "- **Âncoras.** O acampamento compartilha **12** Âncora de caminho, contadas em todos os mundos."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Conduzir o acampamento",
+      "text": [
+        "**/tribalpower camp info** lista membros e âncoras. O líder pode executar **/tribalpower camp rename <name>** e **/tribalpower camp kick <player>**. Qualquer um pode **/tribalpower camp leave**; se o líder sair, o membro mais antigo lidera.",
+        "Quando o último membro sai, o acampamento se dissolve e seu cofre se derrama aos pés dele.",
+        "Quando as tribos conhecem você, os [Totem de parentesco](kinship_totem) delas podem emprestar ao seu acampamento qualquer uma das vozes delas."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:camp_charter"
+    }
+  ]
+}

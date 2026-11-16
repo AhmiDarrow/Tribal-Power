@@ -1,0 +1,47 @@
+{
+  "name": "Salle des ancêtres",
+  "icon": "tribalpower:lore_tablet",
+  "order": 40,
+  "spoiler": true,
+  "items": [
+    "tribalpower:loom_thread"
+  ],
+  "next": "drum_circle",
+  "pages": [
+    {
+      "type": "image",
+      "image": "ancestor_hall",
+      "text": [
+        "Salles de pierre enfoncées dans la Steppe de la Marche et les Hautes terres. Seul un puits d'échelle affleure à la surface."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Les Salles des ancêtres sont enterrées : cherche un puits d'échelle qui descend dans le sol. En dessous, trois salles sous des poutres de bois du Métier, éclairées par de vieilles lanternes.",
+        "Les **Sentinelles creuses** gardent les pièces latérales, trois dans chaque salle. Elles frappent fort et affaiblissent ta prise, alors éclaire les pièces en avançant et garde un bâton chargé sous la main pour frapper de loin."
+      ],
+      "title": "En trouver une"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Quatre **Tablettes de récits** sont accrochées aux murs. Clique droit sur chacune pour la lire ; la première lecture est inscrite dans ce Codex, qui compte combien des **12** tablettes tu as trouvées. Les Cercles de tambours, la Flèche de cristal, les camps des Graveurs de sceaux et le Temple profond gardent le reste.",
+        "Deux coffres se tiennent au fond. Chacun contient toujours **2 à 4 Fil de Métier**, plus une poignée d'échos, des Éclats d'écho, des Éclats d'Esprit, de l'Espritissu, du Cristal de la Marche ou un Sceau vierge, et parfois un sceau élémentaire.",
+        "Le Fil de Métier est la raison pour laquelle la plupart viennent. C'est le premier pas vers [la sixième voix](sixth_voice)."
+      ],
+      "title": "Ce que garde la salle"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Huit Pierre de la Marche autour d'un Éclat d'écho taillent **2 Tablettes de récits**. Accroche-les chez toi à un mur pour marquer ta propre salle ; elles restent à plat contre le bloc derrière elles et tombent s'il est retiré."
+      ],
+      "title": "Tes propres tablettes"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lore_tablet"
+    }
+  ]
+}

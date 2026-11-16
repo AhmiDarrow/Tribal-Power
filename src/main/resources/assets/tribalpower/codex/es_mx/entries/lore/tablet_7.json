@@ -1,0 +1,17 @@
+{
+  "name": "Tablilla: Rito de los Talladores de sellos",
+  "icon": "tribalpower:lore_tablet",
+  "order": 170,
+  "spoiler": true,
+  "unlock": "tablet:7",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Solo el altar de un Templo profundo, sellado en la piedra de la Marcha, guarda esta tablilla. El No Cantado también la lleva y la suelta al caer; cuélgala en una pared para leerla.",
+        "En las propias palabras de los Talladores de sellos, talladas con el cuidado de un sello:",
+        "“El Espíritu va adonde se le pide con cortesía y se queda donde se le da de comer. Un sello es una petición cortés tallada en piedra. Un brasero es la comida. Tallamos sellos en blanco por millares antes del Corte, y pedimos demasiado. Pide poco. Aliméntalo bien.”"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Dons de la tribu",
+  "icon": "tribalpower:tribe_mark",
+  "order": 35,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tribe_mark",
+      "title": "La façon d'une tribu, prêtée à toi",
+      "text": [
+        "Chaque tribu a un **don** : un petit avantage à la façon de cette tribu, montré comme un effet de statut à la couleur de la tribu.",
+        "Atteins la réputation **Parent** auprès d'une tribu et tu portes son don tant que cette réputation dure. Le don se renouvelle tout seul ; tu n'as jamais à le demander. N'importe qui peut porter un don un moment en mangeant le [plat](tribe_dishes) de cette tribu. Porter la [relique](elders_and_stories) d'une tribu donne aussi son don, quelle que soit ta réputation.",
+        "Une **Amulette de la lanterne** portée garde un don allumé une fois et demie plus longtemps."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Sol (Gardiens des litières)** : tes champs ne sont jamais piétinés, et la faim vient plus lentement.",
+        "- **Pierre (Chanteurs de gravier)** : le minerai que tu casses a **une chance sur cinq** d'en donner un de plus.",
+        "- **Pousse (Lieurs de racines)** : les cultures et les pousses dans les 4 blocs poussent plus vite autour de toi.",
+        "- **Griffe (Marcheurs de lisière)** : aucune chute ne te blesse tant que tu **t'accroupis**.",
+        "- **Étincelle (Cœurs-tambours)** : une main plus vive : tu frappes **10%** plus vite."
+      ],
+      "title": "Les neuf dons"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Horloge (Tisserands de motifs)** : les stations d'écho à 8 blocs de toi travaillent à **double vitesse**.",
+        "- **Essaim (Gardiens de la colonie)** : les abeilles ne se retournent jamais contre toi.",
+        "- **Sigille (Graveurs de sceaux)** : tes amulettes demandent **la moitié** de la Pulsation.",
+        "- **Fuseau (Couseurs du métier)** : les chants coûtent **un quart de moins** à chanter.",
+        "Tous les nombres sont dans la section **effets** de la config commune."
+      ],
+      "title": "Les neuf dons, suite"
+    }
+  ]
+}

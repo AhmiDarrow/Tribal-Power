@@ -1,0 +1,65 @@
+{
+  "name": "Tessitori di trame",
+  "icon": "tribalpower:tribe_mark",
+  "order": 90,
+  "spoiler": true,
+  "unlock": "tribe:clock",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_clock",
+      "title": "Tessitori di trame",
+      "text": [
+        "«Una fabbrica è un canto che ha smesso di aver bisogno del cantante.»",
+        "Filo di **Orologio**, voce di **Aria**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chi sono",
+      "text": [
+        "I Tessitori di trame scrissero i loro tempi su ruote d'orologio e polvere di falena e lasciarono che il Telaio portasse la melodia. Quando arrivò il Taglio, i loro canti continuarono. La loro arte è **canti temporizzati e automazione**.",
+        "I loro accampamenti stanno nelle **foreste di betulle**, e nella Marcia un loro accampamento sta in ogni fascia, dal nord ghiacciato fino al sale."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa vogliono",
+      "text": [
+        "Il loro reagente è l'**Ala di tempesta**, che vale **+8** di reputazione al loro Focolare.",
+        "Prediligono anche Pietrarossa, un Orologio, un Ripetitore o un Comparatore: **+3** ciascuno. Qualsiasi altro cibo vale **+1**, e una Cella di Pulso carica **+2 ogni 10 Pulso**, fino a +8.",
+        "Ricorda che il Focolare accetta al massimo **60** di reputazione al giorno dalle offerte; vedi [Tribù e reputazione](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa scambia l'Anziano",
+      "text": [
+        "**Ospite**: 8 Pietrarossa per 2 Scheggia di eco; un Orologio per 4 Ripetitore.",
+        "**Amico**: 2 Eco sintonizzato per 4 Comparatore; 16 Pietrarossa per un'Ala di tempesta; 4 Fagiolo di bagliore per una Crostata di trame.",
+        "**Consanguineo**: 3 Eco vincolato per un Conduttore di reticolo; 2 Eco vincolato per un'Arpa del vento.",
+        "Ogni scambio frutta **+2** di reputazione."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marchio, totem e dono",
+      "text": [
+        "A **Voce** l'Anziano ti dà il Marchio della tribù dei Tessitori di trame. Crealo con un {item:tribalpower:resonance_totem_air} e due Tessitospirito per farne il loro [Totem di parentela](kinship_totem).",
+        "Accanto a un Risonatore di Pulso è una voce in più; accanto a una stazione presta **Aria**.",
+        "I Consanguineo dei Tessitori di trame portano il loro [dono](tribe_boons): le stazioni di eco entro 8 blocchi da te funzionano a **doppia velocità**.",
+        "Il loro piatto porta il dono per **5 minuti**, e la loro [reliquia](elders_and_stories) finché la porti.",
+        "I Tessitori di trame sono l'unica tribù che vende un'**Arpa del vento**, il generatore di Aria.",
+        "A **Voce** puoi anche legare una **Falena della tempesta** come [famiglio](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "clock",
+      "title": "Il tuo lavoro con loro",
+      "text": [
+        "Ciò che l'Anziano dei Tessitori di trame ti ha chiesto, e fin dove è arrivata la loro storia. Vedi [Anziani, richieste e storie](elders_and_stories)."
+      ]
+    }
+  ]
+}

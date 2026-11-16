@@ -1,0 +1,40 @@
+{
+  "name": "Kristallspitze",
+  "icon": "tribalpower:march_crystal",
+  "order": 70,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "image",
+      "image": "crystal_spire",
+      "text": [
+        "Eine sich verjüngende Spitze aus Marschkristall in den Kristallfeldern, mit einer Wegstation an ihrem Fuß."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Am Fuß der Spitze liegt ein kleines Lager: ein Herd, Banner, ein Totem des Webstuhls, Betten und ein Webstuhl. Dort leben zwei Webstuhl-Näher vom Stamm der Spindel, ein Ältester und ein Weber.",
+        "Die Webstuhl-Näher halten zwei Arten von Lagern, beide nur im Marsch: diese kleine Wegstation in den Kristallfeldern und ein volles Lager mit eigenem Ältesten in jeder Schar. In jedem hängt eine Überlieferungstafel."
+      ],
+      "title": "Die Wegstation"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Sie heißen **Marschkristall**, **Webstuhlfaden** und Kompasse als Gaben willkommen. Jedes hebt deine [Stellung](standing) beim Stamm.",
+        "Beim Rang **Freund** öffnen sie den Handel mit Webstuhlfaden, den stetigen Vorrat, den du willst, sobald du die nahen Ahnenhallen geplündert hast.",
+        "Ihre ganze Geschichte steht auf der Seite der [Webstuhl-Näher](tribe_spindle)."
+      ],
+      "title": "Handel mit den Webstuhl-Näher"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Die Kristallfelder sind terrassierte Tafelberge, und du verlierst im Kristall leicht die Orientierung. Binde einen Kompass, bevor du weiterziehst.",
+        "Splitterrücken schubsen hart an den Kanten. Halte den Rücken von den Abgründen fern."
+      ],
+      "title": "Zurechtfinden"
+    }
+  ]
+}

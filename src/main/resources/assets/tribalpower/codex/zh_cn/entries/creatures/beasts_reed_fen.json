@@ -1,0 +1,74 @@
+{
+  "name": "芦苇泽的野兽",
+  "icon": "tribalpower:marsh_foot",
+  "order": 250,
+  "spoiler": true,
+  "items": [
+    "tribalpower:marsh_hopper_spawn_egg",
+    "tribalpower:fen_strider_spawn_egg",
+    "tribalpower:bog_floater_spawn_egg",
+    "tribalpower:reed_coil_spawn_egg",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:reed_whorl"
+  ],
+  "next": "beasts_crystal_fields",
+  "pages": [
+    {
+      "type": "text",
+      "title": "芦苇泽本有",
+      "text": [
+        "芦苇和泥渠之间住着一只蛙、一只鹭，还有一条浮在空中的河豚，夜里则有一条眼镜蛇在草里醒来。",
+        "这里的每种温顺野兽，都可以每分钟用刷子刷一次，取得它的试剂，并用下方**狩猎与牧养**里写明的各自食物来引诱和繁殖。它可以像任何温顺动物一样缔结（见[使魔](familiars)）。虽然都没有自己的天赋，缔结后的一只仍能在图腾处取得一种声音，并强化你的魔法（见[在图腾处调谐](familiar_attuning)）。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:marsh_hopper",
+      "title": "沼跳蛙",
+      "text": [
+        "一只小泽蛙，跳得很快，二至四只成群。**12点生命值**，无护甲。",
+        "掉落**1至3个沼足**，有抢夺时更多。",
+        "猎杀后还会掉落最多1个生野味、最多1个兔子皮和最多1个黏液球。用**泽米**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:fen_strider",
+      "title": "泽涉禽",
+      "text": [
+        "一只高鹭，踩着高跷般的腿涉水，二至四只成群。**22点生命值**和**1点护甲**。",
+        "掉落**1至3个泽蹄**。",
+        "猎杀后还会掉落1至3个生野味、最多2个远行界皮革和最多1个骨头。用**泽米**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bog_floater",
+      "title": "泥沼浮球",
+      "text": [
+        "一条绿色的气球河豚，鼓得又圆又刺，在泽地上空一只到三只地飘着。**12点生命值**，无护甲。有几只会跟着[巨像守卫](colossus_warden)一起飘。",
+        "掉落**1至3个泥沼囊**。",
+        "猎杀后还会掉落最多1个黏液球和最多1个线。用**泽米**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:reed_coil",
+      "title": "苇盘",
+      "text": [
+        "一条沼眼镜蛇，盘起身子并张开兜帽，夜里在泽地的空地上出现，一次一条或两条。它很慢，但有**30点生命值**和**6点护甲**，每次命中**5**点，并且每一击都会把你推开。",
+        "掉落**1至2个苇旋**，一种推移试剂。",
+        "猎杀后还会掉落最多1个远行界皮革和最多1个骨头。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猎与牧养",
+      "text": [
+        "除了试剂，猎杀时每种还会多掉一些，有抢夺时再多一些。若动物是被烧死的，掉落的肉是烤熟的。要繁殖野生的，给两只成年的喂它们的食物时须**潜行**；若正常喂食，野生的反而会亲近你。"
+      ]
+    }
+  ]
+}

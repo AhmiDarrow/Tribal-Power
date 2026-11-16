@@ -1,0 +1,141 @@
+{
+  "name": "你的第一份脉动",
+  "icon": "tribalpower:drumheart",
+  "order": 10,
+  "next": "first_workshop",
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "每个营地都从一面鼓开始。[鼓心](drumheart)把稳定的节拍变成储存的脉动，其[网格](lattice_conductor)上的机器可以消耗它。",
+        "配方在这里的最后一页：木板、皮革、两个**骨铃**和一个**灵之碎片**。铃和碎片用骨头、线、紫水晶和红石就能很快做成；参见[灵之碎片与共鸣器](crafting_components)。做上几个，因为前期几乎样样都要用到它们。",
+        "把鼓放在你打算干活的地方并敲响：用**空手**右键，大约**每秒一次**。合拍的一击比狂点值钱得多。",
+        "敲到它存下几百脉动为止（蹲下，用这本书右键查看）。你的第一座工坊就靠这份储备运转。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "稳住节拍",
+      "steps": [
+        {
+          "caption": "把鼓心放在你打算建造第一座工坊的地方。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "空手大约每秒右键一次。每一次合拍都增加24脉动。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "太快的话，节拍会落空，加得也少。去找一个稳定的节奏。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart",
+      "text": "鼓可储存1,000脉动。机器通过距两者都在8方块内的**网格导体**从中抽取；下一页说明它放在哪里。一两面鼓就够了：同一8方块内的第三面仍会响，但什么也得不到。"
+    }
+  ]
+}

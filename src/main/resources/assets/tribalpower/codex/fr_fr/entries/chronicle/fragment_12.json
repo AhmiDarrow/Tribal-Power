@@ -1,0 +1,17 @@
+{
+  "name": "13. La Porte",
+  "icon": "tribalpower:mural",
+  "order": 22,
+  "spoiler": true,
+  "unlock": "fragment:12",
+  "pages": [
+    {
+      "type": "text",
+      "title": "La Porte",
+      "text": [
+        "“La Crête scintillante est le caveau des Graveurs de sceaux, scellé de l'intérieur le jour de la chute. Ce qu'ils y ont enfermé a été prié, poliment, de rester. Depuis, il se nourrit de cette demande.”",
+        "Trouvé sur une peinture murale, sur le terrain d'un gardien."
+      ]
+    }
+  ]
+}

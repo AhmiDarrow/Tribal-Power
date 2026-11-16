@@ -1,0 +1,17 @@
+{
+  "name": "2. 九种声音",
+  "icon": "tribalpower:carved_stone",
+  "order": 11,
+  "spoiler": true,
+  "unlock": "fragment:1",
+  "pages": [
+    {
+      "type": "text",
+      "title": "九种声音",
+      "text": [
+        "“土用以托住，火用以取暖，水用以运送，风用以举起，灵用以询问，织机用以缚住这五者。六种声音，九个族群：其中三种是共用的。争执就从这共用开始。”",
+        "发现于远行界废墟中的一块刻石上。"
+      ]
+    }
+  ]
+}

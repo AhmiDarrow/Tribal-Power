@@ -1,0 +1,455 @@
+{
+  "name": "远行界的地面与生长",
+  "icon": "tribalpower:march_grass",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:march_stone",
+    "tribalpower:march_cobble",
+    "tribalpower:march_soil",
+    "tribalpower:march_farmland",
+    "tribalpower:march_path",
+    "tribalpower:march_moss",
+    "tribalpower:march_log",
+    "tribalpower:march_planks",
+    "tribalpower:march_leaves",
+    "tribalpower:march_leaf",
+    "tribalpower:march_sapling",
+    "tribalpower:march_ore",
+    "tribalpower:march_crystal",
+    "tribalpower:spirit_reed",
+    "tribalpower:echo_bloom",
+    "tribalpower:ley_thistle",
+    "tribalpower:march_lily_pad",
+    "tribalpower:moon_lily",
+    "tribalpower:ribbon_weed",
+    "tribalpower:march_silt",
+    "tribalpower:veil_lichen",
+    "tribalpower:echo_roots",
+    "tribalpower:lantern_cap"
+  ],
+  "next": "march_underground",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "text": [
+        "远行界有自己的地面：远行界泥土上是远行界草，下面是远行界石头，还有自己的树、花和晶体。",
+        "大部分和你熟悉的主世界方块一样，但在那里动工之前，有几处差别值得先弄清。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "**远行界石头**是整个世界的岩石。至少需要**石镐**，不用精准采集时会掉落**远行界圆石**。烧炼圆石可以变回石头。",
+        "草的下面是**远行界泥土**。不用精准采集时，草会掉落泥土，而且只在光照良好时向远行界泥土蔓延。对远行界草使用骨粉会冒出一丛丛**远行界叶**。",
+        "**远行界苔藓**覆盖着芦苇沼和高地。有些生物群系会加上原版地面：水晶原野里有方解石，雪原里有雪和浮冰，余烬荒地里有平滑玄武岩，沼地里有泥巴。",
+        "回响粉碎把远行界石头压成回响碎片，把远行界圆石压成沙砾。"
+      ],
+      "title": "石头与泥土"
+    },
+    {
+      "type": "text",
+      "text": [
+        "只要上方是空的，锄可以把远行界泥土、草或苔藓变成**远行界耕地**。**4格**内有水就能保持湿润。放干或者被踩踏后，会变回远行界泥土，绝不会变成主世界的泥土。",
+        "锹把同样的方块铲平为**远行界土径**。被东西盖住时，它也会变回远行界泥土。",
+        "远行界树苗能长在远行界草上，也能长在远行界耕地上。"
+      ],
+      "title": "耕种与土径"
+    },
+    {
+      "type": "scene",
+      "title": "整治远行界的地面",
+      "steps": [
+        {
+          "caption": "远行界泥土上的远行界草：你将要走过的地面，大多是这样。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "只要上面没有东西，锄就把草耕成远行界耕地。",
+          "remove": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_farmland"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_farmland"
+            }
+          ],
+          "use": {
+            "pos": [
+              -1,
+              0,
+              0
+            ],
+            "item": "minecraft:iron_hoe"
+          },
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "四格内有水就保持湿润；干耕地会慢慢变回远行界泥土。",
+          "remove": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_farmland[moisture=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_farmland[moisture=7]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "锹把草铲平为远行界土径，用来铺你的小路。",
+          "remove": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_path"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_path"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_path"
+            }
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "minecraft:iron_shovel"
+          },
+          "highlight": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "远行界树苗会在留下的草上扎根。",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                -1
+              ],
+              "block": "tribalpower:march_sapling"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "远行界的树在高地成林，在草原上或成树丛或独自一棵，在沼地和雪原则长成各自的样子。",
+        "一根**远行界原木**做成**4 远行界木板**。远行界树叶有时会掉落远行界树苗（时运会有帮助）以及一两根木棍；剪刀或精准采集会保留树叶本身。",
+        "远行界木板用在Tribal Power的很多东西里：鼓、织机图腾、凳和桌。远行界草、远行界苔藓、远行界树叶和远行界叶的叶丛都算作地脉收集器周围的活绿。"
+      ],
+      "title": "树"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **灵之芦苇**在芦苇沼长得很密，在草原上则稀疏。它用于歌藤、荧光芦苇、风符、织席和春之召唤石板，缚根者把它当作供品收下。",
+        "- **回响花**成片生长，铺满整个水晶原野，并洒下细小的光点。它用于余烬碗。",
+        "- **地脉蓟**散布在远行界的大部分地方，余烬荒地也包括在内。它是装饰：摘下来布置你的营地。",
+        "三种都能重新种在远行界的任何地面上，连裸石上也行，而且三种都会燃烧。"
+      ],
+      "title": "花与芦苇"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**远行界水晶**长在地表，在水晶原最为厚密。它以亮度**10**发光，下方需要固体方块，用任何工具都会掉落自身。它用来制作织机图腾、织机锚、路锚、召唤摇篮、星界指南针和星界中继器，织机缝工很喜欢它。灵火会聚集在它周围。",
+        "**远行界矿石**是石头里的灵矿，大多远低于**y -8**，在某些生物群系里更高处更多。需要石镐，掉落**1到2个灵之碎片**（时运会更多）。用精准采集可以保住方块，回响粉碎会把它变成**2个灵之碎片**。"
+      ],
+      "title": "水晶与远行界矿石"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_planks"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_stone",
+      "text": "将远行界圆石熔炼回远行界石头。"
+    },
+    {
+      "type": "text",
+      "title": "水与洞穴",
+      "text": [
+        "远行界的浅湖覆着**远行界睡莲**，偶尔还有夜间在水面上发光的**月百合**。**丝带藻**在下面摇曳，扎根于灰色的**远行界淤泥**与黏土之中。",
+        "地下，洞壁和洞顶长着微微发光的**帷幕地衣**，**回响根**从岩石垂下，小小的发光蘑菇**灯笼盖**照亮洞底。",
+        "剪刀能保住藻、地衣和根。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,294 @@
+{
+  "name": "절 호출과 절 응답",
+  "icon": "tribalpower:verse_call",
+  "order": 60,
+  "spoiler": false,
+  "items": [
+    "tribalpower:verse_answer"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:verse_call",
+      "text": [
+        "절은 열여섯, 전선은 없다. **절 호출**은 레드스톤을 듣는다. 32블록 안에서 같은 절에 조율된 **절 응답**이 그것을 노래로 돌려보낸다.",
+        "호출은 [노래 실](song_thread)로 만들고, 응답은 노래 덩굴로 만든다. 그래서 둘 다 마치의 **베틀 실**이 필요하다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "한 쌍 조율",
+      "text": [
+        "절 호출을 아무 블록 면에 붙인다. 레드스톤은 **바라보는 면을 뺀 모든 면**에서 듣는다.",
+        "같은 세계에서 **32블록** 안의 면에 절 응답을 붙인다. 바라보는 면으로, 앞의 블록에 노래를 보낸다.",
+        "웅크린 채 빈손으로 어느 판이든 우클릭해 절을 **1에서 16**까지 바꾼다. 둘은 같아야 한다. 빈손으로 우클릭하면 절과 세기를 읽는다.",
+        "각 판은 그것을 놓은 사람과 그 야영지의 것이다. 그래서 남의 판을 다시 조율하는 것은 거절된다.",
+        "응답은 호출이 듣는 세기를 베끼므로, 언제나 15는 아니다. 여러 호출이 한 절을 나누면, 응답은 가장 큰 것을 취한다. 맞지 않는 절은 잠잠하다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "마당 너머",
+      "steps": [
+        {
+          "caption": "절 호출을 블록에 단다. 옆의 레버가 실어 나를 노래다.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:verse_call[facing=north]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "절 응답을 다른 블록에, 구동할 램프를 바라보게 단다.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:verse_answer[facing=north]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:redstone_lamp"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "웅크린 채 빈손으로 각 판을 우클릭해 둘 다 같은 절을 보일 때까지 한다.",
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "레버를 당기면 응답이 같은 세기를 램프로 노래한다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "도움이 되는 곳",
+      "text": [
+        "릴레이는 여전히 아이템을 옮긴다. 이 판들이 옮기는 것은 레드스톤뿐이다. 노래 판을 다른 노래 판에 잇려면 토템 렌치 동기화가 더 간단하다 ([노래 판](song_plates) 참고).",
+        "클록 하나로 야영지 전체를 돌릴 수 있다. 호출 옆에 심장박동을 두고, 각 북에는 같은 절의 응답을 둔다. 서로 8블록 안에서는 북 둘만 펄스를 얻는다. 그러니 떨어뜨려 두어라.",
+        "바람 인장은 호출에, 뼈 방울은 응답에 들어간다. 무늬 짜는 이는 클록과 폭풍 날개를 선호한다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_call"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_answer"
+    }
+  ],
+  "next": "song_plates"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Tafel: Ritus der Siegelkerber",
+  "icon": "tribalpower:lore_tablet",
+  "order": 170,
+  "spoiler": true,
+  "unlock": "tablet:7",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Nur der Altar eines Tiefen Tempels, versiegelt im Stein des Marsches, bewahrt diese Tafel. Der Ungesungene trägt sie ebenfalls und gibt sie her, wenn er fällt; häng sie an eine Wand, um sie zu lesen.",
+        "In den eigenen Worten der Siegelkerber, so sorgfältig geschnitten wie ein Siegel:",
+        "“Der Geist geht dorthin, wo man höflich bittet, und bleibt, wo man ihn füttert. Ein Siegel ist eine höfliche Bitte, in Stein geschnitten. Ein Kohlenbecken ist die Mahlzeit. Wir schnitten Leersiegel zu Tausenden vor dem Schnitt und verlangten viel zu viel. Bitte um wenig. Füttere ihn gut.”"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Tavoletta: Corda dei Legaradici",
+  "icon": "tribalpower:lore_tablet",
+  "order": 120,
+  "spoiler": true,
+  "unlock": "tablet:2",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Da una Sala degli antenati sommersa, nelle parole dei Legaradici:",
+        "“Le radici sono l'unica corda che il vuoto rispetta. Abbiamo piantato le prime ancore sulle isole che cadevano e le abbiamo legate isola a isola, radice a radice. Metà ha retto. Pianta un arbusto nel suolo della Marcia e lo sentirai tirare verso gli altri.”"
+      ]
+    }
+  ]
+}

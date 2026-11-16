@@ -1,0 +1,17 @@
+{
+  "name": "Continents de fil",
+  "icon": "tribalpower:lore_tablet",
+  "order": 40,
+  "spoiler": false,
+  "next": "nine_arguments",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Un continent était une litière qui avait oublié qu'elle était une litière. Les champs couraient parce que le Sol courait avec eux. Les rivières gardaient les manières parce que la Pousse a appris à l'eau où s'asseoir. Les villes ne flottaient pas. Elles pendaient, et pendre semblait être debout.",
+        "Les routes étaient chantées, pas coupées. La Pulsation sous un âtre s'entendait comme Pulsation sous le suivant. La nuit était un rendez-vous que les Graveurs de sceaux tenaient. Les tempêtes étaient une dispute de Cœur-tambour ramenée avant l'aube.",
+        "Tu peux encore voir l'habitude dans l'aurore. C'est le ciel qui essaie de se souvenir d'un horaire."
+      ]
+    }
+  ]
+}

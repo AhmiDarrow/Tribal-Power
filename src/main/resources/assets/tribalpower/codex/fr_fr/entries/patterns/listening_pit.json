@@ -1,0 +1,72 @@
+{
+  "name": "Fosse d'écoute",
+  "icon": "tribalpower:resonance_mesh",
+  "order": 70,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_mesh",
+      "text": [
+        "Le Maillage de résonance est le cœur de la Fosse d'écoute : une fosse étayée qui écoute le minerai hors de la pierre renouvelable.",
+        "Nourris-la de pierre, donne-lui de la Pulsation et la voix de Terre, et le minerai de métal brut et de gemmes tombe dans une cache au-dessus. Elle ne se tarira jamais comme une mine."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "listening_pit",
+      "tier": 1,
+      "title": "La fosse",
+      "text": "Un sol de 5x5 de n'importe quelle pierre naturelle de la Surface (pierre, ardoise des abîmes, granite, diorite, andésite ou tuf), des Pierres d'ancre aux coins, de la craie de chaque bord jusqu'au milieu, et le maillage au centre."
+    },
+    {
+      "type": "text",
+      "title": "Avant qu'elle n'écoute",
+      "text": [
+        "La fosse a besoin de tout ceci, et le Codex spirituel nomme ce qui manque :",
+        "- La voix de **Terre** dans un rayon de 8 blocs, maintenue éveillée : un totem faible ralentit le cycle, un totem silencieux l'arrête.",
+        "- Une **Cache ancestrale** touchant le maillage. Avec de la craie sur les quatre côtés et de la pierre en dessous, cela veut dire **dessus**. Le maillage y vide tout, donc tu n'as pas besoin d'entonnoir.",
+        "- Pulsation venue du treillis. Le maillage garde son propre tampon de **200 Pulsation** pour qu'un générateur par à-coups ne fasse pas hoqueter le cycle.",
+        "- Rang **Ami** auprès des Chanteurs de gravier, même pour le minerai commun. La fosse d'un Étranger cale."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le nourrir",
+      "text": [
+        "Garde la **Cache ancestrale** du dessus approvisionnée en pierre : la fosse y prend son **substrat**, et remet le minerai qu'elle entend dans la même cache. La craie et la pierre murent le maillage sur tous les autres côtés, donc la cache est l'endroit où tes mains, les entonnoirs et les relais l'alimentent.",
+        "Clique droit sur le maillage avec un **échantillon**, comme du fer brut, pour orienter ce qu'il appelle. L'échantillon est un filtre et n'est jamais consommé ; accroupis-toi la main vide pour le reprendre. Voir [Ce que le sol offre](what_the_ground_offers)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Autour de la fosse",
+      "text": [
+        "Garde le tambour ou le générateur hors du 5x5 : tout le sol appartient à la fosse. Donne un rang au maillage comme à n'importe quel autre atelier.",
+        "Un comparateur contre le maillage lit jusqu'où le cycle est allé, et retombe à 0 dès que la fosse cale."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "listening_pit",
+      "tier": 2,
+      "title": "Écoute profonde",
+      "text": "Sept sur sept : deux anneaux de Pierres d'ancre aux coins, et un Totem de résonance de n'importe quelle voix sur chaque bord cardinal."
+    },
+    {
+      "type": "text",
+      "title": "Écoute profonde",
+      "text": [
+        "Le 7x7 double le renfort des coins et place un totem sur chaque bord cardinal. Il ouvre les bandes **profonde**, **chaude** et **rare**.",
+        "Les trois demandent aussi un **Âtre de la tribu** ou un **Totem de parenté des Chanteurs de gravier** dressé dans le motif. Le minerai commun, non.",
+        "Rang auprès des Chanteurs de gravier : **Ami** pour le commun (même sur une petite fosse), **Parent** pour le profond et le chaud, **Voix** pour le rare. Le chaud veut aussi le Feu ; le rare veut l'Esprit. Le Codex spirituel nomme ce qu'il te manque encore."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_mesh"
+    }
+  ],
+  "next": "what_the_ground_offers"
+}

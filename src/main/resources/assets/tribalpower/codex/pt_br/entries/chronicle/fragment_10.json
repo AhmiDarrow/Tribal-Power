@@ -1,0 +1,17 @@
+{
+  "name": "11. Marcos",
+  "icon": "tribalpower:mural",
+  "order": 20,
+  "spoiler": true,
+  "unlock": "fragment:10",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Marcos",
+      "text": [
+        "“Os Campos de Neve são os prados dos Guardiões da colônia, sob um inverno que veio com a queda e ficou. As colmeias dormem sob os marcos. O frio aprendeu o zumbido delas e fez com ele algo seu.”",
+        "Encontrado num mural, no terreno de um guardião."
+      ]
+    }
+  ]
+}

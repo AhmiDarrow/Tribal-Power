@@ -1,0 +1,17 @@
+{
+  "name": "7. Los campamentos",
+  "icon": "tribalpower:carved_stone",
+  "order": 16,
+  "spoiler": true,
+  "unlock": "fragment:6",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Los campamentos",
+      "text": [
+        "“Nueve campamentos sobre nueve lechos, cada uno cantando un hilo en un Telar que ya no estaba. Hábito, lo llamaron los Caminantes del borde. Esperanza, dijeron los Vinculadores de raíces. Los Cantores de grava dijeron que era la misma cosa dicha dos veces.”",
+        "Hallado en una Piedra tallada en las ruinas de la Marcha."
+      ]
+    }
+  ]
+}

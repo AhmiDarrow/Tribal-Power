@@ -1,0 +1,79 @@
+{
+  "name": "Vasca di pietra",
+  "icon": "tribalpower:stone_font",
+  "order": 40,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:stone_font",
+      "text": [
+        "La Vasca di pietra chiede alla pietra di restare. Dalle del Pulso e la forma giusta intorno, e si riempie di ciottoli, poi di pietra, poi di ossidiana.",
+        "I ciottoli senza rinforzo sono abbastanza economici da girare su un [Cuoretamburo](drumheart) suonato a mano, quindi questo è il primo schema che la maggior parte degli accampamenti costruisce."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 1,
+      "title": "Ciottoli: la vasca e quattro segni",
+      "text": "Traccia un segno di gesso su ogni lato della vasca, sullo stesso pavimento."
+    },
+    {
+      "type": "text",
+      "title": "Ciottoli",
+      "text": [
+        "Con i suoi quattro segni e un Cuoretamburo tessuto fino a essa da un conduttore entro **8 blocchi**, la vasca fa **un blocco di ciottoli ogni 2 secondi** a **4 Pulso al secondo**. Non serve nessuna voce.",
+        "I suoi scomparti sono solo di uscita: non inserire ciottoli con una tramoggia, la vasca fa i propri. Accovacciati e fai clic destro con la mano vuota per prendere ciò che ha fatto, oppure usa una tramoggia o un relè. Senza nulla dentro, lo stesso clic accovacciato fa scorrere la faccia cliccata tra Entrambi, Ingresso, Uscita e Chiuso. Le piastre funzionano uguale sopra e sotto la vasca: una piastra di oggetti su una delle due tira fuori la pietra, e una piastra di fluidi regolata sull'uno o sull'altro versa acqua o lava.",
+        "I ciottoli della vasca servono a costruire e a essere martellati in ghiaia e sabbia. Il Frantumatore di eco fa schegge di eco solo dalla pietra, non dai ciottoli, e la pietra è ciò che fa il livello successivo."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 2,
+      "title": "Pietra e ossidiana: rinforzala",
+      "text": "Tieni i quattro segni e aggiungi una Pietra d'ancora a ogni angolo di un 5x5 intorno alla vasca."
+    },
+    {
+      "type": "text",
+      "title": "Pietra",
+      "text": [
+        "Rinforzata, e con la voce **Terra** a portata, la vasca fa **pietra ogni 3 secondi** a **32 Pulso al secondo**. Quella pietra è esattamente ciò che il Frantumatore di eco trasforma in schegge di eco.",
+        "Il totem di Terra va tenuto sveglio (vedi [Mantenimento](keeping)): finché è fioco, ogni pietra impiega circa il 30% in più, e una volta quieto la pietra si ferma. I ciottoli non hanno mai bisogno di Terra."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ossidiana",
+      "text": [
+        "L'ossidiana richiede il rinforzo e Terra, più una di due cose:",
+        "- Le voci **Fuoco e Acqua**, entrambe a portata: ossidiana ogni **12 secondi** a **48 Pulso al secondo**.",
+        "- Oppure immetti **250 mB di acqua e 250 mB di lava** per ogni blocco: la stessa ossidiana a soli **12 Pulso al secondo**. La vasca contiene fino a 4000 mB di ciascuno.",
+        "Immettere in una vasca senza rinforzo non fa nulla. Se Fuoco e Acqua sono entrambi presenti, la vasca usa le voci e lascia stare i serbatoi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Profondità e ranghi",
+      "text": [
+        "Sotto **y 0** la vasca dà l'ardesia profonda di ogni livello: ciottoli di ardesia profonda, poi ardesia profonda. L'ossidiana resta ossidiana. Una Fossa d'ascolto non accetta l'ardesia profonda, quindi costruisci la vasca che alimenta una fossa sopra **y 0**.",
+        "Dai un rango alla vasca come a qualsiasi altra officina: richieste più rapide, più Pulso al secondo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Leggere la vasca",
+      "text": [
+        "Un comparatore contro la vasca legge a che punto è del blocco che sta facendo, e scende a 0 mentre aspetta qualunque cosa.",
+        "Se la vasca resta inattiva, accovacciati e fai clic destro su di essa con questo libro. Nomina segni, ancore e voci mancanti."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:stone_font"
+    }
+  ],
+  "next": "listening_pit"
+}

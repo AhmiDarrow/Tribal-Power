@@ -1,0 +1,98 @@
+{
+  "name": "霊装の武器",
+  "icon": "tribalpower:spiritgear_halberd",
+  "order": 42,
+  "items": [
+    "tribalpower:spiritgear_spear",
+    "tribalpower:spiritgear_halberd",
+    "tribalpower:spiritgear_battle_axe",
+    "tribalpower:spiritgear_warhammer",
+    "tribalpower:spiritgear_dagger",
+    "tribalpower:spiritgear_scythe",
+    "tribalpower:spiritgear_greatsword",
+    "tribalpower:spiritgear_trident"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_greatsword",
+      "title": "刃の系統",
+      "text": [
+        "[霊装の刃](spiritgear)に、いま系統ができた。槍、ハルバード、戦斧、戦鎚、短剣、大鎌、大剣、トライデントだ。作り方は同じで、顕現したインゴットと骨の鈴から作り、多くは持ち手に棒を使い、どれも**骨の柄**がある。",
+        "中身はどれも刃だ。エコーの台で順位が付き、エコー打撃にパルスを使い（払った一撃は消耗しない）、トーテムの声を受け、顕現ではボスをより強く打ち、一撃ごとにあなたを癒す。変わるのはリーチ、重さ、そして一つだけの動きだ。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "数値",
+      "text": [
+        "- **槍**: ダメージ7、毎秒1.3回、リーチ+1.5。疾走の突きは**35%**強く当たる。",
+        "- **ハルバード**: ダメージ10、毎秒0.9回、リーチ+1、重い（−4%）。なぎ払い、構えた盾を壊す。",
+        "- **戦斧**: ダメージ11、毎秒0.8回、リーチ—、重い（−6%）。重い切断のなぎ払い。盾を壊す。",
+        "- **戦鎚**: ダメージ12、毎秒0.7回、リーチ—、最も重い（−8%）。打撃は防具を貫通する。対象の防具の**30%**が追加ダメージになって返る。盾を壊す。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "数値、続き",
+      "text": [
+        "- **短剣**: ダメージ4.5、毎秒2.4回、リーチ−0.5、軽い（+5%）。**背後**からの一撃は**1.75×**の強さで入る。",
+        "- **大鎌**: ダメージ8、毎秒1.0回、リーチ+0.5、やや重い（−2%）。各打撃は対象の周りの敵対にも攻撃の**半分**を刈る。",
+        "- **大剣**: ダメージ10、毎秒0.85回、リーチ+0.5、重い（−6%）。最も広く、最も強いなぎ払い。",
+        "- **トライデント**: ダメージ8、毎秒1.1回、リーチ+1。水中か雨の中に立つものへ**50%**深く食い込む。",
+        "これはランク0での値だ。ランクは刃のボーナスを上に足す。攻撃ダメージ**+2**、**+5**、**+10**。どの数値も共通コンフィグの**武器**の節にある。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "どれも何かを引き替える。重い武器は最も強く当たるが、振りは遅く、手に持っているあいだ**歩行を遅くする**。短剣は弱いが速く、少し速く動ける。",
+        "リーチは身を守るが、長い武器は毎秒の量が落ちる。なぎ払いと大鎌の刈り取りは群れに強く、単体には重さを無駄にする。",
+        "刃は万能型だ。リーチもなく、重さもなく、専用の技もなく、苦手もない。"
+      ],
+      "title": "すべてに勝つ武器はない"
+    },
+    {
+      "type": "text",
+      "title": "長いものと短いもの",
+      "text": [
+        "長い武器は本当に長い。槍は手にした剣のおよそ二倍、ハルバードと大剣もほぼ同じ、斧と鎚は一倍半。短剣は短くて速い。",
+        "リーチはダメージと同じくらい大事だ。槍やトライデントは裂け目の猟犬を腕の長さに保つ。短剣は近く、背後を求める。",
+        "どれにも[塗油](anointing)を載せられる。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_spear"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_halberd"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_battle_axe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_warhammer"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_dagger"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_scythe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_greatsword"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_trident"
+    }
+  ],
+  "next": "totem_bound_gear"
+}

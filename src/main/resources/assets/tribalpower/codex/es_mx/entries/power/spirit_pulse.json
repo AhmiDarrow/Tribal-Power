@@ -1,0 +1,225 @@
+{
+  "name": "Pulso de Espíritu",
+  "icon": "tribalpower:pulse_cell",
+  "order": 5,
+  "items": [
+    "tribalpower:greater_pulse_cell",
+    "tribalpower:grand_pulse_cell"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_cell",
+      "text": [
+        "El Pulso es la energía viva con la que funciona cada máquina de Tribal Power. Los generadores lo hacen, las máquinas lo gastan, y una **Célula de Pulso** te deja llevar un poco en el bolsillo para herramientas, hechizos y viajes.",
+        "Una célula simple contiene **1,200 Pulso**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dónde vive el Pulso",
+      "text": [
+        "El Pulso es energía almacenada. Un generador como el Corazón de tambor, el Colector de ley o el Resonador de Pulso lo produce y lo guarda en su propio almacén. Una máquina lo gasta mientras trabaja, pero solo llega a ese almacén a través del **entramado**.",
+        "El Pulso viaja solo a lo largo del [Conductor de entramado](lattice_conductor). Todo lo que esté a **8 bloques** de un conductor está en el entramado: generadores, máquinas, manos del campamento, relés, tótems y [Túmulo de Pulso](pulse_cairn). Los conductores a 8 unos de otros se unen en una red, y una máquina toma de los generadores y túmulos de su red. Una máquina sin conductor al alcance pasa hambre, aunque esté justo junto a un tambor lleno.",
+        "Para tu primer taller, pon un conductor entre el tambor y la estación. Cada conductor lleva al principio **64 Pulso por segundo**, y más conforme [sube de rango](machine_ranks). Las máquinas agotan primero los generadores de la red y después los Túmulos de Pulso de la red. Los tótems no son para gastar: cada Tótem de resonancia guarda **250 Pulso** suyos, y esa reserva es lo que mantiene su voz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Oferta y demanda",
+      "text": [
+        "Una máquina puede funcionar un rato desde una reserva aunque gaste más rápido de lo que generas. Si no para de arrancar y parar, compara el Pulso que necesita con lo que producen tus generadores, y luego añade generación o haz una reserva mayor. Toda cifra de Pulso en este libro es para los ajustes predeterminados; un paquete puede cambiarlos, y la lectura de una máquina siempre muestra su coste real.",
+        "Los tótems no son generadores. Un tótem coincidente da a una estación su voz, llamada **sintonía**; no produce energía. Agáchate y haz clic derecho en una máquina con este libro, y te informa de la energía y la sintonía por separado."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Llenar una célula",
+      "steps": [
+        {
+          "caption": "Un Corazón de tambor cargado guarda el Pulso que tamborileaste en él.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Haz clic derecho con una Célula de Pulso: un uso llena la célula hasta donde alcance el tambor.",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -1,
+              0,
+              0
+            ],
+            "item": "tribalpower:pulse_cell"
+          }
+        },
+        {
+          "caption": "Un Resonador de Pulso, una obra de voz como una Arpa de viento, o un Túmulo de Pulso llena una célula igual, todo lo que pueda tomar en un uso.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:pulse_cell"
+          }
+        },
+        {
+          "caption": "El generador pierde lo que gana la célula. Un Colector de ley no puede llenar una célula así.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:ley_collector"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Llevarlo",
+      "text": [
+        "Una Célula de Pulso guarda **1.200 Pulso**; una **Célula de Pulso mayor** guarda **4.800**; una **Célula de Pulso magna** guarda **19.200**. Lleva células cargadas para hechizos, Equipo espiritual, encantos y viajes: todo eso tira de las células de tu inventario.",
+        "Una célula en tu bolsillo **no** está en el entramado. Los talleres y los ritos de tablilla siguen necesitando Pulso del entramado que los rodea.",
+        "Para cargar un Portal de senda o un Portal lejano, usa una célula en su piedra clave: cada uso mueve hasta **100 Pulso** hacia él, y los viajes gastan esa reserva, no la célula de tu bolsillo. Un Tambor del portal no necesita Pulso alguno: su rito lo abre.",
+        "Usa una célula en un campamento para verter Pulso en su reserva de **2.400** para las [manos del campamento](camp_hands); un uso mueve tanto como quepa en el campamento.",
+        "Un [Medidor de Pulso](pulse_gauge) apuntado a una máquina que guarda Pulso indica lo llena que está."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_cell"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:greater_pulse_cell",
+      "text": "Una Célula de Pulso entre dos Núcleos resonantes y dos Lingotes manifestados, todo del Manifestador de eco."
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grand_pulse_cell",
+      "text": "Una célula mayor rodeada de cuatro Núcleos resonantes y cuatro Lingotes manifestados."
+    }
+  ]
+}

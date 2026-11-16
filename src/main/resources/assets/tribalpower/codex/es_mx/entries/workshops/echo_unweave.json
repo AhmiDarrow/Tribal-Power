@@ -1,0 +1,190 @@
+{
+  "name": "Destejido de eco",
+  "icon": "tribalpower:echo_unweave",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_unweave",
+      "text": [
+        "La estación de Telar hace funcionar el entramado al revés. El Destejido de eco desmonta un producto terminado en más cantidad del paso anterior, y convierte el Equipo espiritual gastado otra vez en metal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que desmonta",
+      "text": [
+        "- Lingote manifestado: **2** ecos vinculados.",
+        "- Eco vinculado: **2** ecos sintonizados.",
+        "- Eco sintonizado: **2** fragmentos de eco.",
+        "- Núcleo resonante: **3** lingotes manifestados.",
+        "- Tejido espiritual: **1** lana.",
+        "- Una herramienta de Equipo espiritual dañada, un arma dañada o una Sonaja del sanador dañada: **1** lingote manifestado. Los arcos y las ballestas no se desmontan.",
+        "Las herramientas recién hechas y sin daño se rechazan: el Equipo espiritual tiene que dañarse primero. La armadura de Tejido espiritual nunca se desmonta.",
+        "Necesita un Tótem de resonancia (Telar) en un radio de 8 bloques. Si falta el Telar, se pausa y no gasta nada."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Destejer un núcleo",
+      "steps": [
+        {
+          "caption": "Coloca el Destejido de eco con un Tótem de resonancia (Telar) en un radio de 8 bloques.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_unweave"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Mantén el Pulso al alcance y deja algo de espacio de salida libre.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Entra un Núcleo resonante; salen tres lingotes manifestados.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:resonant_core"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Encadenarlo",
+      "text": [
+        "Mete la salida del Vinculador de eco o del Manifestador de eco en esta estación, para una cadena inversa sin tolva.",
+        "Si lo quieres más rápido, súbele el rango en el Sintonizador de eco, luego en el Vinculador de eco y después en el Manifestador de eco. Una palanca pausa la inserción y el trabajo.",
+        "Si no arranca, agáchate y haz clic derecho con este libro, y lee [La sexta voz](sixth_voice)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_unweave"
+    }
+  ]
+}

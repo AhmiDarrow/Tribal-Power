@@ -1,0 +1,74 @@
+{
+  "name": "Feras do planalto",
+  "icon": "tribalpower:crag_fleece",
+  "order": 210,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cragcoat_spawn_egg",
+    "tribalpower:bouldersnout_spawn_egg",
+    "tribalpower:updrifter_spawn_egg",
+    "tribalpower:scree_lurcher_spawn_egg",
+    "tribalpower:crag_fleece",
+    "tribalpower:boulder_tusk",
+    "tribalpower:drift_bladder",
+    "tribalpower:scree_knuckle"
+  ],
+  "next": "beasts_glimmer_ridge",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Próprios do planalto",
+      "text": [
+        "Entre a pedra, o musgo e os bosques do planalto vivem um carneiro da montanha, um javali, uma caravela-portuguesa que deriva ao vento e um símio de pedra que sai à noite.",
+        "Toda fera mansa daqui pode ser escovada uma vez por minuto pelo reagente, e é tentada e reproduzida com a própria comida, nomeada abaixo em **Caça e criação**. Pode ser vinculada como qualquer animal manso (veja [familiares](familiars)) e, embora nenhuma tenha um dom próprio, uma vinculada ainda pode tomar uma voz em um totem e fortalecer sua magia (veja [sintonizar em um totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cragcoat",
+      "title": "Manto-de-penhasco",
+      "text": [
+        "Um carneiro da montanha de velo pesado, em rebanhos de dois a quatro. **30 de vida** e **7 de armadura**, e lento.",
+        "Solta de 1 a 3 **Velo de penhasco**, mais com Pilhagem.",
+        "Caçado, também solta de 1 a 3 Caça crua e até 2 Couro da Marcha. Reproduza com **trigo**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bouldersnout",
+      "title": "Focinho-de-matacão",
+      "text": [
+        "Um javali com presas e couro como uma queda de pedras, em rebanhos de dois a quatro. **30 de vida** e **4 de armadura**.",
+        "Solta de 1 a 3 **Presa de matacão**.",
+        "Caçado, também solta de 1 a 3 Caça crua e até 2 Couro da Marcha. Reproduza com **batatas ou cenouras**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:updrifter",
+      "title": "Altaderiva",
+      "text": [
+        "Uma caravela-portuguesa do céu, um flutuador vítreo sob uma crista magenta que arrasta tentáculos urticantes, e deriva sobre as encostas de uma a três. **12 de vida**, sem armadura.",
+        "Solta de 1 a 3 **Bexiga à deriva**.",
+        "Caçado, também solta até 2 Linha. Reproduza com **Cardo de ley**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:scree_lurcher",
+      "title": "Trôpego de cascalho",
+      "text": [
+        "Um símio de pedra, com lajes de rocha nas costas, que surge à noite em terreno aberto, um ou dois por vez. Tem **32 de vida** e **3 de armadura** e acerta **6**, e cada golpe empurra você para trás.",
+        "Solta de 1 a 2 **Nó de cascalho**, um reagente de Empurrão.",
+        "Caçado, também solta de 1 a 2 Sílex e até 2 Pepita de ferro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caça e criação",
+      "text": [
+        "Além do reagente, cada um solta mais quando caçado, e mais ainda com Pilhagem. A carne cai como Caça assada se o animal morreu queimando. Para reproduzir os selvagens, **agache** enquanto alimenta dois adultos com a comida deles; alimentado normalmente, um selvagem se afeiçoa a você."
+      ]
+    }
+  ]
+}

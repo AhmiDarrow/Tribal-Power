@@ -1,0 +1,52 @@
+{
+  "name": "Cão da fenda",
+  "icon": "tribalpower:rift_tooth",
+  "order": 150,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rift_hound_spawn_egg",
+    "tribalpower:rift_tooth"
+  ],
+  "next": "echo_weaver",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:rift_hound",
+      "text": [
+        "Um galgo magro rasgado por fendas brilhantes, atraído por rasgos na treliça. Fecha a distância depressa, mas não consegue cruzar mundos sozinho.",
+        "Caçado, também solta até 2 Ossos e até 1 Couro da Marcha."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Os Cães da fenda caçam na Estepe da Marcha, no Planalto, na Crista do brilho, nos Campos de neve e nos Ermos de brasa.",
+        "Tem **28 de vida** e **2 de armadura** e golpeia por **5**. É o mais rápido dos remanescentes, então você não o deixa para trás com facilidade. Vire-se e lute de costas para uma parede."
+      ],
+      "title": "Onde e como"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ele deixa cair **de 1 a 2 Dente da fenda**.",
+        "Um Dente da fenda sintoniza-se em 2 Eco sintonizado sob Espírito."
+      ],
+      "title": "O que dá"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Alcance **Voz** com os **Caminhantes da borda** e depois use um Amuleto de vínculo em um adulto: duas tentativas em cinco, o amuleto é gasto se falhar. Ou alimente-o com o próprio reagente: uma tentativa em cinco, e o reagente é gasto de qualquer forma.",
+        "Um cão vinculado é um lutador, e a marca rara **Rastro** mostra a você o último inimigo que feriu você. Veja [dons do familiar](familiar_gifts)."
+      ],
+      "title": "Como familiar"
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Além do seu reagente, ele deixa cair isto quando é caçado, mais com Pilhagem."
+      ]
+    }
+  ]
+}

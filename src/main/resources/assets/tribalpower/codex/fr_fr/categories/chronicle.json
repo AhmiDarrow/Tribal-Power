@@ -1,0 +1,8 @@
+{
+  "name": "La chronique",
+  "icon": "tribalpower:mural",
+  "order": 125,
+  "description": "L'histoire du Métier, gravée dans la Marche un fragment à la fois. Trouve-les, et l'histoire s'assemble ici d'elle-même.",
+  "spoiler": false,
+  "progress": "chronicle"
+}

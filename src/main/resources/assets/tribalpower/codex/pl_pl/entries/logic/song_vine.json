@@ -1,0 +1,342 @@
+{
+  "name": "Pnącze pieśni",
+  "icon": "tribalpower:song_vine",
+  "order": 50,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_vine",
+      "text": [
+        "Pieśń Tkacza wzorów podąża za kamieniem. Pnącze pieśni to wąs, który pełza po ścianach bloków i niesie redstone za rogi, bez przekaźnika i bez pyłu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Uprawianie",
+      "text": [
+        "Kliknij prawym litą ścianę, a pnącze osiądzie w powietrzu przy tej ścianie.",
+        "Kliknij prawym istniejące pnącze innym, by dodać drugą ścianę w tym samym miejscu: podłoga i ściana albo każda strona sześcianu.",
+        "Moc spada o **jeden na krok**, także tam, gdzie zawija się za róg na następną ścianę. Mówi do Nici pieśni, płyt pieśni, pyłu redstone vanilla i komparatorów.",
+        "Zniszcz je albo blok, którego się trzyma, a odzyskasz **jedno pnącze na ścianę**. Przekaźniki nadal niosą przedmioty; pnącza niosą tylko pieśń."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Za rogiem",
+      "steps": [
+        {
+          "caption": "Dźwignia po jednej stronie filara, lampa po dalekiej stronie, którą chcemy zapalić.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                2,
+                0
+              ],
+              "block": "minecraft:redstone_lamp"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Kliknij podłogę, by położyć pnącze; każdy kawałek opiera się o ściankę, którą klikasz.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_vine[down=true]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_vine[down=true]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Kliknij pnącze przy filarze, by dać mu też lico ściany, potem wespnij się po ścianie.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_vine[down=true,east=true]"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:song_vine[east=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Przenieś je górą. Pieśń owija każdy róg i za każdym razem traci jeden krok.",
+          "place": [
+            {
+              "pos": [
+                1,
+                2,
+                0
+              ],
+              "block": "tribalpower:song_vine[down=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Pociągnij dźwignię: lampa za rogiem się zapala.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            },
+            {
+              "pos": [
+                2,
+                2,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              2,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:song_vine",
+      "text": "Jedna Nić pieśni i jedna Trzcina Ducha dają **osiem**."
+    }
+  ],
+  "next": "verse_link"
+}

@@ -1,0 +1,50 @@
+{
+  "name": "영혼 항아리",
+  "icon": "tribalpower:copper_soul_urn",
+  "order": 44,
+  "items": [
+    "tribalpower:woven_soul_urn",
+    "tribalpower:copper_soul_urn",
+    "tribalpower:manifested_soul_urn",
+    "tribalpower:resonant_soul_urn"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:copper_soul_urn",
+      "title": "생물을 집으로 데려가기",
+      "text": [
+        "영혼 항아리는 생물을 안으로 끌어들인다. **생물에게 사용**하면 데려가고, **블록에 사용**하면 그곳에 안전하고 온전하게 다시 내려놓는다.",
+        "살아 있는 것은 무엇이든 담는다. 다만 **플레이어**, **보스**, 마치의 **정예**, 그리고 다른 누군가가 길들이거나 결속한 생물은 빼고. 새 우리의 소, 마을의 주민, 강 건너의 패밀리어."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "생물을 담는 것이 사용 1회, 내보내는 것이 또 1회다.",
+        "- **엮은**: 2회, 포획과 방출이 한 번씩.",
+        "- **구리**: 10회, 다섯 번 왕복.",
+        "- **현현한**: 20회, 열 번 왕복.",
+        "- **공명**: 절대 닳지 않는다.",
+        "항아리는 사용이 한 번 남았을 때 생물을 담지 않는다. 그래서 꺼낼 수 없는 것을 가두는 일은 없다. 항아리 아래 막대는 마모를 보여 주고, 남은 사용이 없는 항아리는 마지막 생물을 내보내며 부서진다."
+      ],
+      "title": "네 단계"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:woven_soul_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_soul_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:manifested_soul_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonant_soul_urn"
+    }
+  ]
+}

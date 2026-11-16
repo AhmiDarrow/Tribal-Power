@@ -1,0 +1,49 @@
+{
+  "name": "部族の作業台",
+  "icon": "tribalpower:oak_tribal_bench",
+  "order": 150,
+  "items": [
+    "tribalpower:oak_tribal_bench",
+    "tribalpower:spruce_tribal_bench",
+    "tribalpower:birch_tribal_bench",
+    "tribalpower:jungle_tribal_bench",
+    "tribalpower:acacia_tribal_bench",
+    "tribalpower:dark_oak_tribal_bench",
+    "tribalpower:mangrove_tribal_bench",
+    "tribalpower:cherry_tribal_bench",
+    "tribalpower:bamboo_tribal_bench",
+    "tribalpower:crimson_tribal_bench",
+    "tribalpower:warped_tribal_bench",
+    "tribalpower:march_tribal_bench",
+    "tribalpower:hearthoak_tribal_bench",
+    "tribalpower:frostpine_tribal_bench",
+    "tribalpower:cinder_tribal_bench",
+    "tribalpower:willow_tribal_bench",
+    "tribalpower:bellcap_tribal_bench",
+    "tribalpower:strider_tribal_bench"
+  ],
+  "next": "vine_lift",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:oak_tribal_bench",
+      "title": "覚えている台",
+      "text": [
+        "部族の作業台は幅2ブロックの作業台で、奥に棚が付き、どの木材でも作れるので、置いたキャンプに合う。",
+        "大事な違いは、**グリッドは作業台のもの**だ。レシピの途中で閉じても、荷物へこぼれて戻らず、置いた場所に残る。",
+        "奥の棚は壁棚と同じく**四つ**のものを持つ。何かを持って棚をクリックすると置き、素手でクリックすると取り戻す。天板をクリックするとグリッドが開き、そばに緑のレシピ本がある。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "JEIと",
+      "text": [
+        "JEIを入れているなら、作業台は完全なクラフト台になる。クラフトレシピを開き、**+**（またはJEIのレシピ移動キー）を押すと、インベントリからグリッドへ材料を引き入れる。作業台の矢印をクリックすると、すべてのクラフトレシピが出る。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:oak_tribal_bench"
+    }
+  ]
+}

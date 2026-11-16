@@ -1,0 +1,17 @@
+{
+  "name": "5. Upadek",
+  "icon": "tribalpower:carved_stone",
+  "order": 14,
+  "spoiler": true,
+  "unlock": "fragment:4",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Upadek",
+      "text": [
+        "“Gdy jedna nić puszcza, pozostałe osiem trzyma przez jeden oddech, a potem się rwą. Ziemia odpadła od nieba kawałkami. Co nie spadło, dryfowało. To, co dryfowało, to Marsz.”",
+        "Znaleziono na Rzeźbiony kamień w ruinach Marszu."
+      ]
+    }
+  ]
+}

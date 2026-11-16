@@ -1,0 +1,59 @@
+{
+  "name": "Unción",
+  "icon": "tribalpower:spiritgear_greatsword",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_bench",
+      "title": "Un reactivo en la hoja",
+      "text": [
+        "La unción mete el poder de un reactivo en un arma, para que cada golpe lo lleve. Se hace en el [Banco del canto](song_bench), y el arma lo guarda para siempre, hasta que tú decidas reemplazarlo.",
+        "Un arma guarda **una unción a la vez**. Ungirla de nuevo con un reactivo de otra familia cambia el poder viejo por el nuevo; un reactivo de la familia que ya lleva se rechaza, así que nunca desperdicias reactivos por accidente."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cómo hacerlo",
+      "text": [
+        "1. Coloca un [Tótem de resonancia](six_voices) de cualquier voz a 8 bloques del banco, con un generador cargado a tu alcance.",
+        "2. Ten tu Bolsa de reactivos en la barra de acceso rápido, con al menos **4 potenciados** reactivos del tipo que quieras.",
+        "3. Pon el arma en la **ranura de arma** del banco, junto a la salida.",
+        "4. Haz clic en ese reactivo de la lista para seleccionarlo y pulsa **Ungir**. Cuesta los 4 reactivos y **32 Pulso**.",
+        "La descripción del arma muestra su unción y el reactivo del que salió."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué se puede ungir",
+      "text": [
+        "Toda arma de Equipo espiritual, desde la Hoja hasta la [familia más nueva](spiritgear_weapons). Nada más acepta el trabajo del banco: ni una espada vainilla, ni la de otro mod.",
+        "Quienes hacen packs pueden abrirlo a más con la etiqueta de objeto **tribalpower:anointable**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Las once unciones",
+      "text": [
+        "- **Calcinante** (Ascua): quema al objetivo y añade fuego a cada golpe.",
+        "- **Llamada de tormenta** (Rayo): una cuarta parte de los golpes arquea un rayo hacia dos hostiles cercanos.",
+        "- **Congelación** (Frío): ralentiza y congela al objetivo.",
+        "- **Veneno** (Veneno): envenena al objetivo.",
+        "- **Vendaval** (Ráfaga): lanza al objetivo hacia atrás y hacia arriba.",
+        "- **Arraigo** (Raíz): una quinta parte de los golpes arraiga al objetivo en el sitio."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Las once unciones, continúa",
+      "text": [
+        "- **Desgarro** (Empujón): los golpes muerden más cuanto más armadura lleva el objetivo.",
+        "- **eco** (Tejido): una cuarta parte de los golpes golpea una segunda vez por la mitad.",
+        "- **Drenaje** (Debilitación): debilita al objetivo.",
+        "- **Sed de sangre** (Sabueso): robo de vida; el 15% de cada golpe vuelve como salud.",
+        "- **Reparación** (Quietud): el arma se repara al golpear.",
+        "Las unciones solo se activan en tus golpes cuerpo a cuerpo, no en flechas ni hechizos. Cada número está en la sección **anointing** de la configuración común, para que un pack pueda ajustarlos."
+      ]
+    }
+  ]
+}

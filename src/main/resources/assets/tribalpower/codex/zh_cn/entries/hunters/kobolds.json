@@ -1,0 +1,62 @@
+{
+  "name": "狗头人",
+  "icon": "tribalpower:kobold_scale",
+  "order": 340,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ridge_kobold_spawn_egg",
+    "tribalpower:geode_kobold_spawn_egg",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn"
+  ],
+  "next": "shades",
+  "pages": [
+    {
+      "type": "text",
+      "title": "狗头人",
+      "text": [
+        "凡是有值得挖的东西的地方，狗头人就住在那里，而且不肯与人分享。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "两种",
+      "text": [
+        "两者无论昼夜都在黑暗中出现，一次一两只。狗头人有**21点生命值**和**2点护甲**，速度很快，命中**4**。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ridge_kobold",
+      "title": "山脊狗头人",
+      "text": [
+        "一个直立的小蜥蜴犬矿工，握着镐，头盔上有灯，见于微光岭下的黑暗洞穴。",
+        "猎杀时还会掉落最多2个粗铜和最多1个煤炭。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:geode_kobold",
+      "title": "晶洞狗头人",
+      "text": [
+        "一只长满水晶的狗头人，握着水晶尖矛，见于水晶原下方的黑暗洞穴。",
+        "猎杀后还会掉落最多2个紫水晶碎片和最多2个青金石。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "它们给出什么",
+      "text": [
+        "山脊狗头人掉落**1到2个狗头人鳞片**，晶洞狗头人掉落**1到2个狗头人角**，有抢夺则更多。二者都是猎犬试剂：见[试剂](reagents)。",
+        "狗头人从不结缘。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猎与牧养",
+      "text": [
+        "除了试剂，猎杀时每种还会多掉一些，有抢夺则再多一些。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Tablette : La Coupure",
+  "icon": "tribalpower:lore_tablet",
+  "order": 190,
+  "spoiler": true,
+  "unlock": "tablet:9",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "D'une Salle des ancêtres enfoncée, signée par aucune tribu seule :",
+        "“Personne n'a frappé le Métier. On l'a tiré de neuf côtés jusqu'à ce qu'un brin lâche, puis le reste est parti comme une corde dans une main. Les continents sont tombés le temps d'un roulement de tambour. Ce qui n'est pas tombé a dérivé dans la Marche et s'est enfoncé lentement. Neuf tribus, une salle, personne à blâmer.”"
+      ]
+    }
+  ]
+}

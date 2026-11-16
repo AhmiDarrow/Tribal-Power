@@ -1,0 +1,174 @@
+{
+  "name": "雨の風鈴",
+  "icon": "tribalpower:rain_chime",
+  "order": 120,
+  "next": "offering_table",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rain_chime",
+      "text": [
+        "天候をレッドストーン信号に変える。雨の風鈴はパルスも燃料も要らず、パルスも作らない。空が何をしているか伝えるだけだ。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "読み方",
+      "text": [
+        "コンパレーターを当てる。雨で**8**、雷雨で**15**、晴れで**0**。天候はワールド全体なので、屋根では止まらない。",
+        "雨のあいだ、**十秒**ごとに小さく鳴る。",
+        "風鈴へのレッドストーン信号はそれを止め、出力を0にする。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "天候の知らせ",
+      "steps": [
+        {
+          "caption": "コンパレーターが読める場所に風鈴を置く。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:rain_chime"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "そこから向こうを向いたコンパレーターが天候を読む。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "ここでは雨が降るたびにランプが点く。より細かい論理で雨（8）と雷（15）を分けられる。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "案",
+      "text": [
+        "天候で[レイ収集器](ley_collector)を止めたり、拠点の灯をつけたりする。出かける前に、雷の値を警告にする。",
+        "燃料も維持も不要。置いたら、ただ聴いている。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rain_chime"
+    }
+  ]
+}

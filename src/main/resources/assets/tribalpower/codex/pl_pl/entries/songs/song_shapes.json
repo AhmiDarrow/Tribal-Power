@@ -1,0 +1,53 @@
+{
+  "name": "Kształty pieśni",
+  "icon": "tribalpower:song_sheet",
+  "order": 30,
+  "next": "pulse_crossbow",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Pierwszy odczynnik decyduje",
+      "text": [
+        "Każda pieśń przybiera jeden z pięciu **kształtów**, a **pierwszy** odczynnik na karcie wybiera go według rodziny ([Odczynniki](reagents)):",
+        "- **Bełt**: najpierw odczynnik Żaru, Bełtu lub Ogara.",
+        "- **Wiązanie**: najpierw odczynnik Jadu, Osłabienia, Chłodu lub Splotu.",
+        "- **Krok**: najpierw odczynnik Podmuchu.",
+        "- **Wezwanie**: najpierw odczynnik Korzenia lub Pchnięcia.",
+        "- **Osłona**: najpierw odczynnik Ciszy, rodzina każdej łagodnej bestii.",
+        "Głos wybrany przy warsztacie barwi kształt, jaki by nie był."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pięć kształtów",
+      "text": [
+        "- **Bełt** trafia wroga, na którego patrzysz, do **10 bloków**, za **3** obrażeń plus **1** za każdą kopię pierwszego odczynnika. Ogień podpala go, a Powietrze odpycha.",
+        "- **Wiązanie** spowalnia tego wroga: Spowolnienie I za jedną kopię pierwszego odczynnika, do IV przy większej liczbie i poziom więcej przy głosie Wody.",
+        "- **Krok** rzuca cię do przodu, tam gdzie patrzysz, dalej z każdą kopią. Powietrze unosi cię wyżej, a Powietrze i Duch pozwalają opaść lotem. Krosno zszywa cię też **2 do 4 bloków** do przodu, jeśli jest wolne powietrze, na którym można wylądować.",
+        "- **Wezwanie** trafia każdego wroga wokół ciebie, około **3 bloków** dalej, za **2** obrażeń plus pół punktu za kopię, z dotykiem głosu jak przy Bełcie.",
+        "- **Osłona** jest tylko dla ciebie: [błogosławieństwo](voice_blessings) jej głosu przez **45 sekund** za każdą kopię i własna osłona. Ziemia daje odporność, Ogień odporność na ogień, Woda regenerację i oddychanie pod wodą, Powietrze powolne opadanie i szybkość, Duch widzenie w ciemności, a Krosno absorpcję.",
+        "Bełt lub Wiązanie potrzebuje wroga w zasięgu wzroku. Gdy nikogo nie ma w zasięgu, pieśń nie jest śpiewana i nic nie kosztuje."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co dodaje reszta karty",
+      "text": [
+        "Odczynniki po pierwszym tylko ubierają kształt. Nigdy nie dodają drugiego zaklęcia.",
+        "- **Kolejna kopia pierwszego odczynnika** wzmacnia pieśń: trafia mocniej, bardziej spowalnia, rzuca dalej albo błogosławi dłużej.",
+        "- **Odczynnik innej rodziny** dodaje dotyk tej rodziny: ogień, spowolnienie, trucizna, słabość, pchnięcie, poświatę albo chwilę regeneracji dla ciebie. Liczą się tylko **dwie pierwsze** inne rodziny. Trzecia nic nie dodaje, tak samo inny odczynnik rodziny, która już jest na karcie.",
+        "- **Każdy odczynnik po trzecim** sprawia, że pieśń trwa dłużej: jej spowolnienie, trucizna i inne trwające dotyki działają **4 sekund** na karcie z trzema odczynnikami i sekundę dłużej za każdy kolejny. Bełt lub Wiązanie sięga blok dalej. Wezwanie rozchodzi się nieco szerzej.",
+        "Dotyki spadają na cel Bełtu lub Wiązania i na wszystko, co trafia Wezwanie. Krok albo Osłona nie ma celu, więc na nich gra tylko dotyk Ciszy, twoja własna regeneracja."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ile kosztuje pieśń",
+      "text": [
+        "Śpiewanie kosztuje **8 Puls, plus 4 za każdy odczynnik** na karcie: **20** za trzy odczynniki, **36** za siedem. Dar Szwaczy krosna zdejmuje ćwierć ([Dary plemienia](tribe_boons)).",
+        "Karta pieśni zużywa się, gdy ją śpiewasz. Śpiewnik zachowuje swoje pieśni i odpoczywa **1,5 sekund** po każdej, zanim zaśpiewa znowu.",
+        "Chowaniec głosu pieśni w pobliżu sprawia, że uderza mocniej, a Wezwanie sięga dalej ([co daje głos](familiar_boons))."
+      ]
+    }
+  ]
+}

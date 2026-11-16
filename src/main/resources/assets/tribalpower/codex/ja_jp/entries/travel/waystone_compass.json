@@ -1,0 +1,203 @@
+{
+  "name": "道標石のコンパス",
+  "icon": "tribalpower:waystone_compass",
+  "order": 20,
+  "items": [
+    "tribalpower:horizon_compass",
+    "tribalpower:astral_compass"
+  ],
+  "next": "way_gate",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:waystone_compass",
+      "text": [
+        "地点を記し、またたく間に戻る。コンパスは着地の床を一つ覚え、荷物の中の電池から少しのパルスでそこへ運ぶ。"
+      ],
+      "title": "道標石のコンパス"
+    },
+    {
+      "type": "text",
+      "title": "結びと使用",
+      "text": [
+        "固体ブロックの**上面**をしゃがんで右クリックし、その床を着地点として結ぶ。",
+        "空中を右クリックすると移動する。支払いはインベントリのどこかにあるパルス電池からで、その後**5秒**のクールダウンがある。",
+        "結んだ床の上に立って着地する。だから上に**二つ、空いて乾いたブロック**が要り、すぐ隣に厄介なものがあってはならない。火、溶岩、マグマ、サボテン、火のついた焚き火、ベリーの茂み、ウィザーローズ、粉雪。",
+        "安全に立てる場所がなければ、移動は拒まれ、何も消費しない。パルスを取るのは着地が空いてからだ。騎乗中は移動できない。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "着地",
+      "steps": [
+        {
+          "caption": "着地用に固体の床ブロックを選ぶ。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "minecraft:polished_andesite"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "コンパスでその上面をしゃがんで右クリックし、結ぶ。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:waystone_compass"
+          }
+        },
+        {
+          "caption": "上の二つのブロックは空いて乾いたままにする。そこに立つ。",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "床に動力を送るレバーは着地をロックする。扉を閉めておきたいとき用だ。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=wall,facing=east,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "三つのコンパス",
+      "text": [
+        "- **道標石のコンパス**: 同じワールドで最大**128ブロック**、**20パルス**。",
+        "- **地平線のコンパス**: 同じワールドなら距離は問わない、**40パルス**。",
+        "- **アストラルコンパス**: 距離を問わず、ワールドをまたぐ、**100パルス**。マーチから家へ戻れるのはこれだけだ。",
+        "道標石のコンパスは道の門の対も結ぶ（[道の門](way_gate)を参照）。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:waystone_compass"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:horizon_compass"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_compass"
+    }
+  ]
+}

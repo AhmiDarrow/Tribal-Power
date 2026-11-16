@@ -1,0 +1,65 @@
+{
+  "name": "Kantenläufer",
+  "icon": "tribalpower:tribe_mark",
+  "order": 70,
+  "spoiler": true,
+  "unlock": "tribe:claw",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_claw",
+      "title": "Kantenläufer",
+      "text": [
+        "“Zuerst die Stiefel. Dann die Brücke. Dann der Mut; er kommt von allein.”",
+        "Strang von **Klaue**, Stimme von **Feuer**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wer sie sind",
+      "text": [
+        "Die Kantenläufer gingen den Rissrand entlang, wo der Faden am dünnsten ausfranste, und setzten Tritte für alle, die nachkamen. Ihr Handwerk ist **Geistergerät und Tritte**.",
+        "Ihre Lager stehen in der **Taiga**, und im Marsch steht in jedem Band ein Lager von ihnen, vom gefrorenen Norden bis zum Salz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was sie wollen",
+      "text": [
+        "Ihr Reagenz ist der **Risszahn**, **+8** Ansehen an ihrem Herd wert.",
+        "Sie mögen auch Leder, einen Eisenbarren oder Roheisen: **+3** je Stück. Jedes andere Essen ist **+1** wert, und eine geladene Pulszelle **+2 je 10 Puls**, bis zu +8.",
+        "Denk daran: der Herd nimmt höchstens **60** Ansehen am Tag aus Gaben; siehe [Stämme und Ansehen](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was der Älteste tauscht",
+      "text": [
+        "**Gast**: 6 Leder für 2 Echoscherben; 4 Eisenbarren für Lederstiefel.",
+        "**Freund**: 3 Abgestimmtes Echo und 4 Leder für Geistergewebestiefel; 8 Eisenbarren für einen Risszahn; 4 Glutwurzel für Kantenläufer-Dörrfleisch.",
+        "**Sippe**: 3 Gebundenes Echo für eine Geistergerätklinge; 3 Gebundenes Echo für eine Geistergerätspitzhacke.",
+        "Jeder Tausch bringt **+2** Ansehen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marke, Totem und Gabe",
+      "text": [
+        "Als **Stimme** gibt dir der Älteste die Stammesmarke der Kantenläufer. Fertige sie mit einem {item:tribalpower:resonance_totem_fire} und zwei Geistergewebe zu ihrem [Verwandtschafts-Totem](kinship_totem).",
+        "Neben einem Pulsresonator ist es eine Stimme mehr; neben einer Station leiht es **Feuer**.",
+        "Die Sippe der Kantenläufer trägt ihre [Gabe](tribe_boons): kein Sturz verletzt dich, solange du **schleichst**.",
+        "Ihr Gericht trägt die Gabe **5 Minuten**, und ihr [Relikt](elders_and_stories), solange du es trägst.",
+        "Einen Risszahn als Freund zu kaufen ist sicherer, um ihr Reagenz zu bekommen, als Risshunde zu jagen.",
+        "Als **Stimme** darfst du auch einen **Risshund** als [Vertrauten](familiar_basics) binden."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "claw",
+      "title": "Deine Arbeit mit ihnen",
+      "text": [
+        "Was der Älteste der Kantenläufer von dir verlangt hat, und wie weit ihre Geschichte gekommen ist. Siehe [Älteste, Bitten und Geschichten](elders_and_stories)."
+      ]
+    }
+  ]
+}

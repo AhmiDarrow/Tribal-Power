@@ -1,0 +1,98 @@
+{
+  "name": "Armes d'Espritoutillage",
+  "icon": "tribalpower:spiritgear_halberd",
+  "order": 42,
+  "items": [
+    "tribalpower:spiritgear_spear",
+    "tribalpower:spiritgear_halberd",
+    "tribalpower:spiritgear_battle_axe",
+    "tribalpower:spiritgear_warhammer",
+    "tribalpower:spiritgear_dagger",
+    "tribalpower:spiritgear_scythe",
+    "tribalpower:spiritgear_greatsword",
+    "tribalpower:spiritgear_trident"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_greatsword",
+      "title": "La famille de la Lame",
+      "text": [
+        "La [Lame d'Espritoutillage](spiritgear) a une famille maintenant : lance, hallebarde, hache de bataille, marteau de guerre, dague, faux, espadon et trident. On les fabrique de la même façon, avec des Lingots manifestés et un Carillon d'os, la plupart avec un bâton pour hampe, et chacune a une **poignée en os**.",
+        "En dessous, chacune est une Lame. Elle se range aux stations d'écho, dépense de la Pulsation sur les frappes d'écho (un coup payé ne s'use pas), prend une voix de totem, et au Manifesté elle frappe plus fort les boss et te soigne à chaque coup. Ce qui change, c'est l'allonge, le poids et un coup qui lui est propre."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les chiffres",
+      "text": [
+        "- **Lance** : 7 dégâts, 1.3 coups par seconde, allonge +1.5. Un estoc en sprint frappe **35%** plus fort.",
+        "- **Hallebarde** : 10 dégâts, 0.9 coups par seconde, allonge +1, lourde (−4%). Balaye, et brise un bouclier levé.",
+        "- **Hache de bataille** : 11 dégâts, 0.8 coups par seconde, allonge —, lourde (−6%). Un lourd balayage tranchant ; brise les boucliers.",
+        "- **Marteau de guerre** : 12 dégâts, 0.7 coups par seconde, allonge —, la plus lourde (−8%). Les coups traversent l'armure : **30%** de l'armure de la cible revient en dégâts en plus. Brise les boucliers."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les chiffres, suite",
+      "text": [
+        "- **Dague** : 4.5 dégâts, 2.4 coups par seconde, allonge −0.5, légère (+5%). Un coup par **derrière** porte **1.75×** plus fort.",
+        "- **Faux** : 8 dégâts, 1.0 coups par seconde, allonge +0.5, un peu lourde (−2%). Chaque coup moissonne aussi la **moitié** de ton attaque sur chaque hostile autour de la cible.",
+        "- **Espadon** : 10 dégâts, 0.85 coups par seconde, allonge +0.5, lourd (−6%). Le balayage le plus large et le plus fort.",
+        "- **Trident** : 8 dégâts, 1.1 coups par seconde, allonge +1. Mord **50%** plus profond dans tout ce qui se tient dans l'eau ou sous la pluie.",
+        "Ce sont les valeurs au rang 0. Les rangs ajoutent par-dessus les bonus de la Lame : **+2**, **+5** et **+10** de dégâts d'attaque. Chaque chiffre vit dans la section **armes** de la config commune."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Chacune échange quelque chose. Les armes lourdes frappent le plus fort, mais se balancent lentement et **ralentissent ta marche** tant qu'elles sont en main ; la dague est faible mais rapide et te laisse aller un peu plus vite.",
+        "L'allonge te garde en sûreté, mais les armes longues font moins par seconde ; les balayages et la moisson de la faux brillent contre une foule et gaspillent leur poids sur une seule cible.",
+        "La Lame est la polyvalente : pas d'allonge, pas de poids, pas de coup spécial, et rien qu'elle fasse mal."
+      ],
+      "title": "Aucune arme ne gagne tout"
+    },
+    {
+      "type": "text",
+      "title": "Longues et courtes",
+      "text": [
+        "Les armes longues sont vraiment longues : une lance fait environ deux fois la longueur d'une épée en main, la hallebarde et l'espadon presque autant, la hache et le marteau une fois et demie. La dague est courte et vive.",
+        "L'allonge compte autant que les dégâts. Une lance ou un trident tient un Molosse de la faille à bout de bras ; une dague te veut près et derrière.",
+        "N'importe laquelle peut porter une [onction](anointing)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_spear"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_halberd"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_battle_axe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_warhammer"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_dagger"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_scythe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_greatsword"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_trident"
+    }
+  ],
+  "next": "totem_bound_gear"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "땀막",
+  "icon": "tribalpower:sweat_stones",
+  "order": 60,
+  "items": [
+    "tribalpower:sweat_stones"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:sweat_stones",
+      "title": "뜨거운 돌",
+      "text": [
+        "**땀의 돌**은 열 위에 있으면 김을 내고 빛난다. 불이 붙은 모닥불, 불, 영혼 불, 마그마 블록, 용암, 또는 아래의 잔불 그릇. 열을 치우면 식는다.",
+        "침대가 있는 작은 막에 몇 개 넣으면 땀막이 된다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "막에서의 하룻밤",
+      "text": [
+        "침대에서 밤새도록 자고, **5블록 이내의 뜨거운 땀의 돌**이 있으며, 위아래는 **2블록** 이내, 그리고 **머리 위의 지붕**이 있어야 한다(침대 위 2에서 5블록 사이의 고체).",
+        "**완전히 나은 채** 깨고, 해로운 효과는 모두 사라지며, [정령 축복](spirit_sickness)이 **10분**, 그리고 약간의 재생이 붙는다. 아침까지 실제로 잠들어야만 작동한다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:sweat_stones"
+    }
+  ]
+}

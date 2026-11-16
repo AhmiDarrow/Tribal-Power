@@ -1,0 +1,26 @@
+{
+  "name": "Filtri e piastre del vuoto",
+  "icon": "tribalpower:fire_seal",
+  "order": 45,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Il filtro",
+      "text": [
+        "Apri una piastra per riempire il suo **Filtro**: otto scomparti che tengono l'immagine di un oggetto, mai l'oggetto stesso. Fai clic su uno scomparto con qualcosa in mano per segnarlo, a mano vuota per cancellarlo, oppure fai maiusc-clic sugli oggetti nel tuo inventario.",
+        "Il pulsante accanto cambia la lista. Una **Lista nera** trattiene gli oggetti segnati e lascia passare il resto; una lista nera vuota, come parte una piastra, manda tutto. Una **Lista bianca** manda solo gli oggetti segnati.",
+        "Per un fluido, segna un secchio o qualsiasi contenitore pieno: un secchio d'acqua elenca l'acqua.",
+        "Accovacciati e fai clic destro su una piastra con la mano vuota per cambiare la lista senza aprirla."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Piastre del vuoto",
+      "text": [
+        "Un **Sigillo di Fuoco** nello scomparto **Runa** fa una **piastra del vuoto**: brucia ciò che preleva dalla sua macchina invece di mandarlo altrove; oggetti su un Relè di oggetti, fluido su un Relè di fluidi. Brucia solo ciò che il filtro nomina, quindi un filtro vuoto non brucia nulla. Una piastra del vuoto brucia secondo il filtro della scheda 1.",
+        "Le piastre iniziano come **Lista nera**, quindi una piastra del vuoto nuova con pietrisco segnato brucia tutto tranne il pietrisco. Passala prima a **Lista bianca** per bruciare solo ciò che segni, oppure lasciala Lista nera e segna ciò che vuoi tenere.",
+        "Una piastra del vuoto ha ancora bisogno di Pulso e della sua voce. A ogni battito brucia fino a **16 oggetti** o **250 mB**, di più se ha un rango, e paga il solito Pulso della piastra."
+      ]
+    }
+  ]
+}

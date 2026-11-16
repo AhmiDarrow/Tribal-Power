@@ -1,0 +1,184 @@
+{
+  "name": "目覚めの鐘",
+  "icon": "tribalpower:wake_bell",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wake_bell",
+      "text": [
+        "印章彫りの技。死者を悼む鐘。近くで死んだ生き物はみなパルスをその貯めに払い、モブ農場が発電所になる。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "払い方",
+      "text": [
+        "**16ブロック**以内の死は、敵対的な生物に**20パルス**、受動的な生物に**5**を払う。プレイヤーの死は何も払わない。",
+        "死は**2,000**の貯めを満たし、鐘はランクなしで最大**毎秒8**まで出す。ランクごとに**毎秒 15% パルス**が加わり、整数のパルスに丸められる。大きなファームは貯めを満たしたあと休み、縁を超えた分は失われる。",
+        "死を聞くのは**最も近い**鐘だけだ。鐘を重ねても無駄である。レッドストーンで止めた鐘は何も聞かない。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "ファームのそばの鐘",
+      "steps": [
+        {
+          "caption": "ものが死ぬ場所から16ブロック以内に鐘を吊る。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wake_bell"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "キルのたびに貯めが満ち、鐘は毎秒最大8パルスまで出す。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "そばのパルスの石塚は、その噴き出しを来る速さのまま飲み込む。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "石塚から8ブロック以内の機械は、キルがどれだけむらでも一定の線を引く。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "ヒント",
+      "text": [
+        "暗いファームでも、守護の太鼓の殺害場でもよい。プレイヤーが守護の太鼓の対象になることはなく、鐘はその起こす死をすべて聞く。",
+        "聴音の穴は一定の引きを求める。鐘をパルスの石塚と組め。",
+        "鐘は[印章彫り](tribe_sigil)の技。レシピには鐘の破片と霊の印章が要る。印章彫りは一族に鐘を渡す。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wake_bell"
+    }
+  ]
+}

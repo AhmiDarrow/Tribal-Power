@@ -1,0 +1,65 @@
+{
+  "name": "Cuoritamburo",
+  "icon": "tribalpower:tribe_mark",
+  "order": 80,
+  "spoiler": true,
+  "unlock": "tribe:spark",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_spark",
+      "title": "Cuoritamburo",
+      "text": [
+        "«Il tamburo non è forte. Il tamburo è costante. Sii il tamburo.»",
+        "Filo di **Scintilla**, voce del **Fuoco**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chi sono",
+      "text": [
+        "Ogni motore nella Marcia segue ancora il tempo dei Cuoritamburo. La loro arte è **tamburi e Pulso**: un colpo a un respiro di distanza, e il rame risponde.",
+        "I loro accampamenti stanno nella **savana**, e nella Marcia un loro accampamento sta in ogni fascia, dal nord gelato al sale."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ciò che vogliono",
+      "text": [
+        "Il loro reagente è il **Campanello d'osso**, che vale **+8** di stima al loro Focolare.",
+        "Prediligono anche un Lingotto di rame, Rame grezzo o un Risonatore di rame: **+3** ciascuno. Qualsiasi altro cibo vale **+1**, e una Cella di Pulso carica **+2 ogni 10 Pulso**, fino a +8.",
+        "Ricorda: il Focolare prende al massimo **60** di stima al giorno dalle offerte; vedi [Tribù e stima](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ciò che l'Anziano scambia",
+      "text": [
+        "**Ospite**: 6 Lingotto di rame per un Campanello d'osso; 3 Lingotto di rame per un Risonatore di rame.",
+        "**Amico**: 2 Eco sintonizzato per una Cella di Pulso; 2 Campanello d'osso e 6 Lingotto di rame per un Corno di brace; 4 Radice di brace per Chili dei Cuoritamburo.",
+        "**Consanguineo**: un Nucleo risonante per una Cella di Pulso maggiore; 4 Eco vincolato per un Cuoretamburo.",
+        "Ogni scambio frutta **+2** di stima."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marchio, totem e dono",
+      "text": [
+        "A **Voce** l'Anziano ti dà il Marchio della tribù dei Cuoritamburo. Creala con un {item:tribalpower:resonance_totem_fire} e due Tessitospirito nel loro [Totem di parentela](kinship_totem).",
+        "Accanto a un Risonatore di Pulso è una voce in più; accanto a una stazione presta **Fuoco**.",
+        "Chi è Consanguineo dei Cuoritamburo porta il loro [dono](tribe_boons): una mano più rapida: colpisci il **10%** più in fretta.",
+        "Il loro piatto porta il dono per **5 minuti**, e la loro [reliquia](elders_and_stories) finché la porti.",
+        "Il loro scambio da Ospite trasforma il rame in Campanello d'osso, il loro reagente: un modo economico per salire verso Amico.",
+        "A **Voce** puoi anche legare un **Diavoletto di tizzone** come [famiglio](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "spark",
+      "title": "Il tuo lavoro con loro",
+      "text": [
+        "Ciò che l'Anziano dei Cuoritamburo ti ha chiesto, e fin dove è arrivata la loro storia. Vedi [Anziani, richieste e storie](elders_and_stories)."
+      ]
+    }
+  ]
+}

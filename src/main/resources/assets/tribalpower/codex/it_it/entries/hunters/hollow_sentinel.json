@@ -1,0 +1,51 @@
+{
+  "name": "Sentinella cava",
+  "icon": "tribalpower:sentinel_sigil",
+  "order": 110,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hollow_sentinel_spawn_egg",
+    "tribalpower:sentinel_sigil"
+  ],
+  "next": "storm_moth",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:hollow_sentinel",
+      "text": [
+        "Un'armatura vuota di custode che ancora sorveglia le vecchie strade, lancia in mano. I suoi colpi ti lasciano il braccio debole.",
+        "Cacciata, lascia anche da 1 a 3 pepite di ferro."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Le Sentinelle cave percorrono le Terre Alte della Marcia, i Campi di neve e il Crinale lucente, alcune i Campi di cristallo, e tre montano la guardia in ogni [Sala degli antenati](ancestor_hall).",
+        "Ha **44 di salute** e **6 di armatura**, la più dura delle vestigia, e colpisce per **6**. Ogni colpo ti dà Debolezza per 4 secondi. La luce e un bastone carico aiutano."
+      ],
+      "title": "Dove e come"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Lascia **da 1 a 2 Sigillo di sentinella**.",
+        "Un Sigillo di sentinella si sintonizza in 2 Eco sintonizzato sotto Spirito."
+      ],
+      "title": "Cosa dà"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Nessun amuleto legherà una Sentinella cava. Serve le sale, non a te."
+      ],
+      "title": "Non si legherà"
+    },
+    {
+      "type": "text",
+      "title": "Caccia e allevamento",
+      "text": [
+        "Oltre al reagente, lascia questo se cacciata, e di più con Saccheggio."
+      ]
+    }
+  ]
+}

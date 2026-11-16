@@ -1,0 +1,74 @@
+{
+  "name": "Niezaśpiewany",
+  "icon": "tribalpower:unsung_heart",
+  "order": 60,
+  "spoiler": true,
+  "items": [
+    "tribalpower:the_unsung_spawn_egg"
+  ],
+  "next": "crystal_spire",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:the_unsung",
+      "text": [
+        "Bęben jak klepsydra, z pękniętą porcelanową maską i dwoma runicznymi ramionami. Chce tylko, by rytm wrócił."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Niezaśpiewany nigdy nie przychodzi sam. Podnosi się tylko wtedy, gdy ktoś wybija czterotakt na [Cichy bęben](drum_circle), i w ostatniej fazie wraca do tego bębna.",
+        "Ma **400 zdrowia** i **8 pancerza**, nie da się go odepchnąć i zrzuca efekty mikstur. Pasek bossa śledzi trzy fazy: Uderzenie, Chór i Cisza.",
+        "Weź jedzenie, pancerz, naładowane Ogniwa Pulsu, Kościany dzwonek i sprawdzoną drogę do domu. Z przyjacielem jest dużo łatwiej."
+      ],
+      "title": "Przed pierwszym uderzeniem"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Gdy ma powyżej dwóch trzecich zdrowia, fala uderzeniowa wychodzi **co 3 sekundy** i trafia wszystkich w promieniu **8 bloków** za **6**, z mocnym odrzutem.",
+        "Skradaj się tuż przed uderzeniem, żeby się zaprzeć: dostajesz **połowę obrażeń** i zero odrzutu.",
+        "Zamach ramieniem zadaje **10**, więc trzymaj bęben między sobą a nim, gdy podchodzi."
+      ],
+      "title": "Uderzenie"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Poniżej dwóch trzecich zaczyna wzywać **dwóch Tkaczy echa co 8 sekund**, do **sześciu** naraz, a fale uderzeniowe przychodzą co **2.5 sekundy**.",
+        "Usuń tkaczy, zanim cię spowolnią. Ich ugryzienie zostawia cię ociężałym, a fale uderzeniowe wciąż trzeba przyjąć.",
+        "Tkacz, którego zwiążesz w walce (Szwacze krosna muszą nazywać cię **Głos**), jest twój: przestaje liczyć się dla Niezaśpiewanego i zostaje, gdy walka się kończy."
+      ],
+      "title": "Chór"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Poniżej jednej trzeciej unosi się nad bębnem i nie można go zranić. Co 2 sekundy wystrzeliwuje powolny tkacki pocisk: **5 obrażeń**, Spowolnienie i Słabość oraz [Niezaśpiewana cisza](afflictions) na **12 sekund**: żadna pieśń ani głos kostura nie odpowiada, póki nie opadnie. Pociski pękają na litych blokach, więc osłona pomaga.",
+        "Podejdź do Cichego bębna i znów wybierz czterotakt. To synchronizuje go na nowo: jest **ogłuszony na 8 sekund** i dostaje **podwójne obrażenia**, a potem jeszcze przez **4 sekundy** można go ranić zwykłymi obrażeniami.",
+        "Cisza wraca **12 sekund** po każdej ponownej synchronizacji, więc uderz mocno, a potem zagraj znowu."
+      ],
+      "title": "Cisza"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Niezaśpiewane serce**, z którego powstaje totem Krosna ([szósty głos](sixth_voice)).",
+        "- **16 do 24 Nić Krosna**.",
+        "- **4 Rdzenie rezonansu**.",
+        "- **Płyta muzyczna** Kręgu bębnów.",
+        "- [Obrzęd Rzeźbiarzy pieczęci](tablet_7), Tabliczka podań trzymana poza tym tylko na ołtarzu Głębokiej świątyni. Powieś ją na ścianie i przeczytaj.",
+        "Jeśli nikt nie zostanie w promieniu **48 bloków** przez **30 sekund**, resetuje się: znika ze swoimi tkaczami, a bęben jest znów gotowy do gry."
+      ],
+      "title": "Co zostawia"
+    },
+    {
+      "type": "text",
+      "title": "Próba Szwaczy krosna",
+      "text": [
+        "Niezaśpiewany to strażnik, na którym kończy się historia Szwaczy krosna: ucisz go ich historią w ostatnim kroku, a ich relikt będzie twój. Jego Tkacze echa nic już nie upuszczają i potrzebuje miejsca, by się podnieść: nic stałego w pięciu blokach nad bębnem ani na pięciu na pięć wokół. Zobacz [Strażnicy](guardians)."
+      ]
+    }
+  ]
+}

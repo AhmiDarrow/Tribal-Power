@@ -1,0 +1,53 @@
+{
+  "name": "Forme di canto",
+  "icon": "tribalpower:song_sheet",
+  "order": 30,
+  "next": "pulse_crossbow",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Il primo reagente decide",
+      "text": [
+        "Ogni canto prende una di cinque **forme**, e il **primo** reagente sul foglio la sceglie in base alla famiglia ([Reagenti](reagents)):",
+        "- **Dardo**: per primo un reagente Brace, Dardo o Segugio.",
+        "- **Vincolo**: per primo un reagente Veleno, Indebolimento, Gelo o Tessitura.",
+        "- **Passo**: per primo un reagente Folata.",
+        "- **Chiamata**: per primo un reagente Radice o Spinta.",
+        "- **Guardia**: per primo un reagente Quiete, la famiglia di ogni bestia mansueta.",
+        "La voce che hai scelto al banco colora qualunque forma sia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le cinque forme",
+      "text": [
+        "- **Dardo** colpisce l'ostile che guardi, fino a **10 blocchi** di distanza, per **3** danni più **1** per ogni copia del primo reagente. Fuoco lo incendia, e Aria lo respinge.",
+        "- **Vincolo** rallenta quell'ostile: Lentezza I per una copia del primo reagente, fino a IV se ce ne sono di più, e un livello in più con la voce Acqua.",
+        "- **Passo** ti lancia in avanti, nella direzione in cui guardi, più lontano per ogni copia. Aria ti solleva più in alto, e Aria e Spirito ti lasciano fluttuare in discesa. Il Telaio ti cuce anche **2 a 4 blocchi** più avanti, se c'è aria libera su cui atterrare.",
+        "- **Chiamata** colpisce ogni ostile intorno a te, a circa **3 blocchi**, per **2** danni più mezzo punto per copia, con il tocco della voce come per un Dardo.",
+        "- **Guardia** è solo per te: la [benedizione](voice_blessings) della sua voce per **45 secondi** per ogni copia, e una guardia sua. Terra dà resistenza, Fuoco resistenza al fuoco, Acqua rigenerazione e respirazione acquatica, Aria caduta lenta e velocità, Spirito visione notturna e il Telaio assorbimento.",
+        "Un Dardo o un Vincolo richiede un ostile in vista. Se nessuno è a portata, il canto non viene cantato e non costa nulla."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa aggiunge il resto del foglio",
+      "text": [
+        "I reagenti dopo il primo vestono soltanto la forma. Non aggiungono mai un secondo incantesimo.",
+        "- **Un'altra copia del primo reagente** rende il canto più forte: colpisce di più, rallenta di più, lancia più lontano o benedice più a lungo.",
+        "- **Un reagente di un'altra famiglia** aggiunge il tocco di quella famiglia: fuoco, lentezza, veleno, debolezza, una spinta, un bagliore o un momento di rigenerazione per te. Contano solo le **prime due** altre famiglie. Una terza non aggiunge nulla, e nemmeno un reagente diverso di una famiglia già sul foglio.",
+        "- **Ogni reagente oltre il terzo** fa durare di più il canto: il suo rallentamento, il veleno e gli altri tocchi persistenti durano **4 secondi** su un foglio di tre reagenti e un secondo in più per ogni reagente dopo. Un Dardo o un Vincolo arriva un blocco più lontano. Una Chiamata si allarga un poco.",
+        "I tocchi cadono sul bersaglio di un Dardo o di un Vincolo e su tutto ciò che una Chiamata colpisce. Un Passo o una Guardia non ha bersaglio, quindi su quelli agisce solo il tocco Quiete, la tua stessa rigenerazione."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quanto costa un canto",
+      "text": [
+        "Cantare costa **8 Pulso, più 4 per ogni reagente** sul foglio: **20** per tre reagenti, **36** per sette. Il dono dei Cucitori del telaio ne toglie un quarto ([Doni tribali](tribe_boons)).",
+        "Un Foglio di canto si consuma quando lo canti. Un Canzoniere tiene i suoi canti e riposa **1,5 secondi** dopo ognuno prima di cantare di nuovo.",
+        "Un famiglio della voce del canto, vicino, lo fa colpire più forte e fa arrivare una Chiamata più lontano ([ciò che dà una voce](familiar_boons))."
+      ]
+    }
+  ]
+}

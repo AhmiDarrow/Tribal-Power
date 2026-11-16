@@ -1,0 +1,38 @@
+{
+  "name": "Totem du silence",
+  "icon": "tribalpower:hush_totem",
+  "order": 70,
+  "next": "wayanchor",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:hush_totem",
+      "text": [
+        "La paix pour tout le camp. Tant qu'il est nourri, le Totem du silence empêche les hostiles d'apparaître dans un rayon de **24 blocs**, pour **8 Pulsation** par seconde."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le garder silencieux",
+      "text": [
+        "Placez-le au milieu du camp, à 8 blocs d'un Conducteur de treillis, et un totem d'**Esprit** à 8 blocs aussi : sans sa voix il reste inactif (voir [Mains du camp](camp_hands)). Il garde une réserve de **2 400 Pulsation** pour tenir un moment de calme, et la remplit jusqu'à **80 Pulsation** par seconde. Faites un clic droit avec une Cellule de Pulsation pour le remplir à la main.",
+        "Il arrête les apparitions naturelles et celles des générateurs de chaque hostile, celles de l'Overworld comme de la Marche, y compris les hostiles d'un Berceau d'invocation. Il tient aussi les **phantoms** à l'écart : aucun n'est envoyé après un joueur debout dans le cercle.",
+        "Il ne retire pas les mobs déjà là, il n'arrête pas les animaux, et il ne passe jamais outre les commandes ni les œufs d'apparition.",
+        "La redstone le fait taire aussitôt. Un comparateur indique 15 tant qu'il fait silence."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Vivre avec",
+      "text": [
+        "Les hostiles peuvent encore entrer à pied depuis l'extérieur du cercle, alors éclairez aussi les bords, ou posez un Tambour de garde à l'entrée.",
+        "Si vous faites tourner un Berceau d'invocation pour des hostiles, gardez-le à plus de 24 blocs du totem, ou mettez le totem sur un levier et basculez entre la paix et l'invocation.",
+        "Une Lanterne d'Esprit et un Totem du silence ensemble font un camp tranquille."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hush_totem"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Szamańskie leczenie",
+  "icon": "tribalpower:spirit_salve",
+  "order": 0,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Każde plemię ma kogoś, kto leczy. Tutaj to ty: kocioł nad ogniem, grzechotka w dłoni i stare obrzędy.",
+        "- [Kocioł «Duch»](spirit_kettle) warzy **leki** z odczynnika, zioła i bazy.",
+        "- [Leki](remedies) są nalewkami do picia, maściami do nałożenia i kadzidłem do spalenia dla wszystkich naraz.",
+        "- [Grzechotka uzdrowiciela](healers_rattle) leczy tego, na kogo patrzysz, za odrobinę Pulsu.",
+        "- [Choroba Ducha](spirit_sickness) to to, co zostawiają na tobie najgorsze duchy Marszu, i dlaczego to wszystko ma znaczenie.",
+        "- [Krąg leczenia](healing_circle) leczy cały obóz i przywołuje poległe chowańce.",
+        "- [Szałas potu](sweat_lodge) kładzie cię spać rannego i budzi całego."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Od czego zacząć",
+      "text": [
+        "Najpierw zbuduj kocioł. Postaw go na rozpalonym ognisku w odległości 8 bloków od Przewodnik kraty w naładowanej sieci; Totem rezonansu w pobliżu nie jest konieczny, ale dodaje swój głos każdemu wywarowi. Stos maści w twoim tobołku to różnica między ciężką nocą w Marszu a spacerem do domu."
+      ]
+    }
+  ],
+  "next": "spirit_kettle"
+}

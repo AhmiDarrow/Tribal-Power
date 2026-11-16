@@ -1,0 +1,8 @@
+{
+  "name": "伝承",
+  "icon": "tribalpower:lore_tablet",
+  "order": 120,
+  "description": "かつてあった世界の物語と、あとから来る者へ部族が残した石板。",
+  "spoiler": true,
+  "progress": "tablets"
+}

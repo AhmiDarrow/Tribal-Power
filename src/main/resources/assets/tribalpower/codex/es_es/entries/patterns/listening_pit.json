@@ -1,0 +1,72 @@
+{
+  "name": "Foso de escucha",
+  "icon": "tribalpower:resonance_mesh",
+  "order": 70,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_mesh",
+      "text": [
+        "La Malla de resonancia es el corazón del Foso de escucha: un foso reforzado que escucha el mineral hasta sacarlo de la piedra renovable.",
+        "Aliméntalo con piedra, dale Pulso y la voz de Tierra, y el mineral de metal en bruto y de gemas cae en un alijo encima. Nunca se agotará como una mina."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "listening_pit",
+      "tier": 1,
+      "title": "El foso",
+      "text": "Un suelo de 5x5 de cualquier piedra natural de la Superficie (piedra, pizarra profunda, granito, diorita, andesita o toba), Piedras de ancla en las esquinas, tiza desde cada borde hasta el centro y la malla en el centro."
+    },
+    {
+      "type": "text",
+      "title": "Antes de que escuche",
+      "text": [
+        "El foso necesita todo esto, y el Códice espiritual nombra lo que falte:",
+        "- La voz de **Tierra** en un radio de 8 bloques, mantenida despierta: un tótem tenue ralentiza el ciclo, uno callado lo detiene.",
+        "- Un **Alijo ancestral** que toque la malla. Con tiza en los cuatro lados y piedra debajo, eso significa **encima**. La malla vacía todo en él, así que no necesitas tolva.",
+        "- Pulso del entramado. La malla guarda su propia reserva de **200 Pulso** para que un generador a ráfagas no haga tartamudear el ciclo.",
+        "- Posición de **Amigo** con los Cantores de grava, incluso para mena común. El foso de un Extraño se atasca."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Alimentarlo",
+      "text": [
+        "Mantén el **Alijo ancestral** de encima abastecido de piedra: el foso toma de ahí su **sustrato** y devuelve al mismo alijo la mena que oye. La tiza y la piedra cierran la malla por todos los demás lados, así que el alijo es por donde lo alimentan tus manos, las tolvas y los relés.",
+        "Haz clic derecho en la malla con una **muestra**, como hierro en bruto, para orientar lo que llama. La muestra es un filtro y nunca se consume; agáchate con la mano vacía para recuperarla. Consulta [Lo que ofrece el suelo](what_the_ground_offers)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Alrededor del foso",
+      "text": [
+        "Mantén el tambor o el generador fuera del 5x5: todo el suelo pertenece al foso. Dale rango a la malla como a cualquier otro taller.",
+        "Un comparador contra la malla lee cuánto ha avanzado el ciclo, y baja a 0 cuando el foso se atasca."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "listening_pit",
+      "tier": 2,
+      "title": "Escucha profunda",
+      "text": "Siete por siete: dos anillos de Piedras de ancla en las esquinas, y un Tótem de resonancia de cualquier voz en cada borde cardinal."
+    },
+    {
+      "type": "text",
+      "title": "Escucha profunda",
+      "text": [
+        "El 7x7 duplica el refuerzo de las esquinas y asienta un tótem en cada borde cardinal. Abre las bandas **profunda**, **caliente** y **rara**.",
+        "Las tres también necesitan un **Hogar de la tribu** o un **Tótem de parentesco de los Cantores de grava** en pie dentro del patrón. La mena común no.",
+        "Posición con los Cantores de grava: **Amigo** para la común (incluso en un foso pequeño), **Pariente** para la profunda y la caliente, **Voz** para la rara. La caliente también quiere Fuego; la rara quiere Espíritu. El Códice espiritual nombra lo que aún te falta."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_mesh"
+    }
+  ],
+  "next": "what_the_ground_offers"
+}

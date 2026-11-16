@@ -1,0 +1,41 @@
+{
+  "name": "Fragmento de Espírito e ressonadores",
+  "icon": "tribalpower:spirit_shard",
+  "order": 5,
+  "items": [
+    "tribalpower:copper_resonator",
+    "tribalpower:bone_chime"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_shard",
+      "text": [
+        "Duas peças humildes aparecem em quase toda receita de Tribal Power: o **Fragmento de Espírito** e o **Ressonador de cobre**. Faça uma pilha de cada cedo e você raramente vai ficar preso.",
+        "Os dois começam num **Carrilhão de osso**: um osso, uma linha e um fragmento de ametista fazem dois."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "De onde vêm",
+      "text": [
+        "Um Fragmento de Espírito é um fragmento de ametista, um pó de redstone e um Carrilhão de osso, feitos juntos. Cada fabricação dá **dois**.",
+        "Um Ressonador de cobre é feito com quatro barras de cobre em volta de um Carrilhão de osso. Cada fabricação também dá **dois**.",
+        "Quando você chegar à Marcha, o **Minério da Marcha** é a fonte mais barata de fragmentos: passe-o pelo [Triturador de eco](echo_shatter) com um totem de Terra e ele se quebra em **dois Fragmento de Espírito** em 4 segundos, a 40 Pulso por segundo."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_shard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_resonator"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bone_chime",
+      "text": "O Carrilhão de osso também acorda um totem quieto quando você o usa no totem."
+    }
+  ]
+}

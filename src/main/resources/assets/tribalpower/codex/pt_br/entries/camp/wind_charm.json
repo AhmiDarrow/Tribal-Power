@@ -1,0 +1,30 @@
+{
+  "name": "Amuleto de vento",
+  "icon": "tribalpower:wind_charm",
+  "order": 180,
+  "next": "songkeeper_drum",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wind_charm",
+      "text": [
+        "Cinco varetas de cobre e uma vela de cristal num cordão, para varandas e vãos de porta. Ele não gasta Pulso e não tem função; está ali para parecer e soar bem."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pendurá-lo",
+      "text": [
+        "Coloque-o sob quase qualquer coisa: um teto, uma viga, uma travessa de cerca, uma corrente ou um dossel de folhas. Coloque-o contra a lateral de um bloco e ele fica pendurado num suporte nessa parede.",
+        "Você pode passar direto por ele: não tem colisão, mas roçar nele bate numa vareta.",
+        "Ele toca sozinho, de vez em quando num dia parado, mais na chuva e muito numa tempestade. Sob um telhado fica mais quieto. Bata nele para pôr as cinco varetas em movimento.",
+        "Quebre aquilo de que ele pende e ele se solta.",
+        "Redstone não faz nada com ele. Não é uma luz de Pulso, nem uma Harpa de vento."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wind_charm"
+    }
+  ]
+}

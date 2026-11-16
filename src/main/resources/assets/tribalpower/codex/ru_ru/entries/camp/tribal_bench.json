@@ -1,0 +1,49 @@
+{
+  "name": "Племенной верстак",
+  "icon": "tribalpower:oak_tribal_bench",
+  "order": 150,
+  "items": [
+    "tribalpower:oak_tribal_bench",
+    "tribalpower:spruce_tribal_bench",
+    "tribalpower:birch_tribal_bench",
+    "tribalpower:jungle_tribal_bench",
+    "tribalpower:acacia_tribal_bench",
+    "tribalpower:dark_oak_tribal_bench",
+    "tribalpower:mangrove_tribal_bench",
+    "tribalpower:cherry_tribal_bench",
+    "tribalpower:bamboo_tribal_bench",
+    "tribalpower:crimson_tribal_bench",
+    "tribalpower:warped_tribal_bench",
+    "tribalpower:march_tribal_bench",
+    "tribalpower:hearthoak_tribal_bench",
+    "tribalpower:frostpine_tribal_bench",
+    "tribalpower:cinder_tribal_bench",
+    "tribalpower:willow_tribal_bench",
+    "tribalpower:bellcap_tribal_bench",
+    "tribalpower:strider_tribal_bench"
+  ],
+  "next": "vine_lift",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:oak_tribal_bench",
+      "title": "Стол, который помнит",
+      "text": [
+        "Племенной верстак — это верстак шириной в два блока, с полкой вдоль задней стороны, и он бывает из любого дерева, чтобы подходить к лагерю, в котором стоит.",
+        "Разница, которая важна: **сетка принадлежит верстаку**. Закрой его на середине рецепта, и всё останется там, где ты оставил, вместо того чтобы высыпаться обратно в рюкзак.",
+        "Полка сзади держит **четыре** вещи, как Настенная полка: щёлкни по полке с предметом в руке, чтобы положить его, и с пустой рукой, чтобы забрать. Щёлкни по столешнице, чтобы открыть сетку; рядом будет зелёная книга рецептов."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "С JEI",
+      "text": [
+        "Если у тебя есть JEI, верстак — полная станция крафта: открой рецепт крафта и нажми **+** (или клавиши переноса рецепта JEI), чтобы забрать ингредиенты из инвентаря в сетку. Щелчок по стрелке в верстаке показывает каждый рецепт крафта."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:oak_tribal_bench"
+    }
+  ]
+}

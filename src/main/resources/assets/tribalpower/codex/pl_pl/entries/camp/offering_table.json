@@ -1,0 +1,29 @@
+{
+  "name": "Stół ofiarny",
+  "icon": "tribalpower:offering_table",
+  "order": 130,
+  "next": "builders_chalk",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:offering_table",
+      "text": [
+        "Obozowy skład na 27 slotów, z ładniejszą twarzą niż skrzynia. Postaw go obok paleniska albo kołyski, by trzymać ofiary, jedzenie i Duchotkanina pod ręką. Nie potrzebuje Puls."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Korzystanie",
+      "text": [
+        "To magazyn, nie drugie Palenisko plemienia. Ofiary, które podnoszą pozycję u plemienia, idą na samo palenisko (zobacz [Pozycja](standing)); stół nic nie daje.",
+        "Otworzyć może tylko gracz, który go postawił, jego obóz, albo ktokolwiek, jeśli nikt go nie objął.",
+        "Leje, rury i [płyty przekaźnikowe](wireless_cargo) mogą napełniać go lub opróżniać z każdej strony. Przykucnij i kliknij prawym przyciskiem ściankę pustą ręką, by zmienić tę ściankę: Oba, Wejście, Wyjście lub Zamknięte.",
+        "Komparator odczytuje, jak bardzo jest pełny. Sygnał redstone blokuje i menu, i automatyzację."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:offering_table"
+    }
+  ]
+}

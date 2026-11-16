@@ -1,0 +1,17 @@
+{
+  "name": "7. Os acampamentos",
+  "icon": "tribalpower:carved_stone",
+  "order": 16,
+  "spoiler": true,
+  "unlock": "fragment:6",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Os acampamentos",
+      "text": [
+        "“Nove acampamentos em nove leitos, cada um cantando um fio num Tear que já não estava lá. Hábito, chamaram os Caminhantes da borda. Esperança, disseram os Vinculadores de raízes. Os Cantores de cascalho disseram que era a mesma coisa dita duas vezes.”",
+        "Encontrado em uma Pedra entalhada nas ruínas da Marcha."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "name": "Jäger im Dunkeln",
+  "icon": "tribalpower:lurker_claw",
+  "order": 290,
+  "spoiler": true,
+  "items": [
+    "tribalpower:deep_lurker_spawn_egg",
+    "tribalpower:pale_stalker_spawn_egg",
+    "tribalpower:gloom_crawler_spawn_egg",
+    "tribalpower:veil_drifter_spawn_egg",
+    "tribalpower:lurker_claw",
+    "tribalpower:pale_fang",
+    "tribalpower:gloom_silk",
+    "tribalpower:veil_tatter"
+  ],
+  "next": "colossus_warden",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Unten und oben",
+      "text": [
+        "Drei Jäger beherrschen die Höhlen des Marschs, und sie erheben sich dort im Dunkeln bei Tag ebenso wie bei Nacht. Ein vierter treibt nachts über den Hochlanden.",
+        "Keiner von ihnen bindet sich. Jeder lässt **1 bis 2** seines Reagenz fallen, mehr mit Plünderung."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:deep_lurker",
+      "title": "Tiefenlauerer",
+      "text": [
+        "Ein Sternnasenmaulwurf von der Größe eines Bären, der zäheste der Höhlenjäger, unter jedem Land des Marschs, einer oder zwei auf einmal. Er hat **32 Gesundheit** und **3 Rüstung** und beißt für **5**.",
+        "Er lässt **Lauererklaue** fallen, ein Hund-Reagenz, das sich zu Farbstoff Hellblau mahlen lässt.",
+        "Gejagt lässt er außerdem bis zu 2 Knochen und bis zu 1 Marschleder fallen."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_stalker",
+      "title": "Bleichpirscher",
+      "text": [
+        "Ein hagerer, augenloser Höhlenghul, groß, bleich und schnell, aus den Höhlen unter der Steppe, dem Hochland, dem Schimmergrat, den Schneefeldern und den Kristallfeldern, einzeln oder zu zweit. **24 Leben** und **1 Rüstung**. Sein Schlag macht **4** und schwächt dich 4 Sekunden lang.",
+        "Er lässt **Bleichreißzahn** fallen, ein Schwächungsreagenz.",
+        "Gejagt lässt er außerdem 1 bis 2 Knochen fallen."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:gloom_crawler",
+      "title": "Düsterkriecher",
+      "text": [
+        "Ein Höhlentausendfüßer, niedrig und dunkel, aus den Höhlen unter jedem Land außer den Untiefen, einzeln oder zu zweit. **22 Leben** und **2 Rüstung**. Sein Biss macht **4**, verlangsamt dich 3 Sekunden lang und kann dich [Ausgefranst](afflictions) zurücklassen.",
+        "Er lässt **Düsterseide** fallen, ein Gewebe-Reagenz.",
+        "Gejagt lässt er außerdem 1 bis 2 Faden und bis zu 1 Spinnenauge fallen."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:veil_drifter",
+      "title": "Schleierstreicher",
+      "text": [
+        "Ein treibendes, zerfetztes Leichentuch auf fledermausartigen Flügeln, das nachts über dem Hochland, dem Schimmergrat, den Schneefeldern und den Kristallfeldern aufsteigt, einzeln oder zu zweit. **18 Leben** und **1 Rüstung**.",
+        "Aus bis zu 12 Blöcken Entfernung wirkt es eine Bö für **3**, die dich zurückwirft. Deckung bricht den Zauber ab. Es lässt **Schleierfetzen** fallen, ein Bö-Reagenz.",
+        "Gejagt lässt es außerdem bis zu 1 Phantomhaut und bis zu 1 Faden fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Weiden",
+      "text": [
+        "Neben seinem Reagenz lässt jeder gejagt mehr fallen, und mit Plünderung noch mehr."
+      ]
+    }
+  ]
+}

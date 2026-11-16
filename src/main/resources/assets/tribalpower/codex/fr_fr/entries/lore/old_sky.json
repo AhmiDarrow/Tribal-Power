@@ -1,0 +1,25 @@
+{
+  "name": "Le monde qui était",
+  "icon": "tribalpower:lore_tablet",
+  "order": 10,
+  "spoiler": false,
+  "next": "agreements_failed",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Avant que le vide n'ait un nom, le ciel était un plancher. Neuf Brins (Sol, Pierre, Pousse, Griffe, Étincelle, Horloge, Essaim, Sigille et Fuseau) étaient tendus par neuf tribus. Les continents pendaient à ce treillis comme le fruit pend à une vigne bien tenue.",
+        "Le temps filait le long de lui. La pluie savait où tomber. Rien ne tombait qui ne dût tomber.",
+        "Les routes ont été chantées dans le fil, puis parcourues. Les cultures s'enracinaient dans le Brin autant que dans la terre. Les tambours sous une litière s'entendaient comme Pulsation sous une autre."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le Métier",
+      "text": [
+        "Le Métier n'était pas un dieu et ce n'était pas une machine. C'étaient neuf accords tenus en même temps. Quand les tribus tiraient ensemble, l'horizon restait en place. Voilà toute l'ancienne physique.",
+        "De cette traction est né cet ouvrage : Pulsation, treillis, sceau, et la route vers la Marche. Les moteurs sont encore là-dehors. Orphelins, bourdonnants, sacrés. Traite-les comme un héritage, pas comme un tas de ferraille."
+      ]
+    }
+  ]
+}

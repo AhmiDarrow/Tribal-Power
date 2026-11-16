@@ -1,0 +1,16 @@
+{
+  "name": "Tabliczka: Lina Wiązaczy korzeni",
+  "icon": "tribalpower:lore_tablet",
+  "order": 120,
+  "spoiler": true,
+  "unlock": "tablet:2",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Z zatopionej Sali przodków, słowami Wiązaczy korzeni:",
+        "“Korzenie to jedyna lina, którą pustka szanuje. Posadziliśmy pierwsze kotwice na spadających wyspach i związaliśmy je wyspa z wyspą, korzeń z korzeniem. Połowa wytrzymała. Posadź sadzonkę w glebie Marszu, a poczujesz, jak ciągnie ku pozostałym.”"
+      ]
+    }
+  ]
+}

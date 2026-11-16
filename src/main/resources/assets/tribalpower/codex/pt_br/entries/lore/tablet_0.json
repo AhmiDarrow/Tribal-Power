@@ -1,0 +1,16 @@
+{
+  "name": "Tábua: Lar dos Guardiões do leito",
+  "icon": "tribalpower:lore_tablet",
+  "order": 100,
+  "spoiler": true,
+  "unlock": "tablet:0",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Guardada na parede de um acampamento dos Entalhadores de selos, nas palavras dos Guardiões do leito:",
+        "“Nunca chamamos isso de terra. Chamamos de o que restou, e o mantivemos quente. Quando o chão se soltou, carregamos em cestos, um leito de cada vez, e pusemos um lar em cada leito que salvamos. Alimente o lar com pão e musgo. Ele lembra quem o alimentou.”"
+      ]
+    }
+  ]
+}

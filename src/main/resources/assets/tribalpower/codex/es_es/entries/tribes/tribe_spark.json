@@ -1,0 +1,65 @@
+{
+  "name": "Corazones de tambor",
+  "icon": "tribalpower:tribe_mark",
+  "order": 80,
+  "spoiler": true,
+  "unlock": "tribe:spark",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_spark",
+      "title": "Corazones de tambor",
+      "text": [
+        "“El tambor no es ruidoso. El tambor es constante. Sé el tambor.”",
+        "Hebra de **Chispa**, voz de **Fuego**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quiénes son",
+      "text": [
+        "Todos los motores de la Marcha siguen aún el tiempo de los Corazones de tambor. Su oficio es **tambores y Pulso**: un golpe separado por un aliento, y el cobre responde.",
+        "Sus campamentos están en la **sabana**, y en la Marcha hay un campamento suyo en cada franja, del norte helado a la sal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que quieren",
+      "text": [
+        "Su reactivo es la **Campanilla de hueso**, que vale **+8** de estima en su Hogar.",
+        "También prefieren un Lingote de cobre, Cobre en bruto o un Resonador de cobre: **+3** cada uno. Cualquier otra comida vale **+1**, y una Célula de Pulso cargada **+2 por cada 10 de Pulso**, hasta +8.",
+        "Recuerda: el Hogar toma como máximo **60** de estima al día en ofrendas; consulta [Tribus y estima](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que intercambia el Anciano",
+      "text": [
+        "**Huésped**: 6 Lingote de cobre por una Campanilla de hueso; 3 Lingote de cobre por un Resonador de cobre.",
+        "**Amigo**: 2 Eco sintonizado por una Célula de Pulso; 2 Campanilla de hueso y 6 Lingote de cobre por un Cuerno de brasa; 4 Raíz de brasa por Chile de los corazones de tambor.",
+        "**Pariente**: un Núcleo resonante por una Célula de Pulso mayor; 4 Eco vinculado por un Corazón de tambor.",
+        "Cada intercambio otorga **+2** de estima."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marca, tótem y don",
+      "text": [
+        "En **Voz**, el Anciano te da la Marca tribal de los Corazones de tambor. Fabrícala con un {item:tribalpower:resonance_totem_fire} y dos Tejido espiritual para obtener su [Tótem de parentesco](kinship_totem).",
+        "Junto a un Resonador de Pulso es una voz más; junto a una estación aporta **Fuego**.",
+        "Quien es Pariente de los Corazones de tambor lleva su [don](tribe_boons): una mano más rápida: golpeas un **10%** más rápido.",
+        "Su plato lleva el don durante **5 minutos**, y su [reliquia](elders_and_stories) mientras la lleves.",
+        "Su intercambio de Huésped convierte el cobre en Campanilla de hueso, que es su reactivo: una vía barata para subir hacia Amigo.",
+        "En **Voz** también puedes vincular un **Diablillo de pavesa** como [familiar](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "spark",
+      "title": "Tu trabajo con ellos",
+      "text": [
+        "Lo que el Anciano de los Corazones de tambor te ha pedido, y hasta dónde ha llegado su historia. Consulta [Ancianos, peticiones e historias](elders_and_stories)."
+      ]
+    }
+  ]
+}

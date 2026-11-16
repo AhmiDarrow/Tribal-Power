@@ -1,0 +1,17 @@
+{
+  "name": "4. O corte",
+  "icon": "tribalpower:carved_stone",
+  "order": 13,
+  "spoiler": true,
+  "unlock": "fragment:3",
+  "pages": [
+    {
+      "type": "text",
+      "title": "O corte",
+      "text": [
+        "“Ninguém se lembra quem parou de cantar primeiro. Os Entalhadores de selos dizem que um selo foi entalhado como uma exigência. Os Corações de tambor dizem que o ritmo foi largado. Os Tecelões de padrões dizem que o padrão foi mudado sem perguntar. Todos estão certos, e esse é o problema.”",
+        "Encontrado em uma Pedra entalhada nas ruínas da Marcha."
+      ]
+    }
+  ]
+}

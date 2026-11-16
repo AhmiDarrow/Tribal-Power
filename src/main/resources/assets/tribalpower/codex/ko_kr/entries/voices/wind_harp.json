@@ -1,0 +1,438 @@
+{
+  "name": "바람 하프",
+  "icon": "tribalpower:wind_harp",
+  "order": 30,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wind_harp",
+      "text": [
+        "무늬 짜는 이의 제작. 열린 하늘에 맞춘 하프는 바람에서 펄스를 거저 만든다. 거저이므로 한도가 있다. 최대 **초당 6 펄스**.",
+        "**1,000 펄스**를 담는다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "걸 곳",
+      "text": [
+        "하프는 바로 위 블록에서 하늘을 봐야 한다. 지붕 아래에서는 **전혀 아무것도** 만들지 않는다.",
+        "- 열린 하늘 아래: **초당 2** (기본 1, 하늘 1).",
+        "- 높이: y 128 이상에서 **+1**, y 192 이상에서 **+2**.",
+        "- 날씨: 비에 **+1**, 폭풍에 **+2**.",
+        "등급이 없으면 최대 **초당 6**이다. 등급마다 **초당 15% 펄스**가 더해진다. 보너스는 펄스 정수로 반올림되므로, 초당 2나 3만 만드는 발전기는 첫 등급에서 아무것도 얻지 못한다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "하프 하나, 하늘 하나",
+      "steps": [
+        {
+          "caption": "하프를 열린 땅에 두어라. 맑은 하늘에서 초당 2 펄스.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wind_harp"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "지붕을 덮으면 잠잠해진다. 하프는 하늘을 봐야 한다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "지붕을 치우면, 12블록 안의 두 번째 하프가 같은 바람을 나눈다. 각각 절반이다.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:wind_harp"
+            }
+          ],
+          "remove": [
+            [
+              -1,
+              2,
+              -1
+            ],
+            [
+              -1,
+              2,
+              0
+            ],
+            [
+              -1,
+              2,
+              1
+            ],
+            [
+              0,
+              2,
+              -1
+            ],
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              1,
+              2,
+              -1
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              1,
+              2,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "하프를 12블록보다 멀리 두거나, 대신 산 위 높이에 하나를 지어라.",
+          "remove": [
+            [
+              2,
+              0,
+              2
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "하프는 바람을 나눈다",
+      "text": [
+        "하프는 모든 방향으로 **12블록**, 가장자리를 포함하여 바람을 나누고 나머지는 내린다. 맑은 하늘에서 몰린 둘은 각각 초당 1이고, 셋은 아무것도 내지 않는다. 하프의 벽은 장식의 벽이다. 핵심은 하프 하나다.",
+        "레드스톤 신호가 그것을 멈춘다. 웅크리고 이 책으로 우클릭하면 하늘, 높이, 날씨, 붐빔과 각각이 무엇을 더하는지 보인다.",
+        "하프는 [무늬 짜는 이](tribe_clock)의 제작이다. 조합에는 폭풍 날개와 바람 인장이 필요하다. 무늬 짜는 이는 일족에게 하프를 바꾼다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wind_harp"
+    }
+  ]
+}

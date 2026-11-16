@@ -1,0 +1,45 @@
+{
+  "name": "Gitterwandler",
+  "icon": "tribalpower:lattice_converter",
+  "order": 75,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lattice_converter",
+      "text": [
+        "Der Gitterwandler ist der [Harmonische Energetisierer](pulse_adapter) andersherum: füttere ihn mit Forge-Energie (FE) aus Generatoren oder Kabeln eines anderen Mods, und er schlägt diese Energie zu Puls für dein Lager.",
+        "Es ist kein fairer Tausch. Rohes FE ist Lärm für ein Gitter, und es braucht Totemstimmen, damit es hält."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Aufstellen",
+      "text": [
+        "Leite FE in jede Seite. Der Wandler puffert **48.000 FE** und gibt nie FE zurück.",
+        "Jede Sekunde macht er bis zu **40 Puls** und legt ihn auf sein Gitternetz, durch einen [Gitterkonduktor](lattice_conductor) innerhalb von **8 Blöcken**: zuerst in jeden Pulskairn des Netzwerks, dann in Generatoren mit freiem Platz, wo Maschinen ihn ziehen. Weg vom Gitter, oder ohne Platz darauf, wartet er und verbraucht kein FE.",
+        "Jeder [Rang](machine_ranks) macht mehr Puls pro Sekunde."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stimmen machen es billiger",
+      "text": [
+        "Ohne Stimmen ringsum kostet ein Puls **220 FE**. Jede eigene Stimme eines Resonanz-Totems, das **Beantwortet** ist, innerhalb von 8 Blöcken nimmt **20 FE** weg, bis auf **120 FE** bei fünf Stimmen. Kein Verwandtschafts-Totem zählt hier.",
+        "Von Puls zu FE und zurück geht immer etwas verloren: der Energetisierer macht aus einem Puls 100 FE, und der Wandler nimmt nie weniger als 120 FE, um einen zu machen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wenn nichts fließt",
+      "text": [
+        "Ein Redstone-Signal pausiert ihn, und er nimmt kein FE, solange er pausiert. Ein Komparator liest, wie voll sein FE-Puffer ist.",
+        "Rechtsklicke ihn für eine Statuszeile. Ducke dich und rechtsklicke ihn mit diesem Buch, um seinen Puffer zu sehen, seinen Preis pro Puls und was er in der letzten Sekunde gemacht hat."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_converter",
+      "text": "Braucht einen Resonanzkern vom Echomanifestierer und zweimal Abgestimmtes Echo vom Echoabstimmer."
+    }
+  ]
+}

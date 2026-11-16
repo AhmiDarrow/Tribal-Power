@@ -1,0 +1,32 @@
+{
+  "name": "Garnek Paleniska",
+  "icon": "tribalpower:hearth_pot",
+  "order": 10,
+  "items": [
+    "tribalpower:hearth_pot"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:hearth_pot",
+      "title": "Garnek nad ogniem",
+      "text": [
+        "Garnek Paleniska to szeroki gliniany garnek w miedzianej kołysce. Postaw go **nad żarem**: zapalone ognisko, ogień, ogień dusz, magma, lawa albo [Misa żaru](pulse_lights) tuż pod nim. Nie żąda żadnego Pulsu, więc to pierwsza maszyna obozu.",
+        "Otwórz go i włóż każdy składnik na **własne miejsce** kwadratu dwa na dwa, tam gdzie pokazuje przepis: pierwszy u góry po lewej, potem u góry po prawej, na dole po lewej i na dole po prawej. Miejsca, których posiłek nie używa, zostają puste. **Miska** idzie na miejsce obok kwadratu, gdy posiłek jej chce. Danie zajmuje około **12 sekund** nad ogniem, szybkie strawne na drogę ledwie **8**, a uczta **20**, i posiłek wychodzi po prawej."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Każde [danie plemienia](tribe_dishes), każdy kęs [strawne na drogę](road_fare) i [posiłek Paleniska](hearth_meals) oraz każda [uczta](feasts) to przepis Garnka Paleniska. Posiłek, który chce miski albo szklanej butelki, bierze ją na miejsce obok kwadratu. Miejsca się liczą: właściwe składniki na złych miejscach nie dają nic. JEI wymienia je wszystkie pod garnkiem.",
+        "Leje karmią go z góry i z boków i biorą posiłek od dołu, więc garnek może sam żywić obóz. Lej kładzie miski i butelki na miejsce obok kwadratu, a każdy składnik na miejsce, gdzie jakiś posiłek go chce, zależnie od tego, co inne miejsca już trzymają. Aby jedna potrawa szła dalej, posadź najpierw po jednym z każdego ręcznie; leje potem dopełniają każde miejsce, a posiłek, który chce tego samego dwa razy, dostaje oba miejsca równo napełnione. Twórcy paczek mogą dodać własne posiłki jako przepisy typu Palenisko."
+      ],
+      "title": "Co gotuje"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hearth_pot"
+    }
+  ],
+  "next": "tribe_dishes"
+}

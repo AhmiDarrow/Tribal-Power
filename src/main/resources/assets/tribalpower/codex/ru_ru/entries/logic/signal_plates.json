@@ -1,0 +1,30 @@
+{
+  "name": "Сигнальные плиты",
+  "icon": "tribalpower:inverse_plate",
+  "order": 74,
+  "items": [
+    "tribalpower:inverse_plate",
+    "tribalpower:echo_plate"
+  ],
+  "next": "memory_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Обратная и Эхо",
+      "text": [
+        "Один голос, повёрнутый или перенесённый.",
+        "- **Обратная** (NOT) поёт, пока её тыл тих, и затихает, когда тыл активен.",
+        "- **Эхо** (BUFFER) копирует тыл: активный остаётся активным, на полные 15.",
+        "Используй Обратную, чтобы превратить Порог Пульса в тревогу 'слишком пусто'. Используй Эхо, чтобы вернуть затухающую Нить песни к полной силе."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:inverse_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_plate"
+    }
+  ]
+}

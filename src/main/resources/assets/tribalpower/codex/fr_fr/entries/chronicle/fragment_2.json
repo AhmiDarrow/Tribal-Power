@@ -1,0 +1,17 @@
+{
+  "name": "3. Le Métier tissé",
+  "icon": "tribalpower:carved_stone",
+  "order": 12,
+  "spoiler": true,
+  "unlock": "fragment:2",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Le Métier tissé",
+      "text": [
+        "“Les Couseurs du métier ont trouvé que neuf fils tirés les uns contre les autres tiendraient un poids qu'aucun ne pouvait tenir seul. Avec cela, ils ont cousu le sol au ciel. Chaque camp a chanté son fil. Le Métier a tenu pendant neuf générations.”",
+        "Trouvé sur une Pierre gravée dans les ruines de la Marche."
+      ]
+    }
+  ]
+}

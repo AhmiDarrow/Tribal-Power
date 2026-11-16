@@ -1,0 +1,52 @@
+{
+  "name": "Diavoletto di tizzone",
+  "icon": "tribalpower:cinder_knot",
+  "order": 130,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cinder_imp_spawn_egg",
+    "tribalpower:cinder_knot"
+  ],
+  "next": "mourning_bell",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinder_imp",
+      "text": [
+        "Un diavoletto di fuoco agile. Raduna scintille prima di un dardo ardente.",
+        "Se cacciato, lascia anche Polvere di blaze con una probabilità di uno su tre."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Gli esemplari di Diavoletto di tizzone sfrecciano per gli Altipiani della Marcia e la Cresta del barlume, e sono più comuni nelle Distese di brace.",
+        "Ha **18 di salute** e **1 di armatura** ed è immune al fuoco. Da fino a 12 blocchi di distanza lancia un dardo da **4 danni** che ti dà fuoco per 2 secondi. Il dardo non incendia mai il terreno. Una copertura interrompe il lancio."
+      ],
+      "title": "Dove e come"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Lascia **da 1 a 2 Nodo di tizzone**.",
+        "Un Nodo di tizzone si sintonizza in 2 Eco sintonizzato sotto Spirito."
+      ],
+      "title": "Ciò che dà"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Raggiungi **Voce** con i **Cuoritamburo**, poi usa un Amuleto di legame su un adulto: due tentativi su cinque, e l'amuleto si consuma se fallisce. Oppure nutrilo con il suo reagente: un tentativo su cinque, e il reagente si consuma in ogni caso.",
+        "Un diavoletto legato restituisce **4 Pulso** ogni volta che suoni un Cuoretamburo a mano. Vedi [doni del famiglio](familiar_gifts)."
+      ],
+      "title": "Come famiglio"
+    },
+    {
+      "type": "text",
+      "title": "Caccia e conduzione",
+      "text": [
+        "Oltre al suo reagente, lascia questo quando viene cacciato, e di più con Saccheggio."
+      ]
+    }
+  ]
+}

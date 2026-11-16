@@ -1,0 +1,362 @@
+{
+  "name": "Collet du vent",
+  "icon": "tribalpower:wind_snare",
+  "order": 30,
+  "next": "seal_loom",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wind_snare",
+      "text": [
+        "Un coffre qui ramasse. Le Collet du vent tire les objets tombés du sol autour de lui et les garde dans **27 emplacements**, pour qu'une ferme, une ligne de brisure ou une fosse à monstres ne laisse jamais de désordre.",
+        "Il ramasse tout objet posé au sol, de la Marche, de l'Overworld ou d'un autre mod. Il ne prend jamais dans les coffres ni dans les machines."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Comment il attrape",
+      "text": [
+        "À chaque battement, une fois par seconde, il ramasse jusqu'à **8 piles** gisant à portée de **8 blocs**. La zone de prise est un cube, donc il va aussi haut et aussi bas que sur les côtés.",
+        "Chaque pile coûte **2 Pulsation** au treillis. Pas de Pulsation, pas de prise ; il attend et ne dépense rien. Il répond aussi à **Air** : garde un totem d'Air dans les 8 blocs (voir [Mains du camp](camp_hands)), sinon il reste à l'arrêt.",
+        "Monter son rang raccourcit le battement. La Pulsation par pile reste 2."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un collet au-dessus d'une cache",
+      "steps": [
+        {
+          "caption": "Pose une Cache ancestrale là où la prise doit finir.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Pose le Collet du vent dessus. Sa face du bas est Sortie, donc tout ce qu'il attrape tombe dans la cache.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:wind_snare[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Donne-lui de la Pulsation par un conducteur dans les 8 blocs : 2 par pile qu'il soulève.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              -2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Tout ce qui gît dans les 8 blocs, même de l'autre côté de la ferme, est attiré.",
+          "highlight": [
+            [
+              2,
+              -1,
+              2
+            ],
+            [
+              -2,
+              -1,
+              -2
+            ],
+            [
+              2,
+              -1,
+              -2
+            ],
+            [
+              -2,
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Un levier suspend à la fois la capture et les faces, pour quand tu veux ramasser quelque chose toi-même.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,facing=east,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sortir la prise",
+      "text": [
+        "Ouvre-le comme un coffre. Les entonnoirs, les tuyaux et les [plaques relais](wireless_cargo) prennent par la face **inférieure** ; les autres faces acceptent des objets. Accroupis-toi et fais un clic droit sur une face à main vide pour la faire défiler : Les deux, Entrée, Sortie, Fermé.",
+        "Posé sur une Cache ancestrale ou un autre stockage de Tribal Power, sa face inférieure pousse vers le bas jusqu'à **16 objets par seconde**, sans aucun entonnoir.",
+        "Un comparateur lit à quel point il est plein : pratique pour une lampe d'alerte quand le collet doit être vidé."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wind_snare"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "name": "어둠 속의 사냥꾼",
+  "icon": "tribalpower:lurker_claw",
+  "order": 290,
+  "spoiler": true,
+  "items": [
+    "tribalpower:deep_lurker_spawn_egg",
+    "tribalpower:pale_stalker_spawn_egg",
+    "tribalpower:gloom_crawler_spawn_egg",
+    "tribalpower:veil_drifter_spawn_egg",
+    "tribalpower:lurker_claw",
+    "tribalpower:pale_fang",
+    "tribalpower:gloom_silk",
+    "tribalpower:veil_tatter"
+  ],
+  "next": "colossus_warden",
+  "pages": [
+    {
+      "type": "text",
+      "title": "아래와 위",
+      "text": [
+        "세 사냥꾼이 마치의 동굴을 차지하며, 그곳 어둠에서는 낮에도 밤처럼 나타난다. 네 번째는 밤에 고지 위를 떠돈다.",
+        "아무도 결속되지 않는다. 각각 시약을 **1~2** 떨어뜨리며, 약탈이면 더 나온다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:deep_lurker",
+      "title": "깊은 잠복자",
+      "text": [
+        "곰만한 별코두더지로, 동굴 사냥꾼 중 가장 단단하다. 마치의 모든 땅 아래에서 한 번에 한두 마리 있다. **체력 32**와 **방어 3**을 가지고 **5**로 문다.",
+        "**잠복자 발톱**을 떨어뜨린다. 사냥개 시약이며, 갈면 하늘색 염료가 된다.",
+        "사냥하면 뼈를 최대 2개, 마치 가죽을 최대 1개 더 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_stalker",
+      "title": "창백한 추적자",
+      "text": [
+        "초원, 고지, 희미빛 능선, 눈밭, 수정 들판 아래 동굴의 수척하고 눈 없는 동굴 구울. 크고, 창백하고, 빠르다. 한 번에 한 마리 또는 두 마리. **체력 24**와 **방어력 1**. 타격은 **4**이며, 4초 동안 약화시킨다.",
+        "**창백한 송곳니**를 떨어뜨린다. 약화 시약.",
+        "사냥하면 뼈도 1개에서 2개 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:gloom_crawler",
+      "title": "어스름 포복충",
+      "text": [
+        "얕은 물을 뺀 모든 땅 아래 동굴의, 낮고 어두운 동굴 지네. 한 번에 한 마리 또는 두 마리. **체력 22**와 **방어력 2**. 물기는 **4**이며, 3초 동안 느려지게 하고 [해짐](afflictions)을 남길 수 있다.",
+        "**어스름 비단**을 떨어뜨린다. 직조 시약.",
+        "사냥하면 실 1개에서 2개와 거미 눈 최대 1개도 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:veil_drifter",
+      "title": "장막 표류자",
+      "text": [
+        "고지, 희미빛 능선, 눈밭, 수정 들판의 밤에 떠오르는, 박쥐 같은 날개의 너덜너덜한 표류 수의. 한 번에 한 마리 또는 두 마리. **체력 18**과 **방어력 1**.",
+        "최대 12블록 밖에서 **3**의 돌풍을 시전해 당신을 뒤로 밀어낸다. 엄폐하면 시전이 끊긴다. **장막 너덜**을 떨어뜨린다. 돌풍 시약.",
+        "사냥하면 팬텀 막 최대 1개와 실 최대 1개도 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "사냥과 방목",
+      "text": [
+        "시약 외에, 사냥하면 더 떨어지고, 약탈이면 한층 더 늘어난다."
+      ]
+    }
+  ]
+}

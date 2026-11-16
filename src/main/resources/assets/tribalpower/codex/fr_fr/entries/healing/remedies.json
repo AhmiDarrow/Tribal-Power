@@ -1,0 +1,70 @@
+{
+  "name": "Remèdes",
+  "icon": "tribalpower:spirit_tincture",
+  "order": 20,
+  "items": [
+    "tribalpower:spirit_tincture",
+    "tribalpower:spirit_salve",
+    "tribalpower:spirit_incense"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_tincture",
+      "title": "Trois façons de le prendre",
+      "text": [
+        "- **Teinture** : bois-la. Le remède dure **3 minutes** et tu récupères la bouteille.",
+        "- **Baume** : utilise-le pour te l'appliquer, ou **utilise-le sur quelqu'un d'autre** : un ami, un villageois, ton familier. Il soigne **3 cœurs** d'un coup, dissipe **tout** effet néfaste, et le remède dure moitié moins longtemps qu'une teinture.",
+        "- **Encens** : installe-le dans un [Brasero rituel](ritual_brazier) et il brûle pour tous autour. Vois plus bas.",
+        "**Tout remède dissipe le [Mal de l'Esprit](spirit_sickness)**, et aussi les autres [afflictions](afflictions) de la Marche : Silence Non-chanté, Effiloché et Mal de ley."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que chaque famille prépare",
+      "text": [
+        "- **Embrasement** (Braise) : Force.",
+        "- **Accélération** (Éclair) : Vitesse.",
+        "- **Refroidissement** (Froid) : Résistance au feu.",
+        "- **Antidote** (Venin) : dissipe le poison, le Wither, la faim et la nausée.",
+        "- **Chute de plume** (Rafale) : Chute lente.",
+        "- **Enracinement** (Racine) : Résistance."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que chaque famille prépare, suite",
+      "text": [
+        "- **Rempart** (Poussée) : Absorption.",
+        "- **Vue claire** (Tissage) : Vision nocturne, dissipe la cécité et l'obscurité.",
+        "- **Restauration** (Affaiblissement) : Célérité, dissipe la faiblesse, la lenteur et la fatigue.",
+        "- **Vigueur** (Molosse) : Bonus de vie.",
+        "- **Raccommodage** (Silence) : Régénération.",
+        "La couleur de la préparation est celle de son réactif, ainsi tu peux les distinguer dans ton sac."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La voix du totem",
+      "text": [
+        "Le totem le plus proche du chaudron pendant la préparation ajoute son propre don, indiqué dans l'infobulle :",
+        "- **Terre** : accorde 2 cœurs d'absorption.",
+        "- **Feu** : dure moitié plus longtemps.",
+        "- **Eau** : un niveau plus fort.",
+        "- **Air** : soigne 2 cœurs d'un coup.",
+        "- **Esprit** : ajoute 10 secondes de Régénération.",
+        "- **Métier** : dure deux fois plus longtemps, mais reste au niveau I."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Encens qui brûle",
+      "text": [
+        "Utilise l'encens sur un Brasero rituel pour l'y installer ; il contient jusqu'à **16** bâtons d'une même préparation. Il brûle tout seul, **sans sceau et sans Pulsation**.",
+        "Toutes les deux secondes, tous ceux dans un rayon de **8 blocs**, joueurs et familiers liés, reçoivent le remède pendant 12 secondes, et les familiers sont soignés d'un cœur. Chaque bâton dure **30 secondes**. Un signal de redstone sur le brasero l'éteint ; utilise-le en te faufilant, la main vide, sans sceau installé, pour reprendre l'encens.",
+        "C'est le meilleur moyen de garder tout un camp debout pendant une longue nuit."
+      ]
+    }
+  ],
+  "next": "healers_rattle"
+}

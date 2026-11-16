@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:relic_sprout"
     },
-    "title": "Bound and cut",
-    "description": "Finish the Rootbinders' story.",
+    "title": {
+      "translate": "advancement.tribalpower.tribes.story_sprout.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.tribes.story_sprout.description"
+    },
     "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,

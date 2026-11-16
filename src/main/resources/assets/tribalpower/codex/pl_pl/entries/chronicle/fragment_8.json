@@ -1,0 +1,17 @@
+{
+  "name": "9. Popiół",
+  "icon": "tribalpower:mural",
+  "order": 18,
+  "spoiler": true,
+  "unlock": "fragment:8",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Popiół",
+      "text": [
+        "“Pustkowia Żaru były lasem Bęben-serc. Płonął podczas Upadku i nigdy nie zgasł. Coś pod żużlem podjęło rytm, gdy bębniarze uciekli, i od tamtej pory trzyma zły takt.”",
+        "Znaleziono na muralu na terenie strażnika."
+      ]
+    }
+  ]
+}

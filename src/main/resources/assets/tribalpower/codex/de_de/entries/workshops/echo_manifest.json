@@ -1,0 +1,260 @@
+{
+  "name": "Echomanifestierer",
+  "icon": "tribalpower:echo_manifest",
+  "order": 50,
+  "items": [
+    "tribalpower:manifested_ingot",
+    "tribalpower:resonant_core"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_manifest",
+      "text": [
+        "Die Station des Geistes, oben am Gitter. Der Echomanifestierer macht aus Gebundenen Echos **Manifestierte Barren** und aus Barren **Resonanzkerne**, das Herz der feinsten Ausrüstung und Maschinen in diesem Buch."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Benutzung",
+      "text": [
+        "Stelle den Echomanifestierer mit einem Totem des Geistes innerhalb von 8 Blöcken auf.",
+        "- Gebundenes Echo zu Manifestierter Barren: **5 Sekunden** bei **64 Puls pro Sekunde**.",
+        "- Manifestierter Barren zu Resonanzkern: **8 Sekunden** bei **80 Puls pro Sekunde**.",
+        "Kerne gehen in Größere Pulszellen, die Geistergeweberobe und die Geistergewebehose, den Sechsfachstab, Weitreich-Relais und Torschlusssteine. Werkzeuge aus Geistergerät brauchen nur Manifestierte Barren. In einen Pulsresonator gesetzt, ist ein Kern dessen stärkster Kristall.",
+        "Eine Wächter-Trophäe und ein Webstuhlfaden ergeben sechs Resonanzkerne; siehe [Wächter](guardians)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Die ganze Säule",
+      "steps": [
+        {
+          "caption": "Der Echomanifestierer mit einem Totem des Geistes daneben.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_manifest"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Setze den Echobinder obendrauf, mit einem Totem des Wassers: Gebundene Echos wandern hinab in den Echomanifestierer.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Setze den Echoabstimmer darüber, mit einem Totem des Feuers, für die ganze Kette.",
+          "place": [
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Mit einem Generator in Reichweite gehen Echoscherben oben hinein und Manifestierte Barren unten heraus.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              2,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Hinweise",
+      "text": [
+        "Hol sie unten mit einem Trichter ab. Für Kerne legst du die Barren wieder in den Eingang des Echomanifestierers.",
+        "Der Echomanifestierer ist auch die letzte Station, wenn du Maschinen und Geistergerät aufwertest.",
+        "Ein Hebel pausiert die Station. Rezepte in diesem Buch, oder JEI, nennen Zeit und Puls."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_manifest"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:manifested_ingot"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonant_core"
+    }
+  ]
+}

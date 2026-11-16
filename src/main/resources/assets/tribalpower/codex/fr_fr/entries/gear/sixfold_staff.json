@@ -1,0 +1,51 @@
+{
+  "name": "Bâton sextuple",
+  "icon": "tribalpower:spirit_staff",
+  "order": 10,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_staff",
+      "text": [
+        "Un bâton qui parle les six voix. Choisis-en une, vise et lance.",
+        "Il dépense de la Pulsation depuis une Cellule de Pulsation, jamais de la durabilité, et peut porter une cellule à lui, comme l'[Espritoutillage](spiritgear)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les six sorts",
+      "text": [
+        "Accroupis-toi et utilise pour faire défiler Terre, Feu, Eau, Air, Esprit et Métier ; la barre d'action nomme la voix. Utilise pour lancer. La touche **Bâton : voix suivante** fait défiler sans l'accroupissement une fois que tu l'assignes sous Tribal Power dans les Contrôles.",
+        "- **Terre** (12 Pulsation) : un coup de 4 de dégâts qui ralentit fortement l'ennemi pendant 5 secondes.",
+        "- **Feu** (18) : une frappe de 8 de dégâts qui enflamme l'ennemi pendant 4 secondes.",
+        "- **Eau** (24) : te soigne et te purifie. Elle éteint le feu, dissipe le poison, et donne régénération pendant 5 secondes et respiration aquatique pendant 30.",
+        "- **Air** (16) : un court bond en avant et chute lente pendant 6 secondes.",
+        "- **Esprit** (20) : vision nocturne pendant 30 secondes, et chaque hostile dans **12 blocs** brille pendant 12.",
+        "- **Métier** (6) : amarre un ennemi et le tire jusqu'à **8 blocs** vers toi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Couture",
+      "text": [
+        "Métier choisi, accroupis-toi et utilise quand aucun ennemi n'est dans ta visée et qu'aucun bloc n'est proche devant : le bâton te **coud** **6 blocs** en avant dans l'air libre pour **10 Pulsation**. Il refuse de te poser dans des blocs solides ou des dangers.",
+        "Pour cela, afin de continuer le cycle depuis Métier, regarde un bloc proche ou un ennemi pendant que tu t'accroupis et utilises."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Portée et repos",
+      "text": [
+        "Terre, Feu et Métier exigent une cible hostile. Ils portent à **18 blocs** et s'arrêtent aux blocs solides ; sans cible ils ne partent pas et ne coûtent rien.",
+        "Après un lancer, le bâton se repose : **8 secondes** après Eau, **2 secondes** après les autres, **1.5 secondes** après une couture.",
+        "Il boit d'abord à sa propre cellule logée, puis aux cellules que tu portes, main secondaire d'abord. Si elles sont toutes à sec, le sort ne part pas.",
+        "Tant que **Silence Non-chanté** est sur toi, le bâton ne lance pas (voir [Afflictions](afflictions))."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_staff"
+    }
+  ]
+}

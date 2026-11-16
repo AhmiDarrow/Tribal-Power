@@ -1,0 +1,74 @@
+{
+  "name": "Bestie Kryształowych Pól",
+  "icon": "tribalpower:chime_crest",
+  "order": 260,
+  "spoiler": true,
+  "items": [
+    "tribalpower:chime_grazer_spawn_egg",
+    "tribalpower:glass_flitter_spawn_egg",
+    "tribalpower:geode_grub_spawn_egg",
+    "tribalpower:shard_stalker_spawn_egg",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:shard_barb"
+  ],
+  "next": "beasts_shallows",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Własne kryształu",
+      "text": [
+        "Tarasowe mesy trzymają długoszyjego roślinożercę i ważkę na otwartej przestrzeni, kulankę w jaskiniach pod spodem i kryształową modliszkę, która nocą chodzi po krysztale.",
+        "Każdą łagodną bestię tutaj można raz na minutę wyczesać z jej reagentu i wabić oraz rozmnażać jej własnym pokarmem, podanym niżej w **Polowanie i hodowla**. Można ją związać jak każde łagodne zwierzę (zob. [chowańce](familiars)), a choć żadna nie ma własnego daru, związana wciąż może przyjąć głos przy totemie i wzmocnić twoją magię (zob. [dostrajanie przy totemie](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:chime_grazer",
+      "title": "Dzwonkowy trawożerca",
+      "text": [
+        "Fioletowy, wełnisty trawożerca o długiej szyi, z dwoma wielkimi kryształowymi rogami i grzbietem kryształu wzdłuż pleców, w stadach od dwóch do czterech. **24 zdrowia** i **3 pancerza**.",
+        "Zostawia **1 do 3 Dzwonkowy grzebień**, więcej z Grabieżą.",
+        "Upolowany zostawia też 1 do 2 Surowa dziczyzna, do 1 Skóra Marszu i do 1 odłamek ametystu. Do rozmnażania: **pszenica**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glass_flitter",
+      "title": "Szklany fruwacz",
+      "text": [
+        "Ważka o szklanych skrzydłach, od jednej do trzech. **10 zdrowia**, bez pancerza.",
+        "Zostawia **1 do 3 Szklane skrzydło**.",
+        "Upolowany zostawia też do 2 piór. Do rozmnażania: **Kwiat echa lub dowolny mały kwiat**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:geode_grub",
+      "title": "Larwa geody",
+      "text": [
+        "Ciężka kulanka z pasiastego liliowego kamienia, z bladą płytką na głowie i rzędem geod wzdłuż kręgosłupa, z ciemnych jaskiń pod mesami, od jednej do trzech naraz. **26 zdrowia** i **5 pancerza**, bardzo powolna, i łagodna.",
+        "Zostawia **1 do 3 Skorupa geody**.",
+        "Upolowana zostawia też do 2 odłamków ametystu. Do rozmnażania: **Kapelusz latarni lub dowolny grzyb**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shard_stalker",
+      "title": "Łowca odłamków",
+      "text": [
+        "Kryształowa modliszka, która nocą podnosi się wśród kryształu, jedna lub dwie naraz. Ma **21 zdrowia** i **1 pancerza**, jest szybka, a jej cios zadaje **5** i zatruwa cię przez 3 sekundy.",
+        "Zostawia **1 do 2 Kolec odłamka**, reagent jadu.",
+        "Upolowana zostawia też do 1 odłamka ametystu i do 1 nić."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i hodowla",
+      "text": [
+        "Oprócz reagentu każdy zostawia więcej, gdy go upolować, i jeszcze więcej z Grabieżą. Mięso wypada upieczone, jeśli zwierzę zginęło w ogniu. Aby rozmnożyć dzikie, **skradaj się**, karmiąc dwa dorosłe ich pokarmem; karmione zwyczajnie, dzikie zamiast tego oswaja się z tobą."
+      ]
+    }
+  ]
+}

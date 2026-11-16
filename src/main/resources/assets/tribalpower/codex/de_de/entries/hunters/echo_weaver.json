@@ -1,0 +1,52 @@
+{
+  "name": "Echoweber",
+  "icon": "tribalpower:echo_silk",
+  "order": 160,
+  "spoiler": true,
+  "items": [
+    "tribalpower:echo_weaver_spawn_egg",
+    "tribalpower:echo_silk"
+  ],
+  "next": "dark_hunters",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:echo_weaver",
+      "text": [
+        "Eine Harfenspinne, die Beine gespannt wie eine Harfe: eine achtbeinige Hüterin zerbrochener Lieder. Ihr Biss verlangsamt Beute.",
+        "Gejagt lässt er außerdem 1 bis 3 Faden und bis zu 1 Spinnenauge fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Echoweber kriechen über die Marschsteppe, die Kristallfelder, das Schilffenn und die Untiefen. Der Ungesungene ruft sie auch in seinem Chor herbei.",
+        "Er hat **26 Leben** und **3 Rüstung** und beißt für **4**, verlangsamt dich 3 Sekunden lang und kann dich [Ausgefranst](afflictions) zurücklassen. Er setzt nie Netze und beschädigt dein Lager nicht."
+      ],
+      "title": "Wo und wie"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Er lässt **1 bis 2 Echoseide** fallen.",
+        "Echoseide bindet zu 2 Geistergewebe unter Wasser."
+      ],
+      "title": "Was es gibt"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Erreiche **Stimme** bei den **Webstuhl-Näher**, dann nutze ein Bindungsamulett an einem Erwachsenen: zwei von fünf Versuchen, bei Fehlschlag ist das Amulett verbraucht. Oder füttere es mit seinem eigenen Reagenz: einer von fünf Versuchen, und das Reagenz ist so oder so verbraucht.",
+        "Ein gebundener Weber hebt Gegenstände um sich auf und wirft sie dir zu. Siehe [Gaben des Vertrauten](familiar_gifts)."
+      ],
+      "title": "Als Vertrauter"
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Weiden",
+      "text": [
+        "Neben seinem Reagenz lässt es dies fallen, wenn es gejagt wird, mehr mit Plünderung."
+      ]
+    }
+  ]
+}

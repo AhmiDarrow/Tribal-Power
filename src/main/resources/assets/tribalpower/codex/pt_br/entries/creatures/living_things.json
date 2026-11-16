@@ -1,0 +1,81 @@
+{
+  "name": "Seres vivos da Marcha",
+  "icon": "minecraft:brush",
+  "order": 10,
+  "spoiler": true,
+  "next": "dawn_stag",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Dois tipos de criatura carregam a canção antiga. **Animais mansos** (o Cervo da alvorada, a Raposa-lanterna, o Lomomusgo e os pastadores, os voadores, as [árvores que andam](walking_trees) e as [fadas](fays) de cada terra) dão reagentes quando você os escova. **Remanescentes** são guardiões partidos e espíritos selvagens; eles lutam e largam o reagente ao cair.",
+        "Os reagentes alimentam canções, armas ungidas e remédios (veja [reagentes](reagents)). Os poucos mais antigos também entram nas suas oficinas de eco e no Amuleto de vínculo.",
+        "A Marcha também tem vida quieta que dá pouco mais que carne, uma pena ou companhia: Andarilhos da Marcha, Fogos-fátuos espirituais e os peixes, geleias e andorinhões da sua [fauna](march_wildlife).",
+        "Terra caçada ou esvaziada se enche de novo, devagar: cerca de uma vez por minuto, alguns dos animais podem entrar fora de vista, até que mais ou menos seis criaturas compartilhem a área. Os currais também contam, então um acampamento cheio nunca fica tomado demais."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Segure um **Pincel** e use-o num adulto. Animais jovens não rendem nada. Cada animal descansa **um minuto** entre colheitas.",
+        "Reproduza-os com **trigo** (Cervo da alvorada), **bagas doces** (Raposa-lanterna) e **erva marinha** (Lomomusgo). Toda outra criatura mansa come a planta silvestre da terra dela, ou algo tão fácil de achar; a página dela nomeia a comida. Para reproduzir animais selvagens, **agache** enquanto você alimenta dois adultos. Alimentado normalmente, um selvagem se afeiçoa a você em vez disso (veja [familiares](familiars)).",
+        "Vincule um adulto com um [Amuleto de vínculo](familiars) para mantê-lo como companheiro: ele solta o **dobro** do reagente, e num totem pode tomar uma voz que fortalece a sua magia (veja [sintonizar num totem](familiar_attuning)). Só você pode escovar o seu próprio familiar."
+      ],
+      "title": "Colheita mansa"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Cinzligado, Raizligado e os Espreitadores de juncos assombram florestas e pântanos da Superfície, e a Marcha também. Como todos os remanescentes, eles surgem no escuro, e nunca onde uma tocha ou lanterna queima, então ilumine seus caminhos.",
+        "Mantenha água perto de Cinzligado; os golpes deles te incendeiam. Os golpes de Raizligado te deixam lento por alguns segundos: recue e espere passar. Os Espreitadores de juncos envenenam, então traga leite ou mantenha distância.",
+        "Um Totem do silêncio, ou o rito Noite quieta, impede que um acampamento crie um novo bando durante a noite."
+      ],
+      "title": "Guardiões partidos"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Mariposas da tempestade, Diabretes de borralho, Sinos de luto, Derivantes do véu e as sombras voadoras lançam de até **12 blocos**. Primeiro juntam um cacho brilhante de partículas: esse é o seu aviso.",
+        "Eles precisam de uma linha livre até você. Fique atrás de uma cobertura sólida e o feitiço é interrompido. Os feitiços deles nunca queimam nem substituem o terreno.",
+        "Um cajado carregado ajuda a manter distância. A onda de choque do Não Cantado é uma luta diferente; agache contra ela, como a própria página explica."
+      ],
+      "title": "Responder a um feitiço"
+    },
+    {
+      "type": "text",
+      "title": "O quão forte é uma criatura",
+      "text": [
+        "Os números do bestiário são para uma criatura de sangue comum. Toda criatura carrega cinco fios (veja [familiares](familiars)), e cada passo acima ou abaixo do usual a deixa **12%** mais forte ou mais fraca, então não há dois selvagens iguais.",
+        "Na Marcha, um espírito que surge à noite tem **40%** mais vida e acerta **25%** mais forte. Cerca de **um em doze** surge como **elite** de nome dourado, mais vezes no Difícil: o dobro de vida, metade a mais de dano, **4** a mais de armadura, mais rápido nos pés e **três vezes** a experiência. Espíritos que surgem de dia nunca são elites."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Veludo da alvorada, Penugem de lanterna, Escama de lomomusgo, Asa da tempestade e Seda de eco se vinculam em **2 Tece-espírito** cada um sob a Água, num Vinculador de eco.",
+        "- Todo outro reagente de remanescente se sintoniza em **2 Eco sintonizado** sob o Espírito, num Sintonizador de eco.",
+        "Todo reagente, estes e os das feras igualmente, também entra em canções, armas ungidas e remédios: veja [reagentes](reagents).",
+        "Os Vinculadores de raízes preferem Escama de lomomusgo e os Guardiões da colônia preferem Penugem de lanterna, então o que você escova também compra prestígio. Abra as receitas neste livro, ou no JEI se você o tiver, para seguir qualquer reagente até a sua oficina."
+      ],
+      "title": "Devolver a canção"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Depois do anoitecer, o céu da Superfície se abre em cortinas lentas de verde e violeta. É mais brilhante à meia-noite, e a chuva ou o trovão o escondem. A Marcha carrega um céu mais frio, só dela.",
+        "É o céu tentando lembrar um horário. Sozinho ele não dá Pulso, embora um Coletor de ley sob ele dê.",
+        "As configurações do cliente podem baixar o detalhe ou desligá-lo, o que ajuda com pacotes de shaders."
+      ],
+      "title": "O véu à noite"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Agache-se e use este Códice espiritual em qualquer coisa que tenha silenciado, para ler o que ela está fazendo.",
+        "Cada criatura tem uma página no bestiário, sozinha ou com seus parentes: onde vive, como luta, o que dá e se vai criar um vínculo. As feras de cada terra começam pela [Estepe](beasts_steppe).",
+        "As criaturas mansas estão neste capítulo. Os Remanescentes e os outros caçadores da Marcha têm um capítulo próprio, que abre com [Caça e couro](game_and_leather)."
+      ],
+      "title": "Notas de campo"
+    }
+  ]
+}

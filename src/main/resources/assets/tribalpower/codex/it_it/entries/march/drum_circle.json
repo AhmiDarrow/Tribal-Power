@@ -1,0 +1,396 @@
+{
+  "name": "Cerchio di tamburi",
+  "icon": "tribalpower:silent_drum",
+  "order": 50,
+  "spoiler": true,
+  "items": [
+    "tribalpower:music_disc_drum_circle"
+  ],
+  "next": "the_unsung",
+  "pages": [
+    {
+      "type": "image",
+      "image": "drum_circle",
+      "text": [
+        "Dodici pilastri sormontati da lanterne circondano un Tamburo silenzioso negli Altipiani della Marcia."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "I Cerchi di tamburi stanno all'aperto negli Altipiani, facili da vedere da un crinale. Al centro c'è il **Tamburo silenzioso**; il suo custode, [Il Non Cantato](the_unsung), dorme finché qualcuno non lo suona.",
+        "Un baule tra i pilastri contiene sempre un **Disco musicale** del quattro tempi del cerchio, insieme a ossa, candele, Schegge di eco e a volte un Campanello d'osso. Due Tavolette dei racconti sono appese lì vicino.",
+        "Prima di colpire: lega una bussola di ritorno e porta cibo, armatura, Celle di Pulso cariche e un Campanello d'osso. Porta un amico se puoi; lo scontro dura qualche minuto."
+      ],
+      "title": "Che cosa c'è qui"
+    },
+    {
+      "type": "scene",
+      "title": "Suonare il quattro tempi",
+      "steps": [
+        {
+          "caption": "Il Tamburo silenzioso sta al cuore dell'anello di pilastri con lanterne.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                -2,
+                1,
+                -2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                -2,
+                1,
+                2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                -2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:silent_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Battuta uno: clic destro con la mano vuota o un Campanello d'osso.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Battuta due, circa un secondo dopo. Troppo presto o troppo tardi, e fa un tonfo e ricomincia.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Battute tre e quattro, allo stesso ritmo costante.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Alla quarta battuta il tamburo risponde, e Il Non Cantato sorge dal centro del cerchio.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ogni battuta deve cadere **16-28 tick di gioco** dopo la precedente, circa un secondo. Un colpo entro 4 tick dall'ultimo viene ignorato, e una battuta sbagliata fa un tonfo e azzera il conteggio. Aspetta troppo e un ritmo suonato a metà svanisce.",
+        "Ogni tamburo risponde una volta ogni **venti minuti di tempo reale**, e mai mentre il suo custode è già sveglio; ti dice quanti minuti restano. Se Il Non Cantato si azzera perché tutti sono andati via, il tamburo si può suonare di nuovo subito.",
+        "Un comparatore legge il tamburo: **3** per battuta contata, e un lampo di **15** quando un ritmo si completa."
+      ],
+      "title": "Il ritmo, esattamente"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:silent_drum",
+      "text": "Un tamburo che costruisci tu tiene il ritmo, ma Il Non Cantato sorge solo dall'altare: ardesia profonda levigata sotto il tamburo, e una candela **accesa** a ciascuno dei quattro angoli. Il Cerchio di tamburi è già costruito così."
+    }
+  ]
+}

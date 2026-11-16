@@ -1,0 +1,17 @@
+{
+  "name": "1. Der alte Himmel",
+  "icon": "tribalpower:carved_stone",
+  "order": 10,
+  "spoiler": true,
+  "unlock": "fragment:0",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Der alte Himmel",
+      "text": [
+        "“Vor dem Marsch gab es einen Himmel und einen Boden darunter, und neun Völker, die sich in nichts einig waren, außer dass der Boden bleiben sollte, wo er war. Das war die erste Übereinkunft, und lange Zeit hat sie genügt.”",
+        "Gefunden auf einem gemeißelten Stein in den Ruinen des Marsches."
+      ]
+    }
+  ]
+}

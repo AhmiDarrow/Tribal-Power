@@ -1,0 +1,201 @@
+{
+  "name": "La sexta voz",
+  "icon": "tribalpower:resonance_totem_loom",
+  "order": 80,
+  "items": [
+    "tribalpower:loom_thread"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_totem_loom",
+      "text": [
+        "La sexta voz es el hilo mismo. El tótem de Telar es el último Tótem de resonancia, y viene de la Marcha: **Hilo de Telar** de las Salas de los Ancestros, y un corazón de El No Cantado."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Encontrar el hilo",
+      "text": [
+        "Las Salas de los Ancestros hundidas, en la Estepa de la Marcha y en las Tierras altas, guardan Hilo de Telar en sus dos cofres. Lee las cuatro tablillas al salir.",
+        "Los Zurcidores del telar también cambian un Hilo de Telar a los Amigos, por seis Cristal de la Marcha.",
+        "Talla un **Sello de Telar**: un Sello en blanco y un Hilo de Telar, sin forma. Asentado en un Brasero ritual con la voz de Telar y Pulso a través de un conductor dentro de **8 bloques**, enhebra **2 Pulso** en una Célula de Pulso que llevas cada **dos segundos** mientras estás dentro de **6 bloques**, con Suerte. El brasero gasta **8 Pulso** por golpe para hacerlo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Antes del tótem",
+      "text": [
+        "Construye el Destejido de eco: Piedra de la Marcha alrededor de dos Resonador de cobre, un Fragmento de Espíritu y un Hilo de Telar. Necesita la voz de Telar dentro de 8 bloques. Hasta que puedas fabricar el tótem, constrúyelo junto a un tótem de Telar que ya esté en un campamento de Zurcidores del telar, una Sala de los Ancestros o una Aguja de cristal.",
+        "Luego despierta a El No Cantado en un Círculo de tambores y toma su **Corazón No Cantado**."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Asentar la sexta voz",
+      "steps": [
+        {
+          "caption": "Un Resonador de Pulso y un Destejido de eco, a unos pocos bloques de distancia.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_unweave"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Coloca el tótem de Telar dentro de 8 bloques de ambos.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "El Destejido de eco ya puede trabajar, y el Resonador oye una voz distinta más.",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:manifested_ingot"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que el Telar abre",
+      "text": [
+        "Fabrica el tótem de Telar con cuatro Cristal de la Marcha, dos Hilo de Telar y dos Tablones de la Marcha alrededor del Corazón No Cantado.",
+        "Con el Telar al alcance, el Destejido de eco convierte los lingotes de nuevo en ecos, los núcleos en lingotes, el Tejido espiritual en lana y las herramientas y armas dañadas de Equipo espiritual en un Lingote manifestado.",
+        "El Báculo séxtuple gana Atadura y, al agacharte sin objetivo, Puntada. El rito Vinculación ley necesita el Sello de Telar, y los Portal lejano necesitan la voz de Telar."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_loom"
+    }
+  ]
+}

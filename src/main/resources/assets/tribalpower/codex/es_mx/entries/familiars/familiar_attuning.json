@@ -1,0 +1,34 @@
+{
+  "name": "Sintonizar en un tótem",
+  "icon": "tribalpower:resonance_totem_spirit",
+  "order": 40,
+  "next": "familiar_boons",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Darle una voz",
+      "text": [
+        "Lleva a tu familiar crecido a menos de **6 bloques** de un Tótem de resonancia y **agáchate y usa un Amuleto de vínculo sobre el tótem**. Tu familiar más cercano que todavía no lleva esa voz la recibe. El amuleto no se gasta.",
+        "El tótem resuena, un hilo de su color corre hasta el familiar, y a partir de entonces reluce con ese color. Su voz se muestra al mirarlo, y en tu Lente ley.",
+        "Un [Tótem de parentesco](kinship_totem) no puede dar una voz. Usa un Tótem de resonancia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Una voz para cada uno",
+      "text": [
+        "Un familiar lleva una sola voz a la vez. Llévalo a otro tótem para cambiarla cuando quieras.",
+        "Varios familiares pueden llevar varias voces; [lo que da una voz](familiar_boons) dice cuáles cuentan.",
+        "La voz es del propio familiar: sus crías nacen sin ella."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tótem y familiar",
+      "text": [
+        "Un familiar sintonizado mantiene respondiendo cada tótem de su voz que esté a **8 bloques**, y despierta uno que se haya callado ([conservación](keeping)). Deja uno esperando junto a un tótem que visites poco.",
+        "Usa un tótem con la mano vacía para oír qué familiares lo mantienen. Si ninguno lo hace y tu propio familiar está cerca, el tótem te dice cómo sintonizarlo."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "name": "Tear de selos",
+  "icon": "tribalpower:seal_loom",
+  "order": 40,
+  "items": [
+    "tribalpower:recipe_seal"
+  ],
+  "next": "tide_pump",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:seal_loom",
+      "text": [
+        "Uma bancada de trabalho que funciona sozinha. Ensine a ela uma receita de bancada, do jogo base ou de qualquer mod, num Selo de receita, mantenha a grade abastecida, e ela tece um resultado por segundo por **6 Pulso** cada. O selo nunca se gasta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ensinar uma receita",
+      "text": [
+        "Faça um **Selo de receita** com um Selo em branco e papel, depois abra o Tear de selos. O selo vai no próprio espaço ao lado da grade, não no meio do três por três.",
+        "Disponha a receita na grade exatamente como numa bancada de trabalho: para gravetos, uma tábua sobre a outra.",
+        "Feche a tela, agache e clique com o botão direito no Tear de selos com a **mão vazia**. O selo registra a receita e a dica lhe dá o nome.",
+        "Só um Selo em branco pode ser ensinado. Para uma receita nova, faça um selo novo; mudar a grade nunca muda o que um selo antigo lembra."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Deixá-lo funcionar",
+      "text": [
+        "Com o selo assentado e os itens certos nos espaços certos, ele fabrica uma vez por batida por **6 Pulso** da treliça. Duas tábuas dão quatro gravetos, e o selo fica. Ele responde ao **Tear**: mantenha um Totem de ressonância (Tear) em até 8 blocos (veja [Mãos do acampamento](camp_hands)), ou fica parado.",
+        "Os resultados enchem seus nove espaços de saída e saem pela face **inferior**, para um funil ou uma [placa de relé](wireless_cargo) ali. Sobras como baldes e frascos vazios saem com eles, então nunca emperram a grade; uma ferramenta que a receita devolve, como uma tigela de moer, volta ao próprio espaço. Quando as saídas não têm lugar para uma fabricação e suas sobras, o Tear de selos espera e não gasta nada.",
+        "O posto encurta a batida; o Pulso por fabricação continua 6. Uma alavanca o pausa, e um comparador lê o quanto ele está cheio."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Um tear de gravetos",
+      "steps": [
+        {
+          "caption": "Coloque o Tear de selos com um gerador e um Condutor de treliça em até 8 blocos.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:seal_loom[facing=south]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Assente um Selo de receita no espaço do selo, disponha a receita e clique agachado com a mão vazia.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:recipe_seal"
+          }
+        },
+        {
+          "caption": "Um funil acima mantém a grade cheia; cada item vai para o primeiro espaço que o aceita.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=down]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Um funil abaixo puxa os resultados pela face de baixo.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Alimentá-lo",
+      "text": [
+        "Um funil, ou uma placa de relé afinada ao tear, solta cada item no primeiro espaço da grade que o aceitar. Isso serve para receitas de um só espaço, como troncos em tábuas. Numa receita moldada, encha à mão os espaços usados com pilhas cheias e ela cria até uma acabar. Se a grade deixar de coincidir com o selo, ela espera e não gasta nada.",
+        "Agache e clique com o botão direito numa face enquanto segura um item para mudar essa face: Ambos, Entrada, Saída ou Fechado.",
+        "Teste um lote antes de ligar o armazenamento em massa."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:seal_loom"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:recipe_seal",
+      "text": "Imprima-o no tear; um selo lembra uma receita."
+    }
+  ]
+}

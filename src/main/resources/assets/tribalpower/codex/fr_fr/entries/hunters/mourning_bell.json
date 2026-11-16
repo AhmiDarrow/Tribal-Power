@@ -1,0 +1,52 @@
+{
+  "name": "Cloche de deuil",
+  "icon": "tribalpower:bell_fragment",
+  "order": 140,
+  "spoiler": true,
+  "items": [
+    "tribalpower:mourning_bell_spawn_egg",
+    "tribalpower:bell_fragment"
+  ],
+  "next": "rift_hound",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:mourning_bell",
+      "text": [
+        "Une cloche flottante de bronze vert, avec un masque de deuil et un battant lumineux. Elle se souvient des tribus perdues, et son carillon télégraphié te ralentit.",
+        "Chassée, elle lâche aussi 1 à 3 pépites d'or."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Les Cloches de deuil flottent au-dessus des Champs de cristal de la Marche et des Champs de neige, et de temps en temps au-dessus du Marais aux roseaux et des hauts-fonds.",
+        "Elle a **28 de santé** et **3 d'armure**. Jusqu'à 12 blocs de distance, elle sonne un carillon de **4 de dégâts** qui te ralentit pendant 3 secondes. S'abriter interrompt le chant."
+      ],
+      "title": "Où et comment"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Elle lâche **1 à 2 Fragment de cloche**.",
+        "Un Fragment de cloche s'accorde en 2 Écho accordé sous Esprit."
+      ],
+      "title": "Ce qu'il donne"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Atteins **Voix** auprès des **Graveurs de sceaux**, puis utilise un Charme de lien sur un adulte : deux essais sur cinq, le charme est dépensé en cas d'échec. Ou nourris-la de son propre réactif : un essai sur cinq, et le réactif est dépensé dans les deux cas.",
+        "Une cloche liée te retire le poison, la faiblesse et les autres maléfices tant qu'elle te suit. Voir [dons du familier](familiar_gifts)."
+      ],
+      "title": "Comme familier"
+    },
+    {
+      "type": "text",
+      "title": "Chasse et élevage",
+      "text": [
+        "Outre son réactif, il lâche ceci quand on le chasse, davantage avec Butin."
+      ]
+    }
+  ]
+}

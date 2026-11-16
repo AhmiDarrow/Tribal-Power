@@ -1,0 +1,64 @@
+{
+  "name": "Vinculadores de raíces",
+  "icon": "tribalpower:tribe_mark",
+  "order": 60,
+  "spoiler": true,
+  "unlock": "tribe:sprout",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_sprout",
+      "title": "Vinculadores de raíces",
+      "text": [
+        "“Las raíces son la única cuerda que el vacío respeta.”",
+        "Hebra de **Brote**, voz de **Agua**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quiénes son",
+      "text": [
+        "Los Vinculadores de raíces plantaron las primeras anclas vivas en las islas que caen y las ataron raíz con raíz. Sus anclas aguantaron una estación, y por esa estación sigue habiendo algo aquí arriba. Su oficio es **anclas vivas y flora de la Marcha**.",
+        "Sus campamentos están en los **bosques** y en junglas, y en la Marcha un campamento suyo está en cada franja, del norte helado a la sal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué quieren",
+      "text": [
+        "Su reactivo es la **Escama de lomomusgo**, y vale **+8** de reputación en su hogar.",
+        "También favorecen brotes, semillas, un bloque de musgo o una Caña de Espíritu: **+3** cada uno. Cualquier otra comida vale **+1**, y una Célula de Pulso cargada **+2 por cada 10 Pulso**, hasta +8.",
+        "Recuerda: el hogar toma como máximo **60** de reputación al día de las ofrendas; consulta [Tribus y reputación](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué intercambia el Anciano",
+      "text": [
+        "**Huésped**: 4 brotes de roble por 3 Caña de Espíritu; 12 semillas de trigo por 8 polvo de hueso.",
+        "**Amigo**: 6 Caña de Espíritu por un Tambor de olas; 8 bloques de musgo por una Escama de lomomusgo; 4 Arroz de ciénaga por Arroz del vinculador de raíces.",
+        "**Pariente**: 8 Fragmento de eco por 6 Tronco de la Marcha; 2 Tejido espiritual por 2 Flor de eco.",
+        "Cada intercambio da **+2** de reputación."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marca, tótem y don",
+      "text": [
+        "Con el rango **Voz**, el Anciano te da la Marca tribal de los Vinculadores de raíces. Fabrícala con un {item:tribalpower:resonance_totem_water} y dos unidades de Tejido espiritual para obtener su [Tótem de parentesco](kinship_totem).",
+        "Junto a un Resonador de Pulso es una voz más; junto a una estación presta **Agua**.",
+        "El rango Pariente de los Vinculadores de raíces lleva su [don](tribe_boons): cultivos y brotes a 4 bloques a tu alrededor crecen más rápido.",
+        "Su plato lleva el don durante **5 minutos**, y su [reliquia](elders_and_stories) mientras la lleves.",
+        "Los Vinculadores de raíces son la única tribu que vende un **Tambor de olas**, el generador de Agua."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "sprout",
+      "title": "Tu trabajo con ellos",
+      "text": [
+        "Lo que el Anciano de los Vinculadores de raíces te ha pedido, y hasta dónde ha llegado su historia. Consulta [Ancianos, peticiones e historias](elders_and_stories)."
+      ]
+    }
+  ]
+}

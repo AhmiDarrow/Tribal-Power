@@ -1,0 +1,40 @@
+{
+  "name": "Kryształowa iglica",
+  "icon": "tribalpower:march_crystal",
+  "order": 70,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "image",
+      "image": "crystal_spire",
+      "text": [
+        "Zwężająca się iglica z Kryształu Marszu na Kryształowych polach, ze stacją postojową u stóp."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "U stóp iglicy jest mały obóz: palenisko, sztandary, totem Krosna, łóżka i krosno tkackie. Mieszkają tam dwaj Szwacze krosna z plemienia Wrzeciona, Starszy i Tkacz.",
+        "Szwacze krosna utrzymują dwa rodzaje obozów, oba tylko w Marszu: tę małą stację postojową na Kryształowych polach i pełny obóz z własnym Starszym w każdej gromadzie. W każdym wisi Tabliczka podań."
+      ],
+      "title": "Stacja postojowa"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Przyjmują **Kryształ Marszu**, **Nić Krosna** i kompasy jako dary. Każde podnosi twoją [pozycję](standing) u plemienia.",
+        "Na randze **Przyjaciel** otwierają wymianę Nić Krosna, stały zapas, którego chcesz, gdy złupisz pobliskie Sale Przodków.",
+        "Cała ich historia jest na stronie [Szwacze krosna](tribe_spindle)."
+      ],
+      "title": "Handel ze Szwaczami krosna"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Kryształowe pola to tarasowe góry stołowe i łatwo stracić orientację wśród kryształu. Zwiąż kompas, zanim ruszysz dalej.",
+        "Odłamkogrzbiety mocno popychają przy krawędziach. Trzymaj plecy z dala od urwisk."
+      ],
+      "title": "Poruszanie się"
+    }
+  ]
+}

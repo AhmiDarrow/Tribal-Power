@@ -1,0 +1,231 @@
+{
+  "name": "Glutofen",
+  "icon": "tribalpower:ember_kiln",
+  "order": 30,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_kiln",
+      "text": [
+        "Die Station des Feuers schmilzt mit Puls statt mit Kohle. Was ein Ofen schmilzt, schmilzt der Glutofen: Bruchstein wird Stein, Gries wird ein Barren. Sie braucht ein Resonanz-Totem (Feuer) innerhalb von 8 Blöcken."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Benutzung",
+      "text": [
+        "Füttere ihn mit jeder Eingabe eines Ofens und nimm das Ergebnis des Ofens. Es wird kein Brennstoff verbrannt.",
+        "Jedes Schmelzen dauert **10 Sekunden** bei **64 Puls pro Sekunde**.",
+        "Gries brennt immer zu seinem Barren, selbst Gries aus Mods, den ein Ofen nicht lesen kann.",
+        "Ein Hebel pausiert ihn, eine volle Ausgabe auch. Fehlt Feuer, pausiert er und verbraucht nichts."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Bruchstein zu Stein",
+      "steps": [
+        {
+          "caption": "Stelle den Glutofen mit einem Resonanz-Totem (Feuer) innerhalb von 8 Blöcken auf.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Halte Puls in Reichweite: ein Generator daneben reicht.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Lege Bruchstein ein und nimm Stein heraus. Es wird keine Kohle verbrannt.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:cobblestone"
+          }
+        },
+        {
+          "caption": "Ein Trichter unter dem Glutofen trägt die Ergebnisse fort.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Es automatisieren",
+      "text": [
+        "Setze den Echozermalmer auf den Glutofen, Ausgabe in Eingabe, damit der Gries nach unten wandert: das ist der Standard, wenn eine Station auf einer anderen sitzt, also funktioniert es einfach. [Metalle und Edelsteine](metals_and_gems) zeigt eine ganze Erzlinie.",
+        "Setze einen Trichter oder einen Speicher darunter, wenn du die Barren einsammeln willst.",
+        "Stufe ihn im Echoabstimmer hoch, dann im Binder, dann im Manifestierer, wie jede andere Werkstatt."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_kiln"
+    }
+  ]
+}

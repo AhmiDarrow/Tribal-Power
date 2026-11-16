@@ -1,0 +1,68 @@
+{
+  "name": "Starsi, zlecenia i opowieści",
+  "icon": "tribalpower:relic_spindle",
+  "order": 15,
+  "spoiler": false,
+  "items": [
+    "tribalpower:relic_soil",
+    "tribalpower:relic_stone",
+    "tribalpower:relic_sprout",
+    "tribalpower:relic_claw",
+    "tribalpower:relic_spark",
+    "tribalpower:relic_clock",
+    "tribalpower:relic_swarm",
+    "tribalpower:relic_sigil",
+    "tribalpower:relic_spindle"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Rozmowa ze Starszym",
+      "text": [
+        "W obozie każdego plemienia jest **Starszy**, a gdy jesteś Gościem, będą z tobą rozmawiać. Kliknij prawym jednego, a otworzy się rozmowa: to, co mówią, po lewej, a twoje odpowiedzi jako przyciski.",
+        "Handel to jedna z rzeczy, o które możesz poprosić. Obcy dostają tylko kilka opryskliwych słów i wskazówkę o palenisku, więc najpierw przynieś ofiarę (zobacz [Plemiona i reputacja](standing)).",
+        "To, co oferuje Starszy, zmienia się wraz z tym, co zrobiłeś: zlecenia, ich opowieść, a gdy ją ukończysz, cieplejsze powitanie.",
+        "W [dzień święta](living_march) plemienia Starszy zaprasza cię też na ucztę."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zlecenia",
+      "text": [
+        "Zapytaj Starszego **\"Czy jest praca, którą mogę wykonać?\"** a dadzą ci jedno ze zleceń plemienia. Każde plemię ma trzy otwarte w danym dniu i zmieniają się wraz z dniami; jeśli dzisiejsze ci nie pasuje, wróć jutro.",
+        "Trzymasz **jedno zlecenie na plemię** naraz. Gdy ukończysz **trzy** w ciągu dnia, ze wszystkich plemion, Starsi nie dają nowej pracy do jutra. Pracę, którą już masz, wciąż można oddać.",
+        "Skończ je i powiedz Starszemu **\"Zrobiłem to, o co prosiłeś.\"** Każde płaci **8 do 16** reputacji, a co **trzecie** ukończone zlecenie plemienia płaci dodatkowo **Znak plemienia**, długo zanim osiągniesz Głos.",
+        "Kodeks prowadzi rachubę za ciebie: strona każdego plemienia kończy się otwartą prośbą i tym, jak daleko zaszła."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O co proszą",
+      "text": [
+        "- **Przynieś**: przynieś to, co cenią, na przykład ich plon z Marszu. Nieś to przy sobie, gdy powiesz Starszemu.",
+        "- **Dostarcz**: przynieś dwie miski ich własnej [potrawy](tribe_dishes).",
+        "- **Polowanie**: odeprzyj sześć stworzeń ciemności w promieniu **48 bloków** od ich paleniska. Zabójstwo musi być twoje.",
+        "- **Obrzęd**: odpraw dowolny obrzęd przy brasero lub cokole w promieniu 48 bloków od ich paleniska.",
+        "- **Budowa**: wznies **Murki** o rozmiarze 3 lub więcej w promieniu 48 bloków od ich paleniska, oznaczone Kredą budowniczego, i trzymaj tę kredę, gdy powiesz Starszemu. Buduj je z obrobionych bloków, takich jak deski, cegły lub bruk: surowy kamień, ziemia, piasek, terakota, lód i własna ziemia Marszu się nie liczą. Budowa liczy się **raz**: murki już oddane temu plemieniu nie zapłacą ponownie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ich opowieść",
+      "text": [
+        "Poproś **«Opowiedz mi swoją historię»**, a Starszy zaczyna dłuższą drogę: **siedem kroków**, jedno plemię naraz, które opierają się na wszystkim innym, co z nimi robisz. Zostań ich Przyjacielem, przynieś tę jedną rzecz, którą cenią, poluj przy ich ogniskach, odpraw obrzęd w ich obozie, przynieś ich potrawę i na końcu idź tam, dokąd cię poślą.",
+        "Ostatni krok to **próba**: kraj każdego plemienia trzyma strażnika, a plemię chce, byś stanął z nim twarzą w twarz. Próba Szwaczy krosna to sam Niezaśpiewany; pozostała ósemka czeka na swoich ziemiach, o czym mówi [Strażnicy](guardians). Jeśli padniesz w walce, opowieść po prostu czeka. Strażnik zostawiony sam na pół minuty zasypia z powrotem niepokonany, a jego ołtarz można od razu wezwać ponownie.",
+        "Stań przed strażnikiem dopiero wtedy, gdy Starszy cię pośle. Strażnik pokonany wcześniej nie liczy się do opowieści."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dziewięć reliktów",
+      "text": [
+        "Dokończ opowieść, a Starszy wręczy ci **relikt** plemienia: niewielką, jedyną w swoim rodzaju rzecz, która daje [dar](tribe_boons) tego plemienia, ilekroć jest w twoim ekwipunku, niezależnie od twojej pozycji, i znaczy cię na dobre w ich oczach.",
+        "{item:tribalpower:relic_soil} (Strażnicy posłania). {item:tribalpower:relic_stone} (Śpiewacy żwiru). {item:tribalpower:relic_sprout} (Wiązacze korzeni). {item:tribalpower:relic_claw} (Chodzący po krawędzi). {item:tribalpower:relic_spark} (Bęben-serca). {item:tribalpower:relic_clock} (Tkacze wzorów). {item:tribalpower:relic_swarm} (Strażnicy kolonii). {item:tribalpower:relic_sigil} (Rzeźbiarze pieczęci). {item:tribalpower:relic_spindle} (Szwacze krosna).",
+        "Po jednej dla każdego plemienia; każda jest końcem opowieści i początkiem tego, że dziewięcioro znów się zgadza."
+      ]
+    }
+  ]
+}

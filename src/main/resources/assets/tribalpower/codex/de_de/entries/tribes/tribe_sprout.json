@@ -1,0 +1,64 @@
+{
+  "name": "Wurzelbinder",
+  "icon": "tribalpower:tribe_mark",
+  "order": 60,
+  "spoiler": true,
+  "unlock": "tribe:sprout",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_sprout",
+      "title": "Wurzelbinder",
+      "text": [
+        "“Wurzeln sind das einzige Seil, das die Leere achtet.”",
+        "Strang von **Spross**, Stimme von **Wasser**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wer sie sind",
+      "text": [
+        "Die Wurzelbinder pflanzten die ersten lebenden Anker auf die fallenden Inseln und banden sie Wurzel an Wurzel. Ihre Anker hielten eine Saison, und wegen dieser Saison ist hier oben noch etwas. Ihr Handwerk ist **lebende Anker und Flora vom Marsch**.",
+        "Ihre Lager stehen in **Wäldern** und Dschungeln, und im Marsch steht in jedem Band ein Lager von ihnen, vom gefrorenen Norden bis zum Salz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was sie wollen",
+      "text": [
+        "Ihr Reagenz ist die **Moosrückenschuppe** und ist **+8** Ansehen an ihrem Herd wert.",
+        "Sie bevorzugen auch Setzlinge, Samen, einen Moosblock oder ein Geistrohr: **+3** je Stück. Jedes andere Essen ist **+1** wert, und eine geladene Pulszelle **+2 für je 10 Puls**, bis zu +8.",
+        "Denk daran: der Herd nimmt höchstens **60** Ansehen am Tag aus Opfergaben; siehe [Stämme und Ansehen](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was der Älteste tauscht",
+      "text": [
+        "**Gast**: 4 Eichensetzlinge für 3 Geistrohr; 12 Weizensamen für 8 Knochenmehl.",
+        "**Freund**: 6 Geistrohr für eine Wellentrommel; 8 Moosblöcke für eine Moosrückenschuppe; 4 Fennreis für Wurzelbinderreis.",
+        "**Sippe**: 8 Echoscherbe für 6 Marsch-Stamm; 2 Geistergewebe für 2 Echoblüte.",
+        "Jeder Tausch bringt **+2** Ansehen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marke, Totem und Segen",
+      "text": [
+        "Auf dem Rang **Stimme** gibt dir der Älteste die Stammesmarke der Wurzelbinder. Fertige sie mit einem {item:tribalpower:resonance_totem_water} und zwei Geistergewebe zu ihrem [Verwandtschafts-Totem](kinship_totem).",
+        "Neben einem Pulsresonator ist es eine Stimme mehr; neben einer Station leiht es **Wasser**.",
+        "Sippe der Wurzelbinder trägt ihren [Segen](tribe_boons): Nutzpflanzen und Setzlinge innerhalb von 4 Blöcken um dich wachsen schneller.",
+        "Ihr Gericht trägt den Segen **5 Minuten** lang, und ihr [Relikt](elders_and_stories), solange du es trägst.",
+        "Die Wurzelbinder sind der einzige Stamm, der eine **Wellentrommel** verkauft, den Generator für Wasser."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "sprout",
+      "title": "Deine Arbeit mit ihnen",
+      "text": [
+        "Was der Älteste der Wurzelbinder von dir erbeten hat, und wie weit ihre Geschichte gekommen ist. Siehe [Älteste, Bitten und Geschichten](elders_and_stories)."
+      ]
+    }
+  ]
+}

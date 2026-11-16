@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:tide_shell"
     },
-    "title": "Tide Drummer stilled",
-    "description": "Face the Tide Drummer at the Tide Stone in the Shallows and win.",
+    "title": {
+      "translate": "advancement.tribalpower.march.guardian_tide_drummer.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.march.guardian_tide_drummer.description"
+    },
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,

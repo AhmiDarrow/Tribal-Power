@@ -1,0 +1,8 @@
+{
+  "name": "전승",
+  "icon": "tribalpower:lore_tablet",
+  "order": 120,
+  "description": "한때 있던 세계의 이야기, 그리고 뒤에 올 이에게 부족이 남긴 서판.",
+  "spoiler": true,
+  "progress": "tablets"
+}

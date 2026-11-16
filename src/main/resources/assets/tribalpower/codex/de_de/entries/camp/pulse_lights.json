@@ -1,0 +1,410 @@
+{
+  "name": "Pulslichter",
+  "icon": "tribalpower:shard_lamp",
+  "order": 110,
+  "items": [
+    "tribalpower:glow_reed",
+    "tribalpower:echo_sconce",
+    "tribalpower:ember_bowl"
+  ],
+  "next": "rain_chime",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:shard_lamp",
+      "text": [
+        "Lagerlampen, die am Gitter laufen. Jede zieht jede Sekunde ein dünnes Rinnsal Puls aus dem Gitter, über einen Konduktor innerhalb von **8 Blöcken**, und erlischt in dem Moment, in dem sie nicht zahlen kann. Sie halten keinen Puffer."
+      ],
+      "title": "Pulslichter"
+    },
+    {
+      "type": "text",
+      "title": "Die vier Lampen",
+      "text": [
+        "- **Leuchtschilf**: Licht 10, **1 Puls** pro Sekunde.",
+        "- **Splitterlampe**: Licht 12, **1 Puls** pro Sekunde.",
+        "- **Echowandleuchte**: Licht 11, **1 Puls** pro Sekunde. Sie hängt an fast jedem Block daneben (eine Mauer, ein Zaunpfosten, ein Stamm) und fällt, wenn der verschwindet.",
+        "- **Glutschale**: Licht 14, **2 Puls** pro Sekunde.",
+        "Klicke eines mit der rechten Maustaste an, um zu sehen, ob es leuchtet und was es kostet. Ein Hebel oder ein Redstone-Signal dunkelt es sofort ab, und ein Komparator liest 15, solange es leuchtet, und 0, wenn es dunkel ist.",
+        "Die Geistlaterne leuchtet weiter ganz ohne Puls."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Einen Pfad beleuchten",
+      "steps": [
+        {
+          "caption": "Beginne mit einem Generator und einem Gitterkonduktor; jede Lampe innerhalb von 8 Blöcken um den Konduktor kann von ihm beziehen.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              -2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Leuchtschilf und Splitterlampe leuchten auf, sobald sie bezahlen können.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "tribalpower:glow_reed[lit=true]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:shard_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -2
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Eine Echowandleuchte braucht etwas daneben, woran sie hängen kann.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "minecraft:stone_bricks"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                2
+              ],
+              "block": "minecraft:stone_bricks"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                1
+              ],
+              "block": "tribalpower:echo_sconce[facing=north,lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Eine Glutschale ist die hellste, mit 2 Puls pro Sekunde.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ember_bowl[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Hebel neben einer Lampe dunkelt sie ab; wenn der Generator leer ist, werden alle dunkel.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -2
+              ],
+              "block": "minecraft:lever[face=floor,facing=east,powered=true]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "tribalpower:glow_reed[lit=false]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              -2
+            ],
+            [
+              0,
+              0,
+              -2
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:glow_reed"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:shard_lamp"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_sconce"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_bowl"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "Frasco de Espírito",
+  "icon": "tribalpower:spirit_flask",
+  "order": 35,
+  "items": [
+    "tribalpower:greater_spirit_flask"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_flask",
+      "text": [
+        "Um tanque que você carrega. O frasco guarda um fluido, **4.000 mB** (4 baldes) — o **Frasco maior de Espírito** guarda **16.000 mB**, tanto quanto uma [Cisterna de Espírito](spirit_cistern).",
+        "Ele nunca se divide numa pilha de baldes, e a quantidade que guarda aparece como uma barra sob o ícone, na cor do próprio fluido."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Encher e despejar",
+      "text": [
+        "- **Use-o num tanque ou numa máquina** (uma Cisterna de Espírito, um Tambor das ondas, o tanque de outro mod) e ele puxa de lá; se não puder puxar, despeja dentro o que carrega.",
+        "- **Use-o numa fonte de fluido no mundo** e ele bebe um balde dela.",
+        "- **Usar agachado** e ele despeja um balde à sua frente.",
+        "Outros mods veem isso como um recipiente de fluido comum, então canos e máquinas de enchimento podem enchê-lo e esvaziá-lo enquanto está na sua mochila."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_flask"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:greater_spirit_flask"
+    }
+  ]
+}

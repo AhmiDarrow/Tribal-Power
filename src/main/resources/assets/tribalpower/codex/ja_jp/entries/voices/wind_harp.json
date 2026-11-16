@@ -1,0 +1,438 @@
+{
+  "name": "風のハープ",
+  "icon": "tribalpower:wind_harp",
+  "order": 30,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wind_harp",
+      "text": [
+        "模様織りの技。開けた空へ張ったハープは、風からパルスをただで作る。ただなので上限がある。最大**毎秒6パルス**。",
+        "**1,000パルス**を蓄える。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "吊る場所",
+      "text": [
+        "ハープは真上のブロックから空を見なければならない。屋根の下では**まったく何も**出さない。",
+        "- 開けた空の下：**毎秒2**（基礎1、空で1）。",
+        "- 高さ：y 128以上で**+1**、y 192以上で**+2**。",
+        "- 天候：雨で**+1**、嵐で**+2**。",
+        "ランクなしの上限は**毎秒6**。ランクごとに**毎秒15%のパルス**が足される。ボーナスはパルスの整数へ四捨五入されるので、毎秒2か3しか出さない発電機は最初のランクでは何も得ない。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "ハープ一台、空は一つ",
+      "steps": [
+        {
+          "caption": "ハープを開けた地面に置く。晴天なら毎秒2パルス。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wind_harp"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "屋根を掛けると黙る。ハープは空が見えていないといけない。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "屋根を外すと、12ブロック以内の2台目が同じ風を分ける。それぞれ半分になる。",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:wind_harp"
+            }
+          ],
+          "remove": [
+            [
+              -1,
+              2,
+              -1
+            ],
+            [
+              -1,
+              2,
+              0
+            ],
+            [
+              -1,
+              2,
+              1
+            ],
+            [
+              0,
+              2,
+              -1
+            ],
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              1,
+              2,
+              -1
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              1,
+              2,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "ハープは12ブロックより離す。代わりに山の高い所へ1台でもよい。",
+          "remove": [
+            [
+              2,
+              0,
+              2
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "ハープは風を分け合う",
+      "text": [
+        "ハープは全方位**12ブロック**、端を含めて風を分け、端数は切り捨てる。晴天で寄り集まった2台はそれぞれ毎秒1、3台は何も出さない。ハープの壁は飾りの壁だ。意味があるのは1台だけ。",
+        "レッドストーン信号で止まる。しゃがんでこの本で右クリックすると、空、高さ、天候、密集と、それぞれが何を足すかが見える。",
+        "ハープは[模様織り](tribe_clock)の工芸だ。レシピには嵐の翼と風の印章が要る。模様織りは一族にハープを渡す。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wind_harp"
+    }
+  ]
+}

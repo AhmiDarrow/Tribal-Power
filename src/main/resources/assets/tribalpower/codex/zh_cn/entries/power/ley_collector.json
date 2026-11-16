@@ -1,0 +1,467 @@
+{
+  "name": "地脉收集器",
+  "icon": "tribalpower:ley_collector",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_collector",
+      "text": [
+        "一台饮行星地脉线的发电机。把它放在线经过之处，四周有开阔的天空、水、植物和生命，不必站在那里，它也会每**两秒**增加脉动。",
+        "它储存 **2,000脉动**，打破就会失去。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "它听什么",
+      "text": [
+        "每两秒，收集器追加**每点3脉动**，按其**拍**计算。拍从**1**开始，**8格**内的土地还会再加：",
+        "- 开阔的天空：白天**+1**，夜晚**+3**。",
+        "- 雨**+2**，雷暴再**+1**。",
+        "- 水：最多**+4**。",
+        "- 植物：最多**+4**。草、树叶、花、作物或苔藓方块每四个算一个。水和植物只计算收集器下方2个方块到上方2个方块。",
+        "- 共鸣图腾：最多**+3**，每种不同的声音一个。",
+        "- 一座部落炉**+1**。动物：最多**+2**，每对一个。",
+        "- 在远行界**+2**；满月下**+1**。",
+        "那些馈赠是土地的份额，土地的份额上限为**6**。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "地脉线",
+      "text": [
+        "拍的其余部分是经过收集器的地脉线：每条线最多**+2**，正压在线上是满2，越远越少，到**7.5方块**外为零，上下与左右相同。这些线是铺在世界上的网；只有最罕见的地方能聚齐**六**条，收集器也不会计入更多。整拍上限为**16**，每两秒支付**48脉动**。",
+        "共鸣图腾把自身颜色的线拉过自己，其余颜色不动。把六个图腾放在收集器周围，让每条线在穿过自己的图腾时经过收集器。那就是汇聚：六种颜色，拍上的线仍然不超过六条。",
+        "地脉涌动期间，线承载着涌动声音的收集器产出加倍；参见[活的远行界](living_march)。",
+        "[地脉之心](ley_heart)升起自己的六条线，经由图腾向外伸出；沿其中一条放置的收集器会感到它。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "好位置",
+      "steps": [
+        {
+          "caption": "把收集器放在能看见天空的开阔地上。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ley_collector"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "周围的植物计入每一拍：四个活方块算一点，最多四点。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "minecraft:oak_leaves"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:oak_leaves"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:poppy"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:dandelion"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:fern"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:short_grass"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "不同声音的图腾各加一点，最多三点。",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              -1
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "屋顶会让它失去天空、雨和风暴。它变弱，并不死：植物和声音仍然计算。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "调谐",
+      "text": [
+        "潜行时对收集器使用地脉透镜，可逐项印出精确明细。印出的数字是拍，不是每秒脉动。地脉视界会画出经过你附近的线，便于你在建造前站到一条线上。",
+        "当拍达到**8或以上**（16的一半）时，每次收集还会唤醒8个方块内的每个图腾，并让它保持应和。这里只看拍；收集器有多满无关。参见[维持](keeping)。",
+        "红石信号会让它暂停。每个[等级](machine_ranks)使每次收集增加**15%**。",
+        "如果它显得很弱，蹲下并用这本书右键单击它。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_collector"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Le nove tribù",
+  "icon": "tribalpower:tribe_mark",
+  "order": 110,
+  "description": "Nove tribù un tempo custodivano il Telaio. I loro accampamenti sono ancora in piedi; guadagna il loro rango e i loro segni.",
+  "spoiler": true,
+  "progress": "tribes"
+}

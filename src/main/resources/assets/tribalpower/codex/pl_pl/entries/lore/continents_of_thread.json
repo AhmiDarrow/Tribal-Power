@@ -1,0 +1,17 @@
+{
+  "name": "Kontynenty z nici",
+  "icon": "tribalpower:lore_tablet",
+  "order": 40,
+  "spoiler": false,
+  "next": "nine_arguments",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Kontynent był posłaniem, które zapomniało, że jest posłaniem. Pola biegły, bo Gleba biegła z nimi. Rzeki trzymały obyczaje, bo Kiełek nauczył wodę, gdzie usiąść. Miasta nie unosiły się. Wisiały, a wiszenie czuło się jak stanie.",
+        "Drogi były śpiewane, nie cięte. Puls pod jednym paleniskiem słychać było jako Puls pod następnym. Noc była spotkaniem, którego dotrzymywali Rzeźbiarze pieczęci. Burze były sporem Bęben-serce, cofanym przed świtem.",
+        "Nadal widzisz ten nawyk w zorzy. To niebo próbuje przypomnieć sobie rozkład."
+      ]
+    }
+  ]
+}

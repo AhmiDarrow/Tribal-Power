@@ -1,0 +1,38 @@
+{
+  "name": "Grzechotka uzdrowiciela",
+  "icon": "tribalpower:spiritgear_rattle",
+  "order": 30,
+  "items": [
+    "tribalpower:spiritgear_rattle"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_rattle",
+      "title": "Potrząśnij nią",
+      "text": [
+        "Suszona tykwa na kościanej rączce i część [Duchowy sprzęt](spiritgear). **Przytrzymaj Użyj** i potrząśnij: co pół sekundy leczy tego, na kogo patrzysz, w zasięgu 6 bloków, albo ciebie, gdy nie patrzysz na nikogo.",
+        "Każde potrząśnięcie leczy **3/4 serca** i zużywa **2 Pulsy**, najpierw z ogniwa samej grzechotki, potem z ogniw, które nosisz. Działa na każdego przyjaznego: graczy, osadników, zwierzęta i chowańce, ale nie na wrogie stworzenia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rangi i głosy",
+      "text": [
+        "Awansuje na stacjach echa jak reszta Duchowego sprzętu, a każda ranga leczy o **50%** więcej. Od rangi **Związany** łagodzi też [Duchową chorobę](spirit_sickness) o poziom przy każdym potrząśnięciu.",
+        "Podepnij ją do totemu, a każde potrząśnięcie da dar:",
+        "- **Woda**: leczy o połowę więcej.",
+        "- **Duch**: zdejmuje każdy szkodliwy efekt.",
+        "- **Ziemia**: krótka Odporność.",
+        "- **Ogień**: krótka Odporność na ogień.",
+        "- **Powietrze**: krótka Szybkość.",
+        "- **Krosno**: krótka Regeneracja."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_rattle"
+    }
+  ],
+  "next": "spirit_sickness"
+}

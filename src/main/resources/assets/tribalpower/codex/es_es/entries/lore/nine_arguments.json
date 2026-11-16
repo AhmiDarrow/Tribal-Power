@@ -1,0 +1,17 @@
+{
+  "name": "Nueve disputas",
+  "icon": "tribalpower:lore_tablet",
+  "order": 50,
+  "spoiler": false,
+  "next": "mending_means",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Ninguna tribu podía sostener el cielo sola. Suelo sin Piedra es calor sin dónde plantar el pie. Chispa sin Reloj es un ritmo sin canción. Sigilo sin Huso es una promesa sin camino a casa.",
+        "El mundo viejo no era paz. Era mantenimiento. Ocho tirones se volvieron ocho disputas, y el noveno, el de los Zurcidores del telar, fue la costura por la que rasgaron. Luego el resto se fue como una cuerda a través de una mano.",
+        "El Corte no fue una guerra. Fueron nueve trabajos dejados sin hacer en el mismo aliento."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Tisserand d'écho",
+  "icon": "tribalpower:echo_silk",
+  "order": 160,
+  "spoiler": true,
+  "items": [
+    "tribalpower:echo_weaver_spawn_egg",
+    "tribalpower:echo_silk"
+  ],
+  "next": "dark_hunters",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:echo_weaver",
+      "text": [
+        "Une araignée-harpe, les pattes tendues comme une harpe : une gardienne à huit pattes des chants brisés. Sa morsure ralentit la proie.",
+        "Chassé, il lâche aussi 1 à 3 ficelles et jusqu'à 1 œil d'araignée."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Les tisserands d'écho rampent à travers la Steppe de la Marche, les Champs de Cristal, la Fagne aux Roseaux et les Bas-fonds. Le Non-chanté les invoque aussi dans son Chœur.",
+        "Il a **26 points de vie** et **3 points d'armure** et mord pour **4**, te ralentit pendant 3 secondes, et peut te laisser [Effiloché](afflictions). Il ne pose jamais de toiles et n'abîme pas ton camp."
+      ],
+      "title": "Où et comment"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Il lâche **1 à 2 Soie d'écho**.",
+        "Soie d'écho se lie en 2 Espritissu sous l'Eau."
+      ],
+      "title": "Ce qu'il donne"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Atteins **Voix** auprès des **Couseurs du métier**, puis utilise un Charme de lien sur un adulte : deux essais sur cinq, le charme est dépensé en cas d'échec. Ou nourris-le de son propre réactif : un essai sur cinq, et le réactif est dépensé dans les deux cas.",
+        "Un tisserand lié ramasse ce qui tombe autour de lui et te le lance. Voir [dons du familier](familiar_gifts)."
+      ],
+      "title": "Comme familier"
+    },
+    {
+      "type": "text",
+      "title": "Chasse et pâturage",
+      "text": [
+        "Outre son réactif, il lâche ceci quand on le chasse, davantage avec Butin."
+      ]
+    }
+  ]
+}

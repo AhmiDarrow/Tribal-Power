@@ -1,0 +1,52 @@
+{
+  "name": "Trauerglocke",
+  "icon": "tribalpower:bell_fragment",
+  "order": 140,
+  "spoiler": true,
+  "items": [
+    "tribalpower:mourning_bell_spawn_egg",
+    "tribalpower:bell_fragment"
+  ],
+  "next": "rift_hound",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:mourning_bell",
+      "text": [
+        "Eine schwebende Glocke aus grüner Bronze, mit einer Trauermaske und einem leuchtenden Klöppel. Sie erinnert sich an die verlorenen Stämme, und ihr angekündigter Klang verlangsamt dich.",
+        "Gejagt lässt sie außerdem 1 bis 3 Goldklumpen fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Trauerglocken schweben über den Kristallfeldern des Marsches und den Schneefeldern, und hin und wieder über dem Schilfmoor und den Untiefen.",
+        "Sie hat **28 Gesundheit** und **3 Rüstung**. Aus bis zu 12 Blöcken Entfernung läutet sie einen Klang für **4 Schaden**, der dich 3 Sekunden lang verlangsamt. In Deckung gehen unterbricht das Lied."
+      ],
+      "title": "Wo und wie"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Sie lässt **1 bis 2 Glockensplitter** fallen.",
+        "Ein Glockensplitter wird unter Geist zu 2 Abgestimmtes Echo."
+      ],
+      "title": "Was es gibt"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Erreiche **Stimme** bei den **Siegelkerbern**, dann benutze ein Bindungsamulett an einem Erwachsenen: zwei von fünf Versuchen, das Amulett wird bei einem Fehlschlag verbraucht. Oder füttere sie mit ihrem eigenen Reagenz: einer von fünf Versuchen, und das Reagenz ist so oder so verbraucht.",
+        "Eine gebundene Glocke nimmt dir Gift, Schwäche und andere Flüche, solange sie folgt. Siehe [Gaben des Vertrauten](familiar_gifts)."
+      ],
+      "title": "Als Vertrauter"
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Zucht",
+      "text": [
+        "Neben dem eigenen Reagenz fällt beim Jagen noch dies, mehr mit Plünderung."
+      ]
+    }
+  ]
+}

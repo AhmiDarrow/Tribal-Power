@@ -1,0 +1,62 @@
+{
+  "name": "Kobolde",
+  "icon": "tribalpower:kobold_scale",
+  "order": 340,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ridge_kobold_spawn_egg",
+    "tribalpower:geode_kobold_spawn_egg",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn"
+  ],
+  "next": "shades",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Kobolde",
+      "text": [
+        "Kobolde leben überall, wo es etwas zu graben gibt, das sich lohnt, und sie teilen es nicht."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zwei Arten",
+      "text": [
+        "Beide erscheinen im Dunkeln, bei Tag oder Nacht, ein oder zwei auf einmal. Ein Kobold hat **21 Gesundheit** und **2 Rüstung**, ist schnell und trifft für **4**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ridge_kobold",
+      "title": "Gratkobold",
+      "text": [
+        "Ein kleiner aufrechter Echsenhund von einem Bergmann, mit Spitzhacke und Lampe am Helm, zu finden in den dunklen Höhlen unter dem Schimmergrat.",
+        "Gejagt lässt er außerdem bis zu 2 Rohes Kupfer und bis zu 1 Kohle fallen."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:geode_kobold",
+      "title": "Geodenkobold",
+      "text": [
+        "Ein Kobold, dem Kristall übergewachsen ist, mit einem Speer mit Kristallspitze, in den dunklen Höhlen unter den Kristallfeldern.",
+        "Gejagt lässt er außerdem bis zu 2 Amethystscherben und bis zu 2 Lapislazuli fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was sie geben",
+      "text": [
+        "Ein Gratkobold lässt **1 bis 2 Koboldschuppe** fallen, ein Geodenkobold **1 bis 2 Koboldhorn**, mehr mit Plünderung. Beide sind Hundreagenzien: siehe [Reagenzien](reagents).",
+        "Kobolde binden sich nie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Zucht",
+      "text": [
+        "Neben dem eigenen Reagenz lässt jeder beim Jagen mehr fallen, und mit Plünderung noch mehr."
+      ]
+    }
+  ]
+}

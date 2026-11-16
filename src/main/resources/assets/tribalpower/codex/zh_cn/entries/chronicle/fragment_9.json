@@ -1,0 +1,17 @@
+{
+  "name": "10. 沼",
+  "icon": "tribalpower:mural",
+  "order": 19,
+  "spoiler": true,
+  "unlock": "fragment:9",
+  "pages": [
+    {
+      "type": "text",
+      "title": "沼",
+      "text": [
+        "“芦苇沼是缚根者的绳结活被淹没后的样子。每一根芦苇都是他们为保住地面打的结；水还是来了。其中一人撑过了尽头。她仍撑着。”",
+        "发现于守护者之地的一幅壁画上。"
+      ]
+    }
+  ]
+}

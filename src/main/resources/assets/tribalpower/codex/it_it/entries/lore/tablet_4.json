@@ -1,0 +1,16 @@
+{
+  "name": "Tavoletta: Battito dei Cuoritamburo",
+  "icon": "tribalpower:lore_tablet",
+  "order": 140,
+  "spoiler": true,
+  "unlock": "tablet:4",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Da un Cerchio di tamburi nella Marcia, nelle parole dei Cuoritamburo:",
+        "“Il tamburo non è forte. Il tamburo è costante. Sii il tamburo. Un battito per respiro, e il rame risponde; manca un battito e ti dimentica. Ogni motore della Marcia tiene ancora il nostro tempo. Batti, aspetta, batti. È tutto qui.”"
+      ]
+    }
+  ]
+}

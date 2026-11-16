@@ -1,0 +1,462 @@
+{
+  "name": "레드스톤 언어",
+  "icon": "minecraft:comparator",
+  "order": 10,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "유지와 타격",
+      "text": [
+        "Tribal 기계는 레드스톤을 두 가지로 듣는다.",
+        "**유지된** 신호는 멈춘다. 선을 높게 두면 작업장, 전도체, 공명기, 수집기, 릴레이, 화로대, 그물, 수반, 단, 관문 쐐기돌, 그리고 북심장을 뺀 모든 발전기가 멈추고 기다린다. 보관과 이동 목적지는 잠긴다.",
+        "일시정지로 잃는 것은 없다. 저장된 펄스, 아이템, 유체는 그 자리에 남는다.",
+        "**타격된** 신호, 곧 선이 켜질 때의 상승 에지는 호출이다. 하나의 따로 된 일을 하는 장치만 듣는다. 북심장은 한 박을 받고, 의식 화로대는 앉힌 의식을 발화하며, 관문 쐐기돌은 밝아지거나 어두워진다.",
+        "쐐기돌은 레버가 아니라 버튼이나 타격 판으로 친다. 잠시 뒤에도 선이 유지되면 관문이 다시 내려간다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "야영지 읽기",
+      "text": [
+        "Tribal 블록에 비교기를 바깥으로 향하게 붙여, 열지 않고 내용을 읽는다. 저장된 펄스, 보관함이나 탱크가 찬 정도, FE 버퍼, 릴레이 활동. 돌 수반이나 공명 그물은 대신 진행을 읽고, 멈추면 0으로 떨어진다.",
+        "펄스를 깨끗한 0에서 15로 보려면 [펄스 계기](pulse_gauge)를 쓴다. 수로 부족하면 이 책으로 블록을 웅크려 우클릭해 한 문장을 얻는다([서고 진단](codex_diagnostics) 참조).",
+        "클록, 레버, 비교기만 있으면 야영지 전체를 안무할 수 있다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tribal 배선",
+      "text": [
+        "[노래 실](song_thread)은 여섯 방향 모두로, 가루처럼 약하게 0에서 15를 나른다. 닿은 돌에는 동력을 주지 않으므로 결코 래치되지 않는다.",
+        "[노래 판](song_plates)은 바라보는 면에서 출력한다. 단항 판은 뒷면을 읽고, 이항 판은 왼쪽과 오른쪽을 읽는다. 판은 자신을 향한 동력, 또는 토템 렌치로 맞춘 판만 듣는다. 전선 없이 32블록까지다.",
+        "[절 호출과 응답](verse_link)은 전선 없이 신호를 32블록까지 나른다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "클릭 또는 웅크리기",
+      "text": [
+        "- **일반 클릭**. 맨손이든 아니든 블록을 작동시킨다. 스테이션이 열리고, 북심장이 뛰고, 임계값이 설정을 한 단계 넘기며, 판, 계기, 토템이 지금 무엇을 하는지 알려 준다.",
+        "- **블록 놓기**. 부족 기계, 북, 판에 대고 놓을 때는 웅크린다. 그렇지 않으면 클릭이 그 블록을 작동시킨다. 릴레이 판만은 예외라, 일반 클릭으로 놓는다.",
+        "- **맨손으로 웅크리기**: 설정을 바꾼다. 스테이션, 저장고, 저수조, 야영의 면은 입력, 출력, 둘 다, 닫힘으로 한 단계씩 넘어간다. 심장박동, 표류, 집계는 횟수를 한 단계 넘긴다. 절 판은 절을 한 단계 넘긴다. 릴레이 판은 목록을 뒤집는다.",
+        "- **이 책을 들고 웅크리기**: 블록이 스스로를 설명한다 ([서고 진단](codex_diagnostics) 참조)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "클록 위의 의식",
+      "text": [
+        "의식 단은 아이템 하나를 들고 보여 주며, 비교기는 차 있는지를 읽는다. 의식이 스스로 돌아가는 데 필요한 것은 그것뿐이다:",
+        "- 릴레이가 [의식의 원](rite_circle)의 단에 서판을 다시 채운다.",
+        "- 심장박동 판이나 레버가 화로대를 친다.",
+        "- 의식이 발동하고, 앉힌 인장과 맞는 서판을 소모한다.",
+        "- 비교기가 단이 비었다고 알리고, 릴레이가 다시 채운다.",
+        "루프를 켜고 끄고 싶으면 기억 판을 더한다. 야영은 손으로 할 수 있는 동작만 쓴다. 숨은 추가 보관함은 없다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "클록 위의 화로대",
+      "steps": [
+        {
+          "caption": "의식의 원을 그린다. 한가운데에 화로대, 대각선에 단, 그 사이에 분필.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ritual_brazier"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "인장을 화로대에 앉히고, 같은 목소리의 서판으로 단을 채운다.",
+          "highlight": [
+            [
+              2,
+              0,
+              2
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              2
+            ],
+            "item": "tribalpower:rite_rain_calling"
+          }
+        },
+        {
+          "caption": "화로대 옆 블록에 심장박동 판을 화로대 쪽으로 설치한다. 한 박마다 화로대를 한 번 친다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:heartbeat_plate[facing=south]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "비교기가 단을 읽는다. 의식이 서판을 소모하면 0으로 떨어진다. 릴레이가 다시 채울 신호다.",
+          "place": [
+            {
+              "pos": [
+                3,
+                0,
+                2
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              3,
+              0,
+              2
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "next": "codex_diagnostics"
+}

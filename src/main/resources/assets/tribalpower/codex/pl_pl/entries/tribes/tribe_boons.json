@@ -1,0 +1,39 @@
+{
+  "name": "Łaski plemienia",
+  "icon": "tribalpower:tribe_mark",
+  "order": 35,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tribe_mark",
+      "title": "Sposób plemienia, pożyczony tobie",
+      "text": [
+        "Każde plemię ma **dar**: drobną przewagę w sposobie tego plemienia, pokazaną jako efekt statusu w kolorze plemienia.",
+        "Osiągnij reputację **Ród** u plemienia, a niesiesz jego dar, póki ta reputacja trwa. Dar odświeża się sam; nigdy nie musisz prosić. Każdy może nieść dar przez chwilę, jedząc [danie](tribe_dishes) tego plemienia. Niesienie [reliktu](elders_and_stories) plemienia też daje jego dar, niezależnie od twojej reputacji.",
+        "Noszony **Amulet latarni** utrzymuje dar zapalony o połowę dłużej."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Gleba (Strażnicy posłania)**: twoje pola nigdy nie są wydeptywane, a głód przychodzi wolniej.",
+        "- **Kamień (Śpiewacy żwiru)**: ruda, którą rozbijasz, ma szansę **jeden na pięć**, by dać jedną więcej.",
+        "- **Kiełek (Wiązacze korzeni)**: uprawy i sadzonki w promieniu 4 bloków rosną szybciej wokół ciebie.",
+        "- **Szpon (Chodzący po krawędzi)**: żaden upadek nie rani cię, gdy **się skradzasz**.",
+        "- **Iskra (Bęben-serca)**: szybsza ręka: uderzasz o **10%** szybciej."
+      ],
+      "title": "Dziewięć darów"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Zegar (Tkacze wzorów)**: stacje echa w promieniu 8 bloków od ciebie pracują z **podwójną prędkością**.",
+        "- **Rój (Strażnicy kolonii)**: pszczoły nigdy nie zwracają się przeciw tobie.",
+        "- **Sygil (Rzeźbiarze pieczęci)**: twoje amulety żądają **połowy** Pulsu.",
+        "- **Wrzeciono (Szwacze krosna)**: pieśni kosztują **o ćwierć mniej**, by je zaśpiewać.",
+        "Wszystkie liczby są w sekcji **efekty** wspólnej konfiguracji."
+      ],
+      "title": "Dziewięć darów, ciąg dalszy"
+    }
+  ]
+}

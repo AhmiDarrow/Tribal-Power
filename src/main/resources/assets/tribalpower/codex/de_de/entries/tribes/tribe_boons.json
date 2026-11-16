@@ -1,0 +1,39 @@
+{
+  "name": "Stammesgunst",
+  "icon": "tribalpower:tribe_mark",
+  "order": 35,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tribe_mark",
+      "title": "Der Weg eines Stammes, dir geliehen",
+      "text": [
+        "Jeder Stamm hat eine **Gabe**: einen kleinen Vorteil nach der Art dieses Stammes, gezeigt als Statuseffekt in der Farbe des Stammes.",
+        "Erreiche das Ansehen **Sippe** bei einem Stamm, und du trägst seine Gabe, solange das Ansehen hält. Die Gabe erneuert sich von allein; du musst nie darum bitten. Jeder kann eine Gabe eine Weile tragen, wenn er das [Gericht](tribe_dishes) dieses Stammes isst. Das [Relikt](elders_and_stories) eines Stammes zu tragen gibt seine Gabe auch, egal welches Ansehen du hast.",
+        "Ein getragenes **Laternenamulett** hält eine Gabe um die Hälfte länger am Leuchten."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Boden (Polsterhüter)**: deine Felder werden nie zertrampelt, und der Hunger kommt langsamer.",
+        "- **Stein (Griessänger)**: Erz, das du abbrichst, hat eine Chance von **eins zu fünf**, eines mehr zu geben.",
+        "- **Spross (Wurzelbinder)**: Feldfrüchte und Setzlinge innerhalb von 4 Blöcken wachsen um dich schneller.",
+        "- **Klaue (Kantenläufer)**: kein Sturz verletzt dich, solange du **schleichst**.",
+        "- **Funke (Trommelherzen)**: eine schnellere Hand: du schwingst **10%** schneller."
+      ],
+      "title": "Die neun Gaben"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Uhr (Musterweber)**: Echostationen innerhalb von 8 Blöcken um dich arbeiten mit **doppelter Geschwindigkeit**.",
+        "- **Schwarm (Koloniehüter)**: Bienen wenden sich nie gegen dich.",
+        "- **Sigill (Siegelkerber)**: deine Amulette verlangen **die Hälfte** des Pulses.",
+        "- **Spindel (Webstuhl-Näher)**: Lieder kosten **ein Viertel weniger** zum Singen.",
+        "Jede Zahl steht im Abschnitt **Effekte** der gemeinsamen Konfiguration."
+      ],
+      "title": "Die neun Gaben, Fortsetzung"
+    }
+  ]
+}

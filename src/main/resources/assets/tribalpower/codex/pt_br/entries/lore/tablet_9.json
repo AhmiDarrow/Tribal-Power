@@ -1,0 +1,16 @@
+{
+  "name": "Tábua: O Corte",
+  "icon": "tribalpower:lore_tablet",
+  "order": 190,
+  "spoiler": true,
+  "unlock": "tablet:9",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "De um Salão dos Ancestrais afundado, sem a assinatura de uma única tribo:",
+        "“Ninguém golpeou o Tear. Foi puxado de nove lados até um fio ceder, e então o resto foi como uma corda pela mão. Os continentes caíram no espaço de um rufar. O que não caiu derivou para a Marcha e afundou devagar. Nove tribos, um salão, ninguém a culpar.”"
+      ]
+    }
+  ]
+}

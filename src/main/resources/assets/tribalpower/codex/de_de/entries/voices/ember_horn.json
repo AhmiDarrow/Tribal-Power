@@ -1,0 +1,210 @@
+{
+  "name": "Gluthorn",
+  "icon": "tribalpower:ember_horn",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_horn",
+      "text": [
+        "Das Handwerk der Trommelherzen: ein Horn, das Ofenbrennstoff zu Puls verbrennt. Kohle, Holzkohle, Lava, Lohenruten: was ein Ofen verbrennt, macht das Horn zu stetiger Kraft.",
+        "Es hält **1,000 Puls**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Es füttern",
+      "text": [
+        "Rechtsklicke es mit Brennstoff, oder lass einen Trichter oder ein Relais es füttern. Die Brenndauer des Brennstoffs geteilt durch zwanzig ist sein Puls: Kohle ist **80**, ein Kohleblock **800**, ein Lavaeimer **1,000**, eine Lohenrute **120**.",
+        "Es gibt diesen Puls mit bis zu **20 pro Sekunde** ab. Mehr Brennstoff hebt die Obergrenze nicht; er hält nur länger.",
+        "Es zündet das nächste Stück erst, wenn Platz da ist, also verschwendet ein volles Horn nichts. Der leere Eimer der Lava springt oben auf dem Horn heraus; aus einem brennenden Feuer lässt sich sonst nichts herausziehen.",
+        "Duck dich und rechtsklicke eine Seite mit leerer Hand, um es durch Beide, Eingang, Ausgang und Geschlossen zu schalten, so wie der [Totemschlüssel](camp_kit)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Ein Horn, das sich selbst füttert",
+      "steps": [
+        {
+          "caption": "Stelle das Horn dorthin, wo Maschinen innerhalb von 8 Blöcken daraus ziehen können.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_horn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Trichter oben drauf gibt ihm Brennstoff.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=down]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Eine Truhe voll Kohle über dem Trichter hält es lange am Brennen: jede Kohle ist 80 Puls.",
+          "place": [
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_horn[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Hebel daneben hält das Horn an. Der Brennstoff wartet einfach.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Größer bauen",
+      "text": [
+        "Ohne Rang gibt das Horn höchstens **20 pro Sekunde**. Jeder Rang fügt **15% Puls pro Sekunde** hinzu, gerundet auf einen ganzen Puls. Darüber hinaus bau mehr Hörner.",
+        "Keine Schleife, die du automatisieren kannst, macht aus Brennstoff mehr Brennstoff, als sie verbrennt. Selbst Kohle, welche die Lauschgrube herbeiruft, kostet mehr Puls zum Holen und Zerbrechen, als sie zurückgibt.",
+        "Ein Klick mit leerer Hand sagt dir, was es erzeugt und hält. Duck dich und rechtsklicke es mit diesem Buch, um den Brennstoff und die noch geschuldete Brenndauer zu sehen.",
+        "Hörner sind das Handwerk der [Trommelherzen](tribe_spark): das Rezept braucht einen Zunderknoten und ein Feuersiegel, und die Trommelherzen tauschen ein Horn an jeden, den sie Freund nennen."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_horn"
+    }
+  ]
+}

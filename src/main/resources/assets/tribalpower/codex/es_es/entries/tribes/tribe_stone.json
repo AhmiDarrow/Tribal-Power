@@ -1,0 +1,65 @@
+{
+  "name": "Cantores de grava",
+  "icon": "tribalpower:tribe_mark",
+  "order": 50,
+  "spoiler": true,
+  "unlock": "tribe:stone",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_stone",
+      "title": "Cantores de grava",
+      "text": [
+        "“La malla no encuentra la mena. La malla le da a la mena un lugar donde aterrizar.”",
+        "Hebra de **Piedra**, voz de **Tierra**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quiénes son",
+      "text": [
+        "Los Cantores de grava cantaron grave sobre la piedra en bruto hasta que se aflojó, y más grave aún hasta que se quebró en eco. Su oficio es el **Triturador de eco** y las mallas.",
+        "Sus campamentos están en las **montañas** y en orillas pedregosas, y en la Marcha un campamento suyo está en cada franja, del norte helado a la sal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué quieren",
+      "text": [
+        "Su reactivo es el **Eco sintonizado**, y vale **+8** de reputación en su hogar.",
+        "También favorecen menas en bruto, bloques de mena, Grava de hierro, Grava de oro o Grava de cobre: **+3** cada uno. Cualquier otra comida vale **+1**, y una Célula de Pulso cargada **+2 por cada 10 Pulso**, hasta +8.",
+        "Recuerda: el hogar toma como máximo **60** de reputación al día de las ofrendas; consulta [Tribus y reputación](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que el Anciano trueca",
+      "text": [
+        "**Huésped**: 4 Hierro crudo por 3 Fragmentos de eco; 4 Eco sintonizado y 8 Piedra de la Marcha por una Malla de resonancia.",
+        "**Amigo**: 6 Grava de hierro por 2 Eco sintonizado; 3 Oro crudo por 4 Grava de oro; 4 Grano de la estepa por Pan de grava.",
+        "**Pariente**: 6 Eco sintonizado por 2 Eco vinculado; 4 Eco vinculado por un Triturador de eco.",
+        "Cada trueque otorga **+2** de posición."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marca, tótem y bendición",
+      "text": [
+        "En **Voz**, el Anciano te da la Marca tribal de los Cantores de grava. Fábricala con un {item:tribalpower:resonance_totem_earth} y dos Tejido espiritual para obtener su [Tótem de parentesco](kinship_totem).",
+        "Junto a un Resonador de Pulso es una voz más; junto a una estación presta **Tierra**.",
+        "Los Parientes de los Cantores de grava llevan su [bendición](tribe_boons): la mena que rompes tiene una probabilidad de **una de cada cinco** de dar una más.",
+        "Su plato lleva la bendición durante **5 minutos**, y su [reliquia](elders_and_stories) mientras la lleves.",
+        "Tu posición con los Cantores de grava decide hasta qué profundidad puede escuchar un [Foso de escucha](listening_pit): **Amigo** para la mena común, **Pariente** para las bandas profunda y caliente, **Voz** para la rara. Su Tótem de parentesco es una de las dos maneras de abrir las bandas más profundas.",
+        "En **Voz** también puedes vincular un **Lomoesquirla** como [familiar](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "stone",
+      "title": "Tu trabajo con ellos",
+      "text": [
+        "Lo que el Anciano de los Cantores de grava te ha pedido, y hasta dónde ha llegado su historia. Consulta [Ancianos, encargos e historias](elders_and_stories)."
+      ]
+    }
+  ]
+}

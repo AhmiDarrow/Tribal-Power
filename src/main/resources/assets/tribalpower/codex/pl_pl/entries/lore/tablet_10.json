@@ -1,0 +1,16 @@
+{
+  "name": "Tabliczka: Niezaśpiewany",
+  "icon": "tribalpower:lore_tablet",
+  "order": 200,
+  "spoiler": true,
+  "unlock": "tablet:10",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Z zatopionej Sali przodków, o bębnie, w który nikt nie uderzył:",
+        "“Z każdego spadającego obozu wynoszono bęben, żeby rytm nie ustał. Ostatni bęben wniesiono w krąg i nie został nikt, kto by uderzył. Jego strażnik wydrążył się od czekania. Obudź go czterotaktem, a powstanie, by go uderzono. Skradaj się, gdy bije. Synchronizuj go na nowo, gdy zamilknie. Chce tylko, by rytm wrócił.”"
+      ]
+    }
+  ]
+}

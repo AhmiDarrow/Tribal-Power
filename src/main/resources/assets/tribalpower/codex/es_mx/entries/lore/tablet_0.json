@@ -1,0 +1,16 @@
+{
+  "name": "Tablilla: Hogar de los Guardianes del lecho",
+  "icon": "tribalpower:lore_tablet",
+  "order": 100,
+  "spoiler": true,
+  "unlock": "tablet:0",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Guardada en la pared de un campamento de los Talladores de sellos, en palabras de los Guardianes del lecho:",
+        "“Nunca lo llamamos tierra. Lo llamamos lo que quedaba, y lo mantuvimos caliente. Cuando el suelo se desprendió, lo llevamos en cestas, un lecho cada vez, y pusimos un hogar en cada lecho que salvamos. Alimenta el hogar con pan y musgo. Recuerda quién lo alimentó.”"
+      ]
+    }
+  ]
+}

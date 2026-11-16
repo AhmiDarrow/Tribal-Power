@@ -1,0 +1,74 @@
+{
+  "name": "Trolle",
+  "icon": "tribalpower:troll_hide",
+  "order": 320,
+  "spoiler": true,
+  "items": [
+    "tribalpower:crag_troll_spawn_egg",
+    "tribalpower:rime_troll_spawn_egg",
+    "tribalpower:slag_troll_spawn_egg",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:slag_hide"
+  ],
+  "next": "goblins",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Trolle",
+      "text": [
+        "Groß, langsam im Fallen und schnell im Zorn. Drei Arten von Troll halten den hohen Stein des Marsches und seine Hitze, und alle drei jagen dich."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:crag_troll",
+      "title": "Felsentroll",
+      "text": [
+        "Zu finden im Hochland. Er steigt nachts auf offenem Boden auf, jeweils einer oder zwei.",
+        "Gejagt lässt er außerdem 1 bis 3 Marschleder, 1 bis 2 Knochen und bis zu 2 Feuerstein fallen."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:rime_troll",
+      "title": "Reiftroll",
+      "text": [
+        "Zu finden in den Schneefeldern. Er steigt nachts auf offenem Boden auf, jeweils einer oder zwei.",
+        "Gejagt lässt er außerdem 1 bis 3 Marschleder, 1 bis 2 Knochen und 1 bis 3 Schneebälle fallen."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slag_troll",
+      "title": "Schlackentroll",
+      "text": [
+        "Zu finden im Glutödland, an der Lava und auf dem heißen Stein ringsum, bei Tag oder Nacht, einer oder zwei auf einmal. Er ist **immun gegen Feuer**.",
+        "Gejagt lässt er außerdem 1 bis 3 Marschleder, 1 bis 2 Knochen und 1 bis 3 Eisenklumpen fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Einen bekämpfen",
+      "text": [
+        "Ein Troll hat **69 Gesundheit** und **6 Rüstung** und trifft für **9**. Der Schlag von einem Felsentroll oder einem Reiftroll stößt dich zurück; der von einem Schlackentroll setzt dich 2 Sekunden lang in Brand.",
+        "Halt Abstand, und kämpfe nie gegen einen, wenn du Lava im Rücken hast."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was sie geben",
+      "text": [
+        "Jeder lässt **1 bis 2** seiner Haut fallen, mehr mit Plünderung. **Trollhaut** und **Reifhaut** sind Schub-Reagenzien, **Schlackenhaut** ein Glut-Reagenz: siehe [Reagenzien](reagents).",
+        "Trolle gehen nie eine Bindung ein."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Herde",
+      "text": [
+        "Neben seinem Reagenz lässt jeder gejagt mehr fallen, und mit Plünderung noch mehr."
+      ]
+    }
+  ]
+}

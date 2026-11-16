@@ -1,0 +1,34 @@
+{
+  "name": "Piedra de ancla",
+  "icon": "tribalpower:anchor_stone",
+  "order": 30,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:anchor_stone",
+      "text": [
+        "Las Piedras de ancla refuerzan las esquinas de un patrón. No hacen nada más: ni Pulso, ni inventario, ni mantenimiento.",
+        "Algunas formas, como el Foso de escucha y el Portal lejano, las necesitan desde el principio; otras, como la Pila de piedra, las usan para alcanzar un segundo nivel."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Colocarlas",
+      "text": [
+        "Colócalas donde el Códice muestra fantasmas en las esquinas y luego déjalas. No son generadores y no necesitan nada de ti.",
+        "Rompe una y la forma baja un nivel hasta que la repones, o se detiene del todo si no tiene un nivel sin ellas.",
+        "- **Pila de piedra**: cuatro, en las esquinas de un 5x5, para piedra y obsidiana.",
+        "- **Foso de escucha**: cuatro para el foso de 5x5, ocho para la Escucha profunda.",
+        "- **Portal lejano**: cuatro, en las esquinas de su planta."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:anchor_stone",
+      "text": "Cuatro Piedra de la Marcha y un Fragmento de eco hacen **cuatro**."
+    }
+  ],
+  "next": "stone_font"
+}

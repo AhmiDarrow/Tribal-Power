@@ -1,0 +1,220 @@
+{
+  "name": "Alijo ancestral",
+  "icon": "tribalpower:ancestral_cache",
+  "order": 10,
+  "next": "spirit_cistern",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ancestral_cache",
+      "text": [
+        "Un gran almacén **de 54 ranuras** para los suministros del campamento, con un truco que un cofre no tiene: ajusta sus caras, y alimenta o vacía las máquinas de Tribal Power que lo tocan, sin tolva y sin relé."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ajustar sus caras",
+      "text": [
+        "Ábrelo y usa el panel de E/S para poner cada cara en **Entrada**, **Salida**, **Ambos** o **Cerrado**. Si te agachas y haces clic derecho en una cara con la mano vacía, también la rotas.",
+        "Las máquinas de Tribal Power que lo tocan pasan hasta **16 objetos por segundo** de una cara que da (Salida o Ambos) a una cara que recibe (Entrada o Ambos). Dos caras en Ambos nunca intercambian, así que los montones no pueden ir y volver entre ellas.",
+        "La cara inferior de una estación es Salida, así que un alijo bajo una estación recoge todo lo que ella hace. Pon una cara en Salida contra el lado de Entrada de una estación y la alimenta."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Una estación que se vacía sola",
+      "steps": [
+        {
+          "caption": "Coloca un Alijo ancestral donde deba ir la salida.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Pon el Triturador de eco encima; la cara inferior de una estación es Salida.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dale al Triturador de eco su tótem de Tierra y Pulso, como siempre.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Los fragmentos caen ahora directo al alijo, sin necesidad de tolva.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Consejos",
+      "text": [
+        "Las tolvas y las tuberías respetan los mismos ajustes de cara, así que una cara Cerrada también las rechaza.",
+        "Los vecinos usan las caras; los relés son para la distancia. Consulta [Carga inalámbrica](wireless_cargo).",
+        "Una palanca bloquea tanto el menú como la automatización. Un comparador lee lo lleno que está."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ancestral_cache"
+    },
+    {
+      "type": "text",
+      "title": "El botón de ordenar",
+      "text": [
+        "Todo inventario que merezca ordenarse lleva un pequeño botón **Ordenar** en la esquina vacía sobre sus ranuras: tu propia mochila, este alijo, el [Alijo profundo](deep_cache) (y la bóveda que abre un Zurrón del viajero o un campamento) y cualquier cofre, barril, caja de shulker o tolva.",
+        "Al pulsarlo se fusiona lo que se puede fusionar y el resto queda en orden. Tu barra de acceso rápido y tu armadura nunca se mueven, y las ranuras de una máquina no se tocan: el botón solo aparece sobre almacenamiento simple. Ordenar una bóveda nunca mete un Zurrón del viajero dentro.",
+        "Desactívalo con **sortButtons** en la configuración del cliente si estorba la pantalla de otro mod."
+      ]
+    }
+  ]
+}

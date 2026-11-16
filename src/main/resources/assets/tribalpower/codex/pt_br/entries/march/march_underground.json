@@ -1,0 +1,58 @@
+{
+  "name": "Sob a Marcha",
+  "icon": "tribalpower:march_iron_ore",
+  "order": 30,
+  "spoiler": true,
+  "items": [
+    "tribalpower:march_coal_ore",
+    "tribalpower:march_iron_ore",
+    "tribalpower:march_copper_ore",
+    "tribalpower:march_gold_ore",
+    "tribalpower:march_redstone_ore",
+    "tribalpower:march_lapis_ore",
+    "tribalpower:march_diamond_ore",
+    "tribalpower:march_emerald_ore"
+  ],
+  "next": "ancestor_hall",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_iron_ore",
+      "text": [
+        "A Marcha é oca por baixo. Cave para baixo ou siga uma boca de caverna e você encontra cavernas enormes sustentadas por pilares de pedra, túneis longos e sinuosos, cânions fundos abertos para o céu, e todo minério vanilla cravado em Pedra da Marcha. Leve bastante luz. Remanescentes do Espírito surgem no escuro lá embaixo, como na superfície."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "O minério de carvão, ferro, cobre, ouro, redstone, lápis-lazúli, diamante e esmeralda da Marcha é minerado e fundido exatamente como os gêmeos vanilla. Só a rocha ao redor é diferente.",
+        "- Carvão: qualquer picareta.",
+        "- Ferro, cobre e lápis-lazúli: uma picareta de pedra ou melhor.",
+        "- Ouro, redstone, diamante e esmeralda: uma picareta de ferro ou melhor.",
+        "Eles soltam as mesmas matérias-primas e gemas, Fortuna funciona, e Toque de Seda guarda o bloco de minério, que você pode fundir direto. Uma Raposa-lanterna vinculada marca todos, e o Minério da Marcha também."
+      ],
+      "title": "Minerar os oito minérios"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Carvão: de **y 0** a **192**.",
+        "- Ferro: em toda parte, mais rico nas profundezas médias e de novo no alto das montanhas.",
+        "- Cobre: de **y -16** a **112**.",
+        "- Ouro: fundo, até **y 32**. Lápis-lazúli: de **y -32** a **32**. Redstone: abaixo de **y 16**.",
+        "- Diamante: abaixo de **y 16**, de vez em quando numa veia grande.",
+        "- Esmeralda: só no **Planalto** e na **Crista do brilho**, de **y 48** para cima. Lá são comuns, então a subida vale a pena."
+      ],
+      "title": "Onde procurar"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Aqui e ali, uma parede de caverna se abre numa pequena bolsa de ametista: alguns blocos de ametista na rocha, com brotos e, se você tiver sorte, uma drusa inteira crescendo para a caverna.",
+        "Não há ametista brotante nelas, então nunca voltam a crescer. Pegue o que houver e siga.",
+        "Fragmentos de ametista sintonizam em Fragmentos de Espírito num Sintonizador de eco, o que torna uma bolsa um bom achado no começo da Marcha."
+      ],
+      "title": "Bolsas de ametista"
+    }
+  ]
+}

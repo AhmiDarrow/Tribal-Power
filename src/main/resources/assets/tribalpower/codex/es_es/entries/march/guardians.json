@@ -1,0 +1,125 @@
+{
+  "name": "Los guardianes",
+  "icon": "tribalpower:vault_seal",
+  "order": 65,
+  "spoiler": true,
+  "items": [
+    "tribalpower:slag_titan_spawn_egg",
+    "tribalpower:bog_matriarch_spawn_egg",
+    "tribalpower:cairn_wight_spawn_egg",
+    "tribalpower:prism_serpent_spawn_egg",
+    "tribalpower:vault_sentinel_spawn_egg",
+    "tribalpower:tide_drummer_spawn_egg",
+    "tribalpower:stampede_spirit_spawn_egg",
+    "tribalpower:storm_roc_spawn_egg",
+    "tribalpower:guardian_altar",
+    "tribalpower:slag_core",
+    "tribalpower:fen_heart",
+    "tribalpower:cairn_stone",
+    "tribalpower:prism_core",
+    "tribalpower:vault_seal",
+    "tribalpower:tide_shell",
+    "tribalpower:herd_horn",
+    "tribalpower:storm_plume"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ocho guardianes",
+      "text": [
+        "Ocho de los países de la Marcha guardan un **guardián**: aquello en lo que termina la historia de cada tribu (véase [Ancianos, peticiones e historias](elders_and_stories)). Son jefes en todo sentido: una barra de jefe, sin retroceso, sin pociones, sin urna de alma, dos fases, y un combate que merece preparación.",
+        "Un guardián nunca entra deambulando. Cada uno tiene un **terreno** en su bioma, un anillo de piedra con un **Altar del guardián** en el centro, y solo se alza desde ese altar: el altar debe asentarse sobre pizarra profunda pulida, con una vela encendida en cada esquina (el altar o nada), debe haber espacio arriba, y descansa unos veinte minutos entre llamadas.",
+        "Usa el altar con la mano vacía y te dice lo que quiere: un puñado del reactivo de ese bioma, ocho por defecto. Ponlo encima y aléjate."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dos fases",
+      "text": [
+        "A media salud, cada guardián queda **enardecido**: su ataque propio, antes cada **4 segundos**, pasa a unos **2,4 segundos** y golpea más fuerte, y llama a las criaturas de su bioma a su lado, **2** de una vez y **2** más cada **15 segundos**, nunca más de **6**. Esas criaturas no sueltan nada y desaparecen cuando él cae.",
+        "Si nadie permanece dentro de **48 bloques** durante medio minuto, el guardián vuelve a dormir sin ser vencido; el altar ya no necesita su descanso después de eso, y puede llamarse otra vez de inmediato.",
+        "Una criatura llamada a la que te vincules en el combate es tuya: una Polilla de tormenta del Nidal, por ejemplo, una vez que los Tejedores de patrones te llamen **Voz**. Deja de contar para el guardián y se queda cuando el combate termina.",
+        "Cuando cae, todos dentro de **48 bloques** que estén en la historia de esa tribu completan la **prueba**, y su **núcleo** cae con un montón de reactivos y **de 2 a 3 núcleos resonantes**. Cada terreno guarda además un cofre que puede contener núcleos resonantes, Hilo de Telar, una manzana dorada o una Tablilla de relatos en blanco."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slag_titan",
+      "title": "Titán de escoria",
+      "text": [
+        "Una fundición que camina: un gigante con vientre de horno, puños de crisol y una corona de chimenea. **El Trono de Escoria en los Yermos de Brasa**. Se llama con Escamas de magma. **360 de salud** y **12 de armadura**. Agáchate para afianzarte contra sus golpes; en la segunda fase los anillos se encienden y los Diablillos de pavesa surgen de la escoria. Su caída cierra la historia de los **Corazones de tambor**.",
+        "Suelta el **Núcleo de escoria**, **de 8 a 14 escamas de magma**, **de 4 a 8 cortezas de ceniza** y **de 2 a 3 núcleos resonantes**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bog_matriarch",
+      "title": "Matriarca del pantano",
+      "text": [
+        "Un gran sapo de camada que lleva a las crías en la espalda, cubierto de juncos y barbillones de raíz. **La Raíz Ahogada en la Ciénaga de Juncos**. Se llama con Colmillos de junco. **320 de salud** y **8 de armadura**. Su lazo te arrastra y te ralentiza, y te envenena cuando está enardecido; quédate en suelo firme y derriba a los Acechadores de juncos que llama antes de que te rodeen. Su caída cierra la historia de los **Vinculadores de raíces**.",
+        "Suelta el **Corazón de ciénaga**, **de 8 a 14 colmillos de junco**, **de 4 a 8 raíces anudadas** y **de 2 a 3 núcleos resonantes**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cairn_wight",
+      "title": "Ánima del túmulo",
+      "text": [
+        "Una pila de piedras de túmulo encendidas bajo un cráneo de alce, con un manto de escarcha. **El Anillo del Túmulo en los Campos de Nieve**. Se llama con Mandíbulas de escarcha. **300 de salud** y **6 de armadura**. Su aliento congela todo lo que tiene delante. Rodéalo por detrás y ocúpate de los Reptadores de escarcha que llama. Su caída cierra la historia de los **Guardianes de la colonia**.",
+        "Suelta la **Piedra de túmulo**, **de 8 a 14 mandíbulas de escarcha**, **de 4 a 8 plumones pálidos** y **de 2 a 3 núcleos resonantes**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_serpent",
+      "title": "Serpiente de prisma",
+      "text": [
+        "Un guiverno de cristal con espina de prisma y cresta de gema. **La Fractura Cantora en los Campos de Cristal**. Se llama con Caparazón prismático. **300 de salud** y **8 de armadura**. Dispara rayos de luz que te marcan brillando. Muévete de lado, acércate, y vigila el segundo rayo que añade en la fase dos, cuando se le unen los Acechadores de esquirlas. Su caída cierra la historia de los **Cantores de grava**.",
+        "Suelta el **Núcleo de prisma**, **de 8 a 14 caparazones prismáticos**, **de 4 a 8 polvos de destello** y **de 2 a 3 núcleos resonantes**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:vault_sentinel",
+      "title": "Centinela de la bóveda",
+      "text": [
+        "Una puerta de bóveda que camina: un constructo cuyo pecho es una bóveda sellada, con losas por hojas. **El Portal Sellado en la Cresta del Destello**. Se llama con Sigilos de centinela. **380 de salud** y **16 de armadura**, el más pesado de la Marcha, y un barrido que te arroja fuera de la cresta. En la fase dos se protege durante tres segundos cada vez (espera a que pase) y llama a Reptadores umbríos. Su caída cierra la historia de los **Talladores de sellos**.",
+        "Suelta el **Sello de la bóveda**, **8 a 14 Sigilo de centinela**, **4 a 8 Seda umbría** y **2 a 3 Núcleo resonante**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tide_drummer",
+      "title": "Tamborilero de la marea",
+      "text": [
+        "Un cangrejo ermitaño gigante que vive en un tambor de guerra cubierto de percebes y lo golpea con las pinzas. **La Piedra de la marea en los Bajíos**. Se llama con Colmillo de salmuera. **320 de salud** y **8 de armadura**. Cada golpe atrae a todos hacia él y hace daño; enfurecido, también te ralentiza y llama a Acechadores de salmuera. Lucha desde la orilla, de espaldas a algo sólido. Su caída cierra la historia de los **Tejedores de patrones**.",
+        "Suelta la **Concha de la marea**, **8 a 14 Colmillo de salmuera**, **4 a 8 Escama de bajío** y **2 a 3 Núcleo resonante**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stampede_spirit",
+      "title": "Espíritu de la estampida",
+      "text": [
+        "Un uro de espíritu, con máscara de hueso, cuernos de lira y crin de polvo. **El Círculo pisoteado en la Estepa**. Se llama con Tendón de zanco. **300 de salud** y **6 de armadura**. Embiste. Hazte a un lado y golpéalo al pasar, y acaba con los Roemadriguera antes de la siguiente embestida. Su caída cierra la historia de los **Guardianes del lecho**.",
+        "Suelta el **Cuerno de la manada**, **8 a 14 Tendón de zanco**, **4 a 8 Colmillo de peña** y **2 a 3 Núcleo resonante**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:storm_roc",
+      "title": "Roc de la tormenta",
+      "text": [
+        "Un pájaro del trueno: un águila de tormenta con cresta y barras de relámpago en las alas. **El nidal en las Tierras altas**. Se llama con Ala de tormenta. **280 de salud** y **4 de armadura**. Se lanza en picado y te arroja al aire, y en la segunda fase el relámpago sigue cada picado y se le unen Polillas de tormenta. Un arco y un techo ayudan más que un escudo. Su caída cierra la historia de los **Caminantes del borde**.",
+        "Suelta la **Pluma de tormenta**, **8 a 14 Ala de tormenta**, **4 a 8 Plumón pálido** y **2 a 3 Núcleo resonante**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Para qué sirven los núcleos",
+      "text": [
+        "Cada núcleo con un Hilo de Telar hace seis Núcleo resonante, la vía más rápida hacia ellos en el juego. Los ocho núcleos juntos con un {item:tribalpower:unsung_heart} hacen la tablilla de [El noveno acuerdo](ninth_agreement)."
+      ]
+    }
+  ]
+}

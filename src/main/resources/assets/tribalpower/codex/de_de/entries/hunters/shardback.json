@@ -1,0 +1,52 @@
+{
+  "name": "Splitterrücken",
+  "icon": "tribalpower:prism_carapace",
+  "order": 100,
+  "spoiler": true,
+  "items": [
+    "tribalpower:shardback_spawn_egg",
+    "tribalpower:prism_carapace"
+  ],
+  "next": "hollow_sentinel",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:shardback",
+      "text": [
+        "Ein Einsiedlerkrebs in einer Geodenschale, gepanzert mit singendem Stein. Halte Abstand von seinem schweren Schub.",
+        "Gejagt lässt er außerdem bis zu 2 Amethystscherben fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Splitterrücken streifen über die Kristallfelder des Marsches, weniger über den Schimmergrat und das Hochland.",
+        "Er hat **36 Gesundheit** und **8 Rüstung** und schlägt für **5**. Jeder Schlag schiebt dich hart zurück, gefährlich auf den Terrassen. Kämpfe fern von den Kanten gegen ihn."
+      ],
+      "title": "Wo und wie"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Er lässt **1 bis 2 Prismapanzer** fallen.",
+        "Ein Prismapanzer ergibt unter Geist 2 Abgestimmtes Echo."
+      ],
+      "title": "Was es gibt"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Erreiche das Ansehen **Stimme** bei den **Griessänger**, dann nutze ein Bindungsamulett an einem ausgewachsenen. Zwei von fünf Versuchen gelingen; ein gescheitertes Amulett ist verbraucht. Oder füttere ihn mit seinem eigenen Reagenz: einer von fünf Versuchen, und das Reagenz ist so oder so verbraucht.",
+        "Ein gebundener Splitterrücken ist ein Kämpfer: er schlägt jeden, der dich verletzt, und jeden, den du schlägst. Das seltene Mal **Strebe** macht ihn schwer zurückzustoßen. Siehe [Gaben des Vertrauten](familiar_gifts)."
+      ],
+      "title": "Als Vertrauter"
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Zucht",
+      "text": [
+        "Neben seinem Reagenz lässt er dies fallen, wenn man ihn jagt, mehr mit Plünderung."
+      ]
+    }
+  ]
+}

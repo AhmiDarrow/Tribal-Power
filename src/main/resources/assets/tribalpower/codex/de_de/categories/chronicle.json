@@ -1,0 +1,8 @@
+{
+  "name": "Die Chronik",
+  "icon": "tribalpower:mural",
+  "order": 125,
+  "description": "Die Geschichte des Webstuhls, Fragment für Fragment dort geritzt, wo der Marsch sie bewahrt. Finde sie, und die Geschichte setzt sich hier von selbst zusammen.",
+  "spoiler": false,
+  "progress": "chronicle"
+}

@@ -1,0 +1,194 @@
+{
+  "name": "Geistzisterne",
+  "icon": "tribalpower:spirit_cistern",
+  "order": 30,
+  "next": "wireless_cargo",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_cistern",
+      "text": [
+        "Der Tank des Lagers. Er hält eine Flüssigkeit, bis zu **16,000 mB** (16 Eimer), und behält sie, wenn du ihn aufnimmst, sodass du einen vollen Tank bewegen kannst, ohne einen Tropfen zu verschütten."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Füllen und ablesen",
+      "text": [
+        "Rechtsklicke sie mit einem Eimer, um sie zu füllen oder zu leeren. Rechtsklicke mit leerer Hand, um Flüssigkeit und Menge zu lesen.",
+        "Normale Flüssigkeitsrohre, eine Gezeitenpumpe oder ein Flüssigkeitsrelais können sie füllen und leeren. Eine zweite Flüssigkeit geht nicht hinein, solange der Tank nicht leer ist.",
+        "Ein Komparator, der von ihr weg zeigt, liest **0**, wenn sie leer ist, und dann **1 bis 15**, während sie sich füllt.",
+        "Schleiche und rechtsklicke eine Seite mit leerer Hand, um sie zu setzen: Beide, Eingang, Ausgang oder Geschlossen. Berührende Maschinen von Tribal Power bewegen bis zu **250 mB** pro Sekunde von einer gebenden Seite in eine nehmende."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Ein Tank, der behält",
+      "steps": [
+        {
+          "caption": "Setze die Zisterne und gieße einen Eimer hinein; ein Klick mit leerer Hand sollte 1,000 von 16,000 mB zeigen.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:water_bucket"
+          }
+        },
+        {
+          "caption": "Ein Komparator, der von ihr weg zeigt, liest, wie voll sie ist.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Hebel daran sperrt Füllen und Leeren, auch durch ferne Relais. Die Flüssigkeit bleibt.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:lever[face=wall,facing=north,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Baue sie ab, und die fallengelassene Zisterne hält das Wasser noch; setze sie wieder, und sie ist immer noch voll.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gut zu wissen",
+      "text": [
+        "Relais und die Gezeitenpumpe bewegen Flüssigkeit; sie sind keine Tanks. Stelle eine Zisterne an jedes Ende.",
+        "Eine Wellentrommel behält beim Abbauen ebenfalls ihren eigenen Wassertank.",
+        "[Frühlingsruf](spring_calling) kann eine gesetzte Zisterne als Quelle markieren, damit sie sich selbst mit Wasser füllt. Den Block zu bewegen beendet die Quelle; Wasser, das schon drin ist, bleibt am Gegenstand."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_cistern"
+    }
+  ]
+}

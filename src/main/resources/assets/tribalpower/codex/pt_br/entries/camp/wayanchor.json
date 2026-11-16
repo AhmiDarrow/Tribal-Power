@@ -1,0 +1,38 @@
+{
+  "name": "Âncora de caminho",
+  "icon": "tribalpower:wayanchor",
+  "order": 80,
+  "next": "summoning_cradle",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wayanchor",
+      "text": [
+        "Mantém um chunk funcionando enquanto você está longe. Uma ponta de relé, um Fosso de escuta ou um Portal num chunk distante para quando ninguém está perto; uma Âncora de caminho mantém o chunk carregado por **16 Pulso** por segundo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Manter um em funcionamento",
+      "text": [
+        "Coloque-a dentro do chunk que precisa continuar acordado. Ela segura exatamente esse único chunk, não um raio ao redor. Ela responde a **Terra**: mantenha um totem de Terra em até 8 blocos (veja [Mãos do acampamento](camp_hands)), ou ela solta o chunk.",
+        "Ela guarda uma reserva de **2,400 Pulso** e a recarrega em até **80** por segundo a partir da treliça. Você também pode completá-la com uma Célula de Pulso.",
+        "Redstone, ou uma reserva vazia, solta o chunk. Quebrar a âncora o solta na hora.",
+        "Clique com o botão direito para ver se ela está segurando. Um comparador lê 15 enquanto ela segura."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Limites e usos",
+      "text": [
+        "Cada jogador pode manter até **32** âncoras em cada mundo. Os membros de um [acampamento compartilhado](shared_camps), em vez disso, compartilham **12** âncoras entre si, contadas em todos os mundos, então combinem quais chunks importam.",
+        "Relés nunca mantêm chunks carregados por conta própria. Se as duas pontas de um relé precisam funcionar enquanto você viaja, coloque uma âncora na ponta distante.",
+        "Os portais mantêm a ponta distante acordada por alguns segundos quando alguém chega, então um Portal só precisa de uma âncora se algo lá tiver de continuar funcionando."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wayanchor"
+    }
+  ]
+}

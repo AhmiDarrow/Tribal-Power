@@ -1,0 +1,40 @@
+{
+  "name": "Flèche de cristal",
+  "icon": "tribalpower:march_crystal",
+  "order": 70,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "image",
+      "image": "crystal_spire",
+      "text": [
+        "Une flèche effilée de Cristal de la Marche, dans les Champs de cristal, avec un relais à son pied."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Au pied de la flèche, un petit camp : un âtre, des bannières, un totem du Métier, des lits et un métier à tisser. Deux Couseurs du métier de la tribu du Fuseau y vivent, un Ancien et un Tisserand.",
+        "Les Couseurs du métier tiennent deux sortes de camps, toutes deux seulement dans la Marche : ce petit relais dans les Champs de cristal, et un camp complet avec son propre Ancien dans chaque bande. Une Tablette de récits est accrochée dans chacun."
+      ],
+      "title": "Le relais"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ils accueillent le **Cristal de la Marche**, le **Fil de Métier** et les boussoles comme offrandes. Chacun élève ta [position](standing) auprès de la tribu.",
+        "Au rang **Ami**, ils ouvrent les échanges de Fil de Métier, l'approvisionnement régulier que tu veux une fois les Salles des Ancêtres proches pillées.",
+        "Leur histoire complète est sur la page des [Couseurs du métier](tribe_spindle)."
+      ],
+      "title": "Commerce avec les Couseurs du métier"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Les Champs de cristal sont des mesas en terrasses, et il est facile d'y perdre ses repères parmi le cristal. Lie une boussole avant de t'éloigner.",
+        "Les Dos-éclats poussent fort près des rebords. Garde le dos loin des à-pics."
+      ],
+      "title": "Se déplacer"
+    }
+  ]
+}

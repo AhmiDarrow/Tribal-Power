@@ -1,0 +1,40 @@
+{
+  "name": "Marca ritual",
+  "icon": "tribalpower:ritual_chalk",
+  "order": 20,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ritual_chalk",
+      "text": [
+        "O giz é como você desenha um padrão por inteiro. Cada bastão desenha **Marca ritual** no chão, e as marcas unem uma máquina à forma ao redor.",
+        "O mesmo giz também sela ligações duradouras entre Totens de ressonância."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Desenhar marcas",
+      "text": [
+        "Clique com o botão direito no topo de um bloco sólido para desenhar uma marca nele. Cada marca gasta **um uso**, e um bastão guarda **dez**.",
+        "Clique com o botão direito numa marca com giz para apagá-la. Apagar não custa nada, então corrija os erros à vontade.",
+        "Uma marca quebrada não larga nada: o giz já pagou por ela. No modo criativo, o giz nunca se gasta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ligar totens",
+      "text": [
+        "Clique com o botão direito num Totem de ressonância com giz e depois num segundo **a menos de 16 blocos**, para selar uma ligação de treliça entre eles (veja [Condutor de treliça](lattice_conductor)). Uma ligação que se forma gasta um uso.",
+        "Clicar duas vezes no mesmo totem cancela a ligação que você começou. Dois totens já ligados continuam ligados e não custam mais nada."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ritual_chalk",
+      "text": "Uma fabricação rende **quatro** bastões de dez usos cada."
+    }
+  ],
+  "next": "anchor_stone"
+}

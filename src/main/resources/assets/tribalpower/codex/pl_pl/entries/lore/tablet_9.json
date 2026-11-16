@@ -1,0 +1,16 @@
+{
+  "name": "Tabliczka: Cięcie",
+  "icon": "tribalpower:lore_tablet",
+  "order": 190,
+  "spoiler": true,
+  "unlock": "tablet:9",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Z zapadniętej Sali przodków, niepodpisanej przez żadne jedno plemię:",
+        "“Nikt nie uderzył w Krosno. Ciągnięto je z dziewięciu stron, aż jedna nitka puściła, a reszta poszła jak lina przez dłoń. Kontynenty spadły w czasie jednego werbla. Co nie spadło, zdryfowało na Marsz i osiadało powoli. Dziewięć plemion, jedna sala, nikogo winnego.”"
+      ]
+    }
+  ]
+}

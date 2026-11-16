@@ -1,0 +1,254 @@
+{
+  "name": "Totem di parentela",
+  "icon": "tribalpower:kinship_totem",
+  "order": 30,
+  "items": [
+    "tribalpower:tribe_mark"
+  ],
+  "next": "tribe_boons",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:kinship_totem",
+      "text": [
+        "Un totem intagliato da un Marchio della tribù. Accanto a un Risonatore di Pulso è una **voce in più**, contata per la tribù anziché per il suo elemento, così aggiunge Pulso anche dove quell'elemento canta già.",
+        "Non tace mai e presta la voce della sua tribù a qualsiasi stazione vicina."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ottenere il Marchio",
+      "text": [
+        "Alza il tuo grado con una tribù fino a **Voce (800)**, poi parla con l'Anziano di quella tribù. L'Anziano preme un **Marchio della tribù** nella tua mano. Quel dono arriva solo una volta per tribù, ma ogni **terza** richiesta che completi per loro paga anche un Marchio, da Ospite in su (vedi [Anziani, richieste e storie](elders_and_stories)).",
+        "Il Marchio porta il nome della tribù e il suo detto. Il Marchio che l'Anziano dà a Voce apre anche la pagina di quella tribù in questo libro; i Marchi pagati per le richieste, no.",
+        "Ospite e Amico non bastano per il dono di Voce. Se sei indietro, scambia, fai offerte e accetta richieste finché non raggiungi Voce; vedi [Tribù e grado](standing)."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribes_kinship_totem",
+      "title": "Intagliare il totem",
+      "text": [
+        "Metti il Marchio della tribù, il **Totem di risonanza della voce di quella tribù** e **due Tessitospirito** in un punto qualsiasi di una griglia di creazione. Il Marchio si consuma nel totem."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quale totem va con quale Marchio",
+      "text": [
+        "- **Terra**: Custodi del giaciglio, Cantori di ghiaia.",
+        "- **Acqua**: Legaradici.",
+        "- **Fuoco**: Camminatori del ciglio, Cuoritamburo.",
+        "- **Aria**: Tessitori di trame, Custodi della colonia.",
+        "- **Spirito**: Intagliatori di sigilli.",
+        "- **Telaio**: Cucitori del telaio.",
+        "Fai clic destro su un Totem di parentela posizionato per vedere la sua tribù e la voce che presta."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Una voce in più",
+      "steps": [
+        {
+          "caption": "Un Risonatore di Pulso con un totem di Terra e uno di Fuoco canta due voci.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un Totem di parentela dei Cuoritamburo aggiunge una terza voce, anche se Fuoco è già qui.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:kinship_totem[tribe=4]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Un totem dei Custodi del giaciglio ne aggiunge una quarta. Le voci si moltiplicano: su una Scheggia di eco, tre fanno 15 di Pulso al secondo e quattro ne fanno 24.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:kinship_totem[tribe=0]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Un secondo totem della stessa tribù non aggiunge nulla. Il Risonatore conta le tribù, non i blocchi.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:kinship_totem[tribe=4]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Su un Risonatore di Pulso",
+      "text": [
+        "Ogni tribù distinta con un Totem di parentela entro **8 blocchi** conta come una voce in più. I totem di parentela non tacciono mai, quindi contano sempre; i totem di risonanza contano solo mentre sono Risposti.",
+        "Il Risonatore ha ancora bisogno di almeno un **Totem di risonanza** risposto suo. I totem di parentela da soli non lo avviano.",
+        "Un mucchio sciolto si ferma ancora a **cinque voci** in tutto. Costruisci un [Anello di voce](voice_ring) e il tetto si alza: sei elementi più tutte e nove le tribù fanno **quindici**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Su stazioni e macchine dell'accampamento",
+      "text": [
+        "Entro 8 blocchi da un'officina, dall'Ancora di Telaio o da una [mano dell'accampamento](camp_hands) che attende una voce, un Totem di parentela si limita a **prestare l'elemento della sua tribù**, come se lì stesse un Totem di risonanza risposto di quella voce. Non è una settima voce.",
+        "Poiché non tace mai, conta anche accanto a un Totem di risonanza silenzioso della stessa voce. È un buon modo per tenere in funzione una stazione o una macchina dell'accampamento in un posto che visiti di rado.",
+        "L'innaffiatura di un Curatore del boschetto richiede ancora un Totem di risonanza dell'Acqua."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nella Fossa d'ascolto",
+      "text": [
+        "Le fasce di minerale profonde, calde e rare di una [Fossa d'ascolto](listening_pit) richiedono tutte un **Totem di parentela dei Cantori di ghiaia**, oppure un **Focolare della tribù**, in piedi dentro lo schema.",
+        "La reputazione presso i Cantori di ghiaia fissa ancora il limite: **Consanguineo** per le fasce profonde e calde, **Voce** per quella rara."
+      ]
+    }
+  ]
+}

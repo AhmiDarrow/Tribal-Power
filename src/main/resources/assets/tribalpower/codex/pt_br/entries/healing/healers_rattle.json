@@ -1,0 +1,38 @@
+{
+  "name": "Chocalho do curandeiro",
+  "icon": "tribalpower:spiritgear_rattle",
+  "order": 30,
+  "items": [
+    "tribalpower:spiritgear_rattle"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_rattle",
+      "title": "Agite-o",
+      "text": [
+        "Uma cabaça seca num cabo de osso, e uma peça de [Equipamento espiritual](spiritgear). **Segure Usar** e agite: a cada meio segundo cura quem você olha, em até 6 blocos, ou você, quando não olha para ninguém.",
+        "Cada chacoalhada cura **3/4 de um coração** e gasta **2 de Pulso**, primeiro da célula do chocalho e depois das células que você carrega. Funciona em qualquer um amistoso: jogadores, aldeões, animais e familiares, mas não em criaturas hostis."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Postos e vozes",
+      "text": [
+        "Sobe de posto nas estações de eco como o resto do Equipamento espiritual, e cada posto cura **50%** a mais. A partir de **Vinculado**, também alivia o [Mal espiritual](spirit_sickness) em um nível a cada chacoalhada.",
+        "Vincule-o a um totem para um dom a cada chacoalhada:",
+        "- **Água**: cura metade a mais.",
+        "- **Espírito**: remove todo efeito nocivo.",
+        "- **Terra**: Resistência breve.",
+        "- **Fogo**: Resistência ao fogo breve.",
+        "- **Ar**: Velocidade breve.",
+        "- **Tear**: Regeneração breve."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_rattle"
+    }
+  ],
+  "next": "spirit_sickness"
+}

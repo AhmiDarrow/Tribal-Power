@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:relic_claw"
     },
-    "title": "Courage arrives",
-    "description": "Finish the Edge-walkers' story.",
+    "title": {
+      "translate": "advancement.tribalpower.tribes.story_claw.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.tribes.story_claw.description"
+    },
     "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,

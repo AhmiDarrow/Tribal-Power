@@ -1,0 +1,470 @@
+{
+  "name": "无线货物",
+  "icon": "tribalpower:lattice_tuner",
+  "order": 40,
+  "items": [
+    "tribalpower:item_relay",
+    "tribalpower:fluid_relay",
+    "tribalpower:longreach_item_relay",
+    "tribalpower:longreach_fluid_relay",
+    "tribalpower:astral_item_relay",
+    "tribalpower:astral_fluid_relay"
+  ],
+  "next": "cargo_filters",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:item_relay",
+      "text": [
+        "不用一排管道，就能在两台机器之间搬运物品或流体。把中继板扣到发送机器的一面，用网格调谐器瞄准接收面，货物每秒跳过去。",
+        "中继器用于距离。两块相接的 Tribal Power 方块可以改由面来交换（见[站点如何运作](echo_workshops)）；原版箱子仍需要漏斗或一块板。"
+      ],
+      "title": "无线货物"
+    },
+    {
+      "type": "text",
+      "title": "扣上与瞄准",
+      "text": [
+        "对机器或箱子的一面右键一块板。手里拿着板时，普通点击就会放下它，即使那台机器会打开界面。它从贴住的方块里抽取。",
+        "板从它所在的面抽出，送进你标记的面，两面都遵循该方块的面设置：板所在的面必须给出（**输出**或**两者**），被标记的面必须接收（**输入**或**两者**）。站点的侧面一开始是**输入**，只有底面是**输出**，所以先设置面。",
+        "[石盆](stone_font)已经为板设好：顶面和底面都是**两者**，所以物品板和流体板在那里两个方向都能用。",
+        "用**网格调谐器**瞄准：右键应接收货物的面，再右键这块板。板会把抽到的一切发往该面。",
+        "把板留在网格上，距网格导体8个方块以内，并放一个属于该声音的共鸣图腾，清醒或微亮，但不能沉寂：物品、流体和远距中继器用**风**，星界中继器用**织机**。借出该声音的亲族图腾也算。没有它，板就等待。服务器可以用通用配置里的**automationNeedsVoices**去掉这条规则。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "瞄准中继器",
+      "steps": [
+        {
+          "caption": "隔开一段距离的两个箱子。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "把物品中继器扣到发送箱子的顶上。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                1,
+                0
+              ],
+              "block": "tribalpower:item_relay[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "用网格调谐器右键远处箱子的顶部来标记它。",
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
+        },
+        {
+          "caption": "然后用调谐器右键这块板。它现在会发往标记的面。",
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -2,
+              1,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
+        },
+        {
+          "caption": "在板的8个方块内立一个共鸣图腾（风）：中继器靠风之声音运送。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=lower]"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=upper]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -2
+            ],
+            [
+              -1,
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "caption": "在发送板附近脉动，每秒最多有16个物品过去。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "物品或流体",
+      "text": [
+        "每秒，一个中继器最多搬运**16个物品**或**250 mB**。",
+        "物品中继器和流体中继器运送名字所说的东西。**水之印**放进**符文**槽，任何板都运送流体；**土之印**则让它运送物品。",
+        "若是流体，两端各放一个灵蓄池。中继器搬运流体，并不储存。",
+        "要选择什么过去，或者改为烧掉，见[过滤器与虚空板](cargo_filters)。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "频道",
+      "text": [
+        "普通的板只发往一处。提升等级后会打开更多**频道**：[回响调谐](machine_ranks)打开第二个，束缚打开第三个，显化打开第四个。每个频道有自己的目的地和自己的过滤器。",
+        "用网格调谐器标记一个面，再对板使用调谐器。每次普通点击会填入下一个没有目的地的频道，因此各频道可以发往不同地方。选中一个频道，用调谐器潜行点击这块板，就能替换它。**解除链接**会忘掉频道的目的地，并保留它的过滤器。",
+        "**优先级**按编号把货物送到第一个肯收且有空位的频道：频道1把矿石列入白名单送往熔炉，频道2把其余一切送去存储。**轮流**则让频道轮着接收。",
+        "各频道共用这块板每一拍的那一次传输，所以升过级的板搬运量和以前一样，只是去往更多地方。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "三种距离",
+      "text": [
+        "- **物品中继器**与**流体中继器**可达**32方块**，每一拍若移动了东西，则消耗**8脉动**。",
+        "- **远距**中继器可达**128方块**，每拍**16脉动**。",
+        "- **星界**中继器没有距离限制，并可跨越世界，每拍**32脉动**。",
+        "什么都不移动的一拍，不消耗任何东西。",
+        "有等级的板（见[机器等级](machine_ranks)）支付其**118%**、**143%**或**182%**，并按同样的比例多搬运：大约**19 / 23 / 29**个物品，或**294 / 357 / 455 mB**。每个物品的脉动大致持平。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "网格调谐器",
+      "text": [
+        "右键点击你想送货到的方块那一面；调谐器会记住这一面。再用调谐器右键点击板来瞄准。标记目的地，不要标记板。普通的右键点击可以标记任何方块，哪怕是一点就打开的储柜或箱子。",
+        "瞄准之后标记仍留在调谐器上，所以一个标记可以瞄准多块板；右键点击另一个方块即可替换。板自身所在方块上的标记会被拒绝。",
+        "上面的距离限制适用。",
+        "拿起板后，瞄准仍在，过滤也在。打破一块板，它的符文会掉在旁边。",
+        "板属于你：只有你和你的[营地](shared_camps)能打开它、更改过滤，或用调谐器瞄准它。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "控制与等待之时",
+      "text": [
+        "持续的红石信号会暂停一块板。给调谐器的目标方块充能，即可从远端停下传送。",
+        "Tribal Power站点、储柜或蓄池上的拉杆，也会让从中抽取或向其送达的板停下来。",
+        "板上的比较器在未连接时为**0**，已连接但等待时为**1**，搬运货物时为**15**。",
+        "两端必须已经加载。未加载或已满的目的地会让中继器等待；只有火之印的板会销毁东西。中继器从不自己加载区块，所以若你离开时它仍要工作，就在远端放一个路锚。",
+        "潜行并用这本书右键点击一块板，可查看它的连接、消耗，以及它为何在等待。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_tuner"
+    }
+  ]
+}

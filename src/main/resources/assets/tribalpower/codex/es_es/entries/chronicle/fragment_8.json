@@ -1,0 +1,17 @@
+{
+  "name": "9. Ceniza",
+  "icon": "tribalpower:mural",
+  "order": 18,
+  "spoiler": true,
+  "unlock": "fragment:8",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ceniza",
+      "text": [
+        "“Los Yermos de Brasa eran el bosque de los Corazones de tambor. Ardió en la Caída y nunca se apagó. Algo bajo la escoria tomó el ritmo cuando los tamborileros huyeron, y desde entonces mantiene un compás errado.”",
+        "Hallado en un mural en el terreno de un guardián."
+      ]
+    }
+  ]
+}

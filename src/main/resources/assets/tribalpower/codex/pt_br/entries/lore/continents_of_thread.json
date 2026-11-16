@@ -1,0 +1,17 @@
+{
+  "name": "Continentes de fio",
+  "icon": "tribalpower:lore_tablet",
+  "order": 40,
+  "spoiler": false,
+  "next": "nine_arguments",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Um continente era um leito que tinha esquecido que era um leito. Os campos corriam porque o Solo corria com eles. Os rios mantinham as maneiras porque o Broto ensinou a água onde se sentar. As cidades não flutuavam. Pendiam, e pender parecia estar de pé.",
+        "As estradas eram cantadas, não cortadas. O Pulso sob um lar era ouvido como Pulso sob o próximo. A noite era um compromisso que os Entalhadores de selos cumpriam. As tempestades eram uma discussão de Coração de tambor desandada antes do amanhecer.",
+        "Você ainda pode ver o hábito na aurora. É o céu tentando lembrar um horário."
+      ]
+    }
+  ]
+}

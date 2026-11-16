@@ -1,0 +1,16 @@
+{
+  "name": "Tafel: Der Ungesungene",
+  "icon": "tribalpower:lore_tablet",
+  "order": 200,
+  "spoiler": true,
+  "unlock": "tablet:10",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Aus einer versunkenen Ahnenhalle, über die Trommel, die niemand schlug:",
+        "“Aus jedem fallenden Lager wurde eine Trommel getragen, damit der Schlag nicht aufhörte. Die letzte Trommel wurde in den Kreis getragen, und niemand blieb, um sie zu schlagen. Ihr Hüter wurde hohl vom Warten. Wecke sie mit dem Viertakt, und sie erhebt sich, um geschlagen zu werden. Schleiche, wenn sie schlägt. Synchronisiere sie neu, wenn sie schweigt. Sie will nur den Rhythmus zurück.”"
+      ]
+    }
+  ]
+}

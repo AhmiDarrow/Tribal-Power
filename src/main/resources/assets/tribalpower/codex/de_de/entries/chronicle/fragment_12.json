@@ -1,0 +1,17 @@
+{
+  "name": "13. Das Tor",
+  "icon": "tribalpower:mural",
+  "order": 22,
+  "spoiler": true,
+  "unlock": "fragment:12",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Das Tor",
+      "text": [
+        "“Der Schimmergrat ist das Gewölbe der Siegelkerber, am Tag des Sturzes von innen versiegelt. Was sie dort einschlossen, wurde höflich gebeten zu bleiben. Seither nährt es sich vom Bitten.”",
+        "Gefunden auf einem Wandbild am Grund eines Wächters."
+      ]
+    }
+  ]
+}

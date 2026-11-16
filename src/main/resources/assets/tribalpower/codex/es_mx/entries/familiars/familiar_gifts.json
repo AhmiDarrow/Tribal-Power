@@ -1,0 +1,235 @@
+{
+  "name": "Qué hacen los familiares",
+  "icon": "tribalpower:lantern_down",
+  "order": 30,
+  "items": [],
+  "next": "familiar_attuning",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:lantern_fox",
+      "title": "Zorro farol",
+      "text": [
+        "Un Zorro farol vinculado alumbra el camino."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Una **Luz de Espíritu** invisible viaja con él a luz **10**; la marca Vena de brillo sube eso a **12**.",
+        "Tienes Visión nocturna mientras permaneces a **8 bloques** de él.",
+        "Cada **4 segundos** marca las menas a **6 bloques** de sí con destellos que solo tú ves. Agudeza acorta esa espera, un Zumbido fuerte lo acelera, y el Zumbido nocturno lo acelera otra vez tras oscurecer."
+      ],
+      "title": "El farol del zorro"
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:mossback",
+      "title": "Lomomusgo",
+      "text": [
+        "Un Lomomusgo vinculado carga tus cosas."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Agáchate y úsalo con la **mano vacía** para abrir una alforja de **9 ranuras**, o de **12** con Bolsillo hondo.",
+        "Si muere, la alforja se derrama en el suelo."
+      ],
+      "title": "La alforja del Lomomusgo"
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:dawn_stag",
+      "title": "Ciervo del alba",
+      "text": [
+        "Un Ciervo del alba vinculado se puede montar sin silla."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Úsalo para montar. Dirige con la mirada, mantén el salto para un brinco corto y agáchate para desmontar. Solo lleva a quien está vinculado.",
+        "Zancada lo hace más rápido; la marca Salto salta más alto."
+      ],
+      "title": "Montar el ciervo"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Golpean a quien te golpeó y a quien tú golpeas, pero nunca a un jugador ni al compañero de otro guardián. Un resto salvaje al que golpeen devolverá el golpe. Son valientes, no invencibles: aun así pierden contra los guardianes.",
+        "**Fauces suaves** les impide morder aldeanos o gólems. **Rastro** (dos copias, solo sabuesos) hace destellar al último enemigo que te hirió, en cualquier lugar dentro de 48 bloques."
+      ],
+      "title": "Luchadores: Lomoesquirla y Sabueso de la grieta"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Una Polilla de tormenta **sentada** deja un **Clic de Espíritu** invisible de redstone **15** una vez por segundo, durante 2 tics. Clic certero lo mantiene 2 tics más. No es un tambor: los Corazón de tambor, los braseros y las piedras clave lo ignoran, pero las placas de canto y la redstone lo oyen.",
+        "Un Diablillo de pavesa **siguiendo** devuelve **4 Pulso** cada vez que tocas un Corazón de tambor a mano dentro de **8 bloques**. Los golpes de redstone no reciben nada, y solo un diablillo paga por golpe. Tempo (dos copias) devuelve 2 más, **6** en total."
+      ],
+      "title": "Polilla de tormenta y Diablillo de pavesa"
+    },
+    {
+      "type": "scene",
+      "title": "Una polilla como reloj",
+      "steps": [
+        {
+          "caption": "Pon una lámpara de redstone donde tu polilla vaya a sentarse, y agáchate y úsala para que espere a su lado.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Una vez por segundo aparece un Clic de Espíritu invisible donde se cierne la polilla.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "La lámpara de al lado se enciende con cada clic: un reloj gratis de un segundo.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un Corazón de tambor al otro lado no oye nada, porque los tambores ignoran el clic.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Una Campana de duelo que te sigue, dentro de **8 bloques**, te quita el veneno, la debilidad, el hambre, la fatiga, la ceguera y las náuseas. Quieto (dos copias) también quita la lentitud. Nunca levanta el Wither.",
+        "Un Tejedor de eco que te sigue recoge lo que cae dentro de **4 bloques** en una bolsa de **cinco ranuras** y te lo lanza. Recogida (dos copias) llega a **8**. Agáchate y úsalo con las manos vacías para vaciar la bolsa tú mismo."
+      ],
+      "title": "Campana de duelo y Tejedor de eco"
+    }
+  ]
+}

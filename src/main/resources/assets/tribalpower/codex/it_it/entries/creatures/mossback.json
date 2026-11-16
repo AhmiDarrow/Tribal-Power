@@ -1,0 +1,52 @@
+{
+  "name": "Dorsomuschio",
+  "icon": "tribalpower:mossback_scale",
+  "order": 40,
+  "spoiler": true,
+  "items": [
+    "tribalpower:mossback_spawn_egg",
+    "tribalpower:mossback_scale"
+  ],
+  "next": "march_walker",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:mossback",
+      "text": [
+        "Una paziente tartaruga di stagno con un giardino che le cresce sul guscio. Spazzola gli adulti per una Scaglia di dorsomuschio caduta da sola.",
+        "Cacciato, lascia anche da 2 a 4 Selvaggina cruda e fino a 2 Cuoio della Marcia. Fallo riprodurre con **Alghe o Alga nastro**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "I Dorsomuschio guadano le paludi dell'Overworld e le paludi di mangrovia. Nella Marcia si affollano nella Palude dei canneti, e alcuni vagano per i Campi di cristallo, la Steppa e i Campi di neve.",
+        "Un Dorsomuschio ha **30 di salute** e **6 di armatura**, e si muove piano. È mansueto e indietreggia dai mostri. Falli riprodurre in due con **Alghe**."
+      ],
+      "title": "Dove lo trovi"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Spazzola un adulto per una **Scaglia di dorsomuschio**, una volta al minuto. Le scaglie si legano in 2 Tessitospirito sotto Acqua, e i Legaradici le prediligono come offerta.",
+        "Se ne cacci uno, lascia **da 2 a 4 Selvaggina cruda** e fino a 2 Cuoio della Marcia, di più con Saccheggio, cotta se è morto bruciando."
+      ],
+      "title": "Cosa dà"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Un Dorsomuschio vincolato è una bisaccia ambulante con **9 scomparti** (12 con il marchio Tasca profonda). Se muore, lascia cadere tutto ciò che ha nella borsa.",
+        "Vedi la pagina [doni del famiglio](familiar_gifts) per aprire la borsa e mandarlo ad aspettare."
+      ],
+      "title": "Come famiglio"
+    },
+    {
+      "type": "text",
+      "title": "Caccia e pascolo",
+      "text": [
+        "Se cacciato, lascia questo, di più con Saccheggio. La carne cade arrostita se l'animale è morto bruciando. Per far riprodurre i selvatici, **acquattati** mentre dai da mangiare a due adulti il loro cibo; nutrito normalmente, un selvatico invece si affeziona a te."
+      ]
+    }
+  ]
+}

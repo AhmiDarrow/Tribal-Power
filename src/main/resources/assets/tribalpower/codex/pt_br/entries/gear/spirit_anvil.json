@@ -1,0 +1,31 @@
+{
+  "name": "Bigorna do Espírito",
+  "icon": "tribalpower:spirit_anvil",
+  "order": 45,
+  "items": [
+    "tribalpower:manifested_block"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_anvil",
+      "text": [
+        "Uma bigorna para o Equipamento espiritual, que só se desgasta quando trabalha sem Pulso. Coloque à esquerda uma ferramenta ou arma gasta de Equipamento espiritual (o Arco de Pulso e a Besta de Pulso também) e à direita **Barra manifestada**: cada barra restaura um quarto da durabilidade, por um nível cada mais o custo habitual da bigorna pelo trabalho anterior, como uma bigorna de ferro repara uma ferramenta com o próprio metal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ainda uma bigorna",
+      "text": [
+        "Faz tudo o que uma bigorna faz: renomear, adicionar livros encantados, combinar duas da mesma ferramenta, reparar outro equipamento com o próprio material.",
+        "Ao contrário de uma bigorna de ferro, ela nunca lasca nem quebra, nem pelo uso nem por uma queda. Ela ainda cai se nada a segurar.",
+        "A face é um Bloco de metal manifestado entre dois blocos de ferro: nove de Barra manifestada, fabricadas juntas, e de volta em nove barras sempre que você precisar.",
+        "Cada peça de Equipamento espiritual, as ferramentas, as armas, a tesoura, o chocalho, os dois arcos e a [Marreta de ressonância](resonance_maul), só se repara com **Barra manifestada**, aqui ou em qualquer bigorna, nunca com diamantes. O Tece-espírito se repara com pano de Tece-espírito."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_anvil"
+    }
+  ]
+}

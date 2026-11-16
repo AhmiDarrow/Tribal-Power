@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:echo_shatter"
     },
-    "title": "Teach stone to sing",
-    "description": "Build an Earth-powered Echo Shatter.",
+    "title": {
+      "translate": "advancement.tribalpower.journey.shatter.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.journey.shatter.description"
+    },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false,

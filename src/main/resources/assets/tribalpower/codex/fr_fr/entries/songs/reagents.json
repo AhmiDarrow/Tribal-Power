@@ -1,0 +1,261 @@
+{
+  "name": "Réactifs",
+  "icon": "tribalpower:reagent_pouch",
+  "order": 10,
+  "items": [
+    "tribalpower:reagent_pouch",
+    "tribalpower:dawn_velvet",
+    "tribalpower:lantern_down",
+    "tribalpower:mossback_scale",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:bounder_horn",
+    "tribalpower:grub_husk",
+    "tribalpower:tuft_wool",
+    "tribalpower:shank_sinew",
+    "tribalpower:pale_down",
+    "tribalpower:crag_fleece",
+    "tribalpower:boulder_tusk",
+    "tribalpower:drift_bladder",
+    "tribalpower:prism_crest",
+    "tribalpower:shard_wing",
+    "tribalpower:glow_husk",
+    "tribalpower:drift_pelt",
+    "tribalpower:frost_hoof",
+    "tribalpower:snow_veil",
+    "tribalpower:ash_wing",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:silt_fin",
+    "tribalpower:pale_streamer",
+    "tribalpower:shoal_scale",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark",
+    "tribalpower:ember_heart",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale",
+    "tribalpower:cinder_plate",
+    "tribalpower:slag_curd",
+    "tribalpower:slag_hide",
+    "tribalpower:knotted_root",
+    "tribalpower:heartwood_core",
+    "tribalpower:reed_fang",
+    "tribalpower:gnasher_tooth",
+    "tribalpower:facet_barb",
+    "tribalpower:rime_mandible",
+    "tribalpower:shard_barb",
+    "tribalpower:brine_fang",
+    "tribalpower:prism_carapace",
+    "tribalpower:scree_knuckle",
+    "tribalpower:ember_fang",
+    "tribalpower:reed_whorl",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:sentinel_sigil",
+    "tribalpower:pale_fang",
+    "tribalpower:barrow_shroud",
+    "tribalpower:drowned_weed",
+    "tribalpower:storm_wing",
+    "tribalpower:veil_tatter",
+    "tribalpower:cinder_knot",
+    "tribalpower:shade_ember",
+    "tribalpower:bell_fragment",
+    "tribalpower:wraith_veil",
+    "tribalpower:rift_tooth",
+    "tribalpower:lurker_claw",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn",
+    "tribalpower:echo_silk",
+    "tribalpower:gloom_silk"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Chaque créature de la Marche laisse quelque chose : un croc, une écaille, une touffe de laine. Ce sont des **réactifs**, et c'est ainsi que Tribal Power change la chasse en magie.",
+        "Garde {item:tribalpower:reagent_pouch} dans ta barre de raccourcis. Chaque réactif simple que tu ramasses y entre directement. La bourse contient jusqu'à **999** de chaque sorte, bruts et renforcés, et ne remplit donc jamais tes sacs. Un réactif avec un **Fil** reste dans tes sacs (page suivante).",
+        "Fais un clic droit sur la bourse pour regarder dedans et ressortir les réactifs bruts, pour les colorants, les remèdes et les recettes. Le bouton **Prendre** de Établi du chant fait pareil.",
+        "Un réactif commence **brut**. Sur un [Établi du chant](song_bench), tu peux le **renforcer** pour 16 Pulsation. Les réactifs bruts préparent des remèdes et entrent dans quelques recettes ; les renforcés écrivent des chants, empennent des flèches de vers et oignent des armes."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fils",
+      "text": [
+        "Certains réactifs portent un **Fil**, I, II ou III, nommé en or dans l'infobulle. C'est la force de la créature dont il est issu, lue quand le réactif la quitte, par une mise à mort ou une brosse : son fil de lignée le plus fort au-delà de 2, et un cran de plus pour une **élite** au nom d'or.",
+        "- **Fil I**: une créature sauvage avec un fil à 3, ou n'importe quelle élite.",
+        "- **Fil II**: une lignée élevée avec un fil à 4, ou une élite avec un fil à 3.",
+        "- **Fil III**: une lignée **exaltée**, un fil à 5. Brosse ton propre familier exalté pour en obtenir deux par minute.",
+        "Les réactifs de Fil différent ne s'empilent jamais. Partout ailleurs, un réactif à fil agit comme n'importe quel autre ; un [Cœur de ley](ley_heart) le brûle plus chaud, pour **6, 9 ou 12** contre 4 pour un simple."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Familles",
+      "text": [
+        "Ce qu'un réactif fait dépend de sa **famille**, qui vient de la créature dont il est issu. Il y en a onze, et chacune veut dire la même chose partout où tu l'utilises :",
+        "- dans un **chant**, ce qu'un réactif ajoute après le premier ;",
+        "- sur une **arme ointe**, ce que l'arme fait à ce qu'elle touche ([Onction](anointing)) ;",
+        "- dans un **remède**, ce que la préparation fait à qui la prend ([Remèdes](remedies)).",
+        "Les pages suivantes listent chaque famille, quels réactifs en font partie, et ce qu'elle fait dans chacun des trois."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Broie un réactif brut dans un **bol** avec un seul bâton de **Craie rituelle** (mets les trois dans une grille de fabrication ; une pile entière de craie ne convient pas) et tu obtiens **2 colorant**. Le bol revient, et la craie ne perd qu'une marque.",
+        "Seize réactifs font les seize colorants :",
+        "- **Blanc**: Duvet pâle",
+        "- **Gris clair**: Laine de brouteur",
+        "- **Gris**: Aile de tempête",
+        "- **Noir**: Aile de cendre",
+        "- **Marron**: Enveloppe de larve",
+        "- **Rouge**: Grain de braise",
+        "- **Orange**: Écaille de magma",
+        "- **Jaune**: Écorce de cendre"
+      ],
+      "title": "Colorants de réactifs"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Vert clair**: Oreille de gobelin",
+        "- **Vert**: Racine nouée",
+        "- **Cyan**: Poussière de lueur",
+        "- **Bleu clair**: Griffe de guetteur",
+        "- **Bleu**: Carapace prismatique",
+        "- **Violet**: Duvet de lanterne",
+        "- **Magenta**: Spore de clochecap",
+        "- **Rose**: Pétale de fée"
+      ],
+      "title": "Colorants de réactifs, suite"
+    },
+    {
+      "type": "text",
+      "title": "Braise",
+      "text": [
+        "**Réactifs**: Cœur de braise, Grain de braise, Écaille de magma, Plaque d'escarbille, Caillé de scories, Peau de scories.",
+        "- **Chant**: met la cible en feu.",
+        "- **Onction**: Embrasement : brûle la cible et ajoute du feu à chaque coup.",
+        "- **Remedy**: Amadou: Force."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Éclair",
+      "text": [
+        "**Réactifs**: Nœud d'escarbille, Braise d'ombre.",
+        "- **Chant**: enflamme la cible.",
+        "- **Onction**: Appel de tempête: un quart des coups arque un éclair vers deux ennemis proches.",
+        "- **Remedy**: Célérité: Vitesse."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Froid",
+      "text": [
+        "**Réactifs**: Fragment de cloche, Voile de spectre.",
+        "- **Chant**: ralentit la cible.",
+        "- **Onction**: Gelure: ralentit et gèle la cible.",
+        "- **Remedy**: Refroidissement: Résistance au feu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Venin",
+      "text": [
+        "**Réactifs**: Croc de roseau, Dent de broyeur, Ardillon à facettes, Mandibule de givre, Aiguillon d'éclat, Croc de saumure.",
+        "- **Chant**: empoisonne la cible.",
+        "- **Onction**: Venin: empoisonne la cible.",
+        "- **Remedy**: Antidote: retire le poison, le Wither, la faim et la nausée."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rafale",
+      "text": [
+        "**Réactifs**: Aile de tempête, Lambeau de voile.",
+        "- **Chant**: repousse la cible.",
+        "- **Onction**: Bourrasque: projette la cible en arrière et vers le haut.",
+        "- **Remedy**: Chute de plume: Chute lente."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Racine",
+      "text": [
+        "**Réactifs**: Racine nouée, Noyau de bois de cœur.",
+        "- **Chant**: ralentit la cible.",
+        "- **Onction**: Enracinement: un cinquième des coups enracine la cible sur place.",
+        "- **Remedy**: Ancrage: Résistance."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Poussée",
+      "text": [
+        "**Réactifs**: Carapace prismatique, Phalange d'éboulis, Croc de braise, Volute de roseau, Peau de troll, Peau de givre.",
+        "- **Chant**: repousse fort la cible.",
+        "- **Onction**: Déchirure: les coups mordent d'autant plus fort que la cible porte d'armure.",
+        "- **Remedy**: Rempart: Absorption."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tissage",
+      "text": [
+        "**Réactifs**: Soie d'écho, Soie de pénombre.",
+        "- **Chant**: ralentit la cible.",
+        "- **Onction**: écho: un quart des coups frappe une seconde fois pour moitié.",
+        "- **Remedy**: Vue claire: Vision nocturne, retire la cécité et l'obscurité."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Affaiblir",
+      "text": [
+        "**Réactifs**: Sceau de sentinelle, Croc pâle, Suaire du tumulus, Algue noyée.",
+        "- **Chant**: affaiblit la cible.",
+        "- **Onction**: Épuisement: affaiblit la cible.",
+        "- **Remedy** : Restauration : Célérité, lève la faiblesse, la lenteur et la fatigue."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Molosse",
+      "text": [
+        "**Réactifs** : Dent de faille, Griffe de guetteur, Oreille de gobelin, Croc de gobelin, Écaille de kobold, Corne de kobold.",
+        "- **Chant** : fait briller la cible.",
+        "- **Onction** : Soif de sang : vol de vie, 15% de chaque coup revient en santé.",
+        "- **Remedy** : Vigueur : Amélioration de santé."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Silence",
+      "text": [
+        "**Réactifs** : Velours de l'aube, Duvet de lanterne, Écaille de dos-mousse, Touffe de cendre, Laine de brouteur, Poussière de lueur, Aile de voltigeur, Corne de bondisseur, Enveloppe de larve, Laine huppée, Tendon de jarret, Duvet pâle, Toison d'escarpement, Défense de roche, Vessie à la dérive, Crête de prisme, Aile d'éclat, Écale luisante, Peau à la dérive, Sabot de givre, Voile de neige, Aile de cendre, Patte de marais, Sabot de fagne, Vessie de tourbière, Crête carillon, Aile de verre, Carapace de géode, Nageoire de limon, Banderole pâle, Écaille de haut-fond, Écorce de l'Âtre, Écorce d'ancien, Écorce de pin de givre, Écorce de cendre, Nœud pleureur, Spore de clochecap, Racine-échasse, Poussière de fée, Pétale de fée, Étincelle de fée.",
+        "- **Chant** : t'accorde un moment de régénération.",
+        "- **Onction** : Raccommodage : l'arme se répare en frappant.",
+        "- **Remedy** : Raccommodage : Régénération."
+      ]
+    }
+  ],
+  "next": "song_bench"
+}

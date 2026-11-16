@@ -1,0 +1,36 @@
+{
+  "name": "Flasque d'Esprit",
+  "icon": "tribalpower:spirit_flask",
+  "order": 35,
+  "items": [
+    "tribalpower:greater_spirit_flask"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_flask",
+      "text": [
+        "Un réservoir à porter. La flasque tient un fluide, **4 000 mB** (4 seaux) — la **Grande flasque d'Esprit** tient **16 000 mB**, autant qu'une [Citerne d'Esprit](spirit_cistern).",
+        "Elle ne se sépare jamais en une pile de seaux, et la quantité qu'elle tient s'affiche en barre sous l'icône, de la couleur du fluide."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Remplir et verser",
+      "text": [
+        "- **Utilise-la sur un réservoir ou une machine** (une Citerne d'Esprit, un Tambour des vagues, le réservoir d'un autre mod) et elle y puise ; si elle ne peut pas puiser, elle y verse ce qu'elle porte.",
+        "- **Utilise-la sur une source de fluide dans le monde** et elle en boit un seau.",
+        "- **Utilisation accroupie** et elle reverse un seau devant toi.",
+        "Les autres mods la voient comme un contenant de fluide ordinaire, donc les tuyaux et les machines de remplissage peuvent la remplir et la vider tant qu'elle est dans ton sac."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_flask"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:greater_spirit_flask"
+    }
+  ]
+}

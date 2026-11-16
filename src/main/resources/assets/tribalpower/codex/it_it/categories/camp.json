@@ -1,0 +1,6 @@
+{
+  "name": "Macchine dell'accampamento",
+  "icon": "tribalpower:grove_tender",
+  "order": 40,
+  "description": "Dispositivi che badano a un accampamento per te: coltivano, raccolgono, sorvegliano, pompano, illuminano la via e tengono i chunk svegli."
+}

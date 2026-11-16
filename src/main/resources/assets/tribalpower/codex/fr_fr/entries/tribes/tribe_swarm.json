@@ -1,0 +1,64 @@
+{
+  "name": "Gardiens de la colonie",
+  "icon": "tribalpower:tribe_mark",
+  "order": 100,
+  "spoiler": true,
+  "unlock": "tribe:swarm",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_swarm",
+      "title": "Gardiens de la colonie",
+      "text": [
+        "“Tu ne possèdes pas une ruche. Tu es en bons termes avec elle.”",
+        "Lignée d'**Essaim**, voix d'**Air**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qui ils sont",
+      "text": [
+        "Les Gardiens de la colonie ont fait passer la Pulsation par le rayon et ont planté les fleurs de la Marche pour leurs essaims. Prends sans demander et le rayon se tait. Leur ouvrage est **ruches et fleurs de la Marche**.",
+        "Leurs camps se tiennent dans les **forêts de fleurs**, les prairies et les bosquets de cerisiers, et dans la Marche un de leurs camps se tient dans chaque bande, du nord gelé jusqu'au sel."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'ils veulent",
+      "text": [
+        "Leur réactif est le **Duvet de lanterne**, qui vaut **+8** de rang à leur âtre.",
+        "Ils prisent aussi une Fiole de miel, un Rayon de miel, un Bloc de miel ou n'importe quelle fleur : **+3** chacun. Toute autre nourriture vaut **+1**, et une Cellule de Pulsation chargée **+2 pour chaque tranche de 10 Pulsation**, jusqu'à +8.",
+        "Rappelle-toi que l'âtre prend au plus **60** de rang par jour en offrandes ; voir [Tribus et rang](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que l'Ancien échange",
+      "text": [
+        "**Hôte** : 4 Rayon de miel contre 2 Éclats d'écho ; 2 Fioles de miel contre 2 Chardons de ley.",
+        "**Ami** : 8 Rayon de miel contre 2 Fleurs d'écho ; 2 Blocs de miel contre un Duvet de lanterne ; 4 Grain de steppe contre un Gâteau au miel.",
+        "**Parent** : 4 Écho accordé contre un Collecteur de ley ; 2 Écho lié contre 3 Espritissu.",
+        "Chaque échange rapporte **+2** de rang."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marque, totem et bienfait",
+      "text": [
+        "À **Voix**, l'Ancien te donne la Marque de tribu des Gardiens de la colonie. Fabrique-la avec un {item:tribalpower:resonance_totem_air} et deux Espritissu pour en faire leur [Totem de parenté](kinship_totem).",
+        "À côté d'un Résonateur de Pulsation, c'est une voix de plus ; à côté d'une station, il prête **Air**.",
+        "Les Parents des Gardiens de la colonie portent leur [bienfait](tribe_boons) : les abeilles ne se retournent jamais contre toi.",
+        "Leur plat porte le bienfait pendant **5 minutes**, et leur [relique](elders_and_stories) tant que tu la portes.",
+        "Leur échange de Parent contre de l'Espritissu est commode : chaque Totem de parenté en demande deux."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "swarm",
+      "title": "Ton travail avec eux",
+      "text": [
+        "Ce que l'Ancien des Gardiens de la colonie t'a demandé, et jusqu'où leur récit est allé. Voir [Anciens, requêtes et récits](elders_and_stories)."
+      ]
+    }
+  ]
+}

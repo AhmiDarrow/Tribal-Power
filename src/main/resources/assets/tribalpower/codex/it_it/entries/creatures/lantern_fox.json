@@ -1,0 +1,52 @@
+{
+  "name": "Volpe lanterna",
+  "icon": "tribalpower:lantern_down",
+  "order": 30,
+  "spoiler": true,
+  "items": [
+    "tribalpower:lantern_fox_spawn_egg",
+    "tribalpower:lantern_down"
+  ],
+  "next": "mossback",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:lantern_fox",
+      "text": [
+        "Una volpe timida del crepuscolo, con una lanterna accesa sulla punta della coda, che segna i sentieri sicuri. Spazzola gli adulti per ottenere Piumino di lanterna.",
+        "Cacciato, lascia anche Selvaggina cruda, da 1 a 2, e Cuoio della Marcia, fino a 1. Alleva con **bacche dolci**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Le volpi lanterna vivono nelle foreste dell'Overworld e quasi ovunque nella Marcia: soprattutto nei Campi di neve, ma anche nella steppa, sugli altipiani, nei Campi di cristallo, nell'Acquitrino dei canneti, sulla Cresta del barlume e persino nelle Distese di brace.",
+        "Una volpe ha **14 punti salute** e nessuna armatura. Scappa se viene ferita ed evita i mostri. Fallene riprodurre due con **bacche dolci**."
+      ],
+      "title": "Dove lo trovi"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Spazzola un adulto per ottenere **Piumino di lanterna**, una volta al minuto. Il piumino si lega in 2 Tessitospirito sotto l'Acqua, e i Custodi della colonia lo prediligono come offerta.",
+        "Una volpe cacciata lascia cadere Selvaggina cruda e a volte Cuoio della Marcia, ma mai il suo piumino, quindi spazzolarla è l'unico modo per ottenerlo."
+      ],
+      "title": "Cosa dà"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Una volpe legata è una lanterna che ti segue. Porta una luce invisibile ovunque cammini, ti dà Visione notturna finché resti vicino e segna i minerali vicini con bagliori che solo tu vedi.",
+        "I dettagli sono nella pagina dei [doni del famiglio](familiar_gifts)."
+      ],
+      "title": "Come famiglio"
+    },
+    {
+      "type": "text",
+      "title": "Caccia e allevamento",
+      "text": [
+        "Se cacciato lascia questo, di più con Saccheggio. La carne cade arrostita se l'animale è morto bruciando. Per far riprodurre quelli selvatici, **accovacciati** mentre nutri due adulti con il loro cibo; nutrito normalmente, un selvatico ti prende in simpatia invece."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Lugares profundos da Marcha",
+  "icon": "tribalpower:march_stone_bricks",
+  "order": 32,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Abaixo da escavação",
+      "text": [
+        "Todo o resto que a Marcha enterrou está só por cima — um túmulo sob a grama, uma tumba uma dúzia de blocos abaixo. Estes quatro estão mais para dentro, afundados na própria pedra, sem poço e sem entrada. Você os encontra minerando, ou seguindo uma caverna que se abre onde não deveria.",
+        "Leve uma tocha. Nenhum está iluminado por completo, e o que vive lá embaixo chegou primeiro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O Templo Profundo",
+      "text": [
+        "Um salão de colunas de Tijolos de pedra da Marcha, selado na rocha: um altar em degraus sob o meio, com uma **Tábua de relatos** na pedra de trás, lanternas de Espírito dos dois lados e um baú em cada canto distante. O chão é de pedra polida, e a entrada se fechou há muito tempo.",
+        "Guarda as coisas velhas — ecos vinculados, selos, trabalho afinado."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "A Galeria de escavação",
+      "text": [
+        "Alguém trabalhou este veio e parou. Madeira escorada, teto de tábuas, minério ainda nas paredes, e uma ponta sob uma queda de entulho que provavelmente explica a parada. Um baú de ferramentas e rações perto da boca.",
+        "Mais rasas que o resto: você as encontra onde o minério ainda vale a pena."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "A Abóbada do Brilho",
+      "text": [
+        "Só sob a **Crista do Brilho**. Uma câmara aparelhada de Pedra-da-lua e Pedra-da-lua polida, com Ágata musgosa assentada no chão em anéis, Vidro de quartzo iluminado posto na abóbada acima, e Quartzo da Marcha crescido da pedra — para cima a partir do chão, para baixo a partir do teto.",
+        "Quem a talhou estava se exibindo. O baú guarda a pedra própria da crista, e pedra luminosa para a iluminação."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O Ossuário",
+      "text": [
+        "Uma cripta: nichos cortados em três fiadas ao longo das duas paredes longas, osso posto neles, teia de aranha no resto, e uma lanterna de Espírito a cada poucos passos que de algum modo ainda queima. Um baú no fundo.",
+        "A mais profunda das quatro. É sobretudo osso e podridão, mas não só isso."
+      ]
+    }
+  ]
+}

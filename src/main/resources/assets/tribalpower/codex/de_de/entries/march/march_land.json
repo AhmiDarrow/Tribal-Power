@@ -1,0 +1,455 @@
+{
+  "name": "Boden und Wachstum des Marschs",
+  "icon": "tribalpower:march_grass",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:march_stone",
+    "tribalpower:march_cobble",
+    "tribalpower:march_soil",
+    "tribalpower:march_farmland",
+    "tribalpower:march_path",
+    "tribalpower:march_moss",
+    "tribalpower:march_log",
+    "tribalpower:march_planks",
+    "tribalpower:march_leaves",
+    "tribalpower:march_leaf",
+    "tribalpower:march_sapling",
+    "tribalpower:march_ore",
+    "tribalpower:march_crystal",
+    "tribalpower:spirit_reed",
+    "tribalpower:echo_bloom",
+    "tribalpower:ley_thistle",
+    "tribalpower:march_lily_pad",
+    "tribalpower:moon_lily",
+    "tribalpower:ribbon_weed",
+    "tribalpower:march_silt",
+    "tribalpower:veil_lichen",
+    "tribalpower:echo_roots",
+    "tribalpower:lantern_cap"
+  ],
+  "next": "march_underground",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "text": [
+        "Der Marsch hat seinen eigenen Boden: Marschgras über Marschboden, Marschstein darunter, und eigene Bäume, Blumen und Kristall.",
+        "Das meiste funktioniert wie die Oberwelt-Blöcke, die du kennst, mit ein paar Unterschieden, die du kennen solltest, bevor du dort baust."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Marschstein** ist das Gestein der ganzen Welt. Du brauchst mindestens eine **Steinhacke**, und er zerbricht zu **Marschbruchstein**, außer du benutzt Behutsamkeit. Schmelze den Bruchstein, um den Stein zurückzubekommen.",
+        "Unter dem Gras liegt **Marschboden**. Gras lässt Boden fallen, außer du benutzt Behutsamkeit, und es breitet sich nur auf Marschboden aus, bei gutem Licht. Knochenmehl auf Marschgras lässt Büschel von **Marschblatt** sprießen.",
+        "**Marschmoos** bedeckt das Schilfmoor und das Hochland. Manche Biome fügen Boden aus dem Grundspiel hinzu: Kalzit in den Kristallfeldern, Schnee und Packeis in den Schneefeldern, glatten Basalt in den Glutöden, Schlamm im Moor.",
+        "Ein Echozermalmer zermalmt Marschstein zu einer Echoscherbe und Marschbruchstein zu Kies."
+      ],
+      "title": "Stein und Boden"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Eine Hacke macht aus Marschboden, Gras oder Moos **Marschackerboden**, solange der Platz darüber frei ist. Wasser bis zu **4 Blöcke** weit hält ihn nass. Trocken gelassen oder zertrampelt wird er wieder zu Marschboden, nie zu Oberwelt-Erde.",
+        "Eine Schaufel macht aus denselben Blöcken einen **Marschpfad**, der ebenfalls zu Marschboden wird, wenn etwas ihn bedeckt.",
+        "Ein Marsch-Setzling wächst auf Marschgras und auf Marschackerboden."
+      ],
+      "title": "Ackerbau und Pfade"
+    },
+    {
+      "type": "scene",
+      "title": "Marschboden bearbeiten",
+      "steps": [
+        {
+          "caption": "Marschgras über Marschboden: der größte Teil des Bodens, auf dem du gehen wirst.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Eine Hacke pflügt Gras zu Marschackerboden, solange nichts obenauf liegt.",
+          "remove": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_farmland"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_farmland"
+            }
+          ],
+          "use": {
+            "pos": [
+              -1,
+              0,
+              0
+            ],
+            "item": "minecraft:iron_hoe"
+          },
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Wasser innerhalb von vier Blöcken hält ihn nass; trockener Ackerboden wird langsam wieder zu Marschboden.",
+          "remove": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_farmland[moisture=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_farmland[moisture=7]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Eine Schaufel macht aus Gras einen Marschpfad für deine Pfade.",
+          "remove": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_path"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_path"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_path"
+            }
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "minecraft:iron_shovel"
+          },
+          "highlight": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Marsch-Setzling schlägt Wurzeln im Gras, das übrig ist.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                -1
+              ],
+              "block": "tribalpower:march_sapling"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Marschbäume wachsen in Hainen im Hochland, in Gehölzen und einzeln in der Steppe, und in eigenen Formen im Moor und in den Schneefeldern.",
+        "Ein **Marsch-Stamm** ergibt **4 Marsch-Bretter**. Marsch-Laub lässt ab und zu einen Marsch-Setzling fallen (Glück hilft) und ein oder zwei Stöcke; Schere oder Behutsamkeit behalten das Laub selbst.",
+        "Marsch-Bretter stecken in vielem von Tribal Power: Trommeln, das Webstuhl-Totem, Hocker und Tische. Marschgras, Marschmoos, Marsch-Laub und Büschel von Marschblatt zählen alle als lebendiges Grün um einen Leysammler."
+      ],
+      "title": "Bäume"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Geistrohr** wächst dicht im Schilfmoor und spärlich in der Steppe. Es wird gebraucht für Liedranke, Leuchtschilf, Windanhänger, Gewebematte und Tafel des Frühlingsrufs, und die Wurzelbinder nehmen es als Opfer an.",
+        "- **Echoblüte** wächst in Schwaden, in ganzen Feldern über die Kristallfelder, und streut kleine Lichtfunken ab. Daraus wird die Glutschale.",
+        "- **Leydistel** liegt über dem größten Teil des Marschs verstreut, die Glutöden eingeschlossen. Nur Schmuck: pflücke sie für dein Lager.",
+        "Alle drei lassen sich auf jedem Boden des Marschs neu pflanzen, sogar auf nacktem Stein, und alle drei brennen."
+      ],
+      "title": "Blumen und Schilf"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Marschkristall** wächst an der Oberfläche, am dichtesten in den Kristallfeldern. Er leuchtet bei Licht **10**, braucht einen festen Block darunter und fällt mit jedem Werkzeug als derselbe Block. Daraus werden das Webstuhl-Totem, der Webstuhl-Anker, der Weganker, die Beschwörungswiege, der Astralkompass und die Astralrelais gebaut, und die Webstuhl-Näher lieben ihn. Geisterlichter sammeln sich um ihn.",
+        "**Marscherz** ist Geistererz im Stein, meist tief unter **y -8**, und in manchen Biomen weiter oben mehr davon. Es braucht eine Steinhacke und lässt **1 bis 2 Geistscherben** fallen (Glück gibt mehr). Mit Behutsamkeit behältst du den Block, und ein Echozermalmer macht daraus **2 Geistscherben**."
+      ],
+      "title": "Kristall und Marscherz"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_planks"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_stone",
+      "text": "Schmelze Marschbruchstein wieder zu Marschstein."
+    },
+    {
+      "type": "text",
+      "title": "Wasser und Höhlen",
+      "text": [
+        "Die Weiher des Marsches tragen **Marschseerosenblätter**, und hin und wieder eine **Mondlilie**, die nachts über dem Wasser leuchtet. **Bandkraut** wiegt sich darunter, verwurzelt in Betten aus grauem **Marschschlick** und Ton.",
+        "Unter der Erde tragen Höhlenwände und -decken schwach leuchtende **Schleierflechte**, **Echowurzeln** hängen vom Fels, und **Laternenhüte**, kleine leuchtende Pilze, erhellen den Höhlenboden.",
+        "Mit der Schere behältst du das Kraut, die Flechte und die Wurzeln."
+      ]
+    }
+  ]
+}

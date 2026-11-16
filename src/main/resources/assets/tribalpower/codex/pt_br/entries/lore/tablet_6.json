@@ -1,0 +1,16 @@
+{
+  "name": "Tábua: Colmeia dos Guardiões da colônia",
+  "icon": "tribalpower:lore_tablet",
+  "order": 160,
+  "spoiler": true,
+  "unlock": "tablet:6",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "De um Círculo de tambores na Marcha, nas palavras dos Guardiões da colônia:",
+        "“Você não possui uma colmeia. Está em bons termos com ela. Ofereça mel, plante as flores da Marcha, e o enxame conduzirá o Pulso pelo favo para você. Tome sem pedir e o favo se cala. Ele é muito paciente quanto a isso.”"
+      ]
+    }
+  ]
+}

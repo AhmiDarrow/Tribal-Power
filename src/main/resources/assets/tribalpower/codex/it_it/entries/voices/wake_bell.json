@@ -1,0 +1,184 @@
+{
+  "name": "Campana del risveglio",
+  "icon": "tribalpower:wake_bell",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wake_bell",
+      "text": [
+        "L'opera degli Intagliatori di sigilli: una campana che piange i morti. Ogni creatura che muore vicino versa Pulso nel suo serbatoio, così un allevamento di creature diventa una centrale."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Come paga",
+      "text": [
+        "Una morte entro **16 blocchi** paga **20 Pulso** per una creatura ostile e **5** per una passiva. Le morti dei giocatori non pagano nulla.",
+        "Le morti riempiono una riserva di **2,000**, che la campana lascia uscire al massimo **8 al secondo** senza grado. Il grado aggiunge **15% di Pulso al secondo** per grado, arrotondato a un Pulso intero. Una grande fattoria riempie la riserva e poi resta inattiva; ciò che supera il bordo si perde.",
+        "Solo la campana **più vicina** sente una morte, quindi impilare campane non serve a nulla. Una campana in pausa con la redstone non sente proprio nulla."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Una campana presso la fattoria",
+      "steps": [
+        {
+          "caption": "Appendi la campana entro 16 blocchi da dove le cose muoiono.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wake_bell"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ogni uccisione riempie la sua riserva; la campana la lascia uscire fino a 8 di Pulso al secondo.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un Tumulo di Pulso accanto ingoia quelle raffiche appena arrivano.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Le macchine entro 8 blocchi dal tumulo prelevano una linea costante, per quanto irregolari siano le uccisioni.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Consigli",
+      "text": [
+        "Vanno bene una fattoria buia o il campo di uccisione di un Tamburo di guardia. I giocatori non sono mai il bersaglio di un Tamburo di guardia, e la campana sente comunque ogni morte che esso causa.",
+        "Una Fossa d'ascolto vuole un prelievo costante, quindi abbina la campana a un Tumulo di Pulso.",
+        "Le campane sono l'opera degli [Intagliatori di sigilli](tribe_sigil): la ricetta richiede un Frammento di campana e un Sigillo di Spirito, e gli Intagliatori di sigilli scambiano una campana con il loro Consanguineo."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wake_bell"
+    }
+  ]
+}

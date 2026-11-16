@@ -1,0 +1,58 @@
+{
+  "name": "Festmähler",
+  "icon": "tribalpower:fire_feast",
+  "order": 30,
+  "items": [
+    "tribalpower:earth_feast",
+    "tribalpower:fire_feast",
+    "tribalpower:water_feast",
+    "tribalpower:air_feast",
+    "tribalpower:spirit_feast",
+    "tribalpower:loom_feast"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:earth_feast",
+      "title": "Ein Tisch fürs Lager",
+      "text": [
+        "Ein Festmahl ist ein großes Gericht für alle. Stell es auf einen festen Block, und es hält **sechs Portionen**; jede, die du isst, füllt dich und gewährt den [Segen](voice_blessings) dieser Stimme für **8 Minuten**.",
+        "Koche eines am Herdtopf aus den Gerichten und Feldfrüchten seiner Stimme: ein Erdefestmahl aus dem Brei der Polsterhüter und Griesbrot, ein Feuerfestmahl aus Dörrfleisch und Chili, und so weiter. Jedes Rezept steht in JEI unter dem Topf.",
+        "Ein Lager, das vor einer Nacht im Marsch ein Festmahl teilt, zieht gemeinsam gesegnet hinaus. Ein Komparator liest, wie viele Portionen übrig sind."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Bei Tisch",
+      "text": [
+        "Du kannst nur eine Portion nehmen, wenn du hungrig bist. Jede füllt **6** Hunger und gibt den Segen auf Stufe I.",
+        "Ein ganzes Festmahl hebst du wieder auf, wenn du es zerbrichst. Fehlt erst eine Portion, zerbricht es zu nichts, also verschieb es, bevor du anfängst.",
+        "Iss eines innerhalb von **24 Blöcken** vom Herd eines Stammes während seines [Fests](living_march), und der Stamm zählt dich an seinem Tisch: **20 Ansehen**, einmal je Fest."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:earth_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fire_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:water_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:air_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_feast"
+    }
+  ]
+}

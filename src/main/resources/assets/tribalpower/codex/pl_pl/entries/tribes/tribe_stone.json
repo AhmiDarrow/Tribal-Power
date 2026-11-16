@@ -1,0 +1,65 @@
+{
+  "name": "Śpiewacy żwiru",
+  "icon": "tribalpower:tribe_mark",
+  "order": 50,
+  "spoiler": true,
+  "unlock": "tribe:stone",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_stone",
+      "title": "Śpiewacy żwiru",
+      "text": [
+        "“Siatka nie znajduje rudy. Siatka daje rudzie miejsce, gdzie może osiąść.”",
+        "Pasmo **Kamień**, głos **Ziemia**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Kim są",
+      "text": [
+        "Śpiewacy żwiru śpiewali nisko nad surowym kamieniem, aż ten puścił, i jeszcze niżej, aż rozpadł się w echo. Ich rzemiosło to **Kruszarka echa** i siatki.",
+        "Ich obozy stoją w **górach** i na kamienistych brzegach, a w Marszu ich obóz stoi w każdym pasie, od zamarzniętej północy do soli."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Czego chcą",
+      "text": [
+        "Ich reagent to **Dostrojone echo**, warte **+8** reputacji przy ich palenisku.",
+        "Cenią też surową rudę, bloki rudy, Żelazny żwir, Złoty żwir albo Miedziany żwir: **+3** każde. Każde inne jedzenie jest warte **+1**, a naładowane Ogniwo Pulsu **+2 za każde 10 Puls**, do +8.",
+        "Pamiętaj: palenisko bierze najwyżej **60** reputacji dziennie z ofiar; zobacz [Plemiona i reputacja](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co wymienia Starszy",
+      "text": [
+        "**Gość**: 4 Surowe żelazo za 3 Odłamki echa; 4 Dostrojone echo i 8 Kamień Marszu za Siatkę rezonansu.",
+        "**Przyjaciel**: 6 Żelazny żwir za 2 Dostrojone echo; 3 Surowe złoto za 4 Złoty żwir; 4 Ziarno stepu za Chleb żwirowy.",
+        "**Ród**: 6 Dostrojone echo za 2 Związane echo; 4 Związane echo za Kruszarkę echa.",
+        "Każdy handel daje **+2** pozycji."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Znak, totem i dar",
+      "text": [
+        "Przy **Głos** Starszy daje ci Znak plemienia Śpiewaków żwiru. Wytwórz go z {item:tribalpower:resonance_totem_earth} i dwie Duchotkanina w ich [Totem pokrewieństwa](kinship_totem).",
+        "Obok Rezonatora Pulsu to jeszcze jeden głos; obok stacji użycza **Ziemia**.",
+        "Ród Śpiewaków żwiru niesie swój [dar](tribe_boons): ruda, którą kruszysz, ma szansę **jeden na pięć**, by dać jedną więcej.",
+        "Ich danie niesie dar przez **5 minut**, a ich [relikt](elders_and_stories) tak długo, jak je nosisz.",
+        "Twoja pozycja u Śpiewaków żwiru decyduje, jak głęboko może nasłuchiwać [Dół nasłuchu](listening_pit): **Przyjaciel** dla zwykłej rudy, **Ród** dla pasów głębokiego i gorącego, **Głos** dla rzadkiego. Ich Totem pokrewieństwa to jeden z dwóch sposobów, by otworzyć głębsze pasy.",
+        "Przy **Głos** możesz też związać **Odłamkogrzbiet** jako [chowaniec](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "stone",
+      "title": "Twoja praca z nimi",
+      "text": [
+        "O co Starszy Śpiewaków żwiru cię poprosił i jak daleko zaszła ich opowieść. Zobacz [Starsi, zlecenia i opowieści](elders_and_stories)."
+      ]
+    }
+  ]
+}

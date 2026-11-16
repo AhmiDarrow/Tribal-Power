@@ -1,0 +1,33 @@
+{
+  "name": "Pierścień głosu",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 50,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Sześć głosów, ułożonych",
+      "text": [
+        "[Rezonator Pulsu](pulse_resonator) liczy co najwyżej **pięć** głosów z luźnej sterty totemów, włącznie z Totem pokrewieństwa. Aby liczyć wszystkie sześć żywiołów plus pokrewieństwo, głosy muszą być **ułożone**.",
+        "Pierścień głosu to osiem miejsc wokół rezonatora, **trzy bloki** na zewnątrz na stronach świata i na przekątnych, wszystkie na poziomie samego rezonatora. Osiem, bo sześć równo rozstawionych totemów nie mieści się na kwadratowej siatce."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "voice_ring",
+      "tier": 1,
+      "title": "Pierścień",
+      "text": "Totem w każdym z ośmiu miejsc, trzy bloki od Rezonatora."
+    },
+    {
+      "type": "text",
+      "title": "Wypełnianie pierścienia",
+      "text": [
+        "Każde miejsce potrzebuje Totem rezonansu. Totem pokrewieństwa nie może wypełnić miejsca, ale i tak dodaje swoje plemię z dowolnego punktu w zasięgu 8 bloków. Liczą się tylko **różne** głosy, szósty włącznie: dwa totemy Ziemi to wciąż jeden głos, więc wolne miejsca mogą trzymać duplikaty.",
+        "Liczą się tylko totemy w stanie **Odezwany**; cichy trzeba najpierw obudzić (zobacz [Strzeżenie](keeping)).",
+        "Osadź katalizator jak zwykle. Przykucnij i kliknij prawym przyciskiem Rezonator tą książką, by zobaczyć jego katalizator i ile głosów słyszy. Jeśli staje na pięciu przy sześciu głosach wokół, miejsce pierścienia wciąż jest puste."
+      ]
+    }
+  ]
+}

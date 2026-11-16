@@ -1,0 +1,18 @@
+{
+  "name": "Quand les accords ont échoué",
+  "icon": "tribalpower:lore_tablet",
+  "order": 20,
+  "spoiler": false,
+  "next": "continents_of_thread",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Personne n'a tranché le Métier. On l'a tiré de neuf côtés, et ce Codex ne peut dire quel fil a cédé le premier. Les tribus non plus, à la fin. Un instant le ciel était un sol. L'instant d'après, les accords ont échoué dans le même souffle.",
+        "Les Gardiens des litières l'ont senti les premiers : les âtres ont refroidi alors que le ciel semblait encore entier. Puis les ancres vivantes des Lieurs de racines ont tenu une saison, et c'est pour cette saison qu'il reste quelque chose ici-haut.",
+        "Les Gardiens ont cédé dans leurs arènes. Les chants ont continué sans personne pour les entendre. Les voies de porte sont restées ouvertes sur nulle part.",
+        "C'était un nœud qui se défaisait. Les continents sont tombés le temps d'un roulement de tambour. Ce qui n'est pas tombé est une litière de terre dont les Brins se souviennent encore. Tu te tiens sur des restes qui ont appris à être un sol."
+      ]
+    }
+  ]
+}

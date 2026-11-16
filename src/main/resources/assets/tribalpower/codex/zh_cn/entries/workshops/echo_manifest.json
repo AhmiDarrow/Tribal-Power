@@ -1,0 +1,260 @@
+{
+  "name": "回响显化",
+  "icon": "tribalpower:echo_manifest",
+  "order": 50,
+  "items": [
+    "tribalpower:manifested_ingot",
+    "tribalpower:resonant_core"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_manifest",
+      "text": [
+        "灵之工位，在网格顶端。回响显化把束缚回响变成**显化锭**，再把锭变成**共鸣核心**，也就是本书中最精良的装备与机器的心脏。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "用法",
+      "text": [
+        "将回响显化放在灵图腾周围8个方块以内。",
+        "- 束缚回响到显化锭：**5秒**，**每秒64脉动**。",
+        "- 显化锭到共鸣核心：**8秒**，**每秒80脉动**。",
+        "共鸣核心用于高级脉动电池、灵织长袍和灵织护腿、六叠法杖、远距中继器与门心石。灵械工具只需显化锭。放入脉动共鸣器后，核心就是其中最强的晶体。",
+        "一份守护者战利品与一根织机线可制成六个共鸣核心；参见[守护者](guardians)。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "整根柱",
+      "steps": [
+        {
+          "caption": "回响显化，旁边是灵图腾。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_manifest"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "把回响束缚放在上面，并配水图腾：束缚回响会向下走进回响显化。",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "再在其上放置回响调谐，并配火图腾，以组成整条链。",
+          "place": [
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "范围内有发电机时，回响碎片从顶部进入，显化锭从底部出来。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              2,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "提示",
+      "text": [
+        "用漏斗从底部收集。要做核心，就把锭放回回响显化的输入端。",
+        "回响显化也是给机器和灵械升阶时的最后一站。",
+        "拉杆会暂停工位。本书中的配方，或JEI，会列出时间和脉动。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_manifest"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:manifested_ingot"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonant_core"
+    }
+  ]
+}

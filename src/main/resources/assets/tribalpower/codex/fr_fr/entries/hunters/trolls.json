@@ -1,0 +1,74 @@
+{
+  "name": "Trolls",
+  "icon": "tribalpower:troll_hide",
+  "order": 320,
+  "spoiler": true,
+  "items": [
+    "tribalpower:crag_troll_spawn_egg",
+    "tribalpower:rime_troll_spawn_egg",
+    "tribalpower:slag_troll_spawn_egg",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:slag_hide"
+  ],
+  "next": "goblins",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Trolls",
+      "text": [
+        "Grands, lents à tomber et prompts à la colère. Trois sortes de troll tiennent la haute pierre de la Marche et sa chaleur, et toutes les trois te chassent."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:crag_troll",
+      "title": "Troll de la falaise",
+      "text": [
+        "On le trouve dans les Hautes Terres. Il se dresse de nuit sur le sol ouvert, un ou deux à la fois.",
+        "Chassé, il lâche aussi de 1 à 3 Cuir de la Marche, de 1 à 2 os et jusqu'à 2 silex."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:rime_troll",
+      "title": "Troll de givre",
+      "text": [
+        "On le trouve dans les Champs de neige. Il se dresse de nuit sur le sol ouvert, un ou deux à la fois.",
+        "Chassé, il lâche aussi 1 à 3 Cuir de la Marche, 1 à 2 os et 1 à 3 boules de neige."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slag_troll",
+      "title": "Troll de scories",
+      "text": [
+        "On le trouve dans les Terres désolées de braise, près de la lave et sur la pierre chaude alentour, de jour comme de nuit, un ou deux à la fois. Il est **immunisé contre le feu**.",
+        "Chassé, il lâche aussi 1 à 3 Cuir de la Marche, 1 à 2 os et 1 à 3 pépites de fer."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "En combattre un",
+      "text": [
+        "Un troll a **69 de santé** et **6 d'armure** et frappe pour **9**. Le coup d'un Troll de la falaise ou d'un Troll de givre te repousse ; celui d'un Troll de scories t'enflamme pendant 2 secondes.",
+        "Garde tes distances, et ne combats jamais l'un d'eux avec de la lave dans le dos."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'ils donnent",
+      "text": [
+        "Chacun lâche **1 à 2** de sa peau, plus avec Butin. **Peau de troll** et **Peau de givre** sont des réactifs de Poussée, **Peau de scories** un réactif de Braise : voir [réactifs](reagents).",
+        "Les trolls ne se lient jamais."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chasse et troupeau",
+      "text": [
+        "Outre son réactif, chacun en lâche plus quand on le chasse, et encore plus avec Butin."
+      ]
+    }
+  ]
+}

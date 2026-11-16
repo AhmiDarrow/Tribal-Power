@@ -1,0 +1,79 @@
+{
+  "name": "Bassin de pierre",
+  "icon": "tribalpower:stone_font",
+  "order": 40,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:stone_font",
+      "text": [
+        "Le Bassin de pierre demande à la pierre de rester. Donne-lui de la Pulsation et la bonne forme autour, et il se remplit de pierres, puis de pierre, puis d'obsidienne.",
+        "Les pierres sans renfort sont assez bon marché pour tourner sur un [Cœur-tambour](drumheart) joué à la main, donc c'est le premier motif que la plupart des camps construisent."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 1,
+      "title": "Pierres : le bassin et quatre marques",
+      "text": "Trace une marque de craie de chaque côté du bassin, sur le même sol."
+    },
+    {
+      "type": "text",
+      "title": "Pierres",
+      "text": [
+        "Avec ses quatre marques et un Cœur-tambour tissé jusqu'à lui par un conducteur dans un rayon de **8 blocs**, le bassin fait **un bloc de pierres toutes les 2 secondes** à **4 Pulsation par seconde**. Aucune voix n'est nécessaire.",
+        "Ses emplacements sont uniquement de sortie : n'envoie pas de pierres avec un entonnoir, le bassin fait les siennes. Accroupis-toi et fais un clic droit avec la main vide pour prendre ce qu'il a fait, ou utilise un entonnoir ou un relais. Sans rien à l'intérieur, le même clic accroupi fait défiler la face cliquée : Les deux, Entrée, Sortie et Fermé. Les plaques marchent aussi bien dessus que dessous : une plaque d'objets sur l'une ou l'autre sort la pierre, et une plaque de fluides réglée sur l'un ou l'autre verse de l'eau ou de la lave.",
+        "Les pierres du bassin servent à construire et à être martelées en gravier et en sable. Le Broyeur d'écho ne fait des éclats d'écho qu'à partir de pierre, pas de pierres, et la pierre est ce que fait le palier suivant."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 2,
+      "title": "Pierre et obsidienne : renforce-le",
+      "text": "Garde les quatre marques et ajoute une Pierre d'ancre à chaque coin d'un 5x5 autour du bassin."
+    },
+    {
+      "type": "text",
+      "title": "Pierre",
+      "text": [
+        "Renforcé, et avec la voix **Terre** à portée, le bassin fait **de la pierre toutes les 3 secondes** à **32 Pulsation par seconde**. Cette pierre est exactement ce que le Broyeur d'écho transforme en éclats d'écho.",
+        "Le totem de Terre doit rester éveillé (voir [Maintien](keeping)) : tant qu'il est pâle, chaque pierre prend environ 30% de plus, et une fois silencieux la pierre s'arrête. Les pierres n'ont jamais besoin de Terre."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Obsidienne",
+      "text": [
+        "L'obsidienne exige le renfort et Terre, plus l'une de ces deux choses :",
+        "- Les voix **Feu et Eau**, toutes deux à portée : de l'obsidienne toutes les **12 secondes** à **48 Pulsation par seconde**.",
+        "- Ou fais arriver par tuyau **250 mB d'eau et 250 mB de lave** pour chaque bloc : la même obsidienne à seulement **12 Pulsation par seconde**. Le bassin contient jusqu'à 4000 mB de chacun.",
+        "Envoyer des fluides dans un bassin sans renfort ne fait rien. Si Feu et Eau sont tous deux présents, le bassin utilise les voix et ne touche pas à ses réservoirs."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Profondeur et rangs",
+      "text": [
+        "Sous **y 0**, le bassin donne l'ardoise des abîmes de chaque palier : pierres des abîmes, puis ardoise des abîmes. L'obsidienne reste de l'obsidienne. Une Fosse d'écoute n'accepte pas l'ardoise des abîmes, donc construis le bassin qui alimente une fosse au-dessus de **y 0**.",
+        "Donne un rang au bassin comme à n'importe quel autre atelier : des demandes plus rapides, plus de Pulsation par seconde."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lire le bassin",
+      "text": [
+        "Un comparateur contre le bassin lit où il en est du bloc qu'il fabrique, et retombe à 0 tant qu'il attend quoi que ce soit.",
+        "Si le bassin est inactif, accroupis-toi et fais un clic droit dessus avec ce livre. Il nomme les marques, les ancres et les voix manquantes."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:stone_font"
+    }
+  ],
+  "next": "listening_pit"
+}

@@ -1,0 +1,53 @@
+{
+  "name": "Dalekie wrota",
+  "icon": "tribalpower:gate_sigil",
+  "order": 40,
+  "next": "keeping_the_way",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_sigil",
+      "text": [
+        "Wrota, które przechodzą między światami. Dalekie wrota to wyższa rama, wsparta Kamieniami kotwicznymi, obdarzona głosem przez Krosno i powiązana Sygilem wrót. Głos Krosna stawia inne światy za Niezaśpiewany."
+      ],
+      "title": "Dalekie wrota"
+    },
+    {
+      "type": "pattern",
+      "pattern": "far_gate",
+      "title": "Budowa ramy",
+      "text": "Pierścień jest o jedną warstwę wyższy, wokół wnętrza szerokiego na trzy i wysokiego na cztery. Cztery Kamienie kotwiczne stoją w narożnikach jego obrysu, przed ramą i za nią."
+    },
+    {
+      "type": "text",
+      "title": "Czego potrzeba",
+      "text": [
+        "Trzynaście ram wrót, jeden Zwornik wrót i cztery [Kamienie kotwiczne](anchor_stone).",
+        "Głos **Krosno** w zasięgu **8 bloków** od zwornika (zobacz [Szósty głos](sixth_voice)). Bez niego wrota się nie zapalą, a zapalone zgasną.",
+        "Zwornik w ramie Dalekich wrót mieści do **2,000 Puls**. Wlewaj go Ogniwami Pulsu, do 100 naraz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sygil wrót",
+      "text": [
+        "Zrób sygiel z Czysta pieczęć, Nić Krosna i Odłamek Ducha.",
+        "Kucnij i kliknij prawym jeden zwornik nim, aby zapisać te wrota. Potem kliknij prawym drugi zwornik, aby związać oba, w obie strony, nawet w innym świecie.",
+        "Oba końce muszą być Dalekie wrota, aby przechodzić między światami. Serwer może całkiem wyłączyć Dalekie wrota."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zapalanie i przejście",
+      "text": [
+        "Zapalenie kosztuje **1,200 Puls** z własnych **2,000** wrót. Każde przejście kosztuje **120**, a po nim następuje odnowienie **dwie sekundy**.",
+        "Cała reszta działa jak Wrota drogi: ręka albo uderzony sygnał, by zapalić, lądowanie wewnątrz dalekiej ramy, odmowa i zwrot, gdy nie ma gdzie stanąć.",
+        "Przybycie na Marsz przez Dalekie wrota liczy się jako wizyta, tak jak Bęben wrót."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_sigil"
+    }
+  ]
+}

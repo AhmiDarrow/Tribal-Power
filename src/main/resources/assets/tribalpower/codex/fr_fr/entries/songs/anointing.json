@@ -1,0 +1,59 @@
+{
+  "name": "Onction",
+  "icon": "tribalpower:spiritgear_greatsword",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_bench",
+      "title": "Un réactif dans la lame",
+      "text": [
+        "L'onction travaille le pouvoir d'un réactif dans une arme, pour que chaque coup le porte. Cela se fait à l'[Établi du chant](song_bench), et l'arme le garde pour de bon, jusqu'à ce que tu choisisses de le remplacer.",
+        "Une arme ne tient qu'**une onction à la fois**. L'oindre de nouveau avec un réactif d'une autre famille échange l'ancien pouvoir contre le nouveau ; un réactif de la famille qu'elle porte déjà est refusé, ainsi tu ne gaspilles jamais de réactifs par accident."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Comment faire",
+      "text": [
+        "1. Dresse un [Totem de résonance](six_voices) de n'importe quelle voix à 8 blocs de l'établi, avec un générateur chargé à portée.",
+        "2. Garde ta Bourse de réactifs dans la barre de raccourcis, avec au moins **4 renforcés** réactifs du type que tu veux.",
+        "3. Mets l'arme dans l'**emplacement d'arme** de l'établi, à côté de la sortie.",
+        "4. Clique sur ce réactif dans la liste pour le choisir, puis appuie sur **Oindre**. Cela coûte les 4 réactifs et **32 Pulsation**.",
+        "L'infobulle de l'arme montre son onction et le réactif dont elle vient."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qui peut être oint",
+      "text": [
+        "Toute arme d'Espritoutillage, de la Lame à la [famille plus récente](spiritgear_weapons). Rien d'autre n'accepte le travail de l'établi : ni une épée vanilla, ni celle d'un autre mod.",
+        "Les auteurs de packs peuvent l'ouvrir à davantage grâce au tag d'objet **tribalpower:anointable**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les onze onctions",
+      "text": [
+        "- **Brûlant** (Braise) : brûle la cible et ajoute du feu à chaque coup.",
+        "- **Appel de tempête** (Éclair) : un quart des coups lance un arc de foudre sur deux hostiles proches.",
+        "- **Engelure** (Froid) : ralentit et gèle la cible.",
+        "- **Venin** (Venin) : empoisonne la cible.",
+        "- **Bourrasque** (Rafale) : projette la cible en arrière et vers le haut.",
+        "- **Enracinement** (Racine) : un cinquième des coups enracine la cible sur place."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les onze onctions, suite",
+      "text": [
+        "- **Fracassement** (Poussée) : les coups mordent plus fort plus la cible porte d'armure.",
+        "- **écho** (Trame) : un quart des coups frappe une seconde fois pour moitié.",
+        "- **Sape** (Affaiblissement) : affaiblit la cible.",
+        "- **Soif de sang** (Limier) : vol de vie, 15% de chaque coup revient en santé.",
+        "- **Raccommodage** (Calme) : l'arme se répare en frappant.",
+        "Les onctions ne partent que sur tes propres coups de mêlée, pas les flèches ni les sorts. Chaque nombre est dans la section **anointing** de la config commune, pour qu'un pack puisse les régler."
+      ]
+    }
+  ]
+}

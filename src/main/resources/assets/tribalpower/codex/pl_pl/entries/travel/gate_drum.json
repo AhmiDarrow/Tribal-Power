@@ -1,0 +1,164 @@
+{
+  "name": "Bęben wrót",
+  "icon": "tribalpower:gate_drum",
+  "order": 10,
+  "next": "waystone_compass",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_drum",
+      "text": [
+        "Drzwi na Marsz, świat, który plemiona zostawiły za sobą. Nie trzeba Pulsu: **odbij jego rytm**, a sam rytm otworzy drogę."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Przejście na drugą stronę",
+      "text": [
+        "Kliknij prawym bęben **pustą ręką**, aby zacząć **Obrzęd wrót**. Gra pieśń bębnów od 20 do 30 sekund, a jej uderzenia spadają ku linii na czterech bębnach w rzędzie: **A** to głęboki bęben ramowy, **S** niski tom, **D** wysoki bęben ręczny, a **F** grzechotka.",
+        "Uderz w każdy bęben, gdy jego uderzenie dojdzie do linii, razem z muzyką. Grzechotka odlicza ci wejście, a rytm rośnie w miarę pieśni.",
+        "Cztery bębny odpowiadają na **A**, **S**, **D** i **F**, a klawisze strzałek też zawsze działają. Każdy bęben możesz przypisać innemu klawiszowi w Tribal Power, w Opcjach, Sterowanie; A, S, D i F i tak dalej biją."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trafić w rytuał",
+      "text": [
+        "Traf **60%** uderzeń, a wrota się otworzą i przeniosą cię. Naciśnięcie, gdy nie ma uderzenia, liczy się na twoją niekorzyść, więc trzymaj rytm, zamiast bębnić na oślep. Jeśli zawiedziesz albo przerwiesz przez **Esc**, po prostu uderz w bęben, by spróbować znów.",
+        "Świat nie staje, kiedy bębnisz, więc najpierw oczyść teren. Sygnał redstone blokuje bęben i nie przejdziesz, gdy jedziesz wierzchem.",
+        "Przybywasz na powierzchnię Marszu, w to samo miejsce na mapie. Pierwsza wizyta dostraja cię do Głębokiej skrytki, więc otwarcie jednej jest odtąd darmowe."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Otwieranie drogi",
+      "steps": [
+        {
+          "caption": "Postaw Bęben wrót tam, gdzie jest wokół miejsce.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:gate_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Kliknij prawym przyciskiem z pustymi rękami i wybij rytm na A, S, D i F, by wejść do Marszu.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Powrót do domu",
+      "text": [
+        "W Marszu wybij rytuał na **dowolnym** Bębnie wrót, aby wrócić do domu, więc weź drugi bęben i postaw go tam.",
+        "Zabiera cię z powrotem tam, skąd wyszedłeś, na najbliższe bezpieczne miejsce obok, z dala od ognisk, płyt i okablowania. Jeśli tego miejsca nie ma, zabiera cię do punktu odrodzenia.",
+        "Twój punkt powrotu zostaje nawet wtedy, gdy zginiesz w Marszu.",
+        "Kompas astralny związany w domu też działa. Kamień drogi albo Kompas horyzontu zostaje w jednym świecie, więc nie może cię sprowadzić z powrotem."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zanim wyruszysz",
+      "text": [
+        "Weź jedzenie, zbroję i pełne Ogniwa Pulsu.",
+        "Marsz ma pięćdziesiąt dziewięć krain w sześciu pasach; pierwsze, na które raczej trafisz, to Step, Wyżyny, Kryształowe pola, Śnieżne pola, Pustkowia żaru, Trzcinowe moczary, Grzbiet migotu i Mielizny. Przeczytaj każdą tabliczkę w [Sali przodków](ancestor_hall) i szukaj [Kręgów bębnów](drum_circle) na Wyżynach.",
+        "Zobacz [Marsz](the_march), co tam żyje."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_drum"
+    }
+  ]
+}

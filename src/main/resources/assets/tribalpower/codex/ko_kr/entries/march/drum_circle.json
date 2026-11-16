@@ -1,0 +1,396 @@
+{
+  "name": "북의 원",
+  "icon": "tribalpower:silent_drum",
+  "order": 50,
+  "spoiler": true,
+  "items": [
+    "tribalpower:music_disc_drum_circle"
+  ],
+  "next": "the_unsung",
+  "pages": [
+    {
+      "type": "image",
+      "image": "drum_circle",
+      "text": [
+        "꼭대기에 랜턴이 있는 기둥 열둘이 마치 고지에서 침묵의 북을 둘러싼다."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "북의 원은 고지의 트인 곳에 서 있어 능선에서 찾기 쉽다. 한가운데에 **침묵의 북**. 그 지킴이 [노래되지 않은 자](the_unsung)는 누군가 칠 때까지 잠든다.",
+        "기둥 사이의 상자에는 원의 사박자 **음반**이 항상 들어 있다. 뼈, 양초, 메아리 조각, 가끔 뼈 방울도. 근처에 전승 서판 두 개가 걸려 있다.",
+        "치기 전에. 귀환 나침반을 묶고, 음식, 갑옷, 충전된 펄스 전지, 뼈 방울을 가져와라. 할 수 있으면 친구를 데려와라. 싸움은 몇 분 간다."
+      ],
+      "title": "여기 있는 것"
+    },
+    {
+      "type": "scene",
+      "title": "사박자를 치기",
+      "steps": [
+        {
+          "caption": "침묵의 북은 랜턴 기둥 고리의 한가운데에 있다.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                -2,
+                1,
+                -2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                -2,
+                1,
+                2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                -2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:silent_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "첫 박. 맨손이나 뼈 방울로 우클릭.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "둘째 박은 약 1초 뒤. 너무 이르거나 늦으면 둔탁하게 울리고 처음부터다.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "셋째 박과 넷째 박은 같은 고른 속도.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "넷째 박에 북이 응답하고, 노래되지 않은 자가 원의 한가운데에서 일어난다.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "각 박은 앞의 박 다음 **16~28게임 틱**에 떨어져야 한다. 약 1초다. 마지막에서 4틱 안의 타격은 무시되고, 틀린 박은 둔탁하게 울리며 셈을 되돌린다. 너무 오래 기다리면 반쯤 친 리듬은 사라진다.",
+        "각 북은 **실제 시간 이십 분**에 한 번만 응답한다. 지킴이가 이미 깨어 있는 동안에는 응답하지 않는다. 몇 분 남았는지 알려 준다. 모두 떠나 노래되지 않은 자가 초기화되면, 북은 바로 다시 칠 수 있다.",
+        "비교기가 북을 읽는다. 센 박마다 **3**, 리듬이 끝나면 **15**가 번쩍인다."
+      ],
+      "title": "리듬, 정확히"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:silent_drum",
+      "text": "직접 만든 북도 리듬은 지킨다. 그러나 노래되지 않은 자는 제단에서만 일어난다. 북 아래는 윤나는 심층암, 네 모서리마다 **켜진** 양초. 북의 원은 이미 그렇게 지어져 있다."
+    }
+  ]
+}

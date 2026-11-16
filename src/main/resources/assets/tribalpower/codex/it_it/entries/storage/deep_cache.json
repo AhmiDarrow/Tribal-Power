@@ -1,0 +1,45 @@
+{
+  "name": "Deposito profondo",
+  "icon": "tribalpower:deep_cache",
+  "order": 20,
+  "items": [
+    "tribalpower:wayfarer_satchel"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:deep_cache",
+      "text": [
+        "Un caveau, ovunque. Ogni Deposito profondo che piazzi apre lo stesso caveau personale da **54 scomparti**, così un baule a casa e uno in un avamposto lontano tengono le stesse cose. Una Bisaccia del viandante lo apre dalla tua tasca."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Aprirlo",
+      "text": [
+        "Una volta messo piede nella Marcia, sei sintonizzato, e ogni apertura è gratuita.",
+        "Fino ad allora, ogni apertura costa **5 Pulso** da una Cella di Pulso che porti.",
+        "Il caveau è tuo, non del blocco. Rompere un Deposito profondo non fa perdere nulla; piazzane un altro e le tue cose sono lì.",
+        "Una leva blocca quel blocco di deposito. Il caveau in sé non viene mai svuotato da una pausa."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La Bisaccia del viandante",
+      "text": [
+        "La bisaccia apre lo stesso caveau da ovunque, con la stessa regola di sintonia. È una chiave, non una borsa: nell'oggetto stesso non c'è nulla, quindi non si può duplicare né perdere con il contenuto. Il caveau non accetta una bisaccia, così non puoi mai chiudere la chiave dentro.",
+        "Se appartieni a un [accampamento condiviso](shared_camps), un Deposito profondo o una bisaccia apre il caveau condiviso dell'accampamento. Accovacciati mentre lo apri per passare al tuo caveau personale e tornare; ricorda la scelta. Il caveau dell'accampamento è un inventario a parte.",
+        "Il tasto **Caveau della bisaccia** passa tra il caveau dell'accampamento e il tuo senza aprire nulla. Inizia non assegnato: impostalo sotto Tribal Power in Opzioni, Controlli.",
+        "Ogni vista del caveau ha un pulsante **Riordina** sopra gli scomparti, che unisce e ordina il contenuto; vedi [Deposito ancestrale](ancestral_cache)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:deep_cache"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wayfarer_satchel"
+    }
+  ]
+}

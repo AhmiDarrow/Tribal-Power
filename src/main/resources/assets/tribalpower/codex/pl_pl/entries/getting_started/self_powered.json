@@ -1,0 +1,184 @@
+{
+  "name": "Energia, która trwa",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 30,
+  "next": "moving_power",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Bębnienie daje ci start, ale obóz potrzebuje energii, gdy cię nie ma. [Rezonator Pulsu](pulse_resonator) robi Puls sam, gdy osadzisz w nim kryształ i dasz mu towarzystwo. Wytwórz go z żelaza, ametystu, dwóch Miedzianych rezonatorów i Odłamka Ducha.",
+        "Weź Odłamek echa ze swojej Kruszarki echa i kliknij nim prawym Rezonator. Odłamek zostaje w środku jako katalizator i Puls, który powstaje, powoli go zużywa: jeden odłamek starcza na około 20,000 Puls, mniej więcej czterdzieści minut przy pierwszym tempie. Miej zapasowy.",
+        "Potem postaw w pobliżu totemy **dwóch różnych głosów**, na przykład Ziemia i Ogień. Dwa totemy Ziemi nadal liczą się jako jeden głos. Trzymaj Przewodnik kraty w zasięgu Rezonatora i totemów: niesie Puls Rezonatora do twoich maszyn i utrzymuje pełne bufory totemów, a więc i ich głosy."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Osadzanie Rezonatora",
+      "steps": [
+        {
+          "caption": "Postaw Rezonator Pulsu na otwartym gruncie.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Kliknij go prawym z Odłamkiem echa. Odłamek siedzi w środku jako katalizator, aż Puls, który powstaje, go zużyje.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dodaj totem Ziemi w odległości 8 bloków.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dodaj drugi, inny głos, na przykład Ogień. Teraz sam robi 8 Puls na sekundę.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Powolny start",
+      "text": [
+        "Osiem Puls na sekundę to skromnie; zajęta stacja może zużywać szybciej. Niech zbierze się zapas i przeczytaj stronę [Rezonator Pulsu](pulse_resonator), gdy będziesz gotów na silniejsze kryształy i więcej głosów."
+      ]
+    }
+  ]
+}

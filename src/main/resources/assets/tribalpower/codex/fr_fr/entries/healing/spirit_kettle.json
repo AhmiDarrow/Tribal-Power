@@ -1,0 +1,43 @@
+{
+  "name": "Chaudron de l'Esprit",
+  "icon": "tribalpower:spirit_kettle",
+  "order": 10,
+  "items": [
+    "tribalpower:spirit_kettle"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_kettle",
+      "title": "Un chaudron sur le feu",
+      "text": [
+        "Le Chaudron de l'Esprit est une marmite en fer suspendue à un cadre d'os. Il doit être **sur une source de chaleur** : un feu de camp allumé, du feu, du feu des âmes, un bloc de magma, de la lave ou un [Bol de braise](pulse_lights) juste en dessous.",
+        "Il n'a besoin d'aucun totem pour fonctionner, mais il en écoute un : la voix du **Totem de résonance le plus proche**, dans un rayon de 8 blocs, est chantée dans chaque préparation et la façonne."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Brassage",
+      "text": [
+        "Ouvre-le et remplis les trois places à gauche :",
+        "- **Réactif** : un [réactif](reagents) brut, en objet (sors-le de ta bourse à l'Établi du chant). Sa famille décide du remède.",
+        "- **Herbe** : Roseau d'Esprit, Chardon de ley, Fleur d'écho, Feuille de la Marche, Lys de lune, Chapeau-lanterne, Lichen du voile, Baie de givre ou Haricot de lueur.",
+        "- **Base** : une **fiole** fait **2 teintures**, un **rayon de miel** fait **2 baumes**, le **charbon de bois** fait **4 encens**.",
+        "Une fournée prend **10 secondes** et **24 Pulsation**, tirées des générateurs et des réserves dans un rayon de 8 blocs à la fin, et consomme un de chaque ingrédient. L'écran te dit si elle attend de la chaleur, de la Pulsation ou de la place dans la sortie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Automatisation",
+      "text": [
+        "Les entonnoirs et les tuyaux peuvent l'alimenter par le haut et les côtés, et retirer la préparation par le bas, si bien qu'un chaudron peut ravitailler un camp tout seul.",
+        "Chaque nombre ici est dans la section **soin** de la configuration commune."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_kettle"
+    }
+  ],
+  "next": "remedies"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "2. Las nueve voces",
+  "icon": "tribalpower:carved_stone",
+  "order": 11,
+  "spoiler": true,
+  "unlock": "fragment:1",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Las nueve voces",
+      "text": [
+        "“Tierra para sostener, Fuego para calentar, Agua para llevar, Aire para alzar, Espíritu para preguntar, y el Telar para atar a los cinco. Seis voces, nueve pueblos: tres de ellas compartidas. Compartir fue donde empezó la discusión.”",
+        "Hallado en una piedra tallada, en las ruinas de la Marcha."
+      ]
+    }
+  ]
+}

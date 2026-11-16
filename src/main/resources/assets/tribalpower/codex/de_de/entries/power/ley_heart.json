@@ -1,0 +1,92 @@
+{
+  "name": "Leyherz",
+  "icon": "tribalpower:ley_heart",
+  "order": 35,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_heart",
+      "text": [
+        "Ein [Pulsresonator](pulse_resonator) und ein [Leysammler](ley_collector), zu einem gemacht. Stelle ihn in die Mitte eines **Herzsterns**, alle sechs Totemstimmen darum, und er verbrennt drei Brennstoffe zugleich und hebt **sechs Leylinien** hinaus in die Welt.",
+        "Es speichert **200.000 Puls**, etwa 45 Sekunden seines Besten, und behält sie, wenn du es abbaut."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Der Herzstern",
+      "text": [
+        "Setze das Herz auf ein 3x3 aus **Ankerstein**, dann stelle ein Resonanz-Totem **jeder** Stimme **fünf Blöcke** entfernt auf, auf der Höhe des Herzens selbst. Feuer und Wasser stehen sich über das Herz hinweg auf einer Linie gegenüber. Erde und Luft sowie Geist und Webstuhl stehen sich auf den Schrägen gegenüber: drei Blöcke quer und vier längs.",
+        "Jede Ausrichtung geht. Bis jedes Teil an seinem Platz ist, schweigt das Herz. Ducke dich und klicke es mit diesem Buch rechts an, um zu hören, was fehlt; die fehlenden Stellen funkeln in der Welt."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "ley_heart",
+      "tier": 1,
+      "title": "Der Herzstern",
+      "text": "Ankerstein unter dem Herz; ein Totem jeder Stimme fünf Blöcke entfernt."
+    },
+    {
+      "type": "text",
+      "title": "Auf dem Gitter",
+      "text": [
+        "Stelle einen [Gitterkonduktor](lattice_conductor) innerhalb von **8 Blöcken** vom Herz auf. Sein Puls erreicht deine Maschinen nur entlang des Gitters, also will ein Herz an der Spitze manifestierte Konduktoren, oder mehrere gebundene, um alles zu tragen.",
+        "Seine sechs Totems behalten ihre Stimmen nur, solange das Gitter Puls hält. Ein Totem, das trockenläuft, verstummt und zählt nicht mehr, also braucht ein Herz, das lange ohne Brennstoff bleibt, eine andere Quelle auf seinem Gitter, um wieder zu erwachen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Drei Brennstoffe",
+      "text": [
+        "Klicke das Herz rechts an, um es zu öffnen. Jeder Brennstoff hat seinen eigenen Einlass:",
+        "- **Resonatorkristalle** kommen in den Kristallplatz: Echoscherbe, Abgestimmtes Echo, Gebundenes Echo oder Resonanzkern. Einer brennt **15, 12, 10 oder 8 Minuten**: ein besserer Kristall singt lauter und brennt schneller.",
+        "- Jedes **Kreaturenreagenz** kommt in den Reagenzplatz. Ein schlichtes brennt **2 Minuten**; eines mit einem **Faden** (siehe [Reagenzien](reagents)) brennt heißer und schneller: **90, 60 oder 40 Sekunden** für Faden I, II oder III.",
+        "- **Wasser** füllt einen Tank von 8.000 mB aus einem Eimer, einem Rohr oder einer Platte des Flüssigkeitsrelais. Es brennt am schnellsten von den dreien: **200 mB pro Sekunde**, ein Eimer alle fünf Sekunden.",
+        "Trichter und Relais können beide Plätze füttern; nichts kommt wieder heraus. Brennstoff wird nur in Sekunden verbraucht, die Puls liefern, also ruht ein volles Herz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was es erzeugt",
+      "text": [
+        "Jede Sekunde singt das Herz sechsmal das Lied des Resonators: **6 x Stimmen x (Stimmen + 2)**, mal dem, was die brennenden Brennstoffe wert sind, geteilt durch vier. Ein Kristall ist so viel wert wie in einem Resonator (**4, 6, 8 oder 12**), ein schlichtes Reagenz **4** und ein Reagenz von Faden I, II oder III **6, 9 oder 12**, und Wasser **2**. Seine Stimmen sind die antwortenden Totems der sechs.",
+        "Dazu addiert es den Anteil der Ley: **12 Puls pro Sekunde je Punkt** Leystärke am Herz, mit sechs antwortenden Stimmen. Das Herz liest das Land und die Linien des Planeten, die seine Totems hereinziehen, aber nicht seine eigenen sechs.",
+        "Dann die Harmonie: zwei Arten Brennstoff, die zusammen brennen, vervielfachen alles mit **1.25**, alle drei mit **1.5**. Brennt nichts, macht er nichts. Jeder [Rang](machine_ranks) des Herzens fügt **15%** hinzu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qualität ist der Hebel",
+      "text": [
+        "Mit sechs Stimmen, die antworten:",
+        "- Eine Echoscherbe, ein schlichtes Reagenz und Wasser machen **1,080 bis 1,368 Puls pro Sekunde**, von einer kahlen Stelle bis zu einer perfekten.",
+        "- Ein Gebundenes Echo, ein Faden-II-Reagenz und Wasser auf einer mittleren Stelle (Ley 8) machen etwa **2,200**.",
+        "- Ein Resonanzkern, ein Faden-III-Reagenz und Wasser auf einer perfekten Stelle machen **3,096**; ein Herz auf Manifestiert macht **4,489 Puls pro Sekunde**.",
+        "Ein Resonanzkern-Resonator und ein perfekter Leysammler nebeneinander machen 168."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was es kostet",
+      "text": [
+        "Besserer Brennstoff singt lauter und brennt schneller. Eine Stunde eines schlichten Herzens (Echoscherbe, schlichte Reagenzien, Wasser) verbrennt **4 Echoscherbe, 30 Reagenzien und 720 Eimer Wasser**.",
+        "Eine Stunde auf dem Höhepunkt verbrennt **7.5 Resonanzkern, 90 Faden-III-Reagenzien** und dieselben 720 Eimer. Ein Vertrauter auf Erhaben, jede Minute gebürstet, wirft 120 Faden-III-Reagenzien pro Stunde ab.",
+        "Brennstoff wird nur in Sekunden verbraucht, die Puls liefern: ein volles Herz ruht, bis etwas davon zieht."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sechs Ley-Linien",
+      "text": [
+        "Solange der Stern ganz ist, hebt das Herz **sechs Ley-Linien**, je eine in der Farbe jedes Totems. Sie laufen vom Herzen durch sein Totem und weiter **64 Blöcke** in die Welt. Es sind echte Linien: die [Leylinse](ley_lens) zeichnet sie, und ein [Leysammler](ley_collector) an einer von ihnen spürt sie wie jede andere. Totems biegen sie nicht.",
+        "Sie bleiben, solange der Stern steht, über das Speichern hinweg und in entladenen Chunks. Brich das Herz oder eines seiner sechs Totems, und alle sechs fallen auf einmal; mach den Stern wieder ganz, und sie steigen innerhalb von zwei Sekunden.",
+        "Nur Totems in **Beantwortet** singen (siehe [Erhaltung](keeping)), und ein arbeitendes Herz hält seine eigenen sechs beantwortet. Ein stetiges Redstone-Signal hält es still."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_heart"
+    }
+  ]
+}

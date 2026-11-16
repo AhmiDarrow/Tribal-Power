@@ -1,0 +1,260 @@
+{
+  "name": "메아리 현현",
+  "icon": "tribalpower:echo_manifest",
+  "order": 50,
+  "items": [
+    "tribalpower:manifested_ingot",
+    "tribalpower:resonant_core"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_manifest",
+      "text": [
+        "정령 작업대, 격자 맨 위에 있다. 메아리 현현은 결속된 메아리를 **현현한 주괴**로, 주괴를 **공명 핵**으로 바꾼다. 이 책에서 가장 뛰어난 장비와 기계의 심장이다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "사용법",
+      "text": [
+        "메아리 현현을 정령 토템으로부터 8블록 이내에 설치한다.",
+        "- 결속된 메아리에서 현현한 주괴로: **5초**, **초당 64 펄스**.",
+        "- 현현한 주괴에서 공명 핵으로: **8초**, **초당 80 펄스**.",
+        "핵은 상급 펄스 전지, 정령직물 로브와 정령직물 레깅스, 여섯 겹 지팡이, 장거리 릴레이, 관문 쐐기돌에 들어간다. 정령장비 도구에는 현현한 주괴만 있으면 된다. 펄스 공명기에 앉히면, 핵은 그 가장 강한 수정이 된다.",
+        "수호자의 전리품과 베틀 실로 공명 핵 여섯 개를 만든다. [수호자](guardians)를 보라."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "기둥 전체",
+      "steps": [
+        {
+          "caption": "메아리 현현과 그 옆의 정령 토템.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_manifest"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "그 위에 메아리 결속을 올리고, 물 토템을 둔다. 결속된 메아리는 아래의 메아리 현현으로 내려간다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "그 위에 메아리 조율을 더하고, 불 토템을 둔다. 그러면 사슬 전체가 된다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "범위 안에 발전기가 있으면, 메아리 조각은 위로 들어가고 현현한 주괴는 아래로 나온다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              2,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "요령",
+      "text": [
+        "아래에서 호퍼로 거둔다. 핵을 만들려면 주괴를 메아리 현현의 입력에 다시 넣는다.",
+        "메아리 현현은 기계와 정령장비의 등급을 올릴 때 마지막 단계이기도 하다.",
+        "레버는 작업대를 멈춘다. 이 책의 제작법이나 JEI에 시간과 펄스가 나온다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_manifest"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:manifested_ingot"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonant_core"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Tavoletta: Il Taglio",
+  "icon": "tribalpower:lore_tablet",
+  "order": 190,
+  "spoiler": true,
+  "unlock": "tablet:9",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Da una Sala degli antenati sprofondata, non firmata da una sola tribù:",
+        "“Nessuno colpì il Telaio. Fu tirato da nove lati finché un filo non cedette, e poi il resto andò come una corda in una mano. I continenti caddero nello spazio di un rullo. Ciò che non cadde andò alla deriva nella Marcia e sprofondò piano. Nove tribù, una sala, nessuno da incolpare.”"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "name": "Bestias de la Cresta del destello",
+  "icon": "tribalpower:prism_crest",
+  "order": 220,
+  "spoiler": true,
+  "items": [
+    "tribalpower:prism_grazer_spawn_egg",
+    "tribalpower:shardmoth_spawn_egg",
+    "tribalpower:glowgrub_spawn_egg",
+    "tribalpower:facet_stalker_spawn_egg",
+    "tribalpower:prism_crest",
+    "tribalpower:shard_wing",
+    "tribalpower:glow_husk",
+    "tribalpower:facet_barb"
+  ],
+  "next": "beasts_snow_fields",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Las propias de la Cresta",
+      "text": [
+        "Las alturas de piedra lunar de la [Cresta del destello](glimmer_ridge) guardan un pastador con placas y una polilla al aire libre, y un gusano de luz y una araña de cristal en las cuevas de abajo.",
+        "Cada bestia mansa de aquí se puede cepillar para obtener su reactivo una vez por minuto, y se tienta y se reproduce con su propia comida, indicada en **Caza y pastoreo** más abajo. Se puede vincular como cualquier animal manso (ver [familiares](familiars)), y aunque ninguna tiene un don propio, una vinculada aún puede tomar una voz en un tótem y reforzar tu magia (ver [sintonizar en un tótem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_grazer",
+      "title": "Pastador de prisma",
+      "text": [
+        "Un pastador lagarto, de cuerpo bajo, con una hilera de placas de prisma en el lomo, en manadas de dos a cuatro. **24 de salud** y **3 de armadura**.",
+        "Suelta de 1 a 3 **Cresta de prisma**, más con Botín.",
+        "Cazado, también suelta de 1 a 2 Caza cruda y hasta 1 Cuero de la Marcha. Cría con **Frijol de fulgor**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shardmoth",
+      "title": "Polilla de esquirla",
+      "text": [
+        "Una polilla violeta, de alas de cristal tallado, que revolotea sobre la cresta de una a tres. **10 de salud**, sin armadura.",
+        "Suelta de 1 a 3 **Ala de esquirla**.",
+        "Cazado, también suelta hasta 1 Hilo y hasta 1 Fragmento de amatista. Cría con **Frijol de fulgor**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glowgrub",
+      "title": "Lumbriluz",
+      "text": [
+        "Un gusano de luz, largo y segmentado, bajo una cabeza grande y oscura, con el extremo de la cola ardiendo; de las cuevas oscuras bajo la cresta, de uno a tres a la vez. **18 de salud** y **1 de armadura**. Es manso y huye de los monstruos como cualquier pastador.",
+        "Suelta de 1 a 3 **Cáscara de luz**.",
+        "Cazado, también suelta hasta 2 Polvo de piedra luminosa. Cría con **Casquete de farol** o cualquier hongo."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:facet_stalker",
+      "title": "Acechafaceta",
+      "text": [
+        "Una araña de cristal de las mismas cuevas. Aparece allí en la oscuridad, de día o de noche, de una o dos a la vez. Tiene **21 de salud** y **1 de armadura**, es rápida, y su mordedura hace **5** y te envenena durante 3 segundos.",
+        "Suelta de 1 a 2 **Púa de faceta**, un reactivo de Veneno.",
+        "Cazado, también suelta hasta 1 Fragmento de amatista y hasta 1 Hilo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caza y cría",
+      "text": [
+        "Además de su reactivo, cada uno suelta más si lo cazas, y aún más con Botín. La carne cae como Caza asada si el animal murió ardiendo. Para criar salvajes, **agáchate** mientras alimentas a dos adultos con su comida; alimentado con normalidad, el salvaje se encariña contigo."
+      ]
+    }
+  ]
+}

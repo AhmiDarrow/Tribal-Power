@@ -1,0 +1,342 @@
+{
+  "name": "노래 덩굴",
+  "icon": "tribalpower:song_vine",
+  "order": 50,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_vine",
+      "text": [
+        "무늬 짜는 이의 노래는 돌을 따른다. 노래 덩굴은 블록의 면을 기어 모서리로 레드스톤을 나르는 덩굴손이며, 릴레이도 가루도 없다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "키우기",
+      "text": [
+        "단단한 면을 우클릭하면 덩굴이 그 면에 붙어 공중에 자리 잡는다.",
+        "이미 있는 덩굴을 다른 덩굴로 우클릭하면 같은 자리에 두 번째 면이 더해진다. 바닥과 벽, 또는 정육면체의 모든 면.",
+        "전력은 모서리를 돌아 다음 면으로 넘어가는 곳까지 포함해 **한 걸음에 하나**씩 떨어진다. 노래 실, 노래 판, 바닐라 레드스톤 가루, 비교기와 말한다.",
+        "덩굴이나, 그것이 매달린 블록을 부수면 **면마다 덩굴 하나**가 돌아온다. 릴레이는 여전히 아이템을 나르고, 덩굴은 노래만 나른다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "모서리 너머",
+      "steps": [
+        {
+          "caption": "기둥 한쪽에 레버, 먼쪽에 켜고 싶은 램프.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                2,
+                0
+              ],
+              "block": "minecraft:redstone_lamp"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "바닥을 클릭해 덩굴을 깐다. 각 조각은 클릭한 면에 기댄다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_vine[down=true]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_vine[down=true]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "기둥 옆의 덩굴을 클릭해 벽 면도 주고, 그다음 벽을 오른다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_vine[down=true,east=true]"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:song_vine[east=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "위로 넘겨 나른다. 노래는 모서리를 감을 때마다 한 걸음을 잃는다.",
+          "place": [
+            {
+              "pos": [
+                1,
+                2,
+                0
+              ],
+              "block": "tribalpower:song_vine[down=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "레버를 당기면 모퉁이 너머의 램프가 켜진다.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            },
+            {
+              "pos": [
+                2,
+                2,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              2,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:song_vine",
+      "text": "노래 실 하나와 정령 갈대 하나로 **여덟**이 된다."
+    }
+  ],
+  "next": "verse_link"
+}

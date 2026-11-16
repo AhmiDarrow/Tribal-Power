@@ -1,0 +1,268 @@
+{
+  "name": "Fil de chant",
+  "icon": "tribalpower:song_thread",
+  "order": 40,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_thread",
+      "text": [
+        "La redstone est un cri ; le Fil de chant est une ligne fredonnée dans l'air. Il porte un signal de **0 à 15** dans les **six directions**, haut et bas compris, et n'a besoin de rien pour reposer.",
+        "**Il faut du Fil de Métier**, que seule la Marche donne : des coffres dans ses vieilles salles, tombes, portes et perchoirs, les échanges des Couseurs du métier au rang Ami, et Le Non-chanté. La Liane de chant, les plaques de chant et l'Appel de vers sont tous faits de Fil de chant, alors ils l'attendent aussi. D'ici là, construis avec de la poussière de redstone, des répéteurs et des comparateurs."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tirer une ligne",
+      "text": [
+        "La puissance baisse de **un par bloc**, comme la poussière. Garde la ligne courte s'il te faut un 15 plein au bout, ou rafraîchis-la avec une Plaque d'écho.",
+        "La poussière de redstone vanilla, les leviers, les plaques de chant, les Lianes de chant et les comparateurs lui parlent tous. Entre deux plaques de chant, tu peux te passer entièrement du fil et les synchroniser avec une Clé de totem (voir [Plaques de chant](song_plates)).",
+        "Il porte faiblement : il n'alimente pas la pierre qu'il touche, donc il ne se verrouille jamais. Un mur de fil est un mur de chant. Pour une vrille qui épouse la pierre aux coins, voir [Liane de chant](song_vine)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Une horloge de chant",
+      "steps": [
+        {
+          "caption": "Pose un Cœur-tambour. Seul, il a besoin que tu tiennes la mesure.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Monte une Plaque de battement sur le côté d'un bloc, face au tambour. La face d'où elle pointe vers l'extérieur est sa sortie.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:heartbeat_plate[facing=east]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Tire du Fil de chant depuis la face de la plaque jusqu'au tambour.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_thread"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_thread"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un Battement neuf bat déjà toutes les 20 ticks, un par seconde. Fais un clic droit pour vérifier ; accroupis-toi et utilise-le seulement pour le ralentir.",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Chaque temps juste ajoute 24 de Pulsation, donc le tambour se remplit tant que rien ne la dépense.",
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Garder le temps",
+      "text": [
+        "Un Cœur-tambour compte les temps écartés de **17 à 23 ticks** comme justes, d'une valeur de **24 Pulsation**. Tout autre écart paie au plus **10**, et les temps à moins de 8 ticks d'intervalle sont ignorés, donc laisse le Battement à 20 ticks : les réglages plus lents ne donnent que 10 par temps. Seuls deux tambours à 8 blocs l'un de l'autre gagnent de la Pulsation.",
+        "Si le tambour ne se remplit pas, vérifie le sens de la plaque, son bloc d'appui et le fil, et retire toute puissance constante à proximité. Fais marcher l'horloge et le tambour avant d'ajouter des seuils ou des Plaques de mémoire.",
+        "Ajoute une [Jauge de Pulsation](pulse_gauge) si tu veux la quantité stockée comme signal."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:song_thread",
+      "text": "De la redstone autour du Fil de Métier en fait **huit**."
+    }
+  ],
+  "next": "song_vine"
+}

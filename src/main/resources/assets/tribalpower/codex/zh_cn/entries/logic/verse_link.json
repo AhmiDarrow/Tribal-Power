@@ -1,0 +1,294 @@
+{
+  "name": "诗节呼唤与诗节应答",
+  "icon": "tribalpower:verse_call",
+  "order": 60,
+  "spoiler": false,
+  "items": [
+    "tribalpower:verse_answer"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:verse_call",
+      "text": [
+        "十六个诗节，没有导线。**诗节呼唤**聆听红石；**诗节应答**在32格内，调到同一诗节，再把它唱出去。",
+        "呼唤用[歌线](song_thread)制作，应答用歌藤，所以两者都需要来自远行界的**织机线**。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "调校一对",
+      "text": [
+        "把诗节呼唤扣到任意方块面上。它从**朝向以外的每一面**听取红石。",
+        "在同一世界里，把诗节应答扣到**32格**以内的一个面上。它从朝向唱出，唱进面前的方块。",
+        "潜行并用空手右键单击任一板，把诗节从**1到16**逐步切换；两者必须相同。用空手右键单击可读取诗节和强度。",
+        "每块板属于放下它的人及其营地，所以拒绝重调别人的板。",
+        "应答复制呼唤听到的强度，所以不总是15。多个呼唤共用一个诗节时，应答取最响的那个。对不上的诗节保持沉默。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "院子对面",
+      "steps": [
+        {
+          "caption": "把诗节呼唤装到方块上。旁边的拉杆就是它要带走的歌。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:verse_call[facing=north]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "把诗节应答装到另一块方块上，朝向它要驱动的灯。",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:verse_answer[facing=north]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:redstone_lamp"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "潜行并用空手右键单击每块板，直到两者显示同一诗节。",
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "拉动拉杆：应答把同样的强度唱进灯里。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "用在何处",
+      "text": [
+        "中继器仍然搬运物品；这些板只传递红石。要把一块歌板接到另一块，用图腾扳手同步更简单（见[歌板](song_plates)）。",
+        "一个时钟就能带动整个营地：呼唤旁边放一个心跳，每面鼓上放同一诗节的应答。彼此相距8格以内的鼓只有两面能获得脉动，所以把它们分开。",
+        "风之印放入呼唤，骨铃放入应答。纹织者偏爱时钟和风暴翼。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_call"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_answer"
+    }
+  ],
+  "next": "song_plates"
+}

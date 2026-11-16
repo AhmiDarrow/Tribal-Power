@@ -1,0 +1,50 @@
+{
+  "name": "土地の儀式",
+  "icon": "tribalpower:rite_green_blessing",
+  "order": 110,
+  "items": [
+    "tribalpower:rite_still_night",
+    "tribalpower:rite_ley_binding"
+  ],
+  "next": "voice_blessings",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_green_blessing",
+      "text": [
+        "土地の儀式は一帯をしばらく変える。作物が速く育ち、敵対が減り、あるいは遠いトーテムの間に借りた繋がりができる。",
+        "どの石板の儀式とも同じ規則に従う。合う印章、円、そして8ブロック以内の伝導体を通るパルス。"
+      ],
+      "title": "土地の儀式"
+    },
+    {
+      "type": "text",
+      "title": "三つの土地の儀式",
+      "text": [
+        "- **緑色の祝福**（土、**600**パルス、結ばれた根）：火鉢の周囲**九チャンク**を二十分間祝福する。そこの作物、苗木、茎は追加のランダムティックを受け、緑にきらめく。",
+        "- **静夜**（霊、**600**、番兵の印）：十五分間、**64ブロック**以内の敵対の出現を静める。広い静寂のトーテムに似る。印章彫りはこの石板を友に売る。",
+        "- **レイ結束**（織機、**1,200**、織機の糸）：三十分間、火鉢に最も近い共鳴トーテムを**64ブロック**以内の別のトーテムへ結ぶ。それが鳴っている間、一方のトーテムの届く伝導体はもう一方のネットワークへ織り込まれ、パルスが糸を渡る。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "発動の前に",
+      "text": [
+        "先に円を描け。台座が欠けていると発動は失敗し、石板は消費されない。",
+        "円の方位に合うトーテムを四つ置くと、消費は四分の一減り、時間は二倍になる。緑色の祝福は450パルスで四十分続く。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_green_blessing"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_still_night"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_ley_binding"
+    }
+  ]
+}

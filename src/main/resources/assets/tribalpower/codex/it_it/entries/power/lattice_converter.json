@@ -1,0 +1,45 @@
+{
+  "name": "Convertitore a reticolo",
+  "icon": "tribalpower:lattice_converter",
+  "order": 75,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lattice_converter",
+      "text": [
+        "Il Convertitore a reticolo è l'[Energizzatore armonico](pulse_adapter) al contrario: dagli energia Forge (FE) da generatori o cavi di un'altra mod, e batte quell'energia in Pulso per il tuo accampamento.",
+        "Non è uno scambio equo. Il FE grezzo è rumore per un reticolo, e servono voci di totem perché regga."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Come sistemarlo",
+      "text": [
+        "Fai entrare FE da qualsiasi faccia. Il convertitore tiene **48.000 FE** e non restituisce mai FE.",
+        "Ogni secondo ne fa fino a **40 Pulso** e lo mette sulla rete del reticolo, attraverso un [Conduttore di reticolo](lattice_conductor) entro **8 blocchi**: prima in ogni Tumulo di Pulso della rete, poi nei generatori con spazio libero, da cui le macchine lo prendono. Fuori dal reticolo, o senza spazio, aspetta e non spende FE.",
+        "Ogni [grado](machine_ranks) fa più Pulso al secondo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le voci lo rendono meno caro",
+      "text": [
+        "Senza voci intorno, un Pulso costa **220 FE**. Ogni voce distinta di un Totem di risonanza **Risposto**, entro 8 blocchi, toglie **20 FE**, fino a **120 FE** con cinque voci. Nessun Totem di parentela conta qui.",
+        "Da Pulso a FE e ritorno si perde sempre qualcosa: l'energizzatore trasforma un Pulso in 100 FE, e il convertitore non prende mai meno di 120 FE per farne uno."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quando non scorre nulla",
+      "text": [
+        "Un segnale di redstone lo mette in pausa, e non prende FE mentre è in pausa. Un comparatore legge quanto è piena la sua riserva di FE.",
+        "Fai clic destro per una riga di stato. Accovacciati e fai clic destro con questo libro per vedere la riserva, il prezzo per Pulso e cosa ha fatto nell'ultimo secondo."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_converter",
+      "text": "Serve un Nucleo risonante dal Manifestatore di eco e due esemplari di Eco sintonizzato dal Sintonizzatore di eco."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Placas de tempo",
+  "icon": "tribalpower:heartbeat_plate",
+  "order": 78,
+  "items": [
+    "tribalpower:heartbeat_plate",
+    "tribalpower:drift_plate",
+    "tribalpower:strike_plate",
+    "tribalpower:chance_plate"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Batimento, Deriva, Golpe, Acaso",
+      "text": [
+        "- **Batimento** pulsa **15 por um tick**, depois descansa. O uso agachado percorre **20, 40, 80, 160** ticks e volta a 20; começa em 20, um segundo.",
+        "- **Deriva** copia a parte de trás só depois que ela ficou ativa por **4, 8, 16 ou 32** ticks (use agachado para percorrer; começa em 4), e cai assim que a parte de trás cai.",
+        "- **Golpe** dá um tick de 15 numa parte de trás em subida, depois fica quieto: o sinal golpeado que os Corações de tambor e os braseiros escutam.",
+        "- **Acaso** joga uma moeda a cada subida da parte de trás: 15 ou 0, mantido até a parte de trás cair.",
+        "Um Batimento de um segundo num Coração de tambor é uma batida de **24-Pulso** quando a borda cai no tempo. Ajustes mais lentos rendem só **10** por batida."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:heartbeat_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:strike_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chance_plate"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "name": "宴席",
+  "icon": "tribalpower:fire_feast",
+  "order": 30,
+  "items": [
+    "tribalpower:earth_feast",
+    "tribalpower:fire_feast",
+    "tribalpower:water_feast",
+    "tribalpower:air_feast",
+    "tribalpower:spirit_feast",
+    "tribalpower:loom_feast"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:earth_feast",
+      "title": "营地的餐桌",
+      "text": [
+        "宴是给所有人煮的大菜。放在实心方块上，能盛**六份**；你吃的每一份都会吃饱，并给予该声音的[祝福](voice_blessings)，持续**8分钟**。",
+        "在炉锅里用该声音的菜和作物煮一份：土之宴用垫层守护者的糊和砂砾面包，火之宴用肉干和辣酱，以此类推。每份配方都在JEI里，挂在锅下。",
+        "营地若在远行界的夜前分吃一宴，便带着祝福一起走出。比较器能读出还剩几份。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "在餐桌旁",
+      "text": [
+        "只有饿了才能取一份。每一份回复**6**点饥饿，并给予I级祝福。",
+        "完整的宴打破后能捡回。少了一份再打破就什么都不掉，所以先挪开再开始吃。",
+        "在部落的炉的**24格**内，于其[节日](living_march)期间吃一份，部落便把你算在席上：**20点声望**，每个节日一次。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:earth_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fire_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:water_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:air_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_feast"
+    }
+  ]
+}

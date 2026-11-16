@@ -1,0 +1,16 @@
+{
+  "name": "Tafel: Seil der Wurzelbinder",
+  "icon": "tribalpower:lore_tablet",
+  "order": 120,
+  "spoiler": true,
+  "unlock": "tablet:2",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Aus einer versunkenen Ahnenhalle, in den Worten der Wurzelbinder:",
+        "“Wurzeln sind das einzige Seil, das die Leere respektiert. Wir pflanzten die ersten Anker auf den fallenden Inseln und banden sie Insel an Insel, Wurzel an Wurzel. Die Hälfte hielt. Pflanze einen Setzling in den Boden des Marsches, und du spürst, wie er zu den anderen zieht.”"
+      ]
+    }
+  ]
+}

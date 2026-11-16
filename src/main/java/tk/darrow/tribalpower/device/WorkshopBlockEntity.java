@@ -98,7 +98,7 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
             case "need_voice" -> Component.translatable("message.tribalpower.workshop.need_voice", tk.darrow.tribalpower.lattice.Voices.name(reasonName));
             case "waiting", "paused", "need_tanks", "dest_full", "nothing", "listening", "idle_ward", "draw_face", "push_face"
                     -> Component.translatable("message.tribalpower.workshop." + reason);
-            default -> Component.literal(reason);
+            default -> Component.translatableWithFallback("message.tribalpower.workshop." + reason, reason);
         };
     }
 

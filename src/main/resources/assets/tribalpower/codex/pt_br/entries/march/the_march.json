@@ -1,0 +1,93 @@
+{
+  "name": "A Marcha",
+  "icon": "tribalpower:gate_drum",
+  "order": 10,
+  "spoiler": true,
+  "next": "march_land",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "A Marcha é onde o fio se desfiou mais fino e o chão caído veio repousar. Os salões jazem afundados até a verga. Os acampamentos marcam o tempo sem ninguém no tambor. O cristal cresce onde a tensão do Tear ainda se junta.",
+        "Lá tudo ainda responde a um ritmo. Isso não é assombração. É um mundo que nunca aprendeu a parar.",
+        "Você vai lá buscar o que não acha em casa: **Cristal da Marcha**, **Fio de Tear** e o **Coração Não Cantado**. Eles abrem o transporte astral, a voz do Tear e as últimas Tábua de relatos."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "A entrada é um [Tambor do portal](gate_drum). Não precisa de Pulso: bata nele o **Rito do Portal**, quatro tambores em **A**, **S**, **D** e **F**, e o ritmo abre o caminho.",
+        "Clique com o botão direito com a mão vazia para começar o rito; acerte **60%** das batidas e ele te leva para o outro lado. Um sinal de redstone trava o tambor.",
+        "Bater o rito em um Tambor do portal na Marcha sempre te traz para casa: ao lugar de onde você saiu, ou ao seu ponto de renascimento, se aquele sumiu. Seu ponto de retorno sobrevive à morte, então uma viagem ruim nunca te deixa preso lá.",
+        "Depois, um par de [Portal da senda](way_gate) é a rota de carga.",
+        "Quando uma atualização remodela a terra da Marcha, um salvamento antigo separa a sua Marcha uma vez, na próxima inicialização, e a dimensão cresce de novo enquanto você a explora. A Marcha antiga, com tudo o que foi construído lá, vai para **tribalpower_backups** dentro do salvamento e nunca é apagada. **retrogenMarch** na seção **world** da configuração comum desliga isso."
+      ],
+      "title": "Ida e volta"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Entre com várias Célula de Pulso carregadas, comida, algumas [Pomada do Espírito](remedies) e a mão firme. Leve um Tambor do portal sobressalente para colocar na volta, e se você tiver uma Bússola astral, vincule-a a um chão seco em casa antes de sair. A Marcha é grande e cada bioma parece novo na primeira vez.",
+        "Remanescente do Espírito surge onde está escuro, acima do chão e abaixo, então leve tochas ou lampiões e ilumine o caminho de volta ao seu tambor."
+      ],
+      "title": "O que levar"
+    },
+    {
+      "type": "text",
+      "title": "Dia e noite",
+      "text": [
+        "O dia da Marcha é para trabalhar, e a noite dela é o perigo.",
+        "- **De dia** os espíritos raramente surgem a céu aberto, nunca à luz de tocha ou lampião, e nunca ao lado de outro. Espíritos selvagens pegos sob o céu aberto somem quando o sol nasce, a menos que já estejam perseguindo você.",
+        "- **À noite** eles surgem mais fortes, com mais vida e golpes mais duros, e alguns surgem como **elites** de nome dourado. Vêm no máximo em duplas e param de surgir quando quatro estão perto.",
+        "- **Cavernas** têm suas próprias regras. Os caçadores das cavernas surgem em qualquer ponto sem luz no subsolo, de dia ou de noite, e o limite de quatro não vale lá embaixo, então uma caverna escura pode encher. Ilumine enquanto avança.",
+        "- Elites e espíritos da noite podem deixar você com [Doença do Espírito](spirit_sickness)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dormir até passar",
+      "text": [
+        "Camas funcionam na Marcha, e dormir a noite toda adianta o relógio até de manhã. (A Marcha segue o tempo do Mundo Superior, então a noite do Mundo Superior também passa.)",
+        "Só um espírito que **já está caçando você** impede você de dormir. Um que passa junto às suas paredes, não, então um acampamento iluminado e murado é um lugar seguro para descansar."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Estepe**: grama ondulada com capões e árvores soltas. Pastam Andarilho da Marcha, Cervo da alvorada, Raposa-lanterna, coelhos e alguns Lomomusgo. Caçam Cinzligado, Raizligado, Cão da fenda, Tecelão de eco e alguns Espreitador de juncos. Os [Salões dos ancestrais](ancestor_hall) afundam aqui.",
+        "- **Terras altas**: pedra, musgo e bosques. Cabras, Cervo da alvorada, raposas, Andarilho da Marcha e coelhos. Sentinela oco, Mariposa da tempestade, Diabrete de borralho, Cão da fenda e alguns Lomoestilhaço. Lar dos [Círculo de tambores](drum_circle), mais Salões dos ancestrais e esmeraldas (a Crista do brilho também as tem).",
+        "- **Campos de cristal**: mesas em terraço de calcita e pedra, eriçadas de Cristal da Marcha. Raposas, coelhos, Lomomusgo e Andarilho da Marcha; Espreitador de juncos, Lomoestilhaço, Sino de luto, Tecelão de eco e alguns Sentinela oco. A [Agulha de cristal](crystal_spire) fica aqui."
+      ],
+      "title": "Estepe, Terras altas, Campos de cristal"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Campos de neve**: neve e gelo compactado sobre Grama da Marcha. Raposa-lanterna, coelhos, Andarilho da Marcha, alguns Lomomusgo e ursos polares. Sentinela oco, Mariposa da tempestade, Sino de luto e Cão da fenda.",
+        "- **Ermos de brasa**: terra seca de basalto, sem chuva. Poucos pastadores se arriscam: Andarilho da Marcha, Raposa-lanterna e Saltador de cinza. Diabrete de borralho, Cão da fenda e Cinzligado vagam, e algumas Mariposa da tempestade.",
+        "- **Pântano de cana**: canais de lama cheios de Cana de Espírito. Lomomusgo, Cervo da alvorada, sapos, Raposa-lanterna e Andarilho da Marcha; Barbatana-brilho, Sino à deriva, Enguia-de-silte e Raia do véu na água, e lulas-brilhantes nas cavernas alagadas. Espreitador de juncos, Raizligado e Tecelão de eco espreitam no úmido.",
+        "Fogo-fátuo espiritual flutua por todas as terras da Marcha."
+      ],
+      "title": "Campos de neve, Ermos de brasa, Pântano de cana"
+    },
+    {
+      "type": "text",
+      "title": "Baixios, Crista do brilho",
+      "text": [
+        "- **Baixios**: a terra baixa, afogada sob água rasa. Lagoas e poças sobre leitos de silte e argila, árvores de passolargo com raízes de zanco, lírios, Lírio-da-lua e Alga-fita, e aqui e ali um pilar de pedra com topo de cristal. Planador de lodo, Derivante pálido e Dardo de baixio nadam ali, e Madeira de zanco anda pelas margens; à noite Espreitador de salmoura e Sombra afogada surgem na água, e Espreitador de juncos, Raizligado, Tecelão de eco e Sino de luto vêm do Pântano de cana. A Pedra da maré dos [guardiões](guardians) fica aqui.",
+        "- **Crista do brilho**: o chão mais alto, uma montanha de Pedra-da-lua. Veja [a Crista do brilho](glimmer_ridge).",
+        "Cada terra tem, além destes, suas feras e sua gente: veja [Feras da Estepe](beasts_steppe) e as páginas seguintes."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Leia cada Tábua de relatos nos [Salões dos ancestrais](ancestor_hall). O Códice espiritual registra cada uma.",
+        "- Quando você estiver pronto, bata em um Tambor silencioso quatro vezes, com uma respiração entre cada uma, e encare [O Não Cantado](the_unsung).",
+        "- Traga para casa Cristal da Marcha, Fio de Tear e um Coração Não Cantado. Juntos, eles abrem [a sexta voz](sixth_voice).",
+        "- Visite os Costureiros do tear na [Agulha de cristal](crystal_spire) para trocas de Fio de Tear."
+      ],
+      "title": "O que fazer lá"
+    }
+  ]
+}

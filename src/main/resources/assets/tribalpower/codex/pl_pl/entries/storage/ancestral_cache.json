@@ -1,0 +1,220 @@
+{
+  "name": "Skrytka przodków",
+  "icon": "tribalpower:ancestral_cache",
+  "order": 10,
+  "next": "spirit_cistern",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ancestral_cache",
+      "text": [
+        "Duży magazyn **na 54 miejsca** na zapasy obozu, ze sztuczką, której nie ma skrzynia: ustaw jego ściany, a będzie karmił albo opróżniał maszyny Tribal Power, które go dotykają, bez leja i bez przekaźnika."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ustawianie ścian",
+      "text": [
+        "Otwórz go i użyj panelu WE/WY, by ustawić każdą ścianę na **Wejście**, **Wyjście**, **Oba** lub **Zamknięte**. Kucnięcie i kliknięcie ściany prawym przyciskiem pustą ręką też ją przełącza.",
+        "Dotykające maszyny Tribal Power przekazują do **16 przedmiotów na sekundę** ze ściany, która daje (Wyjście lub Oba), na ścianę, która bierze (Wejście lub Oba). Dwie ściany Oba nigdy nie handlują, więc stosy nie mogą skakać między nimi tam i z powrotem.",
+        "Dolna ściana stacji to Wyjście, więc skrytka pod stacją łapie wszystko, co ona robi. Ustaw ścianę na Wyjście przy stronie Wejścia stacji, a będzie ją karmić."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Stacja, która sama się opróżnia",
+      "steps": [
+        {
+          "caption": "Postaw Skrytkę przodków tam, gdzie ma iść wynik.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Postaw Kruszarkę echa na wierzchu; dolna ściana stacji to Wyjście.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Daj Kruszarce echa jej totem Ziemi i Puls, jak zwykle.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Odłamki spadają teraz prosto do skrytki, lej niepotrzebny.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wskazówki",
+      "text": [
+        "Lejki i rury respektują te same ustawienia stron, więc strona Zamknięta też je odrzuca.",
+        "Sąsiedzi używają stron; przekaźniki są na dystans. Zobacz [Bezprzewodowy ładunek](wireless_cargo).",
+        "Dźwignia blokuje i menu, i automatyzację. Komparator odczytuje, jak bardzo jest pełny."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ancestral_cache"
+    },
+    {
+      "type": "text",
+      "title": "Przycisk porządkowania",
+      "text": [
+        "Każdy ekwipunek wart uporządkowania ma mały przycisk **Uporządkuj** w pustym rogu nad miejscami: twój plecak, ta skrytka, [Głęboka skrytka](deep_cache) (oraz skarbiec, który otwiera Sakwa wędrowca albo obóz) i dowolna skrzynia, beczka, skrzynia shulkera lub lejek.",
+        "Naciśnięcie scala to, co się da, i układa resztę po kolei. Twój pasek szybkiego wyboru i twoja zbroja nigdy się nie przesuwają, a miejsca maszyny zostają nietknięte: przycisk pojawia się tylko nad zwykłym magazynem. Po porządkowaniu w skarbcu nigdy nie pojawia się Sakwa wędrowca.",
+        "Wyłącz go przez **sortButtons** w konfiguracji klienta, jeśli zasłania ekran innego moda."
+      ]
+    }
+  ]
+}

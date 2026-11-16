@@ -1,0 +1,70 @@
+{
+  "name": "Remédios",
+  "icon": "tribalpower:spirit_tincture",
+  "order": 20,
+  "items": [
+    "tribalpower:spirit_tincture",
+    "tribalpower:spirit_salve",
+    "tribalpower:spirit_incense"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_tincture",
+      "title": "Três modos de tomar",
+      "text": [
+        "- **Tintura**: beba. O remédio dura **3 minutos** e você recebe a garrafa de volta.",
+        "- **Pomada**: use-a para passar em você, ou **use-a em outra pessoa**: um amigo, um aldeão, seu familiar. Cura **3 corações** de uma vez, remove **todo** efeito nocivo, e o remédio dura metade do tempo de uma tintura.",
+        "- **Incenso**: assente-o em um [Braseiro ritual](ritual_brazier) e ele queima para todos ao redor. Veja abaixo.",
+        "**Todo remédio remove o [Mal do Espírito](spirit_sickness)**, e também as outras [aflições](afflictions) da Marcha: Silêncio Não Cantado, Desfiado e Mal de ley."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que cada família prepara",
+      "text": [
+        "- **Acendalha** (Brasa): Força.",
+        "- **Aceleração** (Raio): Velocidade.",
+        "- **Resfriamento** (Frio): Resistência ao fogo.",
+        "- **Antídoto** (Peçonha): remove veneno, decomposição, fome e náusea.",
+        "- **Queda de pluma** (Rajada): Queda lenta.",
+        "- **Enraizamento** (Raiz): Resistência."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que cada família prepara, continuação",
+      "text": [
+        "- **Baluarte** (Empurrão): Absorção.",
+        "- **Visão clara** (Trama): Visão noturna, remove cegueira e escuridão.",
+        "- **Restauração** (Enfraquecimento): Pressa, remove fraqueza, lentidão e fadiga de mineração.",
+        "- **Vigor** (Cão): Vida extra.",
+        "- **Remendo** (Silêncio): Regeneração.",
+        "A cor do preparo é a cor do seu reagente, assim você pode diferenciá-los na sua mochila."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "A voz do totem",
+      "text": [
+        "O totem mais próximo do caldeirão enquanto preparava adiciona seu próprio dom, mostrado na dica:",
+        "- **Terra**: concede 2 corações de absorção.",
+        "- **Fogo**: dura metade a mais.",
+        "- **Água**: um nível mais forte.",
+        "- **Ar**: cura 2 corações de uma vez.",
+        "- **Espírito**: adiciona 10 segundos de Regeneração.",
+        "- **Tear**: dura o dobro, mas fica no nível I."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Incenso ardente",
+      "text": [
+        "Use o incenso em um Braseiro ritual para assentá-lo; ele comporta até **16** varetas de um mesmo preparo. Queima sozinho, **sem selo e sem Pulso**.",
+        "A cada dois segundos, todos em um raio de **8 blocos**, jogadores e familiares vinculados, recebem o remédio por 12 segundos, e os familiares recuperam um coração. Cada vareta dura **30 segundos**. Um sinal de redstone no braseiro o apaga; use-o agachado com a mão vazia, sem um selo assentado, para pegar o incenso de volta.",
+        "É o melhor jeito de manter um acampamento inteiro de pé por uma noite longa."
+      ]
+    }
+  ],
+  "next": "healers_rattle"
+}

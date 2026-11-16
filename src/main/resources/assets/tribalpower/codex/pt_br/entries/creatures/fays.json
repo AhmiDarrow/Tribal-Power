@@ -1,0 +1,65 @@
+{
+  "name": "Fadas",
+  "icon": "tribalpower:fay_dust",
+  "order": 350,
+  "spoiler": true,
+  "items": [
+    "tribalpower:glimmer_fay_spawn_egg",
+    "tribalpower:prism_fay_spawn_egg",
+    "tribalpower:marsh_fay_spawn_egg",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Fadas",
+      "text": [
+        "Onde a luz é estranha, as fadas dançam no ar. São pequenas e mansas, e fogem dos monstros.",
+        "Escove uma para o reagente, uma vez por minuto, e atraia-a e reproduza com **açúcar** ou um **frasco de mel**. Pode ser vinculada como qualquer animal manso (veja [familiares](familiars)) e, embora não tenha um dom próprio, uma vinculada ainda pode tomar uma voz num totem e fortalecer a sua magia (veja [sintonizar num totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Três tipos",
+      "text": [
+        "Uma fada tem **8 de vida** e nenhuma armadura, voa de uma a três e deixa **1 a 3** do reagente, mais com Pilhagem."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmer_fay",
+      "title": "Fada do brilho",
+      "text": [
+        "Dourada, sobre a Crista do brilho. Deixa **Pó de fada**.",
+        "Caçada, também deixa até 2 de pó de pedra luminosa. Reproduza com **açúcar ou um frasco de mel**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_fay",
+      "title": "Fada prisma",
+      "text": [
+        "Rosa, sobre os Campos de cristal. Deixa **Pétala de fada** (corante rosa).",
+        "Caçada, também deixa até 2 pétalas cor-de-rosa e até 1 fragmento de ametista. Reproduza com **açúcar ou um frasco de mel**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:marsh_fay",
+      "title": "Fada do pântano",
+      "text": [
+        "Verde, sobre o brejo de juncos. Algumas voam com o [Guardião colosso](colossus_warden). Deixa **Faísca de fada**.",
+        "Caçada, também deixa até 1 baga brilhante e até 1 pó de pedra luminosa. Reproduza com **açúcar ou um frasco de mel**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Além do reagente, cada um deixa mais quando caçado, e mais ainda com Pilhagem. Para procriar os selvagens, **agache-se** enquanto alimenta dois adultos com a comida deles; alimentado normalmente, um selvagem se afeiçoa a você."
+      ]
+    }
+  ]
+}

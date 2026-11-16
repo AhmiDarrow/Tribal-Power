@@ -1,0 +1,29 @@
+{
+  "name": "Duchowy ognik",
+  "icon": "tribalpower:spirit_wisp_spawn_egg",
+  "items": [
+    "tribalpower:spirit_wisp_spawn_egg"
+  ],
+  "order": 60,
+  "spoiler": true,
+  "next": "march_wildlife",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:spirit_wisp",
+      "text": [
+        "Istoty Duchowy ognik to błędne ogniki Marszu: małe dryfujące światła z twarzami, ciągnące za sobą drobne pyłki światła. Unoszą się, zamiast chodzić, i nigdy nie otrzymują obrażeń od upadku.",
+        "Znajdziesz je w każdym biomie Marszu, w luźnych grupach nad trawą, kamieniem i kryształem. Najliczniej zbierają się wokół Kryształ Marszu."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ognik patrzy na ciebie z daleka, lecz trzyma się około czterech bloków i ucieka, gdy coś go spłoszy.",
+        "Ma tylko **6 zdrowia**, nigdy nie atakuje i upuszcza tylko trochę Jasnopył. Traktuj go jak świetliki Marszu: znak, że jesteś tam, gdzie nić wciąż brzęczy.",
+        "**Odłamek Ducha** w twojej ręce przyciąga ogniki mimo ich nieśmiałości. Nakarm dwa, po jednym odłamku, a zrobią trzeciego."
+      ],
+      "title": "Ich zwyczaje"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Lomomusgo",
+  "icon": "tribalpower:mossback_scale",
+  "order": 40,
+  "spoiler": true,
+  "items": [
+    "tribalpower:mossback_spawn_egg",
+    "tribalpower:mossback_scale"
+  ],
+  "next": "march_walker",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:mossback",
+      "text": [
+        "Uma tartaruga de lago paciente, com um jardim crescendo no casco. Escove os adultos para obter uma Escama de lomomusgo caída naturalmente.",
+        "Caçado, também deixa de 2 a 4 Caça crua e até 2 Couro da Marcha. Cruze-o com **Erva marinha ou Alga-fita**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Os Lomomusgo vadeiam os pântanos do Mundo Superior e os pântanos de mangue. Na Marcha, eles se apertam no Pântano de juncos, e uns poucos vagam pelos Campos de cristal, pela Estepe e pelos Campos de neve.",
+        "Um Lomomusgo tem **30 de vida** e **6 de armadura**, e se move devagar. É manso e se afasta dos monstros. Cruze dois com **Erva marinha**."
+      ],
+      "title": "Onde você o encontra"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Escove um adulto para obter uma **Escama de lomomusgo**, uma vez por minuto. As escamas se ligam em 2 Tece-espírito sob Água, e os Vinculadores de raízes as preferem como oferenda.",
+        "Se você caçar um, ele deixa **de 2 a 4 Caça crua** e até 2 Couro da Marcha, mais com Pilhagem, cozida se morreu queimando."
+      ],
+      "title": "O que ele dá"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Um Lomomusgo vinculado é um alforje ambulante com **9 espaços** (12 com a marca Bolso fundo). Se morrer, deixa cair tudo o que há na bolsa.",
+        "Veja a página [dons do familiar](familiar_gifts) para abrir a bolsa e mandá-lo esperar."
+      ],
+      "title": "Como familiar"
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Quando caçado, deixa isto, mais com Pilhagem. A carne cai assada se o animal morreu queimando. Para cruzar os selvagens, **agache** enquanto você alimenta dois adultos com a comida deles; alimentado normalmente, um selvagem se afeiçoa a você."
+      ]
+    }
+  ]
+}

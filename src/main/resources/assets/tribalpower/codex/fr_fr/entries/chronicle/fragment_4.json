@@ -1,0 +1,17 @@
+{
+  "name": "5. La chute",
+  "icon": "tribalpower:carved_stone",
+  "order": 14,
+  "spoiler": true,
+  "unlock": "fragment:4",
+  "pages": [
+    {
+      "type": "text",
+      "title": "La chute",
+      "text": [
+        "“Quand un fil lâche, les huit autres tiennent un souffle, puis ils se déchirent. Le sol s'est détaché du ciel en morceaux. Ce qui n'est pas tombé a dérivé. Ce qui a dérivé, c'est la Marche.”",
+        "Trouvé sur une Pierre gravée dans les ruines de la Marche."
+      ]
+    }
+  ]
+}

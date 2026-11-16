@@ -1,0 +1,123 @@
+{
+  "name": "Amulettes de l'Esprit",
+  "icon": "tribalpower:sky_charm",
+  "order": 60,
+  "items": [
+    "tribalpower:ember_charm",
+    "tribalpower:tide_charm",
+    "tribalpower:root_charm",
+    "tribalpower:lantern_charm",
+    "tribalpower:spindle_charm",
+    "tribalpower:ward_charm",
+    "tribalpower:hearth_charm",
+    "tribalpower:veil_charm",
+    "tribalpower:chorus_charm",
+    "tribalpower:gathering_charm"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:sky_charm",
+      "text": [
+        "Les amulettes sont des sceaux que l'on porte. Chacune porte une voix de totem et un bienfait, et tu peux en porter jusqu'à **trois** dans les emplacements d'amulette propres à Tribal Power. Aucun autre mod n'est nécessaire."
+      ],
+      "title": "Amulettes de l'Esprit"
+    },
+    {
+      "type": "text",
+      "title": "Porter des amulettes",
+      "text": [
+        "Utilise une amulette pour la porter. Accroupis-toi et utilise n'importe quelle amulette pour ouvrir les trois emplacements.",
+        "Les amulettes portées coûtent **2 de Pulsation par voix toutes les deux secondes**, prises sur une Cellule de Pulsation que tu portes. Quand les cellules sont à sec, les bienfaits s'arrêtent, le vol avec eux, alors recharge ou retire-les.",
+        "Les voix s'additionnent sur tout ce que tu portes, mais la même voix deux fois ne donne son bienfait qu'une fois.",
+        "Un [familier](familiar_boons) accordé, proche, qui partage la voix d'une amulette, réduit l'entretien de cette amulette de **40%** et ajoute un bienfait à lui.",
+        "Les amulettes portées tombent au sol quand tu meurs, sauf si ton monde garde l'inventaire."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les onze amulettes",
+      "text": [
+        "- **Ciel** (Air) : vol créatif tant que la Pulsation dure, comme avec toute amulette qui porte Air, sauf l'Amulette de rassemblement.",
+        "- **Braise** (Feu) : résistance au feu, et les attaquants prennent feu pendant 3 secondes.",
+        "- **Marée** (Eau) : respiration aquatique et grâce de nageur.",
+        "- **Racine** (Terre) : résistance.",
+        "- **Lanterne** (Esprit) : vision nocturne, et chaque bénédiction ou bienfait que tu gagnes tant qu'elle est payée dure **moitié plus longtemps**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les onze amulettes, suite",
+      "text": [
+        "- **Fuseau** (Métier) : chance, et environ trois fois sur dix il rend jusqu'à **2 de Pulsation** dans une cellule que tu portes, toutes les deux secondes.",
+        "- **Garde** (Terre) : détourne environ un projectile sur quatre, ou un sur deux si Esprit est aussi sur tes amulettes.",
+        "- **Âtre** (Feu) : te garde rassasié.",
+        "- **Voile** (Esprit) : te cache pendant que tu t'accroupis.",
+        "- **Rassemblement** (Air) : attire vers toi les objets lâchés et l'expérience.",
+        "- **Chœur** : commence silencieux, et apprend d'un brasero."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chœur et voix en plus",
+      "text": [
+        "Un Chœur silencieux coûte encore 2. Accroupis-toi et utilise-le sur un Brasero rituel avec **trois totems différents** dans un rayon de 8 blocs et **200 de Pulsation**, et il lie chaque voix proche.",
+        "Accroupis-toi et utilise une amulette sur un Totem de résonance pour ajouter cette voix pour **40 de Pulsation**. Plus il y a de voix, plus elles coûtent à porter, et plus elles font.",
+        "Garde et Âtre portent Terre et Feu, donc ils donnent aussi résistance et résistance au feu. Air donne aussi la chute lente, sauf si Feu est porté en plus. Le vol vient avec la voix Air, pas avec l'Amulette du ciel seule : toute amulette portée qui porte Air, celle du Ciel ou une que tu as ajoutée, te laisse voler tant que la Pulsation dure. L'Amulette de rassemblement est la seule exception : son propre Air va dans l'attraction."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "L'Amulette de rassemblement",
+      "text": [
+        "Tant qu'elle est portée et payée, elle attire vers toi les objets lâchés et l'expérience depuis **5 blocs**, **2 de plus par voix en plus**, jusqu'à **11**.",
+        "**Accroupis-toi** pour le mettre en pause et pouvoir lâcher des choses. Une pile que quelqu'un vient de jeter est laissée tranquille jusqu'à ce qu'on puisse la ramasser, une pile gardée pour un autre joueur est à lui, et les objets qu'un autre mod marque comme à ne pas déplacer restent en place.",
+        "Son Air va dans l'attraction, donc, contrairement au Ciel, il ne donne ni vol ni chute lente. Les voix que tu lui ajoutes marchent comme sur n'importe quelle amulette."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:sky_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tide_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:root_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lantern_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spindle_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ward_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hearth_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:veil_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chorus_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gathering_charm"
+    }
+  ]
+}

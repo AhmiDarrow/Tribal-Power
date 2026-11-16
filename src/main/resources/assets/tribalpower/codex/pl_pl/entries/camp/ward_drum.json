@@ -1,0 +1,336 @@
+{
+  "name": "Bęben ochrony",
+  "icon": "tribalpower:ward_drum",
+  "order": 60,
+  "next": "hush_totem",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ward_drum",
+      "text": [
+        "Nocna warta obozu. Bęben ochrony zużywa Puls, by uderzyć i odepchnąć jednego wroga naraz, więc creeper nigdy nie dojdzie do twoich drzwi. Nigdy nie bierze na cel graczy."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "W co uderza",
+      "text": [
+        "Przy każdym takcie, raz na sekundę, znajduje jednego wroga w zasięgu **8 bloków** (sześcian wokół bębna) i zadaje mu **4 obrażenia magiczne** z pchnięciem od bębna.",
+        "Każde uderzenie kosztuje **8 Puls**, a płaci krata. Podniesienie rangi skraca takt; Puls na uderzenie zostaje 8. Odpowiada **Duchowi**: trzymaj totem Ducha w zasięgu 8 bloków (zobacz [Ręce obozu](camp_hands)), inaczej stoi bezczynnie.",
+        "Liczy się każdy wróg, i ze zwykłego świata, i z Marszu: zombie, szkielety, creepery, pająki, fantomy, wiedźmy, utopce i reszta. Gracze nigdy nie są celem, ani osadnicy, ani związane chowańce (twoje czy czyjekolwiek), ani młode. Bossowie wzruszają ramionami: Wither, Smok Kresu i strażnicy Marszu zostają tobie."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Posterunek warty",
+      "steps": [
+        {
+          "caption": "Postaw bęben tam, gdzie wchodzą wrogowie, blisko krawędzi obozu.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ward_drum[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Podawaj mu Puls przez przewodnik w zasięgu 8 bloków: 8 za każde uderzenie.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              1
+            ],
+            [
+              -1,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Komparator czytający bęben pokazuje 15 w takcie, w którym bije, i 0, gdy czeka.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Podłącz go do lampy albo dzwonu, a poznasz, kiedy coś próbowało obozu.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Życie z nim",
+      "text": [
+        "Kliknij prawym przyciskiem, aby zobaczyć, co uderzył ostatnio. Dźwignia go ucisza.",
+        "To strażnik, nie farma: jedno uderzenie na sekundę nie nadąży za spawnerem. Jeśli śmierci mają ci się odpłacać, ustaw [Dzwon pobudki](wake_bell) w zasięgu 16 bloków od miejsca, gdzie padają.",
+        "Totem ciszy zatrzymuje pojawianie się wrogów wewnątrz obozu; Bęben ochrony zajmuje się tymi, którzy wchodzą z zewnątrz."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ward_drum"
+    }
+  ]
+}

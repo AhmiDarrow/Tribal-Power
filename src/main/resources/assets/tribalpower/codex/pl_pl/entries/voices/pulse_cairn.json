@@ -1,0 +1,259 @@
+{
+  "name": "Kopiec Pulsu",
+  "icon": "tribalpower:pulse_cairn",
+  "order": 70,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_cairn",
+      "text": "Kopiec z kamieni, który trzyma takt: magazyn kraty. Każdy kamień mieści **4,000 Puls**. W sieci kraty pije nadmiar generatorów sieci i pożycza go maszynom sieci, do **64 na sekundę** w każdą stronę. Generatory zrywami napełniają go; głodne maszyny czerpią z niego miarowo."
+    },
+    {
+      "type": "text",
+      "title": "Układanie w stos",
+      "text": [
+        "Kopce, które stykają się ściana w ścianę, z dowolnej strony, nad lub pod, łączą się w **jeden stos** i jeden magazyn: dwa kamienie mieszczą **8,000 Puls**, trzy mieszczą **12,000**, i tak dalej. Stos łączy do **64 kamieni**, czyli **256,000 Puls** zwykłych kamieni; kamień ponad to stoi osobno.",
+        "Użyj dowolnego kamienia, a zobaczysz cały stos. Włóż Puls gdziekolwiek, a rozejdzie się po kamieniach; czerp z dowolnego kamienia, a płaci cały stos. Każdy kamień dodaje własne tempo do tego, jak szybko stos przesuwa Puls do środka i na zewnątrz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rangi",
+      "text": [
+        "Kopiec Pulsu [zyskuje rangę](machine_ranks) jak każda maszyna, w Dostrajacz echa, Wiązacz echa i Manifestator echa. Kamień z rangą mieści więcej i przesuwa Puls szybciej, do środka i na zewnątrz, w tych samych tempach co przewodnik:",
+        "- **Tkany**: 4,000 Puls, 64 na sekundę.",
+        "- **Dostrojony**: 16,000 Puls, 256 na sekundę.",
+        "- **Związany**: 64,000 Puls, 1,024 na sekundę.",
+        "- **Zamanifestowany**: 256,000 Puls, 4,096 na sekundę.",
+        "Stos sumuje swoje kamienie, niezależnie od ich rangi. Kamień sprzed rang jest Tkany, a rozbity kamień zachowuje rangę, ale nie Puls."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Napełnianie i odczyt",
+      "text": [
+        "Kopiec dołącza do kraty jak wszystko inne, w zasięgu 8 bloków od [Przewodnik kraty](lattice_conductor). Pije tylko **nadwyżkę** generatora, to, co leży powyżej połowy jego zapasu, i nigdy z innego kopca, więc Puls, z którego pracują maszyny, zostaje nietknięty. Maszyny w sieci zużywają najpierw generatory, potem kopce. Puls wchodzący i wychodzący też przechodzi przez przewodniki w zasięgu, więc dobierz im rangę.",
+        "Rozbij kamień, a Puls, który niósł, przepada: kamień wraca pusty, a reszta stosu zostaje z tym, co trzyma. Zużyj stos, zanim go ruszysz.",
+        "Komparator przy dowolnym kamieniu odczytuje, jak pełny jest cały stos. Sygnał redstone na dowolnym kamieniu zatrzymuje napełnianie stosu."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Stos kamieni",
+      "steps": [
+        {
+          "caption": "Postaw kopiec obok generatora, który idzie zrywami, na przykład Dzwon pobudki, oraz Przewodnik kraty w zasięgu obu.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:wake_bell"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Postaw więcej na wierzchu albo obok. Kamienie, które się stykają, to jeden stos: trzy trzymają 12,000 Puls.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Każdy kształt się łączy, obok siebie albo w stosie, do 64 kamieni: 256,000 Puls w jednym stosie.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                1
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Komparator przy dowolnym kamieniu odczytuje, jak pełny jest cały stos.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gdzie się sprawdza",
+      "text": [
+        "Postaw kopiec, Dzwon pobudki i Dół nasłuchu wokół jednego przewodnika, a zrywy dzwonu staną się równym poborem, którego chce dół.",
+        "Oba końce muszą być wczytane. Przykucnij i kliknij prawym kopiec z tą książką, aby zobaczyć, ile kamieni połączył jego stos i co niesie ten kamień."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_cairn",
+      "text": "Sześć Kamień Marszu, dwa Związane echo i jedno Ogniwo Pulsu."
+    }
+  ]
+}

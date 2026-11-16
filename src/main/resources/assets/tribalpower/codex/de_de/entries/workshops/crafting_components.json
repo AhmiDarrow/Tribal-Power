@@ -1,0 +1,41 @@
+{
+  "name": "Geistscherbe und Resonatoren",
+  "icon": "tribalpower:spirit_shard",
+  "order": 5,
+  "items": [
+    "tribalpower:copper_resonator",
+    "tribalpower:bone_chime"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_shard",
+      "text": [
+        "Zwei schlichte Teile tauchen in fast jedem Rezept von Tribal Power auf: die **Geistscherbe** und der **Kupferresonator**. Mach früh einen Stapel von jedem, dann wirst du selten aufgehalten.",
+        "Beide fangen bei einem **Knochenklang** an: ein Knochen, ein Faden und eine Amethystscherbe ergeben zwei."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Woher sie kommen",
+      "text": [
+        "Eine Geistscherbe ist eine Amethystscherbe, ein Redstone-Staub und ein Knochenklang, zusammen hergestellt. Jede Herstellung ergibt **zwei**.",
+        "Ein Kupferresonator sind vier Kupferbarren um einen Knochenklang. Jede Herstellung ergibt auch **zwei**.",
+        "Sobald du den Marsch erreichst, ist das **Marscherz** die billigere Quelle für Scherben: gib es mit einem Totem von Erde in den [Echozermalmer](echo_shatter), und es zerbricht in **zwei Geistscherbe** in 4 Sekunden, bei 40 Puls pro Sekunde."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_shard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_resonator"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bone_chime",
+      "text": "Der Knochenklang weckt auch ein stilles Totem, wenn du ihn am Totem benutzt."
+    }
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "name": "回响拆织",
+  "icon": "tribalpower:echo_unweave",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_unweave",
+      "text": [
+        "织机工位让网格倒着运转。回响拆织把成品拆成更多的上一步材料，并把磨损的灵械变回金属。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "它拆开什么",
+      "text": [
+        "- 显化锭: **2**个束缚回响。",
+        "- 束缚回响: **2**个调谐回响。",
+        "- 调谐回响: **2**个回响碎片。",
+        "- 共鸣核心: **3**个显化锭。",
+        "- 灵织: **1**个羊毛。",
+        "- 受损的灵械工具、武器，或医者沙锤: **1**个显化锭。弓和弩不会被拆开。",
+        "崭新且未受损的工具会被拒绝：灵械必须先受到伤害。灵织护甲从不拆开。",
+        "它需要8格以内有共鸣图腾（织机）。缺少织机时会暂停，并且什么都不消耗。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "拆织核心",
+      "steps": [
+        {
+          "caption": "放置回响拆织，并让共鸣图腾（织机）处于8格以内。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_unweave"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "让脉动保持在范围内，并留出一些输出空间。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "放入共鸣核心，出来三个显化锭。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:resonant_core"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "把它串起来",
+      "text": [
+        "把回响束缚或回响显化的产出放进这个装置，即可不用漏斗接成逆向链。",
+        "若想更快，就按回响调谐、回响束缚、再回响显化的顺序提升它的等阶。拉杆会暂停投入和工作。",
+        "如果它不启动，就潜行并用这本书右键点击它，然后阅读[第六声音](sixth_voice)。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_unweave"
+    }
+  ]
+}

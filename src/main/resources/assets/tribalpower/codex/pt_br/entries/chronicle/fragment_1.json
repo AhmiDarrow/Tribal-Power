@@ -1,0 +1,17 @@
+{
+  "name": "2. As nove vozes",
+  "icon": "tribalpower:carved_stone",
+  "order": 11,
+  "spoiler": true,
+  "unlock": "fragment:1",
+  "pages": [
+    {
+      "type": "text",
+      "title": "As nove vozes",
+      "text": [
+        "“Terra para segurar, Fogo para aquecer, Água para carregar, Ar para erguer, Espírito para perguntar, e o Tear para unir os cinco. Seis vozes, nove povos: três delas compartilhadas. O compartilhar foi onde a discussão começou.”",
+        "Encontrado numa pedra entalhada, nas ruínas da Marcha."
+      ]
+    }
+  ]
+}

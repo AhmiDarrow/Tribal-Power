@@ -1,0 +1,40 @@
+{
+  "name": "Bénédictions des voix",
+  "icon": "tribalpower:resonance_totem_spirit",
+  "order": 120,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_seal",
+      "title": "Une voix se pose sur toi",
+      "text": [
+        "Chacune des six voix a une **bénédiction** : une façon de se prêter à qui elle favorise. Tu la verras comme un effet de statut, de la couleur de cette voix.",
+        "Il y a trois façons d'en obtenir une :",
+        "- **Chante une garde.** Un chant de garde accorde la bénédiction de sa voix, **45 secondes** pour chaque note de puissance dedans.",
+        "- **Un [rite de sceau](rite_circle) à un Piédestal du rite** bénit tous ceux dans un rayon de 6 blocs avec la voix du sceau pendant **5 minutes** ; un rite amplifié en donne sept et demi, au niveau II. Un [familier](familiar_boons) accordé de cette voix à tes côtés l'allonge encore de moitié.",
+        "- **Mange d'un [festin](feasts) d'une voix.** Chaque portion accorde la bénédiction de cette voix pendant 8 minutes.",
+        "Une **Amulette de la lanterne** portée garde allumée toute bénédiction ou tout don **une moitié de plus**, tant que son entretien est payé."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Terre** : tu creuses **25%** plus vite et tu tiens bon contre le recul.",
+        "- **Feu** : tes coups enflamment la cible pendant 3 secondes ; au **niveau II** le feu ne peut pas te toucher.",
+        "- **Eau** : tu nages plus vite et tu reprends **un demi-cœur par seconde** tant que tu es mouillé.",
+        "- **Air** : chaque chute est plus courte de 3 blocs, et tu sautes plus haut.",
+        "- **Esprit** : les hostiles dans un rayon de 16 blocs brillent à travers les murs.",
+        "- **Métier** : **un dixième** de la Pulsation dépensée par ton équipement lui revient, même pour les plus petites dépenses : une part encore trop petite pour être rendue attend sur la pièce jusqu'à faire une Pulsation entière.",
+        "Le niveau II double les nombres. Le lait retire une bénédiction, comme il retire tout effet."
+      ],
+      "title": "Les six bénédictions"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Les rites sont le moyen sûr : pose un sceau, trace le cercle à la craie, et tout le camp est béni d'un coup avant une nuit dans la Marche. Les chants sont le moyen rapide sur la route. Chaque chiffre vit dans la section **effets** de la config commune."
+      ],
+      "title": "Où les trouver"
+    }
+  ]
+}

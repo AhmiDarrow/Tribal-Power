@@ -1,0 +1,473 @@
+{
+  "name": "营地家具",
+  "icon": "tribalpower:march_table",
+  "order": 170,
+  "items": [
+    "tribalpower:march_stool",
+    "tribalpower:spirit_urn",
+    "tribalpower:woven_mat",
+    "tribalpower:wall_shelf",
+    "tribalpower:hanging_rack",
+    "tribalpower:spirit_door"
+  ],
+  "next": "wind_charm",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_table",
+      "text": [
+        "营地应当有人住过的感觉。这些物件大多用远行界的木头、石头、芦苇和树叶做成，没有一件需要脉动。它们不只是摆设：把东西放到架子、桌子和瓮上，坐到凳子上，敲一下护符，它就会响。"
+      ],
+      "title": "营地家具"
+    },
+    {
+      "type": "text",
+      "title": "各件",
+      "text": [
+        "- **远行界桌**：放置时朝向你，桌面上可放四样东西。",
+        "- **远行界凳**：放置时朝向你。空手使用即可坐下；潜行或再次使用即可起身。",
+        "- **灵瓮**：放在架子上或角落里的石瓮。瓮口里放一样东西。",
+        "- **织席**：可铺在任何地面上的薄垫，包括台阶和楼梯。",
+        "拿着东西使用桌子或瓮，便把东西放下；空手使用则取回。放下的东西留在原处，物件破坏时一起掉落，比较器可以读取。漏斗和管道不碰家具——储柜才用来存放东西。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "架子与吊架",
+      "text": [
+        "- **壁架**：挂在几乎任何方块的侧面（栅栏、墙、原木），那块消失它就掉落。拿着东西使用，就把东西放到板上；空手则取回。可放四样，一处一样，比较器读取它有多满。",
+        "- **吊架**：一根带四只铜钩的横杆，高高固定在所附着之物上。罐子、工具和包裹挂在钩上，而不躺在板上。用法与架子相同：拿着东西使用就挂上，空手使用就取下，比较器读取它有多满。你可以从它下面走过。",
+        "悬挂的装饰见[风符](wind_charm)；敲一下就会响。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "营地的一角",
+      "steps": [
+        {
+          "caption": "在地面上铺一张织席。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:woven_mat"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "席上放一张远行界桌，两边各有凳子。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_table[facing=north]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_stool[facing=east]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_stool[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              -1,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "壁架需要身后有东西才能挂上。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                1
+              ],
+              "block": "tribalpower:wall_shelf[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "灵瓮填上角落。",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_urn[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "灵之门",
+      "text": [
+        "**灵之门**是你营地的一道灵之门槛：两根立柱、一条门楣和一盏灯。**玩家、已结契的使魔和所有温顺生物**会径直从中间走过，仿佛那里什么都没有。",
+        "**怪物或敌对灵体**会把它当成一堵实心墙。在木栅的缺口挂上一扇，你进出时夜色就留在外面。",
+        "朝你希望小路延伸的方向放置。它发出柔光，天黑后能标出入口。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_table"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_stool"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:woven_mat"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wall_shelf"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hanging_rack"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_door"
+    }
+  ]
+}

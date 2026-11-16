@@ -1,0 +1,86 @@
+{
+  "name": "Einen Vertrauten binden",
+  "icon": "tribalpower:bonding_charm",
+  "order": 20,
+  "next": "familiar_gifts",
+  "pages": [
+    {
+      "type": "image",
+      "image": "familiars_bonding",
+      "text": [
+        "Binden macht eine Kreatur für immer zu deiner. Ein Vertrauter gibt **doppelt** so viel Reagens ab, wenn du ihn bürstest, einmal pro Minute, und niemand sonst kann ihn bürsten."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Jede Kreatur trägt fünf Fäden: **Rahmen** (Leben), **Schritt** (Schnelligkeit), **Reißzahn** (Schaden), **Summen** (wie oft ihre Gabe wirkt) und **Schutz** (Rüstung). Jede Stufe nach oben oder unten ist 12% wert.",
+        "**Schleiche und sieh dir eine beliebige Kreatur des Marsches an**, um ihre Fäden, ihre Male, ihre Generation und ihre **Blutlinie** zu sehen, die fünf Fäden zusammengezählt. Deine eigenen Begleiter zeigen ihre, wann immer du sie ansiehst.",
+        "Wilde Fäden würfeln 0 bis 3, also sind zwei Füchse aus derselben Lichtung keine Klone. Nur Zucht erreicht 4, und **Erhaben** die 5. Wähle den, den du behalten willst: Binden würfelt nie etwas neu."
+      ],
+      "title": "Lies es zuerst"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Es gibt zwei Wege, eine ausgewachsene Kreatur zu binden. Junge lassen sich nicht binden.",
+        "- **Füttere es**, so wie du einen Wolf für dich gewinnst. Sanfte Tiere nehmen ihr übliches Futter und binden sich etwa einmal von dreien; Reste nehmen ihr eigenes Reagenz und binden sich einmal von fünf. Jeder Versuch verbraucht das Futter.",
+        "- **Benutze ein Bindungsamulett** an ihm: drei von fünf Versuchen bei sanften Tieren, zwei von fünf bei Resten. Das Amulett ist verbraucht, wenn die Bindung gelingt. Ein Fehlversuch behält es bei einem sanften Tier, verbraucht es aber bei einem Rest.",
+        "Ein Rest antwortet auf beide Arten erst, wenn sein Stamm dich **Stimme** nennt ([wer gebunden werden kann](familiar_basics)). Herzen heißen, es hat geklappt; Rauch heißt, es hat nicht."
+      ],
+      "title": "Bindung"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Mach es früh aus **vier Fäden** um eine **Geistscherbe** und **ein Kreaturreagenz**. Sobald du Geistergewebe hast, können **zwei Geistergewebe** den Faden ersetzen.",
+        "Das Reagenz kann eines von neun sein: Dämmersamt, Laternendaune, Moosrückenschuppe, Prismapanzer, Risszahn, Zunderknoten, Sturmflügel, Glockensplitter oder Echoseide. Fahre mit dem Pinsel über einen Dämmerhirsch, einen Laternenfuchs oder einen Moosrücken, einmal in der Minute, um eines zu bekommen, oder nimm eines von einem gefallenen Rest; Reagenzien anderer Bestien passen nicht. Was auch hineinkam, das Amulett bindet jede Kreatur, die antwortet.",
+        "Dasselbe Amulett gibt deinem Vertrauten später eine Stimme: siehe [Einstimmen an einem Totem](familiar_attuning)."
+      ],
+      "title": "Das Bindungsamulett"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bonding_charm",
+      "text": "Jedes der neun Kreaturreagenzien füllt das obere mittlere Feld."
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ein Vertrauter folgt dir, sobald du **10 Blöcke** entfernt bist, und teleportiert sich jenseits von **12** zu dir. Er ignoriert deine Schläge.",
+        "Schleich-benutze ihn, damit er wartet, und noch einmal, um ihn zurückzurufen. Halt etwas in der Hand, wenn du das bei einem Moosrücken tust, denn eine leere Hand öffnet seine Satteltasche.",
+        "**Ein Kämpfer** (ein Splitterrücken oder ein Risshund) und **zwei Helfer** dürfen zugleich folgen. Sitzende und alles, worauf du reitest, zählen nicht. Überzählige setzen sich und sagen dir, warum. Ein wartender Vertrauter, der verletzt wird, steht auf und folgt, wenn in deiner Gesellschaft Platz ist.",
+        "Was dein Vertrauter tötet, bringt dir keinen Stand beim Stamm und zählt nicht für die Jagden eines Stammes. Die Tötung muss deine eigene sein."
+      ],
+      "title": "Gesellschaft halten"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Züchte zwei gebundene Gefährten derselben Art, indem du beide mit ihrem Futter fütterst, während sie nah beieinander stehen. Wilde Tiere züchten auch, wenn du dich beim Füttern duckst, und ihr Nachwuchs kommt wild zur Welt. Wie bei Wölfen werden die Jungen zweier Gefährten, die dir gehören, **in deine Gesellschaft geboren**, und mehr Futter hilft ihnen beim Wachsen.",
+        "Jedes Kind nimmt von jedem Elternteil die Hälfte jedes Strangs, manchmal ein wenig nach oben oder unten gerückt. Paare, die dir zusammen gehören, verbessern sich etwas öfter.",
+        "**Züchte stark zu stark.** Wenn beide Eltern in einem Strang 3 oder besser sind, hat das Kind eine Chance von eins zu vier, eine Stufe höher zu kommen als beide, und das ist der einzige Weg zu 4 und zu Erhaben 5. Eine mit Sorgfalt gezüchtete Linie wird weit stärker als alles Wilde.",
+        "Vorsicht beim Kopieren: denselben Rahmen und denselben Fang drei Generationen hintereinander unter einem Besitzer zu züchten **Zerfasert** die Linie und senkt ihr Summen."
+      ],
+      "title": "Bessere Stränge züchten"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Male sind benannte Eigenheiten. Manche zeigen sich mit einer Kopie; der Rest braucht eine Kopie von beiden Eltern.",
+        "- Eine Kopie: **Stiller Faden** (folgt ab 8 Blöcken, hält bei 2 an), **Steinhaut** (+1 Rüstung, etwas langsamer), **Abdrift** (schneller, 2 Leben weniger, wird nach einer Minute Warten unruhig), **Weiches Maul** (beißt keine Dorfbewohner und keine Golems), **Glühader** (Fuchs), **Strebe** (Splitterrücken).",
+        "- Zwei Kopien: **Scharf** (die Gabe wirkt schneller), **Nachtsummton** (nachts schneller), **Sippenmal** (geboren vom Paar eines Besitzers, ein wenig mehr Rüstung) und die Artmale **Sprung**, **Tiefe Tasche**, **Fährte**, **Tempo**, **Klicktreu**, **Reglos** und **Sammeln**.",
+        "Einige wilde, im Marsch geborene Kreaturen sind **Gefunkte**: sie glitzern und tragen eine starke Kopie des Strangs, zu dem ihre Art neigt."
+      ],
+      "title": "Male"
+    },
+    {
+      "type": "text",
+      "title": "Einen Vertrauten heilen",
+      "text": [
+        "Füttere einen verletzten Vertrauten mit seinem Lieblingsfutter, um ihn zu heilen. Eine bei ihm benutzte [Salbe](remedies), brennender Weihrauch und die [Heiler-Rassel](healers_rattle) heilen ihn ebenfalls.",
+        "Fällt einer, hinterlässt er einen **Geistrest**. Ein [Heilkreis](healing_circle) ruft ihn zurück, samt Stimme."
+      ]
+    }
+  ]
+}

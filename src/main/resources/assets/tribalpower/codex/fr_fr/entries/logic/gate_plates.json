@@ -1,0 +1,265 @@
+{
+  "name": "Plaques de porte",
+  "icon": "tribalpower:chorus_plate",
+  "order": 72,
+  "items": [
+    "tribalpower:chorus_plate",
+    "tribalpower:gathering_plate",
+    "tribalpower:discord_plate",
+    "tribalpower:hush_plate"
+  ],
+  "next": "signal_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Chœur, Rassemblement, Discorde, Silence",
+      "text": [
+        "Quatre façons dont deux voix peuvent s'accorder :",
+        "- **Chœur** (AND) ne chante que lorsque gauche et droite sont toutes deux actives.",
+        "- **Rassemblement** (OR) chante lorsqu'un côté ou l'autre est actif.",
+        "- **Discorde** (XOR) chante lorsque les côtés ne s'accordent pas.",
+        "- **Silence** (NAND) chante sauf si les deux côtés sont actifs.",
+        "La réponse est **15 ou 0** depuis la face avant. Pose du Fil de chant sur cette face pour la porter plus loin, ou synchronise une autre plaque pour qu'elle l'entende.",
+        "Quel côté est la gauche et lequel la droite se trouve sur la page [plaques de chant](song_plates)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Deux interrupteurs, une station",
+      "steps": [
+        {
+          "caption": "Un Broyeur d'écho que nous voulons mettre en pause depuis l'un ou l'autre de deux endroits.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:stone"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Monte une Plaque de rassemblement sur le bloc, pointée vers la station. Cette face est sa sortie.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:gathering_plate[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Pose un levier à sa gauche et un autre à sa droite : ce sont ses deux entrées.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dès qu'un levier est actif, la plaque chante 15 dans la station, qui se met en pause et garde tout ce qu'elle tient.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Remplace-la par une Plaque de chœur et elle attendra les deux leviers avant de chanter.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:chorus_plate[facing=north]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chorus_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gathering_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:discord_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hush_plate"
+    }
+  ]
+}

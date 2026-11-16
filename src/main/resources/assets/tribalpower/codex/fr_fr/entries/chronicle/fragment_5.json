@@ -1,0 +1,17 @@
+{
+  "name": "6. Le portage",
+  "icon": "tribalpower:carved_stone",
+  "order": 15,
+  "spoiler": true,
+  "unlock": "fragment:5",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Le portage",
+      "text": [
+        "“Les Gardiens des litières n'ont pas couru. Ils ont ramassé le sol, un panier à la fois, et ont posé un Âtre sur chaque litière qu'ils ont sauvée. Les autres ont ri, puis ils sont venus s'asseoir près des feux.”",
+        "Trouvé sur une Pierre gravée dans les ruines de la Marche."
+      ]
+    }
+  ]
+}

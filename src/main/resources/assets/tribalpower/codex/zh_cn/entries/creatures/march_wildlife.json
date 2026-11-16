@@ -1,0 +1,96 @@
+{
+  "name": "远行界野生动物",
+  "icon": "tribalpower:raw_glimmerfin",
+  "order": 190,
+  "items": [
+    "tribalpower:glimmerfin_spawn_egg",
+    "tribalpower:drift_bell_spawn_egg",
+    "tribalpower:veil_ray_spawn_egg",
+    "tribalpower:silt_eel_spawn_egg",
+    "tribalpower:loom_swift_spawn_egg",
+    "tribalpower:raw_glimmerfin",
+    "tribalpower:cooked_glimmerfin",
+    "tribalpower:raw_silt_eel",
+    "tribalpower:smoked_silt_eel",
+    "tribalpower:drift_jelly",
+    "tribalpower:glimmerfin_bucket"
+  ],
+  "next": "beasts_steppe",
+  "pages": [
+    {
+      "type": "text",
+      "title": "水中",
+      "text": [
+        "远行界的池沼、水潭和山中小湖充满生机。",
+        "它们都待在露天的水里，从不进入下方岩石封住的水。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmerfin",
+      "title": "微光鳍",
+      "text": [
+        "小型霓虹鱼，鱼鳍发亮，在每片土地的水里成群游动。用水桶捞一条，或者煮了它。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:drift_bell",
+      "title": "漂铃",
+      "text": [
+        "缓慢发光的钟形水母，除了高地和余烬荒原，每片土地的水里都有。无害。它的**漂凝胶**能让你在水下呼吸，并在黑暗中看一会儿。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:veil_ray",
+      "title": "帷幕鳐",
+      "text": [
+        "草原、高地、芦苇泽和浅滩的宽大而胆小的蝠鲼；谁靠近就滑走。掉落远行界皮革和微光鳍。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:silt_eel",
+      "title": "淤泥鳗",
+      "text": [
+        "芦苇泽的水潭与水道、浅滩，以及余烬荒原入海处的水里，有一种橄榄色的泽鳗。它与微光鳍一起游，并咬在它水中涉水的人。做成熏淤泥鳗，是一顿好饭。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:loom_swift",
+      "title": "织机雨燕",
+      "text": [
+        "**织机雨燕**在开阔地上空盘旋，松散的鸟群为**3到6**只，只在白天和干燥天气，从不到余烬荒原上空；你周围最多聚集**12**只。它们掉一两根羽毛，偶尔还有一些生野味。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "空中",
+      "text": [
+        "靠近地面的空气里满是虫子：**萤火虫**夜里在泽地和草原上，**芦苇疾虫**白天掠过水面，**玻璃翅**在水晶原的花上飞舞，**烬蚊**从余烬荒原升起。它们只是光和动静；抓不住，也不会给你的世界添负担。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "兽群会回来",
+      "text": [
+        "把远行界的一段猎光或驯空，它也不会一直空着。大约**每分钟一次**，在离你**32到96格**的安静处，并且绝不进入任何人的**24格**内，那片土地的一些动物可能会走回来：和那片土地最初一样的食草兽，也包括其他模组加在那里的。洞穴与熔岩中的生物回到它们自己的地面。",
+        "当那个地点周围32格内大约有**六**只动物时，它们就不再来。驯服的和关在围栏里的也算。于是土地大约补回到开始时的程度，不再更多，野生兽群也不会挤满你的农场或热闹的营地。",
+        "鱼、水母和雨燕随着水和天空自行来去。服务器设置可以改变节奏，或关掉这种回归。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "喂食与繁殖",
+      "text": [
+        "拿着**丝带藻**或**海草**，微光鳍、漂铃和帷幕鳐会游向你，胆小的鳐也一样。给同一种的两只喂食，它们会生出第三只。",
+        "在任何远行界的水里抛出**钓鱼竿**，会钓上生微光鳍，四次里有一次是生淤泥鳗，代替鳕鱼和鲑鱼。另一只手拿着**空桶**，微光鳍会活着上来，成为微光鳍桶：这是给池塘备鱼的简单办法。",
+        "拿着**小麦种子**或**草原谷**，织机雨燕会在你身边近处盘旋，近到可以喂食。喂过的两只同样会生出第三只。",
+        "幼体出生时便已成年，从不会走散，所以放入的池塘会一直满着。每一对要休息五分钟才会再次繁殖。淤泥鳗不吃食物。",
+        "漂铃有时也会掉落粘液球。"
+      ]
+    }
+  ]
+}

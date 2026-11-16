@@ -103,7 +103,7 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
                     "bind_effigy","need_summon","crowded","peaceful","hush_block","need_floor","tending","unclaimed",
                     "output_full","berries","urged","plant_protected","planted","planted_cocoa","crop_protected","need_seed",
                     "replanted","harvested","watered","raked"->Component.translatable("message.tribalpower.hand."+reason);
-            default->Component.literal(reason);
+            default->Component.translatableWithFallback("message.tribalpower.hand."+reason, reason);
         };
     }
     void setReason(String key){reason=key;reasonName="";}

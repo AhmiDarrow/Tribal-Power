@@ -1,0 +1,28 @@
+{
+  "name": "Lanterna di Spirito",
+  "icon": "tribalpower:spirit_lantern",
+  "order": 100,
+  "next": "pulse_lights",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_lantern",
+      "text": [
+        "Una lanterna intagliata di rame e legno che illumina l'accampamento al livello **15** e non chiede mai combustibile né Pulso. Il suo cristallo brilla degli stessi colori del reticolo vivente."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Come usarla",
+      "text": [
+        "Mettile lungo i sentieri tra le officine. Una leva o un qualsiasi segnale di redstone ne attenua una, e un comparatore legge 15 finché è accesa.",
+        "È una luce, non una protezione: gli ostili hanno ancora bisogno del buio per generarsi, quindi la luce più un Totem del silenzio fa un accampamento quieto.",
+        "Se preferisci che le tue luci funzionino sul reticolo, il Giunco luminoso, la Lampada di scheggia, l'Applique dell'eco e la Ciotola di brace assorbono un rivolo di Pulso. Vedi [Luci di Pulso](pulse_lights)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_lantern"
+    }
+  ]
+}

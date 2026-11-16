@@ -1,0 +1,68 @@
+{
+  "name": "Anciens, requêtes et récits",
+  "icon": "tribalpower:relic_spindle",
+  "order": 15,
+  "spoiler": false,
+  "items": [
+    "tribalpower:relic_soil",
+    "tribalpower:relic_stone",
+    "tribalpower:relic_sprout",
+    "tribalpower:relic_claw",
+    "tribalpower:relic_spark",
+    "tribalpower:relic_clock",
+    "tribalpower:relic_swarm",
+    "tribalpower:relic_sigil",
+    "tribalpower:relic_spindle"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Parler à un Ancien",
+      "text": [
+        "Le camp de chaque tribu a un **Ancien**, et une fois que tu es Hôte ils te parlent. Fais un clic droit sur l'un d'eux et une conversation s'ouvre : ce qu'ils disent à gauche, ce que tu peux répondre en boutons.",
+        "Le troc est l'une des choses que tu peux demander. Les Étrangers n'ont que quelques mots bourrus et un indice sur l'âtre, alors apporte d'abord une offrande (voir [Tribus et estime](standing)).",
+        "Ce que l'Ancien offre change selon ce que tu as fait : les requêtes, leur récit, et une fois celui-ci fini, un accueil plus chaud.",
+        "Le [jour de fête](living_march) de la tribu, l'Ancien t'invite aussi au festin."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Requêtes",
+      "text": [
+        "Demande à un Ancien **\"Y a-t-il du travail que je puisse faire ?\"** et ils te donnent l'une des requêtes de la tribu. Chaque tribu en a trois ouvertes un jour donné, et elles changent avec les jours ; si celle d'aujourd'hui ne te convient pas, reviens demain.",
+        "Tu tiens **une requête par tribu** à la fois. Une fois **trois** finies dans une journée, toutes tribus confondues, les Anciens ne donnent plus de nouveau travail avant demain. Le travail que tu as déjà peut encore être rendu.",
+        "Finis-la et dis à l'Ancien **\"J'ai fait ce que tu as demandé.\"** Chacune paie **8 à 16** d'estime, et chaque **troisième** requête finie pour une tribu paie une **Marque de tribu** en plus, bien avant que tu atteignes Voix.",
+        "Le Codex tient le compte pour toi : la page de chaque tribu se termine par sa requête ouverte et par là où elle en est."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'ils demandent",
+      "text": [
+        "- **Apporter** : apporte ce à quoi ils tiennent, comme leur récolte de la Marche. Porte-le quand tu le dis à l'Ancien.",
+        "- **Livrer** : apporte deux bols de leur propre [plat](tribe_dishes).",
+        "- **Chasser** : repousse six créatures de l'obscurité dans un rayon de **48 blocs** de leur âtre. Le coup mortel doit être le tien.",
+        "- **Rite** : accomplis n'importe quel rite sur un brasero ou un piédestal, à 48 blocs ou moins de leur âtre.",
+        "- **Construire** : élève des **Murets** de taille 3 ou plus à 48 blocs ou moins de leur âtre, marqués à la Craie de bâtisseur, et tiens cette craie quand tu le dis à l'Ancien. Construis-les en blocs travaillés, comme des planches, des briques ou de la roche : la pierre brute, la terre, le sable, la terre cuite, la glace et le sol même de la Marche ne comptent pas. Une construction compte **une fois** : les murets déjà remis à cette tribu ne paient plus."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Leur histoire",
+      "text": [
+        "Demande **« Raconte-moi ton histoire »** et l'Ancien entame une route plus longue : **sept étapes**, une tribu à la fois, qui s'appuient sur tout le reste de ce que tu fais avec eux. Deviens leur Ami, apporte la seule chose à laquelle ils tiennent, chasse près de leurs feux, accomplis un rite dans leur camp, apporte leur plat, et à la fin va là où ils t'envoient.",
+        "La dernière étape est une **épreuve** : le pays de chaque tribu garde un gardien, et la tribu veut que tu l'affrontes. L'épreuve des Couseurs du métier est Le Non-chanté lui-même ; les huit autres attendent sur leurs terres, comme le dit [Les gardiens](guardians). Si tu tombes au combat, l'histoire attend, tout simplement. Un gardien laissé seul une demi-minute se rendort sans avoir été vaincu, et son autel peut être rappelé tout de suite.",
+        "N'affronte le gardien qu'une fois que l'Ancien t'a envoyé. Un gardien vaincu plus tôt ne compte pas pour l'histoire."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les neuf reliques",
+      "text": [
+        "Finis l'histoire et l'Ancien te remet la **relique** de la tribu : une petite chose unique qui accorde le [bienfait](tribe_boons) de cette tribu tant qu'elle est dans ton inventaire, quel que soit ton rang, et qui te marque pour de bon à leurs yeux.",
+        "{item:tribalpower:relic_soil} (Gardiens des litières). {item:tribalpower:relic_stone} (Chanteurs de gravier). {item:tribalpower:relic_sprout} (Lieurs de racines). {item:tribalpower:relic_claw} (Marcheurs de lisière). {item:tribalpower:relic_spark} (Cœurs-tambours). {item:tribalpower:relic_clock} (Tisserands de motifs). {item:tribalpower:relic_swarm} (Gardiens de la colonie). {item:tribalpower:relic_sigil} (Graveurs de sceaux). {item:tribalpower:relic_spindle} (Couseurs du métier).",
+        "Une pour chaque tribu, chacune fin d'une histoire et début de neuf qui s'accordent de nouveau."
+      ]
+    }
+  ]
+}

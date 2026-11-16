@@ -1,0 +1,141 @@
+{
+  "name": "Twój pierwszy Puls",
+  "icon": "tribalpower:drumheart",
+  "order": 10,
+  "next": "first_workshop",
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Każdy obóz zaczyna od bębna. [Bęben-serce](drumheart) zamienia równe uderzenie w zmagazynowany Puls, który wydają maszyny na jego [krata](lattice_conductor).",
+        "Przepis jest na ostatniej stronie tutaj: deski, skóra, dwa **Kościany dzwonek** i **Odłamek Ducha**. Dzwonki i odłamki robi się szybko z kości, nici, ametystu i redstone; zobacz [Odłamki Ducha i rezonatory](crafting_components). Zrób kilka, bo na początku prawie wszystko ich używa.",
+        "Postaw bęben tam, gdzie zamierzasz pracować, i graj na nim: klik prawym przyciskiem **pustą ręką**, mniej więcej **raz na sekundę**. Uderzenie w takt jest warte o wiele więcej niż gorączkowe klikanie.",
+        "Bij, aż zbierze kilkaset Puls (kucnij i kliknij prawym przyciskiem z tą książką, żeby sprawdzić). Twój pierwszy warsztat działa na tej rezerwie."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Trzymać rytm",
+      "steps": [
+        {
+          "caption": "Postaw Bęben-serce tam, gdzie zamierzasz zbudować swój pierwszy warsztat.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Pustą ręką klikaj prawym przyciskiem mniej więcej raz na sekundę. Każde uderzenie w takt dodaje 24 Puls.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Za szybko, i uderzenia wypadają z taktu i dodają mniej. Znajdź raczej równy rytm.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart",
+      "text": "Bęben mieści 1,000 Puls. Maszyny czerpią z niego przez **Przewodnik kraty** w odległości 8 bloków od obu; następna strona pokazuje, gdzie go postawić. Jeden lub dwa bębny wystarczą: trzeci w tych samych 8 blokach wciąż brzmi, ale nic nie daje."
+    }
+  ]
+}

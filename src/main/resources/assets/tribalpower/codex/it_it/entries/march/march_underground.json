@@ -1,0 +1,58 @@
+{
+  "name": "Sotto la Marcia",
+  "icon": "tribalpower:march_iron_ore",
+  "order": 30,
+  "spoiler": true,
+  "items": [
+    "tribalpower:march_coal_ore",
+    "tribalpower:march_iron_ore",
+    "tribalpower:march_copper_ore",
+    "tribalpower:march_gold_ore",
+    "tribalpower:march_redstone_ore",
+    "tribalpower:march_lapis_ore",
+    "tribalpower:march_diamond_ore",
+    "tribalpower:march_emerald_ore"
+  ],
+  "next": "ancestor_hall",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_iron_ore",
+      "text": [
+        "La Marcia è cava sotto. Scava in basso o segui una bocca di grotta e trovi caverne enormi rette da pilastri di pietra, lunghe gallerie tortuose, canyon profondi aperti al cielo, e ogni minerale vanilla incastonato nella Pietra della Marcia. Porta molta luce. I Resti dello Spirito compaiono nel buio laggiù, proprio come in superficie."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Il minerale di carbone, ferro, rame, oro, redstone, lapislazzuli, diamante e smeraldo della Marcia si scava e si fonde esattamente come i gemelli vanilla. Cambia solo la roccia intorno.",
+        "- Carbone: un piccone qualsiasi.",
+        "- Ferro, rame e lapislazzuli: un piccone di pietra o migliore.",
+        "- Oro, redstone, diamante e smeraldo: un piccone di ferro o migliore.",
+        "Danno le stesse materie grezze e gemme, Fortuna funziona, e Tocco di velluto conserva il blocco di minerale, che puoi fondere direttamente. Una Volpe lanterna vincolata segna tutti, e anche il Minerale della Marcia."
+      ],
+      "title": "Estrarre gli otto minerali"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Carbone: da **y 0** a **192**.",
+        "- Ferro: ovunque, più ricco alle profondità medie e di nuovo in alto sulle montagne.",
+        "- Rame: da **y -16** a **112**.",
+        "- Oro: in profondità, fino a **y 32**. Lapislazzuli: da **y -32** a **32**. Redstone: sotto **y 16**.",
+        "- Diamante: sotto **y 16**, ogni tanto in una grande vena.",
+        "- Smeraldo: solo negli **Altipiani** e sulla **Cresta del barlume**, da **y 48** in su. Lì sono comuni, quindi vale la salita."
+      ],
+      "title": "Dove cercare"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Qua e là una parete di grotta si apre in una piccola sacca di ametista: qualche blocco di ametista nella roccia, con germogli e, se hai fortuna, un grappolo intero che cresce nella grotta.",
+        "Non c'è ametista germogliante, quindi non ricrescono mai. Prendi ciò che c'è e vai avanti.",
+        "Le schegge di ametista si sintonizzano in Schegge di Spirito in un Sintonizzatore di eco, il che rende una sacca un bel ritrovamento all'inizio della Marcia."
+      ],
+      "title": "Sacche di ametista"
+    }
+  ]
+}

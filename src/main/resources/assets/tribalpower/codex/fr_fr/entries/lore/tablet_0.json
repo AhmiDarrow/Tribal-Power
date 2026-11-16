@@ -1,0 +1,16 @@
+{
+  "name": "Tablette : Âtre des Gardiens des litières",
+  "icon": "tribalpower:lore_tablet",
+  "order": 100,
+  "spoiler": true,
+  "unlock": "tablet:0",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Gardée au mur d'un camp des Graveurs de sceaux, dans les mots des Gardiens des litières :",
+        "“Nous ne l'avons jamais appelé terre. Nous l'avons appelé ce qui restait, et nous l'avons gardé chaud. Quand le sol s'est dérobé, nous l'avons porté dans des paniers, une litière à la fois, et nous avons posé un âtre sur chaque litière sauvée. Nourris l'âtre de pain et de mousse. Il se souvient de qui l'a nourri.”"
+      ]
+    }
+  ]
+}

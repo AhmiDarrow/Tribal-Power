@@ -1,0 +1,40 @@
+{
+  "name": "Bendiciones de las voces",
+  "icon": "tribalpower:resonance_totem_spirit",
+  "order": 120,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_seal",
+      "title": "Una voz se posa en ti",
+      "text": [
+        "Cada una de las seis voces tiene una **bendición**: una forma de prestarse a quien ella favorece. La verás como un efecto de estado del color de esa voz.",
+        "Hay tres maneras de conseguir una:",
+        "- **Canta una guarda.** Una canción de guarda otorga la bendición de su voz, **45 segundos** por cada nota de poder que lleva.",
+        "- **Un [rito de sello](rite_circle) en un Pedestal del rito** bendice a todos en 6 bloques con la voz del sello durante **5 minutos**; un rito amplificado da siete y medio, en nivel II. Un [familiar](familiar_boons) sintonizado de esa voz a tu lado lo alarga otra mitad.",
+        "- **Come del [festín](feasts) de una voz.** Cada ración otorga la bendición de esa voz durante 8 minutos.",
+        "Un **Amuleto de la linterna** que llevas mantiene encendida cualquier bendición o don **la mitad más**, mientras se pague su mantenimiento."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Tierra**: cavas un **25%** más rápido y te mantienes firme contra el retroceso.",
+        "- **Fuego**: tus golpes prenden al objetivo durante 3 segundos; en el **nivel II** el fuego no puede tocarte.",
+        "- **Agua**: nadas más rápido y recuperas **medio corazón por segundo** mientras estás mojado.",
+        "- **Aire**: cada caída es 3 bloques más corta, y saltas más alto.",
+        "- **Espíritu**: los hostiles a 16 bloques brillan a través de las paredes.",
+        "- **Telar**: **una décima** del Pulso que gasta tu equipo vuelve a él, incluso en los gastos más pequeños: una parte aún demasiado pequeña para devolverse espera en la pieza hasta sumar un Pulso entero.",
+        "El nivel II duplica los números. La leche quita una bendición, como quita cualquier efecto."
+      ],
+      "title": "Las seis bendiciones"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Los ritos son el modo fiable: asienta un sello, traza el círculo con tiza y todo el campamento queda bendecido de una vez, antes de una noche en la Marcha. Las canciones son el modo rápido en el camino. Cada cifra vive en la sección **efectos** de la configuración común."
+      ],
+      "title": "Dónde encontrarlas"
+    }
+  ]
+}

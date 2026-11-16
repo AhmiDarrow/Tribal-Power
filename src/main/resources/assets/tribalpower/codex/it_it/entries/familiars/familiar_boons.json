@@ -1,0 +1,45 @@
+{
+  "name": "Cosa dà una voce",
+  "icon": "tribalpower:ember_charm",
+  "order": 50,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Entro 16 blocchi",
+      "text": [
+        "Tutto in queste pagine richiede che il tuo famiglio sintonizzato sia entro **16 blocchi** da te. Ogni famiglio che ti segue conta, ma di quelli a cui hai detto di aspettare conta solo il **più vicino**. Una folla lasciata seduta a casa ti presta quindi una voce, non tutte le loro.",
+        "Senza uno, la tua magia funziona come ha sempre fatto."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Amuleti di Spirito",
+      "text": [
+        "Un amuleto indossato che porta la voce del famiglio costa **il 40% di Pulso in meno** per restare attivo, arrotondato: i 2 di Pulso di un amuleto a una voce diventano 1. Vedi [Amuleti di Spirito](spirit_charms).",
+        "Ogni voce che condividi aggiunge anche un beneficio, che resta per qualche secondo dopo che ti allontani:",
+        "- **Terra**: Resistenza II invece di I.",
+        "- **Fuoco**: Fretta, e chi attacca brucia il doppio del tempo.",
+        "- **Acqua**: Potere del condotto.",
+        "- **Aria**: Velocità.",
+        "- **Spirito**: le cose ostili entro 16 blocchi brillano attraverso i muri. Il bagliore è evidente a tutti i vicini, non solo a te.",
+        "- **Telaio**: Fortuna II."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dotazione spirituale",
+      "text": [
+        "Un pezzo legato alla voce del famiglio spende **il 40% di Pulso in meno**, arrotondato: i 3 di un colpo diventano 2, i 2 di un colpo di scavo diventano 1 e i 3 dell'armatura legata diventano 2. Una spesa di 1 Pulso, come arare o tosare, non può scendere oltre, quindi invece è **gratis il 40% delle volte**.",
+        "I suoi vantaggi di voce (tronchi e arbusti in più, raccolti doppi, argilla dalla terra) arrivano **la metà più spesso**. Vedi [Dotazione spirituale](spiritgear)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Canti e riti",
+      "text": [
+        "I versi della voce del famiglio colpiscono **il 30% più forte**, e una Chiamata arriva **1.5 blocchi** più lontano ([forme di canto](song_shapes)).",
+        "Un rito del sigillo della sua voce lascia una benedizione che dura **la metà in più**."
+      ]
+    }
+  ]
+}

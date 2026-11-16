@@ -1,0 +1,261 @@
+{
+  "name": "시약",
+  "icon": "tribalpower:reagent_pouch",
+  "order": 10,
+  "items": [
+    "tribalpower:reagent_pouch",
+    "tribalpower:dawn_velvet",
+    "tribalpower:lantern_down",
+    "tribalpower:mossback_scale",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:bounder_horn",
+    "tribalpower:grub_husk",
+    "tribalpower:tuft_wool",
+    "tribalpower:shank_sinew",
+    "tribalpower:pale_down",
+    "tribalpower:crag_fleece",
+    "tribalpower:boulder_tusk",
+    "tribalpower:drift_bladder",
+    "tribalpower:prism_crest",
+    "tribalpower:shard_wing",
+    "tribalpower:glow_husk",
+    "tribalpower:drift_pelt",
+    "tribalpower:frost_hoof",
+    "tribalpower:snow_veil",
+    "tribalpower:ash_wing",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:silt_fin",
+    "tribalpower:pale_streamer",
+    "tribalpower:shoal_scale",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark",
+    "tribalpower:ember_heart",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale",
+    "tribalpower:cinder_plate",
+    "tribalpower:slag_curd",
+    "tribalpower:slag_hide",
+    "tribalpower:knotted_root",
+    "tribalpower:heartwood_core",
+    "tribalpower:reed_fang",
+    "tribalpower:gnasher_tooth",
+    "tribalpower:facet_barb",
+    "tribalpower:rime_mandible",
+    "tribalpower:shard_barb",
+    "tribalpower:brine_fang",
+    "tribalpower:prism_carapace",
+    "tribalpower:scree_knuckle",
+    "tribalpower:ember_fang",
+    "tribalpower:reed_whorl",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:sentinel_sigil",
+    "tribalpower:pale_fang",
+    "tribalpower:barrow_shroud",
+    "tribalpower:drowned_weed",
+    "tribalpower:storm_wing",
+    "tribalpower:veil_tatter",
+    "tribalpower:cinder_knot",
+    "tribalpower:shade_ember",
+    "tribalpower:bell_fragment",
+    "tribalpower:wraith_veil",
+    "tribalpower:rift_tooth",
+    "tribalpower:lurker_claw",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn",
+    "tribalpower:echo_silk",
+    "tribalpower:gloom_silk"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "마치의 생물은 모두 무언가를 남긴다. 송곳니, 비늘, 양털 한 줌. 그것이 **시약**이며, Tribal Power는 이것으로 사냥을 마법으로 바꾼다.",
+        "{item:tribalpower:reagent_pouch}를 단축바에 두어라. 줍는 일반 시약은 곧바로 주머니로 들어간다. 주머니는 종류마다 가공 전과 강화된 것을 **999**개까지 담아서, 가방을 채우지 않는다. **실**이 달린 시약은 가방에 남는다(다음 장).",
+        "주머니를 우클릭하면 안을 보고 가공 전 시약을 다시 꺼낼 수 있다. 염료, 치료제, 제작법에 쓴다. 노래 작업대의 **꺼내기** 버튼도 같은 일을 한다.",
+        "시약은 **가공 전** 상태로 시작한다. [노래 작업대](song_bench)에서 펄스 16으로 **강화**할 수 있다. 가공 전 시약은 치료제를 빚고 몇 가지 제작법에 들어간다. 강화된 것은 노래를 적고, 구절 화살을 만들며, 무기에 축성한다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "실",
+      "text": [
+        "일부 시약은 **실**을 지닌다. I, II, III이며, 툴팁에 금색 이름으로 나온다. 시약이 떨어진 생물이 얼마나 강했는지를, 처치나 솔로 시약이 떠날 때 읽은 값이다. 혈통에서 가장 강한 실이 2를 넘으면 그 값이고, 금색 이름의 **정예**면 한 단계 더하다.",
+        "- **실 I**: 실이 3인 야생 생물, 또는 아무 정예.",
+        "- **실 II**: 실이 4인 교배 혈통, 또는 실이 3인 정예.",
+        "- **실 III**: **숭고** 혈통, 실 5. 자신의 숭고한 사역마를 솔질하면 1분에 둘이 나온다.",
+        "실이 다른 시약은 겹치지 않는다. 그 밖에는 실이 있는 시약도 다른 것과 같다. [레이 심장](ley_heart)은 더 뜨겁게 태우며, 일반 시약의 4에 비해 **6, 9 또는 12**의 값이다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "계열",
+      "text": [
+        "시약이 하는 일은 그것이 떨어진 생물에서 온 **계열**에 달렸다. 열하나이고, 어디서 쓰든 뜻은 같다:",
+        "- **노래**에서, 첫 시약 다음에 시약이 더하는 것;",
+        "- **축성된 무기**에서, 무기가 맞은 대상에게 하는 것([축성](anointing));",
+        "- **치료제**에서, 달인 약이 먹는 이에게 하는 것([치료제](remedies)).",
+        "다음 장에는 모든 계열, 거기에 속하는 시약, 세 곳에서 하는 일이 적힌다."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "가공 전 시약을 **그릇**에 넣고 **의식 분필** 한 자루만 함께 갈아라(셋을 제작칸에 넣는다. 분필 한 묶음 전체는 안 된다). **염료 2**를 얻는다. 그릇은 돌아오고, 분필은 표시 하나만 잃는다.",
+        "열여섯 가지 시약이 열여섯 가지 염료가 된다:",
+        "- **흰색**: 옅은 솜깃",
+        "- **회백색**: 풀뜯이 양털",
+        "- **회색**: 폭풍 날개",
+        "- **검은색**: 재 날개",
+        "- **갈색**: 유충 껍질",
+        "- **빨간색**: 잔불 티끌",
+        "- **주황색**: 마그마 비늘",
+        "- **노란색**: 잿불 나무껍질"
+      ],
+      "title": "시약 염료"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **연두색**: 고블린 귀",
+        "- **초록색**: 옹이 뿌리",
+        "- **청록색**: 희미빛 가루",
+        "- **하늘색**: 잠복자 발톱",
+        "- **파란색**: 프리즘 갑각",
+        "- **보라색**: 랜턴 솜털",
+        "- **자홍색**: 종갓나무 포자",
+        "- **분홍색**: 요정 꽃잎"
+      ],
+      "title": "시약 염료, 계속"
+    },
+    {
+      "type": "text",
+      "title": "잔불",
+      "text": [
+        "**시약**: 잔불 심장, 잔불 티끌, 마그마 비늘, 잿불 판, 광재 응유, 광재 가죽.",
+        "- **노래**: 대상에게 불을 붙인다.",
+        "- **축성**: 작열: 대상을 태우고, 매 타격에 불을 더한다.",
+        "- **Remedy**: 불쏘시개: 힘."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "벼락",
+      "text": [
+        "**시약**: 잿불 매듭, 그림자 잔불.",
+        "- **노래**: 대상에게 불을 붙인다.",
+        "- **도유**: 폭풍 부름: 타격의 4분의 1이 근처의 적 둘에게 번개를 호로 날린다.",
+        "- **Remedy**: 가속: 신속."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "냉기",
+      "text": [
+        "**시약**: 종 조각, 망령 장막.",
+        "- **노래**: 대상을 느리게 한다.",
+        "- **도유**: 동상: 대상을 느리게 하고 얼린다.",
+        "- **Remedy**: 냉각: 화염 저항."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "맹독",
+      "text": [
+        "**시약**: 갈대 송곳니, 깨무는 이빨, 다면 가시, 서리 큰턱, 파편 가시, 염수 송곳니.",
+        "- **노래**: 대상을 중독시킨다.",
+        "- **도유**: 맹독: 대상을 중독시킨다.",
+        "- **Remedy**: 해독: 독, 위더, 허기, 멀미를 해제한다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "돌풍",
+      "text": [
+        "**시약**: 폭풍 날개, 장막 너덜.",
+        "- **노래**: 대상을 뒤로 밀어낸다.",
+        "- **도유**: 강풍: 대상을 뒤와 위로 날린다.",
+        "- **Remedy**: 깃털 낙하: 느린 낙하."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "뿌리",
+      "text": [
+        "**시약**: 옹이 뿌리, 심재 핵.",
+        "- **노래**: 대상을 느리게 한다.",
+        "- **도유**: 뿌리 속박: 타격의 5분의 1이 대상을 제자리에 뿌리박는다.",
+        "- **Remedy**: 뿌리박힘: 저항."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "밀치기",
+      "text": [
+        "**시약**: 프리즘 갑각, 너덜 주먹뼈, 잔불 송곳니, 갈대 소용돌이, 트롤 가죽, 서리 가죽.",
+        "- **노래**: 대상을 세게 뒤로 밀어낸다.",
+        "- **도유**: 분쇄: 대상이 갑옷을 더 많이 입을수록 타격이 더 깊게 문다.",
+        "- **Remedy**: 방벽: 흡수."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "직조",
+      "text": [
+        "**시약**: 메아리 비단, 어스름 비단.",
+        "- **노래**: 대상을 느리게 한다.",
+        "- **도유**: 메아리: 타격의 4분의 1이 절반의 힘으로 한 번 더 맞는다.",
+        "- **Remedy**: 맑은 시야: 야간 투시, 실명과 어둠을 해제한다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "약화",
+      "text": [
+        "**시약**: 파수병 인장, 창백한 송곳니, 고분 수의, 익사한 수초.",
+        "- **노래**: 대상을 약화시킨다.",
+        "- **도유**: 쇠약: 대상을 약화시킨다.",
+        "- **Remedy**: 회복: 성급함을 주고, 나약함, 구속, 채굴 피로를 푼다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "사냥개",
+      "text": [
+        "**시약**: 균열 이빨, 잠복자 발톱, 고블린 귀, 고블린 송곳니, 코볼트 비늘, 코볼트 뿔.",
+        "- **노래**: 대상을 빛나게 한다.",
+        "- **도유**: 피의 갈증: 생명력 흡수. 매 타격의 15%가 체력으로 돌아온다.",
+        "- **Remedy**: 활력: 생명력 강화."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "고요",
+      "text": [
+        "**시약**: 새벽 벨벳, 랜턴 솜털, 이끼등 비늘, 재 털뭉치, 풀뜯이 양털, 희미빛 가루, 팔랑새 날개, 도약수 뿔, 유충 껍질, 술 양털, 정강이 힘줄, 옅은 솜깃, 벼랑 양털, 바위 엄니, 떠도는 부레, 프리즘 볏, 파편 날개, 빛 껍질, 떠도는 모피, 서리 발굽, 눈의 장막, 재 날개, 습지 발, 늪 발굽, 이탄 부레, 울림 볏, 유리 날개, 정동 껍질, 실트 지느러미, 창백한 띠, 여울 비늘, 화로 나무껍질, 장로 나무껍질, 서리소나무 나무껍질, 잿불 나무껍질, 수양 매듭, 종갓나무 포자, 장대 뿌리, 요정 가루, 요정 꽃잎, 요정 불꽃.",
+        "- **노래**: 잠시 재생을 준다.",
+        "- **도유**: 수선: 무기가 타격할 때 스스로 수리된다.",
+        "- **Remedy**: 수선: 재생."
+      ]
+    }
+  ],
+  "next": "song_bench"
+}

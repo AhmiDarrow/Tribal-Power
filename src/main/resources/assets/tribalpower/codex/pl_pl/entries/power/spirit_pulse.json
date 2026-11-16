@@ -1,0 +1,225 @@
+{
+  "name": "Puls Ducha",
+  "icon": "tribalpower:pulse_cell",
+  "order": 5,
+  "items": [
+    "tribalpower:greater_pulse_cell",
+    "tribalpower:grand_pulse_cell"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_cell",
+      "text": [
+        "Puls to żywa energia, na której działa każda maszyna Tribal Power. Generatory go tworzą, maszyny go zużywają, a **Ogniwo Pulsu** pozwala nosić trochę w kieszeni na narzędzia, zaklęcia i podróże.",
+        "Zwykłe ogniwo mieści **1,200 Puls**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gdzie żyje Puls",
+      "text": [
+        "Puls to energia zmagazynowana. Generator taki jak Bęben-serce, Kolektor ley lub Rezonator Pulsu robi ją i trzyma we własnym zapasie. Maszyna zużywa ją w pracy, ale do tego zapasu sięga tylko przez **krata**.",
+        "Puls wędruje tylko wzdłuż [Przewodnik kraty](lattice_conductor). Wszystko w zasięgu **8 bloków** od przewodnika jest na kracie: generatory, maszyny, ręce obozu, przekaźniki, totemy i [Kopiec Pulsu](pulse_cairn). Przewodniki w zasięgu 8 od siebie łączą się w jedną sieć, a maszyna czerpie z generatorów i kopców swojej sieci. Maszyna bez przewodnika w zasięgu głoduje, nawet tuż obok pełnego bębna.",
+        "Do swojego pierwszego warsztatu postaw jeden przewodnik między bębnem a stacją. Każdy przewodnik niesie z początku **64 Pulsu na sekundę**, więcej, gdy [zyskuje rangi](machine_ranks). Maszyny najpierw opróżniają generatory sieci, potem Kopce Pulsu sieci. Totemy nie są do wydawania: każdy Totem rezonansu trzyma własne **250 Pulsu**, a ten bufor podtrzymuje jego głos."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Podaż i popyt",
+      "text": [
+        "Maszyna może chwilę działać z rezerwy, nawet gdy wydaje szybciej, niż wytwarzasz. Jeśli wciąż startuje i staje, porównaj Puls, którego potrzebuje, z tym, co dają twoje generatory, potem dodaj wytwarzanie albo zbuduj większą rezerwę. Każda liczba Pulsu w tej księdze jest dla ustawień domyślnych; paczka może je zmienić, a odczyt maszyny zawsze pokazuje jej prawdziwy koszt.",
+        "Totemy nie są generatorami. Pasujący totem daje stacji jej głos, zwany **dostrojeniem**; nie wytwarza energii. Przykucnij i kliknij prawym przyciskiem maszynę z tą księgą, a poda energię i dostrojenie osobno."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Napełnianie ogniwa",
+      "steps": [
+        {
+          "caption": "Naładowane Bęben-serce trzyma Puls, który w nie wybito.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Kliknij je prawym przyciskiem z Ogniwem Pulsu: jedno użycie napełnia ogniwo tak daleko, jak starcza bębna.",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -1,
+              0,
+              0
+            ],
+            "item": "tribalpower:pulse_cell"
+          }
+        },
+        {
+          "caption": "Rezonator Pulsu, wyrób głosu taki jak Harfa wiatru albo Kopiec Pulsu napełnia ogniwo tak samo, jednym użyciem tyle, ile zdoła przyjąć.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:pulse_cell"
+          }
+        },
+        {
+          "caption": "Generator traci to, co zyskuje ogniwo. Kolektor ley nie napełni ogniwa w ten sposób.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:ley_collector"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Noszenie",
+      "text": [
+        "Ogniwo Pulsu mieści **1 200 Pulsu**; **Większe ogniwo Pulsu** mieści **4 800**; **Wielkie ogniwo Pulsu** mieści **19 200**. Noś naładowane ogniwa do zaklęć, Duchowego sprzętu, amuletów i podróży: wszystko to czerpie z ogniw w twoim ekwipunku.",
+        "Ogniwo w kieszeni **nie** jest w kracie. Warsztaty i obrzędy tabliczki wciąż potrzebują Pulsu z kraty wokół nich.",
+        "Aby naładować Wrota drogi lub Dalekie wrota, użyj ogniwa na ich zworniku: każde użycie przenosi do nich do **100 Pulsu**, a przejścia zużywają ten zapas, nie ogniwo w kieszeni. Bęben wrót nie potrzebuje Pulsu wcale: jego obrzęd go otwiera.",
+        "Użyj ogniwa na obozie, by wlać Puls do jego zapasu **2 400** dla [rąk obozu](camp_hands); jedno użycie przenosi tyle, ile obóz ma miejsca.",
+        "[Miernik Pulsu](pulse_gauge) skierowany na maszynę, która trzyma Puls, odczytuje, jak bardzo jest pełna."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_cell"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:greater_pulse_cell",
+      "text": "Ogniwo Pulsu między dwoma Rdzeniami rezonansu i dwiema Manifestowanymi sztabkami, wszystko z Manifestatora echa."
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grand_pulse_cell",
+      "text": "Większe ogniwo okolone czterema Rdzeniami rezonansu i czterema Manifestowanymi sztabkami."
+    }
+  ]
+}

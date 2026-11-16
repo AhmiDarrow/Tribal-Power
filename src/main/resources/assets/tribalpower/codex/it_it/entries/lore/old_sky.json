@@ -1,0 +1,25 @@
+{
+  "name": "Il mondo che fu",
+  "icon": "tribalpower:lore_tablet",
+  "order": 10,
+  "spoiler": false,
+  "next": "agreements_failed",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Prima che il vuoto avesse un nome, il cielo era un pavimento. Nove Trefoli (Suolo, Pietra, Germoglio, Artiglio, Scintilla, Orologio, Sciame, Sigillo e Fuso) erano tesi da nove tribù. I continenti pendevano da quel reticolo come il frutto pende da una vite ben tenuta.",
+        "Il tempo correva lungo di esso. La pioggia sapeva dove cadere. Non cadeva nulla che non dovesse cadere.",
+        "Le strade furono cantate nel filo e percorse. Le colture radicavano nel Trefolo quanto nella terra. I tamburi sotto un giaciglio si udivano come Pulso sotto un altro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Il Telaio",
+      "text": [
+        "Il Telaio non era un dio e non era una macchina. Erano nove accordi tenuti allo stesso tempo. Quando le tribù tiravano insieme, l'orizzonte restava fermo. Questa è tutta la vecchia fisica.",
+        "Da quella trazione è venuto questo mestiere: Pulso, reticolo, sigillo e la strada verso la Marcia. I motori sono ancora là fuori. Orfani, ronzanti, sacri. Trattali come un'eredità, non come un mucchio di rottami."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Charme du vent",
+  "icon": "tribalpower:wind_charm",
+  "order": 180,
+  "next": "songkeeper_drum",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wind_charm",
+      "text": [
+        "Cinq tiges de cuivre et une voile de cristal sur un cordon, pour les porches et les seuils. Il ne dépense pas de Pulsation et n'a pas de tâche ; il est là pour le regard et le son."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le suspendre",
+      "text": [
+        "Place-le sous presque n'importe quoi : un plafond, une poutre, une lisse de barrière, une chaîne ou un dais de feuilles. Place-le contre le flanc d'un bloc et il pend d'une console sur ce mur à la place.",
+        "Tu peux le traverser tout droit : il n'a pas de collision, mais le frôler cogne une tige.",
+        "Il sonne tout seul, de temps en temps par jour calme, davantage sous la pluie et beaucoup dans une tempête. Sous un toit, il est plus discret. Frappe-le pour lancer les cinq tiges.",
+        "Casse ce à quoi il est suspendu et il se décroche.",
+        "La redstone ne lui fait rien. Ce n'est pas une lumière de Pulsation, ni une Harpe du vent."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wind_charm"
+    }
+  ]
+}

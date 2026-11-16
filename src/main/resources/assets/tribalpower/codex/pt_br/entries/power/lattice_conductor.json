@@ -1,0 +1,281 @@
+{
+  "name": "Condutor de treliça",
+  "icon": "tribalpower:lattice_conductor",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lattice_conductor",
+      "text": "O Condutor de treliça tece a treliça de Pulso; ele não faz Pulso próprio. O Pulso só se move ao longo dos condutores: tudo a **8 blocos** de um (geradores, máquinas, mãos do acampamento, relés, totens e Marco de Pulso) entra na rede dele, e as máquinas só puxam Pulso da rede. Uma receita faz quatro."
+    },
+    {
+      "type": "text",
+      "title": "Tecer uma rede",
+      "text": [
+        "Condutores a até 8 blocos um do outro se ligam e tecem uma rede, até onde a linha chega. Dois grupos fora do alcance um do outro são duas redes e não compartilham nada.",
+        "Uma máquina puxa primeiro dos geradores da própria rede, depois dos [Marco de Pulso](pulse_cairn) dela. Ela nunca puxa direto de um gerador, nem de um bem ao lado: sem condutor, sem Pulso.",
+        "Totens numa rede com Pulso enchem por ela as reservas de **250 Pulso** e depois ficam cheias, sem custo a mais. Essa reserva sustenta a voz do totem: um totem vazio fica silencioso (veja [Guarda](keeping)). Máquinas nunca gastam a reserva de um totem.",
+        "Os totens se unem com **Giz ritual** pelas vozes: clique com o botão direito num totem e depois noutro a **menos de 16 blocos**. Uma estação conta a voz de um totem ligado com giz a um próximo, desde que esse par fique a menos de 16 blocos da estação. O giz carrega vozes, não Pulso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quanto ele carrega",
+      "text": [
+        "Cada condutor carrega uma quantidade fixa por segundo, segundo o [posto](machine_ranks): **Tecido 64**, **Sintonizado 256**, **Vinculado 1,024** e **Manifestado 4,096** de Pulso por segundo. Um condutor de antes dos postos é Tecido.",
+        "O Pulso sai de um gerador por um condutor a até 8 blocos dele e chega a uma máquina por um condutor a até 8 blocos da máquina, e conta contra os dois. Pulso que sai e chega pelo mesmo condutor conta uma vez. As ligações entre condutores carregam livremente, então uma rede carrega tanto quanto todos os seus condutores juntos.",
+        "Um gerador grande quer condutores fortes ou muitos ao redor: um que faça milhares por segundo, como um [Coração de ley](ley_heart) do topo, precisa de um condutor manifestado (4.096 por segundo), ou de quatro vinculados, para entregar tudo. O mesmo vale para uma máquina faminta.",
+        "Um sinal de redstone num condutor o tira da trama até o sinal acabar."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Uma treliça pelo acampamento",
+      "steps": [
+        {
+          "caption": "Um gerador. Nenhuma máquina pode puxar dele até a treliça chegar até ele.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Um Condutor de treliça a até 8 blocos dele o tece na treliça.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Uma estação a até 8 blocos do condutor puxa da rede. Sem o condutor ela passaria fome, por mais perto que o tambor esteja.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_attune"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ],
+            [
+              2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Os totens ao alcance enchem as reservas pela rede e ficam cheios: isso mantém as vozes deles.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lendo",
+      "text": [
+        "Clique com o botão direito num condutor para ver a rede: quantos condutores, geradores e marcos ela tem, a taxa deste condutor e a da rede inteira, e o Pulso guardado nele.",
+        "O rito [Vínculo ley](world_rites) liga dois totens distantes por um tempo: os condutores ao alcance de uma ponta se tecem na rede da outra.",
+        "A visão de Pulso da [Lente ley](ley_lens) mostra a rede em que você está, por qual condutor, e quanto ele carregou no último segundo.",
+        "A treliça carrega Pulso, não mercadorias. Para mover itens à distância, use [relés](wireless_cargo)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quando fica quieto",
+      "text": [
+        "Uma alavanca ou qualquer sinal de redstone tira o condutor da trama.",
+        "\"Nenhum gerador ou marco\" quer dizer que nada na rede faz ou guarda Pulso: traga um para até 8 blocos de qualquer condutor dela.",
+        "\"Seco\" quer dizer que os geradores e marcos da rede estão vazios: faça mais Pulso, ou gaste menos.",
+        "\"Carregando tudo o que pode\" quer dizer que o condutor passou a taxa inteira no último segundo: suba o grau dele, ou ponha condutores ao lado do gerador e da máquina ocupados.",
+        "Agache e clique com o botão direito com este livro para ver o grau, o que carregou no último segundo e o que falta."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_conductor"
+    }
+  ]
+}

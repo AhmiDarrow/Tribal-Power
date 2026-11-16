@@ -1,0 +1,16 @@
+{
+  "name": "Tablilla: Botas de los Caminantes del borde",
+  "icon": "tribalpower:lore_tablet",
+  "order": 130,
+  "spoiler": true,
+  "unlock": "tablet:3",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Guardada en un campamento de los Talladores de sellos, en palabras de los Caminantes del borde:",
+        "“Primero las botas. Luego el puente. Luego el valor; llega solo. Caminamos por el borde de la grieta, donde el hilo se deshilachaba más fino, y pusimos puntos de apoyo para los demás. Un punto de apoyo es hierro, cuero y la promesa de no mirar abajo.”"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Andarilho da Marcha",
+  "icon": "tribalpower:march_walker_spawn_egg",
+  "items": [
+    "tribalpower:march_walker_spawn_egg"
+  ],
+  "order": 50,
+  "spoiler": true,
+  "next": "spirit_wisp",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:march_walker",
+      "text": [
+        "Um Andarilho da Marcha é o pastador quieto da Marcha: uma anta atarracada, com uma almofada de sela musgosa e pontas bifurcadas que brilham com a luz do Espírito. A sela é só o pelo; você não pode montar um. Você os verá em manadas na Estepe e em cada bioma da Marcha, menos nos Baixios, até nos Ermos de Brasa.",
+        "Ele tem **18 de vida** e **1 de armadura**. É tímido: fica a cerca de dez blocos dos monstros e entra em pânico ao se ferir."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Segure um **Fragmento de Espírito** e os andarilhos vêm atrás de você, curiosos. É o jeito fácil de levar alguns para casa ou para um curral.",
+        "Eles surgem na grama da Marcha, no solo, no musgo e na neve, a céu aberto.",
+        "Um andarilho solta **1 a 3 Caça crua**, até 2 Couro da Marcha e às vezes um osso, mais com Pilhagem; a carne sai como Caça assada se morreu queimando.",
+        "Reproduza dois com **Trigo** ou **Grão da estepe**, que eles seguem tão prontamente quanto um Fragmento de Espírito. Um andarilho não pode ser escovado nem criar um vínculo."
+      ],
+      "title": "Viver com os andarilhos"
+    }
+  ]
+}

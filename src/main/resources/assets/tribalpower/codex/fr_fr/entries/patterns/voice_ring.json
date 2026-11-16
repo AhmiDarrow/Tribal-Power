@@ -1,0 +1,33 @@
+{
+  "name": "Anneau de voix",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 50,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Six voix, disposées",
+      "text": [
+        "Un [Résonateur de Pulsation](pulse_resonator) compte au plus **cinq** voix dans un tas lâche de totems, totems de parenté compris. Pour compter les six éléments plus la parenté, les voix doivent être **disposées**.",
+        "L'Anneau de voix compte huit places autour du résonateur, à **trois blocs** sur les cardinaux et les diagonales, toutes au niveau du résonateur lui-même. Huit, parce que six totems espacés régulièrement ne tiennent pas sur une grille carrée."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "voice_ring",
+      "tier": 1,
+      "title": "L'anneau",
+      "text": "Un totem dans chacun des huit emplacements, à trois blocs du Résonateur."
+    },
+    {
+      "type": "text",
+      "title": "Remplir l'anneau",
+      "text": [
+        "Chaque emplacement exige un Totem de résonance. Un Totem de parenté ne peut pas remplir un emplacement, mais il ajoute quand même sa tribu depuis n'importe où dans les 8 blocs. Seules les voix **distinctes** comptent, la sixième comprise : deux totems de Terre restent une seule voix, donc les emplacements en trop peuvent porter des doublons.",
+        "Seuls les totems à l'état **Répondu** comptent ; un totem silencieux doit d'abord être réveillé (voir [Garde](keeping)).",
+        "Pose le catalyseur comme d'habitude. Accroupis-toi et fais un clic droit sur le Résonateur avec ce livre pour voir son catalyseur et combien de voix il entend. S'il s'arrête à cinq alors que six voix l'entourent, un emplacement de l'anneau est encore vide."
+      ]
+    }
+  ]
+}

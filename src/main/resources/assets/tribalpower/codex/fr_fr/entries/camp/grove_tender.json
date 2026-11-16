@@ -1,0 +1,712 @@
+{
+  "name": "Soigneur du bosquet",
+  "icon": "tribalpower:grove_tender",
+  "order": 20,
+  "next": "wind_snare",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:grove_tender",
+      "text": [
+        "Un valet de ferme qui ne dort jamais. Le Soigneur du bosquet plante, fait pousser et récolte la plate-bande de 9 sur 9 autour de lui, et garde la récolte dans son propre stockage jusqu'à ce que toi, un entonnoir ou une cache l'emporte.",
+        "Il gère les cultures, les pousses, la canne à sucre, le cactus, le bambou, les baies sucrées, les verrues du Nether et le cacao, coupe les citrouilles et les pastèques que ses tiges déposent, et prend une plante à urne adulte. Ceux de vanilla, de la Marche et des autres mods comptent : azalées, propagules de palétuvier et gousses de plante à urne vont dans la rangée de graines, ainsi que toute culture ou pousse qu'un pack range sous les tags vanilla de culture et de pousse."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Mise en place",
+      "text": [
+        "**Place-le toi-même.** Le soigneur retient qui l'a posé et travaille avec les permissions de ce joueur, donc la protection des terres s'applique encore. Un soigneur que personne n'a réclamé ne fait rien. Il répond à **Terre** : garde un totem de Terre à moins de 8 blocs (voir [Mains du camp](camp_hands)), sinon il reste inactif.",
+        "Il travaille à son **propre niveau** : sa plate-bande est le carré qui s'étend sur **4 blocs** de chaque côté, à la hauteur du soigneur. Place-le donc à hauteur des cultures, sur un bloc enfoncé dans la terre labourée, pas au-dessus des cultures.",
+        "Les graines vont dans la **rangée du haut** de son menu, les neuf premiers emplacements. Les entonnoirs et les tuyaux les y mettent par le dessus ou les côtés. La récolte remplit les autres emplacements et sort par la face du **bas**. Une [plaque relais](wireless_cargo) le sert comme un entonnoir : une en bas envoie la récolte, et une plaque réglée sur le dessus ou un côté remplit la rangée de graines."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Avec AgriCraft",
+      "text": [
+        "Quand AgriCraft est dans le pack, le soigneur travaille ses cultures comme les siennes. Les **bâtons de culture** de la rangée du haut vont sur la plate-bande (terre labourée ou le sol propre de la Marche), et une **graine** entre dans les bâtons vides avant partout ailleurs : une graine AgriCraft analysée, ou une culture simple qu'AgriCraft connaît, comme une pomme de terre ou n'importe quelle culture de la Marche.",
+        "Une plante mûre se récolte comme un clic la récolterait : le produit va au stockage et la plante reste sur ses bâtons, taillée pour repousser. Les mauvaises herbes se ratissent pour **4 Pulsation** et les plantes lentes sont poussées pour **16**.",
+        "Il veut toujours son totem de Terre, de la Pulsation dans sa réserve, et un propriétaire qui l'a réclamé, comme pour tout son autre travail. Si les bâtons restent vides, regarde la ligne d'état : elle nomme ce que le soigneur attend."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Une plate-bande soignée",
+      "steps": [
+        {
+          "caption": "Laboure le sol, et enfonce une Cache ancestrale au milieu.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Pose le Soigneur du bosquet sur la cache, pour qu'il soit à hauteur des cultures ; l'eau garde la terre labourée mouillée.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:grove_tender"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ajoute de la Pulsation et un totem de Terre à moins de 8 blocs, puis donne-lui des graines : il plante un emplacement par seconde pour 4 Pulsation.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:wheat_seeds"
+          }
+        },
+        {
+          "caption": "Le blé mûr est coupé et replanté pour 12 Pulsation, en gardant une graine.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            }
+          ]
+        },
+        {
+          "caption": "La face du bas du soigneur est Sortie, donc la récolte tombe dans la cache sans entonnoir.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que coûte chaque travail",
+      "text": [
+        "Une fois par seconde, il parcourt sa plate-bande et fait **un** travail :",
+        "- **Planter** un emplacement vide : **4 Pulsation**.",
+        "- **Récolter** quelque chose de mûr : **12 Pulsation**. Les cultures, les verrues du Nether et le cacao sont coupés et replantés, en gardant une graine de côté ; les baies sont cueillies et le buisson reste ; la canne, le cactus et le bambou perdent leur sommet dès que la tige fait **trois** de haut ; une citrouille ou une pastèque est coupée et sa tige laissée pour en faire pousser une autre, et une plante-cruche adulte est coupée entière.",
+        "- **Pousser** une pousse, une tige, une culture, une cabosse, un buisson à baies ou une pousse de bambou à grandir, comme la poudre d'os : **16 Pulsation**.",
+        "- **Arroser** la plate-bande : **4 Pulsation** (voir plus bas)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Arbres",
+      "text": [
+        "Quand la plate-bande n'a plus rien à faire, elle abat les arbres : bûches et feuilles dans une colonne de **9 de large et 11 de haut** depuis son propre niveau vers le haut, pour **12 Pulsation** le bloc. Pour une ferme d'arbres, donnez-lui des pousses : elle les plante sur la terre, les pousse vers le haut, puis prend l'arbre.",
+        "Elle ne coupe que les **arbres adultes**. Une bûche compte quand les bûches qui lui sont jointes atteignent des feuilles que l'arbre a fait pousser lui-même, ainsi un haut tronc ou un large deux-par-deux descend jusqu'au sol au lieu de laisser une souche.",
+        "Ce que vous avez bâti est laissé tranquille : murs et maisons en bûches, feuilles que vous avez posées, et les bûches de jungle que vous avez mises pour le cacao."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sol, eau et énergie",
+      "text": [
+        "Chaque plante veut son sol habituel : terre labourée près de l'eau pour les cultures, terre pour les pousses, sable pour le cactus, sable ou terre près de l'eau pour la canne, sable des âmes pour les verrues du Nether, et bûches de jungle dans la plate-bande pour le cacao.",
+        "**Arroser.** Gardez un Totem de résonance (Eau) à 8 blocs, Répondu ou Atténué, et le soigneur maintient humide la terre labourée de la plate-bande : chaque sillon sec est trempé en un battement pour **4 Pulsation**. Plus de tranchées à travers les cultures. Un Totem de parenté qui prête Eau ne compte pas pour ceci ; il faut un Totem de résonance.",
+        "Le soigneur garde une réserve de **2 400 Pulsation** et la remplit jusqu'à **80** par seconde depuis le treillis. Faites un clic droit avec une Cellule de Pulsation pour le remplir à la main."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quand il s'arrête",
+      "text": [
+        "Faites un clic droit pour voir ce qu'il fait et combien de Pulsation il tient. Si sa réserve est pleine, il laisse les plantes mûres debout et attend : videz-le, ou donnez-lui une cache où déposer.",
+        "Un levier met le travail en pause et verrouille l'inventaire. Un comparateur indique à quel point il est plein.",
+        "Accroupissez-vous et faites un clic droit sur une face la main vide pour changer ce que fait cette face : Les deux, Entrée, Sortie ou Fermé.",
+        "Un Collet du vent proche attrape tout ce qui finit encore au sol, et un Métier à sceaux peut changer la récolte en autre chose."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grove_tender"
+    }
+  ]
+}

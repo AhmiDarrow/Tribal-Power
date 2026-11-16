@@ -1,0 +1,117 @@
+{
+  "name": "Terras da Marcha",
+  "icon": "tribalpower:rime_ice",
+  "order": 21,
+  "items": [
+    "tribalpower:rime_ice",
+    "tribalpower:frost_shale",
+    "tribalpower:scree",
+    "tribalpower:needle_loam",
+    "tribalpower:hoarmoss",
+    "tribalpower:pale_sand",
+    "tribalpower:spore_turf",
+    "tribalpower:pale_stone",
+    "tribalpower:salt_crust",
+    "tribalpower:ochre_sand",
+    "tribalpower:ochre_sandstone",
+    "tribalpower:kiln_clay_rust",
+    "tribalpower:kiln_clay_ochre",
+    "tribalpower:kiln_clay_bone",
+    "tribalpower:kiln_clay_ash",
+    "tribalpower:glass_sand",
+    "tribalpower:glowmoss",
+    "tribalpower:silence_weave",
+    "tribalpower:hush_bloom",
+    "tribalpower:salt_pillar",
+    "tribalpower:resonant_spike",
+    "tribalpower:icebloom",
+    "tribalpower:frostcap",
+    "tribalpower:grey_heather",
+    "tribalpower:hoar_thistle",
+    "tribalpower:songgrass",
+    "tribalpower:loom_bell",
+    "tribalpower:dawn_poppy",
+    "tribalpower:chime_bud",
+    "tribalpower:sunwheel",
+    "tribalpower:thornbrush",
+    "tribalpower:tangle_fern",
+    "tribalpower:spirit_cane",
+    "tribalpower:gloomcap_sprout"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "title": "Seis faixas da Marcha",
+      "text": [
+        "A Marcha vai do congelado ao escaldante e desce para o escuro, **cinquenta e nove terras** em seis faixas. Cada faixa é uma longa deriva de temperatura pelo mapa; nela, o úmido e o seco, o alto e o baixo, e o solo estranho de alta estranheza guardam cada um o próprio país.",
+        "Cada terra tem o próprio solo, a própria vegetação e os próprios espíritos. O bestiário do Códice diz onde cada criatura vive."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Congelado",
+      "text": [
+        "A ponta fria da Marcha: neve sobre a Grama da Marcha, Gelo de geada onde o vento fez o que quis, e o véu da noite no auge do brilho.",
+        "Campos de neve da Marcha, Agulhas de geada, Taiga de bétula de geada, Costa de geada, Lago raso congelado, Mar de geada, Mar profundo de geada, Picos de geada branca, Picos de estilhaços, Encostas de pinho de geada, Planícies do véu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Frio",
+      "text": [
+        "Taigas de abeto espinhoso, charnecas, cascalho solto e o pico mineral da Crista de brilho.",
+        "Crista de brilho, Taiga de abeto espinhoso, Taiga antiga de abeto espinhoso, Charneca do túmulo, Colinas de cascalho solto, Abeto espinhoso varrido pelo vento, Bosque de musgo de geada, Costa cinza, Rasos frios, Rasos frios profundos, Terras de lagos de montanha."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Temperado",
+      "text": [
+        "O coração da Marcha: estepe, paul, país de cristal, bosques de bordo do canto e de carvalho do lar, e o mar.",
+        "Estepe da Marcha, Paul de juncos da Marcha, Campos de cristal da Marcha, Rasos da Marcha, Bosque de bordo do canto, Prado em flor, Mata de carvalho do lar, Mata antiga de carvalho do lar, Madeira do véu, Pomar de sinos, Prado alto, Estepe da roda solar, Rio do Tear, Praia de silte, Rasos profundos, Lamaçal dos chapéus-luz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quente",
+      "text": [
+        "Savanas de palmeira-tambor, a Madeira emaranhada e os pântanos de palafitas, sob as Terras altas e os Picos do sol.",
+        "Terras altas da Marcha, Savana de palmeira-tambor, Planalto de palmeira-tambor, Palmeira-tambor varrida pelo vento, Madeira emaranhada, Madeira emaranhada aberta, Moita de cana, Mangue de passolargo, Picos do sol, Rasos quentes, Rasos quentes profundos."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Escaldante",
+      "text": [
+        "Sal, argila de forno e cinza: a ponta seca da Marcha, até um leito de mar de vidro fundido.",
+        "Ermos de brasa da Marcha, Planícies de sal, Mesa do forno, Mesa cortada, Mesa de casca-de-sol, Rasos de vidro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Subterrâneo",
+      "text": [
+        "O que fica sob cada faixa: as cavernas cantantes, os ocos luminosos, os veios ley e o Silêncio.",
+        "Cavernas cantantes, Ocos de sombreiro, O Silêncio, Veios ley."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Solo novo",
+      "text": [
+        "- **Gelo de geada** e **Xisto gelado** nos picos e agulhas congelados; **Terra de agulhas** e **Musgo de geada** sob as taigas; **Cascalho solto** nas colinas.",
+        "- **Areia pálida** nas praias, **Grama de esporos** no Lamaçal dos chapéus-luz, **Pedra pálida** nos Picos do sol.",
+        "- **Crosta de sal** e **Pilares de sal** nas planícies; **Areia ocre**, **Arenito ocre** e quatro tons de **Argila de forno** nas mesas; **Areia de vidro** sob os Rasos de vidro.",
+        "- **Espetos ressonantes** que tilintam sob os pés nas Cavernas cantantes, **Musgo brilhante** nos Ocos de sombreiro, e **Trama do silêncio** com suas **Flores abafadas** no Silêncio."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Vegetação nova",
+      "text": [
+        "Flor de gelo, Chapéu de geada, Urze cinza, Cardo de geada, Grama do canto, Sino do Tear, Papoula da alvorada, Botão-sino, Roda solar, Moita de espinhos, Samambaia emaranhada, Cana de Espírito e Brotos de sombreiro, cada um na terra que lhe cabe. As nove árvores novas estão na página das árvores."
+      ]
+    }
+  ]
+}

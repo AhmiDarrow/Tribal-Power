@@ -1,0 +1,65 @@
+{
+  "name": "Tisserands de motifs",
+  "icon": "tribalpower:tribe_mark",
+  "order": 90,
+  "spoiler": true,
+  "unlock": "tribe:clock",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_clock",
+      "title": "Tisserands de motifs",
+      "text": [
+        "« Une usine est un chant qui n'a plus besoin du chanteur. »",
+        "Brin de **Montre**, voix d'**Air**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qui ils sont",
+      "text": [
+        "Les Tisserands de motifs ont écrit leurs temps sur des roues d'horloge et de la poussière de phalène, et ont laissé le Métier porter la mélodie. Quand la Coupure est venue, leurs chants ont continué. Leur art est **chants minutés et automatisation**.",
+        "Leurs camps se tiennent dans les **forêts de bouleaux**, et dans la Marche un de leurs camps se tient dans chaque bande, du nord gelé jusqu'au sel."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'ils veulent",
+      "text": [
+        "Leur réactif est l'**Aile de tempête**, qui vaut **+8** d'estime à leur Âtre.",
+        "Ils prisent aussi Redstone, une Montre, un Répéteur ou un Comparateur : **+3** chacun. Toute autre nourriture vaut **+1**, et une Cellule de Pulsation chargée **+2 pour chaque 10 de Pulsation**, jusqu'à +8.",
+        "Rappelle-toi que l'Âtre accepte au plus **60** d'estime par jour en offrandes ; voir [Tribus et estime](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que l'Ancien échange",
+      "text": [
+        "**Hôte** : 8 Redstone contre 2 Éclat d'écho ; une Montre contre 4 Répéteur.",
+        "**Ami** : 2 Écho accordé contre 4 Comparateur ; 16 Redstone contre une Aile de tempête ; 4 Haricot de lueur contre une Tarte de motifs.",
+        "**Parent** : 3 Écho lié contre un Conducteur de treillis ; 2 Écho lié contre une Harpe du vent.",
+        "Chaque échange rapporte **+2** d'estime."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marque, totem et don",
+      "text": [
+        "À **Voix**, l'Ancien te donne la Marque de tribu des Tisserands de motifs. Fabrique-la avec un {item:tribalpower:resonance_totem_air} et deux Espritissu pour en faire leur [Totem de parenté](kinship_totem).",
+        "À côté d'un Résonateur de Pulsation, c'est une voix de plus ; à côté d'une station, il prête **Air**.",
+        "Les Parent des Tisserands de motifs portent leur [don](tribe_boons) : les stations d'écho à 8 blocs de toi tournent à **double vitesse**.",
+        "Leur plat porte le don pendant **5 minutes**, et leur [relique](elders_and_stories) tant que tu la portes.",
+        "Les Tisserands de motifs sont la seule tribu qui vend une **Harpe du vent**, le générateur d'Air.",
+        "À **Voix**, tu peux aussi lier un **Phalène de tempête** comme [familier](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "clock",
+      "title": "Ton travail avec eux",
+      "text": [
+        "Ce que l'Ancien des Tisserands de motifs t'a demandé, et jusqu'où leur récit est allé. Voir [Anciens, requêtes et récits](elders_and_stories)."
+      ]
+    }
+  ]
+}

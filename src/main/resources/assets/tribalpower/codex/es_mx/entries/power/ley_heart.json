@@ -1,0 +1,92 @@
+{
+  "name": "Corazón de ley",
+  "icon": "tribalpower:ley_heart",
+  "order": 35,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_heart",
+      "text": [
+        "Un [Resonador de Pulso](pulse_resonator) y un [Colector de ley](ley_collector) hechos uno. Colócalo en el centro de una **Estrella del corazón**, con las seis voces de tótem alrededor, y quema tres combustibles a la vez y alza **seis líneas ley** hacia el mundo.",
+        "Guarda **200.000 Pulso**, unos 45 segundos de lo mejor que da, y lo conserva cuando lo rompes."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La Estrella del corazón",
+      "text": [
+        "Coloca el corazón sobre un 3x3 de **Piedra de ancla**, luego pon un Tótem de resonancia de **cada** voz a **cinco bloques**, al nivel del propio corazón. Fuego y Agua se enfrentan a través del corazón en una línea. Tierra y Aire, y Espíritu y Telar, se enfrentan en las diagonales: tres bloques a lo ancho y cuatro a lo largo.",
+        "Cualquier orientación sirve. Hasta que cada pieza esté en su sitio, el corazón calla. Agáchate y haz clic derecho sobre él con este libro para oír qué falta; los lugares que faltan brillan en el mundo."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "ley_heart",
+      "tier": 1,
+      "title": "La Estrella del corazón",
+      "text": "Piedra de ancla bajo el corazón; un tótem de cada voz a cinco bloques."
+    },
+    {
+      "type": "text",
+      "title": "En el entramado",
+      "text": [
+        "Coloca un [Conductor de entramado](lattice_conductor) a menos de **8 bloques** del corazón. Su Pulso llega a tus máquinas solo a lo largo del entramado, así que un corazón al máximo quiere conductores manifestados, o varios vinculados, para llevarlo todo.",
+        "Sus seis tótems conservan sus voces solo mientras el entramado tenga Pulso. Un tótem que se queda seco calla y deja de contar, así que un corazón mucho tiempo sin combustible necesita otra fuente en su entramado para despertar de nuevo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tres combustibles",
+      "text": [
+        "Haz clic derecho en el corazón para abrirlo. Cada combustible tiene su propia entrada:",
+        "- **Cristales de resonador** van en la ranura de cristal: Fragmento de eco, Eco sintonizado, Eco vinculado o Núcleo resonante. Uno quema **15, 12, 10 u 8 minutos**: un cristal mejor canta más alto y quema más rápido.",
+        "- Cualquier **reactivo de criatura** va en la ranura de reactivo. Uno simple quema **2 minutos**; uno con un **Hilo** (consulta [Reactivos](reagents)) quema más caliente y más rápido: **90, 60 o 40 segundos** para Hilo I, II o III.",
+        "- El **Agua** llena un tanque de 8.000 mB desde un cubo, una tubería o una placa de Relé de fluidos. Quema más rápido de los tres: **200 mB por segundo**, un cubo cada cinco segundos.",
+        "Las tolvas y los relés pueden alimentar ambas ranuras; nada vuelve a salir. El combustible solo se gasta en los segundos que entregan Pulso, así que un corazón lleno descansa."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que produce",
+      "text": [
+        "Cada segundo el corazón canta seis veces la canción del Resonador: **6 x voces x (voces + 2)**, multiplicado por lo que valen los combustibles que arden, partido por cuatro. Un cristal vale lo que vale en un Resonador (**4, 6, 8 o 12**), un reactivo simple **4** y un reactivo de Hilo I, II o III **6, 9 o 12**, y el agua **2**. Sus voces son los tótems que responden, de las seis.",
+        "A eso le suma la parte de la ley: **12 Pulso por segundo por cada punto** de fuerza ley en el corazón, con seis voces respondiendo. El corazón lee la tierra y las líneas del planeta que sus tótems atraen, pero no sus propias seis.",
+        "Luego la armonía: dos clases de combustible que arden juntas lo multiplican todo por **1.25**, las tres por **1.5**. Si no arde nada, no hace nada. Cada [rango](machine_ranks) del corazón añade **15%**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La calidad es la palanca",
+      "text": [
+        "Con seis voces que responden:",
+        "- Un Fragmento de eco, un reactivo corriente y agua hacen **1,080 a 1,368 Pulso por segundo**, de un sitio pelado a uno perfecto.",
+        "- Un Eco vinculado, un reactivo de Hilo II y agua en un sitio mediano (ley 8) hacen unos **2,200**.",
+        "- Un Núcleo resonante, un reactivo de Hilo III y agua en un sitio perfecto hacen **3,096**; un corazón Manifestado hace **4,489 Pulso por segundo**.",
+        "Un resonador de Núcleo resonante y un Colector de ley perfecto, lado a lado, hacen 168."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que cuesta",
+      "text": [
+        "Mejor combustible canta más alto y arde más rápido. Una hora de un corazón corriente (Fragmento de eco, reactivos corrientes, agua) quema **4 Fragmento de eco, 30 reactivos y 720 cubos de agua**.",
+        "Una hora en su mejor punto quema **7.5 Núcleo resonante, 90 reactivos de Hilo III** y los mismos 720 cubos. Un familiar Exaltado, cepillado cada minuto, suelta 120 reactivos de Hilo III por hora.",
+        "El combustible solo se gasta en los segundos que entregan Pulso: un corazón lleno descansa hasta que algo tira de él."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Seis líneas de ley",
+      "text": [
+        "Mientras la estrella está entera, el corazón alza **seis líneas de ley**, una del color de cada tótem, que salen del corazón, pasan por su tótem y siguen **64 bloques** mundo adentro. Son líneas de verdad: la [Lente ley](ley_lens) las dibuja, y un [Colector de ley](ley_collector) puesto a lo largo de una la siente como cualquier otra. Los tótems no las doblan.",
+        "Siguen ahí mientras la estrella se mantiene, al guardar y en chunks no cargados. Rompe el corazón o cualquiera de sus seis tótems y las seis caen a la vez; completa la estrella otra vez y se alzan en dos segundos.",
+        "Solo cantan los tótems en **Respondido** (mira [Mantenimiento](keeping)), y un corazón en marcha mantiene respondidos a sus seis. Una señal de redstone constante lo aquieta."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_heart"
+    }
+  ]
+}

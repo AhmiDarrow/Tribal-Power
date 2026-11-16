@@ -1,0 +1,26 @@
+{
+  "name": "Filtres et plaques de vide",
+  "icon": "tribalpower:fire_seal",
+  "order": 45,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Le filtre",
+      "text": [
+        "Ouvre une plaque pour remplir son **Filtre** : huit emplacements qui tiennent l'image d'un objet, jamais l'objet lui-même. Clique un emplacement avec quelque chose en main pour le marquer, main vide pour l'effacer, ou Maj-clique des objets dans ton inventaire.",
+        "Le bouton à côté change la liste. Une **Liste noire** retient les objets marqués et laisse passer le reste ; une liste noire vide, l'état initial d'une plaque, envoie tout. Une **Liste blanche** n'envoie que les objets marqués.",
+        "Pour un fluide, marque un seau ou tout récipient plein : un seau d'eau inscrit l'eau.",
+        "Accroupis-toi et fais un clic droit sur une plaque, main vide, pour changer sa liste sans l'ouvrir."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Plaques de vide",
+      "text": [
+        "Un **Sceau de Feu** dans l'emplacement **Rune** crée une **plaque de vide** : elle brûle ce qu'elle tire de sa machine au lieu de l'envoyer quelque part ; objets sur un Relais d'objets, fluide sur un Relais de fluides. Elle ne brûle que ce que son filtre nomme, donc un filtre vide ne brûle rien. Une plaque de vide brûle selon le filtre de l'onglet 1.",
+        "Les plaques commencent en **Liste noire**, donc une plaque de vide neuve avec des pierres marquées brûle tout sauf les pierres. Passe-la d'abord en **Liste blanche** pour ne brûler que ce que tu marques, ou laisse-la en Liste noire et marque ce qu'il faut garder.",
+        "Une plaque de vide a encore besoin de Pulsation et de sa voix. À chaque battement elle brûle jusqu'à **16 objets** ou **250 mB**, davantage si elle a un rang, et paie la Pulsation habituelle de la plaque."
+      ]
+    }
+  ]
+}

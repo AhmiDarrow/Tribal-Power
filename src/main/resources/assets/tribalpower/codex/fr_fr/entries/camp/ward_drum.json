@@ -1,0 +1,336 @@
+{
+  "name": "Tambour de garde",
+  "icon": "tribalpower:ward_drum",
+  "order": 60,
+  "next": "hush_totem",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ward_drum",
+      "text": [
+        "La veille de nuit d'un camp. Le Tambour de garde dépense de la Pulsation pour frapper et pousser un hostile à la fois, ainsi un Creeper n'atteint jamais ta porte. Il ne vise jamais les joueurs."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'il frappe",
+      "text": [
+        "À chaque battement, une fois par seconde, il trouve un hostile dans les **8 blocs** (un cube autour du tambour) et lui inflige **4 dégâts magiques** avec une poussée qui l'éloigne du tambour.",
+        "Chaque frappe coûte **8 Pulsation** du treillis. Monter le rang raccourcit le battement ; la Pulsation par frappe reste à 8. Il répond à l'**Esprit** : garde un totem d'Esprit à 8 blocs (voir [Mains du camp](camp_hands)), sinon il reste à l'arrêt.",
+        "Tout hostile compte, ceux de l'Overworld comme ceux de la Marche : zombies, squelettes, Creepers, araignées, Phantoms, sorcières, noyés et le reste. Les joueurs ne sont jamais la cible, ni les villageois, ni les familiers liés (les tiens ou ceux de n'importe qui), ni les petits. Les boss n'en tiennent pas compte : le Wither, l'Ender Dragon et les gardiens de la Marche te sont laissés."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un poste de garde",
+      "steps": [
+        {
+          "caption": "Pose le tambour là où les hostiles entrent, près du bord du camp.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ward_drum[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Donne-lui de la Pulsation par un conducteur dans les 8 blocs : 8 par coup.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              1
+            ],
+            [
+              -1,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Un comparateur qui lit le tambour affiche 15 sur le battement où il frappe et 0 pendant qu'il attend.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Relie-le à une lampe ou à une cloche, et tu sauras quand quelque chose a tenté le camp.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Vivre avec",
+      "text": [
+        "Clic droit pour voir ce qu'il a frappé en dernier. Un levier le fait taire.",
+        "C'est un garde, pas une ferme : un coup par seconde ne suit pas un générateur. Si les morts doivent te payer, pose une [Cloche d'éveil](wake_bell) à 16 blocs de là où ils tombent.",
+        "Un Totem du silence empêche les hostiles d'apparaître dans le camp ; le Tambour de garde s'occupe de ceux qui entrent à pied de l'extérieur."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ward_drum"
+    }
+  ]
+}

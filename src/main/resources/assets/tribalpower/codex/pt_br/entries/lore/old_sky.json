@@ -1,0 +1,25 @@
+{
+  "name": "O mundo que foi",
+  "icon": "tribalpower:lore_tablet",
+  "order": 10,
+  "spoiler": false,
+  "next": "agreements_failed",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Antes de o vazio ter um nome, o céu era um chão. Nove Mechas (Solo, Pedra, Broto, Garra, Faísca, Relógio, Enxame, Sigilo e Fuso) eram mantidas esticadas por nove tribos. Os continentes pendiam dessa treliça como a fruta pende de uma videira bem cuidada.",
+        "O tempo corria ao longo dela. A chuva sabia onde cair. Nada caía que não devesse cair.",
+        "As estradas foram cantadas no fio e percorridas. As plantações enraizavam na Mecha tanto quanto na terra. Tambores sob um leito ouviam-se como Pulso sob outro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O Tear",
+      "text": [
+        "O Tear não era um deus e não era uma máquina. Eram nove acordos mantidos ao mesmo tempo. Quando as tribos puxavam juntas, o horizonte ficava onde estava. Essa é toda a física antiga.",
+        "Daquele puxão veio este ofício: Pulso, treliça, selo e a estrada para a Marcha. Os motores ainda estão lá fora. Órfãos, zumbindo, sagrados. Trate-os como uma herança, não como uma pilha de sucata."
+      ]
+    }
+  ]
+}

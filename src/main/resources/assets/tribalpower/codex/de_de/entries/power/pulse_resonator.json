@@ -1,0 +1,226 @@
+{
+  "name": "Pulsresonator",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 30,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_resonator",
+      "text": [
+        "Kraft, die weiterkommt, während du fort bist. Setze einen Kristall hinein, umgib ihn mit Totems verschiedener Stimmen, und er summt von selbst Puls heraus. Er speichert bis zu **2,500 Puls**, und wer ihn abbaut, verliert den Vorrat."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Es zum Laufen bringen",
+      "text": [
+        "Rechtsklicke den Resonator mit einer **Echoscherbe** (aus dem [Echozermalmer](echo_shatter)). Der Kristall sitzt darin als Katalysator und wird vom Puls, den er erzeugt, langsam verbraucht, darum muss er bei einem hart arbeitenden Resonator ersetzt werden. Schleiche und rechtsklicke ihn mit leerer Hand, um den Rest des Kristalls herauszuheben; der Verschleiß bleibt. Hebe den alten Kristall heraus, bevor du einen besseren einsetzt. Trichter können ihn nicht befüllen.",
+        "Gib ihm dann mindestens **zwei verschiedene Stimmen** innerhalb von 8 Blöcken, etwa ein Totem der Erde und eines des Feuers. Er zählt Stimmen, nicht Blöcke: zwei Erde-Totems sind noch immer eine Stimme.",
+        "Eine Scherbe und zwei Stimmen ergeben **8 Puls pro Sekunde**. Stimmen vervielfachen sich, statt sich zu addieren: jede, die du dazubringst, ist mehr wert als die letzte, also ist der ganze Ring weit mehr wert als die Summe seiner Totems."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Erstes Licht",
+      "steps": [
+        {
+          "caption": "Platziere den Resonator so, dass seine Totems ringsum Platz haben.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Rechtsklicke ihn mit einer Echoscherbe, um den Katalysator einzusetzen.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Füge ein Erde-Totem hinzu.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Füge ein Feuer-Totem hinzu, eine zweite Stimme. Der Resonator fängt an zu summen: 8 Puls pro Sekunde.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Eine dritte Stimme, Wasser, hebt ihn auf 15 Puls pro Sekunde. Jede neue Stimme ist mehr wert als die vorige.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stärkere Kristalle",
+      "text": [
+        "Jede Sekunde macht der Resonator **Stimmen × (Stimmen + 2)** Puls, mal seinem Kristall: **×1** für eine Echoscherbe, **×1.5** Abgestimmt, **×2** Gebunden, **×3** für einen Resonanzkern. Sechs Stimmen ergeben also 48, 72, 96 oder 144 pro Sekunde.",
+        "- **Echoscherbe**: Stein im Echozermalmer, mit Erde.",
+        "- **Abgestimmtes Echo**: Scherben im Echoabstimmer, mit Feuer.",
+        "- **Gebundenes Echo**: Abgestimmtes Echo im Echobinder, mit Wasser.",
+        "- **Resonanzkern**: Manifestierter Barren im Echomanifestierer, mit Geist.",
+        "Sechs Stimmen brauchen die Anordnung [Stimmring](voice_ring): ein loser Haufen zählt höchstens fünf Stimmen, Verwandtschafts-Totem mitgezählt.",
+        "Um diese Kristalle neben Reagenzien und Wasser zu verbrennen, mit allen sechs Stimmen im Stern, baue ein [Leyherz](ley_heart)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wenn er dunkel bleibt",
+      "text": [
+        "Nur **Beantwortet**-Totems zählen; ein stilles muss zuerst geweckt werden (siehe [Pflege](keeping)). Verwandtschafts-Totem fügen ihre Stämme als extra Stimmen hinzu, aber der Resonator braucht trotzdem ein eigenes Resonanz-Totem Beantwortet. Ein dauerhaftes Redstone-Signal pausiert ihn.",
+        "Ein Kristall zerbröselt, sobald er seinen Anteil gemacht hat: etwa **20,000 Puls** für eine Echoscherbe, **60,000** für ein Abgestimmtes Echo, **150,000** für ein Gebundenes Echo und **400,000** für einen Resonanzkern. Ein voller Resonator macht nichts, und sein Kristall ruht, bis etwas ausgibt.",
+        "Jeder [Rang](machine_ranks) des Resonators selbst gibt **15% Puls pro Sekunde** dazu."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_resonator"
+    }
+  ]
+}

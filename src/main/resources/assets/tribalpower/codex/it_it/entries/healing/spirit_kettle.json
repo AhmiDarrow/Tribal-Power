@@ -1,0 +1,43 @@
+{
+  "name": "Calderone dello Spirito",
+  "icon": "tribalpower:spirit_kettle",
+  "order": 10,
+  "items": [
+    "tribalpower:spirit_kettle"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_kettle",
+      "title": "Un calderone sul fuoco",
+      "text": [
+        "Il Calderone dello Spirito è una pentola di ferro appesa a un telaio d'osso. Deve stare **sopra al calore**: un falò acceso, fuoco, fuoco delle anime, un blocco di magma, lava o una [Ciotola di brace](pulse_lights) proprio sotto.",
+        "Non gli serve alcun totem per funzionare, ma ne ascolta uno: la voce del **Totem di risonanza più vicino**, entro 8 blocchi, viene cantata in ogni infuso e lo forma."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Preparazione",
+      "text": [
+        "Aprilo e riempi i tre posti a sinistra:",
+        "- **Reagente**: un [reagente](reagents) grezzo, come oggetto (tiralo dalla sacca al Banco del canto). La sua famiglia decide il rimedio.",
+        "- **Erba**: Canna di Spirito, Cardo di ley, Fiore di eco, Foglia della Marcia, Giglio di luna, Cappello lanterna, Lichene del velo, Bacca di brina o Fagiolo di bagliore.",
+        "- **Base**: un'**ampolla** fa **2 tinture**, un **favo di miele** fa **2 unguenti**, la **carbonella** fa **4 incensi**.",
+        "Un lotto richiede **10 secondi** e **24 Pulso**, presi da generatori e depositi entro 8 blocchi alla fine, e consuma uno di ogni ingresso. Lo schermo ti dice se aspetta calore, Pulso o spazio nell'uscita."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Automazione",
+      "text": [
+        "Tramogge e tubi possono alimentarlo dall'alto e dai lati, e prelevare l'infuso dal basso, così un calderone può tenere un campo rifornito da solo.",
+        "Ogni numero qui sta nella sezione **guarigione** della configurazione comune."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_kettle"
+    }
+  ],
+  "next": "remedies"
+}

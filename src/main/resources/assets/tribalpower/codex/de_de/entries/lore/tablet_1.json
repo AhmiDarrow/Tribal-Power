@@ -1,0 +1,16 @@
+{
+  "name": "Tafel: Netz der Griessänger",
+  "icon": "tribalpower:lore_tablet",
+  "order": 110,
+  "spoiler": true,
+  "unlock": "tablet:1",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "In einem Lager der Siegelkerber aufbewahrt, in den Worten der Griessänger:",
+        "“Das Netz findet das Erz nicht. Das Netz gibt dem Erz einen Ort zum Landen. Sing tief über rohem Stein, und er lockert sich; sing tiefer, und er zerspringt zu Echo. Unsere Netze hängen noch in den Hallen und summen ins Nichts. Bring ihnen Erz, und sie summen dir.”"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "汗屋",
+  "icon": "tribalpower:sweat_stones",
+  "order": 60,
+  "items": [
+    "tribalpower:sweat_stones"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:sweat_stones",
+      "title": "热石",
+      "text": [
+        "**汗石**位于热源之上时会冒汽并发光：点燃的营火、火、灵魂火、岩浆块、熔岩，或下方的余烬碗。撤走热源，它们就会变冷。",
+        "把几块放进有床的小屋，就有了一间汗屋。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "屋中一夜",
+      "text": [
+        "在床上睡过整夜，要有**5格以内的热汗石**，上下不超过**2格**，并且**头上有屋顶**（床上方两到五格内的任何固体）。",
+        "你醒来时**完全痊愈**，所有有害效果消失，并获得**10分钟**的[灵之祝福](spirit_sickness)和少量生命恢复。只有你真的睡到早晨才有效。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:sweat_stones"
+    }
+  ]
+}

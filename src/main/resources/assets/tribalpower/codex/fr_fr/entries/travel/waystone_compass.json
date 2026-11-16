@@ -1,0 +1,203 @@
+{
+  "name": "Boussoles de pierre de chemin",
+  "icon": "tribalpower:waystone_compass",
+  "order": 20,
+  "items": [
+    "tribalpower:horizon_compass",
+    "tribalpower:astral_compass"
+  ],
+  "next": "way_gate",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:waystone_compass",
+      "text": [
+        "Marque un endroit, puis reviens-y en un clin d'œil. Une boussole retient un sol d'arrivée et t'y emporte pour un peu de Pulsation, prise dans une cellule de ton sac."
+      ],
+      "title": "Boussoles de pierre de chemin"
+    },
+    {
+      "type": "text",
+      "title": "Lier et utiliser",
+      "text": [
+        "Accroupis-toi et fais un clic droit sur le **dessus** d'un bloc solide pour lier ce sol comme ton arrivée.",
+        "Fais un clic droit dans l'air pour voyager. Le trajet se paie avec des cellules de Pulsation n'importe où dans ton inventaire, puis un délai de **5 secondes** suit.",
+        "Tu atterris debout sur le sol lié, donc il lui faut **deux blocs dégagés et secs** au-dessus, et rien de méchant juste à côté : feu, lave, magma, cactus, un feu de camp allumé, des buissons à baies, des roses de Wither ou de la neige poudreuse.",
+        "S'il n'y a nulle part de sûr où se tenir, le trajet refuse et ne dépense rien. La Pulsation n'est prise qu'une fois l'arrivée dégagée. Tu ne peux pas voyager en étant en selle."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Une arrivée",
+      "steps": [
+        {
+          "caption": "Choisis un bloc de sol solide pour ton arrivée.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "minecraft:polished_andesite"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Accroupis-toi et fais un clic droit sur sa face supérieure avec la boussole pour le lier.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:waystone_compass"
+          }
+        },
+        {
+          "caption": "Garde les deux blocs au-dessus dégagés et secs ; c'est là que tu te tiendras.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un levier qui alimente le sol verrouille l'arrivée, pour quand tu veux la porte fermée.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=wall,facing=east,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trois boussoles",
+      "text": [
+        "- **Boussole de pierre de chemin** : jusqu'à **128 blocs**, même monde, **20 Pulsation**.",
+        "- **Boussole de l'horizon** : n'importe quelle distance dans le même monde, **40 Pulsation**.",
+        "- **Boussole astrale** : n'importe quelle distance, d'un monde à l'autre, **100 Pulsation**. La seule qui te ramène chez toi depuis la Marche.",
+        "Une boussole de pierre de chemin lie aussi une paire de portes de voie (voir [Porte de voie](way_gate))."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:waystone_compass"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:horizon_compass"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_compass"
+    }
+  ]
+}

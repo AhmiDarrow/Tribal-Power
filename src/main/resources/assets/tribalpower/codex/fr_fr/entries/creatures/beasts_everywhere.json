@@ -1,0 +1,122 @@
+{
+  "name": "Bêtes de toutes les terres",
+  "icon": "tribalpower:grazer_wool",
+  "order": 280,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ash_hopper_spawn_egg",
+    "tribalpower:ridge_grazer_spawn_egg",
+    "tribalpower:crag_bounder_spawn_egg",
+    "tribalpower:glimmer_moth_spawn_egg",
+    "tribalpower:dust_flitter_spawn_egg",
+    "tribalpower:stone_grub_spawn_egg",
+    "tribalpower:ember_drifter_spawn_egg",
+    "tribalpower:magma_creeper_spawn_egg",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:bounder_horn",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:grub_husk",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale"
+  ],
+  "next": "walking_trees",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Errants",
+      "text": [
+        "Huit créatures douces ne sont liées à aucune terre en particulier. Tu les croiseras à travers la Marche, à découvert, dans les grottes et au bord de la lave.",
+        "Chaque bête douce d'ici peut être brossée pour son réactif une fois par minute, et on la tente et la fait se reproduire avec sa propre nourriture, nommée sous **Chasse et élevage** plus bas. Elle peut être liée comme n'importe quel animal doux (voir [familiers](familiars)), et bien qu'aucune n'ait de don propre, une liée peut tout de même prendre une voix à un totem et renforcer ta magie (voir [s'accorder à un totem](familiar_attuning)).",
+        "Plusieurs de leurs réactifs se broient en teinture : voir [réactifs](reagents)."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ash_hopper",
+      "title": "Sauteur de cendre",
+      "text": [
+        "Une gerboise petite et vive de la Steppe, des Champs de cristal et des Landes de braise, en groupes de deux à quatre. **12 de santé**. Lâche **1 à 2 Touffe de cendre**.",
+        "Chassé, il lâche aussi jusqu'à 1 Gibier cru et jusqu'à 1 peau de lapin. Reproduis-le avec **carottes ou Grain de steppe**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ridge_grazer",
+      "title": "Brouteur de crête",
+      "text": [
+        "Un petit mammouth laineux des Hautes Terres, de la Crête de lueur et des Champs de neige. **26 de santé**, **2 d'armure**. Lâche **1 à 2 Laine de brouteur** (teinture gris clair).",
+        "Chassé, il lâche aussi de 1 à 2 Gibier cru et jusqu'à 1 Cuir de la Marche. Reproduis-le avec **blé**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:crag_bounder",
+      "title": "Bondisseur d'escarpement",
+      "text": [
+        "Un bouquetin des Hautes Terres, de la Crête de lueur, des Champs de neige et des Champs de cristal. **20 de santé**, **2 d'armure**. Lâche **1 à 2 Corne de bondisseur**.",
+        "Chassé, il lâche aussi de 1 à 2 Gibier cru et jusqu'à 1 Cuir de la Marche. Reproduis-le avec **blé**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:dust_flitter",
+      "title": "Voltigeur de poussière",
+      "text": [
+        "Un petit pinson, le volateur le plus commun de la Marche, dans toutes les terres, y compris les Bas-fonds. **8 de santé**. Lâche **1 à 2 Aile de voltigeur**.",
+        "Chassé, il lâche aussi jusqu'à 2 plumes. Reproduis-le avec **graines de blé ou Grain de steppe**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmer_moth",
+      "title": "Phalène de lueur",
+      "text": [
+        "Une phalène lune d'un vert pâle, des Champs de cristal, de la Crête de lueur et du Marais aux roseaux. **10 de santé**. Lâche **1 à 2 Poussière de lueur** (teinture cyan).",
+        "Chassée, elle lâche aussi jusqu'à 1 ficelle et jusqu'à 1 poussière de pierre lumineuse. Reproduis-la avec **Fleur d'écho ou n'importe quelle petite fleur**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sous terre et près de la lave",
+      "text": [
+        "Les deux habitants de la lave apparaissent partout où la Marche a de la lave, dans toutes les terres sauf les Bas-fonds."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stone_grub",
+      "title": "Larve de pierre",
+      "text": [
+        "Une larve de phrygane dans un fourreau de galets, des grottes sombres sous toutes les terres sauf les Bas-fonds, deux à quatre à la fois. **10 de santé**, **4 d'armure**. Lâche **1 à 2 Enveloppe de larve** (teinture marron).",
+        "Chassée, elle lâche aussi jusqu'à 1 boule de slime. Reproduis-la avec **Chapeau-lanterne ou n'importe quel champignon**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ember_drifter",
+      "title": "Dériveur de braise",
+      "text": [
+        "Une luciole au ventre de feu qui se rassemble près de la lave. **12 de santé**, **immunisé contre le feu**. Lâche **1 à 2 Grain de braise** (teinture rouge), un réactif de braise.",
+        "Chassé, il lâche aussi jusqu'à 2 charbons de bois. Reproduis-le avec **charbon ou charbon de bois**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:magma_creeper",
+      "title": "Creeper de magma",
+      "text": [
+        "Un pangolin de magma, lent et cuirassé, de la pierre chaude près de la lave. **22 de santé**, **6 d'armure**, **immunisé contre le feu**. Lâche **1 à 2 Écaille de magma** (teinture orange), un réactif de braise. L'Écaille de magma appelle le Titan de scories au Trône de scories.",
+        "Chassé, il lâche aussi jusqu'à 1 crème de magma. Reproduis-le avec **charbon ou charbon de bois**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chasse et élevage",
+      "text": [
+        "Outre son réactif, chacun en lâche plus quand on le chasse, et davantage encore avec Butin. La viande tombe rôtie si l'animal est mort en brûlant. Pour faire se reproduire les sauvages, **accroupis-toi** pendant que tu donnes leur nourriture à deux adultes ; nourri normalement, un sauvage s'attache à toi à la place."
+      ]
+    }
+  ]
+}

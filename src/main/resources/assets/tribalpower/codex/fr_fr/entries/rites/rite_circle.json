@@ -1,0 +1,74 @@
+{
+  "name": "Cercle de rite",
+  "icon": "tribalpower:rite_pedestal",
+  "order": 80,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_pedestal",
+      "text": [
+        "Un Piédestal du rite tient et montre un objet. Quatre autour d'un Brasero rituel forment le **Cercle de rite**, dont tout rite de tablette a besoin, l'appel du printemps compris.",
+        "La bénédiction permanente d'un brasero n'en a pas besoin : elle ne veut que le sceau posé et son totem."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "rite_circle",
+      "tier": 1,
+      "title": "Tracer le cercle",
+      "text": "Brasero au milieu, quatre Piédestaux du rite sur les diagonales, de la craie qui les joint."
+    },
+    {
+      "type": "text",
+      "title": "Utiliser le cercle",
+      "text": [
+        "Si le cercle est incomplet, un rite de tablette dit que le cercle n'est pas tracé et que la tablette n'est pas dépensée. Accroupis-toi et fais un clic droit sur le brasero avec ce livre : il liste ce qui manque encore au cercle.",
+        "Les tablettes peuvent attendre sur les piédestaux. Un signal redstone frappé sur le brasero déclenche le rite posé avec la tablette d'un piédestal qui correspond au sceau, et un comparateur lit si un piédestal est occupé. C'est ainsi que tu mets un [rite sur une horloge](redstone_language)."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "rite_circle",
+      "tier": 2,
+      "title": "Voix sur les cardinaux",
+      "text": "Pose quatre totems de la voix propre du rite sur les cardinaux : le rite coûte un quart de moins et dure deux fois plus longtemps."
+    },
+    {
+      "type": "text",
+      "title": "Le cercle plus fort",
+      "text": [
+        "Les quatre totems cardinaux ne comptent que s'ils correspondent au rite lancé, donc un cercle d'Eau aide l'Appel de la pluie et l'appel du printemps, mais pas l'Appel de l'aube.",
+        "C'est facultatif. Un cercle simple lance chaque rite au plein prix."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Un rite de sceau à la main",
+      "text": [
+        "Un piédestal accepte aussi un rite rapide sans aucun cercle. Utilise un **sceau** élémentaire sur un Piédestal du rite : le sceau est consommé, et sa voix agit sur toi de **20 secondes** à **deux minutes**, et sur chaque hostile dans un rayon de **6 blocs**.",
+        "Si une cellule que tu portes contient **8 Pulsation**, le rite la prend et devient **amplifié** : plus fort et plus long.",
+        "Tous ceux dans un rayon de 6 blocs reçoivent aussi la [bénédiction de voix](voice_blessings) du sceau pendant **5 minutes**, ou 7 et demie au niveau II s'il est amplifié. Un [familier](familiar_boons) accordé à la voix du sceau, à côté de toi, le fait durer moitié plus longtemps. Fait dans le camp d'une tribu, il compte comme le rite que leurs requêtes demandent.",
+        "Un signal de redstone sur le piédestal le refuse."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que fait chaque sceau",
+      "text": [
+        "- **Terre** : résistance, absorption et célérité ; les hostiles proches sont enracinés, et l'herbe sous le piédestal se tasse en chemin.",
+        "- **Feu** : résistance au feu ; les hostiles prennent feu, la neige et la glace fondent, et les feux de camp froids s'allument.",
+        "- **Eau** : apnée et la grâce d'un nageur ; les feux s'éteignent et les terres labourées sont imbibées. Amplifié, il hâte aussi les plantes.",
+        "- **Air** : chute lente, vitesse et un saut plus haut ; les hostiles sont repoussés, et la pluie se dissipe.",
+        "- **Esprit** : régénération et vision nocturne ; lève le poison, le wither, la cécité, la lenteur, la faiblesse et la faim, et soigne chaque joueur proche ; les hostiles brillent et faiblissent. Amplifié, il renfile **12 Pulsation** dans une cellule que tu portes.",
+        "- **Métier** : chance et vitesse ; les hostiles sont attirés et ralentis, et chaque joueur proche reçoit **12 Pulsation** (24 si amplifié) enfilées dans ses cellules."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_pedestal"
+    }
+  ],
+  "next": "spring_calling"
+}

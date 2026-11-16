@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:herd_horn"
     },
-    "title": "Stampede Spirit stilled",
-    "description": "Face the Stampede Spirit at the Trampled Ring on the Steppe and win.",
+    "title": {
+      "translate": "advancement.tribalpower.march.guardian_stampede_spirit.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.march.guardian_stampede_spirit.description"
+    },
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,

@@ -1,0 +1,25 @@
+{
+  "name": "Garder les totems éveillés",
+  "icon": "tribalpower:bone_chime",
+  "order": 50,
+  "next": "where_next",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Les totems aiment la compagnie. Celui qu'on utilise reste **Répondu** environ 40 minutes de temps chargé. Ensuite il passe **Terne** pendant 40 minutes encore, et les stations de cette voix travaillent environ 30% plus lentement. Puis il tombe **Silencieux**, et le nouveau travail peut se mettre en pause même s'il reste de la Pulsation.",
+        "Réveiller un totem est simple : clic droit à main vide, ou utilise un **Carillon d'os** dessus. Tambouriner un Cœur-tambour à la main dans les 8 blocs le réveille aussi. Une fois éveillé, un totem le reste tant qu'une station de sa voix travaille près de lui.",
+        "Certaines choses gardent les totems éveillés pour toi. Un [familier](familiar_attuning) qui porte la voix d'un totem le garde éveillé jusqu'à **8 blocs**, le Tambour d'une tribu réveille tout totem près de son battement, et un [Totem de parenté](kinship_totem) ne devient jamais silencieux.",
+        "Les totems à l'air libre, près de l'eau et des plantes, restent éveillés deux fois plus longtemps. Un totem sous un toit garde le rythme normal.",
+        "Un totem a aussi besoin de Pulsation dans son propre tampon. Sur un réseau de treillis qui contient de la Pulsation, il se remplit et reste plein ; hors du treillis, il se vide en environ deux minutes et devient **silencieux**, éveillé ou non. Un totem neuf commence plein, alors place un [Conducteur de treillis](lattice_conductor) à portée avant cela."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Où lire la suite",
+      "text": [
+        "Les règles complètes sont sur la page [Entretien](keeping). Si une station s'est arrêtée et que son énergie va bien, un totem silencieux en est d'habitude la cause, et le Codex spirituel te le dira quand tu t'accroupis et fais un clic droit sur la station."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "魂壺",
+  "icon": "tribalpower:copper_soul_urn",
+  "order": 44,
+  "items": [
+    "tribalpower:woven_soul_urn",
+    "tribalpower:copper_soul_urn",
+    "tribalpower:manifested_soul_urn",
+    "tribalpower:resonant_soul_urn"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:copper_soul_urn",
+      "title": "生き物を家へ運ぶ",
+      "text": [
+        "魂壺は生き物を中へ引き入れる。**生き物に使う**と取り込み、**ブロックに使う**とその場所へ無事に戻す。",
+        "生きているものは何でも入れる。ただし**プレイヤー**、**ボス**、マーチの**精鋭**、そして他の誰かが手懐けたか絆を結んだ生き物は除く。新しい囲いのウシ、村の村人、川の向こうの使い魔。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "生き物を取り込むのが1回、出すのがもう1回。",
+        "- **織り**：2回、捕獲と放出が1回ずつ。",
+        "- **銅**：10回、5往復。",
+        "- **顕現**：20回、10往復。",
+        "- **共鳴**：決して摩耗しない。",
+        "壺は残り回数が1回のとき、生き物を取らない。出せないものを閉じ込めることはない。壺の下のバーが摩耗を示し、回数が尽きた壺は最後の生き物を放つときに崩れる。"
+      ],
+      "title": "四つの段階"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:woven_soul_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_soul_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:manifested_soul_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonant_soul_urn"
+    }
+  ]
+}

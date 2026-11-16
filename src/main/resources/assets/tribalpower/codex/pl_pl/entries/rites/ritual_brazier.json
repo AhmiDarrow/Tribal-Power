@@ -1,0 +1,87 @@
+{
+  "name": "Rytualne brasero",
+  "icon": "tribalpower:ritual_brazier",
+  "order": 70,
+  "items": [
+    "tribalpower:blank_seal",
+    "tribalpower:earth_seal",
+    "tribalpower:fire_seal",
+    "tribalpower:water_seal",
+    "tribalpower:air_seal",
+    "tribalpower:spirit_seal",
+    "tribalpower:loom_seal"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ritual_brazier",
+      "text": [
+        "Brasero trzyma jedną żywiołową pieczęć i zamienia ją w trwałe błogosławieństwo dla wszystkich w pobliżu. Jest też sercem każdego obrzędu tabliczki."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zapalanie błogosławieństwa",
+      "text": [
+        "Kliknij prawym przyciskiem brasero z pieczęcią, aby ją osadzić. Pieczęć nigdy się nie zużywa; kucnij z pustą ręką, aby ją zabrać.",
+        "Trzymaj totem tej pieczęci w zasięgu **8 bloków** i Puls w kracie w pobliżu. Gdy ktoś stoi w zasięgu **6 bloków**, brasero zużywa **8 Puls co dwie sekundy** i błogosławi wszystkich. Gdy nikogo nie ma blisko, nie zużywa nic.",
+        "Przytrzymany sygnał redstone wstrzymuje je; przechowany Puls nie jest zrzucany. Krótki sygnał odpala osadzony obrzęd (zobacz [Krąg obrzędu](rite_circle)).",
+        "Spala też [kadzidło](remedies) dla wszystkich w pobliżu, bez pieczęci i bez Pulsu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Błogosławieństwa",
+      "text": [
+        "- **Ziemia**: pośpiech.",
+        "- **Ogień**: odporność na ogień.",
+        "- **Woda**: regeneracja.",
+        "- **Powietrze**: powolne opadanie.",
+        "- **Duch**: widzenie w ciemności.",
+        "- **Krosno**: szczęście, a każde uderzenie wplata **2 Puls** w noszone Ogniwo Pulsu, jeśli jest w nim miejsce."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pieczęcie",
+      "text": [
+        "Każda pieczęć zaczyna się czysta: papier, Odłamek Ducha i Kościany dzwonek dają **dwie** Czyste pieczęcie.",
+        "Dodaj ziemię dla Ziemi, węgiel drzewny dla Ognia, wiadro wody dla Wody, pióro dla Powietrza, Odłamek Ducha dla Ducha albo Nić Krosna dla Krosna.",
+        "Pieczęcie trafiają do amuletów i tabliczek obrzędu; przepis tabliczki zawsze oddaje swoją pieczęć. Pieczęć użyta na bloku Cokół obrzędu zużywa się na szybki [obrzęd pieczęci](rite_circle)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ritual_brazier"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:blank_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:earth_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fire_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:water_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:air_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_seal"
+    }
+  ],
+  "next": "rite_circle"
+}

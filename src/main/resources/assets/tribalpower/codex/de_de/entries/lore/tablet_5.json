@@ -1,0 +1,16 @@
+{
+  "name": "Tafel: Lied der Musterweber",
+  "icon": "tribalpower:lore_tablet",
+  "order": 150,
+  "spoiler": true,
+  "unlock": "tablet:5",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Aufbewahrt in einem Lager der Siegelkerber, in den Worten der Musterweber:",
+        "“Eine Fabrik ist ein Lied, das den Sänger nicht mehr braucht. Wir schrieben die Zeiten auf Uhrräder und Mottenstaub und ließen den Webstuhl die Weise tragen. Als der Schnitt kam, spielten die Lieder weiter. Manche spielen noch. Hör auf das Klicken vor dem Summen.”"
+      ]
+    }
+  ]
+}

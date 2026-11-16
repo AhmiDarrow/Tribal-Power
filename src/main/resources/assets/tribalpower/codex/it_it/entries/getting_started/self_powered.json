@@ -1,0 +1,184 @@
+{
+  "name": "Energia che continua",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 30,
+  "next": "moving_power",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Tamburellare ti fa partire, ma un accampamento ha bisogno di energia mentre sei via. Il [Risonatore di Pulso](pulse_resonator) fa Pulso da solo una volta che ci sistemi un cristallo e gli dai compagnia. Fabbricalo con ferro, ametista, due Risonatori di rame e una Scheggia di Spirito.",
+        "Prendi la Scheggia di eco dal tuo Frantumatore di eco e fai clic destro sul Risonatore con essa. La scheggia resta dentro come catalizzatore e il Pulso che produce la consuma piano: una scheggia vale circa 20,000 Pulso, all'incirca quaranta minuti al primo ritmo. Tienine una di scorta.",
+        "Poi piazza vicino totem di **due voci diverse**, per esempio Terra e Fuoco. Due totem di Terra contano ancora come una sola voce. Tieni un Conduttore di reticolo a portata del Risonatore e dei totem: porta il Pulso del Risonatore alle tue macchine e tiene pieni i serbatoi dei totem e quindi le loro voci."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Sistemare il Risonatore",
+      "steps": [
+        {
+          "caption": "Piazza il Risonatore di Pulso su terreno aperto.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Fai clic destro con una Scheggia di eco. La scheggia resta dentro come catalizzatore finché il Pulso che produce non la consuma.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Aggiungi un totem di Terra entro 8 blocchi.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Aggiungi una seconda voce, diversa, come Fuoco. Ora fa 8 Pulso al secondo da solo.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Un avvio lento",
+      "text": [
+        "Otto Pulso al secondo è modesto; una stazione impegnata può spenderlo più in fretta. Lascia che si formi una riserva e leggi la pagina del [Risonatore di Pulso](pulse_resonator) quando sei pronto per cristalli più forti e più voci."
+      ]
+    }
+  ]
+}

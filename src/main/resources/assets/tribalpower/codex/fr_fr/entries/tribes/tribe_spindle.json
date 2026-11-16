@@ -1,0 +1,65 @@
+{
+  "name": "Couseurs du métier",
+  "icon": "tribalpower:tribe_mark",
+  "order": 120,
+  "spoiler": true,
+  "unlock": "tribe:spindle",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_spindle",
+      "title": "Couseurs du métier",
+      "text": [
+        "“Le Métier n'a jamais été un seul fil. C'était neuf qui s'accordaient.”",
+        "Brin du **Fuseau**, voix du **Métier**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qui ils sont",
+      "text": [
+        "Les Couseurs du métier tenaient le Fuseau et ont cousu les brins des autres tribus en une seule étoffe par-dessus le ciel. Quand l'étoffe s'est déchirée, elle s'est déchirée le long de leur couture, et ils cousent encore. Leur art est **sentiers de porte et le retissage**.",
+        "Leurs camps se tiennent **seulement dans la Marche** : dans les Champs de cristal, et dans l'étrange pays éclairé de chaque bande. Tu devras passer de l'autre côté pour les rencontrer."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'ils veulent",
+      "text": [
+        "Leur réactif est le **Fil de Métier**, qui vaut **+8** d'estime à leur Âtre.",
+        "Ils prisent aussi le Cristal de la Marche, une Boussole, une Boussole de pierre de chemin ou une Boussole de l'horizon : **+3** chacun. Toute autre nourriture vaut **+1**, et une Cellule de Pulsation chargée **+2 pour chaque 10 de Pulsation**, jusqu'à +8.",
+        "Rappelle-toi : l'Âtre prend au plus **60** d'estime par jour en offrandes ; vois [Tribus et estime](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que l'Ancien échange",
+      "text": [
+        "**Hôte** : 4 Cristal de la Marche pour 3 Éclat d'écho ; une Boussole pour 8 Planches de la marche.",
+        "**Ami** : 6 Cristal de la Marche pour un Fil de Métier ; 4 Écho accordé pour une Boussole de pierre de chemin ; 4 Riz de tourbière pour Nouilles de fil du Métier.",
+        "**Parent** : 4 Écho lié et un Fil de Métier pour une Ancre de Métier ; 2 Fil de Métier pour un Sceau de Métier.",
+        "Chaque échange rapporte **+2** d'estime."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marque, totem et don",
+      "text": [
+        "À **Voix**, l'Ancien te donne la Marque de tribu des Couseurs du métier. Fabrique-la avec un {item:tribalpower:resonance_totem_loom} et deux Espritissu pour obtenir leur [Totem de parenté](kinship_totem).",
+        "Près d'un Résonateur de Pulsation, c'est une voix de plus ; près d'une station, il prête **Métier**.",
+        "Qui est Parent des Couseurs du métier porte leur [don](tribe_boons) : les chants coûtent **un quart de moins** à chanter.",
+        "Leur plat porte le bienfait pendant **5 minutes**, et leur [relique](elders_and_stories) tant que tu la portes.",
+        "Leur échange d'Ami change le Cristal de la Marche en Fil de Métier, qui est aussi leur réactif. Ils sont la seule tribu à vendre une **Ancre de Métier**.",
+        "Au rang **Voix**, tu peux aussi lier un **Tisserand d'écho** comme [familier](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "spindle",
+      "title": "Ton travail avec eux",
+      "text": [
+        "Ce que l'Ancien des Couseurs du métier t'a demandé, et jusqu'où leur histoire est allée. Voir [Anciens, requêtes et histoires](elders_and_stories)."
+      ]
+    }
+  ]
+}

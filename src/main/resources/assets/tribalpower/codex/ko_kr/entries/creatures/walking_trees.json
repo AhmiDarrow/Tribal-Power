@@ -1,0 +1,111 @@
+{
+  "name": "걷는 나무",
+  "icon": "tribalpower:hearth_bark",
+  "order": 300,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hearth_warden_spawn_egg",
+    "tribalpower:grove_elder_spawn_egg",
+    "tribalpower:frostpine_sentinel_spawn_egg",
+    "tribalpower:snagwalker_spawn_egg",
+    "tribalpower:weeping_warden_spawn_egg",
+    "tribalpower:bellcap_elder_spawn_egg",
+    "tribalpower:stiltwood_spawn_egg",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root"
+  ],
+  "next": "fays",
+  "pages": [
+    {
+      "type": "text",
+      "title": "숲의 파수꾼",
+      "text": [
+        "마치의 나무가 모두 가만히 있는 것은 아니다. [마치 나무](march_trees)가 자라는 각 땅에서, 그 종류의 몇몇이 일어나 걸으며, 나온 나무와 같은 목재와 잎을 두르고 있다.",
+        "온순하다. 1분에 한 번 솔질하면 시약을 얻고, **뼛가루**로 유인하여 번식시킨다. 온순한 동물처럼 결속할 수 있다([패밀리어](familiars) 참고). 자기 선물은 없어도, 결속한 것은 토템에서 목소리를 받아 마법을 강화할 수 있다([토템에서 조율](familiar_attuning) 참고)."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:hearth_warden",
+      "title": "화로 파수꾼",
+      "text": [
+        "스텝의 화로참나무. 짧은 뿌리 위로 넓고 무겁다. **화로 나무껍질**을 떨어뜨린다.",
+        "사냥하면 화로참나무 원목 1~3개, 화로참나무 묘목 최대 1개, 막대기 1~3개를 떨어뜨린다. **뼛가루**로 번식시킨다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:grove_elder",
+      "title": "숲 장로",
+      "text": [
+        "고지 숲의 마치 나무. 크고 지팡이에 기대듯 굽었으며 이끼 수염이 나 있다. **장로 나무껍질**을 떨어뜨린다.",
+        "사냥하면 마치 원목 1~3개, 마치 묘목 최대 1개, 막대기 1~3개를 떨어뜨린다. **뼛가루**로 번식시킨다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:frostpine_sentinel",
+      "title": "서리소나무 파수병",
+      "text": [
+        "눈벌의 서리소나무. 눈 쌓인 바늘잎 원뿔 아래의 높은 줄기이고, 가장 낮은 가지 밑에서 가지 팔이 뻗는다. **서리소나무 나무껍질**을 떨어뜨린다.",
+        "사냥하면 서리소나무 원목 1~3개, 서리소나무 묘목 최대 1개, 막대기 1~3개를 떨어뜨린다. **뼛가루**로 번식시킨다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:snagwalker",
+      "title": "고사목 보행자",
+      "text": [
+        "잿불 황무지의 잿불나무 고사목. 꼭대기가 부러진 탄 고사목 줄기로, 아직 그을리고 있다. **잿불 나무껍질**을 떨어뜨린다(노란색 염료).",
+        "사냥하면 잿불나무 원목 1~3개, 잿불나무 묘목 최대 1개, 막대기 1~3개를 떨어뜨린다. **뼛가루**로 번식시킨다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:weeping_warden",
+      "title": "수양 파수꾼",
+      "text": [
+        "갈대 습지의 버드나무. 가닥 커튼 아래 구부정하다. **수양 매듭**을 떨어뜨린다.",
+        "사냥하면 버드나무 원목 1~3개, 버드나무 묘목 최대 1개, 막대기 1~3개를 떨어뜨린다. **뼛가루**로 번식시킨다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bellcap_elder",
+      "title": "종갓나무 장로",
+      "text": [
+        "수정 들판의 종갓나무. 커다란 갓 하나 아래의 땅딸막한 줄기. **종갓나무 포자**를 떨어뜨린다(자홍색 염료).",
+        "사냥하면 종갓나무 원목 1~3개, 종갓나무 묘목 최대 1개, 막대기 1~3개를 더 떨어뜨린다. **뼛가루**로 번식시킨다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stiltwood",
+      "title": "장대나무",
+      "text": [
+        "얕은 물의 스트라이더나무. 활처럼 휜 지주 뿌리 위에 높이 실려 있다. **장대 뿌리**를 떨어뜨린다.",
+        "사냥하면 스트라이더나무 원목 1~3개, 스트라이더나무 묘목 최대 1개, 막대기 1~3개를 더 떨어뜨린다. **뼛가루**로 번식시킨다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "어떤 것들인가",
+      "text": [
+        "걷는 나무는 모두 **체력 48**과 **방어력 8**을 가진다. 느리고, 몬스터를 피하며, 둘에서 넷씩 무리를 지어 걷는다. 각각 시약을 **1~3** 떨어뜨리고, 약탈이 있으면 더 떨어진다.",
+        "희미빛 능선에는 나무가 자라지 않아 파수꾼이 없다. 걸으면서 순하지 않은 나무는 [거상 파수꾼](colossus_warden)뿐이다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "사냥과 몰이",
+      "text": [
+        "시약 외에, 사냥하면 더 떨어지고 약탈이면 더 떨어진다. 야생을 번식시키려면 어른 둘에게 먹이를 주는 동안 **웅크리기**를 한다. 보통으로 먹이면 야생은 대신 마음을 연다."
+      ]
+    }
+  ]
+}

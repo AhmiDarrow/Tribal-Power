@@ -1,0 +1,59 @@
+{
+  "name": "Salbung",
+  "icon": "tribalpower:spiritgear_greatsword",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_bench",
+      "title": "Ein Reagenz in der Klinge",
+      "text": [
+        "Die Salbung arbeitet die Kraft eines Reagenzes in eine Waffe, sodass jeder Treffer sie trägt. Das geschieht an der [Liedbank](song_bench), und die Waffe behält es dauerhaft, bis du es ersetzt.",
+        "Eine Waffe hält **eine Salbung auf einmal**. Salbst du sie erneut mit einem Reagenz einer anderen Familie, tauscht das die alte Kraft gegen die neue; ein Reagenz der Familie, die sie schon trägt, wird abgelehnt, damit du nie aus Versehen Reagenzien verschwendest."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "So geht es",
+      "text": [
+        "1. Stelle ein [Resonanz-Totem](six_voices) einer beliebigen Stimme innerhalb von 8 Blöcken um die Bank auf, mit einem geladenen Generator in Reichweite.",
+        "2. Behalte deinen Reagenzienbeutel in der Schnellzugriffsleiste, mit mindestens **4 ermächtigten** Reagenzien der Art, die du willst.",
+        "3. Lege die Waffe in den **Waffenplatz** der Bank, neben das Ergebnis.",
+        "4. Klicke dieses Reagenz in der Liste an, um es zu wählen, und drücke dann **Salben**. Es kostet die 4 Reagenzien und **32 Puls**.",
+        "Der Tooltip der Waffe zeigt ihre Salbung und das Reagenz, von dem sie stammt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was gesalbt werden kann",
+      "text": [
+        "Jede Waffe aus Geistergerät, von der Klinge bis zur [neueren Familie](spiritgear_weapons). Nichts sonst nimmt die Arbeit der Bank an: kein Vanilla-Schwert und keins eines anderen Mods.",
+        "Pack-Macher können über den Gegenstand-Tag **tribalpower:anointable** mehr zulassen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die elf Salbungen",
+      "text": [
+        "- **Sengend** (Glut): verbrennt das Ziel und legt Feuer auf jeden Schlag.",
+        "- **Sturmruf** (Blitz): ein Viertel der Schläge schlägt einen Blitzbogen in zwei nahe Feinde.",
+        "- **Erfrierung** (Kälte): verlangsamt das Ziel und friert es ein.",
+        "- **Gift** (Gift): vergiftet das Ziel.",
+        "- **Sturmwind** (Bö): schleudert das Ziel zurück und nach oben.",
+        "- **Verwurzelung** (Wurzel): ein Fünftel der Schläge wurzelt das Ziel fest."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die elf Salbungen, Fortsetzung",
+      "text": [
+        "- **Zersplittern** (Stoß): Schläge beißen härter, je mehr Rüstung das Ziel trägt.",
+        "- **Echo** (Gewebe): ein Viertel der Schläge trifft ein zweites Mal für die Hälfte.",
+        "- **Zehren** (Schwächung): schwächt das Ziel.",
+        "- **Blutdurst** (Jagdhund): Lebensraub, 15% jedes Schlags kommt als Gesundheit zurück.",
+        "- **Reparatur** (Stille): die Waffe repariert sich, wenn sie trifft.",
+        "Salbungen wirken nur bei deinen eigenen Nahkampfschlägen, nicht bei Pfeilen oder Zaubern. Jede Zahl steht im Abschnitt **anointing** der gemeinsamen Config, damit ein Pack sie abstimmen kann."
+      ]
+    }
+  ]
+}

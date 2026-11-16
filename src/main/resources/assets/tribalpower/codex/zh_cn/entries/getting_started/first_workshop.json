@@ -1,0 +1,214 @@
+{
+  "name": "你的第一座工坊",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "next": "self_powered",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Tribal Power的工坊称为**回响工作站**。每一座都需要三样东西靠在一起：加工的对象、经网格送达的脉动，以及附近赋予其声音的正确**共鸣图腾**。",
+        "你最先想要的工作站是[回响粉碎](echo_shatter)：一个骨铃和一个铜共鸣器周围放七块石头。一个骨铃周围放四个铜锭，做出**两**个铜共鸣器。它把石头打碎成**回响碎片**，那小晶体让你不用敲鼓也能产生脉动。",
+        "脉动只沿[网格导体](lattice_conductor)行进：8方块内没有导体的工作站，就算紧挨着满鼓也会断供。四个铜共鸣器围住一份红石粉，做出**四**个导体；在鼓和工作站之间放一个。",
+        "回响粉碎需要声音**土**。用原木、泥土、一个骨铃和一个铜共鸣器制作一个{item:tribalpower:resonance_totem_earth}，立在工作站附近。图腾不是动力来源。把它当成工作站的老师：没有它，工作站就等待，什么也不消耗。",
+        "图腾**有两格高**，所以在落点上方留出一个空方块。点任意一半即可；破坏任意一半都会拿走整座图腾。旧世界里的图腾，只要上方方块空出来，就会把顶部重新长回来。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "回响粉碎的一角",
+      "steps": [
+        {
+          "caption": "把回响粉碎放在你的鼓心旁边。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "在距两者都在8方块内放一个网格导体。脉动只沿导体行进：没有导体，鼓再近，工作站也会断供。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "在8方块内加一座共鸣图腾（土）。紧挨着最简单。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "打开回响粉碎，放入石头。圆石只会得到砂砾，所以要先熔炼。",
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "minecraft:stone"
+          },
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "让鼓保持充能。几秒后就会产出一块回响碎片。",
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "如果它不启动",
+      "text": [
+        "蹲下，用这本书右键工作站。它会说明缺的是脉动、导体、图腾，还是输出栏的空位。",
+        "回响粉碎消耗脉动的速度，比手敲的鼓产生得更快，所以先敲出一份储备，让鼓把工作撑下去。",
+        "拉杆或任何持续的红石信号都会暂停工作站。等待时什么也不会丢失。"
+      ]
+    }
+  ]
+}

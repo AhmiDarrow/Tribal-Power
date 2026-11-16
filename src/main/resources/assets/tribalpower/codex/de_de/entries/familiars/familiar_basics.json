@@ -1,0 +1,40 @@
+{
+  "name": "Was ein Vertrauter ist",
+  "icon": "tribalpower:dawn_velvet",
+  "order": 10,
+  "next": "familiars",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ein Begleiter für deine Magie",
+      "text": [
+        "Ein **Vertrauter** ist eine Kreatur, die an dich gebunden ist. Er folgt dir, wartet, wo du es ihm sagst, und verschwindet nie, und jede Art hat eine eigene Gabe ([was Vertraute tun](familiar_gifts)).",
+        "Gib ihm an einem **Resonanz-Totem** eine Stimme, und er wird Teil deiner Magie: Geistamulette und Geistergerät dieser Stimme kosten weniger, und seine Lieder und Riten werden stärker, solange er innerhalb von **16 Blöcken** bei dir ist.",
+        "Magie funktioniert ohne Vertrauten. Ein Vertrauter macht sie stärker."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wer gebunden werden kann",
+      "text": [
+        "- **Sanfte Bestien**: der Dämmerhirsch und der Laternenfuchs der Wälder, der Moosrücken der Sümpfe und die Grasenden, Hüpfer und Motten jedes Bioms des Marsches. Jeder kann sie binden.",
+        "- **Sechs Überreste**, sobald ihr Stamm dich **Stimme** nennt (800 Ansehen): Splitterrücken, Risshund, Zunderkobold, Sturmmotte, Trauerglocke und Echoweber. Die nächste Seite sagt, welcher Stamm für welchen spricht.",
+        "Aschegebunden, Wurzelgebunden, Schilfpirscher und Hohlwächter antworten nie, und ebenso wenig Bosse, Goblins, Trolle oder die anderen Feinde des Marsches. Die Jungen lassen sich nicht binden.",
+        "**Schleiche und schau** eine Kreatur an, um zu sehen, ob sie gebunden werden kann und was sie braucht. Eine Leylinse, im Schleichen auf sie benutzt, sagt dasselbe."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Splitterrücken: die **Griessänger**.",
+        "- Risshund: die **Kantenläufer**.",
+        "- Zunderkobold: die **Trommelherzen**.",
+        "- Sturmmotte: die **Musterweber**.",
+        "- Trauerglocke: die **Siegelkerber**.",
+        "- Echoweber: die **Webstuhl-Näher**.",
+        "Siehe [Ansehen](standing), um zu erfahren, wie du es verdienst."
+      ],
+      "title": "Welcher Stamm für welchen Überrest"
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "name": "门鼓",
+  "icon": "tribalpower:gate_drum",
+  "order": 10,
+  "next": "waystone_compass",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_drum",
+      "text": [
+        "通往远行界的门，部落离去后留下的世界。它不需要脉动：**打出它的节奏**，节奏本身就会开路。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "跨越过去",
+      "text": [
+        "用**空手**右键点击鼓，开始**门之仪式**。一段20到30秒的鼓歌奏响，鼓点落向一排四只鼓上的一条线：**A**是低音框鼓，**S**是低音通鼓，**D**是高音手鼓，**F**是沙锤。",
+        "当鼓点落到线上时，合着音乐敲下每一只鼓。沙锤为你数拍，歌曲推进时节奏渐强。",
+        "四面鼓回应 **A**、**S**、**D** 和 **F**，方向键也始终可用。可在选项、控制里的 Tribal Power 下把每面鼓绑到别的键；A、S、D 和 F 照样能敲。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "踩准仪式",
+      "text": [
+        "踩中节拍的 **60%**，门就会打开并把你送过去。没有节拍时按下会计入失误，所以跟着节奏，不要乱敲。失败，或用 **Esc** 停下后，再敲一下鼓就能重试。",
+        "敲鼓时世界不会停，先清出一块空地。红石信号会锁住鼓，骑乘时不能穿过。",
+        "你会到达远行界地表、地图上的同一位置。第一次到访会让你与深层储柜调谐，此后打开一个不再花费。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "开路",
+      "steps": [
+        {
+          "caption": "把门鼓放在四周留有空地的地方。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:gate_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "空手右键，用 A、S、D 和 F 敲出节奏，走进远行界。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "回家",
+      "text": [
+        "在远行界，对 **任意** 门鼓敲下仪式就能回家，所以再带一面鼓放到那里。",
+        "它把你送回离开之处旁边最近的安全点，避开营火、台阶和线路。如果那个点没了，就送到你的出生点。",
+        "就算死在远行界，返回点也会保留。",
+        "在家绑定的星界指南针也能用。路石或地平线指南针只留在同一个世界里，带不回来。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "出发之前",
+      "text": [
+        "带上食物、盔甲和充满的脉动电池。",
+        "远行界有五十九片土地，分成六条带；你最可能先遇到的是草原、高地、水晶原野、雪原、余烬荒原、芦苇沼、微光山脊和浅滩。读完[先祖大厅](ancestor_hall)里的每一块石板，并到高地寻找[鼓圈](drum_circle)。",
+        "那里住着什么，见[远行界](the_march)。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_drum"
+    }
+  ]
+}

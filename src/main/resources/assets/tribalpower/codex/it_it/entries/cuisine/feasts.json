@@ -1,0 +1,58 @@
+{
+  "name": "Banchetti",
+  "icon": "tribalpower:fire_feast",
+  "order": 30,
+  "items": [
+    "tribalpower:earth_feast",
+    "tribalpower:fire_feast",
+    "tribalpower:water_feast",
+    "tribalpower:air_feast",
+    "tribalpower:spirit_feast",
+    "tribalpower:loom_feast"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:earth_feast",
+      "title": "Una tavola per l'accampamento",
+      "text": [
+        "Un banchetto è un grande piatto cucinato per tutti. Poggialo su un blocco solido e tiene **sei porzioni**; ognuna che mangi ti sazia e concede la [benedizione](voice_blessings) di quella voce per **8 minuti**.",
+        "Cuocine uno nella Pentola del Focolare con i piatti e le colture della sua voce: un Banchetto di Terra dal purè dei Custodi del giaciglio e dal Pane di ghiaia, un Banchetto di Fuoco da carne secca e chili, e così via. Ogni ricetta è in JEI, sotto la pentola.",
+        "Un accampamento che condivide un banchetto prima di una notte nella Marcia esce benedetto insieme. Un comparatore legge quante porzioni restano."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "A tavola",
+      "text": [
+        "Puoi prendere una porzione solo quando hai fame. Ognuna riempie **6** di fame e dà la benedizione al livello I.",
+        "Un banchetto intero si raccoglie quando viene rotto. Se manca già una porzione, si rompe in nulla, quindi spostalo prima di cominciare.",
+        "Mangiane uno entro **24 blocchi** dal focolare di una tribù durante la sua [festa](living_march) e la tribù ti conta al suo tavolo: **20 di prestigio**, una volta per festa."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:earth_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fire_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:water_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:air_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_feast"
+    }
+  ]
+}

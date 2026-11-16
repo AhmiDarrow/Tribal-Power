@@ -1,0 +1,470 @@
+{
+  "name": "Carico senza fili",
+  "icon": "tribalpower:lattice_tuner",
+  "order": 40,
+  "items": [
+    "tribalpower:item_relay",
+    "tribalpower:fluid_relay",
+    "tribalpower:longreach_item_relay",
+    "tribalpower:longreach_fluid_relay",
+    "tribalpower:astral_item_relay",
+    "tribalpower:astral_fluid_relay"
+  ],
+  "next": "cargo_filters",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:item_relay",
+      "text": [
+        "Sposta oggetti o fluido fra due macchine senza una fila di tubi. Aggancia una piastra relè su una faccia della macchina che invia, mirala alla faccia che riceve con un Accordatore di reticolo, e ogni secondo il carico salta.",
+        "I relè servono per la distanza. Due blocchi di Tribal Power che si toccano possono scambiare dalle facce (vedi [Come funzionano le stazioni](echo_workshops)); un baule vanilla ha ancora bisogno di una tramoggia o di una piastra."
+      ],
+      "title": "Carico senza fili"
+    },
+    {
+      "type": "text",
+      "title": "Agganciare e mirare",
+      "text": [
+        "Clic destro con una piastra su una faccia di una macchina o di un baule. Con una piastra in mano, un clic normale la posa, anche su una macchina che apre una schermata. Tira dal blocco a cui è attaccata.",
+        "La piastra tira dalla faccia su cui sta e consegna nella faccia segnata, ed entrambe seguono le impostazioni di faccia di quel blocco: la faccia della piastra deve dare (**Uscita** o **Entrambi**) e la faccia segnata deve prendere (**Ingresso** o **Entrambi**). I lati di una stazione partono come **Ingresso** e solo il fondo come **Uscita**, quindi imposta prima la faccia.",
+        "Una [Vasca di pietra](stone_font) è già impostata per le piastre: le facce sopra e sotto sono **Entrambi**, così le piastre di oggetti e di fluido funzionano lì in entrambi i sensi.",
+        "Mirala con l'**Accordatore di reticolo**: clic destro sulla faccia che deve ricevere la merce, poi clic destro sulla piastra. La piastra manda tutto ciò che tira a quella faccia.",
+        "Tieni la piastra sul reticolo, entro 8 blocchi da un Conduttore di reticolo, e anche un totem di risonanza della sua voce, sveglio o fioco, ma non quieto: **Aria** per i relè di oggetti, di fluidi e a lungo raggio, il **Telaio** per quelli astrali. Un Totem di parentela che presta quella voce conta anch'esso. Senza, la piastra aspetta. Un server può togliere questa regola con **automationNeedsVoices** nella config comune."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Mirare un relè",
+      "steps": [
+        {
+          "caption": "Due bauli a una certa distanza.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Aggancia un Relè di oggetti sulla cima del baule che invia.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                1,
+                0
+              ],
+              "block": "tribalpower:item_relay[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Clic destro sulla cima del baule lontano con un Accordatore di reticolo per segnarlo.",
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
+        },
+        {
+          "caption": "Poi clic destro sulla piastra con l'accordatore. Ora invia alla faccia segnata.",
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -2,
+              1,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
+        },
+        {
+          "caption": "Metti un Totem di risonanza (Aria) entro 8 blocchi dalla piastra: i relè viaggiano sulla voce Aria.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=lower]"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=upper]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -2
+            ],
+            [
+              -1,
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "caption": "Pulso vicino alla piastra che invia, e fino a 16 oggetti al secondo passano.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Oggetti o fluido",
+      "text": [
+        "Ogni secondo un relè sposta fino a **16 oggetti** o **250 mB**.",
+        "I relè di oggetti e di fluidi portano ciò che dice il nome. Un **Sigillo d'Acqua** nello slot **runa** fa portare fluido a qualsiasi piastra; un **Sigillo di Terra** le fa portare oggetti.",
+        "Per il fluido, parcheggia una Cisterna di Spirito a ogni estremità. I relè spostano il fluido; non lo tengono.",
+        "Per scegliere cosa passa, o bruciarlo, vedi [Filtri e piastre del vuoto](cargo_filters)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Canali",
+      "text": [
+        "Una piastra semplice manda in un solo posto. Alza il rango e apre altri **canali**: [Sintonizzatore di eco](machine_ranks) ne apre un secondo, Vincolatore un terzo, Manifestatore un quarto. Ogni canale ha la propria destinazione e il proprio filtro.",
+        "Segna una faccia con l'Accordatore di reticolo e usa l'accordatore sulla piastra. Ogni clic normale riempie il canale successivo senza destinazione, così i canali possono mandare in posti diversi. Scegli un canale e fai un clic accovacciato sulla piastra con l'accordatore per sostituire quello. **Scollega** dimentica la destinazione di un canale e tiene il suo filtro.",
+        "**Priorità** manda la merce al primo canale, in ordine di numero, che la prende e ha spazio: metti i minerali in lista bianca sul canale 1 verso una fornace, e lascia che il canale 2 prenda tutto il resto verso il deposito. **A turno** fa alternare i canali.",
+        "I canali condividono l'unico trasferimento della piastra a battuta, così una piastra di rango sposta quanto prima, solo verso più posti."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tre distanze",
+      "text": [
+        "- Il **Relè di oggetti** e il **Relè di fluidi** raggiungono **32 blocchi**, e ogni battito che sposta qualcosa costa **8 Pulso**.",
+        "- I relè a **lungo raggio** raggiungono **128 blocchi**, per **16 Pulso** a battito.",
+        "- I relè **astrale** non hanno limite di distanza e passano tra i mondi, per **32 Pulso** a battito.",
+        "Un battito che non sposta nulla non costa nulla.",
+        "Le piastre di grado (vedi [Gradi della macchina](machine_ranks)) pagano il **118%**, il **143%** o il **182%** di quello e spostano altrettanto in più: circa **19 / 23 / 29** oggetti o **294 / 357 / 455 mB**. Il Pulso per oggetto resta circa pari."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Accordatore di reticolo",
+      "text": [
+        "Fai clic destro sulla faccia del blocco a cui vuoi consegnare la merce; l'accordatore ricorda quella faccia. Poi fai clic destro sulla piastra con l'accordatore per mirarla. Segna la destinazione, mai la piastra. Un semplice clic destro segna qualsiasi blocco, anche un deposito o un baule che si apre al clic.",
+        "Il segno resta sull'accordatore dopo che miri, così un segno può mirare più piastre; fai clic destro su un altro blocco per sostituirlo. Un segno sul blocco su cui poggia la piastra stessa viene rifiutato.",
+        "Valgono i limiti di distanza sopra.",
+        "La mira resta se raccogli la piastra, e anche il suo filtro. Rompere una piastra fa cadere la sua runa accanto.",
+        "Una piastra è tua: solo tu e il tuo [accampamento](shared_camps) potete aprirla, cambiarne il filtro o mirarla con un accordatore."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Controlli e quando aspetta",
+      "text": [
+        "Un segnale di redstone costante mette in pausa una piastra. Alimenta il blocco bersaglio dell'accordatore per fermare un trasferimento dall'estremità lontana.",
+        "Una leva su una stazione Tribal Power, un deposito o una cisterna ferma anche le piastre che prelevano da lì o consegnano lì.",
+        "Un comparatore su una piastra legge **0** non collegata, **1** collegata ma in attesa, **15** mentre sposta il carico.",
+        "Entrambe le estremità devono essere già caricate. Una destinazione non caricata o piena fa attendere il relè; solo una piastra Sigillo di Fuoco distrugge qualcosa. I relè non caricano mai i chunk da soli, quindi metti un'Ancora di via all'estremità lontana se deve funzionare mentre sei via.",
+        "Accovacciati e fai clic destro su una piastra con questo libro per vedere il collegamento, il costo e perché sta aspettando."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_tuner"
+    }
+  ]
+}

@@ -1,0 +1,712 @@
+{
+  "name": "Opiekun gaju",
+  "icon": "tribalpower:grove_tender",
+  "order": 20,
+  "next": "wind_snare",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:grove_tender",
+      "text": [
+        "Parobek, który nigdy nie śpi. Opiekun gaju sadzi, uprawia i zbiera grządkę 9 na 9 wokół siebie i trzyma plon we własnym składzie, aż ty, lej albo skrytka go zabierze.",
+        "Obsługuje uprawy, sadzonki, trzcinę cukrową, kaktus, bambus, słodkie jagody, netherową brodawkę i kakao, ścina dynie i arbuzy, które kładą jego łodygi, i zabiera wyrośniętego dzbanecznika. Liczą się te z vanilli, z Marszu i z innych modów: azalie, propagule mangrowca i strąki dzbanecznika idą w rząd nasion, tak samo jak każda uprawa lub sadzonka, którą paczka wpisze pod waniliowe tagi upraw i sadzonek."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ustawianie",
+      "text": [
+        "**Postaw go sam.** Opiekun pamięta, kto go postawił, i działa z uprawnieniami tego gracza, więc ochrona terenu nadal obowiązuje. Opiekun, którego nikt nie objął, nic nie robi. Odpowiada **Ziemia**: trzymaj totem Ziemi w zasięgu 8 bloków (zobacz [Ręce obozu](camp_hands)), inaczej stoi bezczynnie.",
+        "Pracuje na **własnym poziomie**: jego grządka to kwadrat sięgający **4 bloki** na każdą stronę, na wysokości opiekuna. Ustaw go więc na wysokości upraw, na bloku wpuszczonym w rolę, nie na wierzchu upraw.",
+        "Nasiona idą w **górny rząd** jego menu, pierwsze dziewięć slotów. Leje i rury kładą je tam od góry lub z boków. Plon wypełnia pozostałe sloty i wychodzi przez **dolną** ścianę. [Płyta przekaźnikowa](wireless_cargo) obsługuje go jak lej: jedna na dole wysyła plon dalej, a płyta nastawiona na górę lub bok wypełnia rząd nasion."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Z AgriCraft",
+      "text": [
+        "Gdy AgriCraft jest w paczce, opiekun pracuje na jego uprawach jak na swoich. **Patyki upraw** z górnego rzędu idą na grządkę (uprawiona ziemia albo własna gleba Marszu), a **nasiono** wchodzi w puste patyki przed czymkolwiek innym: przeanalizowane nasiono AgriCraft albo zwykła uprawa, którą AgriCraft zna, na przykład ziemniak albo dowolna uprawa Marszu.",
+        "Dojrzałą roślinę zbiera się tak, jak zbiera ją kliknięcie: plon idzie do składu, a roślina zostaje na patykach, przycięta, by rosnąć znów. Chwasty grabi się za **4 Puls**, a powolne rośliny popędza za **16**.",
+        "Nadal chce swojego totemu Ziemi, Pulsu w zapasie i właściciela, który go objął, jak przy każdej innej pracy. Jeśli patyki stoją puste, spójrz na wiersz stanu: nazywa, na co opiekun czeka."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Pielęgnowana grządka",
+      "steps": [
+        {
+          "caption": "Zaoraj ziemię i wpuść na środek Skrytka przodków.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Postaw Opiekun gaju na skrytce, tak by siedział na wysokości upraw; woda utrzymuje rolę mokrą.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:grove_tender"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dodaj Puls i totem Ziemi w zasięgu 8 bloków, potem daj mu nasiona: sadzi jedno miejsce na sekundę za 4 Puls.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:wheat_seeds"
+          }
+        },
+        {
+          "caption": "Dojrzała pszenica jest ścinana i sadzona na nowo za 12 Puls, z zatrzymaniem jednego nasiona.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            }
+          ]
+        },
+        {
+          "caption": "Dolna ściana opiekuna to Wyjście, więc plon spada do skrytki bez leja.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ile kosztuje każda praca",
+      "text": [
+        "Raz na sekundę patrzy wzdłuż grządki i robi **jedną** pracę:",
+        "- **Sadzić** puste miejsce: **4 Puls**.",
+        "- **Zbiór** czegoś dojrzałego: **12 Puls**. Uprawy, brodawka Netheru i kakao są ścinane i sadzone od nowa, jedno ziarno zostaje w zapasie; jagody są zbierane, a krzew zostaje; trzcina, kaktus i bambus tracą czubek, gdy łodyga ma **trzy** wysokości; dynia lub arbuz jest ścinany, a łodyga zostaje, by urósł kolejny, a wyrośnięty dzbanecznik jest ścinany w całości.",
+        "- **Pobudzić** do wzrostu sadzonkę, łodygę, uprawę, strąk kakao, krzew jagodowy lub pęd bambusa, jak mączka kostna: **16 Puls**.",
+        "- **Podlać** grządkę: **4 Puls** (patrz niżej)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Drzewa",
+      "text": [
+        "Gdy grządka nie ma nic innego do roboty, ścina drzewa: kłody i liście w kolumnie **szerokiej na 9 i wysokiej na 11** od własnego poziomu w górę, za **12 Puls** za blok. Na farmę drzew daj jej sadzonki: sadzi je na ziemi, pobudza w górę, potem zabiera drzewo.",
+        "Ścina tylko **wyrośnięte drzewa**. Kłoda liczy się, gdy połączone z nią kłody sięgają liści, które drzewo samo wyrosło, więc wysoki pień albo szerokie dwa na dwa schodzi do ziemi, zamiast zostawić pniak.",
+        "To, co zbudowałeś, zostaje w spokoju: ściany i domy z kłód, liście, które położyłeś, oraz kłody dżungli, które ustawiłeś pod kakao."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gleba, woda i zasilanie",
+      "text": [
+        "Każda roślina potrzebuje swojego zwykłego podłoża: ziemia uprawna przy wodzie dla upraw, ziemia dla sadzonek, piasek dla kaktusa, piasek lub ziemia przy wodzie dla trzciny, piasek dusz dla brodawki Netheru i kłody dżungli na grządce dla kakao.",
+        "**Podlać.** Trzymaj Totem rezonansu (Woda) w zasięgu 8 bloków, Odpowiedziany albo Przygaszony, a opiekun utrzymuje ziemię uprawną grządki mokrą: każda sucha bruzda nasiąka w jednym uderzeniu za **4 Puls**. Koniec z rowami przez uprawy. Totem pokrewieństwa, który użycza Wodę, tu się nie liczy; musi to być Totem rezonansu.",
+        "Opiekun trzyma zapas **2 400 Puls** i uzupełnia go o najwyżej **80** na sekundę z kraty. Kliknij prawym przyciskiem z Ogniwo Pulsu w ręku, by dopełnić ręcznie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gdy się zatrzymuje",
+      "text": [
+        "Kliknij prawym przyciskiem, by zobaczyć, co robi i ile Puls trzyma. Jeśli skład jest pełny, zostawia dojrzałe rośliny i czeka, więc opróżnij go albo daj mu skrytkę, do której może zrzucać.",
+        "Dźwignia wstrzymuje pracę i blokuje ekwipunek. Komparator odczytuje, jak bardzo jest pełny.",
+        "Przykucnij i kliknij prawym przyciskiem ściankę pustą ręką, by zmienić, co ta ścianka robi: Oba, Wejście, Wyjście lub Zamknięte.",
+        "Sidła wiatru w pobliżu łapią to, co i tak ląduje na ziemi, a Krosno pieczęci może zmienić zbiór w coś innego."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grove_tender"
+    }
+  ]
+}

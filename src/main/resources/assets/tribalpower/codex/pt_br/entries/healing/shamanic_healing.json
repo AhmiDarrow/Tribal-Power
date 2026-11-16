@@ -1,0 +1,27 @@
+{
+  "name": "Cura xamânica",
+  "icon": "tribalpower:spirit_salve",
+  "order": 0,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Toda tribo tem alguém que cura. Aqui é você: um caldeirão sobre o fogo, um chocalho na mão e os ritos antigos.",
+        "- O [Caldeirão do Espírito](spirit_kettle) prepara **remédios** a partir de um reagente, uma erva e uma base.",
+        "- Os [Remédios](remedies) vêm como tinturas para beber, pomadas para passar e incenso para queimar para todos de uma vez.",
+        "- O [Chocalho do curandeiro](healers_rattle) cura quem você olha, por um pouco de Pulso.",
+        "- O [Mal do Espírito](spirit_sickness) é o que os piores espíritos da Marcha deixam em você, e por que tudo isto importa.",
+        "- O [Círculo de cura](healing_circle) cura um acampamento inteiro e chama de volta os familiares caídos.",
+        "- Uma [cabana de suor](sweat_lodge) manda você para a cama ferido e acorda você inteiro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Por onde começar",
+      "text": [
+        "Construa primeiro o caldeirão. Coloque-o sobre uma fogueira acesa, a 8 blocos de um Condutor de treliça em uma rede carregada; um Totem de ressonância por perto é opcional, mas adiciona sua voz a cada preparo. Uma pilha de pomadas na sua mochila é a diferença entre uma noite difícil na Marcha e uma caminhada de volta para casa."
+      ]
+    }
+  ],
+  "next": "spirit_kettle"
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Raizligado",
+  "icon": "tribalpower:knotted_root",
+  "order": 80,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rootbound_spawn_egg",
+    "tribalpower:knotted_root"
+  ],
+  "next": "reed_stalker",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:rootbound",
+      "text": [
+        "Un guardián de raíces anudadas, torcido por una línea ley cortada. Lento, pero firme.",
+        "Al cazarlo, también suelta de 1 a 3 palos y hasta 2 Polvo de hueso."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Los Raizligado acechan en los bosques del Supramundo, en la estepa de la Marcha, en el Pantano de Juncos y en los Bajíos.",
+        "Tiene **38 de salud** y **5 de armadura** y golpea con **6**. Cada golpe te arraiga y te ralentiza durante 3 segundos. Él mismo es lento, así que retrocede, espera a que pase el arraigo y golpea otra vez."
+      ],
+      "title": "Dónde y cómo"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Suelta **de 1 a 2 Raíz anudada**.",
+        "Una Raíz anudada se sintoniza en 2 Eco sintonizado bajo Espíritu."
+      ],
+      "title": "Qué da"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ningún amuleto vinculará a un Raizligado."
+      ],
+      "title": "No se vinculará"
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, suelta esto al cazarlo, y más con Saqueo."
+      ]
+    }
+  ]
+}

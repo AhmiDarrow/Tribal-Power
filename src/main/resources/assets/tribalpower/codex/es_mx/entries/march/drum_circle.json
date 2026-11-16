@@ -1,0 +1,396 @@
+{
+  "name": "Círculo de tambores",
+  "icon": "tribalpower:silent_drum",
+  "order": 50,
+  "spoiler": true,
+  "items": [
+    "tribalpower:music_disc_drum_circle"
+  ],
+  "next": "the_unsung",
+  "pages": [
+    {
+      "type": "image",
+      "image": "drum_circle",
+      "text": [
+        "Doce pilares coronados por faroles rodean un Tambor silencioso en las Tierras altas de la Marcha."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Los Círculos de tambores están al aire libre en las Tierras altas, fáciles de ver desde una cresta. En el centro está el **Tambor silencioso**; su guardián, [El No Cantado](the_unsung), duerme hasta que alguien lo toca.",
+        "Un cofre entre los pilares siempre guarda un **Disco de música** del compás de cuatro del círculo, junto con huesos, velas, Fragmentos de eco y a veces una Campanilla de hueso. Dos Tablillas de relatos cuelgan cerca.",
+        "Antes de golpear: vincula una brújula de regreso, y lleva comida, armadura, Células de Pulso cargadas y una Campanilla de hueso. Trae a un amigo si puedes; el combate dura unos minutos."
+      ],
+      "title": "Qué hay aquí"
+    },
+    {
+      "type": "scene",
+      "title": "Tocar el compás de cuatro",
+      "steps": [
+        {
+          "caption": "El Tambor silencioso está en el corazón del anillo de pilares con faroles.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_stone"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                -2,
+                1,
+                -2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                -2,
+                1,
+                2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                -2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "minecraft:stone_brick_wall"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                2
+              ],
+              "block": "tribalpower:spirit_lantern"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:silent_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Golpe uno: clic derecho con la mano vacía o una Campanilla de hueso.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Golpe dos, cerca de un segundo después. Demasiado pronto o demasiado tarde, y da un golpe sordo y empieza de nuevo.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Golpes tres y cuatro, al mismo ritmo constante.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "En el cuarto golpe el tambor responde, y El No Cantado se alza desde el centro del círculo.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Cada golpe debe caer **16 a 28 tics de juego** después del anterior, cerca de un segundo. Un golpe dentro de los 4 tics siguientes al último se ignora, y un golpe errado suena sordo y reinicia la cuenta. Si esperas demasiado, un ritmo a medias se desvanece.",
+        "Cada tambor responde una vez cada **veinte minutos de tiempo real**, y nunca mientras su guardián ya está despierto; te dice cuántos minutos quedan. Si El No Cantado se reinicia porque todos se fueron, el tambor puede tocarse otra vez de inmediato.",
+        "Un comparador lee el tambor: **3** por cada golpe contado, y un destello de **15** cuando un ritmo se completa."
+      ],
+      "title": "El ritmo, con exactitud"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:silent_drum",
+      "text": "Un tambor que construyes tú mismo guarda el ritmo, pero El No Cantado solo se alza del altar: pizarra profunda pulida bajo el tambor, y una vela **encendida** en cada una de las cuatro esquinas. El Círculo de tambores ya está hecho así."
+    }
+  ]
+}

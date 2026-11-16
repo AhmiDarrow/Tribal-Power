@@ -1,0 +1,55 @@
+{
+  "name": "Lentille ley",
+  "icon": "tribalpower:ley_lens",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_lens",
+      "text": [
+        "Une vitre, un Résonateur en cuivre et un Éclat d'Esprit font une lentille pour la vue de ley. Regarde à travers et tu vois ce que font le terrain et ton camp : la force de la ley, jusqu'où la Pulsation porte, quels totems sont éveillés et quelles machines travaillent."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cinq vues",
+      "text": [
+        "Tiens-la dans l'une ou l'autre main et utilise-la pour faire défiler cinq vues :",
+        "- **Ley** : dessine les lignes de ley autour de toi, chaque fil de la couleur de sa voix.",
+        "- **Zone de Pulsation** : montre le réseau de treillis sur lequel tu te tiens : la portée de **8 blocs** de ses conducteurs, celui que tu touches tracé le plus vif, et une marque sur chaque bloc qui tient de la Pulsation. Le panneau nomme les conducteurs du réseau et son rythme, le rang de ton conducteur et ce qu'il a porté la seconde d'avant, et totalise la Pulsation qui entre face à ce que dépensent ses machines. Hors du treillis, il le dit.",
+        "- **Voix** : marque les totems proches de la couleur de leur propre voix quand ils sont répondus, d'une teinte plus sombre quand ils sont ternes, et en gris quand ils sont silencieux.",
+        "- **Machines** : marque les machines Tribal Power autour de toi.",
+        "- **Arrêt** : le verre s'éteint. Ni lignes, ni panneau, ni marques. Les lunettes de ley que tu portes montrent encore leurs fils.",
+        "Chaque vue a son propre panneau à l'écran. La vue Ley montre la force de la ley là où tu te tiens, Zone de Pulsation ce qui est stocké et ce qui circule, Voix les voix à portée, et Machines les stations, relais et caches autour de toi. Arrêt ne montre rien."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fils de ley",
+      "text": [
+        "Les lignes de ley sont une toile sur toute la dimension : la Pulsation de la planète, pas des blocs. Chaque ligne est un fil de la couleur d'un Totem de résonance (Terre en vert, Feu en orange, Eau en bleu, Air en ciel pâle, Esprit en violet ou Métier en or), avec un nœud brillant qui palpite le long.",
+        "Un totem tire à travers lui le fil de sa propre couleur, donc tu peux diriger un fil selon l'endroit où tu poses le totem. Un croisement tombe à peu près tous les **80 blocs**. La plupart en joignent deux à quatre, et environ un sur quarante réunit les six.",
+        "Fabrique une Lentille ley en une [Capuche d'Espritissu](spiritweave) et les lunettes de la capuche montrent les mêmes fils tant que tu la portes, même avec une lentille en main réglée sur Arrêt ; une lentille tenue sur une autre vue les cache. Accroupis-toi et utilise la capuche, ou fais un clic accroupi à main vide pendant qu'elle est sur ta tête, pour éteindre et allumer les lunettes."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "ley_lens",
+      "title": "Lire le sol",
+      "text": "La lentille ne dessine que les fils, jamais le sol. En vue Ley, la barre de force du panneau devient or là où un Collecteur de ley chanterait le plus fort, et bleue là où il fredonnerait à peine."
+    },
+    {
+      "type": "text",
+      "title": "De près",
+      "text": [
+        "Accroupis-toi et utilise la lentille sur un Collecteur de ley pour imprimer dans le chat le détail exact des facteurs de ce collecteur : les mêmes nombres avec lesquels il collecte.",
+        "Accroupis-toi et utilise-la sur une créature de la Marche, sauvage ou liée, pour imprimer ses fils et ses Marques ; voir [Lier un familier](familiars).",
+        "La ligne de force est le même battement qu'un collecteur compterait là, de 1 à **16**, montré comme une part des 16 entiers. La part du terrain s'arrête à 6, et chaque ligne de ley ajoute jusqu'à 2, moins à mesure que tu t'éloignes d'elle. Un battement de **8 ou plus** garde éveillés les totems proches. Un toit enlève le ciel, la pluie et l'orage, mais les lignes restent, donc un collecteur sous toit faiblit, sans mourir."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_lens"
+    }
+  ]
+}

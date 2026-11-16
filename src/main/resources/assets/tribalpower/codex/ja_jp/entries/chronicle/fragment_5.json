@@ -1,0 +1,17 @@
+{
+  "name": "6. 運搬",
+  "icon": "tribalpower:carved_stone",
+  "order": 15,
+  "spoiler": true,
+  "unlock": "fragment:5",
+  "pages": [
+    {
+      "type": "text",
+      "title": "運搬",
+      "text": [
+        "“褥の守り手は走らなかった。地面をかご一つずつ拾い上げ、救った褥のそれぞれに炉を据えた。他の者は笑い、それから来て火のそばに座った。”",
+        "マーチの廃墟の彫石の上で見つかった。"
+      ]
+    }
+  ]
+}

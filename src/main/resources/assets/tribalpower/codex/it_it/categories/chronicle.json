@@ -1,0 +1,8 @@
+{
+  "name": "La cronaca",
+  "icon": "tribalpower:mural",
+  "order": 125,
+  "description": "La storia del Telaio, incisa un frammento alla volta dentro la Marcia. Trovali e la storia si compone da sola qui.",
+  "spoiler": false,
+  "progress": "chronicle"
+}

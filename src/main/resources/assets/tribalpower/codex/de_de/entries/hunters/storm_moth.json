@@ -1,0 +1,52 @@
+{
+  "name": "Sturmmotte",
+  "icon": "tribalpower:storm_wing",
+  "order": 120,
+  "spoiler": true,
+  "items": [
+    "tribalpower:storm_moth_spawn_egg",
+    "tribalpower:storm_wing"
+  ],
+  "next": "cinder_imp",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:storm_moth",
+      "text": [
+        "Ein sturmgenährter Geist auf hohen Schieferflügeln, mit Blitz gezeichnet. Eine helle Traube aus Körnchen warnt vor seiner Bö.",
+        "Gejagt lässt er außerdem bis zu 2 Fäden und bis zu 1 Phantomhaut fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Sturmmotten fliegen über das Marschhochland, die Schneefelder und den Schimmergrat, und ein paar über das Glutödland.",
+        "Er hat **20 Gesundheit** und keine Rüstung. Er hält sich zurück und wirkt eine Bö aus bis zu 12 Blöcken Entfernung: **4 Schaden** und ein starker Stoß. Unterbrich seine Sichtlinie, und der Zauber scheitert."
+      ],
+      "title": "Wo und wie"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Er lässt **1 bis 2 Sturmflügel** fallen.",
+        "Ein Sturmflügel bindet zu 2 Geistergewebe unter Wasser."
+      ],
+      "title": "Was es gibt"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Erreiche **Stimme** bei den **Musterweber**, dann nutze ein Bindungsamulett an einem ausgewachsenen: zwei von fünf Versuchen, das Amulett ist bei Fehlschlag verbraucht. Oder füttere sie mit ihrem eigenen Reagenz: einer von fünf Versuchen, und das Reagenz ist so oder so verbraucht.",
+        "Eine gebundene Motte, die sitzt, hinterlässt einmal pro Sekunde einen kleinen unsichtbaren Redstone-Klick, eine kostenlose Uhr für deine Vorrichtungen. Siehe [Gaben des Vertrauten](familiar_gifts)."
+      ],
+      "title": "Als Vertrauter"
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Zucht",
+      "text": [
+        "Neben seinem Reagenz lässt er dies fallen, wenn man ihn jagt, mehr mit Plünderung."
+      ]
+    }
+  ]
+}

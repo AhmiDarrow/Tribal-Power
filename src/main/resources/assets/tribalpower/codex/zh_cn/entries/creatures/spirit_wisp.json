@@ -1,0 +1,29 @@
+{
+  "name": "灵火",
+  "icon": "tribalpower:spirit_wisp_spawn_egg",
+  "items": [
+    "tribalpower:spirit_wisp_spawn_egg"
+  ],
+  "order": 60,
+  "spoiler": true,
+  "next": "march_wildlife",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:spirit_wisp",
+      "text": [
+        "灵火是远行界的鬼火：带面孔的小小漂光，拖着细碎的光点。它们浮行而非行走，从不受掉落伤害。",
+        "在远行界的每个生物群系里都能找到它们，松散成群，飘在草、石头和水晶之上。它们最常聚在远行界水晶周围。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "鬼火从远处看着你，但大约保持四格距离，一受惊就逃走。",
+        "它只有**6点生命值**，从不攻击，只掉落少许荧石粉。就把它当作远行界的萤火虫：说明你所在之处，丝线仍在低鸣。",
+        "手里的**灵之碎片**会把鬼火引到近处，哪怕它们害羞。给两个各喂一片碎片，它们就会生出第三个。"
+      ],
+      "title": "习性"
+    }
+  ]
+}

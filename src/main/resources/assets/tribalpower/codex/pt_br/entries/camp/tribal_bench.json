@@ -1,0 +1,49 @@
+{
+  "name": "Bancada tribal",
+  "icon": "tribalpower:oak_tribal_bench",
+  "order": 150,
+  "items": [
+    "tribalpower:oak_tribal_bench",
+    "tribalpower:spruce_tribal_bench",
+    "tribalpower:birch_tribal_bench",
+    "tribalpower:jungle_tribal_bench",
+    "tribalpower:acacia_tribal_bench",
+    "tribalpower:dark_oak_tribal_bench",
+    "tribalpower:mangrove_tribal_bench",
+    "tribalpower:cherry_tribal_bench",
+    "tribalpower:bamboo_tribal_bench",
+    "tribalpower:crimson_tribal_bench",
+    "tribalpower:warped_tribal_bench",
+    "tribalpower:march_tribal_bench",
+    "tribalpower:hearthoak_tribal_bench",
+    "tribalpower:frostpine_tribal_bench",
+    "tribalpower:cinder_tribal_bench",
+    "tribalpower:willow_tribal_bench",
+    "tribalpower:bellcap_tribal_bench",
+    "tribalpower:strider_tribal_bench"
+  ],
+  "next": "vine_lift",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:oak_tribal_bench",
+      "title": "Uma mesa que lembra",
+      "text": [
+        "A Bancada tribal é uma bancada de trabalho com dois blocos de largura, com uma prateleira ao longo do fundo, e existe em cada madeira para combinar com o acampamento onde fica.",
+        "A diferença que importa: **a grade pertence à bancada**. Feche-a no meio de uma receita e tudo fica onde você deixou, em vez de voltar para a sua mochila.",
+        "A prateleira do fundo guarda **quatro** coisas, como uma Prateleira de parede: clique na prateleira segurando algo para colocar, e de mãos vazias para pegar de volta. Clique no tampo para abrir a grade, com o livro de receitas verde ao lado."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Com JEI",
+      "text": [
+        "Se você usa o JEI, a bancada é uma estação de criação completa: abra uma receita de criação e pressione **+** (ou as teclas de mover receita do JEI) para puxar os ingredientes do seu inventário para a grade. Clicar na seta da bancada mostra cada receita de criação."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:oak_tribal_bench"
+    }
+  ]
+}

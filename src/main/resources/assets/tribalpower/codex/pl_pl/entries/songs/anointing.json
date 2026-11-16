@@ -1,0 +1,59 @@
+{
+  "name": "Namaszczenie",
+  "icon": "tribalpower:spiritgear_greatsword",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_bench",
+      "title": "Odczynnik w ostrzu",
+      "text": [
+        "Namaszczenie wpracowuje moc odczynnika w broń, więc każde uderzenie ją niesie. Robi się to przy [Stół pieśni](song_bench), a broń trzyma to na stałe, aż sam zechcesz to wymienić.",
+        "Broń trzyma **jedno namaszczenie naraz**. Ponowne namaszczenie odczynnikiem innej rodziny zamienia starą moc na nową; odczynnik rodziny, którą już niesie, jest odrzucany, więc nigdy nie marnujesz odczynników przez przypadek."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jak to zrobić",
+      "text": [
+        "1. Postaw [Totem rezonansu](six_voices) dowolnego głosu w promieniu 8 bloków od stołu, z naładowanym generatorem w zasięgu.",
+        "2. Trzymaj Sakiewka odczynników na pasku szybkiego wyboru, z co najmniej **4 wzmocnionymi** odczynnikami rodzaju, jakiego chcesz.",
+        "3. Włóż broń w **miejsce na broń** stołu, obok wyniku.",
+        "4. Kliknij ten odczynnik na liście, aby go wybrać, potem naciśnij **Namaść**. Kosztuje 4 odczynniki i **32 Puls**.",
+        "Podpowiedź broni pokazuje jej namaszczenie i odczynnik, z którego pochodzi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co można namaścić",
+      "text": [
+        "Każda broń Duchowy sprzęt, od Ostrza po [nowszą rodzinę](spiritgear_weapons). Nic innego nie przyjmuje pracy stołu: ani miecz vanilla, ani miecz innego moda.",
+        "Twórcy packów mogą otworzyć to na więcej przez tag przedmiotu **tribalpower:anointable**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jedenaście namaszczeń",
+      "text": [
+        "- **Prażenie** (Żar): podpala cel i dodaje ogień do każdego ciosu.",
+        "- **Wezwanie burzy** (Błyskawica): jedna czwarta ciosów puszcza łuk błyskawicy w dwóch pobliskich wrogów.",
+        "- **Odmrożenie** (Chłód): spowalnia i zamraża cel.",
+        "- **Jad** (Jad): zatruwa cel.",
+        "- **Szkwał** (Podmuch): ciska cel w tył i w górę.",
+        "- **Zakorzenienie** (Korzeń): jedna piąta ciosów zakorzenia cel w miejscu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jedenaście namaszczeń, ciąg dalszy",
+      "text": [
+        "- **Rozłupywanie** (Pchnięcie): ciosy gryzą mocniej, im więcej pancerza nosi cel.",
+        "- **echo** (Splot): jedna czwarta ciosów uderza drugi raz za połowę.",
+        "- **Wysysanie** (Osłabienie): osłabia cel.",
+        "- **Krwiożerczość** (Ogar): kradzież życia, 15% każdego ciosu wraca jako zdrowie.",
+        "- **Naprawa** (Cisza): broń naprawia się, gdy uderza.",
+        "Namaszczenia działają tylko przy twoich własnych ciosach wręcz, nie przy strzałach ani zaklęciach. Każda liczba jest w sekcji **anointing** wspólnego configu, żeby pack mógł je dostroić."
+      ]
+    }
+  ]
+}

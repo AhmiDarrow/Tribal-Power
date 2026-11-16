@@ -1,0 +1,462 @@
+{
+  "name": "Redstone-Sprache",
+  "icon": "minecraft:comparator",
+  "order": 10,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Gehalten und angeschlagen",
+      "text": [
+        "Tribal-Maschinen hören Redstone auf zwei Arten.",
+        "Ein **gehaltenes** Signal pausiert. Halte eine Leitung hoch, und Werkstätten, Konduktoren, Resonatoren, Sammler, Relais, Kohlenbecken, Geflechte, Becken, Sockel, Torschlusssteine und jeder Generator außer dem Trommelherz halten an und warten. Speicher und Reiseziele verriegeln.",
+        "Eine Pause verliert nie etwas: gespeicherter Puls, Gegenstände und Flüssigkeiten bleiben, wo sie sind.",
+        "Ein **angeschlagenes** Signal, die steigende Flanke, wenn eine Leitung angeht, ist ein Ruf. Nur Geräte, die eine einzelne Sache tun, hören darauf: ein Trommelherz nimmt einen Schlag, ein Ritualkohlenbecken zündet den darauf sitzenden Ritus, ein Torschlussstein wird hell oder dunkel.",
+        "Schlage einen Schlussstein mit einem Knopf oder einer Schlagplatte an, nicht mit einem Hebel: eine Leitung, die einen Moment später noch gehalten ist, nimmt das Tor wieder herunter."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Das Lager lesen",
+      "text": [
+        "Setze einen Komparator an einen Tribal-Block, von ihm weg, um ohne Öffnen zu lesen, was er hält: gespeicherter Puls, wie voll Inventar oder Tank ist, sein FE-Puffer oder die Relais-Aktivität. Ein Steinbecken oder ein Resonanzgeflecht liest stattdessen seinen Fortschritt und fällt auf 0, wenn es stockt.",
+        "Für Puls als sauberes 0 bis 15 nimm einen [Pulsmesser](pulse_gauge). Wenn eine Zahl nicht reicht, ducke dich und rechtsklicke den Block mit diesem Buch für einen Satz (siehe [Kodexdiagnose](codex_diagnostics)).",
+        "Uhren, Hebel und Komparatoren genügen, um ein ganzes Lager zu choreografieren."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tribal-Verdrahtung",
+      "text": [
+        "[Liedfaden](song_thread) trägt 0 bis 15 schwach, wie Staub, in alle sechs Richtungen. Er versorgt den Stein nicht, den er berührt, also rastet er nie ein.",
+        "[Liedplatten](song_plates) geben in ihrer Blickrichtung aus. Unäre Platten lesen ihre Rückseite; binäre Platten lesen links und rechts. Eine Platte hört nur Energie, die in sie zeigt, oder eine Platte, die mit einem Totemschlüssel mit ihr verbunden ist, bis zu 32 Blöcke weit und ohne Leitung.",
+        "[Versruf und Antwort](verse_link) tragen ein Signal bis zu 32 Blöcke ganz ohne Leitung."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Klick oder schleichen",
+      "text": [
+        "- **Normaler Klick**, leere Hand oder nicht: betätigt den Block. Eine Station öffnet sich, ein Trommelherz schlägt, eine Schwelle schaltet ihre Einstellung einen Schritt weiter, eine Platte, ein Messgerät oder ein Totem sagt dir, was es tut.",
+        "- **Einen Block setzen** an eine Stammesmaschine, eine Trommel oder eine Platte: schleiche, sonst betätigt der Klick diesen Block. Relaisplatten sind die einzige Ausnahme: gegen sie setzt du mit einem normalen Klick.",
+        "- **Schleichen mit leerer Hand**: ändert eine Einstellung. Die Seite einer Station, eines Speichers, einer Zisterne oder eines Lagers schaltet durch Eingang, Ausgang, Beides, Geschlossen; Herzschlag, Verzug und Zählung schalten ihren Zählwert weiter; eine Versplatte schaltet ihren Vers weiter; eine Relaisplatte kippt ihre Liste.",
+        "- **Schleichen mit diesem Buch**: der Block erklärt sich (siehe [Kodexdiagnose](codex_diagnostics))."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ein Ritus auf einer Uhr",
+      "text": [
+        "Ein Ritussockel hält und zeigt einen Gegenstand, und ein Komparator liest, ob er belegt ist. Mehr braucht ein Ritus nicht, um von selbst zu laufen:",
+        "- Ein Relais füllt einen Sockel im [Ritenkreis](rite_circle) mit einer Tafel nach.",
+        "- Eine Herzschlagplatte oder ein Hebel schlägt das Kohlenbecken.",
+        "- Der Ritus löst aus und verbraucht die Tafel, die zum eingesetzten Siegel passt.",
+        "- Der Komparator meldet den Sockel als leer, und das Relais füllt ihn wieder.",
+        "Füge eine Gedächtnisplatte hinzu, wenn du die Schleife aktivieren und abschalten willst. Das Lager nutzt nur die Handlungen, die du von Hand tun könntest: kein verstecktes Extra-Inventar."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Ein Kohlenbecken auf einer Uhr",
+      "steps": [
+        {
+          "caption": "Zeichne den Ritenkreis: Kohlenbecken in der Mitte, Sockel auf den Diagonalen, Kreide dazwischen.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ritual_brazier"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Setze das Siegel in das Kohlenbecken und bestücke einen Sockel mit einer Tafel derselben Stimme.",
+          "highlight": [
+            [
+              2,
+              0,
+              2
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              2
+            ],
+            "item": "tribalpower:rite_rain_calling"
+          }
+        },
+        {
+          "caption": "Montiere eine Herzschlagplatte auf einen Block neben dem Kohlenbecken, ihm zugewandt. Jeder Herzschlag trifft das Kohlenbecken einmal.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:heartbeat_plate[facing=south]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Komparator liest den Sockel. Wenn der Ritus die Tafel verbraucht, fällt er auf 0: das Zeichen für ein Relais, ihn nachzufüllen.",
+          "place": [
+            {
+              "pos": [
+                3,
+                0,
+                2
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              3,
+              0,
+              2
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "next": "codex_diagnostics"
+}

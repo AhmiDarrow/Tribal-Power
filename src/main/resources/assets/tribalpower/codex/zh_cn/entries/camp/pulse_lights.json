@@ -1,0 +1,410 @@
+{
+  "name": "脉动灯",
+  "icon": "tribalpower:shard_lamp",
+  "order": 110,
+  "items": [
+    "tribalpower:glow_reed",
+    "tribalpower:echo_sconce",
+    "tribalpower:ember_bowl"
+  ],
+  "next": "rain_chime",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:shard_lamp",
+      "text": [
+        "靠网格运转的营地灯。每盏灯每秒从网格经**8格**内的导体抽取一小缕脉动，一旦付不出就立刻变暗。它们没有缓冲。"
+      ],
+      "title": "脉动灯"
+    },
+    {
+      "type": "text",
+      "title": "四种灯",
+      "text": [
+        "- **荧光芦苇**：亮度10，每秒**1 脉动**。",
+        "- **碎片灯**：亮度12，每秒**1 脉动**。",
+        "- **回响壁灯**：亮度11，每秒**1脉动**。能挂在旁边几乎任何方块上（墙、栅栏柱、原木），那个方块消失就会掉落。",
+        "- **余烬碗**：亮度14，每秒**2脉动**。",
+        "右键其中一个，查看它是否点亮以及花费多少。拉杆或红石信号会立刻调暗它，比较器在点亮时读数为15，熄灭时为0。",
+        "灵灯笼完全没有脉动也会亮。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "照亮道路",
+      "steps": [
+        {
+          "caption": "先放一个发电机和网格导体；导体周围8格内的每盏灯都能从它取用。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              -2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "荧光芦苇和碎片灯一能支付就亮起。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "tribalpower:glow_reed[lit=true]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:shard_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -2
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "回响壁灯需要旁边有东西才能挂住。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "minecraft:stone_bricks"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                2
+              ],
+              "block": "minecraft:stone_bricks"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                1
+              ],
+              "block": "tribalpower:echo_sconce[facing=north,lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "余烬碗最亮，每秒2脉动。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ember_bowl[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "灯旁边的拉杆会调暗它；发电机耗尽时，它们全部熄灭。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -2
+              ],
+              "block": "minecraft:lever[face=floor,facing=east,powered=true]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "tribalpower:glow_reed[lit=false]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              -2
+            ],
+            [
+              0,
+              0,
+              -2
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:glow_reed"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:shard_lamp"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_sconce"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_bowl"
+    }
+  ]
+}

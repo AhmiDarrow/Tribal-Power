@@ -1,0 +1,16 @@
+{
+  "name": "Tafel: Herd der Polsterhüter",
+  "icon": "tribalpower:lore_tablet",
+  "order": 100,
+  "spoiler": true,
+  "unlock": "tablet:0",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "An der Wand eines Lagers der Siegelkerber aufbewahrt, in den Worten der Polsterhüter:",
+        "“Wir haben es nie Dreck genannt. Wir nannten es das, was übrig war, und wir hielten es warm. Als der Boden wegbrach, trugen wir es in Körben, ein Polster nach dem anderen, und setzten einen Herd auf jedes Polster, das wir retteten. Füttere den Herd mit Brot und Moos. Er erinnert sich daran, wer ihn gefüttert hat.”"
+      ]
+    }
+  ]
+}

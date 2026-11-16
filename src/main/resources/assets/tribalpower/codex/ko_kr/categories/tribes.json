@@ -1,0 +1,8 @@
+{
+  "name": "아홉 부족",
+  "icon": "tribalpower:tribe_mark",
+  "order": 110,
+  "description": "아홉 부족이 한때 베틀을 지켰다. 야영지는 아직 서 있다. 지위와 표식을 얻어라.",
+  "spoiler": true,
+  "progress": "tribes"
+}
