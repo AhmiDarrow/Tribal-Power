@@ -2,7 +2,7 @@
 
 <img src="docs/public/tribal-power-icon-400.png" alt="Tribal Power spirit totem logo" width="256" />
 
-Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 6.1.0.
+Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 6.2.0.
 
 Build a camp that answers you: rhythmic power, elemental workshops, woven equipment, sustained rites, paths between worlds, and the Nine Tribes who once kept the Loom. Tribal Power works by itself and forms the Tribal Weave progression in Ninjacat Skies.
 
@@ -12,7 +12,8 @@ Authors: Ahmi & Risika Darrow. GNU GPL v3; see License.txt.
 
 `master` is the active Minecraft 1.21.1 / NeoForge version. The former rewrite branch has been incorporated into it.
 
-- [Current 6.1.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/master)
+- [Current 6.2.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/master)
+- [Previous 6.1.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v6.1.0)
 - [Previous 4.0.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v4.0.0)
 - [Previous 3.8.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.8.0)
 - [Previous 3.7.1 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.7.1)
@@ -194,6 +195,10 @@ A **Bonding Charm** (two Spiritweave, a Spirit Shard and Lantern Down, Mossback 
 ## Codex diagnostics
 
 Sneak-use the Spirit Codex on any Tribal block: stored Pulse, every generator within eight blocks with its output this second, attunements present, drawable Pulse and redstone state. Workshops name their recipe and any missing voice or full output; relays report unloaded or locked endpoints; braziers list the rites their seal allows. Blocks implement `Diagnosable`; others get a default report.
+
+## In Your Language, 6.2
+
+6.2.0 is now available in Spanish, French, German, Portuguese (Brazil), Italian, Russian, Polish, Japanese, Korean and Chinese (Simplified). It follows your Minecraft language setting.
 
 ## Cut and Bound, 6.1
 

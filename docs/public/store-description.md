@@ -112,4 +112,4 @@ Every balance number lives in the config: Pulse rates, costs, ranks, spawn rules
 
 Optional, all of it. With [Chocobos Reborn](https://www.curseforge.com/minecraft/mc-mods/chocobos-reborn), chocobos roam the March. With AgriCraft, the Grove Tender works crop sticks and the March crops are AgriCraft plants of their own, bred from the farm crops everyone starts with. In [Ninjacat Skies](https://www.curseforge.com/minecraft/modpacks/ninjacat-skies), the workshops, rituals, transport, bestiary and camp systems are woven into the pack story. Tribal Power never needs any of them.
 
-Version 6.1.0. Created by Ahmi & Risika Darrow. GNU GPL v3. [Source and documentation](https://github.com/AhmiDarrow/Tribal-Power).
+Version 6.2.0. Created by Ahmi & Risika Darrow. GNU GPL v3. [Source and documentation](https://github.com/AhmiDarrow/Tribal-Power).
